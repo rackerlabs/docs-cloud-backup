@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <book  
+    xmlns="http://docbook.org/ns/docbook" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+    xmlns:svg="http://www.w3.org/2000/svg"
+    version="5.0" 
+    xml:id="example-foo" 
+    status="DRAFT">
+  <title>Cool API Developer Guide</title>
+  <info>
+    <copyright>
+      <year>2011</year>
+      <year>2012</year>
+      <holder>Rackspace US, Inc.</holder>
+    </copyright>
+    <releaseinfo>API v1.0</releaseinfo>
+    <productname>Cool API</productname>
+    <pubdate>2012-08-13</pubdate>
+    <revhistory>
+      <revision>
+        <date>2011-03-01</date>
+        <revdescription>
+          <para>Ipsum lorem. adslkjf dipiscing elit. Etiam eros ipsum, tempor ut laoreet nec,
+            adipiscing vel eros. Integer sit amet nibh iaculis sapien sagittis blandit. Quisque vel
+            lectus felis, vel congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut
+            dictum dapibus quam, in scelerisque quam tempus sit amet.
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Lorem ipsume</para>
+              </listitem>
+              <listitem>
+                <para>Dolor sit amet</para>
+              </listitem>
+            </itemizedlist></para>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2011-02-02</date>
+        <revdescription>
+          <para>Blah. adslkjf dipiscing elit. Etiam eros ipsum, tempor ut laoreet nec, adipiscing
+            vel eros. Integer sit amet nibh iaculis sapien sagittis blandit. Quisque vel lectus
+            felis, vel congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut dictum
+            dapibus quam, in scelerisque quam tempus sit amet. Quisasdflkj</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+    <legalnotice role="rs-api">
+      <annotation>
+        <remark>Copyright details are filled in by the template.</remark>
+      </annotation>
+    </legalnotice>
+    <abstract>
+      <para>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Etiam eros ipsum, tempor ut laoreet nec, adipiscing vel eros.
+        Integer sit amet nibh iaculis sapien sagittis blandit. Quisque
+        vel lectus felis, vel congue lorem. Pellentesque vitae elit id
+        sem faucibus ornare. Ut dictum dapibus quam, in scelerisque
+        quam tempus sit amet. Quisque ullamcorper suscipit
+        sagittis.</para>
+    </abstract>
+  </info>
+  <chapter xml:id="Overview">
+    <?rax type="concept" product="Cloud Servers" priority="10"?>
+    <?dbhtml navigation="true"?>
+    <title>Introduction</title>
+     <info>
+      <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+        <raxm:product>cdns</raxm:product>
+        <raxm:type>concept</raxm:type>
+        <raxm:priority>2</raxm:priority>
+      </raxm:metadata>
+     </info>
+    <!-- <?dbhtml stop-chunking?> -->
+    <para>My API is more RESTful than yours. Etiam eros ipsum, tempor
+      ut laoreet nec, adipiscing vel eros. Integer sit amet nibh
+      iaculis sapien sagittis blandit. Quisque vel lectus felis, vel
+      congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut
+      dictum dapibus quam, in scelerisque quam tempus sit amet.
+      Quisque ullamcorper suscipit sagittis. Maecenas euismod, lectus
+      vitae tincidunt sollicitudin, est lacus suscipit nunc, in
+      consequat tortor turpis vel nibh. Nulla eros nulla, iaculis vel
+      laoreet at, consectetur vitae massa. Praesent in imperdiet urna.
+      Etiam commodo hendrerit tincidunt. Aliquam non tortor lectus,
+      sit amet laoreet tortor. Vivamus sit amet tempor lorem. Fusce
+      aliquam, lacus et eleifend auctor, augue justo consectetur
+      risus, a congue arcu mi a velit. Donec lectus est, egestas eget
+      laoreet a, accumsan ornare erat. Suspendisse sed nulla ligula.
+      Year 1915 (MCMXV) was a common year starting on Friday (link
+      will display the full calendar) of the Gregorian calendar and a
+      common year starting on Thursday of the 13-day-slower Julian.<figure>
+        <title>example.png</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/example.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </para>
+    <para>
+      <table>
+        <caption>HTML Table</caption>
+        <col width="7%"/>
+        <col width="16%"/>
+        <col width="77%"/>
+        <thead>
+          <tr>
+            <th>Verb</th>
+            <th>URI</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/foo/bar/baz</td>
+            <td>elis, vel congue lorem. Pellentesque vitae elit id sem
+              faucibus ornare. Ut dictum dapibus quam, in scelerisque
+              quam tempus sit amet. Quisque ullamcorper suscipit
+              sagittis. Maecenas euismod, lectus vitae tincidunt</td>
+          </tr>
+          <tr>
+            <td>PUT</td>
+            <td>/wooga/bar/baz</td>
+            <td>s vel nibh. Nulla eros nulla, iaculis vel laoreet at,
+              consectetur vitae massa. Praesent in imperdiet urna.
+              Etiam commodo hendrerit tincidunt. Aliquam</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/exlkja/elkja/liore</td>
+            <td>Lorem x<parameter role="template">ipsum</parameter>,
+              dolor sit amet, consectetur adipiscing elit. Etiam eros
+              ipsum, tempor ut laoreet nec, adipiscing vel eros.
+              Integer sit amet nibh iaculis sapien sagittis blandit.
+              Quisque vel lectus felis, vel congue lorem. Pellentesque
+              vitae elit id sem faucibus ornare. Ut dictum dapibus
+              quam, in scelerisque quam tempus sit amet. Quisque
+              ullamcorper suscipit sagittis. Maecenas euismod, lectus
+              vitae tincidunt sollicitudin, est lacus susc</td>
+          </tr>
+        </tbody>
+      </table>
+    </para>
+    <para>We welcome feedback, comments, and bug reports at
+        <email>support@rackspacecloud.com</email> . </para>
+    <section xml:id="section_eow_tmw_ad">
+      <title>Intended Audience</title>
+      <para>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Etiam eros ipsum, tempor ut laoreet nec, adipiscing vel eros.
+        Integer sit amet nibh iaculis sapien sagittis blandit. Quisque
+        vel lectus felis, vel congue lorem. Pellentesque vitae elit id
+        sem faucibus ornare. Ut dictum dapibus quam, in scelerisque
+        quam tempus sit amet. Quisque ullamcorper suscipit sagittis: </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Lorem ipsume</para>
+        </listitem>
+        <listitem>
+          <para>Dolor sit amet</para>
+        </listitem>
+      </itemizedlist>
+      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
+        lacus suscipit nunc, in consequat tortor turpis vel nibh.
+        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
+        massa. Praesent in imperdiet urna. Etiam commodo hendrerit
+        tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
+        Vivamus sit amet tempor lorem. Fusce aliquam, lacus et
+        eleifend auctor, augue justo consectetur risus, a congue arcu
+        mi a velit. Donec lectus est, egestas eget laoreet a, accumsan
+        ornare erat. Suspendisse sed nulla ligula.</para>
+      <para>Maecenas euismod, <link
+          xlink:href="http://www.rackspace.com">lectus</link> vitae
+        tincidunt sollicitudin, est lacus suscipit nunc, in consequat
+        tortor turpis vel nibh. Nulla eros nulla, iaculis vel laoreet
+        at, consectetur vitae massa.  </para>
+    </section>
+    <section xml:id="section_mqw_tmw_ad">
+      <?rax type="concept" product="Cloud Servers" priority="100"?>
+      <title>Document Change History</title>
+      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
+        lacus suscipit nunc, in consequat tortor turpis vel nibh.
+        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
+        massa. Praesent in imperdiet urna.</para>
+      <para><?rax revhistory?>
+        <remark>This section will contain the revision history stuff
+          from the top of this doc. </remark></para>
+    </section>
+
+  </chapter>
+  <xi:include href="apiref-db.xml"/>
+</book>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+         xmlns:wadl="http://wadl.dev.java.net/2009/02"
+         xml:id="apiref" 
+         role="api-reference">
+   <title>API Operations</title>
+   <section xml:id="Activity-apiref">
+      <title>Activity</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#activity"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#system_activity"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_activity"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#activity_history_backup__backupId_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Agent-apiref">
+      <title>Agent</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_logging"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_events"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_events__machineAgentID_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_logfile"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_logfiles__machineAgentId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_logfiles__machineAgentId___logFileId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_configuration"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_verifyvolumepassword"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_browse"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_register"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_startup"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_busy"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent__machineagentid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_delete"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_enable"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_Disable"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_encrypt"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_encryption_volumeencryptionenabled"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_changeencryption"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_encryption_volumepasswordchanged"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_heartbeat"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#user_wakeupagents"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Backup_Vault_Cleanup-apiref">
+      <title>Backup Vault Cleanup</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_startscheduled"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_startrequested_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_queued_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_inprogress_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_stop_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_report"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Cleanup-apiref">
+      <title>Cleanup</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#cleanup_report__cleanupId_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Restore-apiref">
+      <title>Restore</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore__restoreId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_startrequested"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_stoprequested"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_queued"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_inprogress"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_report"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_report__restoreId_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="RestoreConfiguration-apiref">
+      <title>RestoreConfiguration</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_files"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_files__restoreFileID_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#restore_files__restoreId_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="BackupConfiguration-apiref">
+      <title>BackupConfiguration</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_system__machineagentid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration__backupConfigurationId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_files"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_files__fileid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_files__backupconfigurationID_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_databases__backupconfigurationID_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration__backupconfigurationID_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_browse"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_enable__backupConfigurationId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_disable__backupConfigurationId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_itemtypes"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_missedactions"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_retentiondays"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_daysofweek"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_starttypes"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_backuptypes"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_frequencies"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup-configuration_list_destinations"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Backup-apiref">
+      <title>Backup</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_availableforrestore"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_completed_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup__backupid__"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_startscheduled"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_startrequested"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_stoprequested"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_queued"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_preparing"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_inprogress"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_report"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_report__backupid_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Hidden-apiref">
+      <title>Hidden</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#backup_missed"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Settings-apiref">
+      <title>Settings</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#settings_cloudreportingfrequency"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Support-apiref">
+      <title>Support</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_exception_API__exceptionid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_exception_CP__exceptionid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_exceptions__queryDate_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_webrequest__requestid_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_dashboard__subsystem_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_dashboard__subSystem___env_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_dashboard_history"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#support_dashboard_outages"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="User-apiref">
+      <title>User</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#user_agents"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#user_agents__domainUsernameId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#user_deregister__accountId_"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#user_Reactivate__accountId_"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Authentication-apiref">
+      <title>Authentication</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_racker"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_rackersso"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#agent_auth"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_sso"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_appuser"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_isauthenticated"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_logout"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#auth_renew"/>
+      </wadl:resources>
+   </section>
+   <section xml:id="Help-apiref">
+      <title>Help</title>
+      <wadl:resources>
+         <wadl:resource href="../wadl/jungledisk.wadl#help_health"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#help_apihealth"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#help_developerguide"/>
+         <wadl:resource href="../wadl/jungledisk.wadl#help_global"/>
+      </wadl:resources>
+   </section>
+</chapter>

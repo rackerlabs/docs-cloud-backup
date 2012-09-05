@@ -1,0 +1,67 @@
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.rackspace.rcbu</groupId>
+  <artifactId>rcbu-api-docs</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Example API Docs</name>
+  <profiles>
+    <profile>
+      <id>Rackspace Research Repositories</id>
+      <activation>
+	<activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+	<repository>
+	  <id>rackspace-research</id>
+	  <name>Rackspace Research Repository</name>
+	  <url>http://maven.research.rackspacecloud.com/content/groups/public/</url>
+	</repository>
+      </repositories>
+      <pluginRepositories>
+	<pluginRepository>
+	  <id>rackspace-research</id>
+	  <name>Rackspace Research Repository</name>
+	  <url>http://maven.research.rackspacecloud.com/content/groups/public/</url>
+	</pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <build>
+    <plugins>
+      <plugin>
+	<groupId>com.rackspace.cloud.api</groupId>
+	<artifactId>clouddocs-maven-plugin</artifactId>
+	<version>1.5.0</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>generate-webhelp</goal> 
+	      <goal>generate-pdf</goal> 
+	    </goals>
+	    <phase>generate-sources</phase>
+	  </execution>
+	</executions>
+	<configuration>
+	  <includes>rcbu-devguide.xml</includes>
+	  <xincludeSupported>true</xincludeSupported>
+	  <pdfUrl>../rcbu-devguide.pdf</pdfUrl>
+	  <enableDisqus>intranet</enableDisqus>
+	  <feedbackEmail>david.hendler@rackspace.com</feedbackEmail>	  
+	  <preProcess>
+	    <copy todir="target/docbkx/webhelp/rcbu-devguide/content/figures">
+	      <fileset dir="src/docbkx/figures">
+		<include name="**/*.png" />
+	      </fileset>
+	    </copy>
+	  </preProcess>
+	  <branding>rackspace</branding>
+	  <showXslMessages>true</showXslMessages>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,1521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:wadl="http://wadl.dev.java.net/2009/02">
+   <resources base="http://localhost">
+      <resource path="activity" id="activity">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.ActivityController.GetActivity">
+            <doc title="Get Activity Feed">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a listing of all activity completed or in progress
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="system/activity" id="system_activity">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.ActivityController.GetSystemActivitySystem.Int32">
+            <doc title="Get Activity Feed">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a listing of all activity for a system that is completed or in progress
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/activity" id="backup_activity">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.ActivityController.GetBackupActivitySystem.Int32">
+            <doc title="Get Activity Feed">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a listing of all activity for a backup that is completed or in progress
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="activity/history/backup/{backupId}"
+                id="activity_history_backup__backupId_">
+         <param name="backupId" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.ActivityController.GetActivityItemSystem.StringSystem.Int32">
+            <doc title="Get Historical Activity Item for a Backup">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a Historical activity listing for a particular backup item (startrequested, inprogress, and queued)
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/logging" id="agent_logging">
+         <method name="PUT"
+                 id="M_Rax.Net.Services.Controllers.AgentController.SetLoggingLevelRax.Net.ViewModels.Config.AgentLoggingLevelViewModel">
+            <doc title="Set Logging Level">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Sets the logging level for an agent</db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Set Logging Level Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "MachineAgentId" : 683,
+             "LoggingLevelId" : 1
+            }
+            
+            Logging Level IDs:
+              1 = warning
+              2 = basic
+              3 = verbose
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetLoggingLevelSystem.Int32">
+            <doc title="Set Logging Level">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the logging level for an agent</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/events"
+                id="agent_events">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetAllEventsForUserRax.Net.ViewModels.RSE.RSERequestParametersViewModel">
+            <doc title="Get All RSE Events For the Current User">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Get all RSE events for all of the current user's machines.</db:para>
+            </doc>
+            <request>
+               <param style="query" name="echo">
+                  <doc>Typical value(s): true|false</doc>
+               </param>
+               <param style="query" name="lastknownid">
+                  <doc>Typical value(s): 123456</doc>
+               </param>
+               <param style="query" name="maxevents">
+                  <doc>Typical value(s): 5</doc>
+               </param>
+               <param style="query" name="issortascending">
+                  <doc>Typical value(s): true|false</doc>
+               </param>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/events/{machineAgentID}"
+                id="agent_events__machineAgentID_">
+         <param name="machineAgentID" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetAgentEventsSystem.Int32Rax.Net.ViewModels.RSE.RSERequestParametersViewModel">
+            <doc title="Get Events Raised By Machine">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get Events for a specific machine (querystring arguments are optional, default value for echo is false)
+            </db:para>
+            </doc>
+            <request>
+               <param style="query" name="echo">
+                  <doc>Typical value(s): true|false</doc>
+               </param>
+               <param style="query" name="lastknownid">
+                  <doc>Typical value(s): 123456</doc>
+               </param>
+               <param style="query" name="maxevents">
+                  <doc>Typical value(s): 5</doc>
+               </param>
+               <param style="query" name="issortascending">
+                  <doc>Typical value(s): true|false</doc>
+               </param>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/logfile" id="agent_logfile">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.RequestLogFileSystem.Int32">
+            <doc title="Request Logs from Agent">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Request a Log File for an Agent
+            </db:para>
+            </doc>
+         </method>
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.UploadLogFileSystem.Web.HttpPostedFileBase">
+            <doc title="Upload Log File">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Upload a Log File from the agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/logfiles/{machineAgentId}"
+                id="agent_logfiles__machineAgentId_">
+         <param name="machineAgentId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetLogFilesListSystem.Int32">
+            <doc title="Get List of Log Files">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of log files uploaded for an agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/logfiles/{machineAgentId}/{logFileId}"
+                id="agent_logfiles__machineAgentId___logFileId_">
+         <param name="machineAgentId" style="template"/>
+         <param name="logFileId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetLogFileSystem.Int32System.Int32">
+            <doc title="Get a Log File">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a specific log file uploaded for an agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/configuration" id="agent_configuration">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetConfiguration">
+            <doc title="Get Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get the Configuration for an Agent
+            </db:para>
+            </doc>
+         </method>
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.UpdateConfiguration">
+            <doc title="Update Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Notify the Configuration changed for the logged in Agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/verifyvolumepassword" id="agent_verifyvolumepassword">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.VerifyVolumePasswordRax.Net.ViewModels.VerifyVolumePasswordViewModel">
+            <doc title="Verify Volume Password">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Verify the volume password for a volume for the machine's backup vault (or the backup vault of another backup)
+            </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Verify Volume Password Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "MachineAgentId" : 123, // the machine to use to verify the password
+             "EncryptedPasswordHex" : "abdefa213casd34", // the encrypted password
+             "BackupId" : 234 // optional: the id of the backup whose vault you want to verify the password for (otherwise use 0 if not applicable)
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/browse" id="agent_browse">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.BrowseRax.Net.ViewModels.BrowseFilesViewModel">
+            <doc title="Browse System">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Browse the file system on the machine
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/register" id="agent_register">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.RegisterRax.Net.ViewModels.Authentication.RegisterAgentViewModel">
+            <doc title="Register an Agent">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Register the agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/startup" id="agent_startup">
+         <method name="POST" id="M_Rax.Net.Services.Controllers.AgentController.Startup">
+            <doc title="Agent Startup">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Recieve Notification from the currently authenticated agent that they have started up
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/busy" id="agent_busy">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.BusySystem.Int32">
+            <doc title="Agent Busy">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Check if the agent is currently busy performing blocking tasks
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent" id="agent">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetCurrentAgentDetails">
+            <doc title="Get Details">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get Agent Details
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/{machineagentid}" id="agent__machineagentid_">
+         <param name="machineagentid" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AgentController.GetAgentDetailsSystem.Int32">
+            <doc title="Get System Details">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the details for an agent</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/delete" id="agent_delete">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.DeleteAgentRax.Net.ViewModels.Agent.DeleteAgentViewModel">
+            <doc title="Delete Agent">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Deletes an Agent
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/enable" id="agent_enable">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.EnableAgentRax.Net.ViewModels.Agent.DeleteAgentViewModel">
+            <doc title="Enable Agent">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Enables an agent. 
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/Disable" id="agent_Disable">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.DisableAgentRax.Net.ViewModels.Agent.DeleteAgentViewModel">
+            <doc title="Disable Agent">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Disables an Agent. Cloud Data is not deleted.
+            This agent can be enabled again.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="agent/encrypt" id="agent_encrypt">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.EnableVolumeEncryptionRax.Net.ViewModels.CreateVolumePasswordViewModel">
+            <doc title="Enable Volume Encryption">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Enable Volume Encryption
+            <db:note>
+                     <db:para>This endpoint enables volume encryption, if it is not already enabled.</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Enable Volume Encryption Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "MachineAgentId" : 123
+             "EncryptedPasswordHex" : "deadbeef"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/encryption/volumeencryptionenabled"
+                id="agent_encryption_volumeencryptionenabled">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.VolumeEncryptionEnabledRax.Net.ViewModels.Agent.AgentConfirmationViewModel">
+            <doc title="Volume Encryption Enabled">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Volume Encryption Enabled
+            <db:note>
+                     <db:para>This endpoint is called by the agent to notify the API and the Control Panel (via RSE) whether enabling the encryption password was successful.</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Volume Encryption Enabled Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "RequestId":"75cf9c4d-af07-4e39-9eea-ffc5e61922be"
+             "Succeeded":true
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/changeencryption" id="agent_changeencryption">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.ChangeVolumePasswordRax.Net.ViewModels.ChangeVolumePasswordViewModel">
+            <doc title="Change Volume Password">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Change Volume Password
+            <db:note>
+                     <db:para>Used to change the volume password.</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Change Volume Password Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "MachineAgentId" : 123
+             "OldEncryptedPasswordHex" : "deadbeef"
+             "NewEncryptedPasswordHex" : "deadbeef", // the new password, encrypted with the agent's public key (512 character hex)
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/encryption/volumepasswordchanged"
+                id="agent_encryption_volumepasswordchanged">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.VolumePasswordChangedRax.Net.ViewModels.Agent.AgentConfirmationViewModel">
+            <doc title="Volume Password Changed">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Volume Password Changed
+            <db:note>
+                     <db:para>This endpoint is called by the agent to notify the API and the Control Panel (via RSE) whether the password change was successful.</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Volume Password Changed Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "RequestId":"75cf9c4d-af07-4e39-9eea-ffc5e61922be"
+             "Succeeded":true
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+         </method>
+      </resource>
+      <resource path="agent/heartbeat" id="agent_heartbeat">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AgentController.Heartbeat">
+            <doc title="Heartbeat">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Heartbeat
+            <db:note>
+                     <db:para>Posts a heartbeat message to RSE.</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/startscheduled" id="cleanup_startscheduled">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.StartScheduledRax.Net.ViewModels.Cleanup.CleanupStartViewModel">
+            <doc title="Cleanup Start (Scheduled)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Agent schedules a new cleanup
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/startrequested/" id="cleanup_startrequested_">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.SetCleanupStateToStartRequestedRax.Net.ViewModels.Cleanup.CleanupStartViewModel">
+            <doc title="Cleanup Start (Manual)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Request to start a backup vault cleanup (called by the control panel)
+            Posts a message to RSE to start  a cleanup
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/queued/" id="cleanup_queued_">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.SetCleanupStateToQueuedRax.Net.ViewModels.Cleanup.CleanupStateUpdateViewModel">
+            <doc title="Cleanup Queued">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Agent queues a cleanup vault request (called by the agent)        
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/inprogress/" id="cleanup_inprogress_">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.SetCleanupStateToInProgressRax.Net.ViewModels.Cleanup.CleanupStateUpdateViewModel">
+            <doc title="Cleanup InProgress">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Agent posts to inform control panel that the vault cleanup is in progress (called by the agent)        
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/stop/" id="cleanup_stop_">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.SetCleanupStateToStoppedRax.Net.ViewModels.Cleanup.CleanupStateUpdateViewModel">
+            <doc title="Cleanup Stop">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Inform the agent to abort a cleanup        
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/report" id="cleanup_report">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.AddCleanupReportRax.Net.ViewModels.Cleanup.CleanupReportViewModel">
+            <doc title="Cleanup Completed/Failed - Submit Report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Agent posts a cleanup report (success or failed).     
+            <db:note>
+                     <db:para>
+            Cleanup States:
+            
+                StartRequested = 1,
+                Queued = 2,
+                InProgress = 3,
+                Completed = 4,
+            	Failed = 5,
+                Stopped = 6
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="cleanup/report/{cleanupId}" id="cleanup_report__cleanupId_">
+         <param name="cleanupId" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.CleanupController.GetCompletedCleanupReportSystem.Int32">
+            <doc title="Get Cleanup Report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a Cleanup report 
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/{restoreId}" id="restore__restoreId_">
+         <param name="restoreId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.GetRestoreSystem.Int32">
+            <doc title="Get Restore">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Get Restore</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore" id="restore">
+         <method name="PUT"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.CreateRestoreRax.Net.ViewModels.Restore.RestoreViewModel">
+            <doc title="Create a Restore Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Create a Restore Configuration</db:para>
+            </doc>
+         </method>
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.UpdateRestoreRax.Net.ViewModels.Restore.RestoreViewModel">
+            <doc title="Update a Restore Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Update A Restore Configuration<db:note>
+                     <db:para>
+            Restore States:
+                0 = Creating
+                1 = Queued
+                2 = InProgress
+                3 = Finished
+                4 = Stopped
+                5 = Failed
+                6 = StartRequested
+                7 = StopRequested
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/files" id="restore_files">
+         <method name="PUT"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.CreateRestoreFileRax.Net.ViewModels.Restore.RestoreFileViewModel">
+            <doc title="Include/Exclude a File to a Restore Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Creates a restore file associated with a restore.
+            <db:note>
+                     <db:para>ParentId is RestoreId for this file</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/files/{restoreFileID}" id="restore_files__restoreFileID_">
+         <param name="restoreFileID" style="template"/>
+         <method name="DELETE"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.DeleteRestoreFileSystem.Int32">
+            <doc title="Delete a Restore Configuration File">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Deletes a Restore Configuration File
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/files/{restoreId}" id="restore_files__restoreId_">
+         <param name="restoreId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.GetRestoreFilesSystem.Int32">
+            <doc title="Get Included/Excluded Restore Configuration Files">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets files that should be included and excluded for a restore.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/startrequested" id="restore_startrequested">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.StartRequestedSystem.Int32System.String">
+            <doc title="Restore Start (Manual)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Restore Start (Manual)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/stoprequested" id="restore_stoprequested">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.StopRequestedSystem.Int32">
+            <doc title="Restore Stop (Manual)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Stop a Restore (Manual)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/queued" id="restore_queued">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.QueuedSystem.Int32">
+            <doc title="Restore Queued">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Queue a Restore.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/inprogress" id="restore_inprogress">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.InProgressSystem.Int32">
+            <doc title="Restore InProgress">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Update Restore state to InProgress.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/report" id="restore_report">
+         <method name="PUT"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.AddRestoreReportRax.Net.ViewModels.Restore.RestoreReportViewModel">
+            <doc title="Restore Completed/Failed - Submit Report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Submits a restore report reportViewModel when a restore completes/fails.
+            <db:note>
+                     <db:para>
+            Restore States:
+                3 = Completed
+                4 = Stopped
+                5 = Failed
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="restore/report/{restoreId}" id="restore_report__restoreId_">
+         <param name="restoreId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.RestoreController.GetCompletedRestoreReportSystem.Int32">
+            <doc title="Get Restore Report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets a restore report 
+            <db:note>
+                     <db:para>
+            Restore States:
+                3 = Completed
+                4 = Stopped
+                5 = Failed
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/system/{machineagentid}"
+                id="backup-configuration_system__machineagentid_">
+         <param name="machineagentid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupConfigurationNamesForMachineIDSystem.Int32">
+            <doc title="Get Backup Configurations for System">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the names of all the backup configurations for this computer
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/{backupConfigurationId}"
+                id="backup-configuration__backupConfigurationId_">
+         <param name="backupConfigurationId" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupConfigurationSystem.Int32">
+            <doc title="Get Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the details for a Backup Configuration
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration" id="backup-configuration">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.CreateBackupConfigurationRax.Net.ViewModels.Backups.BackupConfigurationViewModel">
+            <doc title="Create Backup Configuration With Schedule">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Creates a Backup Configuration for the authenticated user
+            </db:para>
+            </doc>
+         </method>
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.UpdateBackupConfigurationRax.Net.ViewModels.Backups.BackupConfigurationViewModel">
+            <doc title="Update Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Update a Backups COnfiguration
+            </db:para>
+            </doc>
+         </method>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupConfigurationForCurrentUser">
+            <doc title="Get Backup Configurations">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Get list of Backups configruations for the current authenticated user.
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/files" id="backup-configuration_files">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.CreateBackupConfigurationFileRax.Net.ViewModels.Backups.BackupConfigurationFileViewModel">
+            <doc title="Include/Exclude a File to a Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Create Backup Configuration File
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/files/{fileid}"
+                id="backup-configuration_files__fileid_">
+         <param name="fileid" style="template"/>
+         <method name="Delete"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.DeleteBackupConfigurationFileSystem.Int32">
+            <doc title="Delete a Backup Configuration File">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Deletes a Backup Configuration File
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/files/{backupconfigurationID}"
+                id="backup-configuration_files__backupconfigurationID_">
+         <param name="backupconfigurationID" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupFilesSystem.Int32">
+            <doc title="Get Included/Excluded Backup Configuration Files">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets files that should be included/excluded for a backup configuration.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/databases/{backupconfigurationID}"
+                id="backup-configuration_databases__backupconfigurationID_">
+         <param name="backupconfigurationID" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupDatabasesSystem.Int32">
+            <doc title="Get Included Databases For an Instance">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets databases that should be included for a backup configuration.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/{backupconfigurationID}"
+                id="backup-configuration__backupconfigurationID_">
+         <param name="backupconfigurationID" style="template"/>
+         <method name="DELETE"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.DeleteBackupConfigurationSystem.Int32">
+            <doc title="Delete Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Delete a Backup Configuration.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/browse" id="backup-configuration_browse">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.BrowseRax.Net.ViewModels.BrowseFilesViewModel">
+            <doc title="Browse Backups">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Browse the files and folders contained within this backup using the given Machine ID
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/enable/{backupConfigurationId}"
+                id="backup-configuration_enable__backupConfigurationId_">
+         <param name="backupConfigurationId" style="template"/>
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.EnableBackupConfigurationSystem.Int32">
+            <doc title="Enable Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Enable a Backup Configuration
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/disable/{backupConfigurationId}"
+                id="backup-configuration_disable__backupConfigurationId_">
+         <param name="backupConfigurationId" style="template"/>
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.DisableBackupConfigurationSystem.Int32">
+            <doc title="Disable Backup Configuration">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Disable a Backup Configuration
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/itemtypes"
+                id="backup-configuration_list_itemtypes">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllBackupItemTypes">
+            <doc title="List : Item Types">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of enumerated Backup Item types
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/missedactions"
+                id="backup-configuration_list_missedactions">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllMissedBackupActions">
+            <doc title="List : Missed Actions">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get list of Backup Missed Actions
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/retentiondays"
+                id="backup-configuration_list_retentiondays">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetBackupRetentionDaysList">
+            <doc title="List : Start Types">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of the number of days to retain previous versions.
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/daysofweek"
+                id="backup-configuration_list_daysofweek">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetDaysOfTheWeekList">
+            <doc title="List : Days of the Week">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of the days of the week
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/starttypes"
+                id="backup-configuration_list_starttypes">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllBackupStartTypes">
+            <doc title="List : Start Types">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of enumerated Backup Start types
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/backuptypes"
+                id="backup-configuration_list_backuptypes">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllBackupTypes">
+            <doc title="List : Backups Types">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of enumerated Backups types
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/frequencies"
+                id="backup-configuration_list_frequencies">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllFrequencies">
+            <doc title="List : Frequencies">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of enumerated Backups frequencies
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup-configuration/list/destinations"
+                id="backup-configuration_list_destinations">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupConfigurationController.GetAllBackupDestinations">
+            <doc title="List : Backups Destinations">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get a list of enumerated Backup Destinations
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/availableforrestore" id="backup_availableforrestore">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupController.GetBackupsAvailableForRestore">
+            <doc title="Get Available Backups for Restore">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the backups that are eligible for restore (A backup that has completed at least once, has not been deleted and is not expired).
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/completed/" id="backup_completed_">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupController.GetCompletedBackupsSystem.Int32">
+            <doc title="Get Completed Backups">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the completed backups for a backup configuration that can still be restored
+            <db:note>
+                     <db:para>
+            Requires a valid backup configuration Id for this user.
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/{backupid}/" id="backup__backupid__">
+         <param name="backupid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupController.GetBackupSystem.Int32">
+            <doc title="Get Backup">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the backup requested
+            <db:note>
+                     <db:para>
+            Requires a valid Backup Id for this user.
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/startscheduled" id="backup_startscheduled">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupController.StartScheduledRax.Net.ViewModels.Backups.BackupStartActionViewModel">
+            <doc title="Backup Start (Scheduled)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Insert a new Backup with a StartScheduled state. (Typically called by the Agent when starting a scheduled backup)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/startrequested" id="backup_startrequested">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupController.StartRequestedRax.Net.ViewModels.Backups.BackupStartActionViewModel">
+            <doc title="Backup Start (Manual)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Manually Start a new Backup with a StartRequested state. (typically called by the User)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/stoprequested" id="backup_stoprequested">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupController.StopRequestedRax.Net.ViewModels.Backups.BackupActionViewModel">
+            <doc title="Backup Stop (Manual)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Request a Backup to stop. (typically called by the Control Panel)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/queued" id="backup_queued">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupController.QueuedRax.Net.ViewModels.Backups.BackupActionViewModel">
+            <doc title="Backup Queued">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Put a Backup into a Queued State.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/preparing" id="backup_preparing">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupController.PreparingRax.Net.ViewModels.Backups.BackupActionViewModel">
+            <doc title="Backup Preparing">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Put a Backup into a Preparing State.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/inprogress" id="backup_inprogress">
+         <method name="POST"
+                 id="M_Services.Quattro.com.Controllers.BackupController.InProgressRax.Net.ViewModels.Backups.BackupActionViewModel">
+            <doc title="Backup InProgress">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Put a backup into an InProgress State.
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/report" id="backup_report">
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupController.AddBackupReportRax.Net.ViewModels.Backups.BackupReportViewModel">
+            <doc title="Backup Completed/Failed - Submit Report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Complete a backup with its execution report
+            <db:note>
+                     <db:para>
+            Backup Report States:
+                Skipped = 3,
+                Missed = 4,
+                Stopped = 5,
+                Completed = 6,
+                Failed = 7,
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/missed" id="backup_missed">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupController.GetMissedBackups">
+            <doc title="Get Missed Backups">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets missed backups.
+            </db:para>
+            </doc>
+         </method>
+         <method name="PUT"
+                 id="M_Services.Quattro.com.Controllers.BackupController.ReportMissedBackupRax.Net.ViewModels.Backups.MissedBackupViewModel">
+            <doc title="Report | Backup">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Reports a missed Backup execution
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="backup/report/{backupid}" id="backup_report__backupid_">
+         <param name="backupid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.BackupController.GetCompletedBackupReportSystem.Int32">
+            <doc title="Get backup report">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets details about a completed backup
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="settings/cloudreportingfrequency"
+                id="settings_cloudreportingfrequency">
+         <method name="PUT"
+                 id="M_Rax.Net.Services.Controllers.SettingsController.SetCloudReportingPreferencesRax.Net.ViewModels.Settings.CloudReportingPreferenceViewModel">
+            <doc title="SetEmailReportingPreferences">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Set Cloud Reporting Preference<db:note>
+                     <db:para>
+            requires Cloud Reporting ViewModel
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.SettingsController.GetCloudReportingPreferences">
+            <doc title="GetEmailReportingPreferences">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Get Cloud Reporting Preference<db:note>
+                     <db:para>
+            requires Cloud Reporting ViewModel
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/exception/API/{exceptionid}"
+                id="support_exception_API__exceptionid_">
+         <param name="exceptionid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetExceptionDetailsForAPIExceptionSystem.Int32">
+            <doc title="Exceptions">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the web requests that occurred near this API exception, the exception details and the resolution.</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/exception/CP/{exceptionid}"
+                id="support_exception_CP__exceptionid_">
+         <param name="exceptionid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetExceptionDetailsForCPExceptionSystem.Int32">
+            <doc title="Exceptions">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the web requests that occurred near this Control Panel exception, the exception details and the resolution.</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/exceptions/{queryDate}"
+                id="support_exceptions__queryDate_">
+         <param name="queryDate" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetExceptionsFromControlPanelAndAPISystem.DateTime">
+            <doc title="Exceptions">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the exceptions from the Control Panel and from the API Services for the authenticated user for a particular date</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/webrequest/{requestid}"
+                id="support_webrequest__requestid_">
+         <param name="requestid" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetWebRequestDetailsSystem.Int32">
+            <doc title="Web Request">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets the details for a particular web request</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/dashboard/{subsystem}" id="support_dashboard__subsystem_">
+         <param name="subsystem" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetUrlStatusSystem.String">
+            <doc title="Web Request">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets Status of all subsystems in Rackspace Cloudbackup<db:note>
+                     <db:para>
+             Allowed Subsystems are - 
+            Auth
+            PrivateAuth
+            IDM
+            CloudFiles
+            RSE
+            Memcache
+            CloudDriveAPI
+            RBA
+            Control Panel
+             </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/dashboard/{subSystem}/{env}"
+                id="support_dashboard__subSystem___env_">
+         <param name="subSystem" style="template"/>
+         <param name="env" style="template"/>
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetUrlStatusForEnvSystem.StringSystem.String">
+            <doc title="Web Request">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets Status of all subsystems in Rackspace Cloudbackup<db:note>
+                     <db:para>
+             Allowed Subsystems are - 
+            Auth
+            PrivateAuth
+            IDM
+            CloudFiles
+            RSE
+            Memcache
+            CloudDriveAPI
+            RBA
+            Control Panel
+             </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/dashboard/history" id="support_dashboard_history">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetUrlStatusHistorySystem.StringSystem.DoubleSystem.Double">
+            <doc title="Web Request">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets Status of an url for about a month</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="support/dashboard/outages" id="support_dashboard_outages">
+         <method name="GET"
+                 id="M_Services.Quattro.com.Controllers.SupportController.GetOutagesForADaySystem.StringSystem.String">
+            <doc title="Web Request">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">Gets Outage timings for a day</db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="user/agents" id="user_agents">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.UserController.GetMachineAgents">
+            <doc title="Get Systems">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get all agents for the current user
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="user/agents/{domainUsernameId}"
+                id="user_agents__domainUsernameId_">
+         <param name="domainUsernameId" style="template"/>
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.UserController.GetMachineAgentsForUserSystem.Int32">
+            <doc title="Get Agents">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get all agents for a specific user
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="user/wakeupagents" id="user_wakeupagents">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.UserController.WakeupAgents">
+            <doc title="Wake Up Agents">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Awaken all agents from dormant state for the current authenticated account.
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="user/deregister/{accountId}" id="user_deregister__accountId_">
+         <param name="accountId" style="template"/>
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.UserController.DeRegisterUserSystem.String">
+            <doc title="Deactivate User">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Deactivates a user
+            <db:note>
+                     <db:para>This operation does not require a request body.
+            This call should be executed by a Racker.
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="user/Reactivate/{accountId}" id="user_Reactivate__accountId_">
+         <param name="accountId" style="template"/>
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.UserController.ReActivateUserSystem.String">
+            <doc title="Reactivate User">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            ReActivates a user
+            <db:note>
+                     <db:para>This operation does not require a request body.
+            AccountId is Mosso Account Id
+            This call should be executed by a Racker.
+            </db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth" id="auth">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateCloudRax.Net.ViewModels.Authentication.CloudAuthViewModel">
+            <doc title="Authenticate (Rackspace Cloud Auth)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate the user
+            </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate (Rackspace Cloud Auth) Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "Username" : "jdoe",
+             "Password" : "66a4d306379c1a54ac97aeb4684bae92"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate (Rackspace Cloud Auth) Response: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "AuthToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "CloudFilesToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "DisplayName":"AuditUsername",
+             "Domain":"User Domain",
+             "ExpireTS":"\/Date(1303246556887)\/"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+      <resource path="auth/racker" id="auth_racker">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateRackerRax.Net.ViewModels.Authentication.RackerAuthViewModel">
+            <doc title="Authenticate (Racker)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate a Racker using IDM and logs him in as Managed Cloud user
+            </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate (Racker) Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "AuditUsername" : "jdoe",
+             "Password" : "66a4d306379c1a54ac97aeb4684bae92",
+             "MossoAccountId" : "mossoaccountid"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate (Racker) Response: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "AuthToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "CloudFilesToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "DisplayName":"AuditUsername",
+             "Domain":"User Domain",
+             "ExpireTS":"\/Date(1303246556887)\/"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+      <resource path="auth/rackersso" id="auth_rackersso">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateRackerUsingSSORax.Net.ViewModels.Authentication.RackerSSOAuthViewModel">
+            <doc title="Authenticate Using SSO (Racker)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate a Racker using SSO and logs him in as Managed Cloud user
+            </db:para>
+            </doc>
+            <request>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate Using SSO (Racker) Request: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "customerusername" : "customer",
+             "rackerusername" : "jdoe",
+             "rackerauthtoken" : "66a4d306379c1a54ac97aeb4684bae92",
+             "type" : "token"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>Authenticate Using SSO (Racker) Response: JSON</title>
+                        <programlisting language="javascript">
+            {
+             "AuthToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "CloudFilesToken":1a6c8c13-3568-49b6-a22c-8ec8b18ac455,
+             "DisplayName":"AuditUsername",
+             "Domain":"User Domain",
+             "ExpireTS":"\/Date(1303246556887)\/"
+            }
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+      <resource path="agent/auth" id="agent_auth">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateAgentRax.Net.ViewModels.Authentication.AgentAuthViewModel">
+            <doc title="Authenticate (Agent)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate an Agent
+            <db:note>
+                     <db:para>Authenticate the agent using the agent key received upon registration</db:para>
+                  </db:note>
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth/sso" id="auth_sso">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateCloudTokenRax.Net.ViewModels.Authentication.SSOCloudAuthViewModel">
+            <doc title="Authenticate (SSO Cloud Auth Token)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate the user
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth/appuser" id="auth_appuser">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.AuthenticateAppUserRax.Net.ViewModels.Authentication.AppUserAuthViewModel">
+            <doc title="Authenticate (Application)">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Authenticate an application user. (Backupwatchdog, Winservice and API users)
+            </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth/isauthenticated" id="auth_isauthenticated">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.IsAuthenticated">
+            <doc title="Is Authenticated">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Check if the user is currently Authenticated with an active login ticket
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth/logout" id="auth_logout">
+         <method name="POST"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.Logout">
+            <doc title="Logout">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Logout the current user
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="auth/renew" id="auth_renew">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.AuthenticationController.RenewLoginTicket">
+            <doc title="Renew Login Ticket">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Renews the expiry time for login ticket
+            Use this if the login ticket needs to be extended for more than 6 hours.
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="help/health" id="help_health">
+         <method name="GET" id="M_Rax.Net.Services.Controllers.HelpController.Health">
+            <doc title="Health with dependent systems">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets the health for API by checking all dependent systems
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="help/apihealth" id="help_apihealth">
+         <method name="GET" id="M_Rax.Net.Services.Controllers.HelpController.APIHealth">
+            <doc title="Health with dependent systems">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Gets just the health for API . Does not check the dependent systems
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="help/developerguide" id="help_developerguide">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.HelpController.DeveloperGuide">
+            <doc title="Developer Guide">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get the Developer Guide for this API
+
+               </db:para>
+            </doc>
+         </method>
+      </resource>
+      <resource path="help/global" id="help_global">
+         <method name="GET"
+                 id="M_Rax.Net.Services.Controllers.HelpController.GlobalHelp">
+            <doc title="API Endpoints">
+               <db:para xmlns:db="http://docbook.org/ns/docbook">
+            Get the Developer Guide for this API
+
+               </db:para>
+            </doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                     <example xmlns="http://docbook.org/ns/docbook" role="wadl">
+                        <title>API Endpoints Response: JSON</title>
+                        <programlisting language="javascript">
+            [
+            {
+            "Verb": "",
+            "URI": "",
+            "Name": "",
+            "Description": "",
+            "Note": "",
+            "NormalResponseCodes": "",
+            "ErrorResponseCodes": "",
+            "Examples": []
+            }
+            ]
+            </programlisting>
+                     </example>
+                  </doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

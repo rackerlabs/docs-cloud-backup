@@ -1,0 +1,92 @@
+<application xmlns="http://wadl.dev.java.net/2009/02"
+	xmlns:wadl="http://wadl.dev.java.net/2009/02"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<resources base="https://localhost:5000">
+		<?rax start-sections?>
+		<resource path="1.0">
+			<doc title="version Lorem"/>
+			<resource id="a" path="a">
+				<wadl:doc title="Title for this section" />
+				<resource id="b" path="b">
+					<wadl:doc title="Anuther title" xmlns="http://docbook.org/ns/docbook">
+						<para>This is an example of switching the default namespace to 
+							DocBook so we can put DocBook inside our wadl. Notice that 
+							I added the wadl: prefix to the doc element and then changed
+							the default namespace to the DocBook namespace.</para>
+						<itemizelist>
+							<listitem>
+								<para>More DocBook. I still don't need to use namespace prefixes
+									because DocBook is the default namespace at this point.</para>
+							</listitem>
+						</itemizelist>
+					</wadl:doc>
+					<resource id="c" path="c" type="#rtype">
+						<doc title="Ipsum">
+							<para xmlns="http://docbook.org/ns/docbook">
+								Here's another way of switching the namespace in 
+								mid-stream. I can now use inline DocBook markup like the 
+								<tag>tag</tag> tag without a prefix. But if I add a second
+								para I need to declare the default namespace again.
+							</para>
+						</doc>
+						<method href="#baz">
+							<wadl:doc title="b Lorem" xmlns="http://www.w3.org/1999/xhtml">
+								<p>Now I'm able to use xhtml to mark up my docs because
+									I switched to the xhtml namespace.</p>
+							</wadl:doc>
+						</method>
+					</resource>
+				</resource>
+				<resource id="d" path="d">
+					<doc title="d Lorem"/>
+					<resource id="e" path="e">
+						<doc title="Lorem"/>
+						<method href="#foo"/>
+					</resource>
+				</resource>
+			</resource>
+			<resource id="h" path="h">
+				<doc title="Wooga"/>
+				<resource id="i" path="i">
+					<resource id="j" path="{j}">
+						<param name="j" style="template" type="xsd:string" required="true">
+							<link resource_type="#rtype" rel="self"/>
+						</param>
+						<resource id="k" path="k">
+							<doc title="Cicero is a Chickpea"/>
+							<method href="#foo"/>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resource>
+	</resources>
+	<resource_type id="rtype">
+		<method id="foo" name="GET">
+			<doc title="Foo title">
+				<para role="shortdesc" xmlns="http://docbook.org/ns/docbook">Test docbook.</para>
+				<para xmlns="http://docbook.org/ns/docbook">Test longdesc. plain: </para>
+			</doc>
+			<response status="200 203">
+				<representation mediaType="application/json"/>
+			</response>
+		</method>
+		<method id="bar" name="PUT">
+			<doc title="Bar title">
+				<para xmlns="http://docbook.org/ns/docbook">Test docbook.</para>
+			</doc>
+			<response status="200 203">
+				<representation mediaType="application/json"/>
+			</response>
+		</method>
+	</resource_type> 
+	
+	<method id="baz" name="DELETE">
+		<doc title="Bar title">
+			<para xmlns="http://docbook.org/ns/docbook">Test docbook.</para>
+		</doc>
+		<response status="200 203">
+			<representation mediaType="application/json"/>
+		</response>
+	</method>
+</application>
