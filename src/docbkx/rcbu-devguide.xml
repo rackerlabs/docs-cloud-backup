@@ -7,41 +7,20 @@
     version="5.0" 
     xml:id="example-foo" 
     status="DRAFT">
-  <title>Cool API Developer Guide</title>
+  <title>Rackspace Cloud Backup Developer Guide</title>
   <info>
     <copyright>
-      <year>2011</year>
-      <year>2012</year>
+      <year>2013</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
-    <productname>Cool API</productname>
-    <pubdate>2012-08-13</pubdate>
+    <productname>Rackspace Cloud Backup</productname>
+    <pubdate/>
     <revhistory>
       <revision>
-        <date>2011-03-01</date>
+        <date>2013-02-01</date>
         <revdescription>
-          <para>Ipsum lorem. adslkjf dipiscing elit. Etiam eros ipsum, tempor ut laoreet nec,
-            adipiscing vel eros. Integer sit amet nibh iaculis sapien sagittis blandit. Quisque vel
-            lectus felis, vel congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut
-            dictum dapibus quam, in scelerisque quam tempus sit amet.
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Lorem ipsume</para>
-              </listitem>
-              <listitem>
-                <para>Dolor sit amet</para>
-              </listitem>
-            </itemizedlist></para>
-        </revdescription>
-      </revision>
-      <revision>
-        <date>2011-02-02</date>
-        <revdescription>
-          <para>Blah. adslkjf dipiscing elit. Etiam eros ipsum, tempor ut laoreet nec, adipiscing
-            vel eros. Integer sit amet nibh iaculis sapien sagittis blandit. Quisque vel lectus
-            felis, vel congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut dictum
-            dapibus quam, in scelerisque quam tempus sit amet. Quisasdflkj</para>
+          <para>Initial release.</para>
         </revdescription>
       </revision>
     </revhistory>
@@ -188,5 +167,13 @@
     </section>
 
   </chapter>
-  <xi:include href="apiref-db.xml"/>
+  <xi:include href="../../target/generated-resources/xml/xslt/apiref-db.xml">
+    <xi:fallback>
+      <chapter xmlns="http://docbook.org/ns/docbook"
+	       xmlns:wadl="http://wadl.dev.java.net/2009/02">
+	<title>API Operations</title>
+	<para>This content not available until you have run a build using "mvn clean generate-sources"</para>
+      </chapter>
+    </xi:fallback>
+  </xi:include>
 </book>

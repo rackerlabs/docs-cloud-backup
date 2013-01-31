@@ -33,31 +33,54 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>transform</goal>
+            </goals>
+	    <phase>generate-sources</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <transformationSets>
+            <transformationSet>
+              <dir>src/rcbu-xml</dir>
+              <stylesheet>xslt/rcbuxml2wadl.xsl</stylesheet>
+	      <fileMappers>
+                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                  <pattern>\.xml$</pattern>
+                  <replacement>.wadl</replacement>
+                </fileMapper>
+              </fileMappers>
+            </transformationSet>
+          </transformationSets>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>8.7</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
 	<groupId>com.rackspace.cloud.api</groupId>
 	<artifactId>clouddocs-maven-plugin</artifactId>
-	<version>1.5.0</version>
+	<version>1.7.1-SNAPSHOT</version>
 	<executions>
 	  <execution>
 	    <goals>
 	      <goal>generate-webhelp</goal> 
-	      <goal>generate-pdf</goal> 
 	    </goals>
 	    <phase>generate-sources</phase>
 	  </execution>
 	</executions>
 	<configuration>
 	  <includes>rcbu-devguide.xml</includes>
-	  <xincludeSupported>true</xincludeSupported>
-	  <pdfUrl>../rcbu-devguide.pdf</pdfUrl>
 	  <enableDisqus>intranet</enableDisqus>
 	  <feedbackEmail>david.hendler@rackspace.com</feedbackEmail>	  
-	  <preProcess>
-	    <copy todir="target/docbkx/webhelp/rcbu-devguide/content/figures">
-	      <fileset dir="src/docbkx/figures">
-		<include name="**/*.png" />
-	      </fileset>
-	    </copy>
-	  </preProcess>
 	  <branding>rackspace</branding>
 	  <showXslMessages>true</showXslMessages>
 	</configuration>
