@@ -38,18 +38,17 @@
         quam tempus sit amet. Quisque ullamcorper suscipit
         sagittis.</para>
     </abstract>
+    <raxm:metadata
+	xmlns:raxm="http://docs.rackspace.com/api/metadata">
+      <raxm:displayname>API Developer Guide</raxm:displayname>
+      <raxm:product version="v1.0">rcbu</raxm:product>
+      <raxm:priority>20</raxm:priority>
+    </raxm:metadata>
   </info>
   <chapter xml:id="Overview">
     <?rax type="concept" product="Cloud Servers" priority="10"?>
     <?dbhtml navigation="true"?>
     <title>Introduction</title>
-     <info>
-      <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-        <raxm:product>cdns</raxm:product>
-        <raxm:type>concept</raxm:type>
-        <raxm:priority>2</raxm:priority>
-      </raxm:metadata>
-     </info>
     <!-- <?dbhtml stop-chunking?> -->
     <para>My API is more RESTful than yours. Etiam eros ipsum, tempor
       ut laoreet nec, adipiscing vel eros. Integer sit amet nibh
