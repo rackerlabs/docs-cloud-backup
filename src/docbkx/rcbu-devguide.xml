@@ -1,178 +1,3867 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <book  
+<!DOCTYPE book [
+<!-- Some useful entities borrowed from HTML -->
+<!ENTITY ndash  "&#x2013;">
+<!ENTITY mdash  "&#x2014;">
+<!ENTITY hellip "&#x2026;">
+
+<!-- Useful for describing APIs -->
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+
+<!ENTITY PRODNAME "Rackspace Cloud Backup">
+<!ENTITY PRODABBV "RCBU">
+<!ENTITY PROJURL "temp-proj">
+
+<!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
+<!ENTITY ENDPOINT-US "https://auth.api.rackspacecloud.com/v2.0/">
+<!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
+
+<!ENTITY CHECK  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="img/Check_mark_23x20_02.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+
+<!ENTITY ARROW  '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+<imageobject>
+<imagedata fileref="img/Arrow_east.svg"
+format="SVG" scale="60"/>
+</imageobject>
+</inlinemediaobject>'>
+]>
+<book 
     xmlns="http://docbook.org/ns/docbook" 
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude" 
-    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0" 
-    xml:id="rcbu-devguide" 
-    status="DRAFT">
-  <title>Rackspace Cloud Backup Developer Guide</title>
+    xml:id="rcbu-devguide"
+  
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  
+  >
+  <?rax pdf.url="../../../rcbu-devguide-latest.pdf"?>
+
+
+
+  <title>&PRODNAME; Developer Guide</title>
+  <titleabbrev>&PRODABBV; Developer Guide</titleabbrev>
   <info>
+    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document -->
+    
     <copyright>
       <year>2013</year>
-      <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1.0</releaseinfo>
-    <productname>Rackspace Cloud Backup</productname>
-    <pubdate/>
-    <revhistory>
-      <revision>
-        <date>2013-02-01</date>
-        <revdescription>
-          <para>Initial release.</para>
-        </revdescription>
-      </revision>
-    </revhistory>
+    <productname>&PRODNAME;</productname>
+    <!-- enter the publication date of this document -->
+    <pubdate>2013-02-28</pubdate>
     <legalnotice role="rs-api">
       <annotation>
-        <remark>Copyright details are filled in by the template.</remark>
+<remark>Copyright details are filled in by the
+  template.</remark>
       </annotation>
     </legalnotice>
     <abstract>
-      <para>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Etiam eros ipsum, tempor ut laoreet nec, adipiscing vel eros.
-        Integer sit amet nibh iaculis sapien sagittis blandit. Quisque
-        vel lectus felis, vel congue lorem. Pellentesque vitae elit id
-        sem faucibus ornare. Ut dictum dapibus quam, in scelerisque
-        quam tempus sit amet. Quisque ullamcorper suscipit
-        sagittis.</para>
+      <para>This document is intended for software developers
+interested in developing applications using the Rackspace
+&PRODNAME; Application Programming Interface
+  (<abbrev>API</abbrev>). </para>
     </abstract>
+    <!--  Create entries for each published revision of the document stating the date and what changed, briefly
+    -->
+    <revhistory>
+      <revision>
+<date>2013-02-28</date>
+<revdescription>
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para>Created Preview document.</para>
+    </listitem>
+  </itemizedlist>
+</revdescription>
+      </revision>
+    </revhistory>
     <raxm:metadata
 	xmlns:raxm="http://docs.rackspace.com/api/metadata">
       <raxm:displayname>API Developer Guide</raxm:displayname>
-      <raxm:product version="v1.0">rcbu</raxm:product>
+      <raxm:product version="v1.0">TempProject</raxm:product>
       <raxm:priority>20</raxm:priority>
     </raxm:metadata>
   </info>
-  <chapter xml:id="Overview">
-    <?rax type="concept" product="Cloud Servers" priority="10"?>
-    <?dbhtml navigation="true"?>
-    <title>Introduction</title>
-    <!-- <?dbhtml stop-chunking?> -->
-    <para>My API is more RESTful than yours. Etiam eros ipsum, tempor
-      ut laoreet nec, adipiscing vel eros. Integer sit amet nibh
-      iaculis sapien sagittis blandit. Quisque vel lectus felis, vel
-      congue lorem. Pellentesque vitae elit id sem faucibus ornare. Ut
-      dictum dapibus quam, in scelerisque quam tempus sit amet.
-      Quisque ullamcorper suscipit sagittis. Maecenas euismod, lectus
-      vitae tincidunt sollicitudin, est lacus suscipit nunc, in
-      consequat tortor turpis vel nibh. Nulla eros nulla, iaculis vel
-      laoreet at, consectetur vitae massa. Praesent in imperdiet urna.
-      Etiam commodo hendrerit tincidunt. Aliquam non tortor lectus,
-      sit amet laoreet tortor. Vivamus sit amet tempor lorem. Fusce
-      aliquam, lacus et eleifend auctor, augue justo consectetur
-      risus, a congue arcu mi a velit. Donec lectus est, egestas eget
-      laoreet a, accumsan ornare erat. Suspendisse sed nulla ligula.
-      Year 1915 (MCMXV) was a common year starting on Friday (link
-      will display the full calendar) of the Gregorian calendar and a
-      common year starting on Thursday of the 13-day-slower Julian.<figure>
-        <title>example.png</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/example.png"/>
-          </imageobject>
-        </mediaobject>
-      </figure>
+  <!-- skip this OpenStack section, but leave it in the xml --> 
+  <preface xml:id="Overview" security="writeronly">
+    <title>OpenStack API Reference</title>
+
+    <para>The OpenStack system has several key projects that are
+    separate installations but can work together depending on your
+    cloud needs: OpenStack Compute, OpenStack Object Storage,
+    OpenStack Identity Service, and OpenStack Image Service.</para>
+
+    <para>This page covers the basics for working with your OpenStack
+    cloud through the Compute API and Image API after authorizing with
+    the Identity Service API. You can then build a cloud by launching
+    images and assigning metadata to instances, all through an
+    API. Refer to the <link
+    xlink:href="http://docs.openstack.org/api/quick-start/content/">API Quick Start
+    Guide</link> for details about using the APIs referenced here, and
+    go to <link
+    xlink:href="http://docs.openstack.org/api/">docs.openstack.org/api</link>
+    for specifications of each API.
     </para>
-    <para>
-      <table>
-        <caption>HTML Table</caption>
-        <col width="7%"/>
-        <col width="16%"/>
-        <col width="77%"/>
-        <thead>
-          <tr>
-            <th>Verb</th>
-            <th>URI</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>GET</td>
-            <td>/foo/bar/baz</td>
-            <td>elis, vel congue lorem. Pellentesque vitae elit id sem
-              faucibus ornare. Ut dictum dapibus quam, in scelerisque
-              quam tempus sit amet. Quisque ullamcorper suscipit
-              sagittis. Maecenas euismod, lectus vitae tincidunt</td>
-          </tr>
-          <tr>
-            <td>PUT</td>
-            <td>/wooga/bar/baz</td>
-            <td>s vel nibh. Nulla eros nulla, iaculis vel laoreet at,
-              consectetur vitae massa. Praesent in imperdiet urna.
-              Etiam commodo hendrerit tincidunt. Aliquam</td>
-          </tr>
-          <tr>
-            <td>POST</td>
-            <td>/exlkja/elkja/liore</td>
-            <td>Lorem x<parameter role="template">ipsum</parameter>,
-              dolor sit amet, consectetur adipiscing elit. Etiam eros
-              ipsum, tempor ut laoreet nec, adipiscing vel eros.
-              Integer sit amet nibh iaculis sapien sagittis blandit.
-              Quisque vel lectus felis, vel congue lorem. Pellentesque
-              vitae elit id sem faucibus ornare. Ut dictum dapibus
-              quam, in scelerisque quam tempus sit amet. Quisque
-              ullamcorper suscipit sagittis. Maecenas euismod, lectus
-              vitae tincidunt sollicitudin, est lacus susc</td>
-          </tr>
-        </tbody>
-      </table>
+  </preface>
+  <preface xml:id="overview" xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>Overview</title>
+    <para>Rackspace &PRODNAME; is a [description]. 
     </para>
-    <para>We welcome feedback, comments, and bug reports at
-        <email>support@rackspacecloud.com</email> . </para>
-    <section xml:id="section_eow_tmw_ad">
-      <title>Intended Audience</title>
-      <para>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Etiam eros ipsum, tempor ut laoreet nec, adipiscing vel eros.
-        Integer sit amet nibh iaculis sapien sagittis blandit. Quisque
-        vel lectus felis, vel congue lorem. Pellentesque vitae elit id
-        sem faucibus ornare. Ut dictum dapibus quam, in scelerisque
-        quam tempus sit amet. Quisque ullamcorper suscipit sagittis: </para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>Lorem ipsume</para>
-        </listitem>
-        <listitem>
-          <para>Dolor sit amet</para>
-        </listitem>
+    <para>Interactions with &PRODNAME; occur programmatically via the &PRODNAME; 
+      API as described in this developer guide.
+    </para>
+    <para>[Add paragraphs as needed.] 
+    </para>
+    <para>Highlights of Rackspace &PRODNAME;include:<itemizedlist>
+      <listitem>
+<para>Highlight / benefit</para>
+      </listitem>
+      <listitem>
+<para>Highlight / benefit</para>
+</listitem>
+<listitem>
+  <para>Highlight / benefit</para>
+</listitem>
       </itemizedlist>
-      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
-        lacus suscipit nunc, in consequat tortor turpis vel nibh.
-        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
-        massa. Praesent in imperdiet urna. Etiam commodo hendrerit
-        tincidunt. Aliquam non tortor lectus, sit amet laoreet tortor.
-        Vivamus sit amet tempor lorem. Fusce aliquam, lacus et
-        eleifend auctor, augue justo consectetur risus, a congue arcu
-        mi a velit. Donec lectus est, egestas eget laoreet a, accumsan
-        ornare erat. Suspendisse sed nulla ligula.</para>
-      <para>Maecenas euismod, <link
-          xlink:href="http://www.rackspace.com">lectus</link> vitae
-        tincidunt sollicitudin, est lacus suscipit nunc, in consequat
-        tortor turpis vel nibh. Nulla eros nulla, iaculis vel laoreet
-        at, consectetur vitae massa.  </para>
+      </para>
+    <note><title>Notes</title>
+      <itemizedlist>
+<listitem>
+  <para>&PRODNAME; is a [add usage descriptions if needed].</para>
+</listitem>
+      </itemizedlist>
+    </note>
+    
+    <section xml:id="Intended_Audience-d1e122">
+      <title>Intended Audience</title>
+      <para> This Guide is intended to assist software developers who
+want to develop applications using the &PRODNAME;
+API. It assumes the reader has a general understanding of
+storage and is familiar with: </para>
+      <itemizedlist spacing="compact">
+<listitem>
+  <para>RESTful web services</para>
+</listitem>
+<listitem>
+  <para>HTTP/1.1 conventions</para>
+</listitem>
+<listitem>
+  <para>JSON and/or XML data serialization formats</para>
+</listitem>
+      </itemizedlist>
     </section>
-    <section xml:id="section_mqw_tmw_ad">
-      <?rax type="concept" product="Cloud Servers" priority="100"?>
+    <?hard-pagebreak?>
+    <section xml:id="Document_Change_History-d1e166">
       <title>Document Change History</title>
-      <para>Maecenas euismod, lectus vitae tincidunt sollicitudin, est
-        lacus suscipit nunc, in consequat tortor turpis vel nibh.
-        Nulla eros nulla, iaculis vel laoreet at, consectetur vitae
-        massa. Praesent in imperdiet urna.</para>
-      <para><?rax revhistory?>
-        <remark>This section will contain the revision history stuff
-          from the top of this doc. </remark></para>
+      <para>This version of the Developer Guide replaces and obsoletes
+all previous versions. The most recent changes are described
+in the table below:</para>
+      <!-- the document history displays here; generated from above code -->
+      <?rax revhistory?>
     </section>
+    <section xml:id="Additional_Resources-d1e532">
+      <title>Additional Resources</title>
+
+      <para>You can download the most current versions of the
+API-related documents from <link
+  xlink:href="http://docs.rackspace.com/api/"
+  >docs.rackspace.com/api/</link>. 
+      </para>
+      <!-- [Add this note if there is a Getting Started Guide]
+      <para>For information about getting started using &PRODNAME;, 
+      refer to <citetitle>Getting Started
+  with Rackspace &PRODNAME;</citetitle>.</para>
+-->
+      <para>For information about Rackspace Cloud products, refer to
+  <link xlink:href="http://www.rackspace.com/cloud/"
+  >www.rackspace.com/cloud</link>. This site also
+offers links to Rackspace's official support channels,
+including knowledge base articles, forums, phone, chat, and
+email. </para>
+      <para>You can follow Rackspace updates and announcements
+via twitter at: <link
+  xlink:href="http://www.twitter.com/rackspace"
+  >www.twitter.com/rackspace</link>. </para>
+      <para>This API uses standard HTTP 1.1 response codes as
+documented at: <link
+  xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
+  >www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>.
+      </para>
+    </section>
+    <section xml:id="API_Contract_Changes-d1e363">
+      <title>API Contract Changes</title>
+      <para>Rackspace will notify customers in Release Notes when and
+if the contract does change.</para>
+    </section>
+<!-- </chapter>
+  <chapter xml:id="Concepts-d1e563"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+-->
+    <section xml:id="Concepts">
+    <title>Concepts</title>
+    <?dbhtml stop-chunking?>
+    <para> To use the &PRODNAME; API effectively, you should
+    understand several key concepts:</para>
+      <para>
+[Add or remove as necessary.]
+      </para>
+      <section xml:id="concept_Agent">
+<title>Agent</title>
+<para>
+  Brief description of the concept.
+</para>
+      </section>
+    <section xml:id="concept_Backup">
+      <title>Backup</title>
+      <para>Brief description of the concept.</para>
+    </section>
+      <section xml:id="concept_BackupConfig">
+      <title>Backup Configuration</title>
+      <para>
+Brief description of the concept.
+      </para>
+    </section>
+      <section xml:id="concept_Restore">
+<title>Restore</title>
+<para>
+  Brief description of the concept.
+</para>
+      </section>
+      <section xml:id="concept_RestoreConfig">
+<title>Restore Configuration</title>
+<para>
+  Brief description of the concept.
+</para>
+      </section>
+    
+    
+    
+      
+    </section>
+  </preface>
+  
+  <chapter xml:id="General_API_Information-d1e633"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <title>General API Information</title>
+    <para> The &PRODNAME; API is implemented using a ReSTful
+      web service interface. Like other products in the Rackspace
+      Cloud suite,  &PRODNAME; shares a common token-based
+      authentication system that allows seamless access between
+      products and services. </para>
+    <note>
+      <para> All requests to authenticate against and operate the
+service are performed using SSL over HTTP (HTTPS) on TCP port
+443. </para>
+    </note>
+    <section xml:id="Authentication-d1e647">
+      <title>Authentication</title>
+      <para> Every ReST request against the &PRODNAME; Service
+requires the inclusion of a specific authorization token,
+supplied by the <code>X-Auth-Token</code> HTTP header.
+Customers obtain this token by first using the Rackspace Cloud
+Authentication Service and supplying a valid username and API
+access key. 
+      </para>
+      <para>
+To authenticate, submit a <code>POST/v2.0/tokens</code> request, 
+presenting valid Rackspace customer credentials 
+in the message body to a Rackspace authentication endpoint
+. 
+      </para>
+      <para>
+<emphasis role="bold">GET YOUR CREDENTIALS</emphasis>
+      </para>
+      <para> You can use either of two sets of credentials: <itemizedlist>
+<listitem>
+  <para>your <code>username</code> and
+    <code>password</code></para>
+</listitem>
+<listitem>
+  <para>your <code>username</code> and <code>API
+    key</code></para>
+</listitem>
+      </itemizedlist>
+      </para>
+      <para>
+Your <code>username</code> and
+<code>password</code> are the ones you use to login to the 
+Rackspace control panel. Once you are logged in, you can use 
+the Rackspace control panel to obtain your <code>API key</code>.
+      </para>
+      <para>
+Use the control panel for the region in which your account is based: 
+<itemizedlist spacing="compact">
+  <listitem>
+    <para>
+      US-based accounts use the control panel at 
+      <link xlink:href="https://manage.rackspacecloud.com/">
+https://manage.rackspacecloud.com/</link>.
+    </para>
+  </listitem>
+<!--
+  <listitem>
+    <para> UK-based accounts use the control panel at
+      <link
+xlink:href="https://lon.manage.rackspacecloud.com/"
+>https://lon.manage.rackspacecloud.com/</link>. </para>
+  </listitem>
+  -->
+</itemizedlist> 
+      </para>
+      <para>
+<emphasis role="bold">CHOOSE YOUR AUTHENTICATION ENDPOINT</emphasis>
+      </para>
+      <para>
+Use the authentication endpoint for the region in which your account is based:
+<itemizedlist spacing="compact">
+  <listitem>
+    <para> US-based accounts authenticate through
+      <link xlink:href="&ENDPOINT-US;">&ENDPOINT-US;</link>.</para>
+  </listitem>
+<!--
+ <listitem>
+    <para> UK-based accounts authenticate through
+      <link xlink:href="&ENDPOINT-UK;">&ENDPOINT-UK;</link>.</para>
+  </listitem>
+  -->
+</itemizedlist>
+      </para>
+      <para>
+<emphasis role="bold">SEND YOUR CREDENTIALS TO YOUR AUTHENTICATION
+  ENDPOINT</emphasis>
+      </para>
+      <para> If you know your credentials and your authentication
+endpoint, and you can issue a <code>POST
+  /v2.0/tokens</code> request in an API call, you have
+all the basic information you need to use the Rackspace
+Cloud Identity Service. 
+      </para>
+      <para> You can use <link xlink:href="http://curl.haxx.se/"
+>cURL</link> to try the authentication process in two
+steps: get a token; send the token to a service.<orderedlist>
+  <listitem>
+    <para>Get an authentication token by providing
+      your username and either your API key or your
+      password. Here are examples of both
+      approaches:</para>
+    <para><emphasis>You can request a token by
+      providing your username and your API
+      key.</emphasis></para>
+    <para>
+      <literallayout class="monospaced">curl -X POST https://auth.api.rackspacecloud.com/v2.0/tokens -d 
+'{ "auth":{ "RAX-KSKEY:apiKeyCredentials":{ "username":"theUserName", "apiKey":"00a00000a000a0000000a000a00aaa0a" } } }' -H "Content-type: application/json"</literallayout>
+    </para>
+    <para><emphasis>You can request a token by
+      providing your username and your
+      password.</emphasis></para>
+    <para>
+      <literallayout class="monospaced">curl -X POST https://auth.api.rackspacecloud.com/v2.0/tokens -d
+'{"auth":{"passwordCredentials":{"username":"theUserName","password":"thePassword"}}}' -H "Content-type: application/json"</literallayout>
+    </para>
+    <para> Successful authentication returns a token
+      which you can use as evidence that your
+      identity has already been authenticated. To
+      use the token, pass it to other services as an
+      <code>X-Auth-Token</code> header. </para>
+    <para> Authentication also returns a service
+      catalog, listing the endpoints you can use for
+      Cloud services. </para>
+  </listitem>
+  <listitem>
+    <para>Use the authentication token to send a GET
+      to a service you would like to use. For instance,
+      here is an example of passing an authentication token to
+      the Cloud Files service, using the Cloud Files
+      service catalog endpoint that was returned
+      along with the token.</para>
+    <para><emphasis>You can use a token and a service endpoint to tell a service that your credentials are valid.</emphasis></para>
+    <para>
+      <literallayout class="monospaced">curl -X GET https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeee
+-H 'X-Auth-Token:11111111-aaaa-2222-bbbb-3333cccc4444' --verbose</literallayout>
+    </para>
+  </listitem>
+</orderedlist>
+      </para>
+      <tip>
+<para> For links to language binding examples you can adapt to
+  work with the Cloud Identity service, visit <link
+    xlink:href="http://docs.rackspace.com/sdks/guide/content/index.html">
+    docs.rackspace.com/sdks/guide/content/index.html</link>.</para>
+      </tip>
+     
+<para>Authentication tokens are typically valid for 24 hours.
+  Applications should be designed to re-authenticate after
+  receiving a 401 (Unauthorized) response from a service
+  endpoint. </para>
+<important>
+  <para>If you are programmatically parsing an authentication
+    response, please be aware that service names are stable
+    for the life of the particular service and can be used as
+    keys. You should also be aware that a user's service
+    catalog can include multiple uniquely-named services which
+    perform similar functions. For example,
+    cloudServersOpenStack is the OpenStack version of compute
+    whereas cloudServers is the legacy version of compute; the
+    same user can have access to both services. In Auth 2.0,
+    the service type attribute can be used as a key by which
+    to recognize similar services; see the tip below.</para>
+</important>
+<tip>
+  <para>Beginning with Auth 2.0, the service catalog includes
+    a service type attribute to identify services that perform
+    similar functions but have different names; for example,
+      <code>type="compute"</code> identifies compute services
+    such as cloudServers and cloudServersOpenStack. Some
+    developers have found the service type attribute to be
+    useful in parsing the service catalog. For Auth 2.0 (also
+    known as the Cloud Identity Service), you can see the
+    service type attribute in the "Service Catalog in
+    Authentication Response" samples in the <citetitle>Cloud
+      Identity Client Developer Guide</citetitle> at <link
+      xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html"
+      >http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html</link>.</para>
+</tip>
+
+    </section>
+    <section xml:id="Service_Access_Endpoints-d1e753">
+      <title>Service Access/Endpoints</title>
+      <para>The &PRODNAME; Service is a regionalized service.
+The user of the service is therefore responsible for
+appropriate replication, caching, and overall maintenance of
+&PRODNAME; data across regional boundaries to other
+&PRODNAME; servers.</para>
+      <para>You can find the available service access/endpoints for
+&PRODNAME; summarized in the table below.</para>
+      <?rax-fo keep-with-next?>
+      <para>
+<table rules="all">
+  <caption>Regionalized Service Endpoints</caption>
+  <thead>
+    <tr align="center">
+      <td colspan="2">Region</td>
+      <td colspan="5">Endpoint</td>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr align="left">
+      <td colspan="2">Dallas/Ft. Worth (DFW)</td>
+      <td colspan="5"
+><code>https://dfw.&PROJURL;.api.rackspacecloud.com/v1/</code><parameter>1234</parameter>/
+       </td>
+    </tr>
+    <tr align="left">
+      <td colspan="2">Chicago (ORD)</td>
+      <td colspan="5"
+><code>https://ord.&PROJURL;.api.rackspacecloud.com/v1/</code><parameter>1234</parameter>/
+      </td>
+    </tr>
+    <tr align="left">
+      <td colspan="2">London (LON)</td>
+      <td colspan="5"
+><code>https://lon.&PROJURL;.api.rackspacecloud.com/v1/</code><parameter>1234</parameter>/
+      </td>
+    </tr>
+  </tbody>
+</table>
+      </para>
+      <para>Replace the sample account ID number,
+  <parameter>1234</parameter>, with your actual account number
+returned as part of the authentication service
+response.</para>
+      <para>You will find the actual account number after the final
+'/' in the <code>publicURL</code> field returned by the
+authentication response.</para>
+    </section>
+    <section xml:id="DB_service_versions">
+      <title>&PRODNAME; Service Versions</title>
+      <para> The &PRODNAME; version defines the contract and
+build information for the API. 
+      </para>
+      <section xml:id="List_Version-d1e825">
+<title>List Version</title>
+<para>
+  You can list which API versions are available for your account.
+</para>
+<example>
+  <title>Example List Versions: Request</title>
+  <programlisting>
+    GET HTTP/1.1
+    Host: https://dfw.&PROJURL;.api.rackspacecloud.com/v1/1234/
+  </programlisting>
+</example>
+<para>
+  Normal Response Codes: 200, 203
+</para>
+<para> 
+  Error Response Codes: 400, 413, 500, 503
+</para>
+<para>
+  Issue a GET request to the root endpoint for a service. In the request, truncate the version and everything to the right of it. For example:
+</para>
+  <programlisting>
+  https://dfw.&PROJURL;.api.rackspacecloud.com/
+  </programlisting>
+<para>
+  This operation does not require a request body.
+</para>
+ 
+      </section>
+    </section>
+    <section xml:id="Request_Response_Types-d1e903">
+      <title>Request/Response Types</title>
+      <para> The &PRODNAME; API supports both the XML and JSON
+data serialization formats. The request format is
+specified using the <code>Content-Type</code> header and is
+  required for calls that have a request
+body. The response format can be specified in requests either
+by using the <code>Accept</code> header or by adding an
+  <code>.xml</code> or <code>.json</code> extension to the
+request URI. Note that it is possible for a response to be
+serialized using a format different from the request. If no
+response format is specified, JSON is the default. If
+conflicting formats are specified using both an
+  <code>Accept</code> header and a query extension, the query
+extension takes precedence.</para>
+      
+      <table rules="all">
+<caption>Response Formats</caption>
+<?dbfo keep-together="always"?>
+<thead>
+  <tr align="center">
+    <td>Format</td>
+    <td>Accept Header</td>
+    <td>Query Extension</td>
+    <td>Default</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>JSON</td>
+    <td>application/json</td>
+    <td>.json</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>XML</td>
+    <td>application/xml</td>
+    <td>.xml</td>
+    <td>No</td>
+  </tr>
+</tbody>
+      </table>
+
+      <para>In the request example below, notice that
+  <parameter>Content-Type</parameter> is set to
+  <parameter>application/json</parameter>, but
+  <parameter>application/xml</parameter> is requested via the
+  <parameter>Accept</parameter> header:</para>
+
+      <example>
+<title>Request with Headers (Sample API Operation)</title>
+<literallayout class="monospaced">
+  GET /v1/441446/types HTTP/1.1
+  Host: dfw.&PROJURL;.api.rackspacecloud.com
+  X-Auth-Token: eaaafd18-0fed-4b3a-81b4-663c99ec1cbb
+  Accept: application/xml
+    </literallayout>
+      </example>
+
+      <para><?rax-fo keep-with-next?>Therefore an XML response format
+is returned:</para>
+
+      <example>
+<title>Response with Headers</title>
+<literallayout class="monospaced">
+  HTTP/1.1 200 OK
+  Date: Fri, 20 Jul 2012 20:32:13 GMT
+  Content-Length: 187
+  Content-Type: application/xml
+  X-Compute-Request-Id: req-8e0295cd-a283-46e4-96da-cae05cbfd1c7
+  
+  &lt;?xml version='1.0' encoding='UTF-8'?&gt;
+  &lt;volume_types&gt;
+      &lt;volume_type id="1" name="SATA"&gt;
+  &lt;extra_specs/&gt;
+      &lt;/volume_type&gt;
+      &lt;volume_type id="2" name="SSD"&gt;
+  &lt;extra_specs/&gt;
+      &lt;/volume_type&gt;
+  &lt;/volume_types&gt;
+     </literallayout>
+      </example>
+    </section>
+    
+ 
+    <?hard-pagebreak?>
+    <section xml:id="Limits-d1e1208">
+      <title>Limits</title>
+      <para> 
+[If your project has limits, here is where you mention them.]
+      </para>
+      <para>
+All accounts, by default, have a preconfigured set of
+thresholds (or limits) to manage capacity and prevent abuse of
+the system.
+      </para>
+      <section xml:id="Absolute_Limits-d1e1397">
+<title>Absolute Limits</title>
+
+<para>[If your project has limitations, use the table below to 
+  describe them.]</para>
+<table rules="all">
+  <caption>Absolute Limits</caption>
+  <col width="120pt"/>
+  <col width="201pt"/>
+  <col width="50pt"/>
+  <thead>
+    <tr>
+      <td colspan="1">Name</td>
+      <td colspan="1">Description</td>
+      <td colspan="1">Limit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">Limit type 1</td>
+      <td colspan="1">A limit of <emphasis role="bold"> 
+limited resource 1</emphasis> per user per region. </td>
+      <td colspan="1">10 units</td>
+    </tr>
+    <tr>
+      <td colspan="1">Limit type 2</td>
+      <td colspan="1">A limit of <emphasis role="bold"> 
+limited resource 2</emphasis> per user per region. </td>
+      <td colspan="1">20 units</td>
+    </tr>
+  </tbody>
+</table>
+      </section>
+    </section>
+    <section xml:id="datetimeformat">
+      <title>Date/Time Format</title>
+      <para> The &PRODNAME; Service uses an ISO-8601-compliant 
+date format for the display and consumption of
+date/time values. 
+      </para>
+      <example>
+<title>Service Date/Time Format</title>
+<programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+<para>See the table below for a description of the date/time
+  format codes.</para>
+<para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the
+  following format:</para>
+<programlisting>2011-05-19T08:07:08-05:00</programlisting>
+      </example>
+      <table rules="all">
+<caption>Explanation of Date/Time Format Codes</caption>
+<thead>
+  <tr>
+    <td>Code</td>
+    <td>Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>yyyy</td>
+    <td>Four digit year</td>
+  </tr>
+  <tr>
+    <td>MM</td>
+    <td>Two digit month</td>
+  </tr>
+  <tr>
+    <td>dd</td>
+    <td>Two digit day of month</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>Separator for date/time</td>
+  </tr>
+  <tr>
+    <td>HH</td>
+    <td>Two digit hour of day (00-23)</td>
+  </tr>
+  <tr>
+    <td>mm</td>
+    <td>Two digit minutes of hour</td>
+  </tr>
+  <tr>
+    <td>ss</td>
+    <td>Two digit seconds of the minute</td>
+  </tr>
+  <tr>
+    <td>SSS</td>
+    <td>Three digit milliseconds of the second</td>
+  </tr>
+  <tr>
+    <td>Z</td>
+    <td>RFC-822 timezone</td>
+  </tr>
+</tbody>
+      </table>
+    </section>
+    <section xml:id="pagination" security="writeronly">
+      <title>Pagination</title>
+      <remark security="reviewer">Reviewer: please review and give me your updates for
+this section. Dev needs to determine which API calls support
+pagination and then supply examples. I have hidden this entire
+section for now, since we do not believe that it will be
+supported for Private Beta. Correct?</remark>
+      <para>To reduce load on the service, list operations returns
+a maximum of 100 items at a time. This is referred to as
+  pagination.</para>
+      <para> Pagination is the ability to limit the size of the
+returned data as well as retrieve a specified subset of a
+large data set. Pagination has two key concepts: limit and
+offset. Limit is the restriction on the
+maximum number of items for that type that can be returned.
+  Offset is the starting point for the
+return data. For example, an offset of 50 specifies that the
+items that are returned should start with item number 51
+(since the numbering is one-based) in the collection. </para>
+      <para>It is important to note that offset
+  must be a multiple of the limit (or
+zero), otherwise a Bad Request Exception will be thrown. Both
+limit and offset are specified via request parameters on the
+URI. The parameters are named <code>limit</code> and
+  <code>offset</code> respectively, and both apply only to
+&GET; calls. If unspecified, they default to
+  <code>limit=100</code> and <code>offset=0</code>. See the
+examples that follow.</para>
+      <example>
+<title>Examples of Limits and Offsets for Paging Calls</title>
+<?dbfo keep-together="always"?>
+<programlisting language="xml">Reviewer: Need code example.</programlisting>
+      </example>
+      <para>Pagination applies only to the calls listed in the
+following table: </para>
+      <remark security="reviewer">Reviewer: need to update the table of paginated API
+calls below:</remark>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/URI/</td>
+    <td colspan="3">List all databases manageable by the
+      account specified. </td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2"
+      >/URI/?name=<replaceable>Name</replaceable></td>
+    <td colspan="3">Filter databases.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/URI/<replaceable>ID</replaceable></td>
+    <td colspan="3">List details of the specified
+      database.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2"
+      >/URI/<replaceable>ID</replaceable>/xxx</td>
+    <td colspan="3">List details xxx.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2"
+      >/URI/<replaceable>ID</replaceable>/yyy</td>
+    <td colspan="3">List details yyy.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <para>See the following section for examples of paged List
+Databases calls.</para>
+      <section xml:id="Pagination_Elements_and_Attributes-d1e1754">
+<title>Pagination Elements and Attributes</title>
+<remark security="reviewer">Reviewer: please review and give me your updates for
+  this section.</remark>
+<para>For any collection in a result, there is a
+    <code>totalEntries</code> attribute representing the total
+  number of entries there are for this item type. If the
+  number of items requested in the &GET; call is less then the
+  total number of items for this type, then there will be
+  pagination links <code>previous</code> and/or
+    <code>next</code>, specifying how to get to the previous
+  and/or next set of records. </para>
+<note>
+  <para>The <code>previous</code> and/or <code>next</code>
+    link elements are displayed only if there are items
+    available in the corresponding link. See the following
+    examples for details.</para>
+</note>
+<example>
+  <title>List Databases Request with limit: XML</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Request with limit: JSON</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Response with totalEntries:
+    XML</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Response with totalEntries:
+    JSON</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<para> In the previous two response examples, note that
+    <code>totalEntries=112</code> and that a link has been
+  provided to retrieve the next 3 results
+    (<code>limit=3</code>) in the link element identified by
+  the attribute <code>rel="next"</code> (XML) or
+    <code>"rel":"next"</code> (JSON). </para>
+<para>The following example shows links to both previous and
+  next results in the responses, since the request specified
+  to start with the fourth item in the collection
+    (<code>offset=3</code>):</para>
+<example>
+  <title>List Databases Request with limit and offset:
+    XML</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Request with limit and offset:
+    JSON</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Response with Links to previous and
+    next Results: XML</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<example>
+  <title>List Databases Response with Links to previous and
+    next Results: JSON</title>
+  <?dbfo keep-together="always"?>
+  <programlisting language="xml">Reviewer: Need code example.</programlisting>
+</example>
+<para>
+  <?rax-fo keep-with-next?> In the previous two response
+  examples, note that <code>totalEntries=112</code> and two
+  links have been provided to:<itemizedlist>
+    <listitem>
+      <para>Retrieve the next 3 results (<code>limit=3</code>)
+via the link element identified by the attribute
+  <code>rel="next"</code> (XML) or
+  <code>"rel":"next"</code> (JSON)</para>
+    </listitem>
+    <listitem>
+      <para>Retrieve the previous 3 results via the link
+element identified by the attribute
+  <code>rel="previous"</code> (XML) or
+  <code>"rel":"previous"</code> (JSON) </para>
+    </listitem>
+  </itemizedlist></para>
+      </section>
+    </section>
+    <section xml:id="efficient_polling_changes_since_parm"
+      security="writeronly">
+      <title>Efficient Polling with the
+  <parameter>Changes-Since</parameter> Parameter</title>
+      <remark security="reviewer">Reviewer: I have hidden this section, since it does not
+appear that it will be supported for Private Beta.
+Correct?</remark>
+      <para> The ReST API allows you to poll for the status of certain
+operations by performing a &GET; on various URIs. Rather than
+re-downloading and re-parsing the full status at each polling
+interval, your ReST client may use the
+  <parameter>changes-since</parameter> parameter to check for
+changes since a previous request. The
+  <parameter>changes-since</parameter> time is specified as
+  <link xlink:href="http://en.wikipedia.org/wiki/Unix_time"
+  >Unix time</link> (the number of seconds since January 1,
+1970, 00:00:00 UTC, not counting leap seconds). If nothing has
+changed since the <parameter>changes-since</parameter> time, a
+  <returnvalue>304 (Not Modified)</returnvalue> response will
+be returned. If data has changed, only the items changed since
+the specified time will be returned in the response. </para>
+      <remark security="reviewer">Reviewer: does the following sentence apply, and should
+it be included?</remark>
+      <para>For example, performing a &GET; against
+  https://api.servers.rackspacecloud.com/v1.0/224532/servers?<parameter>changes-since</parameter>=1244012982
+would list all servers that have changed since Wed, 03 Jun
+2009 07:09:42 UTC. </para>
+    </section>
+    <section xml:id="DB_faults" >
+      <title>Faults</title>
+      <!-- add or remove error codes as needed -->
+      <para> When an error occurs, the &PRODNAME; Service
+returns a fault object containing an HTTP error response code
+that denotes the type of error. In the body of the response,
+the system returns additional information about the fault. 
+      </para>
+      <para>The following table lists possible fault types with their
+associated error codes and descriptions.
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="2">Fault Type</td>
+    <td colspan="1">Associated Error Code</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="2"><code>badRequest</code></td>
+    <td colspan="1">400</td>
+    <td colspan="3">There was one or more errors in the user
+      request.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>unauthorized</code></td>
+    <td colspan="1">401</td>
+    <td colspan="3">The supplied token is not authorized to
+      access the resources, either it's expired or
+      invalid.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>forbidden</code></td>
+    <td colspan="1">403</td>
+    <td colspan="3">Access to the requested resource was
+      denied.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>itemNotFound</code></td>
+    <td colspan="1">404</td>
+    <td colspan="3">The back-end services did not find
+      anything matching the Request-URI.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>badMethod</code></td>
+    <td colspan="1">405</td>
+    <td colspan="3">The request method is not allowed for this
+      resource.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>instanceFault</code></td>
+    <td colspan="1">500</td>
+    <td colspan="3">This is a generic server error and the
+      message contains the reason for the error. This error
+      could wrap several error messages and is a catch
+      all.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>notImplemented</code></td>
+    <td colspan="1">501</td>
+    <td colspan="3">The requested method or resource is not
+      implemented.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><code>serviceUnavailable</code></td>
+    <td colspan="1">503</td>
+    <td colspan="3">The &PRODNAME; Service is not
+      available.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <para>
+<!-- two error example s are given; add more as needed -->
+Two common errors show up more often than others. Examples are below.
+      </para>
+      <para>
+<code>Common Error 1</code> happens when something happens. Examples 
+are given below in XML and JSON format.
+      </para>
+      <example>
+<title>Example Common Error 1 Response: XML</title>
+<literallayout class="monospaced">
+    HTTP/1.1 500 Internal Server Error
+    Content-Type: application/xml
+    Content-Length: 121
+    Date: Mon, 28 Nov 2011 18:19:37 GMT
+      </literallayout>
+      </example>
+      <example>
+<title>Example Common Error 1 Response: JSON</title>
+<literallayout class="monospaced">
+    HTTP/1.1 500 Internal Server Error
+    Content-Length: 120
+    Content-Type: application/json; charset=UTF-8
+    Date: Tue, 29 Nov 2011 00:33:48 GMT
+    
+    {
+"example": {
+    "example": yes,
+
+}
+    }
+      </literallayout>
+      </example>
+
+<para><?rax-fo keep-with-next?>
+  <code>Common Error 2</code> happens when something happens. Examples 
+  are given below in XML and JSON format.
+</para>
+      <example>
+<title>Example Common Error 2: XML</title>
+<literallayout class="monospaced">
+    HTTP/1.1 400 None
+    Content-Type: application/xml
+    Content-Length: 121
+    Date: Mon, 28 Nov 2011 18:19:37 GMT
+    
+    &lt;badRequest code="400" xmlns="http://docs.rackspace.com/cbs/api/v1.0"&gt;
+&lt;message&gt;
+    Example bad request response.
+&lt;/message&gt;
+    &lt;/badRequest&gt;
+      </literallayout>
+      </example>
+      <example>
+<title>Example Common Error 2: JSON</title>
+<literallayout class="monospaced">  
+HTTP/1.1 400 None
+Content-Length: 120
+Content-Type: application/json; charset=UTF-8
+Date: Tue, 29 Nov 2011 00:33:48 GMT
+
+{
+"example": {
+"example": yes
+}
+}
+</literallayout>
+
+
+      </example>
+
+    </section>
+    <section xml:id="project_status">
+      <title>Project Status</title>
+      <para><?rax-fo keep-with-next?>When working with &PRODNAME;,
+you may see the following status values:</para>
+      <itemizedlist spacing="compact">
+<listitem>
+  <para>STATUS &ndash; Description.</para>
+</listitem>
+<listitem>
+  <para>STATUS &ndash; Description.</para>
+</listitem>
+<listitem>
+  <para>STATUS &ndash; Description.</para>
+</listitem>
+<listitem>
+  <para>STATUS &ndash; Description.</para>
+</listitem>
+      </itemizedlist>
+    </section>
+  </chapter>
+
+
+  <chapter xml:id="operations">
+    <title>API Operations</title>
+    <!-- add API commands here -->
+  
+
+<!-- ******************************************************* -->
+<!-- Begin Agent Operations Section -->
+<!-- ******************************************************* -->
+    <section xml:id="Agent">
+      <title>Agent Operations</title>
+<para>
+Here are the operations within this section  
+</para>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/agent</td>
+      <td colspan="3">Gets details about the machine and its agent.</td>
+    </tr>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/agent/enable|disable</td>
+      <td colspan="3">Enables/Disables an agent. Disabling an agent only stops
+it from making backups. The agent is not deleted and its
+data remains. Disabled agents may later be re-enabled.</td>
+    </tr>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/agent/encrypt</td>
+      <td colspan="3">Enables volume encryption.</td>
+    </tr>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/agent/delete</td>
+      <td colspan="3">Permanently and immediately deletes an agent and its
+backup data.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<?hard-pagebreak?>
+
+    
+<!-- Get Agent Details -->     
+<section xml:id="getAgent">
+<title>Get Agent Details</title>
+  <informaltable rules="all">
+  <thead>
+  <tr align="center">
+  <td colspan="1">Verb</td>
+  <td colspan="2">URI</td>
+  <td colspan="3">Description</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td colspan="1">&GET;</td>
+  <td colspan="2">/agent</td>
+  <td colspan="3">Gets details about the machine and its agent.</td>
+  </tr>
+  </tbody>
+  </informaltable>
+  <simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+  </simpara>
+  <simpara> Error Response Code(s):  400 (Bad Request),
+    401 (Unauthorized),
+    403 (Forbidden),
+    404 (Not Found),
+    500 (Service Unavailable)
+  </simpara>
+  <example>
+    <title>Get Agent Details Request: JSON</title>
+    <literallayout class="monospaced">
+  GET     https://api.drivesrvr.com/v1.0/agent/{machineAgentId}
+          User-Agent: controlpanel.drivesrvr.com
+          Host: api.drivesrvr.com
+          Content-Type: application/json;
+          Content-Length: 0
+          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+  </literallayout>
+  </example>
+  <example>
+  <title>Get Agent Details Response: JSON</title>
+    <literallayout>
+       {
+         "AgentVersion": "1.05.005848",
+         "Architecture": "64-bit",
+         "Flavor":"RaxCloudServer",
+         "BackupVaultSize": "35.3 MB",
+         "CleanupAllowed": true,
+         "Datacenter": "ORD",
+         "IPAddress": "192.168.1.1",
+         "IsDisabled": false,
+         "IsEncrypted": true,
+         "MachineAgentId": 213564,
+         "MachineName": "Web Server",
+         "OperatingSystem": "Windows Server 2012",
+         "OperatingSystemVersion":"",
+         "PublicKey": {
+              "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a
+              98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4
+              61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23
+              fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a
+              cd36074eafd036a5eb83359d2a698d0",
+              "ExponentHex": 09528 },
+         "Status": "Online",
+         "TimeOfLastSuccessfulBackup": null,
+         "UseServiceNet": true
+         }
+  </literallayout>
+  </example>
+  <para></para>
+  <!-- end this operation -->
+</section>
+      <?hard-pagebreak?>
+      
+
+      <!-- Enable / Disable an Agent -->
+      <section xml:id="enableAgent">
+<title>Enable / Disable Agent</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/agent/enable|disable</td>
+      <td colspan="3">Enables/Disables an agent. Disabling an agent 
+only stops it from making backups. The agent is not deleted 
+and its data remains. Disabled agents may later be re-enabled.
+      </td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<para> See Delete Agent if you want to remove an agent completely.</para>
+<example>
+  <title>Enable Agent Request: JSON</title>
+  <literallayout class="monospaced">
+  {
+      "MachineAgentId": 92384579,
+      "Enable": true
+    }    
+      </literallayout>
+</example>
+<example>
+  <title>Disable Agent Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "MachineAgentId": 92384579,
+      "Enable": false
+    }
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+      
+ <!-- enable encryption -->
+      
+      <section xml:id="enableEncryption">
+<title>Enable Volume Encryption</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/agent/encrypt</td>
+      <td colspan="3">Enables volume encryption.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s):
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (503)
+</simpara>
+<para>Enables volume encryption with AES-256 encryption if it
+  is not already enabled. <emphasis role="bold">Note:</emphasis> Once
+  encryption is turned on, it cannot be turned off. This is a
+  security measure. If anyone ever gained access to your
+  account, they would not be able to access your backups
+  without your passphrase. </para>
+<para>
+  If you lose or forget your passphrase, you will not be able to recover 
+  your encrypted backups. 
+</para>
+<para> The following example shows the request and corresponding response 
+  to enable volume encyption:</para>
+<example>
+  <title>Enable Volume Encryption Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "MachineAgentId" : 869,
+      "EncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
+      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
+      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
+      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
+      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
+      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
+      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
+      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
+      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
+      c1e6ef4254226249b872676af76a319cbe"
+    }      
+      </literallayout>
+</example>
+<example>
+  <title>Enable Volume Encryption Response: JSON</title>
+  <literallayout class="monospaced">
+      0cee72c7-015c-493b-b5fe-a896ae444c34     
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+
+ <!-- Delete Agent -->
+<section xml:id="deleeAgent">
+  <title>Delete Agent</title>
+  <informaltable rules="all">
+    <thead>
+      <tr align="center">
+<td colspan="1">Verb</td>
+<td colspan="2">URI</td>
+<td colspan="3">Description</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+<td colspan="1">&POST;</td>
+<td colspan="2">/agent/delete</td>
+<td colspan="3">Permanently and immediately deletes an agent and 
+  its backup data.</td>
+      </tr>
+    </tbody>
+  </informaltable>
+  <simpara>
+    Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
+  </simpara>
+  <simpara> Error Response Code(s): 
+    Bad Request (400),
+    Unauthorized (401),
+    Forbidden (403),
+    Service Unavailable (500)
+  </simpara>
+  <para>An Agent can be deleted at any time. If the Agent is in the middle
+    of an operation, it will be allowed to complete. Once it completes
+    its operation, it will no longer authenticate.
+  </para>
+  <example>
+    <title>Delete Agent Response: JSON</title>
+    <literallayout class="monospaced">
+    {
+      "MachineAgentId": 92384579
+    }      
+      </literallayout>
+  </example>
+  <para></para>
+  <!-- end Delete Agent -->
+</section>
+ 
+ <!-- end agent operations -->
+ 
+ 
+ <!-- end this group of API Operations -->       
+      </section>
+    <?hard-pagebreak?>
+
+<!-- ******************************************************* -->
+<!-- Begin User Operations Section -->
+<!-- ******************************************************* -->
+   
+    <section xml:id="User">
+      <title>User Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/user/agents</td>
+    <td colspan="3">Retrieves information for all agents for the current user.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+      
+<!-- get all agents for this user -->
+
+      <section xml:id="getAgents">
+<title>Get All Agents for this User</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/user/agents</td>
+      <td colspan="3">Retrieves information for all agents for the current user.
+Returns: <code>A list of agents.</code></td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (503)
+</simpara>
+<para> The following example shows the request and corresponding response to get all agents for the user:</para>
+<example>
+  <title>Get All Agents for this User Request: JSON</title>
+  <literallayout class="monospaced">
+  GET     https://api.drivesrvr.com/v1.0/user/agents
+          User-Agent: controlpanel.drivesrvr.com
+          Host: api.drivesrvr.com
+          Content-Type: application/json;
+          Content-Length: 0
+          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+
+<example>
+  <title>Get All Agents for this User Response: JSON</title>
+  <literallayout class="monospaced">
+          {
+              [
+            {
+        "AgentVersion": "1.05.005848",
+        "Architecture": "64-bit",
+        "BackupVaultSize": "35.3 MB",
+        "CleanupAllowed": true,
+        "Datacenter": "ORD",
+        "Flavor":"RaxCloudServer",
+        "IPAddress": "192.168.1.1",
+        "IsDisabled": false,
+        "IsEncrypted": true,
+        "MachineAgentId": 213563,
+        "MachineName": "Web Server2",
+        "OperatingSystem": "Windows Server 2012",
+        "OperatingSystemVersion":"",
+        "PublicKey": {
+           "ModulusHex": "a5261939156948bb7a58dffe5ff89e
+           65f0498f9175f5a98288810b8975871e99af3b5dd9405
+           7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
+           07727c065168c788771c561a9400fb61975e9e6aa4e23
+           fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
+           6d0829073351f4acd36074eafd036a5eb83359d2a698d0",
+           "ExponentHex": 09528 },
+        "Status": "Online",
+        "TimeOfLastSuccessfulBackup": null,
+        "UseServiceNet": true
+            },
+            {
+        "AgentVersion": "1.05.005848",
+        "Architecture": "64-bit",
+        "BackupVaultSize": "35.3 MB",
+        "CleanupAllowed": true,
+        "Flavor":"RaxCloudServer",
+        "Datacenter": "ORD",
+        "IPAddress": "192.168.1.3",
+        "IsDisabled": false,
+        "IsEncrypted": true,
+        "MachineAgentId": 213564,
+        "MachineName": "Web Server",
+        "OperatingSystem": "Windows Server 2012",
+        "OperatingSystemVersion" : "",
+        "PublicKey": {
+           "ModulusHex": "a5261939156948bb7a58dffe5ff89e
+           65f0498f9175f5a98288810b8975871e99af3b5dd9405
+           7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
+           07727c065168c788771c561a9400fb61975e9e6aa4e23
+           fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
+           6d0829073351f4acd360723324234234234234234234abc2",
+           "ExponentHex": 82374 },
+        "Status": "Online",
+        "TimeOfLastSuccessfulBackup": null,
+        "UseServiceNet": true
+            }
+              ]
+            }      
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      
+      
+ <!-- end of user operations section -->     
+    </section>
+    <?hard-pagebreak?>
+
+<!-- ******************************************************* -->
+<!-- Begin Backup Configuration Operations Section -->
+<!-- ******************************************************* -->
+    
+    <section xml:id="backupConfig">
+      <title>Backup Configuration Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&POST;</td>
+    <td colspan="2">/backup-configuration</td>
+    <td colspan="3">Creates a backup configuration for the authenticated user.
+      Returns: details of a backup configuration.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&PUT;</td>
+    <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
+    <td colspan="3">Updates a backup configuration that already exists.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup-configuration/</td>
+    <td colspan="3">Gets a list of all the backup configurations for the current
+      user.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup-configuration/system/
+      {machineAgentId}</td>
+    <td colspan="3">Gets a list of backup configurations for the specified
+      agent.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&POST;</td>
+    <td colspan="2">/backup-configuration/enable/
+      {backupConfigurationId}</td>
+    <td colspan="3">Enables/Disables a backup configuration. Disabling a
+      backup configuration does not delete it nor its data.
+      Disabled backup configurations may later be re-enabled.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&DELETE;</td>
+    <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
+    <td colspan="3">Deletes the specified backup configuration..</td>
+  </tr>
+  
+
+  
+  
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+      
+ <!-- Create backup configuration -->
+      
+      <section xml:id="createConfig">
+<title>Create Backup Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/backup-configuration</td>
+      <td colspan="3">Creates a backup configuration for the authenticated user. Returns: details
+of a backup configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s):
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Conflict (409),
+  Service Unavailable (500)
+</simpara>
+<para>See "Get all Backup Configurations" to view a list of all backup configurations.
+  </para>
+<para> The following example shows the request and corresponding response to create a backup configuration:</para>
+<example>
+  <title>Create Backup Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+       "BackupConfigurationName": "Weekly Website Backup",
+       "IsActive": true|false,
+       "VersionRetention": 0|30|60,
+       "MissedBackupActionId": 1,
+       "Frequency": "Hourly|Daily|Weekly|Manually",
+       "StartTimeHour": 6,
+       "StartTimeMinute": 30,
+       "StartTimeAmPm": "AM|PM",
+       "DayOfWeekId": 4,
+       "HourInterval": null,
+       "TimeZoneId": "Eastern Standard Time",
+       "NotifyRecipients": "raxtestaddress1@gmail.com",
+       "NotifySuccess": true|false,
+       "NotifyFailure": true|false,
+       "Inclusions": [
+           {
+       "FilePath": "C:\\backup_up_file.txt",
+       "FileItemType": "File"
+           },
+           {
+       "FilePath": "C:\\backed_up_folder",
+       "FileItemType": "Folder"
+           }
+       ],
+       "Exclusions": [
+           {
+       "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+       "FileItemType": "File"
+           },
+           {
+       "FilePath": "C:\\backed_up_folder\\excluded_folder",
+       "FileItemType": "Folder"
+           }
+       ]
+     }
+      </literallayout>
+</example>
+<example>
+  <title>Create Backup Configuration Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "MachineAgentId": 156953,
+      "BackupConfigurationName": "Weekly Website Backup",
+      "IsActive": true|false,
+      "VersionRetention": 0|30|60,
+      "BackupConfigurationScheduleId": 145393,
+      "MissedBackupActionId": 1,
+      "Frequency": "Hourly|Daily|Weekly|Manually",
+      "StartTimeHour": 6,
+      "StartTimeMinute": 30,
+      "StartTimeAmPm": "AM|PM",
+      "DayOfWeekId": 4,
+      "HourInterval": null,
+      "TimeZoneId": "Eastern Standard Time",
+      "NotifyRecipients": "raxtestaddress@gmail.com",
+      "NotifySuccess": true|false,
+      "NotifyFailure": true|false,
+      "Inclusions": [
+          {
+            "FilePath": "C:\\backup_up_file.txt",
+            "FileItemType": "File"
+          },
+          {
+            "FilePath": "C:\\backed_up_folder",
+            "FileItemType": "Folder"
+          }
+      ],
+      "Exclusions": [
+          {
+            "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+            "FileItemType": "File"
+          },
+          {
+            "FilePath": "C:\\backed_up_folder\\excluded_folder",
+            "FileItemType": "Folder"
+          }
+      ]
+    }
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+ <!-- Update Backup Configuration -->
+      
+      <section xml:id="updateBackupConfig">
+<title>Update Backup Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&PUT;</td>
+      <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
+      <td colspan="3">Updates a backup configuration that already exists.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s):
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>See "Get all Backup Configurations" to view a list of all backup configurations 
+  and their Backup Configuration Schedule IDs.
+</para>
+<example>
+  <title>Update Backup Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+   {
+      "MachineAgentId": 156953,
+      "BackupConfigurationName": "Weekly Website Backup",
+      "IsActive": true|false,
+      "VersionRetention": 0|30|60,
+      "BackupConfigurationScheduleId": 145393,
+      "MissedBackupActionId": 1,
+      "Frequency": "Hourly|Daily|Weekly|Manually",
+      "StartTimeHour": 6,
+      "StartTimeMinute": 30,
+      "StartTimeAmPm": "AM|PM",
+      "DayOfWeekId": 4,
+      "HourInterval": null,
+      "TimeZoneId": "Eastern Standard Time",
+      "NotifyRecipients": "raxtestaddress@gmail.com",
+      "NotifySuccess": true|false,
+      "NotifyFailure": true|false,
+      "Inclusions": [
+          {
+            "FilePath": "C:\\backup_up_file.txt",
+            "FileItemType": "File"
+          },
+          {
+            "FilePath": "C:\\backed_up_folder",
+            "FileItemType": "Folder"
+          }
+      ],
+      "Exclusions": [
+          {
+            "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+            "FileItemType": "File"
+          },
+          {
+            "FilePath": "C:\\backed_up_folder\\excluded_folder",
+            "FileItemType": "Folder"
+          }
+      ]
+    }     
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- Get Backup Configuration Details -->
+
+      <section xml:id="getConfigDetails">
+<title>Get Backup Configuration Details</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
+      <td colspan="3">Gets detailed information for a specified backup configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s):
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para> The following example shows the request and corresponding response to 
+  get get details for a backup configuration:</para>
+<example>
+  <title>Get Backup Configuration Details Request: JSON</title>
+  <literallayout class="monospaced">
+     GET    https://api.drivesrvr.com/v1.0/backup-configuration/148325
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
+      </literallayout>
+</example>
+<example>
+  <title>Get Backup Configuration Details Response: JSON</title>
+  <literallayout class="monospaced">
+     {
+        "BackupConfigurationId": 148325,
+        "MachineAgentId": 156953,
+        "MachineName": "Web Server",
+        "Flavor": "RaxCloudServer",
+        "IsEncrypted": false,
+        "BackupConfigurationName": "Weekly Website Backup",
+        "IsActive": true,
+        "IsDeleted": false,
+        "VersionRetention": 60,
+        "BackupConfigurationScheduleId": 145406,
+        "MissedBackupActionId": 1,
+        "Frequency": "Weekly",
+        "StartTimeHour": 11,
+        "StartTimeMinute": 30,
+        "StartTimeAmPm": "AM",
+        "DayOfWeekId": 4,
+        "HourInterval": null,
+        "TimeZoneId": "Eastern Standard Time",
+        "NextScheduledRunTime": "\/Date(1357817400000)\/",
+        "LastRunTime": null,
+        "LastRunBackupReportId": null,
+        "NotifyRecipients": "raxtestaddress1@gmail.com",
+        "NotifySuccess": false,
+        "NotifyFailure": false,
+        "Inclusions": [
+            {
+        "FilePath": "C:\\backed_up_folder",
+        "ParentId": 148325,
+        "FileItemType": "Folder",
+        "FileId": 35000
+            },
+            {
+        "FilePath": "C:\\backup_up_file.txt",
+        "ParentId": 148325,
+        "FileItemType": "File",
+        "FileId": 34999
+            }
+        ],
+        "Exclusions":[
+            {
+        "FilePath": "C:\\backed_up_folder\\excluded_folder",
+        "ParentId": 148325,
+        "FileItemType": "Folder",
+        "FileId": 35002
+            },
+            {
+        "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+        "ParentId": 148325,
+        "FileItemType": "File",
+        "FileId": 35001
+            }
+        ]
+    }    
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+
+      
+<!-- Get all Backup Configurations for User -->
+      
+      <section xml:id="getConfigsUser">
+<title>Get All Backup Configurations for User</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup-configuration</td>
+      <td colspan="3">Gets a list of all the backup configurations for 
+the current user.
+</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Get All Backup Configurations for User Response: JSON</title>
+  <literallayout class="monospaced">
+     {
+    	[
+    	    {
+    	"BackupConfigurationId": 100850,
+    	"MachineAgentId": 96674,
+    	"MachineName": "Web Server",
+    	"Flavor": "RaxCloudServer",
+    	"IsEncrypted": false,
+    	"BackupConfigurationName": "Manual Website Backup",
+    	"IsActive": true,
+    	"IsDeleted": false,
+    	"VersionRetention": 60,
+    	"BackupConfigurationScheduleId": 98017,
+    	"MissedBackupActionId": 2,
+    	"Frequency": "Manually",
+    	"StartTimeHour": null,
+    	"StartTimeMinute": null,
+    	"StartTimeAmPm": "",
+    	"DayOfWeekId": null,
+    	"HourInterval": null,
+    	"TimeZoneId": "Eastern Standard Time",
+    	"NextScheduledRunTime": null,
+    	"LastRunTime": "\/Date(1343226053000)\/",
+    	"LastRunBackupReportId": 80071,
+    	"NotifyRecipients": "user@rackspace.com",
+    	"NotifySuccess": false,
+    	"NotifyFailure": true,
+    	"Inclusions": [
+    	    {
+    	"FilePath": "/web/",
+    	"ParentId": 100850,
+    	"FileItemType": "Folder",
+    	"FileId": 2947
+    	    }
+    	],
+    	"Exclusions": [
+    	    {
+    	"FilePath": "/web/cache/",
+    	"ParentId": 100850,
+    	"FileItemType": "Folder",
+    	"FileId": 2948
+    	    }
+    	]
+    	    },
+    	    {
+    	"BackupConfigurationId": 100928,
+    	"MachineAgentId": 96685,
+    	"MachineName": "Database Server",
+    	"Flavor": "RaxCloudServer",
+    	"IsEncrypted": false,
+    	"BackupConfigurationName": "Manual DB Backup",
+    	"IsActive": true,
+    	"IsDeleted": false,
+    	"VersionRetention": 60,
+    	"BackupConfigurationScheduleId": 98019,
+    	"MissedBackupActionId": 2,
+    	"Frequency": "Manually",
+    	"StartTimeHour": null,
+    	"StartTimeMinute": null,
+    	"StartTimeAmPm": "",
+    	"DayOfWeekId": null,
+    	"HourInterval": null,
+    	"TimeZoneId": "Eastern Standard Time",
+    	"NextScheduledRunTime": null,
+    	"LastRunTime": "\/Date(1343226074000)\/",
+    	"LastRunBackupReportId": 80116,
+    	"NotifyRecipients": "user@rackspace.com",
+    	"NotifySuccess": false,
+    	"NotifyFailure": true,
+    	"Inclusions": [
+    	    {
+    	"FilePath": "/db/dumps/",
+    	"ParentId": 100928,
+    	"FileItemType": "Folder",
+    	"FileId": 3568
+    	    }
+    	],
+    	"Exclusions": [
+    	    {
+    	"FilePath": "/db/dumps/tmp/",
+    	"ParentId": 100928,
+    	"FileItemType": "Folder",
+    	"FileId": 3570
+    	    }
+    	]
+    	    }
+    	]
+    } 
+      </literallayout>
+</example>  
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- Get all Backup Configs for Agent -->
+
+      <section xml:id="getBackupConfigsAgent">
+<title>Get all Backup Configurations for Agent</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup-configuration/system/{machineAgentId}</td>
+      <td colspan="3">Gets a list of backup configurations for the specified agent.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Get all Backup Configurations for Agent Request: JSON</title>
+  <literallayout class="monospaced">
+     GET    https://api.drivesrvr.com/v1.0/backup-configuration/system/224193
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+  </literallayout>
+</example>
+
+<example>
+  <title>Get all Backup Configurations for Agent Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+        [
+            {
+        "BackupConfigurationId": 158485,
+        "MachineAgentId": 224193,
+        "MachineName": "Web Server",
+        "Flavor": "RaxCloudServer",
+        "IsEncrypted": false,
+        "BackupConfigurationName": "Manual Log Backup",
+        "IsActive": true,
+        "IsDeleted": false,
+        "VersionRetention": 60,
+        "BackupConfigurationScheduleId": 155566,
+        "MissedBackupActionId": 1,
+        "Frequency": "Manually",
+        "StartTimeHour": null,
+        "StartTimeMinute": null,
+        "StartTimeAmPm": "",
+        "DayOfWeekId": null,
+        "HourInterval": null,
+        "TimeZoneId": "Eastern Standard Time",
+        "NextScheduledRunTime": "\/Date(-62135578800000)\/",
+        "LastRunTime": null,
+        "LastRunBackupReportId": null,
+        "NotifyRecipients": "user@rackspace.com",
+        "NotifySuccess": true,
+        "NotifyFailure": true,
+        "Inclusions": [
+            {
+        "FilePath": "C:\\Websites\\Logs",
+        "ParentId": 158485,
+        "FileItemType": "Folder",
+        "FileId": 47085
+            }
+        ],
+        "Exclusions": [ ]
+            },
+            {
+        "BackupConfigurationId": 158486,
+        "MachineAgentId": 224193,
+        "MachineName": "Web Server",
+        "Flavor": "RaxCloudServer",
+        "IsEncrypted": false,
+        "BackupConfigurationName": "Weekly Website Backup",
+        "IsActive": true,
+        "IsDeleted": false,
+        "VersionRetention": 60,
+        "BackupConfigurationScheduleId": 155567,
+        "MissedBackupActionId": 1,
+        "Frequency": "Weekly",
+        "StartTimeHour": 7,
+        "StartTimeMinute": 23,
+        "StartTimeAmPm": "AM",
+        "DayOfWeekId": 1,
+        "HourInterval": null,
+        "TimeZoneId": "Eastern Standard Time",
+        "NextScheduledRunTime": "\/Date(1358752980000)\/",
+        "LastRunTime": null,
+        "LastRunBackupReportId": null,
+        "NotifyRecipients": "user@rackspace.com",
+        "NotifySuccess": true,
+        "NotifyFailure": true,
+        "Inclusions": [
+            {
+        "FilePath": "C:\\Websites",
+        "ParentId": 158486,
+        "FileItemType": "Folder",
+        "FileId":47086
+            },
+            {
+        "FilePath": "C:\\Websites\\Logs",
+        "ParentId": 158486,
+        "FileItemType": "Folder",
+        "FileId":47087
+            }
+        ],
+        "Exclusions": []
+            }
+        ]
+    }      
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- Enable / Disable Backup Configuration -->
+
+      <section xml:id="enableBackupConfig">
+<title>Enable / Disable a Backup Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/backup-configuration/enable/{backupConfigurationId}</td>
+      <td colspan="3"> Enables/Disables a backup configuration.
+Disabling a backup configuration does not delete it nor its data.
+Disabled backup configurations may later be re-enabled.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+
+<example>
+  <title>Enable a Backup Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+   POST   https://api.drivesrvr.com/v1.0/backup-configuration/enable/148325
+          User-Agent: controlpanel.drivesrvr.com
+          Host: api.drivesrvr.com
+          Content-Type: application/json;
+          Content-Length: 0
+          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+        {
+          "Enable": true
+        }     
+      </literallayout>
+</example>
+<example>
+  <title>Disable a Backup Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "Enable": false
+    }      
+      </literallayout>
+</example>
+
+<example>
+  <title>Disable a Backup Configuration Response: JSON</title>
+  <literallayout class="monospaced">
+  {
+        "BackupConfigurationId": 148325,
+        "MachineAgentId": 156953,
+        "MachineName": "Web Server",
+        "Flavor": "RaxCloudServer",
+        "IsEncrypted": false,
+        "BackupConfigurationName": "Weekly Website Backup",
+        "IsActive": true,
+        "IsDeleted": false,
+        "VersionRetention": 60,
+        "BackupConfigurationScheduleId": 145406,
+        "MissedBackupActionId": 1,
+        "Frequency": "Weekly",
+        "StartTimeHour": 11,
+        "StartTimeMinute": 30,
+        "StartTimeAmPm": "AM",
+        "DayOfWeekId": 4,
+        "HourInterval": null,
+        "TimeZoneId": "Eastern Standard Time",
+        "NextScheduledRunTime": "\/Date(1357817400000)\/",
+        "LastRunTime": null,
+        "LastRunBackupReportId": null,
+        "NotifyRecipients": "raxtestaddress1@gmail.com",
+        "NotifySuccess": false,
+        "NotifyFailure": false,
+        "Inclusions": [
+            {
+        "FilePath": "C:\\backed_up_folder",
+        "ParentId": 148325,
+        "FileItemType": "Folder",
+        "FileId": 35000
+            },
+            {
+        "FilePath": "C:\\backup_up_file.txt",
+        "ParentId": 148325,
+        "FileItemType": "File",
+        "FileId": 34999
+            }
+        ],
+        "Exclusions":[
+            {
+        "FilePath": "C:\\backed_up_folder\\excluded_folder",
+        "ParentId": 148325,
+        "FileItemType": "Folder",
+        "FileId": 35002
+            },
+            {
+        "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+        "ParentId": 148325,
+        "FileItemType": "File",
+        "FileId": 35001
+            }
+        ]
+    }    
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+      
+      <!-- Delete Backup Config -->
+      
+      <section xml:id="deleteBackupConfig">
+<title>Delete Backup Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&DELETE;</td>
+      <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
+      <td colspan="3">Deletes the specified backup configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s):
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Delete Backup Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+     DELETE   https://api.drivesrvr.com/v1.0/backup-configuration/148325
+      User-Agent: controlpanel.drivesrvr.com
+      Host: api.drivesrvr.com
+      Content-Type: application/json;
+      Content-Length: 0
+      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+     
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      
+      <!-- end of backup configuration operations section -->     
+    </section>
+    <?hard-pagebreak?>
+
+<!-- ******************************************************* -->
+<!-- Begin Backup Operations section --> 
+<!-- ******************************************************* -->
+    
+    <section xml:id="Backup">
+      <title>Backup Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&POST;</td>
+    <td colspan="2">/backup/action-requested</td>
+    <td colspan="3">Starts or Stops a Backup. Returns: Identifier of the instance
+      of the backup.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup/{backupId}</td>
+    <td colspan="3">Gets details about the specified backup.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup/completed/
+      {backupConfigurationId}</td>
+    <td colspan="3">Gets the details for backups that can still be restored.
+      Backups are returned only for the specified Backup
+      Configuration.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup/report/{backupId}</td>
+    <td colspan="3">Gets details about a completed Backup.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+    
+    
+      <section xml:id="startBackup">
+<title>Start or Stop a Backup Manually</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/backup/action-requested</td>
+      <td colspan="3">Starts or Stops a Backup.
+Returns: Identifier of the instance of the backup.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)--When 
+  manually starting a backup; 204 (No Content)--When manually stopping
+  a backup
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)</simpara>
+<para>When manually starting a backup, provide the Backup Configuration identifier 
+  (BackupConfigurationId) for the ID. You may retrieve a list of all Backup 
+  Configurations for an Agent with the "Get All Backup Configurations for an Agent" 
+  operation.
+</para>
+<para>
+  When manually stopping a backup, provide the Backup Identifier for the ID.The 
+  backup Id is given when the backup is started. 
+</para>
+<para> The following example shows the request and corresponding response to starting a 
+  backup. The Backup Configuration ID is given for the start request, and the 
+  Backup's ID is returned in the response:</para>
+<example>
+  <title>Start  a Backup Manually Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+    	"Action" : "StartManual",
+    	"Id": 148325
+    }
+      </literallayout>
+</example>
+<example>
+  <title>Start  a Backup Manually Response: JSON</title>
+  <literallayout class="monospaced">
+  368785
+      </literallayout>
+</example>
+<example>
+  <title>Stop  a Backup Manually Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+    	"Action" : "StopManual",
+    	"Id": 368785
+    }
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- Get Backup Details -->
+
+      <section xml:id="getBackupDetails">
+<title>Get Backup Details</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup/{backupId}</td>
+      <td colspan="3">Gets details about the specified backup.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para><emphasis role="bold">Note</emphasis>: The authenticated
+  user must have access to the specified backup in order to
+  retrieve its details.</para>
+<para> The following example shows the request and corresponding response to get
+  backup details:</para>
+
+<example>
+  <title>Get Backup Details Request: JSON</title>
+  <literallayout class="monospaced">
+    GET     https://api.drivesrvr.com/v1.0/backup/134332
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+
+<example>
+  <title>Get Backup Details Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+        "BackupId": 134332,
+        "BackupConfigurationId": 158519,
+        "CurrentState": "Queued",
+        "BackupConfigurationName": "Weekly Website Backup",
+        "MachineAgentId": 224321,
+        "MachineName": "Web Server",
+        "StateChangeTime": "\/Date(1358530097000)\/",
+        "IsEncrypted": false,
+        "EncryptionKey": {
+            "ModulusHex": "a3261939975948bb7a58dffe5ff54e65f0498f9
+            175f5a09288810b8975871e99af3b5dd94057b0fc07535f5f97444
+            504fa35169d461d0d30cf0192e307727c065168c788771c561a940
+            0fb49175e9e6aa4e23fe11af69e9412dd23b0cb6684c4c2429bce1
+            39e848ab26d0829073351f4acd36074eafd036a5eb83359d2a698d5",
+            "ExponentHex": 20010
+        }
+    }      
+      </literallayout>
+</example>
+ <para></para>
+      </section>
+      <?hard-pagebreak?>
+ 
+ <!-- Get Completed Backups -->
+      
+      <section xml:id="getBackups">
+<title>Get Completed Backups</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup/completed/{backupConfigurationId}</td>
+      <td colspan="3">Gets the details for backups that can still be
+restored. Backups are returned only for the specified 
+Backup Configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>
+  The BackupConfigurationId is specific to the agent. You can retrieve a 
+  list of all Backup Configurations for an Agent with the "Get All Backup 
+  Configurations for an Agent" operation.</para>
+<para>
+  The authenticated user must have access to the specified backup configuration.
+</para>
+<example>
+  <title>Get Completed Backups Request: JSON</title>
+  <literallayout class="monospaced">
+    GET    https://api.drivesrvr.com/v1.0/backup/completed/158638
+      User-Agent: controlpanel.drivesrvr.com
+      Host: api.drivesrvr.com
+      Content-Type: application/json;
+      Content-Length: 0
+      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
+      </literallayout>
+</example>
+<example>
+  <title>Get Completed Backups Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      [
+          {
+      "BackupId": 134386,
+      "BackupConfigurationId": 158638,
+      "BackupConfigurationName": "Weekly Website Backup",
+      "MachineName": "Web Server",
+      "MachineAgentId": 224505,
+      "CompletedTime": "\/Date(1358535352000)\/",
+      "BytesSearched": 10245674584,
+      "NumErrors": 0
+          }
+      ]
+    }      
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+      
+<!-- Get Backup Report -->
+      
+      <section xml:id="getBackupReport">
+<title>Get Backup Report</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup/report/{backupId}</td>
+      <td colspan="3">Gets details about a completed Backup.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Get Backup Report Request: JSON</title>
+  <literallayout class="monospaced">
+     GET    https://api.drivesrvr.com/v1.0/backup/report/92500
+      User-Agent: controlpanel.drivesrvr.com
+      Host: api.drivesrvr.com
+      Content-Type: application/json;
+      Content-Length: 0
+      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
+      </literallayout>
+</example>
+
+<example>
+  <title>Get Backup Report Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "BackupId": 92500,
+      "BackupConfigurationId": 101145,
+      "BackupConfigurationName": "Database Server Backup",
+      "BackupConfigurationIsDeleted": false,
+      "ComputerName": "Database Server",
+      "MachineAgentId": 95874,
+      "State": "CompletedWithErrors",
+      "CanRestore": true,
+      "StartTime": "\/Date(1351118760000)\/",
+      "CompletedTime": "\/Date(1351119033000)\/",
+      "Duration": "00:04:33",
+      "FilesSearched": "11936",
+      "BytesSearched": "3.7 GB",
+      "FilesBackedUp": "6",
+      "BytesBackedUp": "178.1 MB",
+      "NumErrors": 2,
+      "Reason": "Success",
+      "Diagnostics": "Completed With Errors",
+      "ErrorList": [
+          {
+      "BackupReportID": 48785,
+      "ListIndex": 3210,
+      "ErrorType": 101,
+      "ErrorDesc": "The agent experienced a problem. (Rax)",
+      "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft 
+      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The 
+      process cannot access the file because it is being used by another 
+      process. .",
+      "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open] 
+      Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft 
+      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The 
+      process cannot access the file because it is being used by another 
+      process. .",
+      "ExceptionCode": 313,
+      "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
+      MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf"
+          },
+          {
+      "BackupReportID": 48785,
+      "ListIndex": 3211,
+      "ErrorType": 101,
+      "ErrorDesc": "The agent experienced a problem. (Rax)",
+      "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft 
+      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The 
+      process cannot access the file because it is being used by another 
+      process. .",
+      "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open] 
+      Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft SQL 
+      Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The process 
+      cannot access the file because it is being used by another process. .",
+      "ExceptionCode": 313,
+      "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
+      MSSQLSERVER\\MSSQL\\DATA\\templog.ldf"
+          }
+      ]
+    }      
+      </literallayout>
+</example>
+ <para></para>
+      </section>
+     
+      <!-- end of backup operations section -->     
+    </section>
+    <?hard-pagebreak?>
+
+<!-- ******************************************************* -->
+<!-- Begin Restore Configuration Operations section -->
+<!-- ******************************************************* -->
+    
+    <section xml:id="RestoreConfig">
+      <title>Restore Configuration Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&PUT;</td>
+    <td colspan="2">/restore2</td>
+    <td colspan="3">Creates and Starts a new restore configuration.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&PUT;</td>
+    <td colspan="2">/restore</td>
+    <td colspan="3">Creates a new restore configuration.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&POST;</td>
+    <td colspan="2">/restore</td>
+    <td colspan="3">Updates an existing restore configuration.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&PUT;</td>
+    <td colspan="2">/restore/files</td>
+    <td colspan="3">Creates a restore file associated with a restore.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/restore/files/{restoreId}</td>
+    <td colspan="3">Lists Files included/excluded for a restore.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&DELETE;</td>
+    <td colspan="2">/restore/files/{restoreId}</td>
+    <td colspan="3">Deletes a Restore Configuration file.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+
+
+ <!-- Create and Start a Restore Configuration -->
+      
+      <section xml:id="createAndStartRestoreConfig">
+<title>Create and Start a Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&PUT;</td>
+      <td colspan="2">/restore2</td>
+      <td colspan="3">Creates and Starts a new restore configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Create and Start a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+  {
+       "BackupId": 0,
+       "BackupMachineId": 0,
+       "DestinationMachineId": 0,
+       "DestinationPath": "c:\\myrestorelocation\\myharddrive",
+       "OverwriteFiles": false,
+       "EncryptedPassword": "",
+       "Inclusions": [
+   {
+       "FilePath": "E:\\myfolder\\",
+       "FileItemType": "Folder"
+   }
+       ],
+       "Exclusions": [
+   {
+       "FilePath": "E:\\myfolder\\AjaxMin4Setup.msi\\",
+       "FileItemType": "File"
+   }
+       ]
+    }      
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+
+<!-- Create a Restore Configuration -->
+
+      <section xml:id="createRestoreConfig">
+<title>Create a Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&PUT;</td>
+      <td colspan="2">/restore</td>
+      <td colspan="3">Creates a new restore configuration.<?linebreak?>
+Returns: Detailed information about the restore</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Create a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+"BackupId": 133599,
+"BackupMachineId": 156953,
+"DestinationMachineId": 156751,
+"DestinationPath": "C:\\FolderPathForRestore\\",
+"OverwriteFiles": false
+    }
+  </literallayout>
+</example>
+<example>
+  <title>Create a Restore Configuration Response: JSON</title>
+  <literallayout class="monospaced">
+      {
+      "RestoreId": 1394,
+      "BackupId": 133599,
+      "DestinationMachineId": 156751,
+      "OverwriteFiles": true,
+      "BackupConfigurationId": 6265,
+      "BackupConfigurationName": "Restore_Backup",
+      "BackupRestorePoint": "\/Date(1357151359000)\/",
+      "BackupMachineId": 5,
+      "BackupMachineName": "BALAJIMBP",
+      "BackupFlavor": "RaxCloudServer",
+      "DestinationMachineName": "BILLS-TEST-WIN",
+      "DestinationPath": "C:\\FolderPathForRestore\\",
+      "IsEncrypted": false,
+      "EncryptedPassword": null,
+      "PublicKey": {
+         "ModulusHex": "CA759606B13DC5350A3FAE3F851C76F260DC
+         CD1EFF2DB7510AE74E00B4B2B6025422757493B2EC09B2C71DF
+         ACFF4901E4ADAA3C9F2E6BDE9392E80FEED6F1F81BFD1D3AD9F
+         9080646F46632C30A94275C85859C1EFCD21BF911F311841914
+         BC719B1397FD3B95BE7657495903936E3345E6F083922F37761
+         0CBB6EB67C62B719770B25C9AB17521C2AB51B75871ED5F04F9
+         65C5402443ABCD05EE5E4A5201641309B8BA1100A04C62210B2
+         900CDEAA40F6EBF267B73634E471DB1420FF67CE41940D8ED8F
+         4B6C199CF5D023B410C386C58037546D34102D245AF068E891B
+         B80F1799DDC4C9C85C6FF73DA1E45AEC98792BCC1C2DE3AAD3F
+         92F50F1661A4FFDC1",
+         "ExponentHex": 10001
+         },
+     "RestoreStateId": 0
+     }
+  </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+
+<!-- update restore configuration -->
+      
+      <section xml:id="updateRestoreConfig">
+<title>Update a Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/restore</td>
+      <td colspan="3">Updates an existing restore configuration.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>Restores can only be updated while in the "Creating" state.
+  Use "Get Restore Details" to view the current state of a Restore.
+  </para>
+<example>
+  <title>Update a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "RestoreId": 14387,
+      "BackupConfigurationId": 148325,
+      "RestoreStateId": 1,
+      "BackupMachineId": 156953,
+      "DestinationMachineId": 156953,
+      "DestinationPath": "C:\\RestoredPath",
+      "BackupId": 133599,
+      "OverwriteFiles": true
+    }      
+      </literallayout>
+</example>
+
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+      
+<!-- include / exclude files in a restore configuration -->
+      
+      <section xml:id="editFilesinRestoreConfiguation">
+<title>Include / Exclude a File in Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&PUT;</td>
+      <td colspan="2">/restore/files</td>
+      <td colspan="3">Creates a restore file associated with a restore.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>ParentId is the Restore ID this file is associated with.
+</para>
+<para>
+  Values for Filter: 1 = Include; 2 = Exclude.
+  Values for FileItemType: 0 = File, 1 = Folder, 2 = Database.    
+</para>
+<example>
+  <title>Include a File in Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "FilePath": "C:\\ImportantFile.txt",
+      "Filter": "1",
+      "ParentId": 14387,
+      "FileItemType": "0"
+    }      
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+
+<!-- view files in restore Configuration -->
+      
+      <section xml:id="listFilesinRestoreConfig">
+<title>List Included or Excluded Files in a Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/restore/files/{restoreId}</td>
+      <td colspan="3">Lists Files included/excluded for a restore.
+      </td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para> This call allows you list the files in a Restore Configuration. You
+  may choose to view the Included or the Excluded files. You may
+  also limit your list to Files, Folders, or Databases.</para>
+<para>
+  Values for Filter: 1 = Include; 2 = Exclude.
+  Values for FileItemType: 0 = File, 1 = Folder, 2 = Database.    
+</para>
+<example>
+  <title>List Included or Excluded Files in a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+       GET    https://api.drivesrvr.com/v1.0/restore/files/148325
+              User-Agent: controlpanel.drivesrvr.com
+              Host: api.drivesrvr.com
+              Content-Type: application/json;
+              Content-Length: 0
+              X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+<example>
+  <title>List Included or Excluded Files in a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+  [
+    {
+        "FilePath":"/boot",
+        "Filter":2,
+        "RestoreId":1394,
+        "FileItemType":1 
+    }
+    ]    
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+
+<!-- delete restore configuration -->
+
+      <section xml:id="deleteRstoreConfiguration">
+<title>Delete a Restore Configuration</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&DELETE;</td>
+      <td colspan="2">/restore/files/{restoreFileID}</td>
+      <td colspan="3">Deletes a Restore Configuration file.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>Delete a Restore Configuration Request: JSON</title>
+  <literallayout class="monospaced">
+    DELETE    https://api.drivesrvr.com/v1.0/restore/files/1394
+              User-Agent: controlpanel.drivesrvr.com
+              Host: api.drivesrvr.com
+              Content-Type: application/json;
+              Content-Length: 0
+              X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe 
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      
+      <!-- end restore configurations section -->
+    </section>
+    <?hard-pagebreak?>
+
+<!-- ******************************************************* -->
+<!-- Begin Restore Operations Section -->
+<!-- ******************************************************* -->
+
+    <section xml:id="Restore">
+      <title>Restore Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/backup/availableforrestore</td>
+    <td colspan="3">Lists the Backups that are eligible for restore (a backup
+      that has completed at least once and has not been deleted
+      and is not expired).</td>
+  </tr>
+  <tr>
+    <td colspan="1">&POST;</td>
+    <td colspan="2">/restore/action-requested</td>
+    <td colspan="3">Manually starts or stops a restore.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/restore/{restoreId}</td>
+    <td colspan="3">Gets details about a specified Restore.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/restore/report/{restoreId}</td>
+    <td colspan="3">Gets a report for a completed Restore.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+    
+      <section xml:id="listBackups">
+<title>List Backups available for Restore</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/backup/availableforrestore</td>
+      <td colspan="3">Lists the Backups that are eligible for restore 
+(a backup that has completed at least once and has not been 
+deleted and is not expired).
+      </td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+
+<example>
+  <title>List Backups available for Restore Request: JSON</title>
+  <literallayout class="monospaced">
+     GET    https://api.drivesrvr.com/v1.0/backup/availableforrestore
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+<example>
+  <title>List Backups available for Restore Response: JSON</title>
+  <literallayout class="monospaced">
+    [
+            {
+       "BackupConfigurationId": 172418,
+       "BackupConfigurationName": "BackupConfig1",
+       "MachineName": "MBP0",
+       "MachineAgentId": 252036,
+       "IsEncrypted": false,
+       "PublicKeyHex": 10001,
+       "PublicKeyMod": "a5261939975948bb7a58dffe5ff54e65f0498f9175f5a0928
+       8810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf0
+       192e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd2
+       3b0cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb8335
+       9d2a698d3",
+       "Flavor": "RaxCloudServer",
+       "LastSuccessfulBackupTime": "\/Date(1360701971000)\/"
+       },
+       {
+       "BackupConfigurationId": 172417,
+       "BackupConfigurationName": "BackupCOnfig2",
+       "MachineName": "MBP2",
+       "MachineAgentId": 252034,
+       "IsEncrypted": false,
+       "PublicKeyHex": 10001,
+       "PublicKeyMod": "a5261939975948bb7a58dffe5ff54e65f0498f9175f5a09288
+       810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf019
+       2e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd23b0
+       cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb83359d2a
+       698d3",
+       "Flavor": "RaxCloudServer",
+       "LastSuccessfulBackupTime": "\/Date(1360701957000)\/"
+       }
+     ]
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+
+<!-- Start / stop a restore manually -->
+
+      <section xml:id="startRestore">
+<title>Start or Stop a Restore Manually</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&POST;</td>
+      <td colspan="2">/restore/action-requested</td>
+      <td colspan="3">Manually starts or stops a restore.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para> In the examples below, ID is the identifier of the restore you wish to start or stop.
+</para>
+<example>
+  <title>Start Encrypted Restore Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      Action: StartManual,
+      EncryptedPassword : 'myencryptedpassword',
+      Id: 13689
+    }
+      </literallayout>
+</example>
+<example>
+  <title>Start Unencrypted Restore Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      Action: StartManual,
+      Id: 13692
+    }    
+      </literallayout>
+</example>
+<example>
+  <title>Stop Restore Manually Request: JSON</title>
+  <literallayout class="monospaced">
+    {
+      Action: StopManual,
+      Id: 13689
+    }    
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- get Restore Details -->
+      
+      <section xml:id="getRestoreDetails">
+<title>Get Details about a Restore</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/restore/{restoreId}</td>
+      <td colspan="3">Gets details about a specified Restore.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+
+<para>Possible Restore states are
+    0 = Creating; 1 = Queued; 2 = In Progress; 3 = Finished; 4 = Stopped; 5 =
+Failed; 6 = Start Requested; 7 = Stop Requested; 8 = Completed with Errors;
+9 = Preparing
+</para>
+<example>
+  <title>Get Details about a Restore Request: JSON</title>
+  <literallayout class="monospaced">
+    GET     https://api.drivesrvr.com/v1.0/restore/1394
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+<example>
+  <title>Get Details about a Restore Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "RestoreId":1394,
+      "BackupId":133886,
+      "DestinationMachineId":864,
+      "OverwriteFiles":true,
+      "BackupConfigurationId":6270,
+      "BackupConfigurationName":"Restore_Backup",
+      "BackupRestorePoint":"\/Date(1357151359000)\/",
+      "BackupMachineId":866,
+      "BackupMachineName":"sujala-test-centos",
+      "BackupFlavor":"RaxCloudServer",
+      "DestinationMachineName":"BILLS-TEST-WIN",
+      "DestinationPath":"C:\\Test\\",
+      "IsEncrypted":false,
+      "EncryptedPassword":null,
+      "PublicKey":{"ModulusHex":"CA759606B13DC5350A3FAE3F851C7
+       6F260DCCD1EFF2DB7510AE74E00B4B2B6025422757493B2EC09B2C7
+       1DFACFF4901E4ADAA3C9F2E6BDE9392E80FEED6F1F81BFD1D3AD9F9
+       080646F46632C30A94275C85859C1EFCD21BF911F311841914BC719
+       B1397FD3B95BE7657495903936E3345E6083922F377610CBB6EB67C
+       62B719770B25C9AB17521C2AB51B75871ED5F04F965C5402443ABCD
+       05EE5E4A5201641309B8BA1100A04C62210B2900CDEAA40F6EBF267
+       B73634E471DB1420FF67CE41940D8ED8F4B6C199CF5D023B410C386
+       C58037546D34102D245AF068E891BB80F1799DDC4C9C85C6FF73DA1
+       E45AEC98792BCC1C2DE3AAD3F92F50F1661A4FFDC1",
+       "ExponentHex":10001},
+      "RestoreStateId":3
+    }
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+
+<!-- get restore report -->
+
+      <section xml:id="getRestoreReport">
+<title>Get Restore Report</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/restore/report/{restoreId}</td>
+      <td colspan="3">
+      Gets a report for a completed Restore.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>Possible Restore states in the report include:
+  3 = Completed;
+  4 = Stopped;
+  5 = Failed
+  </para>
+<example>
+  <title>Get Restore Report Request: JSON</title>
+  <literallayout class="monospaced">
+    GET    https://api.drivesrvr.com/v1.0/restore/report/1394
+           User-Agent: controlpanel.drivesrvr.com
+           Host: api.drivesrvr.com
+           Content-Type: application/json;
+           Content-Length: 0
+           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
+      </literallayout>
+</example>
+<example>
+  <title>Get Restore Report Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      "BackupConfigurationId":6270,
+      "BackupConfigurationName":"Restore_Backup",
+      "BackupReportId":133886,
+      "RestorePoint":"\/Date(1357151359000)\/",
+      "StartTime":"\/Date(1357226521000)\/",
+      "CompletedTime":"\/Date(1357226535000)\/",
+      "Duration":"00:00:14",
+      "OriginatingComputerName":"sujala-test-centos",
+      "State":"CompletedWithErrors",
+      "NumFilesRestored":"35",
+      "NumBytesRestored":"18 MB",
+      "RestoreDestination":"BILLS-TEST-WIN",
+      "RestoreDestinationMachineId":864,
+      "NumErrors":"1",
+      "Reason":"UnableToProcessSomeFiles",
+      "Diagnostics":"Some files may not have been restored",
+      "ErrorList":[ ]
+    }      
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      
+    
+    <!-- end restore operations section -->
+    </section>
+    <?hard-pagebreak?>
+    
+
+    
+<!-- ******************************************************* -->
+<!-- Begin Activity Operations Section -->
+<!-- ******************************************************* -->
+    
+    <section xml:id="Activity">
+      <title>Activity Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/system/activity/{agentId}</td>
+    <td colspan="3">Lists all in progress and completed activity for an Agent.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/activity</td>
+    <td colspan="3">Gets a listing of all activity completed or in progress for the
+      user.
+    </td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+      
+<!-- list all activity for an agent -->
+      
+      <section xml:id="listAllActivity">
+<title>List Activity for an Agent</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/system/activity/{agentId}</td>
+      <td colspan="3">Lists all in progress and completed
+activity for an Agent. Activities Types are Backup,
+      Cleanup, and Restore.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Not Found (404),
+  Service Unavailable (500)
+</simpara>
+<para>In the Response below, Id = RestoreId | Backup Id | Cleanup Id. The ParentId 
+  = Backup Configuration ID for a Backup .</para>
+<example>
+  <title>List Activity for an Agent Request: JSON</title>
+  <literallayout class="monospaced">
+    GET     https://api.drivesrvr.com/v1.0/system/activity/232180
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+<example>
+  <title>List Activity for an Agent Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+        [
+            {
+        "ID": 137987,
+        "Type": "Backup",
+        "ParentId": 162423,
+        "DisplayName": "Weekly Website Backup",
+        "IsBackupConfigurationDeleted": false,
+        "SourceMachineAgentId": 232180,
+        "SourceMachineName": "Web Server",
+        "DestinationMachineAgentId": 0,
+        "DestinationMachineName": "",
+        "CurrentState": "Completed",
+        "TimeOfActivity": "\/Date(1359033934000)\/"
+            }
+        ]
+    }
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+      
+<!-- get all activity -->
+      
+      <section xml:id="getAllActivity">
+<title>List Activity for User</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/activity</td>
+      <td colspan="3">Gets a listing of all activity 
+completed or in progress for the user.
+</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>List Activity for User Request: JSON</title>
+  <literallayout class="monospaced">
+    GET     https://api.drivesrvr.com/v1.0/activity
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+</example>
+<example>
+  <title>List Activity for User Response: JSON</title>
+  <literallayout class="monospaced">
+    {
+      [
+           {
+          "ID": 134692,
+          "Type": "Backup",
+          "ParentId": 6265,
+          "DisplayName": "Backup1",
+          "IsBackupConfigurationDeleted": false,
+          "SourceMachineAgentId": 5,
+          "SourceMachineName": "BALAJIMBP",
+          "DestinationMachineAgentId": 0,
+          "DestinationMachineName": "",
+          "CurrentState": "Completed",
+          "TimeOfActivity": "\/Date(1357230189000)\/"
+              },
+              {
+          "ID": 134693,
+          "Type": "Backup",
+          "ParentId": 6265,
+          "DisplayName": "Backup1",
+          "IsBackupConfigurationDeleted": false,
+          "SourceMachineAgentId": 5,
+          "SourceMachineName": "BALAJIMBP",
+          "DestinationMachineAgentId": 0,
+          "DestinationMachineName": "",
+          "CurrentState": "Completed",
+          "TimeOfActivity": "\/Date(1357230189000)\/"
+              }
+       ]
+    }
+      </literallayout>
+</example>
+<para></para>
+      </section>
+
+      <!-- end activity operations section -->
+    </section>
+    <?hard-pagebreak?>
+
+    
+<!-- ******************************************************* -->
+<!-- Begin Help Operations Section -->
+<!-- ******************************************************* -->
+    
+    <section xml:id="Help">
+      <title>Help Operations</title>
+      <para>
+Here are the operations within this section  
+      </para>
+      <informaltable rules="all">
+<thead>
+  <tr align="center">
+    <td colspan="1">Verb</td>
+    <td colspan="2">URI</td>
+    <td colspan="3">Description</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/help/developerguide</td>
+    <td colspan="3">Gets the Developer Guide for this API.</td>
+  </tr>
+  <tr>
+    <td colspan="1">&GET;</td>
+    <td colspan="2">/help/supportedimages/
+      {cloudServersPlatform}</td>
+    <td colspan="3">Lists the Cloud Servers images the RCBU Agent may be run
+      on.</td>
+  </tr>
+</tbody>
+      </informaltable>
+      <?hard-pagebreak?>
+       
+<!-- get Developer Guide -->
+      
+      <section xml:id="getGuide">
+<title>Get the Developer Guide</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/help/developerguide</td>
+      <td colspan="3">Gets the Developer Guide for this API.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<para>
+  This operation does not require a request body.
+</para>
+ <para></para>
+      </section>
+      <?hard-pagebreak?>
+      
+<!-- get images supported by Agent -->
+      
+      <section xml:id="getImages">
+<title>List Images Supported by Agent</title>
+<informaltable rules="all">
+  <thead>
+    <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1">&GET;</td>
+      <td colspan="2">/help/supportedimages/{cloudServersPlatform}</td>
+      <td colspan="3">Lists the Cloud Servers images
+the RCBU Agent may be run on.</td>
+    </tr>
+  </tbody>
+</informaltable>
+<simpara>
+  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+</simpara>
+<simpara> Error Response Code(s): 
+  Bad Request (400),
+  Unauthorized (401),
+  Forbidden (403),
+  Service Unavailable (500)
+</simpara>
+<example>
+  <title>List Images Supported by Agent Request: JSON</title>
+  <literallayout class="monospaced">
+     GET    https://api.drivesrvr.com/v1.0/help/supportedimages/nextgen
+            User-Agent: controlpanel.drivesrvr.com
+            Host: api.drivesrvr.com
+            Content-Type: application/json;
+            Content-Length: 0   
+      </literallayout>
+</example>
+<example>
+  <title>List Images Supported by Agent Response: JSON</title>
+  <literallayout class="monospaced">
+       [
+   {
+       "CloudServersImageId": "5cebb13a-f783-4f8c-8058-c4182c724ccd",
+       "CloudServersImageName": "Ubuntu 12.04 LTS (Precise Pangolin)"
+   },
+   {
+       "CloudServersImageId": "ae49b64d-9d68-4b36-98ed-b1ce84944680",
+       "CloudServersImageName": "Windows Server 2012"
+   }
+       ]     
+      </literallayout>
+</example>
+<para></para>
+      </section>
+      
+      <!-- end help operations section -->
+    </section>
+    <?hard-pagebreak?>
+    
+    
+
+    <!--  
+      Copy / paste the below code for each operation.
+      Valid verbs are &GET; &PUT; &POST; &DELETE;
+    -->
+    <!--
+      <section xml:id="Sample">
+      <title>Sample Call</title>
+      <informaltable rules="all">
+      <thead>
+      <tr align="center">
+      <td colspan="1">Verb</td>
+      <td colspan="2">URI</td>
+      <td colspan="3">Description</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td colspan="1">&DELETE;</td>
+      <td colspan="2">/clusters/{id}</td>
+      <td colspan="3">Deletes a cluster.</td>
+      </tr>
+      </tbody>
+      </informaltable>
+      <simpara>
+      Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
+      </simpara>
+      <simpara> Error Response Code(s): 
+      Bad Request (400),
+      Unauthorized (401),
+      Forbidden (403),
+      Not Found (404),
+      Service Unavailable (500)
+      </simpara>
+      <para> This call XXX.</para>
+      <para> The following example shows the request and corresponding response to XXX:</para>
+      <example>
+      <title> Request: JSON</title>
+      <literallayout class="monospaced">
+      
+      </literallayout>
+      </example>
+      <example>
+      <title> Response: JSON</title>
+      <literallayout class="monospaced">
+      
+      
+      </literallayout>
+      </example>
+      <para></para>
+      </section>
+    -->   
+    
 
   </chapter>
-  <xi:include href="../../target/generated-resources/xml/xslt/apiref-db.xml">
-    <xi:fallback>
-      <chapter xmlns="http://docbook.org/ns/docbook"
-	       xmlns:wadl="http://wadl.dev.java.net/2009/02">
-	<title>API Operations</title>
-	<para>This content not available until you have run a build using "mvn clean generate-sources"</para>
-      </chapter>
-    </xi:fallback>
-  </xi:include>
+
 </book>
