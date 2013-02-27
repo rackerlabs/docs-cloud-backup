@@ -13,7 +13,7 @@
 
 <!ENTITY PRODNAME "Rackspace Cloud Backup">
 <!ENTITY PRODABBV "RCBU">
-<!ENTITY PROJURL "temp-proj">
+<!ENTITY PROJURL "backup">
 
 <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
 <!ENTITY ENDPOINT-US "https://auth.api.rackspacecloud.com/v2.0/">
@@ -1169,9 +1169,9 @@ backup data.</td>
   <example>
     <title>Get Agent Details Request: JSON</title>
     <literallayout class="monospaced">
-  GET     https://api.drivesrvr.com/v1.0/agent/{machineAgentId}
+  GET     https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
           User-Agent: controlpanel.drivesrvr.com
-          Host: api.drivesrvr.com
+          Host: backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -1450,9 +1450,9 @@ Returns: <code>A list of agents.</code></td>
 <example>
   <title>Get All Agents for this User Request: JSON</title>
   <literallayout class="monospaced">
-  GET     https://api.drivesrvr.com/v1.0/user/agents
+  GET     https://backup.api.rackspacecloud.com/v1.0/user/agents
           User-Agent: controlpanel.drivesrvr.com
-          Host: api.drivesrvr.com
+          Host: backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -1830,9 +1830,9 @@ of a backup configuration.</td>
 <example>
   <title>Get Backup Configuration Details Request: JSON</title>
   <literallayout class="monospaced">
-     GET    https://api.drivesrvr.com/v1.0/backup-configuration/148325
+     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
@@ -2065,9 +2065,9 @@ the current user.
 <example>
   <title>Get all Backup Configurations for Agent Request: JSON</title>
   <literallayout class="monospaced">
-     GET    https://api.drivesrvr.com/v1.0/backup-configuration/system/224193
+     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2198,9 +2198,9 @@ Disabled backup configurations may later be re-enabled.</td>
 <example>
   <title>Enable a Backup Configuration Request: JSON</title>
   <literallayout class="monospaced">
-   POST   https://api.drivesrvr.com/v1.0/backup-configuration/enable/148325
+   POST   https://backup.api.rackspacecloud.com/v1.0/backup-configuration/enable/148325
           User-Agent: controlpanel.drivesrvr.com
-          Host: api.drivesrvr.com
+          Host: backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2316,9 +2316,9 @@ Disabled backup configurations may later be re-enabled.</td>
 <example>
   <title>Delete Backup Configuration Request: JSON</title>
   <literallayout class="monospaced">
-     DELETE   https://api.drivesrvr.com/v1.0/backup-configuration/148325
+     DELETE   https://backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
       User-Agent: controlpanel.drivesrvr.com
-      Host: api.drivesrvr.com
+      Host: backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2489,9 +2489,9 @@ Returns: Identifier of the instance of the backup.</td>
 <example>
   <title>Get Backup Details Request: JSON</title>
   <literallayout class="monospaced">
-    GET     https://api.drivesrvr.com/v1.0/backup/134332
+    GET     https://backup.api.rackspacecloud.com/v1.0/backup/134332
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2567,9 +2567,9 @@ Backup Configuration.</td>
 <example>
   <title>Get Completed Backups Request: JSON</title>
   <literallayout class="monospaced">
-    GET    https://api.drivesrvr.com/v1.0/backup/completed/158638
+    GET    https://backup.api.rackspacecloud.com/v1.0/backup/completed/158638
       User-Agent: controlpanel.drivesrvr.com
-      Host: api.drivesrvr.com
+      Host: backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
@@ -2632,9 +2632,9 @@ Backup Configuration.</td>
 <example>
   <title>Get Backup Report Request: JSON</title>
   <literallayout class="monospaced">
-     GET    https://api.drivesrvr.com/v1.0/backup/report/92500
+     GET    https://backup.api.rackspacecloud.com/v1.0/backup/report/92500
       User-Agent: controlpanel.drivesrvr.com
-      Host: api.drivesrvr.com
+      Host: backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
@@ -3052,9 +3052,9 @@ Returns: Detailed information about the restore</td>
 <example>
   <title>List Included or Excluded Files in a Restore Configuration Request: JSON</title>
   <literallayout class="monospaced">
-       GET    https://api.drivesrvr.com/v1.0/restore/files/148325
+       GET    https://backup.api.rackspacecloud.com/v1.0/restore/files/148325
               User-Agent: controlpanel.drivesrvr.com
-              Host: api.drivesrvr.com
+              Host: backup.api.rackspacecloud.com
               Content-Type: application/json;
               Content-Length: 0
               X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -3110,9 +3110,9 @@ Returns: Detailed information about the restore</td>
 <example>
   <title>Delete a Restore Configuration Request: JSON</title>
   <literallayout class="monospaced">
-    DELETE    https://api.drivesrvr.com/v1.0/restore/files/1394
+    DELETE    https://backup.api.rackspacecloud.com/v1.0/restore/files/1394
               User-Agent: controlpanel.drivesrvr.com
-              Host: api.drivesrvr.com
+              Host: backup.api.rackspacecloud.com
               Content-Type: application/json;
               Content-Length: 0
               X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe 
@@ -3204,9 +3204,9 @@ deleted and is not expired).
 <example>
   <title>List Backups available for Restore Request: JSON</title>
   <literallayout class="monospaced">
-     GET    https://api.drivesrvr.com/v1.0/backup/availableforrestore
+     GET    https://backup.api.rackspacecloud.com/v1.0/backup/availableforrestore
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -3357,9 +3357,9 @@ Failed; 6 = Start Requested; 7 = Stop Requested; 8 = Completed with Errors;
 <example>
   <title>Get Details about a Restore Request: JSON</title>
   <literallayout class="monospaced">
-    GET     https://api.drivesrvr.com/v1.0/restore/1394
+    GET     https://backup.api.rackspacecloud.com/v1.0/restore/1394
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -3441,9 +3441,9 @@ Failed; 6 = Start Requested; 7 = Stop Requested; 8 = Completed with Errors;
 <example>
   <title>Get Restore Report Request: JSON</title>
   <literallayout class="monospaced">
-    GET    https://api.drivesrvr.com/v1.0/restore/report/1394
+    GET    https://backup.api.rackspacecloud.com/v1.0/restore/report/1394
            User-Agent: controlpanel.drivesrvr.com
-           Host: api.drivesrvr.com
+           Host: backup.api.rackspacecloud.com
            Content-Type: application/json;
            Content-Length: 0
            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
@@ -3555,9 +3555,9 @@ activity for an Agent. Activities Types are Backup,
 <example>
   <title>List Activity for an Agent Request: JSON</title>
   <literallayout class="monospaced">
-    GET     https://api.drivesrvr.com/v1.0/system/activity/232180
+    GET     https://backup.api.rackspacecloud.com/v1.0/system/activity/232180
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -3624,9 +3624,9 @@ completed or in progress for the user.
 <example>
   <title>List Activity for User Request: JSON</title>
   <literallayout class="monospaced">
-    GET     https://api.drivesrvr.com/v1.0/activity
+    GET     https://backup.api.rackspacecloud.com/v1.0/activity
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -3778,9 +3778,9 @@ the RCBU Agent may be run on.</td>
 <example>
   <title>List Images Supported by Agent Request: JSON</title>
   <literallayout class="monospaced">
-     GET    https://api.drivesrvr.com/v1.0/help/supportedimages/nextgen
+     GET    https://backup.api.rackspacecloud.com/v1.0/help/supportedimages/nextgen
             User-Agent: controlpanel.drivesrvr.com
-            Host: api.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0   
       </literallayout>
