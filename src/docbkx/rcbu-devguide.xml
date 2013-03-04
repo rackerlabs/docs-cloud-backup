@@ -225,29 +225,30 @@ if the contract does change.</para>
       <section xml:id="concept_Agent">
 <title>Agent</title>
 <para>
-  Brief description of the concept.
+  Agent is an executable that sits on your 
+  Cloud Server that knows how to perform backups and restores. 
+  Agent installation currently supports Windows and *nix platforms.
 </para>
       </section>
-    <section xml:id="concept_Backup">
-      <title>Backup</title>
-      <para>Brief description of the concept.</para>
-    </section>
-      <section xml:id="concept_BackupConfig">
-      <title>Backup Configuration</title>
-      <para>
-Brief description of the concept.
-      </para>
-    </section>
+<section xml:id="concept_BackupConfig">
+  <title>Backup Configuration</title>
+  <para>Backup configuration defines what needs to be backed up 
+    and when. It defines a schedule for the backup, files to 
+    backup and notifications</para>
+</section>
+
       <section xml:id="concept_Restore">
 <title>Restore</title>
 <para>
-  Brief description of the concept.
+  It is a process of bringing your system back to a previously 
+  saved state, usually using a backup as the checkpoint..\
 </para>
       </section>
       <section xml:id="concept_RestoreConfig">
 <title>Restore Configuration</title>
 <para>
-  Brief description of the concept.
+  Restore Configuration defines what the restore checkpoint is 
+  and the where the backup should be restored. 
 </para>
       </section>
     
@@ -922,7 +923,7 @@ would list all servers that have changed since Wed, 03 Jun
 2009 07:09:42 UTC. </para>
     </section>
     <section xml:id="DB_faults" >
-      <title>Faults</title>
+      <title>Faults and Common Issues</title>
       <!-- add or remove error codes as needed -->
       <para> When an error occurs, the &PRODNAME; Service
 returns a fault object containing an HTTP error response code
@@ -967,12 +968,6 @@ associated error codes and descriptions.
       anything matching the Request-URI.</td>
   </tr>
   <tr>
-    <td colspan="2"><code>badMethod</code></td>
-    <td colspan="1">405</td>
-    <td colspan="3">The request method is not allowed for this
-      resource.</td>
-  </tr>
-  <tr>
     <td colspan="2"><code>instanceFault</code></td>
     <td colspan="1">500</td>
     <td colspan="3">This is a generic server error and the
@@ -994,10 +989,78 @@ associated error codes and descriptions.
   </tr>
 </tbody>
       </informaltable>
+
       <para>
-<!-- two error example s are given; add more as needed -->
-Two common errors show up more often than others. Examples are below.
+There are some frequently encountered issues. Their symptoms and solutions are
+listed below.
       </para>
+
+<formalpara><title>Common Issues</title>
+  <para>
+    <itemizedlist><title>Backups get corrupted</title>
+      <listitem><para>
+        Does your server have a backup agent and did you clone it to create a new backup system?
+        This means that two backup agents exist with the same credentials writing to the same
+        Vault.
+      </para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>Solution:</emphasis> ensure the agent on the cloned backup server is re-registered before any backups
+        are run.        
+      </para></listitem>
+    </itemizedlist>
+    <itemizedlist><title>Backups gets network error</title>
+      <listitem>
+        <para>
+          <emphasis>Solution:</emphasis> Make sure that your backup server has a connection 
+          to both service net and public net. If it is on an isolated network, the backup 
+          agent will not be able to function properly.
+        </para></listitem>
+    </itemizedlist>
+    <itemizedlist><title>Backups sometimes fail</title>
+      <listitem>
+        <para>
+          This is most commonly caused by either a failure to communicate with Cloud Files, running
+          out of disk space, or a failure to communicate with Cloud Backup.
+        </para>
+        <para>
+          Sometimes, the agent may fail to backup a particular file because of a permissions error.
+          Either the file is in use when the agent attempts to save it or the file in question cannot be
+          read by the agent. Consider permissions when hunting for the root cause of a backup failure.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Solution:</emphasis> Make sure that you're running the latest agent release. After that, attempt to determine the
+          cause of the error, and try the backup/restore again if it is an intermittent error. We're always
+          working on making backup more robust.
+        </para></listitem>
+    </itemizedlist>
+  
+    <itemizedlist><title>Backup/ Restore is slow</title>
+      <listitem>
+        <para>
+          If your backup or restore is encrypted, it will be especially slow. Encryption comes at a cost.
+        </para>
+        <para>
+          If your system uses Cloud Block Storage as the storage medium, this is known to introduce
+          some slowdowns. Consider whether the benefits of using Cloud Block Storage outweigh the
+          need for faster backups/restores.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Solution:</emphasis> Make sure that you're running the latest agent release. After that, attempt to determine the
+          cause of the error, and try the backup/restore again if it is an intermittent error. We're always
+          working on making backup more robust.
+        </para></listitem>
+    </itemizedlist>
+  
+  </para>
+</formalpara>
+
+
       <para>
 <code>Common Error 1</code> happens when something happens. Examples 
 are given below in XML and JSON format.
@@ -1244,7 +1307,11 @@ and its data remains. Disabled agents may later be re-enabled.
   Forbidden (403),
   Service Unavailable (500)
 </simpara>
-<para> See Delete Agent if you want to remove an agent completely.</para>
+  <para>Encryption is important for keeping your data confidential. However, encryption is also expensive. It
+    takes significantly longer to backup and restore encrypted data. Consider if the data you are storing
+    must be encrypted. If not, then it is best to proceed without encryption. Encryption applies across the
+    board, and once you encrypt a backup server, there is no turning back.
+  </para>
 <example>
   <title>Enable Agent Request: JSON</title>
   <literallayout class="monospaced">
@@ -1298,7 +1365,9 @@ and its data remains. Disabled agents may later be re-enabled.
   Service Unavailable (503)
 </simpara>
 <para>Enables volume encryption with AES-256 encryption if it
-  is not already enabled. <emphasis role="bold">Note:</emphasis> Once
+  is not already enabled. 
+</para>
+<para><emphasis role="bold">Note:</emphasis> Once
   encryption is turned on, it cannot be turned off. This is a
   security measure. If anyone ever gained access to your
   account, they would not be able to access your backups
@@ -1535,7 +1604,31 @@ Returns: <code>A list of agents.</code></td>
     <section xml:id="backupConfig">
       <title>Backup Configuration Operations</title>
       <para>
-Here are the operations within this section  
+        When trying to determine how often to back up a file in your
+        Backup Configuration, there are three variables to consider:
+        <orderedlist>
+          <listitem><para>
+            How important is tracking changes in the file to your business processes? (criticality)
+          </para>
+          </listitem>
+          <listitem>
+          <para>How large is the file? (size)</para>
+          </listitem>
+          <listitem>
+            <para>How often does the file change? (data churn)</para>
+          </listitem>
+        </orderedlist>       
+        Criticality is the most important factor to consider when making backup decisions. The more critical
+        the file is to your business operations, the more often you'll want to back this file up. Size is an
+        important consideration if the speed of backups/restores is important to you. Large files take longer to
+        backup and to restore. It may be wise to backup large files less frequently. Data churn is the last
+        variable to consider, and perhaps the trickiest to handle. Files that change often invalidate blocks that
+        have been stored previously. Depending on criticality, it may still be wise to snapshot files with high
+        data churn and backup those snapshots.
+      </para>
+
+      <para>
+Here are the operations within this section.  
       </para>
       <informaltable rules="all">
 <thead>
@@ -3131,6 +3224,18 @@ Returns: Detailed information about the restore</td>
 
     <section xml:id="Restore">
       <title>Restore Operations</title>
+      <para>
+        It is a good idea to periodically test your restores to make sure that they are working as you expect. The
+        worst possible scenario is to need your data restored now, and then to discover that your data isn't
+        available because your backups haven't been configured as you expected.
+      </para>
+      <para>
+        Another point to consider is the restore destination. Restoring to the original location and overwriting
+        saves the most storage space, but comes with the risk that you might accidentally overwrite important,
+        existing files. Proceed with caution when restoring.
+      </para>
+      
+      
       <para>
 Here are the operations within this section  
       </para>
