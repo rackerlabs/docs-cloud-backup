@@ -1724,6 +1724,7 @@ of a backup configuration.</td>
   <literallayout class="monospaced">
     {
        "BackupConfigurationName": "Weekly Website Backup",
+       "MachineAgentId" : 156953,
        "IsActive": true|false,
        "VersionRetention": 0|30|60,
        "MissedBackupActionId": 1,
@@ -2821,11 +2822,7 @@ Here are the operations within this section
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td colspan="1">&PUT;</td>
-    <td colspan="2">/restore2</td>
-    <td colspan="3">Creates and Starts a new restore configuration.</td>
-  </tr>
+  
   <tr>
     <td colspan="1">&PUT;</td>
     <td colspan="2">/restore</td>
@@ -2855,66 +2852,6 @@ Here are the operations within this section
       </informaltable>
       <?hard-pagebreak?>
 
-
- <!-- Create and Start a Restore Configuration -->
-      
-      <section xml:id="createAndStartRestoreConfig">
-<title>Create and Start a Restore Configuration</title>
-<informaltable rules="all">
-  <thead>
-    <tr align="center">
-      <td colspan="1">Verb</td>
-      <td colspan="2">URI</td>
-      <td colspan="3">Description</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1">&PUT;</td>
-      <td colspan="2">/restore2</td>
-      <td colspan="3">Creates and Starts a new restore configuration.</td>
-    </tr>
-  </tbody>
-</informaltable>
-<simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-<simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
-<example>
-  <title>Create and Start a Restore Configuration Request: JSON</title>
-  <literallayout class="monospaced">
-  {
-       "BackupId": 0,
-       "BackupMachineId": 0,
-       "DestinationMachineId": 0,
-       "DestinationPath": "c:\\myrestorelocation\\myharddrive",
-       "OverwriteFiles": false,
-       "EncryptedPassword": "",
-       "Inclusions": [
-   {
-       "FilePath": "E:\\myfolder\\",
-       "FileItemType": "Folder"
-   }
-       ],
-       "Exclusions": [
-   {
-       "FilePath": "E:\\myfolder\\AjaxMin4Setup.msi\\",
-       "FileItemType": "File"
-   }
-       ]
-    }      
-      </literallayout>
-</example>
-
-<para></para>
-      </section>
-      <?hard-pagebreak?>
-      
 
 <!-- Create a Restore Configuration -->
 
