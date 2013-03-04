@@ -61,7 +61,7 @@ format="SVG" scale="60"/>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>&PRODNAME;</productname>
     <!-- enter the publication date of this document -->
-    <pubdate>2013-02-28</pubdate>
+    <pubdate>2013-03-05</pubdate>
     <legalnotice role="rs-api">
       <annotation>
 <remark>Copyright details are filled in by the
@@ -70,7 +70,7 @@ format="SVG" scale="60"/>
     </legalnotice>
     <abstract>
       <para>This document is intended for software developers
-interested in developing applications using the Rackspace
+interested in developing applications using the
 &PRODNAME; Application Programming Interface
   (<abbrev>API</abbrev>). </para>
     </abstract>
@@ -78,7 +78,7 @@ interested in developing applications using the Rackspace
     -->
     <revhistory>
       <revision>
-<date>2013-02-28</date>
+<date>2013-03-05</date>
 <revdescription>
   <itemizedlist spacing="compact">
     <listitem>
@@ -120,29 +120,47 @@ interested in developing applications using the Rackspace
     xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <title>Overview</title>
-    <para>Rackspace &PRODNAME; is a [description]. 
+    <para>&PRODNAME;  a file-based backup application that lets you choose 
+      which files and folders to backup from your Cloud Server. You can choose 
+      to restore your whole system with all of its folders and files, or 
+      individual files or folders from a given date, or restore to an 
+      entirely different Server.. 
     </para>
     <para>Interactions with &PRODNAME; occur programmatically via the &PRODNAME; 
-      API as described in this developer guide.
+      API as described in this Developer Guide.
     </para>
-    <para>[Add paragraphs as needed.] 
-    </para>
-    <para>Highlights of Rackspace &PRODNAME;include:<itemizedlist>
+    <para>Highlights of &PRODNAME;include:<itemizedlist>
       <listitem>
-<para>Highlight / benefit</para>
+        <para>Select the files and folders from your Cloud Server you want to back up</para>
       </listitem>
       <listitem>
-<para>Highlight / benefit</para>
-</listitem>
-<listitem>
-  <para>Highlight / benefit</para>
-</listitem>
+        <para>Run your backups manually or on a schedule that works for you</para>
+      </listitem>
+      <listitem>
+        <para>See the activity from all your backups, both current and previous</para>
+      </listitem>
+      <listitem>
+        <para>Use AES-256 encryption with a private encryption key known only to you</para>
+      </listitem>
+      <listitem>
+        <para>SRestore individual files and folders from a particular date</para>
+      </listitem>
+      <listitem>
+        <para>Save space with incremental backups that only save the changed portions of files</para>
+      </listitem>
+      <listitem>
+        <para>Create unlimited Backups</para>
+      </listitem> 
       </itemizedlist>
-      </para>
+    </para>
     <note><title>Notes</title>
       <itemizedlist>
 <listitem>
-  <para>&PRODNAME; is a [add usage descriptions if needed].</para>
+  <para>&PRODNAME; does not take snapshots of your server. To read more about how &PRODNAME; 
+    differs from snapshots, please see <link
+      xlink:href="  http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">
+      "Rackspace Cloud Backup vs. Cloud Server Image Backups"</link> in our Knowledge Center.
+  </para>
 </listitem>
       </itemizedlist>
     </note>
@@ -219,9 +237,6 @@ if the contract does change.</para>
     <?dbhtml stop-chunking?>
     <para> To use the &PRODNAME; API effectively, you should
     understand several key concepts:</para>
-      <para>
-[Add or remove as necessary.]
-      </para>
       <section xml:id="concept_Agent">
 <title>Agent</title>
 <para>
@@ -241,7 +256,7 @@ if the contract does change.</para>
 <title>Restore</title>
 <para>
   It is a process of bringing your system back to a previously 
-  saved state, usually using a backup as the checkpoint..\
+  saved state, usually using a backup as the checkpoint.
 </para>
       </section>
       <section xml:id="concept_RestoreConfig">
@@ -611,14 +626,9 @@ is returned:</para>
      </literallayout>
       </example>
     </section>
-    
- 
-    <?hard-pagebreak?>
+   
     <section xml:id="Limits-d1e1208">
       <title>Limits</title>
-      <para> 
-[If your project has limits, here is where you mention them.]
-      </para>
       <para>
 All accounts, by default, have a preconfigured set of
 thresholds (or limits) to manage capacity and prevent abuse of
@@ -721,207 +731,8 @@ date/time values.
 </tbody>
       </table>
     </section>
-    <section xml:id="pagination" security="writeronly">
-      <title>Pagination</title>
-      <remark security="reviewer">Reviewer: please review and give me your updates for
-this section. Dev needs to determine which API calls support
-pagination and then supply examples. I have hidden this entire
-section for now, since we do not believe that it will be
-supported for Private Beta. Correct?</remark>
-      <para>To reduce load on the service, list operations returns
-a maximum of 100 items at a time. This is referred to as
-  pagination.</para>
-      <para> Pagination is the ability to limit the size of the
-returned data as well as retrieve a specified subset of a
-large data set. Pagination has two key concepts: limit and
-offset. Limit is the restriction on the
-maximum number of items for that type that can be returned.
-  Offset is the starting point for the
-return data. For example, an offset of 50 specifies that the
-items that are returned should start with item number 51
-(since the numbering is one-based) in the collection. </para>
-      <para>It is important to note that offset
-  must be a multiple of the limit (or
-zero), otherwise a Bad Request Exception will be thrown. Both
-limit and offset are specified via request parameters on the
-URI. The parameters are named <code>limit</code> and
-  <code>offset</code> respectively, and both apply only to
-&GET; calls. If unspecified, they default to
-  <code>limit=100</code> and <code>offset=0</code>. See the
-examples that follow.</para>
-      <example>
-<title>Examples of Limits and Offsets for Paging Calls</title>
-<?dbfo keep-together="always"?>
-<programlisting language="xml">Reviewer: Need code example.</programlisting>
-      </example>
-      <para>Pagination applies only to the calls listed in the
-following table: </para>
-      <remark security="reviewer">Reviewer: need to update the table of paginated API
-calls below:</remark>
-      <informaltable rules="all">
-<thead>
-  <tr align="center">
-    <td colspan="1">Verb</td>
-    <td colspan="2">URI</td>
-    <td colspan="3">Description</td>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td colspan="1">&GET;</td>
-    <td colspan="2">/URI/</td>
-    <td colspan="3">List all databases manageable by the
-      account specified. </td>
-  </tr>
-  <tr>
-    <td colspan="1">&GET;</td>
-    <td colspan="2"
-      >/URI/?name=<replaceable>Name</replaceable></td>
-    <td colspan="3">Filter databases.</td>
-  </tr>
-  <tr>
-    <td colspan="1">&GET;</td>
-    <td colspan="2">/URI/<replaceable>ID</replaceable></td>
-    <td colspan="3">List details of the specified
-      database.</td>
-  </tr>
-  <tr>
-    <td colspan="1">&GET;</td>
-    <td colspan="2"
-      >/URI/<replaceable>ID</replaceable>/xxx</td>
-    <td colspan="3">List details xxx.</td>
-  </tr>
-  <tr>
-    <td colspan="1">&GET;</td>
-    <td colspan="2"
-      >/URI/<replaceable>ID</replaceable>/yyy</td>
-    <td colspan="3">List details yyy.</td>
-  </tr>
-</tbody>
-      </informaltable>
-      <para>See the following section for examples of paged List
-Databases calls.</para>
-      <section xml:id="Pagination_Elements_and_Attributes-d1e1754">
-<title>Pagination Elements and Attributes</title>
-<remark security="reviewer">Reviewer: please review and give me your updates for
-  this section.</remark>
-<para>For any collection in a result, there is a
-    <code>totalEntries</code> attribute representing the total
-  number of entries there are for this item type. If the
-  number of items requested in the &GET; call is less then the
-  total number of items for this type, then there will be
-  pagination links <code>previous</code> and/or
-    <code>next</code>, specifying how to get to the previous
-  and/or next set of records. </para>
-<note>
-  <para>The <code>previous</code> and/or <code>next</code>
-    link elements are displayed only if there are items
-    available in the corresponding link. See the following
-    examples for details.</para>
-</note>
-<example>
-  <title>List Databases Request with limit: XML</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Request with limit: JSON</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Response with totalEntries:
-    XML</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Response with totalEntries:
-    JSON</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<para> In the previous two response examples, note that
-    <code>totalEntries=112</code> and that a link has been
-  provided to retrieve the next 3 results
-    (<code>limit=3</code>) in the link element identified by
-  the attribute <code>rel="next"</code> (XML) or
-    <code>"rel":"next"</code> (JSON). </para>
-<para>The following example shows links to both previous and
-  next results in the responses, since the request specified
-  to start with the fourth item in the collection
-    (<code>offset=3</code>):</para>
-<example>
-  <title>List Databases Request with limit and offset:
-    XML</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Request with limit and offset:
-    JSON</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Response with Links to previous and
-    next Results: XML</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<example>
-  <title>List Databases Response with Links to previous and
-    next Results: JSON</title>
-  <?dbfo keep-together="always"?>
-  <programlisting language="xml">Reviewer: Need code example.</programlisting>
-</example>
-<para>
-  <?rax-fo keep-with-next?> In the previous two response
-  examples, note that <code>totalEntries=112</code> and two
-  links have been provided to:<itemizedlist>
-    <listitem>
-      <para>Retrieve the next 3 results (<code>limit=3</code>)
-via the link element identified by the attribute
-  <code>rel="next"</code> (XML) or
-  <code>"rel":"next"</code> (JSON)</para>
-    </listitem>
-    <listitem>
-      <para>Retrieve the previous 3 results via the link
-element identified by the attribute
-  <code>rel="previous"</code> (XML) or
-  <code>"rel":"previous"</code> (JSON) </para>
-    </listitem>
-  </itemizedlist></para>
-      </section>
-    </section>
-    <section xml:id="efficient_polling_changes_since_parm"
-      security="writeronly">
-      <title>Efficient Polling with the
-  <parameter>Changes-Since</parameter> Parameter</title>
-      <remark security="reviewer">Reviewer: I have hidden this section, since it does not
-appear that it will be supported for Private Beta.
-Correct?</remark>
-      <para> The ReST API allows you to poll for the status of certain
-operations by performing a &GET; on various URIs. Rather than
-re-downloading and re-parsing the full status at each polling
-interval, your ReST client may use the
-  <parameter>changes-since</parameter> parameter to check for
-changes since a previous request. The
-  <parameter>changes-since</parameter> time is specified as
-  <link xlink:href="http://en.wikipedia.org/wiki/Unix_time"
-  >Unix time</link> (the number of seconds since January 1,
-1970, 00:00:00 UTC, not counting leap seconds). If nothing has
-changed since the <parameter>changes-since</parameter> time, a
-  <returnvalue>304 (Not Modified)</returnvalue> response will
-be returned. If data has changed, only the items changed since
-the specified time will be returned in the response. </para>
-      <remark security="reviewer">Reviewer: does the following sentence apply, and should
-it be included?</remark>
-      <para>For example, performing a &GET; against
-  https://api.servers.rackspacecloud.com/v1.0/224532/servers?<parameter>changes-since</parameter>=1244012982
-would list all servers that have changed since Wed, 03 Jun
-2009 07:09:42 UTC. </para>
-    </section>
+    
+    
     <section xml:id="DB_faults" >
       <title>Faults and Common Issues</title>
       <!-- add or remove error codes as needed -->
@@ -1061,75 +872,8 @@ listed below.
 </formalpara>
 
 
-      <para>
-<code>Common Error 1</code> happens when something happens. Examples 
-are given below in XML and JSON format.
-      </para>
-      <example>
-<title>Example Common Error 1 Response: XML</title>
-<literallayout class="monospaced">
-    HTTP/1.1 500 Internal Server Error
-    Content-Type: application/xml
-    Content-Length: 121
-    Date: Mon, 28 Nov 2011 18:19:37 GMT
-      </literallayout>
-      </example>
-      <example>
-<title>Example Common Error 1 Response: JSON</title>
-<literallayout class="monospaced">
-    HTTP/1.1 500 Internal Server Error
-    Content-Length: 120
-    Content-Type: application/json; charset=UTF-8
-    Date: Tue, 29 Nov 2011 00:33:48 GMT
-    
-    {
-"example": {
-    "example": yes,
-
-}
-    }
-      </literallayout>
-      </example>
-
-<para><?rax-fo keep-with-next?>
-  <code>Common Error 2</code> happens when something happens. Examples 
-  are given below in XML and JSON format.
-</para>
-      <example>
-<title>Example Common Error 2: XML</title>
-<literallayout class="monospaced">
-    HTTP/1.1 400 None
-    Content-Type: application/xml
-    Content-Length: 121
-    Date: Mon, 28 Nov 2011 18:19:37 GMT
-    
-    &lt;badRequest code="400" xmlns="http://docs.rackspace.com/cbs/api/v1.0"&gt;
-&lt;message&gt;
-    Example bad request response.
-&lt;/message&gt;
-    &lt;/badRequest&gt;
-      </literallayout>
-      </example>
-      <example>
-<title>Example Common Error 2: JSON</title>
-<literallayout class="monospaced">  
-HTTP/1.1 400 None
-Content-Length: 120
-Content-Type: application/json; charset=UTF-8
-Date: Tue, 29 Nov 2011 00:33:48 GMT
-
-{
-"example": {
-"example": yes
-}
-}
-</literallayout>
-
-
-      </example>
-
     </section>
-    <section xml:id="project_status">
+    <section xml:id="project_status" security="writeonly">
       <title>Project Status</title>
       <para><?rax-fo keep-with-next?>When working with &PRODNAME;,
 you may see the following status values:</para>
@@ -1180,7 +924,7 @@ Here are the operations within this section
     </tr>
     <tr>
       <td colspan="1">&POST;</td>
-      <td colspan="2">/agent/enable|disable</td>
+      <td colspan="2">/agent/enable</td>
       <td colspan="3">Enables/Disables an agent. Disabling an agent only stops
 it from making backups. The agent is not deleted and its
 data remains. Disabled agents may later be re-enabled.</td>
@@ -1290,7 +1034,7 @@ backup data.</td>
   <tbody>
     <tr>
       <td colspan="1">&POST;</td>
-      <td colspan="2">/agent/enable|disable</td>
+      <td colspan="2">/agent/enable</td>
       <td colspan="3">Enables/Disables an agent. Disabling an agent 
 only stops it from making backups. The agent is not deleted 
 and its data remains. Disabled agents may later be re-enabled.
@@ -1364,8 +1108,11 @@ and its data remains. Disabled agents may later be re-enabled.
   Forbidden (403),
   Service Unavailable (503)
 </simpara>
-<para>Enables volume encryption with AES-256 encryption if it
-  is not already enabled. 
+<para>This operation enables volume encryption with AES-256 encryption 
+  if it is not already enabled. If you need assistance generating
+  your encrypted key, see <link
+  xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup">
+  "Generating Your Encrypted Key In Cloud Backup"</link> in our Knowledge Center.
 </para>
 <para><emphasis role="bold">Note:</emphasis> Once
   encryption is turned on, it cannot be turned off. This is a
@@ -1724,20 +1471,19 @@ of a backup configuration.</td>
   <literallayout class="monospaced">
     {
        "BackupConfigurationName": "Weekly Website Backup",
-       "MachineAgentId" : 156953,
-       "IsActive": true|false,
+       "IsActive": true,
        "VersionRetention": 0|30|60,
        "MissedBackupActionId": 1,
-       "Frequency": "Hourly|Daily|Weekly|Manually",
+       "Frequency": "Hourly,
        "StartTimeHour": 6,
        "StartTimeMinute": 30,
-       "StartTimeAmPm": "AM|PM",
+       "StartTimeAmPm": "PM",
        "DayOfWeekId": 4,
        "HourInterval": null,
        "TimeZoneId": "Eastern Standard Time",
        "NotifyRecipients": "raxtestaddress1@gmail.com",
-       "NotifySuccess": true|false,
-       "NotifyFailure": true|false,
+       "NotifySuccess": true,
+       "NotifyFailure": true,
        "Inclusions": [
            {
        "FilePath": "C:\\backup_up_file.txt",
@@ -1767,20 +1513,20 @@ of a backup configuration.</td>
     {
       "MachineAgentId": 156953,
       "BackupConfigurationName": "Weekly Website Backup",
-      "IsActive": true|false,
-      "VersionRetention": 0|30|60,
+      "IsActive": true,
+      "VersionRetention": 30,
       "BackupConfigurationScheduleId": 145393,
       "MissedBackupActionId": 1,
-      "Frequency": "Hourly|Daily|Weekly|Manually",
+      "Frequency": "Weekly",
       "StartTimeHour": 6,
       "StartTimeMinute": 30,
-      "StartTimeAmPm": "AM|PM",
+      "StartTimeAmPm": "AM",
       "DayOfWeekId": 4,
       "HourInterval": null,
       "TimeZoneId": "Eastern Standard Time",
       "NotifyRecipients": "raxtestaddress@gmail.com",
-      "NotifySuccess": true|false,
-      "NotifyFailure": true|false,
+      "NotifySuccess": true,
+      "NotifyFailure": true,
       "Inclusions": [
           {
             "FilePath": "C:\\backup_up_file.txt",
@@ -1848,11 +1594,11 @@ of a backup configuration.</td>
    {
       "MachineAgentId": 156953,
       "BackupConfigurationName": "Weekly Website Backup",
-      "IsActive": true|false,
-      "VersionRetention": 0|30|60,
+      "IsActive": true,
+      "VersionRetention": 30,
       "BackupConfigurationScheduleId": 145393,
       "MissedBackupActionId": 1,
-      "Frequency": "Hourly|Daily|Weekly|Manually",
+      "Frequency": "Weekly",
       "StartTimeHour": 6,
       "StartTimeMinute": 30,
       "StartTimeAmPm": "AM|PM",
@@ -1860,8 +1606,8 @@ of a backup configuration.</td>
       "HourInterval": null,
       "TimeZoneId": "Eastern Standard Time",
       "NotifyRecipients": "raxtestaddress@gmail.com",
-      "NotifySuccess": true|false,
-      "NotifyFailure": true|false,
+      "NotifySuccess": true,
+      "NotifyFailure": true,
       "Inclusions": [
           {
             "FilePath": "C:\\backup_up_file.txt",
@@ -2851,7 +2597,7 @@ Here are the operations within this section
 </tbody>
       </informaltable>
       <?hard-pagebreak?>
-
+   
 
 <!-- Create a Restore Configuration -->
 
