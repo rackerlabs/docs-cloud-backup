@@ -78,14 +78,24 @@ interested in developing applications using the
     -->
     <revhistory>
       <revision>
-<date>2013-03-05</date>
-<revdescription>
-  <itemizedlist spacing="compact">
-    <listitem>
-      <para>Created Preview document.</para>
-    </listitem>
-  </itemizedlist>
-</revdescription>
+        <date>2013-04-17</date>
+        <revdescription>
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>Removed absolute limits.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+      <date>2013-03-05</date>
+      <revdescription>
+      <itemizedlist spacing="compact">
+      <listitem>
+      <para>Created initial document.</para>
+      </listitem>
+      </itemizedlist>
+      </revdescription>
       </revision>
     </revhistory>
     <raxm:metadata
@@ -560,39 +570,7 @@ All accounts, by default, have a preconfigured set of
 thresholds (or limits) to manage capacity and prevent abuse of
 the system.
       </para>
-      <section xml:id="Absolute_Limits-d1e1397">
-<title>Absolute Limits</title>
-
-<para>[If your project has limitations, use the table below to 
-  describe them.]</para>
-<table rules="all">
-  <caption>Absolute Limits</caption>
-  <col width="120pt"/>
-  <col width="201pt"/>
-  <col width="50pt"/>
-  <thead>
-    <tr>
-      <td colspan="1">Name</td>
-      <td colspan="1">Description</td>
-      <td colspan="1">Limit</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1">Limit type 1</td>
-      <td colspan="1">A limit of <emphasis role="bold"> 
-limited resource 1</emphasis> per user per region. </td>
-      <td colspan="1">10 units</td>
-    </tr>
-    <tr>
-      <td colspan="1">Limit type 2</td>
-      <td colspan="1">A limit of <emphasis role="bold"> 
-limited resource 2</emphasis> per user per region. </td>
-      <td colspan="1">20 units</td>
-    </tr>
-  </tbody>
-</table>
-      </section>
+            
     </section>
     <section xml:id="datetimeformat">
       <title>Date/Time Format</title>
