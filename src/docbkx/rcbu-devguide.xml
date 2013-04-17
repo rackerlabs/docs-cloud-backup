@@ -82,7 +82,7 @@ interested in developing applications using the
         <revdescription>
           <itemizedlist spacing="compact">
             <listitem>
-              <para>Removed absolute limits.</para>
+              <para>Removed limits.</para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -563,15 +563,6 @@ build information for the API.
       </para>
     </section>
    
-    <section xml:id="Limits-d1e1208">
-      <title>Limits</title>
-      <para>
-All accounts, by default, have a preconfigured set of
-thresholds (or limits) to manage capacity and prevent abuse of
-the system.
-      </para>
-            
-    </section>
     <section xml:id="datetimeformat">
       <title>Date/Time Format</title>
       <para> The &PRODNAME; Service uses an ISO-8601-compliant 
