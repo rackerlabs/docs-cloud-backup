@@ -61,7 +61,7 @@ format="SVG" scale="60"/>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>&PRODNAME;</productname>
     <!-- enter the publication date of this document -->
-    <pubdate>2013-03-05</pubdate>
+    <pubdate/>
     <legalnotice role="rs-api">
       <annotation>
 <remark>Copyright details are filled in by the
@@ -78,11 +78,26 @@ interested in developing applications using the
     -->
     <revhistory>
       <revision>
+        <date>2013-06-05</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Updated Example 2.10. Create Backup Configuration
+                Request: JSON in  <xref linkend="createConfig"/> to
+                include <code>"MachineAgentId"</code> near top of
+                example.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
         <date>2013-05-20</date>
         <revdescription>
           <itemizedlist spacing="compact">
             <listitem>
-              <para>Changed Cloud Control Panel wording.</para>
+              <para>Changed Rackspace control panel to Cloud Control
+                Panel in  <xref linkend="Authentication-d1e647"/>
+                .</para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -111,7 +126,7 @@ interested in developing applications using the
     <raxm:metadata
 	xmlns:raxm="http://docs.rackspace.com/api/metadata">
       <raxm:displayname>API Developer Guide</raxm:displayname>
-      <raxm:product version="v1.0">rcbu</raxm:product>
+      <raxm:product version="v1.0">files</raxm:product>
       <raxm:priority>20</raxm:priority>
     </raxm:metadata>
   </info>
@@ -149,28 +164,34 @@ interested in developing applications using the
     <para>Interactions with &PRODNAME; occur programmatically via the &PRODNAME; 
       API as described in this Developer Guide.
     </para>
-    <para>Highlights of &PRODNAME;include:<itemizedlist>
-      <listitem>
-        <para>Select the files and folders from your Cloud Server you want to back up</para>
-      </listitem>
-      <listitem>
-        <para>Run your backups manually or on a schedule that works for you</para>
-      </listitem>
-      <listitem>
-        <para>See the activity from all your backups, both current and previous</para>
-      </listitem>
-      <listitem>
-        <para>Use AES-256 encryption with a private encryption key known only to you</para>
-      </listitem>
-      <listitem>
-        <para>SRestore individual files and folders from a particular date</para>
-      </listitem>
-      <listitem>
-        <para>Save space with incremental backups that only save the changed portions of files</para>
-      </listitem>
-      <listitem>
-        <para>Create unlimited Backups</para>
-      </listitem> 
+    <para>Highlights of &PRODNAME;include: <itemizedlist>
+        <listitem>
+          <para>Select the files and folders from your Cloud Server
+            you want to back up</para>
+        </listitem>
+        <listitem>
+          <para>Run your backups manually or on a schedule that works
+            for you</para>
+        </listitem>
+        <listitem>
+          <para>See the activity from all your backups, both current
+            and previous</para>
+        </listitem>
+        <listitem>
+          <para>Use AES-256 encryption with a private encryption key
+            known only to you</para>
+        </listitem>
+        <listitem>
+          <para>SRestore individual files and folders from a
+            particular date</para>
+        </listitem>
+        <listitem>
+          <para>Save space with incremental backups that only save the
+            changed portions of files</para>
+        </listitem>
+        <listitem>
+          <para>Create unlimited Backups</para>
+        </listitem>
       </itemizedlist>
     </para>
     <note><title>Notes</title>
@@ -1380,6 +1401,7 @@ of a backup configuration.</td>
   <literallayout class="monospaced">
     {
        "BackupConfigurationName": "Weekly Website Backup",
+       "MachineAgentId" : 156953,
        "IsActive": true,
        "VersionRetention": 0|30|60,
        "MissedBackupActionId": 1,
