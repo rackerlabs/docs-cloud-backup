@@ -155,16 +155,15 @@ interested in developing applications using the
     xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <title>Overview</title>
-    <para>&PRODNAME;  is a file-based backup application that lets you choose 
-      which files and folders to backup from your Cloud Server. You can choose 
-      to restore your whole system with all of its folders and files, or 
-      individual files or folders from a given date, or restore to an 
-      entirely different Server.. 
-    </para>
+    <para>&PRODNAME; is a file-based backup application that lets you
+      choose which files and folders to backup from your Cloud Server.
+      You can choose to restore your whole system with all of its
+      folders and files, or individual files or folders from a given
+      date, or restore to an entirely different server. </para>
     <para>Interactions with &PRODNAME; occur programmatically via the &PRODNAME; 
       API as described in this Developer Guide.
     </para>
-    <para>Highlights of &PRODNAME;include: <itemizedlist>
+    <para>Highlights of &PRODNAME; include: <itemizedlist>
         <listitem>
           <para>Select the files and folders from your Cloud Server
             you want to back up</para>
@@ -182,8 +181,8 @@ interested in developing applications using the
             known only to you</para>
         </listitem>
         <listitem>
-          <para>SRestore individual files and folders from a
-            particular date</para>
+          <para>Restore individual files and folders from a particular
+            date</para>
         </listitem>
         <listitem>
           <para>Save space with incremental backups that only save the
