@@ -14,7 +14,7 @@
       <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>clouddocs-maven-plugin</artifactId>
-        <version>1.7.1</version>
+        <version>1.8.0</version>
         <executions>
           <execution>
             <id>rcbu-devguide</id>
@@ -25,6 +25,7 @@
             <configuration>
               <includes>rcbu-devguide.xml</includes>
 	      <security>external</security>
+<canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content</canonicalUrlBase>
               <trimWadlUriCount>2</trimWadlUriCount>
             </configuration>
           </execution>
@@ -32,7 +33,7 @@
         <configuration>
 	  <enableDisqus>Disqus</enableDisqus>
 	  <socalIcons>1</socalIcons>
-	  <feedbackEmail>david.hendler@rackspace.com</feedbackEmail>
+	  <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
 	  <publicationNotificationEmails>david.hendler@rackspace.com</publicationNotificationEmails>
 	  <enableGoogleAnalytics>1</enableGoogleAnalytics>
           <branding>rackspace</branding>      
