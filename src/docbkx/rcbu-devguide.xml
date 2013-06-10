@@ -61,7 +61,7 @@ format="SVG" scale="60"/>
     <releaseinfo>API v1.0</releaseinfo>
     <productname>&PRODNAME;</productname>
     <!-- enter the publication date of this document -->
-    <pubdate/>
+    <pubdate>2013-06-05</pubdate>
     <legalnotice role="rs-api">
       <annotation>
 <remark>Copyright details are filled in by the
