@@ -2444,9 +2444,9 @@ of a backup configuration.</td>
                <table rules="all">
                   <caption>Update Backup Configuration Request
                      Attributes</caption>
-                  <col width="30%"/>
-                  <col width="45%"/>
-                  <col width="25%"/>
+                  <col width="40%"/>
+                  <col width="50%"/>
+                  <col width="10%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -2465,7 +2465,7 @@ of a backup configuration.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>BackupConfigurationName</code>
+                           <code>BackupConfigurationName </code>
                         </td>
                         <td>The name of the backup configuration. The
                            configuration typically has the backup
