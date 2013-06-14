@@ -747,7 +747,7 @@ Rackspace Cloud Backup servers.</para>
                      </td>
                   </tr>
                   <tr align="left">
-                     <td colspan="2">London (LON)</td>
+                     <td colspan="2">London (LON) </td>
                      <td colspan="5">
                         <code>https://lon.backup.api.rackspacecloud.com/v1.0/</code>
                      </td>
@@ -1129,139 +1129,143 @@ backup data.</td>
           Details response attributes. </para>
             <para>
                <table rules="all">
-                  <caption>Get Agent Details Response Attributes</caption>
-                  <col width="49%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
+                  <caption>Get Agent Details Response
+                     Attributes</caption>
+                  <col width="40%"/>
+                  <col width="60%"/>
                   <thead>
-                     <tr align="left">
-                        <td colspan="1">Name</td>
-                        <td colspan="4">Description</td>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
                      </tr>
                   </thead>
                   <tbody>
-                     <tr align="left">
-                        <td colspan="1">
+                     <tr>
+                        <td>
                            <code>AgentVersion</code>
                         </td>
-                        <td colspan="4">Version of the Rackspace Cloud Backup
-                  agent.</td>
+                        <td>Version of the Rackspace Cloud
+                           Backup agent.</td>
                      </tr>
-                     <tr align="left">
-                        <td colspan="1">
+                     <tr>
+                        <td>
                            <code>Architecture</code>
                         </td>
-                        <td colspan="4">Base architecture of the Cloud Server.
-                  Valid values are 64-bit or 32-bit.</td>
+                        <td>Base architecture of the Cloud
+                           Server. Valid values are 64-bit or
+                           32-bit.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>Flavor</code>
                         </td>
-                        <td colspan="4">RaxCloudServer – for Rackspace Cloud
-                  Servers.</td>
+                        <td>RaxCloudServer – for Rackspace
+                           Cloud Servers.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>BackupVaultSize</code>
                         </td>
-                        <td colspan="4">Size of backup data in MB. </td>
+                        <td>Size of backup data in MB.
+                        </td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>CleanupAllowed</code>
                         </td>
-                        <td colspan="4">Indicates whether a cleanup can be
-                  manually triggered on the backup vault. Valid values
-                  are true or false.</td>
+                        <td>Indicates whether a cleanup
+                           can be manually triggered on the backup
+                           vault. Valid values are true or false.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>Datacenter</code>
                         </td>
-                        <td colspan="4">Data center where the Cloud Server is
-                  located. Valid values are ORD, DFW, or LON). </td>
+                        <td>Data center where the Cloud
+                           Server is located. Valid values are ORD,
+                           DFW, or LON). </td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>IPAddress</code>
                         </td>
-                        <td colspan="4">Public IPv4 address of the Cloud
-                  Server.</td>
+                        <td>Public IPv4 address of the
+                           Cloud Server.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td>
                            <code>IsDisabled</code>
                         </td>
-                        <td colspan="4">Indicates if the Rackspace Cloud
-                  Backup agent on the server is disabled. Valid values
-                  are true or false.</td>
+                        <td >Indicates if the Rackspace
+                           Cloud Backup agent on the server is
+                           disabled. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>IsEncrypted</code>
                         </td>
-                        <td colspan="4">Indicates if backups are encrypted.
-                  Valid values are true or false.</td>
+                        <td >Indicates if backups are
+                           encrypted. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>MachineAgentId</code>
                         </td>
-                        <td colspan="4">ID that uniquely identifies a
-                  Rackspace Cloud Backup agent.</td>
+                        <td >ID that uniquely identifies a
+                           Rackspace Cloud Backup agent.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>MachineName</code>
                         </td>
-                        <td colspan="4">Name of the Cloud Server.</td>
+                        <td >Name of the Cloud Server.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>OperatingSystem</code>
                         </td>
-                        <td colspan="4">Indicates the operating system of
-                  Cloud Server.</td>
+                        <td >Indicates the operating system
+                           of Cloud Server.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
-                           <code>OperatingSystemVersion</code>
+                        <td >
+                           <code>OperatingSystemVersion </code>
                         </td>
-                        <td colspan="4">Indicates the operating system version
-                  of Cloud Server.</td>
+                        <td >Indicates the operating system
+                           version of Cloud Server.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>PublicKey</code>
                         </td>
-                        <td colspan="4">Indicates the public key of the
-                  public/private encryption key pair.</td>
+                        <td >Indicates the public key of
+                           the public/private encryption key
+                           pair.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>Status</code>
                         </td>
-                        <td colspan="4">Indicates the status of Rackspace
-                  Cloud Backup agent. Valid values are Online or
-                  Offline.</td>
+                        <td >Indicates the status of
+                           Rackspace Cloud Backup agent. Valid values
+                           are Online or Offline.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
-                           <code>TimeOfLastSuccessfulBackup</code>
+                        <td>
+                           <code>TimeOfLastSuccessfulBackup </code>
                         </td>
-                        <td colspan="4">Indicates the time of last successful
-                  backup.</td>
+                        <td >Indicates the time of last
+                           successful backup.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
-                           <code>UseServiceNet</code>
+                        <td >
+                           <code>UseServiceNet </code>
                         </td>
-                        <td colspan="4">Indicates if the Rackspace Cloud
-                  Backup agent is using ServiceNet to backup data to
-                  Cloud Files.</td>
+                        <td >Indicates if the Rackspace
+                           Cloud Backup agent is using ServiceNet to
+                           backup data to Cloud Files.</td>
                      </tr>
                   </tbody>
                </table>
@@ -1370,7 +1374,7 @@ and its data remains. Disabled agents may later be re-enabled.
                   <tbody>
                      <tr>
                         <td>
-                           <code>MachineAgentId</code>
+                           <code>MachineAgentId </code>
                         </td>
                         <td>Cloud Backup agent ID.</td>
                         <td>Yes</td>
@@ -1476,7 +1480,7 @@ and its data remains. Disabled agents may later be re-enabled.
                   <tbody>
                      <tr>
                         <td>
-                           <code>MachineAgentId</code>
+                           <code>MachineAgentId </code>
                         </td>
                         <td>Cloud Backup agent ID.</td>
                         <td>Yes</td>
@@ -1580,7 +1584,7 @@ and its data remains. Disabled agents may later be re-enabled.
                   <tbody>
                      <tr>
                         <td>
-                           <code>MachineAgentId</code>
+                           <code>MachineAgentId </code>
                         </td>
                         <td>Cloud Backup agent ID.</td>
                         <td>Yes</td>
@@ -1800,7 +1804,7 @@ Returns: <code>A list of agents.</code>
                      </tr>
                      <tr>
                         <td colspan="1">
-                           <code>UseServiceNet</code>
+                           <code>UseServiceNet </code>
                         </td>
                         <td colspan="4">Indicates if the Rackspace Cloud
                   Backup agent is using ServiceNet to backup data to
@@ -2153,7 +2157,7 @@ of a backup configuration.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>NotifyFailure</code>
+                           <code>NotifyFailure </code>
                         </td>
                         <td>Indicates if emails are sent after a failed
                   backup. Valid values are true or false.</td>
@@ -2165,7 +2169,7 @@ of a backup configuration.</td>
             <para>The following table lists and describes the response
           attributes for Create Backup Configuration. </para>
             <para>
-               <table rules="all" width="795">
+               <table rules="all">
                   <caption>Create Backup Configuration Response
               Attributes</caption>
                   <col width="40%"/>
@@ -2298,7 +2302,7 @@ of a backup configuration.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>NotifyFailure</code>
+                           <code>NotifyFailure </code>
                         </td>
                         <td>Indicates if emails are sent after a failed
                   backup. Valid values are true or false.</td>
@@ -2437,9 +2441,9 @@ of a backup configuration.</td>
           attributes for Update Backup Configuration Request
           attributes. </para>
             <para>
-               <table rules="all" width="1075">
+               <table rules="all">
                   <caption>Update Backup Configuration Request
-              Attributes</caption>
+                     Attributes</caption>
                   <col width="30%"/>
                   <col width="45%"/>
                   <col width="25%"/>
@@ -2456,7 +2460,7 @@ of a backup configuration.</td>
                            <code>MachineAgentId</code>
                         </td>
                         <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
+                           agent.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -2464,25 +2468,26 @@ of a backup configuration.</td>
                            <code>BackupConfigurationName</code>
                         </td>
                         <td>The name of the backup configuration. The
-                  configuration typically has the backup schedule,
-                  files to backup, and notification options.</td>
+                           configuration typically has the backup
+                           schedule, files to backup, and notification
+                           options.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsActive</code>
                         </td>
-                        <td>Indicates if a backup configuration is active.
-                  Valid values are true or false. </td>
+                        <td>Indicates if a backup configuration is
+                           active. Valid values are true or false. </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>VersionRetention</code>
                         </td>
-                        <td>Indicates how many days backup revisions will be
-                  maintained. Valid values are 0, 30 , and 60. 0 means
-                  indefinite. </td>
+                        <td>Indicates how many days backup revisions
+                           will be maintained. Valid values are 0, 30
+                           , and 60. 0 means indefinite. </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -2490,112 +2495,118 @@ of a backup configuration.</td>
                            <code>BackupConfigurationScheduled</code>
                         </td>
                         <td>Uniquely identifies the schedule that is
-                  associated with this configuration.</td>
+                           associated with this configuration.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Frequency</code>
                         </td>
-                        <td>Frequency of backup schedule. Valid values are
-                  "Manually", "Hourly", "Daily", and "Weekly".</td>
+                        <td>Frequency of backup schedule. Valid values
+                           are "Manually", "Hourly", "Daily", and
+                           "Weekly".</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeHour</code>
                         </td>
-                        <td>Indicates the hour when the backup will run. Valid
-                  values are 1 through 12, as well as null when the
-                    <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the hour when the backup will
+                           run. Valid values are 1 through 12, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeMinute</code>
                         </td>
-                        <td>Indicates the minute when the backup will run.
-                  Valid values are 0 through 59, as well as null when
-                  the <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the minute when the backup will
+                           run. Valid values are 0 through 59, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeAmPm</code>
                         </td>
-                        <td>Indicates AM or PM. Valid values are "AM" or "PM",
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" or "Hourly". </td>
+                        <td>Indicates AM or PM. Valid values are "AM"
+                           or "PM", as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" or "Hourly". </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>DayOfWeekId</code>
                         </td>
-                        <td>Indicates the day of the week. Valid values are 0
-                  through 6, with 0 representing Sunday and 6
-                  representing Saturday. null is also a valid value
-                  when the <code>Frequency</code> value is "Manually"
-                  ,"Hourly", or "Daily". </td>
+                        <td>Indicates the day of the week. Valid
+                           values are 0 through 6, with 0 representing
+                           Sunday and 6 representing Saturday. null is
+                           also a valid value when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Hourly", or "Daily". </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>HourInterval</code>
                         </td>
-                        <td>Indicates the hour. Valid values are 1 through 23,
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" ,"Daily", or "Weekly".</td>
+                        <td>Indicates the hour. Valid values are 1
+                           through 23, as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Daily", or "Weekly".</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>TimeZoneId</code>
                         </td>
-                        <td>Specifies the time zone where the backup runs, for
-                  example "Eastern Standard Time". </td>
+                        <td>Specifies the time zone where the backup
+                           runs, for example "Eastern Standard Time". </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyRecipients</code>
                         </td>
-                        <td>Indicates the email address to notify in case of
-                  backup success or failure.</td>
+                        <td>Indicates the email address to notify in
+                           case of backup success or failure.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifySuccess</code>
                         </td>
-                        <td>Indicates if emails are sent after a successful
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           successful backup. Valid values are true or
+                           false.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyFailure</code>
                         </td>
-                        <td>Indicates if emails are sent after a failed
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           failed backup. Valid values are true or
+                           false.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Inclusions</code>
                         </td>
-                        <td>Indicates the list of files and folders to back
-                  up.</td>
+                        <td>Indicates the list of files and folders to
+                           back up.</td>
                         <td/>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
-                        <td>Indicates the list of files and folders not to
-                  back up.</td>
+                        <td>Indicates the list of files and folders
+                           not to back up.</td>
                         <td/>
                      </tr>
                   </tbody>
@@ -2686,11 +2697,11 @@ of a backup configuration.</td>
             <para>The following table lists and describes the response
           attributes for  Get Backup Configuration Details. </para>
             <para>
-               <table rules="all" width="1068">
+               <table rules="all">
                   <caption>Get Backup Configuration Details Response
               Attributes</caption>
-                  <col width="27%"/>
-                  <col width="73%"/>
+                  <col width="40%"/>
+                  <col width="60%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -2868,7 +2879,7 @@ of a backup configuration.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
                         <td>Indicates the list of files and folders not to
                   backup.</td>
@@ -2876,6 +2887,8 @@ of a backup configuration.</td>
                   </tbody>
                </table>
             </para>
+            <para> </para>
+            <para> </para>
             <para> The following example shows the request and corresponding
           response to get details for a backup configuration:</para>
             <example>
@@ -2992,11 +3005,11 @@ the current user.
             <para>The following table lists and describes the response
           attributes for Get All Backup Configurations for User. </para>
             <para>
-               <table rules="all" width="1066">
-                  <caption>Get All Backup Configurations for User Response
-              Attributes</caption>
-                  <col width="27%"/>
-                  <col width="73%"/>
+               <table rules="all">
+                  <caption>Get All Backup Configurations for User
+                     Response Attributes</caption>
+                  <col width="40%"/>
+                  <col width="60%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -3008,148 +3021,159 @@ the current user.
                         <td>
                            <code>BackupConfigurationId</code>
                         </td>
-                        <td>Autogenerated ID that uniquely identifies a backup
-                  configuration. This ID is required on subsequent
-                  GET/UPDATE/DELETE calls. </td>
+                        <td>Autogenerated ID that uniquely identifies
+                           a backup configuration. This ID is required
+                           on subsequent GET/UPDATE/DELETE calls.
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>MachineAgentId</code>
                         </td>
                         <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
+                           agent.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>MachineName</code>
                         </td>
-                        <td>Name of the Cloud Server where the Cloud Backup
-                  agent resides.</td>
+                        <td>Name of the Cloud Server where the Cloud
+                           Backup agent resides.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Flavor</code>
                         </td>
-                        <td>RaxCloudServer - for Rackspace Cloud Servers.</td>
+                        <td>RaxCloudServer - for Rackspace Cloud
+                           Servers.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsEncrypted</code>
                         </td>
-                        <td>Indicates if backups are encrypted. Valid values
-                  are true or false.</td>
+                        <td>Indicates if backups are encrypted. Valid
+                           values are true or false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupConfigurationName</code>
                         </td>
                         <td>The name of the backup configuration. The
-                  configuration typically has the backup schedule,
-                  files to backup, and notification options.</td>
+                           configuration typically has the backup
+                           schedule, files to backup, and notification
+                           options.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsActive</code>
                         </td>
-                        <td>Indicates if a backup configuration is active.
-                  Valid values are true or false. </td>
+                        <td>Indicates if a backup configuration is
+                           active. Valid values are true or false.
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsDeleted</code>
                         </td>
-                        <td>Indicates if the backup configuration is deleted.
-                  Valid values are true or false.</td>
+                        <td>Indicates if the backup configuration is
+                           deleted. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>VersionRetention</code>
                         </td>
-                        <td>Indicates how many days backup revisions will be
-                  maintained. Valid values are 0, 30 , and 60. 0 means
-                  indefinite. </td>
+                        <td>Indicates how many days backup revisions
+                           will be maintained. Valid values are 0, 30
+                           , and 60. 0 means indefinite. </td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupConfigurationScheduled</code>
                         </td>
                         <td>Uniquely identifies the schedule that is
-                  associated with this configuration.</td>
+                           associated with this configuration.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>MissedBackupActionId</code>
                         </td>
-                        <td>Specifies when to send notification. Valid values
-                  are as follows: 1 that indicates that notifications
-                  are sent as soon as possible, or 2 that indicates
-                  that notifications are sent at the next scheduled
-                  time. </td>
+                        <td>Specifies when to send notification. Valid
+                           values are as follows: 1 that indicates
+                           that notifications are sent as soon as
+                           possible, or 2 that indicates that
+                           notifications are sent at the next
+                           scheduled time. </td>
                      </tr>
                      <tr>
                         <td>
                            <code>Frequency</code>
                         </td>
-                        <td>Frequency of backup schedule. Valid values are
-                  "Manually", "Hourly", "Daily", and "Weekly".</td>
+                        <td>Frequency of backup schedule. Valid values
+                           are "Manually", "Hourly", "Daily", and
+                           "Weekly".</td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeHour</code>
                         </td>
-                        <td>Indicates the hour when the backup will run. Valid
-                  values are 1 through 12, as well as null when the
-                    <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the hour when the backup will
+                           run. Valid values are 1 through 12, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeMinute</code>
                         </td>
-                        <td>Indicates the minute when the backup will run.
-                  Valid values are 0 through 59, as well as null when
-                  the <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the minute when the backup will
+                           run. Valid values are 0 through 59, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeAmPm</code>
                         </td>
-                        <td>Indicates AM or PM. Valid values are "AM" or "PM",
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" or "Hourly". </td>
+                        <td>Indicates AM or PM. Valid values are "AM"
+                           or "PM", as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>DayOfWeekId</code>
                         </td>
-                        <td>Indicates the day of the week. Valid values are 0
-                  through 6, with 0 representing Sunday and 6
-                  representing Saturday. null is also a valid value
-                  when the <code>Frequency</code> value is "Manually"
-                  ,"Hourly", or "Daily". </td>
+                        <td>Indicates the day of the week. Valid
+                           values are 0 through 6, with 0 representing
+                           Sunday and 6 representing Saturday. null is
+                           also a valid value when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Hourly", or "Daily". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>HourInterval</code>
                         </td>
-                        <td>Indicates the hour. Valid values are 1 through 23,
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" ,"Daily", or "Weekly".</td>
+                        <td>Indicates the hour. Valid values are 1
+                           through 23, as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Daily", or "Weekly".</td>
                      </tr>
                      <tr>
                         <td>
                            <code>TimeZoneId</code>
                         </td>
-                        <td>Specifies the time zone where the backup runs, for
-                  example "Eastern Standard Time". </td>
+                        <td>Specifies the time zone where the backup
+                           runs, for example "Eastern Standard Time".
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>NextScheduledRunTime</code>
                         </td>
-                        <td>Specifies the next scheduled run time for a
-                  backup. </td>
+                        <td>Specifies the next scheduled run time for
+                           a backup. </td>
                      </tr>
                      <tr>
                         <td>
@@ -3161,43 +3185,46 @@ the current user.
                         <td>
                            <code>LastRunBackupReportId</code>
                         </td>
-                        <td>If the backup ran successfully ran last time,
-                  indicates the ID of the backup report.</td>
+                        <td>If the backup ran successfully ran last
+                           time, indicates the ID of the backup
+                           report.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyRecipients</code>
                         </td>
-                        <td>Indicates the email address to notify in case of
-                  backup success or failure.</td>
+                        <td>Indicates the email address to notify in
+                           case of backup success or failure.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifySuccess</code>
                         </td>
-                        <td>Indicates if emails are sent after a successful
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           successful backup. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyFailure</code>
                         </td>
-                        <td>Indicates if emails are sent after a failed
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           failed backup. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Inclusions</code>
                         </td>
                         <td>Indicates the list of files and folders to
-                  backup.</td>
+                           backup.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
-                        <td>Indicates the list of files and folders not to
-                  backup.</td>
+                        <td>Indicates the list of files and folders
+                           not to backup.</td>
                      </tr>
                   </tbody>
                </table>
@@ -3334,26 +3361,15 @@ the current user.
   Not Found (404),
   Service Unavailable (500)
 </simpara>
-            <example>
-               <title>Get All Backup Configurations for Agent Request: JSON</title>
-               <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
-            User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-  </literallayout>
-            </example>
-            <para>The following table lists the Get All Backup
-          Configurations for Agent response attributes and provides a
-          description for each attribute.</para>
+            <para>The following table lists and describes the response
+               attributes for Get All Backup Configurations for
+               Agent.</para>
             <para>
-               <table rules="all" width="1054">
-                  <caption>Get All Backup Configurations for Agent Response
-              Attributes</caption>
-                  <col width="27%"/>
-                  <col width="73%"/>
+               <table rules="all">
+                  <caption>Get All Backup Configurations for Agent
+                     Response Attributes</caption>
+                  <col width="40%"/>
+                  <col width="60%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -3365,148 +3381,159 @@ the current user.
                         <td>
                            <code>BackupConfigurationId</code>
                         </td>
-                        <td>Autogenerated ID that uniquely identifies a backup
-                  configuration. This ID is required on subsequent
-                  GET/UPDATE/DELETE calls. </td>
+                        <td>Autogenerated ID that uniquely identifies
+                           a backup configuration. This ID is required
+                           on subsequent GET/UPDATE/DELETE calls.
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>MachineAgentId</code>
                         </td>
                         <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
+                           agent.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>MachineName</code>
                         </td>
-                        <td>Name of the Cloud Server where the Cloud Backup
-                  agent resides.</td>
+                        <td>Name of the Cloud Server where the Cloud
+                           Backup agent resides.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Flavor</code>
                         </td>
-                        <td>RaxCloudServer - for Rackspace Cloud Servers.</td>
+                        <td>RaxCloudServer - for Rackspace Cloud
+                           Servers.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsEncrypted</code>
                         </td>
-                        <td>Indicates if backups are encrypted. Valid values
-                  are true or false.</td>
+                        <td>Indicates if backups are encrypted. Valid
+                           values are true or false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupConfigurationName</code>
                         </td>
                         <td>The name of the backup configuration. The
-                  configuration typically has the backup schedule,
-                  files to backup, and notification options.</td>
+                           configuration typically has the backup
+                           schedule, files to backup, and notification
+                           options.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsActive</code>
                         </td>
-                        <td>Indicates if a backup configuration is active.
-                  Valid values are true or false. </td>
+                        <td>Indicates if a backup configuration is
+                           active. Valid values are true or false.
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>IsDeleted</code>
                         </td>
-                        <td>Indicates if the backup configuration is deleted.
-                  Valid values are true or false.</td>
+                        <td>Indicates if the backup configuration is
+                           deleted. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>VersionRetention</code>
                         </td>
-                        <td>Indicates how many days backup revisions will be
-                  maintained. Valid values are 0, 30 , and 60. 0 means
-                  indefinite. </td>
+                        <td>Indicates how many days backup revisions
+                           will be maintained. Valid values are 0, 30
+                           , and 60. 0 means indefinite. </td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupConfigurationScheduled</code>
                         </td>
                         <td>Uniquely identifies the schedule that is
-                  associated with this configuration.</td>
+                           associated with this configuration.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>MissedBackupActionId</code>
                         </td>
-                        <td>Specifies when to send notification. Valid values
-                  are as follows: 1 that indicates that notifications
-                  are sent as soon as possible, or 2 that indicates
-                  that notifications are sent at the next scheduled
-                  time. </td>
+                        <td>Specifies when to send notification. Valid
+                           values are as follows: 1 that indicates
+                           that notifications are sent as soon as
+                           possible, or 2 that indicates that
+                           notifications are sent at the next
+                           scheduled time. </td>
                      </tr>
                      <tr>
                         <td>
                            <code>Frequency</code>
                         </td>
-                        <td>Frequency of backup schedule. Valid values are
-                  "Manually", "Hourly", "Daily", and "Weekly".</td>
+                        <td>Frequency of backup schedule. Valid values
+                           are "Manually", "Hourly", "Daily", and
+                           "Weekly".</td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeHour</code>
                         </td>
-                        <td>Indicates the hour when the backup will run. Valid
-                  values are 1 through 12, as well as null when the
-                    <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the hour when the backup will
+                           run. Valid values are 1 through 12, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeMinute</code>
                         </td>
-                        <td>Indicates the minute when the backup will run.
-                  Valid values are 0 through 59, as well as null when
-                  the <code>Frequency</code> value is "Manually" or
-                  "Hourly". </td>
+                        <td>Indicates the minute when the backup will
+                           run. Valid values are 0 through 59, as well
+                           as null when the <code>Frequency</code>
+                           value is "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>StartTimeAmPm</code>
                         </td>
-                        <td>Indicates AM or PM. Valid values are "AM" or "PM",
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" or "Hourly". </td>
+                        <td>Indicates AM or PM. Valid values are "AM"
+                           or "PM", as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" or "Hourly". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>DayOfWeekId</code>
                         </td>
-                        <td>Indicates the day of the week. Valid values are 0
-                  through 6, with 0 representing Sunday and 6
-                  representing Saturday. null is also a valid value
-                  when the <code>Frequency</code> value is "Manually"
-                  ,"Hourly", or "Daily". </td>
+                        <td>Indicates the day of the week. Valid
+                           values are 0 through 6, with 0 representing
+                           Sunday and 6 representing Saturday. null is
+                           also a valid value when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Hourly", or "Daily". </td>
                      </tr>
                      <tr>
                         <td>
                            <code>HourInterval</code>
                         </td>
-                        <td>Indicates the hour. Valid values are 1 through 23,
-                  as well as null when the <code>Frequency</code>
-                  value is "Manually" ,"Daily", or "Weekly".</td>
+                        <td>Indicates the hour. Valid values are 1
+                           through 23, as well as null when the
+                              <code>Frequency</code> value is
+                           "Manually" ,"Daily", or "Weekly".</td>
                      </tr>
                      <tr>
                         <td>
                            <code>TimeZoneId</code>
                         </td>
-                        <td>Specifies the time zone where the backup runs, for
-                  example "Eastern Standard Time". </td>
+                        <td>Specifies the time zone where the backup
+                           runs, for example "Eastern Standard Time".
+                        </td>
                      </tr>
                      <tr>
                         <td>
                            <code>NextScheduledRunTime</code>
                         </td>
-                        <td>Specifies the next scheduled run time for a
-                  backup. </td>
+                        <td>Specifies the next scheduled run time for
+                           a backup. </td>
                      </tr>
                      <tr>
                         <td>
@@ -3518,47 +3545,63 @@ the current user.
                         <td>
                            <code>LastRunBackupReportId</code>
                         </td>
-                        <td>If the backup ran successfully ran last time,
-                  indicates the ID of the backup report.</td>
+                        <td>If the backup ran successfully ran last
+                           time, indicates the ID of the backup
+                           report.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyRecipients</code>
                         </td>
-                        <td>Indicates the email address to notify in case of
-                  backup success or failure.</td>
+                        <td>Indicates the email address to notify in
+                           case of backup success or failure.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifySuccess</code>
                         </td>
-                        <td>Indicates if emails are sent after a successful
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           successful backup. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NotifyFailure</code>
                         </td>
-                        <td>Indicates if emails are sent after a failed
-                  backup. Valid values are true or false.</td>
+                        <td>Indicates if emails are sent after a
+                           failed backup. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td>
                            <code>Inclusions</code>
                         </td>
                         <td>Indicates the list of files and folders to
-                  backup.</td>
+                           backup.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
-                        <td>Indicates the list of files and folders not to
-                  backup.</td>
+                        <td>Indicates the list of files and folders
+                           not to backup.</td>
                      </tr>
                   </tbody>
                </table>
             </para>
+            <para>Following are examples of a request and response for
+               Get All Backup Configurations for Agent:</para>
+            <example>
+               <title>Get All Backup Configurations for Agent Request: JSON</title>
+               <literallayout class="monospaced">
+     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
+            User-Agent: controlpanel.drivesrvr.com
+            Host: backup.api.rackspacecloud.com
+            Content-Type: application/json;
+            Content-Length: 0
+            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+  </literallayout>
+            </example>
 
             <example>
                <title>Get All Backup Configurations for Agent Response:
@@ -3683,9 +3726,9 @@ Disabled backup configurations may later be re-enabled.</td>
   Forbidden (403),
   Service Unavailable (500)
 </simpara>
-            <para>The following table lists the Enable/Disable a Backup
-          Configuration request attributes and provides a description
-          for each attribute.</para>
+            <para>The following table lists and describes the request
+               attributes for Enable/Disable a Backup
+               Configuration.</para>
             <para>
                <table rules="all">
                   <caption>Enable/Disable a Backup Configuration Request
@@ -3716,15 +3759,11 @@ Disabled backup configurations may later be re-enabled.</td>
           Configuration response attributes and provides a description
           for each attribute.</para>
             <para>
-               <table rules="all" width="1302">
+               <table rules="all">
                   <caption>Disable a Backup Configuration Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
+                  <col width="35%"/>
+                  <col width="65%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -3902,7 +3941,7 @@ Disabled backup configurations may later be re-enabled.</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
                         <td>Indicates the list of files and folders not to
                   backup.</td>
@@ -3910,6 +3949,7 @@ Disabled backup configurations may later be re-enabled.</td>
                   </tbody>
                </table>
             </para>
+            <para> </para>
             <para> The following examples show requests to enable and
           disable a backup configuration, as well as the corresponding
           response to disable a backup configuration:</para>
@@ -4034,6 +4074,8 @@ Disabled backup configurations may later be re-enabled.</td>
   Not Found (404),
   Service Unavailable (500)
 </simpara>
+            <para>Following is an example request for Delete Backup
+               Configuration:</para>
             <example>
                <title>Delete Backup Configuration Request: JSON</title>
                <literallayout class="monospaced">
@@ -4144,13 +4186,12 @@ Returns: Identifier of the instance of the backup.</td>
   Configurations for an Agent with the "Get All Backup Configurations for an Agent" 
   operation.
 </para>
-            <para>
-  When manually stopping a backup, provide the Backup Identifier for the ID.The 
-  backup Id is given when the backup is started. 
-</para>
-            <para>The following tables list the Start a Backup Manually
-          request and response attributes and provides a description
-          for each attribute.</para>
+            <para> When manually stopping a backup, provide the Backup
+               Identifier for the ID. The backup Id is given when the
+               backup is started. </para>
+            <para>The following tables list and describe the request
+               and response attributes for Start a Backup
+               Manually.</para>
             <para>
                <table rules="all">
                   <caption>Start a Backup Manually Request
@@ -4186,15 +4227,11 @@ Returns: Identifier of the instance of the backup.</td>
                </table>
             </para>
             <para>
-               <table rules="all" width="1302">
+               <table rules="all">
                   <caption>Start a Backup Manually Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
+                  <col width="31%"/>
+                  <col width="69%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -4204,7 +4241,7 @@ Returns: Identifier of the instance of the backup.</td>
                   <tbody>
                      <tr>
                         <td>
-                           <code>Id</code>
+                           <code>Id </code>
                         </td>
                         <td>Specifies <code>BackupId</code>,  a unique backup
                   ID that identifies the backup to start
@@ -4317,6 +4354,90 @@ Returns: Identifier of the instance of the backup.</td>
                <emphasis role="bold">Note</emphasis>: The authenticated
   user must have access to the specified backup in order to
   retrieve its details.</para>
+            <para>The following table lists and describes the response
+               attributes for Get Backup Details.</para>
+            <para>
+               <table rules="all">
+                  <caption>Get Backup Details Response
+                     Attributes</caption>
+                  <col width="31%"/>
+                  <col width="69%"/>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <code>BackupId</code>
+                        </td>
+                        <td>Identifies a unique backup. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>BackupConfigurationId</code>
+                        </td>
+                        <td>Autogenerated ID that uniquely identifies
+                           the backup configuration that is associated
+                           with this backup. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>CurrentState</code>
+                        </td>
+                        <td>Indicates the current state of the backup.
+                           Valid values are Queued, InProgress,
+                           Skipped, Missed, Stopped, Completed,
+                           Failed, Preparing, Start Requested,
+                           StartScheduled, StopRequested, and
+                           CompletedWithErrors. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>BackupConfigurationName</code>
+                        </td>
+                        <td>Specifies the name of the backup
+                           configuration. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>MachineAgentId</code>
+                        </td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>MachineName</code>
+                        </td>
+                        <td>Name of the Cloud Server where the Cloud
+                           Backup agent resides.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>StateChangeTime</code>
+                        </td>
+                        <td>Indicates when the backup last changed
+                           state.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>IsEncrypted</code>
+                        </td>
+                        <td>Indicates if backups are encrypted. Valid
+                           values are true or false.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>EncryptionKey </code>
+                        </td>
+                        <td>Species the encryption key.</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </para>
             <para> The following example shows the request and corresponding response to get
   backup details:</para>
 
@@ -4355,92 +4476,6 @@ Returns: Identifier of the instance of the backup.</td>
     }      
       </literallayout>
             </example>
-            <para>The following table lists the Get Backup Details
-          response attributes and provides a description for each
-          attribute.</para>
-            <para>
-               <table rules="all" width="1302">
-                  <caption>Get Backup Details Response Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>
-                           <code>BackupId</code>
-                        </td>
-                        <td>Identifies a unique backup. </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>BackupConfigurationId</code>
-                        </td>
-                        <td>Autogenerated ID that uniquely identifies the
-                  backup configuration that is associated with this
-                  backup. </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>CurrentState</code>
-                        </td>
-                        <td>Indicates the current state of the backup. Valid
-                  values are Queued, InProgress, Skipped, Missed,
-                  Stopped, Completed, Failed, Preparing, Start
-                  Requested, StartScheduled, StopRequested, and
-                  CompletedWithErrors. </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>BackupConfigurationName</code>
-                        </td>
-                        <td>Specifies the name of the backup configuration.
-                </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>MachineAgentId</code>
-                        </td>
-                        <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>MachineName</code>
-                        </td>
-                        <td>Name of the Cloud Server where the Cloud Backup
-                  agent resides.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>StateChangeTime</code>
-                        </td>
-                        <td>Indicates when the backup last changed state.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>IsEncrypted</code>
-                        </td>
-                        <td>Indicates if backups are encrypted. Valid values
-                  are true or false.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>EncryptionKey</code>
-                        </td>
-                        <td>Species the encryption key.</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </para>
             <para/>
          </section>
          <?hard-pagebreak?>
@@ -4486,6 +4521,83 @@ Backup Configuration.</td>
             <para>
   The authenticated user must have access to the specified backup configuration.
 </para>
+            <para>The following table lists and describes the response
+               attributes for Get Completed Backups.</para>
+            <para>
+               <table rules="all">
+                  <caption>Get Completed Backups Response
+                     Attributes</caption>
+                  <col width="31%"/>
+                  <col width="69%"/>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <code>BackupId</code>
+                        </td>
+                        <td>Identifies a unique backup. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>BackupConfigurationId</code>
+                        </td>
+                        <td>Autogenerated ID that uniquely identifies
+                           the backup configuration that is associated
+                           with this backup. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>BackupConfigurationName</code>
+                        </td>
+                        <td>Specifies the name of the backup
+                           configuration. </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>MachineAgentId</code>
+                        </td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>MachineName</code>
+                        </td>
+                        <td>Name of the Cloud Server where the Cloud
+                           Backup agent resides.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>CompletedTime</code>
+                        </td>
+                        <td>Indicates the time when the backup
+                           completed.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>BytesSearched</code>
+                        </td>
+                        <td>Indicates how many bytes were searched for
+                           this backup.</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <code>NumErrors</code>
+                        </td>
+                        <td>Indicates the numbers of errors that were
+                           encountered during the run for this
+                           backup.</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </para>
+            <para>Following are examples of a request and a response
+               for Get Completed Backups:</para>
             <example>
                <title>Get Completed Backups Request: JSON</title>
                <literallayout class="monospaced">
@@ -4516,84 +4628,6 @@ Backup Configuration.</td>
     }      
       </literallayout>
             </example>
-            <para>The following table lists the Get Completed Backups
-          response attributes and provides a description for each
-          attribute.</para>
-            <para>
-               <table rules="all" width="1302">
-                  <caption>Get  Completed Backups Response
-              Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
-                  <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>
-                           <code>BackupId</code>
-                        </td>
-                        <td>Identifies a unique backup. </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>BackupConfigurationId</code>
-                        </td>
-                        <td>Autogenerated ID that uniquely identifies the
-                  backup configuration that is associated with this
-                  backup. </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>BackupConfigurationName</code>
-                        </td>
-                        <td>Specifies the name of the backup configuration.
-                </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>MachineAgentId</code>
-                        </td>
-                        <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>MachineName</code>
-                        </td>
-                        <td>Name of the Cloud Server where the Cloud Backup
-                  agent resides.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>CompletedTime</code>
-                        </td>
-                        <td>Indicates the time when the backup completed.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>BytesSearched</code>
-                        </td>
-                        <td>Indicates how many bytes were searched for this
-                  backup.</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>NumErrors</code>
-                        </td>
-                        <td>Indicates the numbers of errors that were
-                  encountered during the run for this backup.</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </para>
             <para/>
          </section>
          <?hard-pagebreak?>
@@ -4631,6 +4665,8 @@ Backup Configuration.</td>
   Not Found (404),
   Service Unavailable (500)
 </simpara>
+            <para>Following are examples of a request and a response
+               for Get Backup Report.</para>
             <example>
                <title>Get Backup Report Request: JSON</title>
                <literallayout class="monospaced">
@@ -4708,7 +4744,7 @@ Backup Configuration.</td>
             <para/>
          </section>
      
-         <!-- end of backup operations section -->     
+         <!-- end of backup operations section  -->     
     </section>
       <?hard-pagebreak?>
 
@@ -4800,19 +4836,15 @@ Returns: Detailed information about the restore</td>
   Forbidden (403),
   Service Unavailable (500)
 </simpara>
-            <para>The following table lists the Create a Restore
-          Configuration response attributes and provides a description
-          for each attribute.</para>
+            <para>The following table lists and describes the response
+               attributes for Create a Restore Configuration
+               response.</para>
             <para>
-               <table rules="all" width="1185">
+               <table rules="all">
                   <caption>Create a Restore Configuration Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
+                  <col width="30%"/>
+                  <col width="70%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -4822,7 +4854,7 @@ Returns: Detailed information about the restore</td>
                   <tbody>
                      <tr>
                         <td>
-                           <code>RestoreId</code>
+                           <code>RestoreId </code>
                         </td>
                         <td>Creates a restore configuration and in reponse you
                   get RestoreID.</td>
@@ -4902,10 +4934,10 @@ Returns: Detailed information about the restore</td>
                   restore.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>IsEncrypted</code>
                         </td>
-                        <td colspan="4">Indicates if backups are encrypted.
+                        <td >Indicates if backups are encrypted.
                   Valid values are true or false.</td>
                      </tr>
                      <tr>
@@ -4940,7 +4972,7 @@ Returns: Detailed information about the restore</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
                         <td>Indicates the list of files and folders not to
                   restore.</td>
@@ -4948,6 +4980,7 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
+            <para> </para>
             <para>The following examples show a Create a Restore
           Configuration request and a response.</para>
             <example>
@@ -5116,7 +5149,7 @@ Returns: Detailed information about the restore</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>OverwriteFiles</code>
+                           <code>OverwriteFiles </code>
                         </td>
                         <td>Indicates if files are overwritten. Valid values
                   are true and false.</td>
@@ -5241,7 +5274,7 @@ Returns: Detailed information about the restore</td>
                      </tr>
                      <tr>
                         <td>
-                           <code>FileId</code>
+                           <code>FileId </code>
                         </td>
                         <td>Specifies a file ID value.</td>
                         <td/>
@@ -5417,6 +5450,8 @@ Returns: Detailed information about the restore</td>
   Not Found (404),
   Service Unavailable (500)
 </simpara>
+            <para>Following is an example Delete a Restore
+               Configuration request:</para>
             <example>
                <title>Delete a Restore Configuration Request: JSON</title>
                <literallayout class="monospaced">
@@ -5498,7 +5533,7 @@ Returns: Detailed information about the restore</td>
          <?hard-pagebreak?>
     
       <section xml:id="listBackups">
-            <title>List Backups available for Restore</title>
+            <title>List Backups Available for Restore</title>
             <informaltable rules="all">
                <thead>
                   <tr align="center">
@@ -5530,9 +5565,12 @@ deleted and is not expired).
   Not Found (404),
   Service Unavailable (500)
 </simpara>
+            <para>Following are examples of a request and a response
+               for List Backups Available for Restore:</para>
 
             <example>
-               <title>List Backups available for Restore Request: JSON</title>
+               <title>List Backups Available for Restore Request:
+                  JSON</title>
                <literallayout class="monospaced">
      GET    https://backup.api.rackspacecloud.com/v1.0/backup/availableforrestore
             User-Agent: controlpanel.drivesrvr.com
@@ -5651,7 +5689,7 @@ deleted and is not expired).
                      </tr>
                      <tr>
                         <td>
-                           <code>Id</code>
+                           <code>Id </code>
                         </td>
                         <td>Specifies the restore ID.</td>
                         <td>Yes</td>
@@ -5684,7 +5722,7 @@ deleted and is not expired).
                      </tr>
                      <tr>
                         <td>
-                           <code>Id</code>
+                           <code>Id </code>
                         </td>
                         <td>Specifies the restore ID.</td>
                         <td>Yes</td>
@@ -5761,15 +5799,11 @@ deleted and is not expired).
             <para>The following table lists and describes the attributes
           for the Get Details about a Restore response.</para>
             <para>
-               <table rules="all" width="1185">
+               <table rules="all">
                   <caption>Get Details about a Restore Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="50%"/>
-                  <col width="72pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
-                  <col width="2%"/>
+                  <col width="30%"/>
+                  <col width="70%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -5779,7 +5813,7 @@ deleted and is not expired).
                   <tbody>
                      <tr>
                         <td>
-                           <code>RestoreId</code>
+                           <code>RestoreId </code>
                         </td>
                         <td>Creates a restore configuration and in reponse you
                   get RestoreID.</td>
@@ -5859,10 +5893,10 @@ deleted and is not expired).
                   restore.</td>
                      </tr>
                      <tr>
-                        <td colspan="1">
+                        <td >
                            <code>IsEncrypted</code>
                         </td>
-                        <td colspan="4">Indicates if backups are encrypted.
+                        <td >Indicates if backups are encrypted.
                   Valid values are true or false.</td>
                      </tr>
                      <tr>
@@ -5897,7 +5931,7 @@ deleted and is not expired).
                      </tr>
                      <tr>
                         <td>
-                           <code>Exclusions</code>
+                           <code>Exclusions </code>
                         </td>
                         <td>Indicates the list of files and folders not to
                   restore.</td>
@@ -5905,8 +5939,8 @@ deleted and is not expired).
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a Get Details about a Restore
-          request and response.</para>
+            <para>Following are examples of a Get Details about a
+               Restore request and response:</para>
             <example>
                <title>Get Details about a Restore Request: JSON</title>
                <literallayout class="monospaced">
@@ -5991,13 +6025,12 @@ deleted and is not expired).
             <para>The following table lists and describes the attributes
           for the Get Restore Report response.</para>
             <para>
-               <table rules="all" width="1185">
-                  <caption>Get Restore Report Response Attributes</caption>
-                  <col width="29%"/>
-                  <col width="51%"/>
-                  <col width="239pt"/>
-                  <col width="284pt"/>
-                  <col width="8%"/>
+               <table rules="all">
+                  <caption>Get Restore Report Response
+                     Attributes</caption>
+                  <col width="35%"/>
+                  <col width="50%"/>
+                  <col width="15%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -6010,22 +6043,24 @@ deleted and is not expired).
                         <td>
                            <code>BackupConfigurationId</code>
                         </td>
-                        <td>Autogenerated ID that uniquely identifies the
-                  backup configuration just created. </td>
+                        <td>Autogenerated ID that uniquely identifies
+                           the backup configuration just created. </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupConfigurationName</code>
                         </td>
-                        <td>Specifies the name of the backup configuration. </td>
+                        <td>Specifies the name of the backup
+                           configuration. </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>BackupReportId</code>
                         </td>
-                        <td>Indicates the ID of the backup report.</td>
+                        <td>Indicates the ID of the backup
+                           report.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -6039,14 +6074,16 @@ deleted and is not expired).
                         <td>
                            <code>StartTime</code>
                         </td>
-                        <td>Indicates the starting time of the restore.</td>
+                        <td>Indicates the starting time of the
+                           restore.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>CompletedTime</code>
                         </td>
-                        <td>Indicates the completed time of the restore.</td>
+                        <td>Indicates the completed time of the
+                           restore.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -6067,46 +6104,49 @@ deleted and is not expired).
                         <td>
                            <code>State</code>
                         </td>
-                        <td> Indicates the state of the restore. Valid values
-                  include Creating, Queued, InProgress, Completed,
-                  Stopped, Failed, startRequested, Stoprequested,
-                  CompletedWithErrors, and Preparing.</td>
+                        <td> Indicates the state of the restore. Valid
+                           values include Creating, Queued,
+                           InProgress, Completed, Stopped, Failed,
+                           startRequested, Stoprequested,
+                           CompletedWithErrors, and Preparing.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NumFilesRestored</code>
                         </td>
-                        <td>Indicates the number of files restored.</td>
+                        <td>Indicates the number of files
+                           restored.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>NumBytesRestored</code>
                         </td>
-                        <td>Indicates the number of bytes (size of total
-                  files) restored.</td>
+                        <td>Indicates the number of bytes (size of
+                           total files) restored.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>RestoreDestination</code>
                         </td>
-                        <td>Specifies the system to which the files are
-                  restored.</td>
+                        <td>Specifies the system to which the files
+                           are restored.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>
                            <code>RestoreDestinationMachineId</code>
                         </td>
-                        <td>Specifies the machine ID to which the files are
-                  restored.</td>
+                        <td>Specifies the machine ID to which the
+                           files are restored.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
                         <td>NumErrors</td>
-                        <td>Indicates the number of errors encountered.</td>
+                        <td>Indicates the number of errors
+                           encountered.</td>
                         <td/>
                      </tr>
                      <tr>
@@ -6125,7 +6165,7 @@ deleted and is not expired).
                      </tr>
                      <tr>
                         <td>
-                           <code>ErrorList</code>
+                           <code>ErrorList </code>
                         </td>
                         <td/>
                         <td/>
@@ -6133,6 +6173,7 @@ deleted and is not expired).
                   </tbody>
                </table>
             </para>
+            <para> </para>
             <para>Following are examples of a Get Restore Report request
           and response:</para>
             <example>
@@ -6254,12 +6295,12 @@ deleted and is not expired).
             <para>The following table lists and describes the attributes
           for the List Activity for an Agent response.</para>
             <para>
-               <table rules="all" width="1017">
+               <table rules="all">
                   <caption>List Activity for an Agent Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="51%"/>
-                  <col width="68pt"/>
+                  <col width="40%"/>
+                  <col width="50%"/>
+                  <col width="10%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -6350,7 +6391,7 @@ deleted and is not expired).
                      </tr>
                      <tr>
                         <td>
-                           <code>TimeOfActivity</code>
+                           <code>TimeOfActivity </code>
                         </td>
                         <td>Indicates the number of bytes (size of total
                   files) restored.</td>
@@ -6359,6 +6400,7 @@ deleted and is not expired).
                   </tbody>
                </table>
             </para>
+            <para> </para>
             <para>Following are examples of a request and response for
           List Activity for an Agent:</para>
             <example>
@@ -6435,12 +6477,12 @@ completed or in progress for the user.
             <para>The following table lists and describes the attributes
           for the List Activity for User response.</para>
             <para>
-               <table rules="all" width="1017">
+               <table rules="all">
                   <caption>List Activity for User Response
               Attributes</caption>
-                  <col width="29%"/>
-                  <col width="51%"/>
-                  <col width="68pt"/>
+                  <col width="40%"/>
+                  <col width="50%"/>
+                  <col width="10%"/>
                   <thead>
                      <tr>
                         <th>Name</th>
@@ -6459,7 +6501,7 @@ completed or in progress for the user.
                      </tr>
                      <tr>
                         <td>
-                           <code>Type</code>
+                           <code>Type </code>
                         </td>
                         <td>Specifies type of activity. Valid values are
                   restore, backup, or cleanup. </td>
@@ -6540,8 +6582,9 @@ completed or in progress for the user.
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and a response for
-          List Activity for User:git p </para>
+            <para> </para>
+            <para>Following are examples of a request and a response
+               for List Activity for User:</para>
             <example>
                <title>List Activity for User Request: JSON</title>
                <literallayout class="monospaced">
