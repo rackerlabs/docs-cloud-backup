@@ -32,7 +32,7 @@
         </executions>
         <configuration>
 	  <enableDisqus>Disqus</enableDisqus>
-	  <socalIcons>1</socalIcons>
+	  <socialIcons>1</socialIcons>
 	  <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
 	  <publicationNotificationEmails>david.hendler@rackspace.com</publicationNotificationEmails>
 	  <enableGoogleAnalytics>1</enableGoogleAnalytics>
