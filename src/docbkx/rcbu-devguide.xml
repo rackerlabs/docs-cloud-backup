@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document -->
-    <pubdate>2013-06-14</pubdate>
+    <pubdate/>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,121 +39,209 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+       <revision>
+          <date>2013-06-24</date>
+          <revdescription>
+             <itemizedlist>   
+                <listitem>  
+                   <para>Added the following tables describing request and
+                  response attributes:</para>
+                     <itemizedlist>  <listitem>
+                           <para>Get Agent Details response (<xref
+                              linkend="getAgent"/> ).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Enable/Disable Agent request (<xref
+                              linkend="enableAgent"/> ).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Enable Volume Encryption request
+                              (<xref linkend="enableEncryption"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Delete Agent response (<xref
+                              linkend="deleeAgent"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get All Agents for this User response
+                              (<xref linkend="getAgents"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Create Backup Configuration request
+                              (<xref linkend="createConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Create Backup Configuration response
+                              (<xref linkend="createConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Update Backup Configuration request
+                              (<xref linkend="updateBackupConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Backup Configuration Details
+                              response (<xref
+                                 linkend="getBackupDetails"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get All Backup Configurations for
+                              User response (<xref
+                                 linkend="getConfigsUser"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get All Backup Configurations for
+                              Agent response (<xref
+                                 linkend="getBackupConfigsAgent"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Enable/Disable a Backup Configuration
+                              request (<xref
+                                 linkend="enableBackupConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Disable a Backup Configuration
+                              request (<xref
+                                 linkend="enableBackupConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Disable a Backup Configuration
+                              response (<xref
+                                 linkend="enableBackupConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Start a Backup Manually request and
+                              response (<xref linkend="startBackup"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Stop a Backup Manually request (<xref
+                              linkend="startBackup"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Backup Details response (<xref
+                              linkend="getBackupDetails"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Completed Backups response (<xref
+                              linkend="getBackups"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Create a Restore Configuration
+                              response (<xref
+                                 linkend="createRestoreConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Details about a Restore response
+                              (<xref linkend="getRestoreDetails"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Update a Restore Configuration
+                              request (<xref
+                                 linkend="updateRestoreConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Include/Exclude File in Restore
+                              Configuration request (<xref
+                                 linkend="editFilesinRestoreConfiguation"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>List Included/Excluded Files in
+                              Restore Configuration request (<xref
+                                 linkend="listFilesinRestoreConfig"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Start Encrypted Restore request
+                              (<xref linkend="startRestore"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Start Unencrypted Restore request
+                              (<xref linkend="startRestore"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Stop Restore Manually request (<xref
+                              linkend="startRestore"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Details about a Restore response
+                              (<xref linkend="getRestoreDetails"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>Get Restore Report response (<xref
+                              linkend="getRestoreReport"/>).</para>
+                        </listitem>
+                        <listitem>
+                           <para>List Activity for an Agent response
+                              (<xref linkend="listAllActivity"
+                              />).</para>
+                        </listitem>
+                        <listitem>
+                           <para>List Activity for User response
+                              (<xref linkend="getAllActivity"
+                              />).</para>
+                        </listitem>
+                        
+                     </itemizedlist>
+                </listitem>
+                <listitem>
+                   <para>Corrected examples in <xref
+                      linkend="startRestore"/>.</para>
+                </listitem>
+                   <listitem>
+                   <para>Updated information about the use of
+                      authentication endpoints in <xref
+                         linkend="Authentication-d1e647"/>. You can
+                      now use either the US endpoint or UK endpoint
+                      to access the Authentication Service,
+                      regardless of US or UK identities. </para>
+                   </listitem>
+                      <listitem>
+                   <para>Removed the Date/Time section. The Cloud
+                      Backup API now supports only Microsoft Date
+                      Format and not ISO.</para>
+                      </listitem>
+                         <listitem>
+                   <para>Added Sydney (SYD) data center to
+                      datacenter specifications.</para>
+                         </listitem>
+                            <listitem>
+                   <para>Removed the Help Operations section that
+                      was at the end of the book as these are
+                      classified as internal calls.</para>
+                            </listitem>
+                               <listitem>
+                   <para>Changed all occurrences of
+                      raxtestaddress@gmail.com to
+                      raxtestaddress@rackspace.com.</para>
+                               </listitem>  
+             </itemizedlist> 
+          </revdescription>
+       </revision>
          <revision>
-            <date>2013-06-14</date>
+            <date>2013-06-05 </date>
             <revdescription>
-               <para>Added tables describing attributes for the following
-            requests and responses:</para>
                <itemizedlist>
                   <listitem>
-                     <para>Get Agent Details response (<xref linkend="getAgent"/> ).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Enable/Disable Agent request (<xref linkend="enableAgent"/> ).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Enable Volume Encryption request (<xref linkend="enableEncryption"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Delete Agent response (<xref linkend="deleeAgent"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get All Agents for this User response (<xref linkend="getAgents"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Create Backup Configuration request (<xref linkend="createConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Create Backup Configuration response (<xref linkend="createConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Update Backup Configuration request (<xref linkend="updateBackupConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Backup Configuration Details response (<xref linkend="getBackupDetails"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get All Backup Configurations for User response
-                  (<xref linkend="getConfigsUser"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get All Backup Configurations for Agent response
-                  (<xref linkend="getBackupConfigsAgent"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Enable/Disable a Backup Configuration request
-                  (<xref linkend="enableBackupConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Disable a Backup Configuration request (<xref linkend="enableBackupConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Disable a Backup Configuration response (<xref linkend="enableBackupConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Start a Backup Manually request and response
-                  (<xref linkend="startBackup"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Stop a Backup Manually request (<xref linkend="startBackup"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Backup Details response (<xref linkend="getBackupDetails"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Completed Backups response (<xref linkend="getBackups"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Create a Restore Configuration response (<xref linkend="createRestoreConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Details about a Restore response (<xref linkend="getRestoreDetails"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Update a Restore Configuration request (<xref linkend="updateRestoreConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Include/Exclude File in Restore Configuration
-                request (<xref linkend="editFilesinRestoreConfiguation"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>List Included/Excluded Files in Restore
-                Configuration request (<xref linkend="listFilesinRestoreConfig"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Start Encrypted Restore request (<xref linkend="startRestore"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Start Unencrypted Restore request (<xref linkend="startRestore"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Stop Restore Manually request (<xref linkend="startRestore"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Details about a Restore response (<xref linkend="getRestoreDetails"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>Get Restore Report response (<xref linkend="getRestoreReport"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>List Activity for an Agent response (<xref linkend="listAllActivity"/>).</para>
-                  </listitem>
-                  <listitem>
-                     <para>List Activity for User response (<xref linkend="getAllActivity"/>).</para>
-                  </listitem>
-               </itemizedlist>
-               <para>Corrected examples in <xref linkend="startRestore"/>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-06-05</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Updated Example 2.10. Create Backup Configuration
-                Request: JSON in  <xref linkend="createConfig"/> to
-                include <code>"MachineAgentId"</code> near top of
-                example.</para>
+                     <para>Updated Example 2.10. Create Backup
+                        Configuration Request: JSON in <xref
+                           linkend="createConfig"/> to include
+                           <code>"MachineAgentId"</code> near top of
+                        example.</para>
                   </listitem>
                </itemizedlist>
             </revdescription>
@@ -272,10 +360,11 @@ storage and is familiar with: </para>
       <?hard-pagebreak?>
     <section xml:id="Document_Change_History-d1e166">
          <title>Document Change History</title>
-         <para>This version of the Developer Guide replaces and obsoletes
-all previous versions. The most recent changes are described
-in the table below:</para>
-         <!-- the document history displays here; generated from above code -->
+         <para>This version of the Developer Guide replaces and
+            obsoletes all previous versions. The most recent changes
+            are described in the table below: </para>
+       <?rax revhistory?>    
+         <!-- the document history displays here; generated from above code 
       <informaltable xmlns:xs="http://www.w3.org/2001/XMLSchema" rules="all">
             <col width="20%"/>
             <col width="80%"/>
@@ -449,6 +538,7 @@ in the table below:</para>
                </tr>
             </tbody>
          </informaltable>
+       -->
       </section>
       <section xml:id="Additional_Resources-d1e532">
          <title>Additional Resources</title>
@@ -573,47 +663,36 @@ Your <code>username</code> and
 Cloud Control Panel. Once you are logged in, you can use 
 the Cloud Control Panel to obtain your <code>API key</code>.
       </para>
-      
-      
          <para>
-<!-- Use the control panel for the region in which your account is based: --> 
-<itemizedlist spacing="compact"> 
+            <itemizedlist>
                <listitem>
-                  <para>
-      US-based accounts use the Cloud Control Panel at 
-      <link xlink:href="https://manage.rackspacecloud.com/">
-https://manage.rackspacecloud.com/</link>.
-    </para>
+                  <para>US-based accounts use the Cloud Control Panel
+                     at <link xlink:href="https://mycloud.rackspace.com">
+                        https://mycloud.rackspace.com</link>.</para>
                </listitem>
-               <!--
-  <listitem>
-    <para> UK-based accounts use the control panel at
-      <link
-xlink:href="https://lon.manage.rackspacecloud.com/"
->https://lon.manage.rackspacecloud.com/</link>. </para>
-  </listitem>
-  -->
-</itemizedlist> 
+            </itemizedlist>
+         </para>
+         <para>
+            <emphasis role="bold">USE YOUR AUTHENTICATION
+               ENDPOINT</emphasis>
          </para>
       
       
-         <para>
-            <emphasis role="bold">USE YOUR AUTHENTICATION ENDPOINT</emphasis>
-         </para>
-         <para>
-<!-- Use the authentication endpoint for the region in which your account is based: -->
-<itemizedlist spacing="compact">
+         <para>You can use either of the following endpoints to access
+            the Authentication Service, regardless of US or UK
+            identities: <itemizedlist spacing="compact">
                <listitem>
-                  <para> US-based accounts authenticate through
-      <link xlink:href="https://auth.api.rackspacecloud.com/v2.0/">https://auth.api.rackspacecloud.com/v2.0/</link>.</para>
+                  <para><link
+                     xlink:href=" https://identity.api.rackspacecloud.com/v2.0/"
+                        >
+                     https://identity.api.rackspacecloud.com/v2.0/</link></para>
                </listitem>
-               <!--
- <listitem>
-    <para> UK-based accounts authenticate through
-      <link xlink:href="&ENDPOINT-UK;">&ENDPOINT-UK;</link>.</para>
-  </listitem>
-  -->
-</itemizedlist>
+               <listitem>
+                  <para><link
+                     xlink:href="https://lon.identity.api.rackspacecloud.com/v2.0/"
+                     >https://lon.identity.api.rackspacecloud.com/v2.0/</link></para>
+               </listitem>
+            </itemizedlist>
          </para>
          <para>
             <emphasis role="bold">SEND YOUR CREDENTIALS TO YOUR AUTHENTICATION
@@ -721,36 +800,36 @@ appropriate replication, caching, and overall maintenance of
 Rackspace Cloud Backup data across regional boundaries to other
 Rackspace Cloud Backup servers.</para>
          <para>You can find the available service access/endpoints for
-        Rackspace Cloud Backup in the table below.</para>
+            Rackspace Cloud Backup in the table below. </para>
          <?rax-fo keep-with-next?>
       <para>
             <table rules="all">
                <caption>Regionalized Service Endpoints</caption>
+               <col width="27%"/>
+               <col width="73%"/>
                <thead>
-                  <tr align="center">
-                     <td colspan="2">Region</td>
-                     <td colspan="5">Endpoint</td>
+                  <tr>
+                     <th>Region</th>
+                     <th>Endpoint</th>
                   </tr>
                </thead>
                <tbody>
-
-                  <tr align="left">
-                     <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                     <td colspan="5">
-                        <code>https://backup.api.rackspacecloud.com/v1.0/</code>
+                  <tr>
+                     <td>Dallas/Ft. Worth (DFW)</td>
+                     <td><code>https://backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
                      </td>
                   </tr>
-                  <tr align="left">
-                     <td colspan="2">Chicago (ORD)</td>
-                     <td colspan="5">
-                        <code>https://backup.api.rackspacecloud.com/v1.0/</code>
-                     </td>
+                  <tr>
+                     <td>Chicago (ORD)</td>
+                     <td><code>https://backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
-                  <tr align="left">
-                     <td colspan="2">London (LON) </td>
-                     <td colspan="5">
-                        <code>https://lon.backup.api.rackspacecloud.com/v1.0/</code>
-                     </td>
+                  <tr>
+                     <td>London (LON) </td>
+                     <td><code>https://lon.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+                  <tr>
+                     <td>Sydney (SYD)</td>
+                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                </tbody>
             </table>
@@ -777,7 +856,7 @@ build information for the API.
                <title>Example List Versions: Request</title>
                <programlisting>
     GET HTTP/1.1
-    Host: https://dfw.backup.api.rackspacecloud.com/v1/1234/
+    Host: https://backup.api.rackspacecloud.com/v1/1234/
   </programlisting>
             </example>
             <para>
@@ -790,7 +869,7 @@ build information for the API.
   Issue a GET request to the root endpoint for a service. In the request, truncate the version and everything to the right of it. For example:
 </para>
             <programlisting>
-  https://dfw.backup.api.rackspacecloud.com/
+  https://backup.api.rackspacecloud.com/
   </programlisting>
             <para>
   This operation does not require a request body.
@@ -808,7 +887,7 @@ build information for the API.
         JSON is the default. 
       </para>
       </section>
-   
+     <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
       <section xml:id="datetimeformat">
          <title>Date/Time Format</title>
          <para> The Rackspace Cloud Backup Service uses an ISO-8601-compliant 
@@ -872,16 +951,16 @@ date/time values.
             </tbody>
          </table>
       </section>
-    
+ -->   
     
       <section xml:id="DB_faults">
          <title>Faults and Common Issues</title>
          <!-- add or remove error codes as needed -->
-      <para> When an error occurs, the Rackspace Cloud Backup Service
-returns a fault object containing an HTTP error response code
-that denotes the type of error. In the body of the response,
-the system returns additional information about the fault. 
-      </para>
+      <para>When an error occurs, the Rackspace Cloud Backup Service
+            returns a fault object containing an HTTP error response
+            code that denotes the type of error. In the body of the
+            response, the system returns additional information about
+            the fault. </para>
          <para>The following table lists possible fault types with their
 associated error codes and descriptions.
       </para>
@@ -981,7 +1060,7 @@ listed below.
                   </listitem>
                </itemizedlist>
                <itemizedlist>
-                  <title>Backups gets network error</title>
+                  <title>Backups get network error</title>
                   <listitem>
                      <para>
                         <emphasis>Solution:</emphasis> Make sure that your backup server has a connection 
@@ -1181,9 +1260,9 @@ backup data.</td>
                         <td>
                            <code>Datacenter</code>
                         </td>
-                        <td>Data center where the Cloud
-                           Server is located. Valid values are ORD,
-                           DFW, or LON). </td>
+                        <td>Data center where the Cloud Server is
+                           located. Valid values are ORD, DFW, LON, or
+                           SYD). </td>
                      </tr>
                      <tr>
                         <td>
@@ -1278,7 +1357,7 @@ backup data.</td>
   GET     https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
           User-Agent: controlpanel.drivesrvr.com
           Host: backup.api.rackspacecloud.com
-          Content-Type: application/json;
+          Content-Type: application/json
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
   </literallayout>
@@ -1286,31 +1365,28 @@ backup data.</td>
             <example>
                <title>Get Agent Details Response: JSON</title>
                <literallayout>
-       {
-         "AgentVersion": "1.05.005848",
-         "Architecture": "64-bit",
-         "Flavor":"RaxCloudServer",
-         "BackupVaultSize": "35.3 MB",
-         "CleanupAllowed": true,
-         "Datacenter": "ORD",
-         "IPAddress": "192.168.1.1",
-         "IsDisabled": false,
-         "IsEncrypted": true,
-         "MachineAgentId": 213564,
-         "MachineName": "Web Server",
-         "OperatingSystem": "Windows Server 2012",
-         "OperatingSystemVersion":"",
-         "PublicKey": {
-              "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a
-              98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4
-              61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23
-              fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a
-              cd36074eafd036a5eb83359d2a698d0",
-              "ExponentHex": 09528 },
-         "Status": "Online",
-         "TimeOfLastSuccessfulBackup": null,
-         "UseServiceNet": true
-         }
+ {
+  "AgentVersion": "1.05.005848",
+  "Architecture": "64-bit",
+  "Flavor": "RaxCloudServer",
+  "BackupVaultSize": "35.3 MB",
+  "CleanupAllowed": true,
+  "Datacenter": "ORD",
+  "IPAddress": "192.168.1.1",
+  "IsDisabled": false,
+  "IsEncrypted": true,
+  "MachineAgentId": 213564,
+  "MachineName": "Web Server",
+  "OperatingSystem": "Windows Server 2012",
+  "OperatingSystemVersion": "",
+  "PublicKey": {
+    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a cd36074eafd036a5eb83359d2a698d0",
+    "ExponentHex": "09528"
+  },
+  "Status": "Online",
+  "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
+  "UseServiceNet": true
+}
   </literallayout>
             </example>
             <para/>
@@ -1728,8 +1804,9 @@ Returns: <code>A list of agents.</code>
                         <td colspan="1">
                            <code>Datacenter</code>
                         </td>
-                        <td colspan="4">Data center where the Cloud Server is
-                  located. Valid values are ORD, DFW, or LON. </td>
+                        <td colspan="4">Data center where the Cloud
+                           Server is located. Valid values are ORD,
+                           DFW,  LON, or SYD. </td>
                      </tr>
                      <tr>
                         <td colspan="1">
@@ -2328,7 +2405,7 @@ of a backup configuration.</td>
        "DayOfWeekId": 4,
        "HourInterval": null,
        "TimeZoneId": "Eastern Standard Time",
-       "NotifyRecipients": "raxtestaddress1@gmail.com",
+       "NotifyRecipients": "raxtestaddress@rackspace.com",
        "NotifySuccess": true,
        "NotifyFailure": true,
        "Inclusions": [
@@ -2372,7 +2449,7 @@ of a backup configuration.</td>
       "DayOfWeekId": 4,
       "HourInterval": null,
       "TimeZoneId": "Eastern Standard Time",
-      "NotifyRecipients": "raxtestaddress@gmail.com",
+      "NotifyRecipients": "raxtestaddress@rackspace.com",
       "NotifySuccess": true,
       "NotifyFailure": true,
       "Inclusions": [
@@ -2632,7 +2709,7 @@ of a backup configuration.</td>
       "DayOfWeekId": 4,
       "HourInterval": null,
       "TimeZoneId": "Eastern Standard Time",
-      "NotifyRecipients": "raxtestaddress@gmail.com",
+      "NotifyRecipients": "raxtestaddress@rackspace.com",
       "NotifySuccess": true,
       "NotifyFailure": true,
       "Inclusions": [
@@ -2928,7 +3005,7 @@ of a backup configuration.</td>
         "NextScheduledRunTime": "\/Date(1357817400000)\/",
         "LastRunTime": null,
         "LastRunBackupReportId": null,
-        "NotifyRecipients": "raxtestaddress1@gmail.com",
+        "NotifyRecipients": "raxtestaddress@rackspace.com",
         "NotifySuccess": false,
         "NotifyFailure": false,
         "Inclusions": [
@@ -4002,7 +4079,7 @@ Disabled backup configurations may later be re-enabled.</td>
         "NextScheduledRunTime": "\/Date(1357817400000)\/",
         "LastRunTime": null,
         "LastRunBackupReportId": null,
-        "NotifyRecipients": "raxtestaddress1@gmail.com",
+        "NotifyRecipients": "raxtestaddress@rackspace.com",
         "NotifySuccess": false,
         "NotifyFailure": false,
         "Inclusions": [
@@ -6638,11 +6715,11 @@ completed or in progress for the user.
     </section>
       <?hard-pagebreak?>
 
-    
+  
 <!-- ******************************************************* -->
 <!-- Begin Help Operations Section -->
 <!-- ******************************************************* -->
-    
+<!-- 6-24-2013 Removed entire section 2.8 at Balaji's request    
     <section xml:id="Help">
          <title>Help Operations</title>
          <para> Following are the operations within this section: </para>
@@ -6674,8 +6751,8 @@ completed or in progress for the user.
             </tbody>
          </informaltable>
          <?hard-pagebreak?>
-       
-<!-- get Developer Guide -->
+    
+
       
       <section xml:id="getGuide">
             <title>Get the Developer Guide</title>
@@ -6712,8 +6789,8 @@ completed or in progress for the user.
             <para/>
          </section>
          <?hard-pagebreak?>
-      
-<!-- get images supported by Agent -->
+   
+
       
       <section xml:id="getImages">
             <title>List Images Supported by Agent</title>
@@ -6773,10 +6850,8 @@ completed or in progress for the user.
             <para/>
          </section>
       
-         <!-- end help operations section -->
     </section>
-      <?hard-pagebreak?>
-    
+ --> 
     
 
     <!--  
