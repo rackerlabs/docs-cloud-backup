@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document -->
-    <pubdate/>
+    <pubdate>2013-06-24</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -1621,12 +1621,17 @@ and its data remains. Disabled agents may later be re-enabled.
                </thead>
                <tbody>
                   <tr>
-                     <td colspan="1">
-                        <command>POST</command>
+                     <td colspan="1"><command>GET</command>
                      </td>
                      <td colspan="2">/agent/delete</td>
                      <td colspan="3">Permanently and immediately deletes an agent and 
   its backup data.</td>
+                  </tr>
+                  <tr>
+                     <td colspan="1"><command>POST</command></td>
+                     <td colspan="2">/agent/delete</td>
+                     <td colspan="3">Permanently and immediately
+                        deletes an agent and its backup data.</td>
                   </tr>
                </tbody>
             </informaltable>
@@ -6353,9 +6358,9 @@ deleted and is not expired).
                         <command>GET</command>
                      </td>
                      <td colspan="2">/system/activity/{agentId}</td>
-                     <td colspan="3">Lists all in progress and completed activity for
-                an agent. Activities Types are Backup, Cleanup, and
-                Restore.</td>
+                     <td colspan="3">Lists all in progress and
+                        completed activity for an agent. Activity
+                        types are Backup, Cleanup, and Restore.</td>
                   </tr>
                </tbody>
             </informaltable>
@@ -6388,7 +6393,7 @@ deleted and is not expired).
                   <tbody>
                      <tr>
                         <td>
-                           <code>Id</code>
+                           <code>ID</code>
                         </td>
                         <td>Specifies the restore ID, backup ID, or cleanup
                   ID.</td>
@@ -6470,8 +6475,7 @@ deleted and is not expired).
                         <td>
                            <code>TimeOfActivity </code>
                         </td>
-                        <td>Indicates the number of bytes (size of total
-                  files) restored.</td>
+                        <td>Indicates the time of the activity.</td>
                         <td>Yes</td>
                      </tr>
                   </tbody>
@@ -6570,7 +6574,7 @@ completed or in progress for the user.
                   <tbody>
                      <tr>
                         <td>
-                           <code>Id</code>
+                           <code>ID</code>
                         </td>
                         <td>Specifies the restore ID, backup ID, or cleanup
                   ID.</td>
@@ -6652,8 +6656,7 @@ completed or in progress for the user.
                         <td>
                            <code>TimeOfActivity</code>
                         </td>
-                        <td>Indicates the number of bytes (size of total
-                  files) restored.</td>
+                        <td>Indicates the time of the activity.</td>
                         <td>Yes</td>
                      </tr>
                   </tbody>
