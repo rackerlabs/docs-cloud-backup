@@ -15,7 +15,7 @@
   <title>Rackspace Cloud Backup Developer Guide</title>
   <titleabbrev>RCBU Developer Guide</titleabbrev>
   <info>
-    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document -->
+    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document  -->
     
     <copyright>
          <year>2013</year>
@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document -->
-    <pubdate>2013-06-24</pubdate>
+    <pubdate/>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +39,23 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2013-07-31</date>
+            <revdescription>
+               <itemizedlist>
+                  <listitem>
+                     <para>Added Migrate Vault (<xref
+                           linkend="migrateVault"/>) to the agent
+                        operations.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Added Update Agent Behavior (<xref
+                           linkend="updateAgentBehavior"/>) to the
+                        agent operations.</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
        <revision>
           <date>2013-06-24</date>
           <revdescription>
@@ -1172,6 +1189,23 @@ data remains. Disabled agents may later be re-enabled.</td>
                   <td colspan="3">Permanently and immediately deletes an agent and its
 backup data.</td>
                </tr>
+               <tr>
+                  <td colspan="1"><command>PUT</command></td>
+                  <td colspan="2">/agent/migratevault</td>
+                  <td colspan="3">Migrate a backup vault from one
+                     machine agent to another. These two agents should
+                     be under the same user and their backups should
+                     not be encrypted.</td>
+               </tr>
+               <tr>
+                  <td colspan="1"><command>POST</command></td>
+                  <td colspan="2">/agent/{machineAgentId}</td>
+                  <td colspan="3">Updates the backup data center
+                     and/or enables/disables ServiceNet for the Cloud
+                     Backup agent. If ServiceNet is enabled, Cloud
+                     Backup agent talks to Cloud Files over ServiceNet
+                     and does not incur any bandwidth charges.</td>
+               </tr>
             </tbody>
          </informaltable>
          <?hard-pagebreak?>
@@ -1342,9 +1376,10 @@ backup data.</td>
                         <td >
                            <code>UseServiceNet </code>
                         </td>
-                        <td >Indicates if the Rackspace
-                           Cloud Backup agent is using ServiceNet to
-                           backup data to Cloud Files.</td>
+                        <td>Indicates if the Rackspace Cloud Backup
+                           agent is using ServiceNet to backup data to
+                           Cloud Files.  Valid values are true or
+                           false.</td>
                      </tr>
                   </tbody>
                </table>
@@ -1677,8 +1712,202 @@ and its data remains. Disabled agents may later be re-enabled.
             </example>
             <para/>
             <!-- end Delete Agent -->
+   
 </section>
- 
+      
+   
+   <!-- Migrate Vault -->
+   <section xml:id="migrateVault">
+      <title>Migrate Vault</title>
+      <informaltable rules="all">
+         <thead>
+            <tr align="center">
+               <td colspan="1">Verb</td>
+               <td colspan="2">URI</td>
+               <td colspan="3">Description</td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td colspan="1"><command>PUT</command></td>
+               <td colspan="2">/agent/migratevault</td>
+               <td colspan="3">Migrate a backup vault from one machine
+                        agent to another. </td>
+            </tr>
+         </tbody>
+      </informaltable>
+      <simpara> Normal Response Code(s):
+                  <returnvalue>200</returnvalue> (OK) </simpara>
+      <simpara> Error Response Code(s): Forbidden (403), Service
+               Unavailable (500) </simpara>
+      <para>The two agents should be under the same user and their
+               backups should not be encrypted.</para>
+      <para>The following table lists and describes the request
+               attributes for Migrate Vault. </para>
+      <para>
+         <table rules="all">
+            <caption>Migrate Vault Request Attributes</caption>
+            <col width="29%"/>
+            <col width="50%"/>
+            <col width="21%"/>
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Required</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                           <code>SourceMachineAgentId</code>
+                        </td>
+                  <td>Agent Id of the source. Backups will be migrated
+                              <emphasis role="bold">FROM</emphasis>
+                           this agent.</td>
+                  <td>Yes</td>
+               </tr>
+                     <tr>
+                        <td><code>DestinationMachineAgentID</code></td>
+                        <td>Agent Id of the destination. Backups will
+                           be migrated <emphasis role="bold"
+                              >TO</emphasis> this agent.</td>
+                        <td>Yes</td>
+                     </tr>
+            </tbody>
+         </table>
+      </para>
+      <para>Following is an example request for Migrate Vault:</para>
+      <example>
+         <title>Migrate Value request: JSON</title>
+         <literallayout class="monospaced">
+     {
+                "SourceMachineAgentId": 1,
+                "DestinationMachineAgentId": 2,
+            }
+    
+      </literallayout>
+      </example>
+      <para/>
+      <!-- end Migrate Vault -->
+      
+      
+</section>
+       <!-- Update Agent Behavior -->
+       <section xml:id="updateAgentBehavior">
+          <title>Update Agent Behavior</title>
+          <informaltable rules="all">
+             <thead>
+                <tr align="center">
+                   <td colspan="1">Verb</td>
+                   <td colspan="2">URI</td>
+                   <td colspan="3">Description</td>
+                </tr>
+             </thead>
+             <tbody>
+                <tr>
+                   <td colspan="1"><command>POST</command></td>
+                   <td colspan="2">/agent/{machineAgentId}</td>
+                   <td colspan="3">Updates the backup data center
+                        and/or enables/disables ServiceNet for the
+                        Cloud Backup agent.</td>
+                </tr>
+             </tbody>
+          </informaltable>
+          <simpara> Normal Response Code(s):
+                  <returnvalue>200</returnvalue> (OK) </simpara>
+          <simpara> Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
+          <para>If ServiceNet is enabled, Cloud Backup agent talks to
+               Cloud Files over ServiceNet and does not incur any
+               bandwidth charges.</para>
+          <para>The following table lists and describes the request
+               attributes for Update Agent Behavior. </para>
+          <para>
+             <table rules="all">
+                <caption>Update Agent Behavior Request
+                     Attributes</caption>
+                <col width="29%"/>
+                <col width="50%"/>
+                <col width="21%"/>
+                <thead>
+                   <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Required</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                      <td>
+                           <code>BackupDataCenter</code>
+                        </td>
+                      <td>Specifies the backup data center where this
+                           Agent's backup will reside.</td>
+                      <td>No</td>
+                   </tr>
+                   <tr>
+                      <td><code>UseServiceNet</code></td>
+                      <td>Enables or disables the ServiceNet for this
+                           agent.  Valid values are true or
+                           false.</td>
+                      <td>Yes</td>
+                   </tr>
+                </tbody>
+             </table>
+          </para>
+          <para>Following are examples of a request and a response for
+               Update Agent Behavior:</para>
+          <example>
+             <title>Update Agent Behavior request: JSON</title>
+             <literallayout class="monospaced">
+ POST    https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
+                    User-Agent: controlpanel.drivesrvr.com
+                    Host: backup.api.rackspacecloud.com
+                    Content-Type: application/json;
+                    Content-Length: 0
+                    X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+                    
+                    {
+                    "BackupDatacenter: : "ORD | DFW | LON",
+                    "UseServiceNet" : true
+                    }
+      </literallayout>
+          </example>
+          <example>
+             <title>Update Agent Behavior response: JSON</title>
+             <literallayout class="monospaced">
+             {
+                "AgentVersion": "1.05.005848",
+                "Architecture": "64-bit",
+                "Flavor":"RaxCloudServer",
+                "BackupVaultSize": "35.3 MB",
+                "CleanupAllowed": true,
+                "Datacenter": "ORD",
+                "BackupDatacenter": "ORD | DFW | LON",
+                "IPAddress": "192.168.1.1",
+                "IsDisabled": false,
+                "IsEncrypted": true,
+                "MachineAgentId": 213564,
+                "MachineName": "Web Server",
+                "OperatingSystem": "Windows Server 2012",
+                "OperatingSystemVersion":"",
+                "PublicKey": {
+                                "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a98288810b8975871.... 0829073351f4acd36074eafd036a5eb83359d2a698d0",
+                                "ExponentHex": 09528 },
+                "Status": "Online",
+                "TimeOfLastSuccessfulBackup": "\/Date(1358752980000)\/",
+                "UseServiceNet": true,
+                "UseFailoverUri": true
+            }
+      </literallayout>
+          </example>     
+          <para/>
+          <!-- end Update Agent Behavior -->
+          
+          
+       </section>
          <!-- end agent operations -->
  
  
@@ -1817,9 +2046,10 @@ Returns: <code>A list of agents.</code>
                         <td colspan="1">
                            <code>IsDisabled</code>
                         </td>
-                        <td colspan="4">Indicates if the Rackspace Cloud
-                  Backup agent on the server is disabled. Valid valids
-                  are true or false.</td>
+                        <td colspan="4">Indicates if the Rackspace
+                           Cloud Backup agent on the server is
+                           disabled. Valid values are true or
+                           false.</td>
                      </tr>
                      <tr>
                         <td colspan="1">
@@ -1881,9 +2111,10 @@ Returns: <code>A list of agents.</code>
                         <td colspan="1">
                            <code>UseServiceNet </code>
                         </td>
-                        <td colspan="4">Indicates if the Rackspace Cloud
-                  Backup agent is using ServiceNet to backup data to
-                  Cloud Files.</td>
+                        <td colspan="4">Indicates if the Rackspace
+                           Cloud Backup agent is using ServiceNet to
+                           backup data to Cloud Files. Valid values
+                           are true or false. </td>
                      </tr>
                   </tbody>
                </table>
