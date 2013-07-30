@@ -22,7 +22,7 @@
       </copyright>
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
-      <!-- enter the publication date of this document -->
+      <!-- enter the publication date of this document  -->
     <pubdate/>
       <legalnotice role="rs-api">
          <annotation>
@@ -49,9 +49,15 @@ Rackspace Cloud Backup Application Programming Interface
                         operations.</para>
                   </listitem>
                   <listitem>
-                     <para>Added Update Agent Behavior (<xref
+                     <para>Added Update Agent Backup Behavior (<xref
                            linkend="updateAgentBehavior"/>) to the
                         agent operations.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Updated regionalized service endpoints and
+                        added IAD (<xref
+                           linkend="Service_Access_Endpoints-d1e753"
+                        />).</para>
                   </listitem>
                </itemizedlist>
             </revdescription>
@@ -833,12 +839,12 @@ Rackspace Cloud Backup servers.</para>
                <tbody>
                   <tr>
                      <td>Dallas/Ft. Worth (DFW)</td>
-                     <td><code>https://backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
+                     <td><code>https://dfw.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
                      </td>
                   </tr>
                   <tr>
                      <td>Chicago (ORD)</td>
-                     <td><code>https://backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://ord.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>London (LON) </td>
@@ -847,6 +853,10 @@ Rackspace Cloud Backup servers.</para>
                   <tr>
                      <td>Sydney (SYD)</td>
                      <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+                  <tr>
+                     <td>Northern Virginia (IAD)</td>
+                     <td><code>https://iad.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                </tbody>
             </table>
@@ -1793,9 +1803,9 @@ and its data remains. Disabled agents may later be re-enabled.
       
       
 </section>
-       <!-- Update Agent Behavior -->
+       <!-- Update Agent Backup Behavior -->
        <section xml:id="updateAgentBehavior">
-          <title>Update Agent Behavior</title>
+          <title>Update Agent Backup Behavior</title>
           <informaltable rules="all">
              <thead>
                 <tr align="center">
@@ -1823,10 +1833,10 @@ and its data remains. Disabled agents may later be re-enabled.
                Cloud Files over ServiceNet and does not incur any
                bandwidth charges.</para>
           <para>The following table lists and describes the request
-               attributes for Update Agent Behavior. </para>
+               attributes for Update Agent Backup Behavior. </para>
           <para>
              <table rules="all">
-                <caption>Update Agent Behavior Request
+                <caption>Update Agent Backup Behavior Request
                      Attributes</caption>
                 <col width="29%"/>
                 <col width="50%"/>
@@ -1858,9 +1868,9 @@ and its data remains. Disabled agents may later be re-enabled.
              </table>
           </para>
           <para>Following are examples of a request and a response for
-               Update Agent Behavior:</para>
+               Update Agent Backup Behavior:</para>
           <example>
-             <title>Update Agent Behavior request: JSON</title>
+             <title>Update Agent Backup Behavior request: JSON</title>
              <literallayout class="monospaced">
  POST    https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
                     User-Agent: controlpanel.drivesrvr.com
@@ -1870,13 +1880,14 @@ and its data remains. Disabled agents may later be re-enabled.
                     X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
                     
                     {
-                    "BackupDatacenter: : "ORD | DFW | LON",
+                    "BackupDatacenter: : "ORD",
                     "UseServiceNet" : true
                     }
       </literallayout>
           </example>
           <example>
-             <title>Update Agent Behavior response: JSON</title>
+             <title>Update Agent Backup Behavior response:
+                  JSON</title>
              <literallayout class="monospaced">
              {
                 "AgentVersion": "1.05.005848",
@@ -1885,7 +1896,7 @@ and its data remains. Disabled agents may later be re-enabled.
                 "BackupVaultSize": "35.3 MB",
                 "CleanupAllowed": true,
                 "Datacenter": "ORD",
-                "BackupDatacenter": "ORD | DFW | LON",
+                "BackupDatacenter": "ORD",
                 "IPAddress": "192.168.1.1",
                 "IsDisabled": false,
                 "IsEncrypted": true,
@@ -1904,7 +1915,7 @@ and its data remains. Disabled agents may later be re-enabled.
       </literallayout>
           </example>     
           <para/>
-          <!-- end Update Agent Behavior -->
+          <!-- end Update Agent Backup Behavior -->
           
           
        </section>
