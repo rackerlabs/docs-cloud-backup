@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate/>
+    <pubdate>2013-07-31</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -572,8 +572,19 @@ API-related documents from <link xlink:href="http://docs.rackspace.com/api/">doc
          <!-- [Add this note if there is a Getting Started Guide]
       <para>For information about getting started using &PRODNAME;, 
       refer to <citetitle>Getting Started
-  with Rackspace &PRODNAME;</citetitle>.</para>
+  with Rackspace &PRODNAME;</citetitle>.</para> 
 -->
+         <para>For more information about using the Cloud Backup API
+            with cURL, see <link
+               xlink:href="http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw"
+               >
+               http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw</link>.</para>
+         <para>Additional information about Cloud Backup is also
+            available in the Rackspace Knowledge Center. Refer to the
+            Best Practices Guide at <link
+               xlink:href="http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup"
+               >
+               http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup</link>.</para>
       <para>For information about Rackspace Cloud products, refer to
   <link xlink:href="http://www.rackspace.com/cloud/">www.rackspace.com/cloud</link>. This site also
 offers links to Rackspace's official support channels,
@@ -1793,7 +1804,7 @@ and its data remains. Disabled agents may later be re-enabled.
          <literallayout class="monospaced">
      {
                 "SourceMachineAgentId": 1,
-                "DestinationMachineAgentId": 2,
+                "DestinationMachineAgentId": 2
             }
     
       </literallayout>
