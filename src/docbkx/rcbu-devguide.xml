@@ -2158,7 +2158,6 @@ Returns: <code>A list of agents.</code>
             <example>
                <title>Get All Agents for this User Response: JSON</title>
                <literallayout class="monospaced">
-          {
               [
             {
         "AgentVersion": "1.05.005848",
@@ -2212,8 +2211,7 @@ Returns: <code>A list of agents.</code>
         "TimeOfLastSuccessfulBackup": null,
         "UseServiceNet": true
             }
-              ]
-            }      
+              ]    
       </literallayout>
             </example>
             <para/>
