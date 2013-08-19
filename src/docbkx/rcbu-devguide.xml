@@ -1151,6 +1151,7 @@ listed below.
 
 
       </section>
+     <!--
       <section xml:id="RBAC">
          <title>Role Based Access Control (RBAC)</title>
          <para>Role Based Access Control (RBAC) restricts access to
@@ -1608,7 +1609,8 @@ listed below.
             </table>
          </section>
       </section>
-    
+      -->
+   
   </chapter>
 
 
