@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-07-31</pubdate>
+    <pubdate/>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +39,14 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2013-09-11</date>
+            <revdescription>
+               <para>Added <code>MachineAgentId</code> to the table of
+                  Create Backup Configuration Request Attributes
+                     (<xref linkend="createConfig"/>).</para>
+            </revdescription>
+         </revision>
          <revision>
             <date>2013-07-31</date>
             <revdescription>
@@ -1787,8 +1795,8 @@ backup data.</td>
                      <tr>
                         <td><code>MachineAgentId</code>
                         </td>
-                        <td >ID that uniquely identifies a
-                           Rackspace Cloud Backup agent.</td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
                      </tr>
                      <tr>
                         <td><code>MachineName</code>
@@ -1817,9 +1825,9 @@ backup data.</td>
                      <tr>
                         <td><code>Status</code>
                         </td>
-                        <td >Indicates the status of
-                           Rackspace Cloud Backup agent. Valid values
-                           are Online or Offline.</td>
+                        <td>Indicates the status of the Cloud Backup
+                           agent. Valid values are Online or
+                           Offline.</td>
                      </tr>
                      <tr>
                         <td><code>TimeOfLastSuccessfulBackup </code>
@@ -1830,10 +1838,9 @@ backup data.</td>
                      <tr>
                         <td><code>UseServiceNet </code>
                         </td>
-                        <td>Indicates if the Rackspace Cloud Backup
-                           agent is using ServiceNet to backup data to
-                           Cloud Files.  Valid values are true or
-                           false.</td>
+                        <td>Indicates if the Cloud Backup agent is
+                           using ServiceNet to backup data to Cloud
+                           Files. Valid values are true or false.</td>
                      </tr>
                   </tbody>
                </table>
@@ -1939,7 +1946,8 @@ and its data remains. Disabled agents may later be re-enabled.
                      <tr>
                         <td><code>MachineAgentId </code>
                         </td>
-                        <td>Cloud Backup agent ID.</td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -2042,7 +2050,8 @@ and its data remains. Disabled agents may later be re-enabled.
                      <tr>
                         <td><code>MachineAgentId </code>
                         </td>
-                        <td>Cloud Backup agent ID.</td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -2142,7 +2151,8 @@ and its data remains. Disabled agents may later be re-enabled.
                      <tr>
                         <td><code>MachineAgentId </code>
                         </td>
-                        <td>Cloud Backup agent ID.</td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
                         <td>Yes</td>
                      </tr>
                   </tbody>
@@ -2497,7 +2507,7 @@ Returns: <code>A list of agents.</code>
                         <td colspan="1"><code>MachineAgentId</code>
                         </td>
                         <td colspan="4">ID that uniquely identifies a
-                  Rackspace Cloud Backup agent.</td>
+                           Cloud Backup agent.</td>
                      </tr>
                      <tr>
                         <td colspan="1"><code>MachineName</code>
@@ -2780,6 +2790,12 @@ of a backup configuration.</td>
                         <td>The name of the backup configuration. The
                   configuration typically has the backup schedule,
                   files to backup, and notification options.</td>
+                        <td>Yes</td>
+                     </tr>
+                     <tr>
+                        <td><code>MachineAgentId</code></td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent. </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -4381,7 +4397,7 @@ Disabled backup configurations may later be re-enabled.</td>
                         <td><code>MachineAgentId</code>
                         </td>
                         <td>ID that uniquely identifies a Cloud Backup
-                  agent.</td>
+                           agent.</td>
                      </tr>
                      <tr>
                         <td><code>MachineName</code>
