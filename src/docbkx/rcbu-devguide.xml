@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate/>
+    <pubdate>2013-09-11</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -658,11 +658,11 @@ if the contract does change.</para>
   <chapter xmlns:m="http://www.w3.org/1998/Math/MathML"
             xml:id="General_API_Information-d1e633">
       <title>General API Information</title>
-      <para> The Rackspace Cloud Backup API is implemented using a ReSTful
-      web service interface. Like other products in the Rackspace
-      Cloud suite,  Rackspace Cloud Backup shares a common token-based
-      authentication system that allows seamless access between
-      products and services. </para>
+      <para> The Rackspace Cloud Backup API is implemented using a
+         RESTful web service interface. Like other products in the
+         Rackspace Cloud suite, Rackspace Cloud Backup shares a common
+         token-based authentication system that allows seamless access
+         between products and services. </para>
       <note>
          <para> All requests to authenticate against and operate the
 service are performed using SSL over HTTP (HTTPS) on TCP port
@@ -670,13 +670,12 @@ service are performed using SSL over HTTP (HTTPS) on TCP port
       </note>
       <section xml:id="Authentication-d1e647">
          <title>Authentication</title>
-         <para> Every ReST request against the Rackspace Cloud Backup Service
-requires the inclusion of a specific authorization token,
-supplied by the <code>X-Auth-Token</code> HTTP header.
-Customers obtain this token by first using the Rackspace Cloud
-Authentication Service and supplying a valid username and API
-access key. 
-      </para>
+         <para> Every REST request against the Rackspace Cloud Backup
+            Service requires the inclusion of a specific authorization
+            token, supplied by the <code>X-Auth-Token</code> HTTP
+            header. Customers obtain this token by first using the
+            Rackspace Cloud Authentication Service and supplying a
+            valid username and API access key. </para>
          <para>
 To authenticate, submit a <code>POST/v2.0/tokens</code> request, 
 presenting valid Rackspace customer credentials 
@@ -2325,7 +2324,7 @@ and its data remains. Disabled agents may later be re-enabled.
                     X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
                     
                     {
-                    "BackupDatacenter: : "ORD",
+                    "BackupDatacenter" : "ORD",
                     "UseServiceNet" : true
                     }
       </literallayout>
