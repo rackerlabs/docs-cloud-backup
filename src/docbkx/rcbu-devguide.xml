@@ -1158,9 +1158,9 @@ listed below.
 
 
       </section>
-     <!--
+<!--
       <section xml:id="RBAC">
-         <title>Role Based Access Control (RBAC)</title>
+         <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
             the capabilities of Rackspace Cloud services, including
             the Cloud Backup API, to authorized users only. RBAC
@@ -1170,53 +1170,56 @@ listed below.
             Rackspace (see <xref linkend="RBAC_product_roles_table"
             />). The permissions to perform certain operations in
             Cloud Backup API – create, read, update, delete – are
-            assigned to specific roles, and these roles can be
-            assigned by the Cloud account admin user to account users
-            of the account. </para>
+            assigned to specific roles. The account owner assigns
+            these roles, either multiproduct (global) or
+            product-specific (for example, Cloud Backup), to account
+            users. </para>
          <section xml:id="assigningRoles">
             <title>Assigning Roles to Account Users</title>
-            <para>The account admin user (identity:user-admin) can
-               create account users on the account and then assign
-               roles to the account users. The roles grant the account
-               users specific permissions for accessing the
-               capabilities of the Cloud Backup service. Only one
-               Cloud account admin user is allowed per account, and it
-               is assigned by default to any Rackspace Cloud account
-               when the account is created. </para>
+            <para>The account owner (identity:user-admin) can create
+               account users on the account and then assign roles to
+               those users. The roles grant the account users specific
+               permissions for accessing the capabilities of the Cloud
+               Backup service. Each account has only one account
+               owner, and that role is assigned by default to any
+               Rackspace Cloud account when the account is
+               created.</para>
             <para>See the <citetitle>Cloud Identity Client Developer
                   Guide</citetitle> for information about how to
                perform the following tasks:</para>
             <itemizedlist>
                <listitem>
-                  <para>Create account users (refer to <link
+                  <para><link
                         xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
-                        >
-                        http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html</link>)</para>
+                        > Create account users</link></para>
                </listitem>
                <listitem>
-                  <para>Assign roles to account users (refer to <link
-                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-admin-devguide/content/POST_addRole_v2.0_OS-KSADM_roles_.html"
-                        >
-                        http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addRole_v2.0_OS-KSADM_roles_.html</link>)</para>
+                  <para><link
+                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                        > Assign roles to account users</link></para>
+               </listitem>
+               <listitem>
+                  <para><link
+                        xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                        > Delete roles from account
+                     users</link></para>
                </listitem>
             </itemizedlist>
             <note>
-               <para>The account admin user (identity:user-admin) role
+               <para>The account owner (identity:user-admin) role
                   cannot hold any additional roles because it already
-                  has full access to all capabilities by
-                  default.</para>
+                  has full access to all capabilities.</para>
             </note>
          </section>
          <section xml:id="rolesAvailable">
-            <title>Roles Available to Cloud Backup </title>
-            <para>Currently, three roles can be used to access the
-               Cloud Backup API. These roles, admin, creator, and
-               observer, apply to this specific product. The following
-               table describes these roles and their
+            <title>Roles Available for Cloud Backup </title>
+            <para>Three roles (admin, creator, and observer) can be
+               used to access the Cloud Backup API specifically. The
+               following table describes these roles and their
                permissions.</para>
             <table rules="all" xml:id="RBAC_product_roles_table">
                <caption>Cloud Backup Product Roles and
-                  Capabilities</caption>
+                  Permissions</caption>
                <col width="50%"/>
                <col width="50%"/>
                <thead>
@@ -1228,28 +1231,31 @@ listed below.
                <tbody>
                   <tr>
                      <td>cloudBackup:admin</td>
-                     <td>Create, Read, Update, and Delete permissions
-                        across a specific product, where access is
-                        granted</td>
+                     <td>This role provides Create, Read, Update, and
+                        Delete permissions in Cloud Backup, where
+                        access is granted.</td>
                   </tr>
                   <tr>
                      <td>cloudBackup:creator</td>
-                     <td>Create, Read, and Update permissions across a
-                        specific product, where access is granted</td>
+                     <td>This role provides Create, Read, and Update
+                        permissions in Cloud Backup, where access is
+                        granted.</td>
                   </tr>
                   <tr>
                      <td>cloudBackup:observer</td>
-                     <td>Read permission across a specific product,
-                        where access is granted</td>
+                     <td>This role provides Read permission in Cloud
+                        Backup, where access is granted.</td>
                   </tr>
                </tbody>
             </table>
-            <para>In addition, there are two global roles which apply
-               to all products. The following table describes these
-               roles and their permissions.</para>
+            <para>Additionally, two multiproduct roles apply to all
+               products. Users with multiproduct roles inherit access
+               to future products when those products become
+               RBAC-enabled. The following table describes these roles
+               and their permissions.</para>
             <table rules="all" xml:id="RBAC_global_roles_table">
-               <caption>Cloud Backup Global Roles and
-                  Capabilities</caption>
+               <caption>Multiproduct (Global) Roles and
+                  Permissions</caption>
                <col width="50%"/>
                <col width="50%"/>
                <thead>
@@ -1261,18 +1267,86 @@ listed below.
                <tbody>
                   <tr>
                      <td>admin</td>
-                     <td>Create, Read, Update, and Delete permissions
-                        across multiple products, where access is
-                        granted</td>
+                     <td>This role provides Create, Read, Update, and
+                        Delete permissions in all products, where
+                        access is granted.</td>
                   </tr>
                   <tr>
                      <td>observer</td>
-                     <td>Read permission across multiple products,
-                        where access is granted</td>
+                     <td>This role provides Read permission in all
+                        products, where access is granted.</td>
                   </tr>
                </tbody>
             </table>
          </section>
+         <section version="5.0" xml:id="RBAC_Role_Conflict_3">
+            <title>Resolving Conflicts Between RBAC Multiproduct vs.
+               Custom (Product-specific) Roles</title>
+            <para>The account owner can set roles for both
+               multiproduct and Cloud Backup scope, and it is
+               important to understand how any potential conflicts
+               among these roles are resolved. When two roles appear
+               to conflict, the role that provides the more extensive
+               permissions takes precedence. Therefore, admin roles
+               take precedence over observer and creator roles,
+               because admin roles provide more permissions. </para>
+            <para>The following table shows two examples of how
+               potential conflicts between user roles in the Control
+               Panel are resolved: </para>
+            <para>
+               <informaltable rules="all">
+                  <thead>
+                     <tr align="center">
+                        <td>Permission Configuration</td>
+                        <td>View of Permission in the Control Panel </td>
+                        <td>Can the User Perform Product Admin
+                           Functions in the Control Panel?</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>User is assigned the following roles:
+                           multiproduct <emphasis role="bold"
+                              >observer</emphasis> and Cloud Backup
+                              <emphasis role="bold"
+                           >admin</emphasis></td>
+                        <td>Appears that the user has only the
+                           multiproduct <emphasis role="bold"
+                              >observer</emphasis> role</td>
+                        <td>Yes, for Cloud Backup only. The user has
+                           the <emphasis role="bold"
+                              >observer</emphasis> role for the rest
+                           of the products.</td>
+                     </tr>
+                     <tr>
+                        <td>User is assigned the following roles:
+                           multiproduct <emphasis role="bold"
+                              >admin</emphasis> and Cloud Backup
+                              <emphasis role="bold"
+                              >observer</emphasis></td>
+                        <td>Appears that the user has only the
+                           multiproduct <emphasis role="bold"
+                              >admin</emphasis> role</td>
+                        <td>Yes, for all of the products. The Cloud
+                           Backup <emphasis role="bold"
+                              >observer</emphasis> role is
+                           ignored.</td>
+                     </tr>
+                  </tbody>
+               </informaltable>
+            </para>
+         </section>
+         <section version="5.0" xml:id="RBAC_API_XREF_3">
+            <title>RBAC Permissions Cross-reference to Cloud Backup
+               API Operations</title>
+            <para>API operations for Cloud Backup may or may not be
+               available to all roles. To see which operations are
+               permitted to invoke which calls, please review <link
+                  xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
+                  > the Knowledge Center article</link>.</para>
+         </section>
+-->        
+<!--        
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
             <para>The following table shows the roles that each Cloud
@@ -1615,9 +1689,11 @@ listed below.
                </tbody>
             </table>
          </section>
+         -->
+<!--     
       </section>
-      -->
-   
+--> 
+ 
   </chapter>
 
 
