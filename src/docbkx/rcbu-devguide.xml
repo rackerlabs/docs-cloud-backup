@@ -15,7 +15,7 @@
   <title>Rackspace Cloud Backup Developer Guide</title>
   <titleabbrev>RCBU Developer Guide</titleabbrev>
   <info>
-    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document  -->
+    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document   -->
     
     <copyright>
          <year>2013</year>
@@ -833,333 +833,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </tip>
 
       </section>
-      <section xml:id="Service_Access_Endpoints-d1e753">
-         <title>Service Access/Endpoints</title>
-         <para>The Rackspace Cloud Backup Service is a regionalized service.
-The user of the service is therefore responsible for
-appropriate replication, caching, and overall maintenance of
-Rackspace Cloud Backup data across regional boundaries to other
-Rackspace Cloud Backup servers.</para>
-         <para>You can find the available service access/endpoints for
-            Rackspace Cloud Backup in the table below. </para>
-         <?rax-fo keep-with-next?>
-      <para>
-            <table rules="all">
-               <caption>Regionalized Service Endpoints</caption>
-               <col width="27%"/>
-               <col width="73%"/>
-               <thead>
-                  <tr>
-                     <th>Region</th>
-                     <th>Endpoint</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td>Dallas/Ft. Worth (DFW)</td>
-                     <td><code>https://dfw.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Chicago (ORD)</td>
-                     <td><code>https://ord.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
-                  </tr>
-                  <tr>
-                     <td>London (LON) </td>
-                     <td><code>https://lon.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
-                  </tr>
-                  <tr>
-                     <td>Sydney (SYD)</td>
-                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
-                  </tr>
-                  <tr>
-                     <td>Northern Virginia (IAD)</td>
-                     <td><code>https://iad.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
-                  </tr>
-               </tbody>
-            </table>
-         </para>
-         <para>Replace the sample account ID number,
-  <parameter>1234</parameter>, with your actual account number
-returned as part of the authentication service
-response.</para>
-         <para>You will find the actual account number after the final
-'/' in the <code>publicURL</code> field returned by the
-authentication response.</para>
-      </section>
-      <section xml:id="DB_service_versions">
-         <title>Rackspace Cloud Backup Service Versions</title>
-         <para> The Rackspace Cloud Backup version defines the contract and
-build information for the API. 
-      </para>
-         <section xml:id="List_Version-d1e825">
-            <title>List Version</title>
-            <para>
-  You can list which API versions are available for your account.
-</para>
-            <example>
-               <title>Example List Versions: Request</title>
-               <programlisting>
-    GET HTTP/1.1
-    Host: https://backup.api.rackspacecloud.com/v1/1234/
-  </programlisting>
-            </example>
-            <para>
-  Normal Response Codes: 200, 203
-</para>
-            <para> 
-  Error Response Codes: 400, 413, 500, 503
-</para>
-            <para>
-  Issue a GET request to the root endpoint for a service. In the request, truncate the version and everything to the right of it. For example:
-</para>
-            <programlisting>
-  https://backup.api.rackspacecloud.com/
-  </programlisting>
-            <para>
-  This operation does not require a request body.
-</para>
- 
-         </section>
-      </section>
-      <section xml:id="Request_Response_Types-d1e903">
-         <title>Request/Response Types</title>
-         <para>
-        The Rackspace Cloud Backup API supports only JSON data serialization 
-        format. The request format is specified using the 
-        <code>Content-Type</code> header and is required for calls 
-        that have a request body. If no response format is specified, 
-        JSON is the default. 
-      </para>
-      </section>
-     <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
-      <section xml:id="datetimeformat">
-         <title>Date/Time Format</title>
-         <para> The Rackspace Cloud Backup Service uses an ISO-8601-compliant 
-date format for the display and consumption of
-date/time values. 
-      </para>
-         <example>
-            <title>Service Date/Time Format</title>
-            <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-            <para>See the table below for a description of the date/time
-  format codes.</para>
-            <para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the
-  following format:</para>
-            <programlisting>2011-05-19T08:07:08-05:00</programlisting>
-         </example>
-         <table rules="all">
-            <caption>Explanation of Date/Time Format Codes</caption>
-            <thead>
-               <tr>
-                  <td>Code</td>
-                  <td>Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>yyyy</td>
-                  <td>Four digit year</td>
-               </tr>
-               <tr>
-                  <td>MM</td>
-                  <td>Two digit month</td>
-               </tr>
-               <tr>
-                  <td>dd</td>
-                  <td>Two digit day of month</td>
-               </tr>
-               <tr>
-                  <td>T</td>
-                  <td>Separator for date/time</td>
-               </tr>
-               <tr>
-                  <td>HH</td>
-                  <td>Two digit hour of day (00-23)</td>
-               </tr>
-               <tr>
-                  <td>mm</td>
-                  <td>Two digit minutes of hour</td>
-               </tr>
-               <tr>
-                  <td>ss</td>
-                  <td>Two digit seconds of the minute</td>
-               </tr>
-               <tr>
-                  <td>SSS</td>
-                  <td>Three digit milliseconds of the second</td>
-               </tr>
-               <tr>
-                  <td>Z</td>
-                  <td>RFC-822 timezone</td>
-               </tr>
-            </tbody>
-         </table>
-      </section>
- -->   
-    
-      <section xml:id="DB_faults">
-         <title>Faults and Common Issues</title>
-         <!-- add or remove error codes as needed -->
-      <para>When an error occurs, the Rackspace Cloud Backup Service
-            returns a fault object containing an HTTP error response
-            code that denotes the type of error. In the body of the
-            response, the system returns additional information about
-            the fault. </para>
-         <para>The following table lists possible fault types with their
-associated error codes and descriptions.
-      </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="2">Fault Type</td>
-                  <td colspan="1">Associated Error Code</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="2"><code>badRequest</code>
-                  </td>
-                  <td colspan="1">400</td>
-                  <td colspan="3">There was one or more errors in the user
-      request.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>unauthorized</code>
-                  </td>
-                  <td colspan="1">401</td>
-                  <td colspan="3">The supplied token is not authorized to
-      access the resources, either it's expired or
-      invalid.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>forbidden</code>
-                  </td>
-                  <td colspan="1">403</td>
-                  <td colspan="3">Access to the requested resource was
-      denied.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>itemNotFound</code>
-                  </td>
-                  <td colspan="1">404</td>
-                  <td colspan="3">The back-end services did not find
-      anything matching the Request-URI.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>instanceFault</code>
-                  </td>
-                  <td colspan="1">500</td>
-                  <td colspan="3">This is a generic server error and the
-      message contains the reason for the error. This error
-      could wrap several error messages and is a catch
-      all.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>notImplemented</code>
-                  </td>
-                  <td colspan="1">501</td>
-                  <td colspan="3">The requested method or resource is not
-      implemented.</td>
-               </tr>
-               <tr>
-                  <td colspan="2"><code>serviceUnavailable</code>
-                  </td>
-                  <td colspan="1">503</td>
-                  <td colspan="3">The Rackspace Cloud Backup Service is not
-      available.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-
-         <para>
-There are some frequently encountered issues. Their symptoms and solutions are
-listed below.
-      </para>
-
-         <formalpara>
-            <title>Common Issues</title>
-            <para>
-               <itemizedlist>
-                  <title>Backups get corrupted</title>
-                  <listitem>
-                     <para>Does your server have a backup agent and
-                        did you clone it to create a new backup
-                        system? This means that two backup agents
-                        exist with the same credentials writing to the
-                        same Vault. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> ensure the
-                        agent on the cloned backup server is
-                        re-registered before any backups are run. </para>
-                  </listitem>
-               </itemizedlist>
-               <itemizedlist>
-                  <title>Backups get network error</title>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure
-                        that your backup server has a connection to
-                        both service net and public net. If it is on
-                        an isolated network, the backup agent will not
-                        be able to function properly. </para>
-                  </listitem>
-               </itemizedlist>
-               <itemizedlist>
-                  <title>Backups sometimes fail</title>
-                  <listitem>
-                     <para>This is most commonly caused by either a
-                        failure to communicate with Cloud Files,
-                        running out of disk space, or a failure to
-                        communicate with Cloud Backup. </para>
-                     <para>Sometimes, the agent may fail to backup a
-                        particular file because of a permissions
-                        error. Either the file is in use when the
-                        agent attempts to save it or the file in
-                        question cannot be read by the agent. Consider
-                        permissions when hunting for the root cause of
-                        a backup failure. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure
-                        that you're running the latest agent release.
-                        After that, attempt to determine the cause of
-                        the error, and try the backup/restore again if
-                        it is an intermittent error. We're always
-                        working on making backup more robust. </para>
-                  </listitem>
-               </itemizedlist>
-  
-               <itemizedlist>
-                  <title>Backup/ Restore is slow</title>
-                  <listitem>
-                     <para>If your backup or restore is encrypted, it
-                        will be especially slow. Encryption comes at a
-                        cost. </para>
-                     <para>If your system uses Cloud Block Storage as
-                        the storage medium, this is known to introduce
-                        some slowdowns. Consider whether the benefits
-                        of using Cloud Block Storage outweigh the need
-                        for faster backups/restores. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure
-                        that you're running the latest agent release.
-                        After that, attempt to determine the cause of
-                        the error, and try the backup/restore again if
-                        it is an intermittent error. We're always
-                        working on making backup more robust. </para>
-                  </listitem>
-               </itemizedlist>
-  
-            </para>
-         </formalpara>
-
-
-      </section>
-<!--
-      <section xml:id="RBAC">
+      <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
             the capabilities of Rackspace Cloud services, including
@@ -1174,7 +848,7 @@ listed below.
             these roles, either multiproduct (global) or
             product-specific (for example, Cloud Backup), to account
             users. </para>
-         <section xml:id="assigningRoles">
+         <section xml:id="RBAC-Assigning_Roles-d1e001">
             <title>Assigning Roles to Account Users</title>
             <para>The account owner (identity:user-admin) can create
                account users on the account and then assign roles to
@@ -1211,15 +885,15 @@ listed below.
                   has full access to all capabilities.</para>
             </note>
          </section>
-         <section xml:id="rolesAvailable">
+         <section xml:id="RBAC-Roles-Available-d1e001">
             <title>Roles Available for Cloud Backup </title>
             <para>Three roles (admin, creator, and observer) can be
                used to access the Cloud Backup API specifically. The
                following table describes these roles and their
                permissions.</para>
-            <table rules="all" xml:id="RBAC_product_roles_table">
-               <caption>Cloud Backup Product Roles and
-                  Permissions</caption>
+            <table xml:id="RBAC_product_roles_table" rules="all">
+               <caption >Cloud Backup
+                  Product Roles and Permissions</caption>
                <col width="50%"/>
                <col width="50%"/>
                <thead>
@@ -1253,7 +927,7 @@ listed below.
                to future products when those products become
                RBAC-enabled. The following table describes these roles
                and their permissions.</para>
-            <table rules="all" xml:id="RBAC_global_roles_table">
+            <table rules="all">
                <caption>Multiproduct (Global) Roles and
                   Permissions</caption>
                <col width="50%"/>
@@ -1279,7 +953,7 @@ listed below.
                </tbody>
             </table>
          </section>
-         <section version="5.0" xml:id="RBAC_Role_Conflict_3">
+         <section xml:id="RBAC-Resolving-Conflicts-d1e001" version="5.0">
             <title>Resolving Conflicts Between RBAC Multiproduct vs.
                Custom (Product-specific) Roles</title>
             <para>The account owner can set roles for both
@@ -1336,7 +1010,7 @@ listed below.
                </informaltable>
             </para>
          </section>
-         <section version="5.0" xml:id="RBAC_API_XREF_3">
+         <section xml:id="RBAC-Permissions-d1d001" version="5.0">
             <title>RBAC Permissions Cross-reference to Cloud Backup
                API Operations</title>
             <para>API operations for Cloud Backup may or may not be
@@ -1345,8 +1019,7 @@ listed below.
                   xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
                   > the Knowledge Center article</link>.</para>
          </section>
--->        
-<!--        
+         <!--        
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
             <para>The following table shows the roles that each Cloud
@@ -1690,9 +1363,332 @@ listed below.
             </table>
          </section>
          -->
-<!--     
       </section>
---> 
+      <section xml:id="Service_Access_Endpoints-d1e753">
+         <title>Service Access/Endpoints</title>
+         <para>The Rackspace Cloud Backup Service is a regionalized service.
+The user of the service is therefore responsible for
+appropriate replication, caching, and overall maintenance of
+Rackspace Cloud Backup data across regional boundaries to other
+Rackspace Cloud Backup servers.</para>
+         <para>You can find the available service access/endpoints for
+            Rackspace Cloud Backup in the table below. </para>
+         <?rax-fo keep-with-next?>
+      <para>
+            <table rules="all">
+               <caption>Regionalized Service Endpoints</caption>
+               <col width="27%"/>
+               <col width="73%"/>
+               <thead>
+                  <tr>
+                     <th>Region</th>
+                     <th>Endpoint</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Dallas/Ft. Worth (DFW)</td>
+                     <td><code>https://dfw.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Chicago (ORD)</td>
+                     <td><code>https://ord.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+                  <tr>
+                     <td>London (LON) </td>
+                     <td><code>https://lon.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+                  <tr>
+                     <td>Sydney (SYD)</td>
+                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+                  <tr>
+                     <td>Northern Virginia (IAD)</td>
+                     <td><code>https://iad.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                  </tr>
+               </tbody>
+            </table>
+         </para>
+         <para>Replace the sample account ID number,
+  <parameter>1234</parameter>, with your actual account number
+returned as part of the authentication service
+response.</para>
+         <para>You will find the actual account number after the final
+'/' in the <code>publicURL</code> field returned by the
+authentication response.</para>
+      </section>
+      <section xml:id="DB_service_versions">
+         <title>Rackspace Cloud Backup Service Versions</title>
+         <para> The Rackspace Cloud Backup version defines the contract and
+build information for the API. 
+      </para>
+         <section xml:id="List_Version-d1e825">
+            <title>List Version</title>
+            <para>
+  You can list which API versions are available for your account.
+</para>
+            <example>
+               <title>Example List Versions: Request</title>
+               <programlisting>
+    GET HTTP/1.1
+    Host: https://backup.api.rackspacecloud.com/v1/1234/
+  </programlisting>
+            </example>
+            <para>
+  Normal Response Codes: 200, 203
+</para>
+            <para> 
+  Error Response Codes: 400, 413, 500, 503
+</para>
+            <para>
+  Issue a GET request to the root endpoint for a service. In the request, truncate the version and everything to the right of it. For example:
+</para>
+            <programlisting>
+  https://backup.api.rackspacecloud.com/
+  </programlisting>
+            <para>
+  This operation does not require a request body.
+</para>
+ 
+         </section>
+      </section>
+      <section xml:id="Request_Response_Types-d1e903">
+         <title>Request/Response Types</title>
+         <para>
+        The Rackspace Cloud Backup API supports only JSON data serialization 
+        format. The request format is specified using the 
+        <code>Content-Type</code> header and is required for calls 
+        that have a request body. If no response format is specified, 
+        JSON is the default. 
+      </para>
+      </section>
+     <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
+      <section xml:id="datetimeformat">
+         <title>Date/Time Format</title>
+         <para> The Rackspace Cloud Backup Service uses an ISO-8601-compliant 
+date format for the display and consumption of
+date/time values. 
+      </para>
+         <example>
+            <title>Service Date/Time Format</title>
+            <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+            <para>See the table below for a description of the date/time
+  format codes.</para>
+            <para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the
+  following format:</para>
+            <programlisting>2011-05-19T08:07:08-05:00</programlisting>
+         </example>
+         <table rules="all">
+            <caption>Explanation of Date/Time Format Codes</caption>
+            <thead>
+               <tr>
+                  <td>Code</td>
+                  <td>Description</td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>yyyy</td>
+                  <td>Four digit year</td>
+               </tr>
+               <tr>
+                  <td>MM</td>
+                  <td>Two digit month</td>
+               </tr>
+               <tr>
+                  <td>dd</td>
+                  <td>Two digit day of month</td>
+               </tr>
+               <tr>
+                  <td>T</td>
+                  <td>Separator for date/time</td>
+               </tr>
+               <tr>
+                  <td>HH</td>
+                  <td>Two digit hour of day (00-23)</td>
+               </tr>
+               <tr>
+                  <td>mm</td>
+                  <td>Two digit minutes of hour</td>
+               </tr>
+               <tr>
+                  <td>ss</td>
+                  <td>Two digit seconds of the minute</td>
+               </tr>
+               <tr>
+                  <td>SSS</td>
+                  <td>Three digit milliseconds of the second</td>
+               </tr>
+               <tr>
+                  <td>Z</td>
+                  <td>RFC-822 timezone</td>
+               </tr>
+            </tbody>
+         </table>
+      </section>
+ -->   
+    
+      <section xml:id="DB_faults">
+         <title>Faults and Common Issues</title>
+         <!-- add or remove error codes as needed -->
+      <para>When an error occurs, the Rackspace Cloud Backup Service
+            returns a fault object containing an HTTP error response
+            code that denotes the type of error. In the body of the
+            response, the system returns additional information about
+            the fault. </para>
+         <para>The following table lists possible fault types with their
+associated error codes and descriptions.
+      </para>
+         <informaltable rules="all">
+            <thead>
+               <tr align="center">
+                  <td colspan="2">Fault Type</td>
+                  <td colspan="1">Associated Error Code</td>
+                  <td colspan="3">Description</td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td colspan="2"><code>badRequest</code>
+                  </td>
+                  <td colspan="1">400</td>
+                  <td colspan="3">There was one or more errors in the user
+      request.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>unauthorized</code>
+                  </td>
+                  <td colspan="1">401</td>
+                  <td colspan="3">The supplied token is not authorized to
+      access the resources, either it's expired or
+      invalid.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>forbidden</code>
+                  </td>
+                  <td colspan="1">403</td>
+                  <td colspan="3">Access to the requested resource was
+      denied.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>itemNotFound</code>
+                  </td>
+                  <td colspan="1">404</td>
+                  <td colspan="3">The back-end services did not find
+      anything matching the Request-URI.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>instanceFault</code>
+                  </td>
+                  <td colspan="1">500</td>
+                  <td colspan="3">This is a generic server error and the
+      message contains the reason for the error. This error
+      could wrap several error messages and is a catch
+      all.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>notImplemented</code>
+                  </td>
+                  <td colspan="1">501</td>
+                  <td colspan="3">The requested method or resource is not
+      implemented.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>serviceUnavailable</code>
+                  </td>
+                  <td colspan="1">503</td>
+                  <td colspan="3">The Rackspace Cloud Backup Service is not
+      available.</td>
+               </tr>
+            </tbody>
+         </informaltable>
+
+         <para>
+There are some frequently encountered issues. Their symptoms and solutions are
+listed below.
+      </para>
+
+         <formalpara>
+            <title>Common Issues</title>
+            <para>
+               <itemizedlist>
+                  <title>Backups get corrupted</title>
+                  <listitem>
+                     <para>Does your server have a backup agent and
+                        did you clone it to create a new backup
+                        system? This means that two backup agents
+                        exist with the same credentials writing to the
+                        same Vault. </para>
+                  </listitem>
+                  <listitem>
+                     <para><emphasis>Solution:</emphasis> ensure the
+                        agent on the cloned backup server is
+                        re-registered before any backups are run. </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>Backups get network error</title>
+                  <listitem>
+                     <para><emphasis>Solution:</emphasis> Make sure
+                        that your backup server has a connection to
+                        both service net and public net. If it is on
+                        an isolated network, the backup agent will not
+                        be able to function properly. </para>
+                  </listitem>
+               </itemizedlist>
+               <itemizedlist>
+                  <title>Backups sometimes fail</title>
+                  <listitem>
+                     <para>This is most commonly caused by either a
+                        failure to communicate with Cloud Files,
+                        running out of disk space, or a failure to
+                        communicate with Cloud Backup. </para>
+                     <para>Sometimes, the agent may fail to backup a
+                        particular file because of a permissions
+                        error. Either the file is in use when the
+                        agent attempts to save it or the file in
+                        question cannot be read by the agent. Consider
+                        permissions when hunting for the root cause of
+                        a backup failure. </para>
+                  </listitem>
+                  <listitem>
+                     <para><emphasis>Solution:</emphasis> Make sure
+                        that you're running the latest agent release.
+                        After that, attempt to determine the cause of
+                        the error, and try the backup/restore again if
+                        it is an intermittent error. We're always
+                        working on making backup more robust. </para>
+                  </listitem>
+               </itemizedlist>
+  
+               <itemizedlist>
+                  <title>Backup/ Restore is slow</title>
+                  <listitem>
+                     <para>If your backup or restore is encrypted, it
+                        will be especially slow. Encryption comes at a
+                        cost. </para>
+                     <para>If your system uses Cloud Block Storage as
+                        the storage medium, this is known to introduce
+                        some slowdowns. Consider whether the benefits
+                        of using Cloud Block Storage outweigh the need
+                        for faster backups/restores. </para>
+                  </listitem>
+                  <listitem>
+                     <para><emphasis>Solution:</emphasis> Make sure
+                        that you're running the latest agent release.
+                        After that, attempt to determine the cause of
+                        the error, and try the backup/restore again if
+                        it is an intermittent error. We're always
+                        working on making backup more robust. </para>
+                  </listitem>
+               </itemizedlist>
+  
+            </para>
+         </formalpara>
+
+
+      </section>
  
   </chapter>
 
