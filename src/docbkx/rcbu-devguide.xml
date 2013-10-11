@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-09-11</pubdate>
+    <pubdate>2013-10-16</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +39,23 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2013-10-16</date>
+            <revdescription>
+               <itemizedlist>
+                  <listitem>
+                     <para>Added the <code>HostServerId</code>
+                        response attribute to <xref linkend="getAgent"
+                        />.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Added <xref
+                           linkend="getAgentDetailsByHostServerID"
+                        />.</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
          <revision>
             <date>2013-09-11</date>
             <revdescription>
@@ -833,6 +850,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </tip>
 
       </section>
+<!--     
       <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
@@ -1019,7 +1037,9 @@ steps: get a token; send the token to a service.<orderedlist>
                   xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
                   > the Knowledge Center article</link>.</para>
          </section>
-         <!--        
+         
+         
+         
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
             <para>The following table shows the roles that each Cloud
@@ -1362,8 +1382,9 @@ steps: get a token; send the token to a service.<orderedlist>
                </tbody>
             </table>
          </section>
-         -->
+        
       </section>
+-->     
       <section xml:id="Service_Access_Endpoints-d1e753">
          <title>Service Access/Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
@@ -1783,11 +1804,10 @@ backup data.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara> Normal Response Code(s):
-            <returnvalue>200</returnvalue> (OK) </simpara>
-            <simpara> Error Response Code(s): 400 (Bad Request), 401
-          (Unauthorized), 403 (Forbidden), 404 (Not Found), 500
-          (Service Unavailable) </simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the Get Agent
           Details response attributes. </para>
             <para>
@@ -1913,6 +1933,11 @@ backup data.</td>
                            using ServiceNet to backup data to Cloud
                            Files. Valid values are true or false.</td>
                      </tr>
+                     <tr>
+                        <td><code>HostServerId</code></td>
+                        <td>Server ID of the host server where the
+                           Cloud Backup agent is running.</td>
+                     </tr>
                   </tbody>
                </table>
             </para>
@@ -1947,12 +1972,16 @@ backup data.</td>
   "OperatingSystem": "Windows Server 2012",
   "OperatingSystemVersion": "",
   "PublicKey": {
-    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a cd36074eafd036a5eb83359d2a698d0",
+    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871
+e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c7887
+71c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d
+0829073351f4a cd36074eafd036a5eb83359d2a698d0",
     "ExponentHex": "09528"
   },
   "Status": "Online",
   "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
   "UseServiceNet": true
+  "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
 }
   </literallayout>
             </example>
@@ -1984,15 +2013,10 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
             <para>Encryption is important for keeping your data confidential. However, encryption is also expensive. It
     takes significantly longer to backup and restore encrypted data. Consider if the data you are storing
     must be encrypted. If not, then it is best to proceed without encryption. Encryption applies across the
@@ -2077,15 +2101,10 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s):
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (503)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (503) </simpara>
             <para>This operation enables volume encryption with AES-256 encryption 
   if it is not already enabled. If you need assistance generating
   your encrypted key, see <link xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup">
@@ -2159,7 +2178,6 @@ and its data remains. Disabled agents may later be re-enabled.
       </literallayout>
             </example>
             <para> </para>
-            <para> </para>
             <example>
                <title>Enable Volume Encryption Response: JSON</title>
                <literallayout class="monospaced">
@@ -2191,15 +2209,10 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-    Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
-  </simpara>
-            <simpara> Error Response Code(s): 
-    Bad Request (400),
-    Unauthorized (401),
-    Forbidden (403),
-    Service Unavailable (500)
-  </simpara>
+            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
             <para>An agent can be deleted at any time. If the agent is in the
           middle of an operation, it will be allowed to complete. Once
           it completes its operation, it will no longer authenticate. </para>
@@ -2264,9 +2277,8 @@ and its data remains. Disabled agents may later be re-enabled.
             </tr>
          </tbody>
       </informaltable>
-      <simpara> Normal Response Code(s):
-                  <returnvalue>200</returnvalue> (OK) </simpara>
-      <simpara> Error Response Code(s): Forbidden (403), Service
+      <simpara>Normal Response Code(s): 200 (OK) </simpara>
+      <simpara>Error Response Code(s): Forbidden (403), Service
                Unavailable (500) </simpara>
       <para>The two agents should be under the same user and their
                backups should not be encrypted.</para>
@@ -2341,9 +2353,8 @@ and its data remains. Disabled agents may later be re-enabled.
                 </tr>
              </tbody>
           </informaltable>
-          <simpara> Normal Response Code(s):
-                  <returnvalue>200</returnvalue> (OK) </simpara>
-          <simpara> Error Response Code(s): Bad Request (400),
+          <simpara>Normal Response Code(s): 200 (OK) </simpara>
+          <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Service
                Unavailable (500) </simpara>
           <para>If ServiceNet is enabled, Cloud Backup agent talks to
@@ -2435,6 +2446,190 @@ and its data remains. Disabled agents may later be re-enabled.
           
           
        </section>
+         <!-- Get Agent Details By Host Server Id-->
+       <section xml:id="getAgentDetailsByHostServerID">
+            <title>Get Agent Details By Host Server ID</title>
+            <informaltable rules="all">
+               <thead>
+                  <tr align="center">
+                     <td colspan="1">Verb</td>
+                     <td colspan="2">URI</td>
+                     <td colspan="3">Description</td>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td colspan="1"><command>GET</command></td>
+                     <td colspan="2">/agent/server/{hostserverid}</td>
+                     <td colspan="3">Gets details about the machine
+                        and its agent using the host server ID.</td>
+                  </tr>
+               </tbody>
+            </informaltable>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
+            <para>The following table lists and describes the response
+               attributes for Get Agent Details By Host Server ID. </para>
+            <para>
+               <table rules="all" width="569">
+                  <caption>Get Agent Details By Host Server ID
+                     Response Attributes</caption>
+                  <col width="45%"/>
+                  <col width="55%"/>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td><code>AgentVersion</code>
+                        </td>
+                        <td>Version of the Rackspace Cloud Backup
+                           agent.</td>
+                     </tr>
+                     <tr>
+                        <td><code>Architecture</code></td>
+                        <td>Base architecture of the Cloud Server.
+                           Valid values are 64-bit or 32-bit.</td>
+                     </tr>
+                     <tr>
+                        <td><code>Flavor</code></td>
+                        <td>RaxCloudServer – for Rackspace Cloud
+                           Servers.</td>
+                     </tr>
+                     <tr>
+                        <td><code>BackupVaultSize</code></td>
+                        <td>Size of backup data in MB.</td>
+                     </tr>
+                     <tr>
+                        <td><code>CleanupAllowed</code></td>
+                        <td>Indicates whether a cleanup can be
+                           manually triggered on the backup vault.
+                           Valid values are true or false.</td>
+                     </tr>
+                     <tr>
+                        <td><code>Datacenter</code></td>
+                        <td>Data center where the Cloud Server is
+                           located. Valid values are ORD, DFW, LON, or
+                           SYD).</td>
+                     </tr>
+                     <tr>
+                        <td><code>IPAddress</code></td>
+                        <td>Public IPv4 address of the Cloud
+                           Server.</td>
+                     </tr>
+                     <tr>
+                        <td><code>IsDisabled</code></td>
+                        <td>Indicates if the Rackspace Cloud Backup
+                           agent on the server is disabled. Valid
+                           values are true or false.</td>
+                     </tr>
+                     <tr>
+                        <td><code>IsEncrypted</code></td>
+                        <td>Indicates if backups are encrypted. Valid
+                           values are true or false.</td>
+                     </tr>
+                     <tr>
+                        <td><code>MachineAgentId</code></td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
+                     </tr>
+                     <tr>
+                        <td><code>MachineName</code></td>
+                        <td>Name of the Cloud Server.</td>
+                     </tr>
+                     <tr>
+                        <td><code>OperatingSystem</code></td>
+                        <td>Indicates the operating system of Cloud
+                           Server.</td>
+                     </tr>
+                     <tr>
+                        <td><code>OperatingSystemVersion</code></td>
+                        <td>Indicates the operating system version of
+                           Cloud Server.</td>
+                     </tr>
+                     <tr>
+                        <td><code>PublicKey</code></td>
+                        <td>Indicates the public key of the
+                           public/private encryption key pair. </td>
+                     </tr>
+                     <tr>
+                        <td><code>Status</code></td>
+                        <td>Indicates the status of the Cloud Backup
+                           agent. Valid values are Online or
+                           Offline.</td>
+                     </tr>
+                     <tr>
+                        <td><code>TimeOfLastSuccessfulBackup</code></td>
+                        <td>Indicates the time of last successful
+                           backup.</td>
+                     </tr>
+                     <tr>
+                        <td><code>UseServiceNet</code></td>
+                        <td>Indicates if the Cloud Backup agent is
+                           using ServiceNet to backup data to Cloud
+                           Files. Valid values are true or false.</td>
+                     </tr>
+                     <tr>
+                        <td><code>HostServerId</code></td>
+                        <td>Server ID of the host server where the
+                           Cloud Backup agent is running.</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </para>
+            <para>Following are examples of a request and a response
+               for Get Agent Details By Host Server ID:</para>
+            <example>
+               <title>Get Agent Details By Host Server ID request:
+                  JSON</title>
+               <literallayout class="monospaced">
+ GET     https://backup.api.rackspacecloud.com/v1.0/agent/server/{hostserverid}
+          User-Agent: controlpanel.drivesrvr.com
+          Host: backup.api.rackspacecloud.com
+          Content-Type: application/json
+          Content-Length: 0
+          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+            </example>
+            <example>
+               <title>Get Agent Details By Host Server ID response:
+                  JSON</title>
+               <literallayout class="monospaced">
+{
+  "AgentVersion": "1.05.005848",
+  "Architecture": "64-bit",
+  "Flavor": "RaxCloudServer",
+  "BackupVaultSize": "35.3 MB",
+  "CleanupAllowed": true,
+  "Datacenter": "ORD",
+  "IPAddress": "192.168.1.1",
+  "IsDisabled": false,
+  "IsEncrypted": true,
+  "MachineAgentId": 213564,
+  "MachineName": "Web Server",
+  "OperatingSystem": "Windows Server 2012",
+  "OperatingSystemVersion": "",
+  "PublicKey": {
+    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a cd36074eafd036a5eb83359d2a698d0",
+    "ExponentHex": "09528"
+  },
+  "Status": "Online",
+  "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
+  "UseServiceNet": true,
+
+  "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
+
+}
+  </literallayout>
+            </example>
+            <para/>
+            <!-- end Get Agent Details By Host Server Id -->
+         </section>
          <!-- end agent operations -->
  
  
@@ -2491,14 +2686,10 @@ Returns: <code>A list of agents.</code>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (503)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (503) </simpara>
             <para>The following table lists and describes the response
           attributes for Get All Agents for this User.</para>
             <para>
@@ -2825,17 +3016,10 @@ of a backup configuration.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s):
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Conflict (409),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Conflict (409), Service Unavailable (500) </simpara>
             <para>See <xref linkend="getBackupConfigsAgent"/> to view a list of
           all backup configurations. </para>
             <para>The following table lists and describes the request
@@ -3208,16 +3392,10 @@ of a backup configuration.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s):
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>See "Get all Backup Configurations" to view a list of all backup
           configurations and their Backup Configuration Schedule IDs. </para>
             <para>The following table lists and describes the request
@@ -3449,16 +3627,10 @@ of a backup configuration.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s):
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response
           attributes for  Get Backup Configuration Details. </para>
             <para>
@@ -3733,16 +3905,10 @@ the current user.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response
           attributes for Get All Backup Configurations for User. </para>
             <para>
@@ -4065,16 +4231,10 @@ the current user.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response
                attributes for Get All Backup Configurations for
                Agent.</para>
@@ -4404,15 +4564,10 @@ Disabled backup configurations may later be re-enabled.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
             <para>The following table lists and describes the request
                attributes for Enable/Disable a Backup
                Configuration.</para>
@@ -4726,16 +4881,10 @@ Disabled backup configurations may later be re-enabled.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s):
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>Following is an example request for Delete Backup
                Configuration:</para>
             <example>
@@ -4828,17 +4977,12 @@ Returns: Identifier of the instance of the backup.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)--When 
-  manually starting a backup; 204 (No Content)--When manually stopping
-  a backup
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)</simpara>
+            <simpara>Normal Response Code(s): 200 (OK)--When manually
+               starting a backup; 204 (No Content)--When manually
+               stopping a backup </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500)</simpara>
             <para>When manually starting a backup, provide the Backup Configuration identifier 
   (BackupConfigurationId) for the ID. You may retrieve a list of all Backup 
   Configurations for an Agent with the "Get All Backup Configurations for an Agent" 
@@ -4993,8 +5137,7 @@ Returns: Identifier of the instance of the backup.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>Normal Response Code(s):
-                  <returnvalue>200</returnvalue> (OK) </simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Not Found (404),
                Service Unavailable (500) </simpara>
@@ -5141,16 +5284,10 @@ Backup Configuration.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>
   The BackupConfigurationId is specific to the agent. You can retrieve a 
   list of all Backup Configurations for an Agent with the "Get All Backup 
@@ -5283,8 +5420,7 @@ Backup Configuration.</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>Normal Response Code(s):
-                  <returnvalue>200</returnvalue> (OK) </simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Not Found (404),
                Service Unavailable (500) </simpara>
@@ -5444,15 +5580,10 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
             <para>The following table lists and describes the response
                attributes for Create a Restore Configuration
                response.</para>
@@ -5656,16 +5787,10 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>Restores can only be updated while in the "Creating" state.
   Use "Get Restore Details" to view the current state of a Restore.
   </para>
@@ -5748,7 +5873,6 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para/>
             <para>Following is an example request for Update a Restore
           Configuration:</para>
             <example>
@@ -5793,16 +5917,10 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the
           Include/Exclude File in Restore Configuration request
           attributes.</para>
@@ -5904,19 +6022,14 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
-            <para> This call allows you list the files in a Restore Configuration. You
-  may choose to view the Included or the Excluded files. You may
-  also limit your list to Files, Folders, or Databases.</para>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
+            <para>This call allows you list the files in a Restore
+               Configuration. You may choose to view the Included or
+               the Excluded files. You may also limit your list to
+               Files, Folders, or Databases.</para>
             <para>The following table lists and describes the List
           Included or Excluded Files in a Restore Configuration
           request attributes.</para>
@@ -6017,16 +6130,10 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>Following is an example Delete a Restore
                Configuration request:</para>
             <example>
@@ -6127,8 +6234,7 @@ deleted and is not expired).
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>Normal Response Code(s):
-                  <returnvalue>200</returnvalue> (OK) </simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Not Found (404),
                Service Unavailable (500) </simpara>
@@ -6210,16 +6316,10 @@ deleted and is not expired).
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>204</returnvalue> (No Content)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following tables list and describe the attributes
           for the Start Encrypted Restore, Start Unencrypted Restore,
           and Stop Restore Manually requests.</para>
@@ -6346,16 +6446,10 @@ deleted and is not expired).
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the attributes
           for the Get Details about a Restore response.</para>
             <para>
@@ -6553,16 +6647,10 @@ deleted and is not expired).
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the
                attributes for the Get Restore Report response. </para>
             <para>
@@ -6785,16 +6873,10 @@ deleted and is not expired).
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Not Found (404),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Not Found (404),
+               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the attributes
           for the List Activity for an Agent response.</para>
             <para>
@@ -6942,15 +7024,10 @@ completed or in progress for the user.
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (500) </simpara>
             <para>The following table lists and describes the attributes
           for the List Activity for User response.</para>
             <para>
