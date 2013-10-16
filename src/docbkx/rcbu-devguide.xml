@@ -335,7 +335,7 @@ Rackspace Cloud Backup Application Programming Interface
   </info>
   <!-- skip this OpenStack section, but leave it in the xml --> 
   
-  <preface xmlns:m="http://www.w3.org/1998/Math/MathML" xml:id="overview">
+  <chapter xmlns:m="http://www.w3.org/1998/Math/MathML" xml:id="overview">
       <title>Overview</title>
       <para>Rackspace Cloud Backup is a file-based backup application that lets you
       choose which files and folders to backup from your Cloud Server.
@@ -376,15 +376,10 @@ Rackspace Cloud Backup Application Programming Interface
          </itemizedlist>
       </para>
       <note>
-         <title>Notes</title>
-         <itemizedlist>
-            <listitem>
                <para>Rackspace Cloud Backup does not take snapshots of your server. To read more about how Rackspace Cloud Backup 
     differs from snapshots, please see <link xlink:href="  http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">
       "Rackspace Cloud Backup vs. Cloud Server Image Backups"</link> in our Knowledge Center.
-  </para>
-            </listitem>
-         </itemizedlist>
+              </para>
       </note>
     
       <section xml:id="Intended_Audience-d1e122">
@@ -670,7 +665,7 @@ if the contract does change.</para>
     
       
       </section>
-  </preface>
+  </chapter>
   
   <chapter xmlns:m="http://www.w3.org/1998/Math/MathML"
             xml:id="General_API_Information-d1e633">
@@ -1386,13 +1381,13 @@ steps: get a token; send the token to a service.<orderedlist>
       </section>
 -->     
       <section xml:id="Service_Access_Endpoints-d1e753">
-         <title>Service Access/Endpoints</title>
+         <title>Service Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
 The user of the service is therefore responsible for
 appropriate replication, caching, and overall maintenance of
 Rackspace Cloud Backup data across regional boundaries to other
 Rackspace Cloud Backup servers.</para>
-         <para>You can find the available service access/endpoints for
+         <para>You can find the available service endpoints for
             Rackspace Cloud Backup in the table below. </para>
          <?rax-fo keep-with-next?>
       <para>
@@ -1475,7 +1470,7 @@ build information for the API.
          </section>
       </section>
       <section xml:id="Request_Response_Types-d1e903">
-         <title>Request/Response Types</title>
+         <title>Request and Response Types</title>
          <para>
         The Rackspace Cloud Backup API supports only JSON data serialization 
         format. The request format is specified using the 
