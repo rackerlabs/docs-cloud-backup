@@ -1716,6 +1716,8 @@ listed below.
 
   <chapter xml:id="operations">
       <title>API Operations</title>
+      <para>This section includes descriptions of all of the Cloud
+         Backup API operations.</para>
       <!-- add API commands here -->
   
 
