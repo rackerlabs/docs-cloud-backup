@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-10-23</pubdate>
+    <pubdate>2013-10-21</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,7 +40,7 @@ Rackspace Cloud Backup Application Programming Interface
     -->
     <revhistory>
          <revision xmlns:m="http://www.w3.org/1998/Math/MathML">
-            <date>2013-10-23</date>
+            <date>2013-10-21</date>
             <revdescription>
                <para>Added the HKG service endpoint to <xref
                      linkend="Service_Access_Endpoints-d1e753"
@@ -2668,6 +2668,12 @@ and its data remains. Disabled agents may later be re-enabled.
                   <td colspan="2">/user/agents</td>
                   <td colspan="3">Retrieves information for all agents for the current user.</td>
                </tr>
+               <tr>
+                  <td colspan="1"><command>POST</command></td>
+                  <td colspan="2">/user/wakeupagents</td>
+                  <td colspan="3">Wakes up the agent before doing any
+                     tasks.</td>
+               </tr>
             </tbody>
          </informaltable>
          <?hard-pagebreak?>
@@ -2900,6 +2906,139 @@ Returns: <code>A list of agents.</code>
         "UseServiceNet": true
             }
               ]    
+      </literallayout>
+            </example>
+            <para/>
+         </section>
+         <section xml:id="Wake-Up_Agents-d1003">
+            <title>Wake Up Agents  </title>
+            <informaltable rules="all">
+               <thead>
+                  <tr align="center">
+                     <td colspan="1">Verb</td>
+                     <td colspan="2">URI</td>
+                     <td colspan="3">Description</td>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td colspan="1"><command>POST</command>
+                     </td>
+                     <td colspan="2"> /user/wakeupagents</td>
+                     <td colspan="3">Wakes up the agent before you
+                        perform tasks. Sends message to an agent to
+                        wakeup. You should wait 10-20 seconds after
+                        using this operation and then start a backup
+                        or restore. </td>
+                  </tr>
+               </tbody>
+            </informaltable>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s):  </simpara>
+            <para>The following table lists and describes the response
+               attributes for the Wake Up Agents operation.</para>
+            <para>
+               <table rules="all">
+                  <caption>Wake Up Agents Response
+                     Attributes</caption>
+                  <col width="49%"/>
+                  <col width="13%"/>
+                  <col width="13%"/>
+                  <col width="13%"/>
+                  <col width="13%"/>
+                  <thead>
+                     <tr align="left">
+                        <td colspan="1">Name</td>
+                        <td colspan="4">Description</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr align="left">
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr align="left">
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"> </td>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                     <tr>
+                        <td colspan="1"> </td>
+                        <td colspan="4"/>
+                     </tr>
+                  </tbody>
+               </table>
+            </para>
+            <para> The following example shows the request and
+               corresponding response to get all agents for the
+               user:</para>
+            <example>
+               <title>Wake Up Agents Request: JSON</title>
+               <literallayout class="monospaced">
+  POST     https://backup.api.rackspacecloud.com/v1.0/user/wakeupagents
+          User-Agent: controlpanel.drivesrvr.com
+          Host: backup.api.rackspacecloud.com
+          Content-Type: application/json;
+          Content-Length: 0
+          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
+      </literallayout>
+            </example>
+            <para/>
+            <example>
+               <title>Wake Up Agents Response: JSON</title>
+               <literallayout class="monospaced">
+              
       </literallayout>
             </example>
             <para/>
