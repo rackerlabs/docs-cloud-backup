@@ -415,181 +415,7 @@ storage and is familiar with: </para>
             obsoletes all previous versions. The most recent changes
             are described in the table below: </para>
        <?rax revhistory?>    
-         <!-- the document history displays here; generated from above code 
-      <informaltable xmlns:xs="http://www.w3.org/2001/XMLSchema" rules="all">
-            <col width="20%"/>
-            <col width="80%"/>
-            <thead>
-               <tr>
-                  <td align="center">Revision Date</td>
-                  <td align="center">Summary of Changes</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td valign="top">
-                     <para>Jun 14, 2013</para>
-                  </td>
-                  <td>
-                     <para xmlns:m="http://www.w3.org/the key 1998/Math/MathML">Added tables describing attributes for the following
-            requests and responses:</para>
-                     <itemizedlist xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
-                        <listitem>
-                           <para>Get Agent Details response (<xref linkend="getAgent"/> ).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Enable/Disable Agent request (<xref linkend="enableAgent"/> ).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Enable Volume Encryption request (<xref linkend="enableEncryption"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Delete Agent response (<xref linkend="deleeAgent"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get All Agents for this User response (<xref linkend="getAgents"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Create Backup Configuration request (<xref linkend="createConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Create Backup Configuration response (<xref linkend="createConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Update Backup Configuration request (<xref linkend="updateBackupConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Backup Configuration Details response (<xref linkend="getBackupDetails"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get All Backup Configurations for User response
-                  (<xref linkend="getConfigsUser"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get All Backup Configurations for Agent response
-                  (<xref linkend="getBackupConfigsAgent"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Enable/Disable a Backup Configuration request
-                  (<xref linkend="enableBackupConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Disable a Backup Configuration request (<xref linkend="enableBackupConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Disable a Backup Configuration response (<xref linkend="enableBackupConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Start a Backup Manually request and response
-                  (<xref linkend="startBackup"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Stop a Backup Manually request (<xref linkend="startBackup"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Backup Details response (<xref linkend="getBackupDetails"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Completed Backups response (<xref linkend="getBackups"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Create a Restore Configuration response (<xref linkend="createRestoreConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Details about a Restore response (<xref linkend="getRestoreDetails"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Update a Restore Configuration request (<xref linkend="updateRestoreConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Include/Exclude File in Restore Configuration
-                request (<xref linkend="editFilesinRestoreConfiguation"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>List Included/Excluded Files in Restore
-                Configuration request (<xref linkend="listFilesinRestoreConfig"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Start Encrypted Restore request (<xref linkend="startRestore"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Start Unencrypted Restore request (<xref linkend="startRestore"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Stop Restore Manually request (<xref linkend="startRestore"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Details about a Restore response (<xref linkend="getRestoreDetails"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>Get Restore Report response (<xref linkend="getRestoreReport"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>List Activity for an Agent response (<xref linkend="listAllActivity"/>).</para>
-                        </listitem>
-                        <listitem>
-                           <para>List Activity for User response (<xref linkend="getAllActivity"/>).</para>
-                        </listitem>
-                     </itemizedlist>
-                     <para xmlns:m="http://www.w3.org/the key 1998/Math/MathML">Corrected examples in <xref linkend="startRestore"/>.</para>
-                  </td>
-               </tr>
-               <tr>
-                  <td valign="top">
-                     <para>Jun 5, 2013</para>
-                  </td>
-                  <td>
-                     <itemizedlist xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
-                        <listitem>
-                           <para>Updated Example 2.10. Create Backup Configuration
-                Request: JSON in  <xref linkend="createConfig"/> to
-                include <code>"MachineAgentId"</code> near top of
-                example.</para>
-                        </listitem>
-                     </itemizedlist>
-                  </td>
-               </tr>
-               <tr>
-                  <td valign="top">
-                     <para>May 20, 2013</para>
-                  </td>
-                  <td>
-                     <itemizedlist xmlns:m="http://www.w3.org/the key 1998/Math/MathML" spacing="compact">
-                        <listitem>
-                           <para>Changed Rackspace control panel to Cloud Control
-                Panel in  <xref linkend="Authentication-d1e647"/>
-                .</para>
-                        </listitem>
-                     </itemizedlist>
-                  </td>
-               </tr>
-               <tr>
-                  <td valign="top">
-                     <para>Apr 17, 2013</para>
-                  </td>
-                  <td>
-                     <itemizedlist xmlns:m="http://www.w3.org/the key 1998/Math/MathML" spacing="compact">
-                        <listitem>
-                           <para>Removed limits.</para>
-                        </listitem>
-                     </itemizedlist>
-                  </td>
-               </tr>
-               <tr>
-                  <td valign="top">
-                     <para>Mar 5, 2013</para>
-                  </td>
-                  <td>
-                     <itemizedlist xmlns:m="http://www.w3.org/the key 1998/Math/MathML" spacing="compact">
-                        <listitem>
-                           <para>Created initial document.</para>
-                        </listitem>
-                     </itemizedlist>
-                  </td>
-               </tr>
-            </tbody>
-         </informaltable>
-       -->
+ 
       </section>
       <section xml:id="Additional_Resources-d1e532">
          <title>Additional Resources</title>
@@ -629,12 +455,6 @@ documented at: <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec
          <para>Rackspace will notify customers in Release Notes when and
 if the contract does change.</para>
       </section>
-      <!-- </chapter>
-  <chapter xml:id="Concepts-d1e563"
-    xmlns:svg="http://www.w3.org/2000/svg"
-    xmlns:m="http://www.w3.org/1998/Math/MathML"
-    xmlns:html="http://www.w3.org/1999/xhtml">
--->
     <section xml:id="Concepts">
          <title>Concepts</title>
          <?dbhtml stop-chunking?>
@@ -1042,7 +862,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </section>
          
          
-         
+  <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
             <para>The following table shows the roles that each Cloud
@@ -1389,7 +1209,7 @@ steps: get a token; send the token to a service.<orderedlist>
       </section>
 -->     
       <section xml:id="Service_Access_Endpoints-d1e753">
-         <title>Service Endpoints</title>
+         <title>Service Access Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
 The user of the service is therefore responsible for
 appropriate replication, caching, and overall maintenance of
@@ -1424,16 +1244,16 @@ Rackspace Cloud Backup servers.</para>
                      <td><code>https://lon.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
-                     <td>Sydney (SYD)</td>
-                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td>Hong Kong (HKG)</td>
+                     <td><code>https://hkg.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Northern Virginia (IAD)</td>
                      <td><code>https://iad.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
-                     <td>Hong Kong (HKG)</td>
-                     <td><code>https://hkg.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td>Sydney (SYD)</td>
+                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                </tbody>
             </table>
@@ -2390,7 +2210,10 @@ and its data remains. Disabled agents may later be re-enabled.
                       <td><code>BackupDataCenter</code>
                         </td>
                       <td>Specifies the backup data center where this
-                           Agent's backup will reside.</td>
+                           Agent's backup will reside.  You must have
+                           VMs in the data center specified by
+                           BackupDataCenter or this operation will
+                           fail.</td>
                       <td>No</td>
                    </tr>
                    <tr>
