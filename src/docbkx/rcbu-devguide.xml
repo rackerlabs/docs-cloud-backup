@@ -405,6 +405,10 @@ Rackspace Cloud Backup Application Programming Interface
             </listitem>
          </itemizedlist>
       </para>
+      <para>Choose your backup endpoint based on the location of the
+         server that you want to use for backup and for restore. For a
+         list of endpoints, see <xref
+            linkend="Service_Access_Endpoints-d1e753"/>.</para>
       <note>
                <para>Rackspace Cloud Backup does not take snapshots of your server. To read more about how Rackspace Cloud Backup 
     differs from snapshots, please see <link xlink:href="  http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">
@@ -1710,8 +1714,8 @@ backup data.</td>
                         <td><code>Datacenter</code>
                         </td>
                         <td>Data center where the Cloud Server is
-                           located. Valid values are ORD, DFW, LON, or
-                           SYD). </td>
+                           located. Valid values are IAD, ORD, DFW,
+                           HKG, LON, or SYD). </td>
                      </tr>
                      <tr>
                         <td><code>IPAddress</code>
@@ -1814,7 +1818,7 @@ backup data.</td>
   "Flavor": "RaxCloudServer",
   "BackupVaultSize": "35.3 MB",
   "CleanupAllowed": true,
-  "Datacenter": "ORD",
+  "Datacenter": "DFW",
   "IPAddress": "192.168.1.1",
   "IsDisabled": false,
   "IsEncrypted": true,
@@ -2261,7 +2265,7 @@ and its data remains. Disabled agents may later be re-enabled.
                     X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
                     
                     {
-                    "BackupDatacenter" : "ORD",
+                    "BackupDatacenter" : "DFW",
                     "UseServiceNet" : true
                     }
       </literallayout>
@@ -2276,8 +2280,8 @@ and its data remains. Disabled agents may later be re-enabled.
                 "Flavor":"RaxCloudServer",
                 "BackupVaultSize": "35.3 MB",
                 "CleanupAllowed": true,
-                "Datacenter": "ORD",
-                "BackupDatacenter": "ORD",
+                "Datacenter": "DFW",
+                "BackupDatacenter": "DFW",
                 "IPAddress": "192.168.1.1",
                 "IsDisabled": false,
                 "IsEncrypted": true,
@@ -2368,8 +2372,8 @@ and its data remains. Disabled agents may later be re-enabled.
                      <tr>
                         <td><code>Datacenter</code></td>
                         <td>Data center where the Cloud Server is
-                           located. Valid values are ORD, DFW, LON, or
-                           SYD).</td>
+                           located. Valid values are IAD, ORD, DFW,
+                           HKG,  LON, or SYD).</td>
                      </tr>
                      <tr>
                         <td><code>IPAddress</code></td>
@@ -2460,7 +2464,7 @@ and its data remains. Disabled agents may later be re-enabled.
   "Flavor": "RaxCloudServer",
   "BackupVaultSize": "35.3 MB",
   "CleanupAllowed": true,
-  "Datacenter": "ORD",
+  "Datacenter": "DFW",
   "IPAddress": "192.168.1.1",
   "IsDisabled": false,
   "IsEncrypted": true,
@@ -2602,8 +2606,8 @@ Returns: <code>A list of agents.</code>
                         <td colspan="1"><code>Datacenter</code>
                         </td>
                         <td colspan="4">Data center where the Cloud
-                           Server is located. Valid values are ORD,
-                           DFW,  LON, or SYD. </td>
+                           Server is located. Valid values are IAD,
+                           ORD, DFW, HKG, LON, or SYD. </td>
                      </tr>
                      <tr>
                         <td colspan="1"><code>IPAddress</code>
@@ -2703,7 +2707,7 @@ Returns: <code>A list of agents.</code>
         "Architecture": "64-bit",
         "BackupVaultSize": "35.3 MB",
         "CleanupAllowed": true,
-        "Datacenter": "ORD",
+        "Datacenter": "DFW",
         "Flavor":"RaxCloudServer",
         "IPAddress": "192.168.1.1",
         "IsDisabled": false,
@@ -2730,7 +2734,7 @@ Returns: <code>A list of agents.</code>
         "BackupVaultSize": "35.3 MB",
         "CleanupAllowed": true,
         "Flavor":"RaxCloudServer",
-        "Datacenter": "ORD",
+        "Datacenter": "DFW",
         "IPAddress": "192.168.1.3",
         "IsDisabled": false,
         "IsEncrypted": true,
