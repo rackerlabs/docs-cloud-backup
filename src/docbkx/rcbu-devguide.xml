@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-10-21</pubdate>
+    <pubdate>2013-11-04</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +39,28 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2013-11-04</date>
+            <revdescription>
+               <itemizedlist>
+                  <listitem>
+                     <para linkend="Wake-Up_Agents-d1003">Added <xref
+                           linkend="Wake-Up_Agents-d1003"/> to <xref
+                           linkend="User"/>.</para>
+                  </listitem>
+                  <listitem>
+                     <para linkend="Wake-Up_Agents-d1003">Changed the
+                        service access endpoint in the examples in
+                           <xref linkend="operations"/> from the
+                        generic endpoint,
+                           <code>https://backup.api.rackspacecloud.com</code>,
+                        to one of the supported endpoints,
+                           <code>https://dfw.backup.api.rackspacecloud.com.</code>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
          <revision xmlns:m="http://www.w3.org/1998/Math/MathML">
             <date>2013-10-21</date>
             <revdescription>
@@ -1280,7 +1302,7 @@ build information for the API.
                <title>Example List Versions: Request</title>
                <programlisting>
     GET HTTP/1.1
-    Host: https://backup.api.rackspacecloud.com/v1/1234/
+    Host: https://dfw.backup.api.rackspacecloud.com/v1/1234/
   </programlisting>
             </example>
             <para>
@@ -1293,7 +1315,7 @@ build information for the API.
   Issue a GET request to the root endpoint for a service. In the request, truncate the version and everything to the right of it. For example:
 </para>
             <programlisting>
-  https://backup.api.rackspacecloud.com/
+  https://dfw.backup.api.rackspacecloud.com/
   </programlisting>
             <para>
   This operation does not require a request body.
@@ -1775,9 +1797,9 @@ backup data.</td>
             <example>
                <title>Get Agent Details Request: JSON</title>
                <literallayout class="monospaced">
-  GET     https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
+  GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
           User-Agent: controlpanel.drivesrvr.com
-          Host: backup.api.rackspacecloud.com
+          Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2231,9 +2253,9 @@ and its data remains. Disabled agents may later be re-enabled.
           <example>
              <title>Update Agent Backup Behavior request: JSON</title>
              <literallayout class="monospaced">
- POST    https://backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
+ POST    https://dfw.backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
                     User-Agent: controlpanel.drivesrvr.com
-                    Host: backup.api.rackspacecloud.com
+                    Host: dfw.backup.api.rackspacecloud.com
                     Content-Type: application/json;
                     Content-Length: 0
                     X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2420,9 +2442,9 @@ and its data remains. Disabled agents may later be re-enabled.
                <title>Get Agent Details By Host Server ID request:
                   JSON</title>
                <literallayout class="monospaced">
- GET     https://backup.api.rackspacecloud.com/v1.0/agent/server/{hostserverid}
+ GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/server/{hostserverid}
           User-Agent: controlpanel.drivesrvr.com
-          Host: backup.api.rackspacecloud.com
+          Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2662,9 +2684,9 @@ Returns: <code>A list of agents.</code>
             <example>
                <title>Get All Agents for this User Request: JSON</title>
                <literallayout class="monospaced">
-  GET     https://backup.api.rackspacecloud.com/v1.0/user/agents
+  GET     https://dfw.backup.api.rackspacecloud.com/v1.0/user/agents
           User-Agent: controlpanel.drivesrvr.com
-          Host: backup.api.rackspacecloud.com
+          Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -2749,7 +2771,7 @@ Returns: <code>A list of agents.</code>
                      </td>
                      <td colspan="2"> /user/wakeupagents</td>
                      <td colspan="3">Wakes up the agent before you
-                        perform tasks. Sends message to an agent to
+                        perform tasks. Sends a message to an agent to
                         wakeup. You should wait 10-20 seconds after
                         using this operation and then start a backup
                         or restore. </td>
@@ -2757,111 +2779,18 @@ Returns: <code>A list of agents.</code>
                </tbody>
             </informaltable>
             <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s):  </simpara>
-            <para>The following table lists and describes the response
-               attributes for the Wake Up Agents operation.</para>
-            <para>
-               <table rules="all">
-                  <caption>Wake Up Agents Response
-                     Attributes</caption>
-                  <col width="49%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
-                  <col width="13%"/>
-                  <thead>
-                     <tr align="left">
-                        <td colspan="1">Name</td>
-                        <td colspan="4">Description</td>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr align="left">
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr align="left">
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"> </td>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                     <tr>
-                        <td colspan="1"> </td>
-                        <td colspan="4"/>
-                     </tr>
-                  </tbody>
-               </table>
-            </para>
-            <para> The following example shows the request and
-               corresponding response to get all agents for the
-               user:</para>
+            <para>This operation does not require a request body. </para>
+            <para>The following example shows a request to Wake Up
+               Agents:</para>
             <example>
                <title>Wake Up Agents Request: JSON</title>
                <literallayout class="monospaced">
-  POST     https://backup.api.rackspacecloud.com/v1.0/user/wakeupagents
+  POST    https://dfw.backup.api.rackspacecloud.com/v1.0/user/wakeupagents
           User-Agent: controlpanel.drivesrvr.com
-          Host: backup.api.rackspacecloud.com
+          Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-            <para/>
-            <example>
-               <title>Wake Up Agents Response: JSON</title>
-               <literallayout class="monospaced">
-              
       </literallayout>
             </example>
             <para/>
@@ -3779,9 +3708,9 @@ of a backup configuration.</td>
             <example>
                <title>Get Backup Configuration Details Request: JSON</title>
                <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
+     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
@@ -4413,9 +4342,9 @@ the current user.
             <example>
                <title>Get All Backup Configurations for Agent Request: JSON</title>
                <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
+     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -4746,9 +4675,9 @@ Disabled backup configurations may later be re-enabled.</td>
             <example>
                <title>Enable a Backup Configuration Request: JSON</title>
                <literallayout class="monospaced">
-   POST   https://backup.api.rackspacecloud.com/v1.0/backup-configuration/enable/148325
+   POST   https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/enable/148325
           User-Agent: controlpanel.drivesrvr.com
-          Host: backup.api.rackspacecloud.com
+          Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json;
           Content-Length: 0
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -4861,9 +4790,9 @@ Disabled backup configurations may later be re-enabled.</td>
             <example>
                <title>Delete Backup Configuration Request: JSON</title>
                <literallayout class="monospaced">
-     DELETE   https://backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
+     DELETE   https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
       User-Agent: controlpanel.drivesrvr.com
-      Host: backup.api.rackspacecloud.com
+      Host: dfw.backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -5196,9 +5125,9 @@ Returns: Identifier of the instance of the backup.</td>
             <example>
                <title>Get Backup Details Request: JSON</title>
                <literallayout class="monospaced">
-    GET     https://backup.api.rackspacecloud.com/v1.0/backup/134332
+    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/backup/134332
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -5338,9 +5267,9 @@ Backup Configuration.</td>
             <example>
                <title>Get Completed Backups Request: JSON</title>
                <literallayout class="monospaced">
-    GET    https://backup.api.rackspacecloud.com/v1.0/backup/completed/158638
+    GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/completed/158638
       User-Agent: controlpanel.drivesrvr.com
-      Host: backup.api.rackspacecloud.com
+      Host: dfw.backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
@@ -5400,9 +5329,9 @@ Backup Configuration.</td>
             <example>
                <title>Get Backup Report Request: JSON</title>
                <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/backup/report/92500
+     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/report/92500
       User-Agent: controlpanel.drivesrvr.com
-      Host: backup.api.rackspacecloud.com
+      Host: dfw.backup.api.rackspacecloud.com
       Content-Type: application/json;
       Content-Length: 0
       X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
@@ -6055,9 +5984,9 @@ Returns: Detailed information about the restore</td>
             <example>
                <title>List Included or Excluded Files in a Restore Configuration Request: JSON</title>
                <literallayout class="monospaced">
-       GET    https://backup.api.rackspacecloud.com/v1.0/restore/files/148325
+       GET    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/files/148325
               User-Agent: controlpanel.drivesrvr.com
-              Host: backup.api.rackspacecloud.com
+              Host: dfw.backup.api.rackspacecloud.com
               Content-Type: application/json;
               Content-Length: 0
               X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -6110,9 +6039,9 @@ Returns: Detailed information about the restore</td>
             <example>
                <title>Delete a Restore Configuration Request: JSON</title>
                <literallayout class="monospaced">
-    DELETE    https://backup.api.rackspacecloud.com/v1.0/restore/files/1394
+    DELETE    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/files/1394
               User-Agent: controlpanel.drivesrvr.com
-              Host: backup.api.rackspacecloud.com
+              Host: dfw.backup.api.rackspacecloud.com
               Content-Type: application/json;
               Content-Length: 0
               X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe 
@@ -6216,9 +6145,9 @@ deleted and is not expired).
                <title>List Backups Available for Restore Request:
                   JSON</title>
                <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/backup/availableforrestore
+     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/availableforrestore
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -6551,9 +6480,9 @@ deleted and is not expired).
             <example>
                <title>Get Details about a Restore Request: JSON</title>
                <literallayout class="monospaced">
-    GET     https://backup.api.rackspacecloud.com/v1.0/restore/1394
+    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/restore/1394
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -6744,9 +6673,9 @@ deleted and is not expired).
             <example>
                <title>Get Restore Report Request: JSON</title>
                <literallayout class="monospaced">
-    GET    https://backup.api.rackspacecloud.com/v1.0/restore/report/1394
+    GET    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/report/1394
            User-Agent: controlpanel.drivesrvr.com
-           Host: backup.api.rackspacecloud.com
+           Host: dfw.backup.api.rackspacecloud.com
            Content-Type: application/json;
            Content-Length: 0
            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
@@ -6937,9 +6866,9 @@ deleted and is not expired).
             <example>
                <title>List Activity for an Agent Request: JSON</title>
                <literallayout class="monospaced">
-    GET     https://backup.api.rackspacecloud.com/v1.0/system/activity/232180
+    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/system/activity/232180
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -7088,9 +7017,9 @@ completed or in progress for the user.
             <example>
                <title>List Activity for User Request: JSON</title>
                <literallayout class="monospaced">
-    GET     https://backup.api.rackspacecloud.com/v1.0/activity
+    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/activity
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0
             X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
@@ -7248,9 +7177,9 @@ completed or in progress for the user.
             <example>
                <title>List Images Supported by Agent Request: JSON</title>
                <literallayout class="monospaced">
-     GET    https://backup.api.rackspacecloud.com/v1.0/help/supportedimages/nextgen
+     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/help/supportedimages/nextgen
             User-Agent: controlpanel.drivesrvr.com
-            Host: backup.api.rackspacecloud.com
+            Host: dfw.backup.api.rackspacecloud.com
             Content-Type: application/json;
             Content-Length: 0   
       </literallayout>
