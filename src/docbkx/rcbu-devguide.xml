@@ -39,6 +39,13 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+ <!--        <revision>
+            <date>2013-11-13</date>
+            <revdescription>
+               <para>Added <xref linkend="RBAC-d1e001"/>.</para>
+            </revdescription>
+         </revision>
+ -->        
          <revision>
             <date>2013-11-04</date>
             <revdescription>
@@ -406,7 +413,7 @@ Rackspace Cloud Backup Application Programming Interface
          </itemizedlist>
       </para>
       <para>Choose your backup endpoint based on the location of the
-         server that you want to use for backup and for restore. For a
+         server that you want to use for backup or for restore. For a
          list of endpoints, see <xref
             linkend="Service_Access_Endpoints-d1e753"/>.</para>
       <note>
@@ -513,6 +520,20 @@ if the contract does change.</para>
   Restore Configuration defines what the restore checkpoint is 
   and the where the backup should be restored. 
 </para>
+         </section>
+         <section xml:id="Server-Set-Up-d1e001">
+            <title>Server Setup</title>
+            <para>Because Cloud Backup is a file-level backup product,
+               you must configure a separate backup for each Cloud
+               Server and that a backup does not automatically apply
+               to an entire environment. You must select the files and
+               folders you want to back up from your Cloud Server.
+               This setup requirement applies to Rackspace Cloud
+               Servers, including the Performance Cloud Servers
+               offering.  </para>
+            <note>
+               <para>Performance Cloud Servers </para>
+            </note>
          </section>
     
     
@@ -697,9 +718,8 @@ steps: get a token; send the token to a service.<orderedlist>
     Authentication Response" samples in the <citetitle>Cloud
       Identity Client Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html">http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html</link>.</para>
          </tip>
-
-      </section>
-<!--     
+<!--
+      </section>    
       <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
@@ -711,10 +731,9 @@ steps: get a token; send the token to a service.<orderedlist>
             Rackspace (see <xref linkend="RBAC_product_roles_table"
             />). The permissions to perform certain operations in
             Cloud Backup API – create, read, update, delete – are
-            assigned to specific roles. The account owner assigns
-            these roles, either multiproduct (global) or
-            product-specific (for example, Cloud Backup), to account
-            users. </para>
+            assigned to specific roles, and these roles can be
+            assigned by the Cloud account admin user to account users
+            of the account. </para>
          <section xml:id="RBAC-Assigning_Roles-d1e001">
             <title>Assigning Roles to Account Users</title>
             <para>The account owner (identity:user-admin) can create
@@ -741,7 +760,7 @@ steps: get a token; send the token to a service.<orderedlist>
                </listitem>
                <listitem>
                   <para><link
-                        xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
                         > Delete roles from account
                      users</link></para>
                </listitem>
@@ -887,7 +906,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   > the Knowledge Center article</link>.</para>
          </section>
          
-         
+        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
@@ -1231,9 +1250,9 @@ steps: get a token; send the token to a service.<orderedlist>
                </tbody>
             </table>
          </section>
-        
+-->        
       </section>
--->     
+   
       <section xml:id="Service_Access_Endpoints-d1e753">
          <title>Service Access Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
