@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-11-04</pubdate>
+    <pubdate>2013-12-11</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,13 +39,24 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
- <!--        <revision>
-            <date>2013-11-13</date>
+        <revision>
+            <date>2013-12-11</date>
             <revdescription>
-               <para>Added <xref linkend="RBAC-d1e001"/>.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>Added <xref linkend="RBAC-d1e001"/>.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Changed normal response code from 200 to
+                        204 in <xref
+                           linkend="deleteRstoreConfiguration"
+                        />.</para>
+                  </listitem>
+               </itemizedlist>
+               <para/>
             </revdescription>
          </revision>
- -->        
+        
          <revision>
             <date>2013-11-04</date>
             <revdescription>
@@ -718,7 +729,7 @@ steps: get a token; send the token to a service.<orderedlist>
     Authentication Response" samples in the <citetitle>Cloud
       Identity Client Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html">http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html</link>.</para>
          </tip>
-<!--
+
       </section>    
       <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
@@ -906,7 +917,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   > the Knowledge Center article</link>.</para>
          </section>
          
-        
+<!--        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
@@ -5526,8 +5537,8 @@ Returns: Detailed information about the restore</td>
                      <tr>
                         <td><code>RestoreId </code>
                         </td>
-                        <td>Creates a restore configuration and in reponse you
-                  get RestoreID.</td>
+                        <td>Creates a restore configuration and in
+                           response you get RestoreID.</td>
                      </tr>
                      <tr>
                         <td><code>BackupId</code>
@@ -5737,8 +5748,8 @@ Returns: Detailed information about the restore</td>
                      <tr>
                         <td><code>RestoreId</code>
                         </td>
-                        <td>Creates a restore configuration and in reponse you
-                  get RestoreID.</td>
+                        <td>Creates a restore configuration and in
+                           response you get RestoreID.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -5988,8 +5999,8 @@ Returns: Detailed information about the restore</td>
                      <tr>
                         <td><code>RestoreId</code>
                         </td>
-                        <td>Creates a restore configuration and in reponse you
-                  get RestoreID.</td>
+                        <td>Creates a restore configuration and in
+                           response you get RestoreID.</td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -6053,7 +6064,7 @@ Returns: Detailed information about the restore</td>
                   </tr>
                </tbody>
             </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Not Found (404),
                Service Unavailable (500) </simpara>
@@ -6391,8 +6402,8 @@ deleted and is not expired).
                      <tr>
                         <td><code>RestoreId </code>
                         </td>
-                        <td>Creates a restore configuration and in reponse you
-                  get RestoreID.</td>
+                        <td>Creates a restore configuration and in
+                           response you get RestoreID.</td>
                      </tr>
                      <tr>
                         <td><code>BackupId</code>

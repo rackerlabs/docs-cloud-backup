@@ -47,7 +47,7 @@
 	  <enableDisqus>Disqus</enableDisqus>
 	  <socialIcons>1</socialIcons>
 	  <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
-	  <publicationNotificationEmails>david.hendler@rackspace.com</publicationNotificationEmails>
+	  <publicationNotificationEmails>catherine.richardson@rackspace.com</publicationNotificationEmails>
 	  <enableGoogleAnalytics>1</enableGoogleAnalytics>
           <branding>rackspace</branding>      
           <showXslMessages>true</showXslMessages>
