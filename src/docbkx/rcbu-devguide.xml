@@ -761,17 +761,17 @@ steps: get a token; send the token to a service.<orderedlist>
             <itemizedlist>
                <listitem>
                   <para><link
-                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
+                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_User_Calls.html"
                         > Create account users</link></para>
                </listitem>
                <listitem>
                   <para><link
-                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__Role_Calls.html"
                         > Assign roles to account users</link></para>
                </listitem>
                <listitem>
                   <para><link
-                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__Role_Calls.html"
                         > Delete roles from account
                      users</link></para>
                </listitem>
@@ -914,7 +914,7 @@ steps: get a token; send the token to a service.<orderedlist>
                available to all roles. To see which operations are
                permitted to invoke which calls, please review <link
                   xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
-                  > the Knowledge Center article</link>.</para>
+                  >the Knowledge Center article</link>.</para>
          </section>
          
 <!--        
