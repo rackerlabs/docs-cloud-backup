@@ -1752,11 +1752,10 @@ backup data.</td>
                      <code>Offline</code>, it is possible that the
                   Cloud Backup agent might be idle and not posting any
                   heartbeats. You can wake up your Cloud Backup agent
-                  with this call, <link
-                     xlink:href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/Wake-Up_Agents-d1003.html"
-                     >Wake Up Agents</link>. You should wait 10-20
-                  seconds after using this operation to determine
-                  online status of agent reliably.</para>
+                  with the operation described in <xref
+                     linkend="Wake-Up_Agents-d1003"/>. You should wait
+                  10-20 seconds after using this operation to
+                  determine online status of agent reliably.</para>
             </note>
             <para>The following table lists and describes the Get Agent
           Details response attributes. </para>
@@ -2652,9 +2651,9 @@ Returns: <code>A list of agents.</code>
             <note>
                <para>Cloud Backup agent <code>Status</code> is always
                      <code>Offline</code> in this call. If you want to
-                  check the online status of a particular agent,
-                  please use this call,
-                  <link xlink:href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/getAgent.html">Get Agent Details</link>.</para>
+                  check the online status of a particular agent, use
+                  the operation described in <xref linkend="getAgent"
+                  />.</para>
             </note>
             <para>The following table lists and describes the response
           attributes for Get All Agents for this User.</para>
