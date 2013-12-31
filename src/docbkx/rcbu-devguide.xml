@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-12-12</pubdate>
+    <pubdate>2013-12-31</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,11 +40,19 @@ Rackspace Cloud Backup Application Programming Interface
     -->
     <revhistory>
         <revision>
-            <date>2013-12-12</date>
+            <date>2013-12-31</date>
             <revdescription>
                <itemizedlist>
                   <listitem>
-                     <para>Added <xref linkend="RBAC-d1e001"/>.</para>
+                     <para>Added a note to <xref linkend="getAgent"/>
+                        to describe how to handle an agent with a
+                           <code>Status</code> of <code>Offline</code>
+                        that is not posting any heartbeats.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Added a note to <xref linkend="getAgents"/>
+                        about agent <code>Status</code> always being
+                           <code>Offline</code> for the call.</para>
                   </listitem>
                   <listitem>
                      <para>Changed normal response code from 200 to
@@ -52,8 +60,20 @@ Rackspace Cloud Backup Application Programming Interface
                            linkend="deleteRstoreConfiguration"
                         />.</para>
                   </listitem>
+                  <listitem>
+                     <para>Added <code>BackupMachineId</code>
+                        attribute description to <xref
+                           linkend="createRestoreConfig"/>.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Updated the instructions for locating the
+                        API Key, Tenant ID, and account number in the
+                        Cloud Control Panel in <xref
+                           linkend="Authentication-d1e647"
+                           xmlns:m="http://www.w3.org/1998/Math/MathML"
+                        />.</para>
+                  </listitem>
                </itemizedlist>
-               <para/>
             </revdescription>
          </revision>
         
@@ -574,12 +594,10 @@ service are performed using SSL over HTTP (HTTPS) on TCP port
             header. Customers obtain this token by first using the
             Rackspace Cloud Authentication Service and supplying a
             valid username and API access key. </para>
-         <para>
-To authenticate, submit a <code>POST/v2.0/tokens</code> request, 
-presenting valid Rackspace customer credentials 
-in the message body to a Rackspace authentication endpoint
-. 
-      </para>
+         <para> To authenticate, submit a
+               <code>POST/v2.0/tokens</code> request, presenting valid
+            Rackspace customer credentials in the message body to a
+            Rackspace authentication endpoint. </para>
          <para>
             <emphasis role="bold">GET YOUR CREDENTIALS</emphasis>
          </para>
@@ -602,15 +620,50 @@ Your <code>username</code> and
 Cloud Control Panel. Once you are logged in, you can use 
 the Cloud Control Panel to obtain your <code>API key</code>.
       </para>
-         <para>
-            <itemizedlist>
-               <listitem>
-                  <para>US-based accounts use the Cloud Control Panel
-                     at <link xlink:href="https://mycloud.rackspace.com">
-                        https://mycloud.rackspace.com</link>.</para>
-               </listitem>
-            </itemizedlist>
+         <para><emphasis role="bold">To find your API Key:</emphasis>
          </para>
+         <orderedlist>
+            <listitem>
+               <para>Log in to the Cloud Control Panel (<link
+                     xlink:href="https://mycloud.rackspace.com"
+                     >https://mycloud.rackspace.com</link>).</para>
+            </listitem>
+            <listitem>
+               <para>On the upper-right side of the top navigation
+                  pane, click your username.</para>
+            </listitem>
+            <listitem>
+               <para>From the menu, select <guilabel>Account
+                     Settings</guilabel>.</para>
+            </listitem>
+            <listitem>
+               <para>In the Login Details section of the Account
+                  Settings page, locate the <guilabel>API
+                     Key</guilabel> field and click
+                     <guibutton>Show</guibutton>.</para>
+            </listitem>
+            <listitem>
+               <para> Copy the value of the API Key and paste it into
+                  a text editor of your choice.</para>
+            </listitem>
+            <listitem>
+               <para>Click <guibutton>Hide</guibutton> to hide the
+                  value of the API Key.</para>
+            </listitem>
+         </orderedlist>
+         <para>You also need your cloud account number. In the
+            documentation, the account number is often referred to as
+            your tenant name or tenant ID (technically, the ID is
+            different from the name, but at Rackspace, they are the
+            same thing). Together, three components—your username,
+            your API Key, and your tenant ID or cloud account
+            number—form the authentication credentials that are
+            required to connect to the Rackspace cloud.</para>
+         <para>To find your tenant ID or cloud account number, locate
+            your username on the upper-right side of the top
+            navigation pane in the Cloud Control Panel. The tenant ID
+            or account number is in parentheses just to the right of
+            your username.</para>
          <para>
             <emphasis role="bold">USE YOUR AUTHENTICATION
                ENDPOINT</emphasis>
@@ -731,7 +784,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </tip>
 
       </section>    
-      <section xml:id="RBAC-d1e001">
+ <!--     <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
             the capabilities of Rackspace Cloud services, including
@@ -915,9 +968,10 @@ steps: get a token; send the token to a service.<orderedlist>
                permitted to invoke which calls, please review <link
                   xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
                   >the Knowledge Center article</link>.</para>
+                  
          </section>
          
-<!--        
+        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
@@ -1261,9 +1315,9 @@ steps: get a token; send the token to a service.<orderedlist>
                </tbody>
             </table>
          </section>
--->        
+        
       </section>
-   
+ -->  
       <section xml:id="Service_Access_Endpoints-d1e753">
          <title>Service Access Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
@@ -1693,6 +1747,17 @@ backup data.</td>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Not Found (404),
                Service Unavailable (500) </simpara>
+            <note>
+               <para>If the agent <code>Status</code> is showing as
+                     <code>Offline</code>, it is possible that the
+                  Cloud Backup agent might be idle and not posting any
+                  heartbeats. You can wake up your Cloud Backup agent
+                  with this call, <link
+                     xlink:href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/Wake-Up_Agents-d1003.html"
+                     >Wake Up Agents</link>. You should wait 10-20
+                  seconds after using this operation to determine
+                  online status of agent reliably.</para>
+            </note>
             <para>The following table lists and describes the Get Agent
           Details response attributes. </para>
             <para>
@@ -2584,6 +2649,13 @@ Returns: <code>A list of agents.</code>
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Service
                Unavailable (503) </simpara>
+            <note>
+               <para>Cloud Backup agent <code>Status</code> is always
+                     <code>Offline</code> in this call. If you want to
+                  check the online status of a particular agent,
+                  please use this call,
+                  <link xlink:href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/getAgent.html">Get Agent Details</link>.</para>
+            </note>
             <para>The following table lists and describes the response
           attributes for Get All Agents for this User.</para>
             <para>
@@ -2692,9 +2764,9 @@ Returns: <code>A list of agents.</code>
                      <tr>
                         <td colspan="1"><code>Status</code>
                         </td>
-                        <td colspan="4">Indicates the status of Rackspace
-                  Cloud Backup agent. Valid values are Online or
-                  Offline.</td>
+                        <td colspan="4">Indicates the status of
+                           Rackspace Cloud Backup agent. Always
+                           Offline for this operation.</td>
                      </tr>
                      <tr>
                         <td colspan="1"
@@ -5543,13 +5615,36 @@ Returns: Detailed information about the restore</td>
                      <tr>
                         <td><code>BackupId</code>
                         </td>
-                        <td>Identifies a unique backup. </td>
+                        <td>Identifies a unique backup. (</td>
+                     </tr>
+                     <tr>
+                        <td><code>BackupMachineId</code></td>
+                        <td>Identifies the machine where your backup
+                           was originally made. (If  you restore files
+                           to the same system,
+                              <code>BackupMachineId</code> and
+                              <code>DestinationMachineId</code> are
+                           the same. If you decide to restore to
+                           another system, different from where the
+                           files were originally backed up,
+                              <code>DestinationMachineId</code> is
+                           different from
+                           <code>BackupMachineId</code>.) </td>
                      </tr>
                      <tr>
                         <td><code>DestinationMachineId</code>
                         </td>
-                        <td>Identifies the machine you want the backups to
-                  restore.</td>
+                        <td>Identifies the machine to which you want
+                           the backups to restore. (If  you restore
+                           files to the same system,
+                              <code>BackupMachineId</code> and
+                              <code>DestinationMachineId</code> are
+                           the same. If you decide to restore to
+                           another system, different from where the
+                           files were originally backed up,
+                              <code>DestinationMachineId</code> is
+                           different from
+                           <code>BackupMachineId</code>.)</td>
                      </tr>
                      <tr>
                         <td><code>OverwriteFiles</code>
@@ -5773,7 +5868,8 @@ Returns: Detailed information about the restore</td>
                      <tr>
                         <td><code>BackupMachineId</code>
                         </td>
-                        <td>Indicates the machine name of the backup. </td>
+                        <td>Indicates the machine where your backup
+                           was originally made.  </td>
                         <td>Yes</td>
                      </tr>
                      <tr>
@@ -6411,10 +6507,15 @@ deleted and is not expired).
                         <td>Identifies a unique backup. </td>
                      </tr>
                      <tr>
+                        <td><code>BackupMachineId</code></td>
+                        <td>Identifies the machine where your backups
+                           were originally made.</td>
+                     </tr>
+                     <tr>
                         <td><code>DestinationMachineId</code>
                         </td>
-                        <td>Identifies the machine you want the backups to
-                  restore.</td>
+                        <td>Identifies the machine to which you want
+                           the backups to restore.</td>
                      </tr>
                      <tr>
                         <td><code>OverwriteFiles</code>
