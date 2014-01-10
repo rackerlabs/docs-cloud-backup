@@ -19,11 +19,12 @@
     
     <copyright>
          <year>2013</year>
+         <year>2014</year>
       </copyright>
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2013-12-31</pubdate>
+    <pubdate>2014-01-10</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +40,23 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2014-01-10</date>
+            <revdescription>
+               <itemizedlist>
+                  <listitem>
+                     <para>Added the <code>BackupContainer</code>
+                        response attribute to <xref linkend="getAgent"
+                        />.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Added the <code>BackupContainer</code>
+                        response attribute to <xref
+                           linkend="getAgents"/>.</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
         <revision>
             <date>2013-12-31</date>
             <revdescription>
@@ -401,7 +419,7 @@ Rackspace Cloud Backup Application Programming Interface
          <raxm:priority>20</raxm:priority>
       </raxm:metadata>
   </info>
-  <!-- skip this OpenStack section, but leave it in the xml --> 
+  <!-- skip this OpenStack section, but leave it in the xml  --> 
   
   <chapter xmlns:m="http://www.w3.org/1998/Math/MathML" xml:id="overview">
       <title>Overview</title>
@@ -504,10 +522,11 @@ API-related documents from <link xlink:href="http://docs.rackspace.com/api/">doc
                >
                http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup</link>.</para>
       <para>For information about Rackspace Cloud products, refer to
-  <link xlink:href="http://www.rackspace.com/cloud/">www.rackspace.com/cloud</link>. This site also
-offers links to Rackspace's official support channels,
-including knowledge base articles, forums, phone, chat, and
-email. </para>
+               <link xlink:href="http://www.rackspace.com/cloud/"
+               >www.rackspace.com/cloud</link>. This site also offers
+            links to the official support channels for Rackspace,
+            including knowledge base articles, forums, phone, chat,
+            and email. </para>
          <para>You can follow Rackspace updates and announcements
 via twitter at: <link xlink:href="http://www.twitter.com/rackspace">www.twitter.com/rackspace</link>. </para>
          <para>This API uses standard HTTP 1.1 response codes as
@@ -1798,6 +1817,11 @@ backup data.</td>
                         </td>
                      </tr>
                      <tr>
+                        <td><code>BackupContainer</code></td>
+                        <td>Full public URI for Cloud Files where
+                           backups are stored for this agent.</td>
+                     </tr>
+                     <tr>
                         <td><code>CleanupAllowed</code>
                         </td>
                         <td>Indicates whether a cleanup
@@ -1905,12 +1929,14 @@ backup data.</td>
             </example>
             <example>
                <title>Get Agent Details Response: JSON</title>
-               <literallayout>
+               <literallayout class="monospaced">
  {
   "AgentVersion": "1.05.005848",
   "Architecture": "64-bit",
   "Flavor": "RaxCloudServer",
   "BackupVaultSize": "35.3 MB",
+  "BackupContainer": "https://storage101.DC.clouddrive.com/
+      v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
   "CleanupAllowed": true,
   "Datacenter": "DFW",
   "IPAddress": "192.168.1.1",
@@ -1928,7 +1954,7 @@ e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c7887
     "ExponentHex": "09528"
   },
   "Status": "Online",
-  "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
+  "TimeOfLastSuccessfulBackup": "/Date(1357817400000)/",
   "UseServiceNet": true
   "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
 }
@@ -2697,6 +2723,13 @@ Returns: <code>A list of agents.</code>
                         <td colspan="4">Size of backup data in MB. </td>
                      </tr>
                      <tr>
+                        <td colspan="1"
+                           ><code>BackupContainer</code></td>
+                        <td colspan="4">Full public URI for Cloud
+                           Files where backups are stored for this
+                           agent.</td>
+                     </tr>
+                     <tr>
                         <td colspan="1"><code>CleanupAllowed</code>
                         </td>
                         <td colspan="4">Indicates whether a cleanup can be
@@ -2797,16 +2830,17 @@ Returns: <code>A list of agents.</code>
           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
       </literallayout>
             </example>
-            <para/>
 
             <example>
                <title>Get All Agents for this User Response: JSON</title>
                <literallayout class="monospaced">
-              [
-            {
+         [
+           {
         "AgentVersion": "1.05.005848",
         "Architecture": "64-bit",
         "BackupVaultSize": "35.3 MB",
+        "BackupContainer": "https://storage101.DC.clouddrive.com/
+             v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
         "CleanupAllowed": true,
         "Datacenter": "DFW",
         "Flavor":"RaxCloudServer",
@@ -2833,6 +2867,8 @@ Returns: <code>A list of agents.</code>
         "AgentVersion": "1.05.005848",
         "Architecture": "64-bit",
         "BackupVaultSize": "35.3 MB",
+        "BackupContainer": "https://storage101.DC.clouddrive.com/
+            v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
         "CleanupAllowed": true,
         "Flavor":"RaxCloudServer",
         "Datacenter": "DFW",
