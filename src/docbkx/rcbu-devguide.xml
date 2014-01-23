@@ -24,7 +24,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-01-10</pubdate>
+    <pubdate>2014-01-27</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,6 +40,12 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2014-01-27</date>
+            <revdescription>
+               <para>Added <xref linkend="RBAC-d1e001"/>.</para>
+            </revdescription>
+         </revision>
          <revision>
             <date>2014-01-10</date>
             <revdescription>
@@ -803,7 +809,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </tip>
 
       </section>    
- <!--     <section xml:id="RBAC-d1e001">
+      <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
             the capabilities of Rackspace Cloud services, including
@@ -990,7 +996,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   
          </section>
          
-        
+<!--        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
             <title>Cloud Backup Operations and Their Roles</title>
@@ -1666,7 +1672,7 @@ listed below.
 
 
       </section>
- 
+      </section>
   </chapter>
 
 
