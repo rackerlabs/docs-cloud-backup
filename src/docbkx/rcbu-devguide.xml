@@ -24,7 +24,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-01-27</pubdate>
+    <pubdate>2014-01-28</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,13 +40,25 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+<!--       
          <revision>
             <date>2014-01-27</date>
             <revdescription>
                <para>Added <xref linkend="RBAC-d1e001"/>.</para>
             </revdescription>
          </revision>
+-->
          <revision>
+            <date>2014-01-28</date>
+            <revdescription>
+               <para>Updated <xref linkend="getAgents"/> to include
+                  instructions to use <xref linkend="getAgent"/> to
+                  retrieve the correct values for
+                     <code>TimeOfLastSuccessfulBackup</code>, as well
+                  as <code>Status</code>.</para>
+            </revdescription>
+         </revision>         
+         <revision>         
             <date>2014-01-10</date>
             <revdescription>
                <itemizedlist>
@@ -808,7 +820,8 @@ steps: get a token; send the token to a service.<orderedlist>
       Identity Client Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html">http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html</link>.</para>
          </tip>
 
-      </section>    
+      </section>  
+<!--     
       <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
@@ -995,7 +1008,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   >the Knowledge Center article</link>.</para>
                   
          </section>
-         
+-->         
 <!--        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
@@ -1671,7 +1684,7 @@ listed below.
          </formalpara>
 
 
-      </section>
+
       </section>
   </chapter>
 
@@ -2682,8 +2695,9 @@ Returns: <code>A list of agents.</code>
                Unavailable (503) </simpara>
             <note>
                <para>Cloud Backup agent <code>Status</code> is always
-                     <code>Offline</code> in this call. If you want to
-                  check the online status of a particular agent, use
+                     <code>Offline</code> in this call. </para>
+               <para>To get the correct values for <code>Status</code>
+                  and <code>TimeOfLastSuccessfulBackup</code>,  use
                   the operation described in <xref linkend="getAgent"
                   />.</para>
             </note>
