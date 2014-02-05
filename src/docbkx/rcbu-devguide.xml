@@ -1044,7 +1044,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   </tr>
                   <tr>
                      <td>Get Agent Details</td>
-                     <td>GET /agent/{agent_id}</td>
+                     <td>GET /agent/{machineAgentId}</td>
                      <td>X</td>
                      <td>X</td>
                      <td>X</td>
@@ -1706,7 +1706,7 @@ listed below.
                <tr>
                   <td colspan="1"><command>GET</command>
                   </td>
-                  <td colspan="2">/agent/{agent_id}</td>
+                  <td colspan="2">/agent/{machineAgentId}</td>
                   <td colspan="3">Gets details about the machine and its agent.</td>
                </tr>
                <tr>
@@ -1773,7 +1773,7 @@ backup data.</td>
                   <tr>
                      <td colspan="1"><command>GET</command>
                      </td>
-                     <td colspan="2">/agent/{agent_id}</td>
+                     <td colspan="2">/agent/{machineAgentId}</td>
                      <td colspan="3">Gets details about the machine and its
                 agent.</td>
                   </tr>
