@@ -998,6 +998,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   >the Knowledge Center article</link>.</para>
                   
          </section>
+      </section>
          
 <!--        
   <remark The section below is handled in the KC at the link above. </remark>       
@@ -1345,7 +1346,8 @@ steps: get a token; send the token to a service.<orderedlist>
          </section>
         
       </section>
- -->  
+ --> 
+
       <section xml:id="Service_Access_Endpoints-d1e753">
          <title>Service Access Endpoints</title>
          <para>The Rackspace Cloud Backup Service is a regionalized service.
@@ -1675,7 +1677,7 @@ listed below.
 
 
          </section>
-      </section>
+
   </chapter>
 
 

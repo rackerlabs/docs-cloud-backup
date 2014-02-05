@@ -7,7 +7,7 @@
     xml:id="rcbu-releasenotes">
 <!-- <?rax canonical.url.base="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content"?>  -->
 <!--  <?rax title.font.size="30px" subtitle.font.size="20px"?> -->
-  <title>Rackspace Cloud Backup Release Notes</title>  <?rax title.font.size="37px" pdf.url="../../rcbu-releasenotes.pdf" canonical.url.base="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content"?>  
+  <title>Rackspace Cloud Backup Release Notes</title>  <?rax title.font.size="37px" canonical.url.base="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content"?>  
  
   <info>
     <author>
@@ -384,22 +384,13 @@
   </chapter> 
   <chapter xml:id="Nov042013">
     <title>October 21, 2013</title>
-    <para>This release includes the following changes for the Cloud
-      Backup API:</para>
-    <itemizedlist>
-      <listitem>
-        <para xmlns:html="http://www.w3.org/1999/xhtml"
-          xmlns:wadl="http://wadl.dev.java.net/2009/02"
-          xmlns:svg="http://www.w3.org/2000/svg"
-          xmlns:m="http://www.w3.org/1998/Math/MathML">The HKG service
-          endpoint was added.</para>
-      </listitem>
-    </itemizedlist>
+    <para>This release includes the addition of the HKG service
+      endpoint for the Cloud Backup API.</para>
   </chapter>
   <chapter xml:id="Oct16">
     <title>October 16, 2013</title>
     <para>This release includes the following changes for the Cloud
-      Backup API:</para>
+      Backup API.</para>
     <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
       xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:svg="http://www.w3.org/2000/svg"
@@ -421,7 +412,7 @@
           description.</para>
       </listitem>
       <listitem>
-        <para>he Get Agent Details By Host Server ID operation
+        <para>The Get Agent Details By Host Server ID operation
           description was added.</para>
       </listitem>
     </itemizedlist>
@@ -478,8 +469,8 @@
           was added to the agent operations.</para>
       </listitem>
       <listitem>
-        <para>The regionalized service endpoints were updated to add
-          IAD.</para>
+        <para>The regionalized service endpoints section were updated
+          to add IAD.</para>
       </listitem>
     </itemizedlist>
   </chapter>
