@@ -1749,7 +1749,7 @@ backup data.</td>
                </tr>
                <tr>
                   <td colspan="1"><command>GET</command></td>
-                  <td colspan="2">/agent/server/{hostserverid}</td>
+                  <td colspan="2">/agent/server/{hostServerId}</td>
                   <td colspan="3">Gets details about the machine and
                      its agent using the host server ID.</td>
                </tr>
@@ -2457,7 +2457,7 @@ and its data remains. Disabled agents may later be re-enabled.
                <tbody>
                   <tr>
                      <td colspan="1"><command>GET</command></td>
-                     <td colspan="2">/agent/server/{hostserverid}</td>
+                     <td colspan="2">/agent/server/{hostServerId}</td>
                      <td colspan="3">Gets details about the machine
                         and its agent using the host server ID.</td>
                   </tr>
@@ -2585,7 +2585,7 @@ and its data remains. Disabled agents may later be re-enabled.
                <title>Get Agent Details By Host Server ID request:
                   JSON</title>
                <literallayout class="monospaced">
- GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/server/{hostserverid}
+ GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/server/{hostServerId}
           User-Agent: controlpanel.drivesrvr.com
           Host: dfw.backup.api.rackspacecloud.com
           Content-Type: application/json
