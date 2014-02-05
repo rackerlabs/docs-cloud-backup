@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book 
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    version="5.0-extension RaxBook-2.0"
+    xml:id="rcbu-releasenotes">
+<!-- <?rax canonical.url.base="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content"?>  -->
+<!--  <?rax title.font.size="30px" subtitle.font.size="20px"?> -->
+  <title>Rackspace Cloud Backup Release Notes</title>  <?rax title.font.size="37px" pdf.url="../../rcbu-releasenotes.pdf" canonical.url.base="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content"?>  
+ 
+  <info>
+    <author>
+      <personname>
+        <firstname/>
+        <surname/>
+      </personname>
+      <affiliation>
+        <orgname>Rackspace Cloud</orgname>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2013</year>
+      <year>2014</year>
+      <holder>Rackspace US, Inc.</holder>
+    </copyright>
+    <releaseinfo>API v1</releaseinfo>
+    <productname>Rackspace Cloud Backup</productname>
+    <pubdate>2014-02-05</pubdate>
+    <legalnotice role="rs-api">
+      <annotation>
+        <remark>Copyright details are filled in by the template. </remark>
+      </annotation>
+    </legalnotice>
+    <abstract>
+      <para>This document is intended for software developers who are
+        interested in developing applications using the Rackspace
+        Cloud Backup Application Programming Interface
+          (<abbrev>API</abbrev>).  </para>
+    </abstract>
+    <revhistory xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <revision>
+        <date>2014-02-05</date>
+        <revdescription>
+          <para>Added  Role Based Access Control (RBAC).</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2014-01-28</date>
+        <revdescription>
+          <para>Updated the Get All Agents for this User operation
+            description to include instructions to use the Get Agent
+            Details operation to retrieve the correct values for
+              <code>TimeOfLastSuccessfulBackup</code>, as well as
+              <code>Status</code>.</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2014-01-10</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the <code>BackupContainer</code> response
+                attribute to the Get Agent Details operation.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-12-31</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added a note to the Get Agent Details operation to
+                describe how to handle an agent with a
+                  <code>Status</code> of <code>Offline</code> that is
+                not posting any heartbeats.</para>
+            </listitem>
+            <listitem>
+              <para>Added a note to the Get Agent Details operation
+                that <code>Status</code> is always
+                  <code>Offline</code> for this operation.</para>
+            </listitem>
+            <listitem>
+              <para>Changed normal response code from 200 to 204 for
+                the Delete a Restore Configuration operation.</para>
+            </listitem>
+            <listitem>
+              <para>Added <code>BackupMachineId</code> attribute
+                description to the Create a Restore Configuration
+                operation.</para>
+            </listitem>
+            <listitem>
+              <para>Updated the instructions for locating the API Key,
+                Tenant ID, and account number in the Cloud Control
+                Panel in the Authentication section.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-11-04</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the Wake Up
+                Agent operation. </para>
+            </listitem>
+            <listitem>
+              <para>Changed the service
+                access endpoint in the examples in the API Operations
+                chapter from the generic endpoint,
+                  <code>https://backup.api.rackspacecloud.com</code>,
+                to one of the supported endpoints,
+                  <code>https://dfw.backup.api.rackspacecloud.com.</code>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision xmlns:m="http://www.w3.org/1998/Math/MathML">
+        <date>2013-10-21</date>
+        <revdescription>
+          <para>Added the HKG service endpoint.</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-10-16</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added the <code>HostServerId</code> response
+                attribute to the Get Agent Details operation.</para>
+            </listitem>
+            <listitem>
+              <para>Added the Get Agent Details By Host Server ID
+                operation.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-09-11</date>
+        <revdescription>
+          <para>Added <code>MachineAgentId</code> to the table of
+            Create Backup Configuration Request Attributes.</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-07-31</date>
+        <revdescription>
+          <itemizedlist>
+            <listitem>
+              <para>Added Migrate Vault to the agent
+                operations.</para>
+            </listitem>
+            <listitem>
+              <para>Added Update Agent Backup Behavior to the agent
+                operations.</para>
+            </listitem>
+            <listitem>
+              <para>Updated regionalized service endpoints and added
+                IAD.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-06-24</date>
+        <revdescription>
+          <para>The following changes where made in the
+              <citetitle>Cloud Backup Developer Guide</citetitle>: </para>
+          <itemizedlist>
+            <listitem>
+              <para>Added tables describing request and response
+                attributes for all operations in the API Operations
+                chapter. </para>
+            </listitem>
+            <listitem>
+              <para>Updated information about the use of
+                authentication endpoints. You can now use either the
+                US endpoint or UK endpoint to access the
+                Authentication Service, regardless of US or UK
+                identities. </para>
+            </listitem>
+            <listitem>
+              <para>Removed the Date/Time section. The Cloud Backup
+                API now supports only Microsoft Date Format and not
+                ISO.</para>
+            </listitem>
+            <listitem>
+              <para>Added Sydney (SYD) data center to data center
+                specifications.</para>
+            </listitem>
+            <listitem>
+              <para>Removed the Help Operations section that was at
+                the end of the book as these are classified as
+                internal calls.</para>
+            </listitem>
+            <listitem>
+              <para>Changed all occurrences of
+                raxtestaddress@gmail.com to
+                raxtestaddress@rackspace.com.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+      <revision>
+        <date>2013-03-05</date>
+        <revdescription>
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para>Initial release of <citetitle>Cloud Backup
+                  Developer Guide</citetitle>.</para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+    </revhistory>
+    <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+      <raxm:displayname>Release Notes</raxm:displayname>
+      <raxm:product version="v1.0">rcbu</raxm:product>
+      <raxm:priority>30</raxm:priority>
+    </raxm:metadata>
+  </info>
+  <preface xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+    xml:id="preface">
+    <title>Preface</title>
+    <para>This document describes new features and changes for the
+      Cloud Backup API. </para>
+    <para>For detailed information about the Cloud Backup API, see the
+        <citetitle>Cloud Backup Developer Guide</citetitle>  at <link
+        xlink:href="http://docs.rackspace.com/"
+        >http://docs.rackspace.com/</link>:</para>
+    <para>Support for Cloud Backup is available 24x7x365 via phone or
+      chat, or you can also <link
+        xlink:href="https://manage.rackspacecloud.com/Tickets/YourTickets.do"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns:m="http://www.w3.org/1998/Math/MathML"
+        xmlns:html="http://www.w3.org/1999/xhtml">file a
+      ticket</link>.</para>
+    <para>You can also provide feedback by using the <link
+        xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback"
+        >Product Feedback forum</link>.</para>
+
+    <para>Rackspace welcomes your comments, feedback, and bug reports
+      .</para>
+  </preface>
+  <chapter xml:id="doc_change_history">
+    <title>Document Change History</title>
+    <para>This version of the release notes replaces and obsoletes all
+      earlier versions. The most recent changes are described in the
+      following table:</para>
+    <?rax revhistory?>
+  </chapter>
+  <chapter xml:id="Jan22814">
+    <title>February 5, 2014</title>
+    <para>This release of the Cloud Backup API includes Role Based
+      Access Control (RBAC). </para>
+    <para>Role Based Access Control (RBAC) restricts access to the
+      capabilities of Rackspace Cloud services, including the Cloud
+      Backup API, to authorized users only. RBAC enables Rackspace
+      Cloud customers to specify which account users of their Cloud
+      account have access to which Cloud Backup API service
+      capabilities, based on roles defined by Rackspace. The
+      permissions to perform certain operations in Cloud Backup API –
+      create, read, update, delete – are assigned to specific roles,
+      and these roles can be assigned by the Cloud account admin user
+      to account users of the account.</para>
+    <para>For more information, see the section on RBAC in the
+        <citetitle>Cloud Backup Developer Guide</citetitle>.</para>
+  </chapter>
+  <chapter xml:id="Jan222014">
+    <title>January 28, 2014</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist>
+      <title>Documentation</title>
+      <listitem>
+        <para>The Get All Agents for this User operation description
+          was updated to include instructions to use the Get Agent
+          Details operation to retrieve the correct values for <code
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
+            >TimeOfLastSuccessfulBackup</code>, as well as <code
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
+            >Status</code>. </para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Jan142014">
+    <title>January 10, 2014</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist>
+      <title>Documentation</title>
+      <listitem>
+        <para xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:wadl="http://wadl.dev.java.net/2009/02"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">The Get
+          Agent Details operation description was updated to include
+          the <code>BackupContainer</code> response attribute.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Dec192013">
+    <title>December 31, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>The Get Agent Details operation description was updated
+          to describe how to handle an agent with a
+            <code>Status</code> of <code>Offline</code> that is not
+          posting any heartbeats.</para>
+      </listitem>
+      <listitem>
+        <para>The Get Agent Details operation description was updated
+          to include a note that <code>Status</code> is always
+            <code>Offline</code> for this operation.</para>
+      </listitem>
+      <listitem>
+        <para>The Delete a Restore Configuration operation description
+          was updated to change the normal response code from 200 to
+          204.</para>
+      </listitem>
+      <listitem>
+        <para>The Create a Restore Configuration operation description
+          was updated to add the <code>BackupMachineId</code>
+          attribute description.</para>
+      </listitem>
+      <listitem>
+        <para>The instructions for locating the API Key, Tenant ID,
+          and account number in the Cloud Control Panel in the
+          Authentication section was updated.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter> 
+  <chapter xml:id="Dec122013">
+    <title>November 4, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>API Updates</title>
+      <listitem>
+        <para>The Wake Up Agent operation was added. </para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>The Wake Up Agent Operation description was added. </para>
+      </listitem>
+      <listitem>
+        <para>The service access endpoint in the examples in the API
+          Operations chapter was changed from the generic endpoint,
+            <code>https://backup.api.rackspacecloud.com</code>, to one
+          of the supported endpoints,
+            <code>https://dfw.backup.api.rackspacecloud.com.</code>
+        </para>
+      </listitem>
+    </itemizedlist>
+  </chapter> 
+  <chapter xml:id="Nov042013">
+    <title>October 21, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API:</para>
+    <itemizedlist>
+      <listitem>
+        <para xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:wadl="http://wadl.dev.java.net/2009/02"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:m="http://www.w3.org/1998/Math/MathML">The HKG service
+          endpoint was added.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Oct16">
+    <title>October 16, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API:</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>API Updates</title>
+      <listitem>
+        <para>The Get Agent Details By Host Server ID operation was
+          added.</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>The <code>HostServerId</code> response attribute
+          description was added to the Get Agent Details operation
+          description.</para>
+      </listitem>
+      <listitem>
+        <para>he Get Agent Details By Host Server ID operation
+          description was added.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Sep09" >
+    <title>September 09, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>The  <code>MachineAgentId</code>  request attribute
+          description was added to the Create Backup Configuration
+          operation description.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Jul31">
+    <title>July 31, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>API Updates</title>
+      <listitem>
+        <para>The Migrate Vault operation was added to the agent
+          operations.</para>
+      </listitem>
+      <listitem>
+        <para>The Update Agent Backup Behavior  operation was added to
+          the agent operations.</para>
+      </listitem>
+      <listitem>
+        <para>The regionalized service endpoints were updated to add
+          IAD.</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>The Migrate Vault operation description was added to the
+          agent operations.</para>
+      </listitem>
+      <listitem>
+        <para>The Update Agent Backup Behavior operation description
+          was added to the agent operations.</para>
+      </listitem>
+      <listitem>
+        <para>The regionalized service endpoints were updated to add
+          IAD.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Jun24">
+    <title>June 24, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>API Updates</title>
+      <listitem>
+        <para>You can now use either the US endpoint or UK endpoint to
+          access the Authentication Service, regardless of US or UK
+          identities. </para>
+      </listitem>
+      <listitem>
+        <para>The Date/Time section was removed. The Cloud Backup API
+          now supports only Microsoft Date Format and not ISO.</para>
+      </listitem>
+      <listitem>
+        <para>The Sydney (SYD) data center was added to data center
+          specifications.</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:wadl="http://wadl.dev.java.net/2009/02"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <title>Documentation</title>
+      <listitem>
+        <para>Tables describing request and response attributes were
+          added for all operations in the API Operations chapter.
+        </para>
+      </listitem>
+      <listitem>
+        <para>The information about the use of authentication
+          endpoints was updated. You can now use either the US
+          endpoint or UK endpoint to access the Authentication
+          Service, regardless of US or UK identities. </para>
+      </listitem>
+      <listitem>
+        <para>The Date/Time section was removed. The Cloud Backup API
+          now supports only Microsoft Date Format and not ISO.</para>
+      </listitem>
+      <listitem>
+        <para>The Sydney (SYD) data center was added to data center
+          specifications.</para>
+      </listitem>
+      <listitem>
+        <para>The Help Operations section was removed as these are
+          classified as internal calls.</para>
+      </listitem>
+      <listitem>
+        <para>All occurrences of raxtestaddress@gmail.com were changed
+          to raxtestaddress@rackspace.com.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+  <chapter xml:id="Mar05">
+    <title>March 05, 2013</title>
+    <para>This release includes the following changes for the Cloud
+      Backup API.</para>
+    <itemizedlist>
+      <title xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:wadl="http://wadl.dev.java.net/2009/02"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
+        >Documentation</title>
+      <listitem>
+        <para xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:wadl="http://wadl.dev.java.net/2009/02"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">This is
+          the initial release of <citetitle>Cloud Backup Developer
+            Guide</citetitle>.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+   
+</book>

@@ -24,7 +24,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-01-28</pubdate>
+    <pubdate>2014-02-05</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,14 +40,13 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
-<!--       
+       
          <revision>
-            <date>2014-01-27</date>
+            <date>2014-02-05</date>
             <revdescription>
                <para>Added <xref linkend="RBAC-d1e001"/>.</para>
             </revdescription>
          </revision>
--->
          <revision>
             <date>2014-01-28</date>
             <revdescription>
@@ -61,18 +60,8 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>         
             <date>2014-01-10</date>
             <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the <code>BackupContainer</code>
-                        response attribute to <xref linkend="getAgent"
-                        />.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Added the <code>BackupContainer</code>
-                        response attribute to <xref
-                           linkend="getAgents"/>.</para>
-                  </listitem>
-               </itemizedlist>
+               <para>Added the <code>BackupContainer</code> response
+                  attribute to <xref linkend="getAgent"/>.</para>
             </revdescription>
          </revision>
         <revision>
@@ -87,8 +76,9 @@ Rackspace Cloud Backup Application Programming Interface
                   </listitem>
                   <listitem>
                      <para>Added a note to <xref linkend="getAgents"/>
-                        about agent <code>Status</code> always being
-                           <code>Offline</code> for the call.</para>
+                        that <code>Status</code> is always
+                           <code>Offline</code> for this operation
+                        call.</para>
                   </listitem>
                   <listitem>
                      <para>Changed normal response code from 200 to
@@ -821,7 +811,7 @@ steps: get a token; send the token to a service.<orderedlist>
          </tip>
 
       </section>  
-<!--     
+     
       <section xml:id="RBAC-d1e001">
          <title>Role Based Access Control</title>
          <para>Role Based Access Control (RBAC) restricts access to
@@ -1008,7 +998,7 @@ steps: get a token; send the token to a service.<orderedlist>
                   >the Knowledge Center article</link>.</para>
                   
          </section>
--->         
+         
 <!--        
   <remark The section below is handled in the KC at the link above. </remark>       
          <section xml:id="operationsRoles">
@@ -1684,7 +1674,7 @@ listed below.
          </formalpara>
 
 
-
+         </section>
       </section>
   </chapter>
 
@@ -1754,6 +1744,12 @@ backup data.</td>
                      Backup agent. If ServiceNet is enabled, Cloud
                      Backup agent talks to Cloud Files over ServiceNet
                      and does not incur any bandwidth charges.</td>
+               </tr>
+               <tr>
+                  <td colspan="1"><command>GET</command></td>
+                  <td colspan="2">/agent/server/{hostserverid}</td>
+                  <td colspan="3">Gets details about the machine and
+                     its agent using the host server ID.</td>
                </tr>
             </tbody>
          </informaltable>
@@ -2276,6 +2272,8 @@ and its data remains. Disabled agents may later be re-enabled.
                Unavailable (500) </simpara>
       <para>The two agents should be under the same user and their
                backups should not be encrypted.</para>
+            <para>The destination machine agent should <emphasis role="italic">not</emphasis> have
+               any backups already configured and running. </para>
       <para>The following table lists and describes the request
                attributes for Migrate Vault. </para>
       <para>
@@ -3023,6 +3021,13 @@ Returns: <code>A list of agents.</code>
                   <td colspan="2">/backup-configuration/</td>
                   <td colspan="3">Gets a list of all the backup configurations for the current
       user.</td>
+               </tr>
+               <tr>
+                  <td colspan="1"><command>GET</command></td>
+                  <td colspan="2"
+                     >/backup-configuration/system/{machineAgentId}</td>
+                  <td colspan="3">Gets a list of all the backup
+                     configurations for the agent.</td>
                </tr>
                <tr>
                   <td colspan="1"><command>GET</command>

@@ -28,6 +28,7 @@
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>clouddocs-maven-plugin</artifactId>
         <version>1.13.0</version>
+        
         <executions>
           <execution>
             <id>rcbu-devguide</id>
@@ -42,7 +43,26 @@
               <trimWadlUriCount>2</trimWadlUriCount>
             </configuration>
           </execution>
+          
+          <execution>
+            <id>rcbu-release-notes</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <enableDisqus>1</enableDisqus> 
+              <includes>
+                rcbu-releasenotes.xml
+              </includes>
+              <chapterAutolabel>0</chapterAutolabel>
+              <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content</canonicalUrlBase>
+              <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
+            </configuration>
+          </execution>
+          
         </executions>
+        
         <configuration>
 	  <enableDisqus>Disqus</enableDisqus>
 	  <socialIcons>1</socialIcons>
