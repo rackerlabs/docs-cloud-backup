@@ -26,7 +26,7 @@
     </copyright>
     <releaseinfo>API v1</releaseinfo>
     <productname>Rackspace Cloud Backup</productname>
-    <pubdate>2014-02-05</pubdate>
+    <pubdate>2014-02-13</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -42,6 +42,12 @@
       xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <revision>
+        <date>2014-02-13</date>
+        <revdescription>
+          <para>Added the Change Volume Encryption opertion.</para>
+        </revdescription>
+      </revision>
       <revision>
         <date>2014-02-05</date>
         <revdescription>
@@ -258,7 +264,19 @@
       following table:</para>
     <?rax revhistory?>
   </chapter>
-  <chapter xml:id="Jan22814">
+  <chapter xml:id="Feb13">
+    <title>February 13, 2014</title>
+    <para>This release of the Cloud Backup API adds the Change Volume
+      Encryption operation. </para><para>This operation changes volume encryption. (If you need
+      assistance generating your encrypted key, see <link
+        xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
+        >"Generating Your Encrypted Key In Cloud Backup"</link> in the
+      Knowledge Center.) </para>
+    <para>For more information, see Change Volume Encryption section
+      in the API Operations chapter in the <citetitle>Cloud Backup
+        Developer Guide</citetitle>.</para>
+  </chapter>
+  <chapter xml:id="Feb05">
     <title>February 5, 2014</title>
     <para>This release of the Cloud Backup API includes Role Based
       Access Control (RBAC). </para>
@@ -275,7 +293,7 @@
     <para>For more information, see the section on RBAC in the
         <citetitle>Cloud Backup Developer Guide</citetitle>.</para>
   </chapter>
-  <chapter xml:id="Jan222014">
+  <chapter xml:id="Jan28">
     <title>January 28, 2014</title>
     <para>This release includes the following changes for the Cloud
       Backup API.</para>
@@ -298,7 +316,7 @@
       </listitem>
     </itemizedlist>
   </chapter>
-  <chapter xml:id="Jan142014">
+  <chapter xml:id="Jan10">
     <title>January 10, 2014</title>
     <para>This release includes the following changes for the Cloud
       Backup API.</para>
@@ -314,7 +332,7 @@
       </listitem>
     </itemizedlist>
   </chapter>
-  <chapter xml:id="Dec192013">
+  <chapter xml:id="Dec31">
     <title>December 31, 2013</title>
     <para>This release includes the following changes for the Cloud
       Backup API.</para>
@@ -351,7 +369,7 @@
       </listitem>
     </itemizedlist>
   </chapter> 
-  <chapter xml:id="Dec122013">
+  <chapter xml:id="Nov04">
     <title>November 4, 2013</title>
     <para>This release includes the following changes for the Cloud
       Backup API.</para>
@@ -382,7 +400,7 @@
       </listitem>
     </itemizedlist>
   </chapter> 
-  <chapter xml:id="Nov042013">
+  <chapter xml:id="Oct21">
     <title>October 21, 2013</title>
     <para>This release includes the addition of the HKG service
       endpoint for the Cloud Backup API.</para>

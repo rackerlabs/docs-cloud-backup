@@ -24,7 +24,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-02-05</pubdate>
+    <pubdate>2014-02-13</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -40,6 +40,12 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2014-02-13</date>
+            <revdescription>
+               <para>Added <xref linkend="changeEncryption"/>.</para>
+            </revdescription>
+         </revision>
        
          <revision>
             <date>2014-02-05</date>
@@ -1726,6 +1732,12 @@ data remains. Disabled agents may later be re-enabled.</td>
                <tr>
                   <td colspan="1"><command>POST</command>
                   </td>
+                  <td colspan="2">/agent/changeencryption</td>
+                  <td colspan="3">Changes volume encryption.</td>
+               </tr>
+               <tr>
+                  <td colspan="1"><command>POST</command>
+                  </td>
                   <td colspan="2">/agent/delete</td>
                   <td colspan="3">Permanently and immediately deletes an agent and its
 backup data.</td>
@@ -2179,6 +2191,128 @@ and its data remains. Disabled agents may later be re-enabled.
             <para/>
          </section>
          <?hard-pagebreak?>
+         <!-- Change Volume Encryption -->
+       <section xml:id="changeEncryption">
+            <title>Change Volume Encryption</title>
+            <informaltable rules="all">
+               <thead>
+                  <tr align="center">
+                     <td colspan="1">Verb</td>
+                     <td colspan="2">URI</td>
+                     <td colspan="3">Description</td>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td colspan="1"><command>POST</command>
+                     </td>
+                     <td colspan="2">/agent/changeencryption</td>
+                     <td colspan="3">Changes volume encryption.</td>
+                  </tr>
+               </tbody>
+            </informaltable>
+            <simpara>Normal Response Code(s): 200 (OK) </simpara>
+            <simpara>Error Response Code(s): Bad Request (400),
+               Unauthorized (401), Forbidden (403), Service
+               Unavailable (503) </simpara>
+            <para>This operation changes volume encryption. If you
+               need assistance generating your encrypted key, see
+                  <link
+                  xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
+                  > "Generating Your Encrypted Key In Cloud
+                  Backup"</link> in our Knowledge Center. </para>
+            <para>
+               <emphasis role="bold">Note:</emphasis> Once encryption
+               is turned on, it cannot be turned off. This is a
+               security measure. If anyone ever gained access to your
+               account, they would not be able to access your backups
+               without your passphrase. </para>
+            <para> If you lose or forget your passphrase, you will not
+               be able to recover your encrypted backups. </para>
+            <para>The following table lists and describes the Change
+               Volume Encryption Request attributes. </para>
+            <para>
+               <table rules="all">
+                  <caption>Change Volume Encryption Request
+                     Attributes</caption>
+                  <col width="29%"/>
+                  <col width="50%"/>
+                  <col width="21%"/>
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Required</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td><code>MachineAgentId </code>
+                        </td>
+                        <td>ID that uniquely identifies a Cloud Backup
+                           agent.</td>
+                        <td>Yes</td>
+                     </tr>
+                     <tr>
+                        <td><code>OldEncryptedPasswordHex</code>
+                        </td>
+                        <td>Your old encrypted password. </td>
+                        <td>Yes</td>
+                     </tr>
+                     <tr>
+                        <td><code>NewEncryptedPasswordHex</code>
+                        </td>
+                        <td>Your new encrypted password. If you need
+                           assistance generating your encrypted
+                           password, see <link
+                              xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
+                              > "Generating Your Encrypted Key In
+                              Cloud Backup"</link> in our Knowledge
+                           Center. </td>
+                        <td>Yes</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </para>
+            <para> The following example shows the request and
+               corresponding response to change volume
+               encryption:</para>
+            <example>
+               <title>Change Volume Encryption Request: JSON</title>
+               <literallayout class="monospaced">
+    {
+      "MachineAgentId" : 869,
+      "OldEncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
+      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
+      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
+      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
+      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
+      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
+      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
+      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
+      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
+      c1e6ef4254226249b872676af76a319<emphasis role="bold">cbe</emphasis>"
+      "NewEncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
+      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
+      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
+      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
+      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
+      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
+      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
+      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
+      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
+      c1e6ef4254226249b872676af76a319<emphasis role="bold">fgh</emphasis>"  }      
+      </literallayout>
+            </example>
+            <para> </para>
+            <example>
+               <title>Change Volume Encryption Response: JSON</title>
+               <literallayout class="monospaced">
+      0cee72c7-015c-493b-b5fe-a896ae444c34     
+      </literallayout>
+            </example>
+            <para/>
+         </section>
       
 
  <!-- Delete Agent -->
