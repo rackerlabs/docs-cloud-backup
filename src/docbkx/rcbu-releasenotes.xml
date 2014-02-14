@@ -26,7 +26,7 @@
     </copyright>
     <releaseinfo>API v1</releaseinfo>
     <productname>Rackspace Cloud Backup</productname>
-    <pubdate>2014-02-13</pubdate>
+    <pubdate>2014-02-14</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -43,9 +43,9 @@
       xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <revision>
-        <date>2014-02-13</date>
+        <date>2014-02-14</date>
         <revdescription>
-          <para>Added the Change Volume Encryption operation.</para>
+          <para>Added the Change Encryption Password operation.</para>
         </revdescription>
       </revision>
       <revision>
@@ -265,16 +265,16 @@
     <?rax revhistory?>
   </chapter>
   <chapter xml:id="Feb13">
-    <title>February 13, 2014</title>
-    <para>This release of the Cloud Backup API adds the Change Volume
-      Encryption operation. </para><para>This operation changes volume encryption. (If you need
+    <title>February 14, 2014</title>
+    <para>This release of the Cloud Backup API adds the Change
+      Encryption Password operation. </para><para>This operation changes the encryption password. (If you need
       assistance generating your encrypted key, see <link
         xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
         >"Generating Your Encrypted Key In Cloud Backup"</link> in the
       Knowledge Center.) </para>
-    <para>For more information, see Change Volume Encryption section
-      in the API Operations chapter in the <citetitle>Cloud Backup
-        Developer Guide</citetitle>.</para>
+    <para>For more information, see the Change Encryption Password
+      section in the API Operations chapter in the <citetitle>Cloud
+        Backup Developer Guide</citetitle>.</para>
   </chapter>
   <chapter xml:id="Feb05">
     <title>February 5, 2014</title>

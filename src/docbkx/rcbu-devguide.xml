@@ -24,7 +24,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-02-13</pubdate>
+    <pubdate>2014-02-14</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -41,7 +41,7 @@ Rackspace Cloud Backup Application Programming Interface
     -->
     <revhistory>
          <revision>
-            <date>2014-02-13</date>
+            <date>2014-02-14</date>
             <revdescription>
                <para>Added <xref linkend="changeEncryption"/>.</para>
             </revdescription>
@@ -1733,7 +1733,8 @@ data remains. Disabled agents may later be re-enabled.</td>
                   <td colspan="1"><command>POST</command>
                   </td>
                   <td colspan="2">/agent/changeencryption</td>
-                  <td colspan="3">Changes volume encryption.</td>
+                  <td colspan="3">Changes the encryption
+                     password.</td>
                </tr>
                <tr>
                   <td colspan="1"><command>POST</command>
@@ -2191,9 +2192,9 @@ and its data remains. Disabled agents may later be re-enabled.
             <para/>
          </section>
          <?hard-pagebreak?>
-         <!-- Change Volume Encryption -->
+         <!-- Change Encryption Password -->
        <section xml:id="changeEncryption">
-            <title>Change Volume Encryption</title>
+            <title>Change Encryption Password</title>
             <informaltable rules="all">
                <thead>
                   <tr align="center">
@@ -2207,7 +2208,8 @@ and its data remains. Disabled agents may later be re-enabled.
                      <td colspan="1"><command>POST</command>
                      </td>
                      <td colspan="2">/agent/changeencryption</td>
-                     <td colspan="3">Changes volume encryption.</td>
+                     <td colspan="3">Changes the encryption
+                        password.</td>
                   </tr>
                </tbody>
             </informaltable>
@@ -2215,8 +2217,8 @@ and its data remains. Disabled agents may later be re-enabled.
             <simpara>Error Response Code(s): Bad Request (400),
                Unauthorized (401), Forbidden (403), Service
                Unavailable (503) </simpara>
-            <para>This operation changes volume encryption. If you
-               need assistance generating your encrypted key, see
+            <para>This operation changes the encryption password. If
+               you need assistance generating your encrypted key, see
                   <link
                   xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
                   > "Generating Your Encrypted Key In Cloud
@@ -2230,10 +2232,10 @@ and its data remains. Disabled agents may later be re-enabled.
             <para> If you lose or forget your passphrase, you will not
                be able to recover your encrypted backups. </para>
             <para>The following table lists and describes the Change
-               Volume Encryption Request attributes. </para>
+               Encryption Password request attributes. </para>
             <para>
                <table rules="all">
-                  <caption>Change Volume Encryption Request
+                  <caption>Change Encryption Password Request
                      Attributes</caption>
                   <col width="29%"/>
                   <col width="50%"/>
@@ -2275,10 +2277,10 @@ and its data remains. Disabled agents may later be re-enabled.
                </table>
             </para>
             <para> The following example shows the request and
-               corresponding response to change volume
-               encryption:</para>
+               corresponding response to change the encryption
+               password:</para>
             <example>
-               <title>Change Volume Encryption Request: JSON</title>
+               <title>Change Encryption Password Request: JSON</title>
                <literallayout class="monospaced">
     {
       "MachineAgentId" : 869,
@@ -2306,7 +2308,8 @@ and its data remains. Disabled agents may later be re-enabled.
             </example>
             <para> </para>
             <example>
-               <title>Change Volume Encryption Response: JSON</title>
+               <title>Change Encryption Password Response:
+                  JSON</title>
                <literallayout class="monospaced">
       0cee72c7-015c-493b-b5fe-a896ae444c34     
       </literallayout>
