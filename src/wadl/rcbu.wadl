@@ -154,9 +154,9 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Enable/Disable">
                      <para role="shortdesc">Enables or disables an
-                        agent. Disabling an agent does not delete it
-                        nor its data. Disabled agents may later be
-                        re-enabled.</para>
+                        agent.</para><para>Disabling an agent does not
+                        delete it nor its data. You can re-enable
+                        disabled agents.</para>
                      <para>N/A</para>
                   </wadl:doc>
                   <response status="400">
@@ -219,8 +219,8 @@
                <method name="GET">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Get All Agents for User">
-                     <para role="shortdesc">Retrieves all agents for
-                        the authenticated user.</para>
+                     <para role="shortdesc">Gets all agents for the
+                        authenticated user.</para>
                      <para>A list of agents.</para>
                   </wadl:doc>
                   <response status="400">
@@ -286,7 +286,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Get All Backup Configurations for User">
-                     <para role="shortdesc">Get a list of backup
+                     <para role="shortdesc">Lists backup
                         configurations for the authenticated
                         user.</para>
                      <para>The list of backup configurations for the
@@ -327,7 +327,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Update Backup Configuration">
                      <para role="shortdesc">Updates a backup
-                        configuration</para>
+                        configuration.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para>See GET
                            /backup-configuration/{backupConfigurationId}
@@ -366,9 +366,9 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Get Backup Configuration Details">
-                     <para role="shortdesc">Gets the details for a
-                        backup configuration.</para>
-                     <para>Details for the specified backup
+                     <para role="shortdesc">Gets backup configuration
+                        details.</para>
+                     <para>Details for a specified backup
                         configuration.</para>
                   </wadl:doc>
                   <response status="400">
@@ -400,8 +400,8 @@
                <method name="DELETE">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Delete Backup Configuration">
-                     <para role="shortdesc">Delete the specified
-                        backup configuration.</para>
+                     <para role="shortdesc">Deletes a specified backup
+                        configuration.</para>
                      <para>N/A</para>
                   </wadl:doc>
                   <response status="400">
@@ -439,8 +439,8 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Get All Backup Configurations for Agent">
-                     <para role="shortdesc">Get a list of backup
-                        configurations for the specified agent.</para>
+                     <para role="shortdesc">Lists backup
+                        configurations for a specified agent.</para>
                      <para>The list of backup configurations for the
                         specified agent.</para>
                   </wadl:doc>
@@ -478,11 +478,11 @@
                <method name="POST">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Enable/Disable">
-                     <para role="shortdesc"> Enables/Disables a backup
-                        configuration. Disabling a backup
-                        configuration does not delete it nor its data.
-                        Disabled backup configurations may later be
-                        re-enabled.</para>
+                     <para role="shortdesc">Enables or disables a
+                        backup configuration.</para><para>Disabling a
+                        backup configuration does not delete it or its
+                        data. You can re-enable disabled backup
+                        configurations.</para>
                      <para>Details for the backup configuration. See
                         GET
                         /backup-configuration/{backupConfigurationId}</para>
@@ -515,7 +515,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Start/Stop A Backup Manually">
-                     <para role="shortdesc">Manually start or stop a
+                     <para role="shortdesc">Manually starts or stops a
                         backup.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para> When manually starting a backup,
@@ -559,13 +559,13 @@
                <method name="GET">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Get Backup Details">
-                     <para role="shortdesc">Gets the requested
+                     <para role="shortdesc">Gets a specified
                         backup.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para>The authenticated user must have access
                            to the specified backup.</para>
                      </note>
-                     <para>Details about the specified backup.</para>
+                     <para>Details about a specified backup.</para>
                   </wadl:doc>
                   <response status="400">
                      <representation mediaType="application/json">
@@ -680,7 +680,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Create a Restore Configuration">
-                     <para role="shortdesc">Create a new restore
+                     <para role="shortdesc">Creates a new restore
                         configuration.</para>
                      <para>See GET /restore/{restoreId}</para>
                   </wadl:doc>
@@ -714,8 +714,8 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Update a Restore Configuration">
-                     <para role="shortdesc">Update an existing restore
-                        configuration.</para>
+                     <para role="shortdesc">Updates an existing
+                        restore configuration.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para> Restores can only be updated while in
                            the "Creating" state. See GET
@@ -757,7 +757,7 @@
                      xml:lang="EN"
                      title="Include/Exclude a File to a Restore Configuration">
                      <para role="shortdesc">Creates a restore file
-                        associated with a restore.</para>
+                        that is associated with a restore.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para> ParentId is the ID of the restore this
                            file is associated with.</para>
@@ -798,7 +798,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Get Included/Excluded Restore Configuration Files">
-                     <para role="shortdesc"> Gets files that should be
+                     <para role="shortdesc">Gets files that should be
                         included and excluded for a restore.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para> Values for Filter: 1 = Include; 2 =
@@ -842,8 +842,8 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Delete a Restore Configuration File">
-                     <para role="shortdesc"> Deletes a Restore
-                        Configuration File</para>
+                     <para role="shortdesc">Deletes a restore
+                        configuration file.</para>
                      <para>204 - No Content</para>
                   </wadl:doc>
                   <response status="400">
@@ -879,10 +879,11 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Get Available Backups for Restore">
-                     <para role="shortdesc"> Gets the backups that are
-                        eligible for restore (A backup that has
-                        completed at least once, has not been deleted
-                        and is not expired).</para>
+                     <para role="shortdesc">Gets the backups that are
+                        eligible for restore.</para><para>A backup
+                        that is eligible for restore has completed at
+                        least once, has not been deleted, and is not
+                        expired.</para>
                      <para>List of backups</para>
                   </wadl:doc>
                   <response status="400">
@@ -918,7 +919,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN"
                      title="Start/Stop a Restore Manually">
-                     <para role="shortdesc">Manually start or stop a
+                     <para role="shortdesc">Manually starts or stops a
                         restore.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para>In the examples below, Id should be the
@@ -960,7 +961,8 @@
                <method name="GET">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Get Restore Details">
-                     <para role="shortdesc">Get Restore</para>
+                     <para role="shortdesc">Gets restore
+                        details.</para>
                      <note xmlns="http://docbook.org/ns/docbook">
                         <para> Restore States: 0 = Creating, 1 =
                            Queued, 2 = InProgress, 3 = Finished, 4 =
@@ -1046,8 +1048,8 @@
                      xml:lang="EN"
                      title="Get Activity Feed For An Agent">
                      <para role="shortdesc">Lists all activity for a
-                        system that is completed or in
-                        progress.</para>
+                        system that is in progress or
+                        completed.</para>
                      <para>A list of activities</para>
                   </wadl:doc>
                   <response status="400">
@@ -1081,8 +1083,8 @@
                <method name="GET">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
                      xml:lang="EN" title="Get Activity Feed For User">
-                     <para role="shortdesc">Lists all activity
-                        completed or in progress.</para>
+                     <para role="shortdesc">Lists all activity that is
+                        in progress or completed.</para>
                      <para>A list of activities</para>
                   </wadl:doc>
                   <response status="400">
