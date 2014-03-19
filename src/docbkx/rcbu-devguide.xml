@@ -911,7 +911,7 @@ steps: get a token; send the token to a service.<orderedlist>
                to future products when those products become
                RBAC-enabled. The following table describes these roles
                and their permissions.</para>
-            <table rules="all">
+            <table xml:id="RBAC_global_roles_table" rules="all">
                <caption>Multiproduct (Global) Roles and
                   Permissions</caption>
                <col width="50%"/>
