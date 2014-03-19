@@ -8,8 +8,8 @@ Contributions are welcome! To suggest changes to the documentation, please submi
 
 Source files are for the following documents:
 
-o Cloud Big Data Developer Guide
-o Cloud Big Data Release Notes 
+o Cloud Backup Developer Guide
+o Cloud Backup Release Notes 
 
 You should create your own branch to make changes to the files and then send a pull request to have your changes reviewed and merged into the master branch as appropriate.
 
