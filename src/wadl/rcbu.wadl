@@ -1,1108 +1,1219 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns:wadl="http://wadl.dev.java.net/2009/02"
-             xmlns:xs="http://www.w3.org/2001/XMLSchema"
-             xmlns="http://wadl.dev.java.net/2009/02">
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://wadl.dev.java.net/2009/02"
+   xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+   xmlns:db="http://docbook.org/ns/docbook"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:common="http://docs.openstack.org/common/api/v1.0"
+   xmlns:csapi="http://docs.openstack.org/compute/api/v2">
    <resources base="http://localhost">
-      <resource path="agent/{machineAgentId}" id="agent__machineAgentId_">
-         <param name="machineAgentId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Agent Details">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets details about the machine and its agent.</para>
-               <para xmlns="http://docbook.org/ns/docbook">Details about the machine and its agent.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="agent/configuration" id="agent_configuration">
-         <method name="GET">
-            <wadl:doc title="Get Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Get the configuration for an agent.</para>
-               <para xmlns="http://docbook.org/ns/docbook">The configuration for the authenticated agent.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="agent/busy/{machineAgentId}" id="agent_busy__machineAgentId_">
-         <param name="machineAgentId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Is Agent Busy">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Check if the agent is currently busy performing blocking tasks.</para>
-               <para xmlns="http://docbook.org/ns/docbook">true | false</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="agent/delete" id="agent_delete">
-         <method name="POST">
-            <wadl:doc title="Delete Agent">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Permanently deletes an agent and its backup data.</para>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="agent/enable" id="agent_enable">
-         <method name="POST">
-            <wadl:doc title="Enable/Disable">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-                Enables/Disables an agent.
-                Disabling an agent does not delete it nor its data.
-                Disabled agents may later be re-enabled.
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="agent/encrypt" id="agent_encrypt">
-         <method name="POST">
-            <wadl:doc title="Enable Volume Encryption">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Enables volume encryption.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>Enables volume encryption if it is not already enabled.</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">RSE request ID</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="user/agents" id="user_agents">
-         <method name="GET">
-            <wadl:doc title="Get All Agents for User">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Retrieves all agents for the authenticated user.</para>
-               <para xmlns="http://docbook.org/ns/docbook">A list of agents.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup-configuration" id="backup-configuration">
-         <method name="POST">
-            <wadl:doc title="Create Backup Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a backup configuration for the authenticated user.</para>
-               <para xmlns="http://docbook.org/ns/docbook">See GET /backup-configuration/{backupConfigurationId}</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-         <method name="GET">
-            <wadl:doc title="Get All Backup Configurations for User">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Get a list of backup configurations for the authenticated user.</para>
-               <para xmlns="http://docbook.org/ns/docbook">The list of backup configurations for the currently authenticated user.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup-configuration/{backupConfigurationId}"
-                id="backup-configuration__backupConfigurationId_">
-         <param name="backupConfigurationId" style="template"/>
-         <method name="PUT">
-            <wadl:doc title="Update Backup Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates a backup configuration</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>See GET /backup-configuration/{backupConfigurationId} to provide BackupConfigurationScheduleId</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-         <method name="GET">
-            <wadl:doc title="Get Backup Configuration Details">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets the details for a backup configuration.</para>
-               <para xmlns="http://docbook.org/ns/docbook">Details for the specified backup configuration.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-         <method name="DELETE">
-            <wadl:doc title="Delete Backup Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Delete the specified backup configuration.</para>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup-configuration/system/{machineAgentId}"
-                id="backup-configuration_system__machineAgentId_">
-         <param name="machineAgentId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get All Backup Configurations for Agent">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Get a list of backup configurations for the specified agent.</para>
-               <para xmlns="http://docbook.org/ns/docbook">The list of backup configurations for the specified agent.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup-configuration/enable/{backupConfigurationId}"
-                id="backup-configuration_enable__backupConfigurationId_">
-         <param name="backupConfigurationId" style="template"/>
-         <method name="POST">
-            <wadl:doc title="Enable/Disable">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-                Enables/Disables a backup configuration.
-                Disabling a backup configuration does not delete it nor its data.
-                Disabled backup configurations may later be re-enabled.
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">Details for the backup configuration. See GET /backup-configuration/{backupConfigurationId}</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup/action-requested" id="backup_action-requested">
-         <method name="POST">
-            <wadl:doc title="Start/Stop A Backup Manually">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Manually start or stop a backup.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-                When manually starting a backup, provide the backup configuration identifier for Id.
-                When manually stopping a backup, provide the backup identifier for Id.
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Identifier of the instance of the backup.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup/{backupId}" id="backup__backupId_">
-         <param name="backupId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Backup Details">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets the requested backup.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>The authenticated user must have access to the specified backup.</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Details about the specified backup.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup/completed/{backupConfigurationId}"
-                id="backup_completed__backupConfigurationId_">
-         <param name="backupConfigurationId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Completed Backups">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets the completed backups for a backup configuration that can still be restored.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>The authenticated user must have access to the specified backup configuration.</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Details about the completed backups.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup/report/{backupId}" id="backup_report__backupId_">
-         <param name="backupId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Backup Report">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets details about a completed backup.</para>
-               <para xmlns="http://docbook.org/ns/docbook">The backup report submitted for the completed backup.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore" id="restore">
-         <method name="PUT">
-            <wadl:doc title="Create a Restore Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Create a new restore configuration.</para>
-               <para xmlns="http://docbook.org/ns/docbook">See GET /restore/{restoreId}</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-         <method name="POST">
-            <wadl:doc title="Update a Restore Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Update an existing restore configuration.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-                Restores can only be updated while in the "Creating" state.
-                See GET /restore/{restoreId} for a list of restore states.
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/files" id="restore_files">
-         <method name="PUT">
-            <wadl:doc title="Include/Exclude a File to a Restore Configuration">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a restore file associated with a restore.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-                ParentId is the ID of the restore this file is associated with.
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">See GET /restore/files/{restoreId}</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/files/{restoreId}" id="restore_files__restoreId_">
-         <param name="restoreId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Included/Excluded Restore Configuration Files">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets files that should be included and excluded for a restore.
-            </para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-                Values for Filter: 1 = Include; 2 = Exclude.
-                Values for FileItemType: 0 = File, 1 = Folder, 2 = Database.
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">List of Restore Files included/excluded in the configuration</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/files/{restoreFileID}" id="restore_files__restoreFileID_">
-         <param name="restoreFileID" style="template"/>
-         <method name="DELETE">
-            <wadl:doc title="Delete a Restore Configuration File">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Deletes a Restore Configuration File
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">204 - No Content</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="backup/availableforrestore" id="backup_availableforrestore">
-         <method name="GET">
-            <wadl:doc title="Get Available Backups for Restore">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets the backups that are eligible for restore (A backup that has completed at least once, has not been deleted and is not expired).
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">List of backups</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/action-requested" id="restore_action-requested">
-         <method name="POST">
-            <wadl:doc title="Start/Stop a Restore Manually">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Manually start or stop a restore.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>In the examples below, Id should be the identifier of the restore you wish to start or stop.</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">N/A</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/{restoreId}" id="restore__restoreId_">
-         <param name="restoreId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Restore Details">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Get Restore</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-                Restore States:
-                0 = Creating,
-                1 = Queued,
-                2 = InProgress,
-                3 = Finished,
-                4 = Stopped,
-                5 = Failed,
-                6 = StartRequested,
-                7 = StopRequested
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Details about a restore</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="restore/report/{restoreId}" id="restore_report__restoreId_">
-         <param name="restoreId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Report For a Completed Restore ">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets a restore report 
-            </para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>
-            Restore States:
-                3 = Completed
-                4 = Stopped
-                5 = Failed
-            </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Restore Report</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="system/activity/{agentId}" id="system_activity__agentId_">
-         <param name="agentId" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Get Activity Feed For An Agent">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets a listing of all activity for a system that is completed or in progress
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">A list of activities</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="activity" id="activity">
-         <method name="GET">
-            <wadl:doc title="Get Activity Feed For User">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets a listing of all activity completed or in progress
-            </para>
-               <para xmlns="http://docbook.org/ns/docbook">A list of activities</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="404">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Not found</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="help/health" id="help_health">
-         <method name="GET">
-            <wadl:doc title="API and Dependent Systems Health">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets the health for API by checking all dependent systems
-            </para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="help/developerguide" id="help_developerguide">
-         <method name="GET">
-            <wadl:doc title="Developer Guide">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Get the Developer Guide for this API
-            </para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
-      </resource>
-      <resource path="help/supportedimages/{cloudServersPlatform}"
-                id="help_supportedimages__cloudServersPlatform_">
-         <param name="cloudServersPlatform" style="template"/>
-         <method name="GET">
-            <wadl:doc title="Images Supported by Agent">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Determine Cloud Servers images compatible with the agent.</para>
-               <note xmlns="http://docbook.org/ns/docbook">
-                  <para>{cloudServersPlatform}: firstgen, nextgen</para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">List of Cloud Servers images the agent is supported to run on.</para>
-            </wadl:doc>
-            <response status="400">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Bad request</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Unauthorized</doc>
-               </representation>
-            </response>
-            <response status="403">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Forbidden</doc>
-               </representation>
-            </response>
-            <response status="500">
-               <representation mediaType="application/json">
-                  <doc xml:lang="EN">Service Unavailable</doc>
-               </representation>
-            </response>
-         </method>
+      <resource id="version" type="#VersionDetails" path="v1.0/">
+         <resource id="tenant_id" path="{tenant_id}">
+            <param name="tenant_id" style="template" type="xsd:string">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"><para>The tenant ID in a multi-tenancy
+                     cloud.</para>
+               </wadl:doc>
+            </param>
+            <resource path="agent/{machineAgentId}"
+               id="agent__machineAgentId_">
+               <param name="machineAgentId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Agent Details">
+                     <para role="shortdesc">Gets machine and agent
+                        details.</para>
+                     <para>Details about the machine and its
+                        agent.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="agent/configuration"
+               id="agent_configuration">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Configuration">
+                     <para role="shortdesc">Gets the configuration for
+                        an agent.</para>
+                     <para>The configuration for the authenticated
+                        agent.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="agent/busy/{machineAgentId}"
+               id="agent_busy__machineAgentId_">
+               <param name="machineAgentId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Is Agent Busy">
+                     <para role="shortdesc">Checks whether the agent
+                        is currently busy performing blocking
+                        tasks.</para>
+                     <para>true | false</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="agent/delete" id="agent_delete">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Delete Agent">
+                     <para role="shortdesc">Permanently deletes an
+                        agent and its backup data.</para>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="agent/enable" id="agent_enable">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Enable/Disable">
+                     <para role="shortdesc">Enables or disables an
+                        agent.</para><para>Disabling an agent does not
+                        delete it nor its data. You can re-enable
+                        disabled agents.</para>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="agent/encrypt" id="agent_encrypt">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Enable Volume Encryption">
+                     <para role="shortdesc">Enables volume
+                        encryption.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>Enables volume encryption if it is not
+                           already enabled.</para>
+                     </note>
+                     <para>RSE request ID</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="user/agents" id="user_agents">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get All Agents for User">
+                     <para role="shortdesc">Gets all agents for the
+                        authenticated user.</para>
+                     <para>A list of agents.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup-configuration"
+               id="backup-configuration">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Create Backup Configuration">
+                     <para role="shortdesc">Creates a backup
+                        configuration for the authenticated
+                        user.</para>
+                     <para>See GET
+                        /backup-configuration/{backupConfigurationId}</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get All Backup Configurations for User">
+                     <para role="shortdesc">Lists backup
+                        configurations for the authenticated
+                        user.</para>
+                     <para>The list of backup configurations for the
+                        currently authenticated user.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource
+               path="backup-configuration/{backupConfigurationId}"
+               id="backup-configuration__backupConfigurationId_">
+               <param name="backupConfigurationId" style="template"/>
+               <method name="PUT">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Update Backup Configuration">
+                     <para role="shortdesc">Updates a backup
+                        configuration.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>See GET
+                           /backup-configuration/{backupConfigurationId}
+                           to provide
+                           BackupConfigurationScheduleId</para>
+                     </note>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get Backup Configuration Details">
+                     <para role="shortdesc">Gets backup configuration
+                        details.</para>
+                     <para>Details for a specified backup
+                        configuration.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+               <method name="DELETE">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Delete Backup Configuration">
+                     <para role="shortdesc">Deletes a specified backup
+                        configuration.</para>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource
+               path="backup-configuration/system/{machineAgentId}"
+               id="backup-configuration_system__machineAgentId_">
+               <param name="machineAgentId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get All Backup Configurations for Agent">
+                     <para role="shortdesc">Lists backup
+                        configurations for a specified agent.</para>
+                     <para>The list of backup configurations for the
+                        specified agent.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource
+               path="backup-configuration/enable/{backupConfigurationId}"
+               id="backup-configuration_enable__backupConfigurationId_">
+               <param name="backupConfigurationId" style="template"/>
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Enable/Disable">
+                     <para role="shortdesc">Enables or disables a
+                        backup configuration.</para><para>Disabling a
+                        backup configuration does not delete it or its
+                        data. You can re-enable disabled backup
+                        configurations.</para>
+                     <para>Details for the backup configuration. See
+                        GET
+                        /backup-configuration/{backupConfigurationId}</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup/action-requested"
+               id="backup_action-requested">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Start/Stop A Backup Manually">
+                     <para role="shortdesc">Manually starts or stops a
+                        backup.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> When manually starting a backup,
+                           provide the backup configuration identifier
+                           for Id. When manually stopping a backup,
+                           provide the backup identifier for
+                           Id.</para>
+                     </note>
+                     <para>Identifier of the instance of the
+                        backup.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup/{backupId}" id="backup__backupId_">
+               <param name="backupId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Backup Details">
+                     <para role="shortdesc">Gets a specified
+                        backup.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>The authenticated user must have access
+                           to the specified backup.</para>
+                     </note>
+                     <para>Details about a specified backup.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup/completed/{backupConfigurationId}"
+               id="backup_completed__backupConfigurationId_">
+               <param name="backupConfigurationId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Completed Backups">
+                     <para role="shortdesc">Gets the completed backups
+                        for a backup configuration that can still be
+                        restored.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>The authenticated user must have access
+                           to the specified backup
+                           configuration.</para>
+                     </note>
+                     <para>Details about the completed backups.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup/report/{backupId}"
+               id="backup_report__backupId_">
+               <param name="backupId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Backup Report">
+                     <para role="shortdesc">Gets details about a
+                        completed backup.</para>
+                     <para>The backup report submitted for the
+                        completed backup.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore" id="restore">
+               <method name="PUT">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Create a Restore Configuration">
+                     <para role="shortdesc">Creates a new restore
+                        configuration.</para>
+                     <para>See GET /restore/{restoreId}</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Update a Restore Configuration">
+                     <para role="shortdesc">Updates an existing
+                        restore configuration.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> Restores can only be updated while in
+                           the "Creating" state. See GET
+                           /restore/{restoreId} for a list of restore
+                           states.</para>
+                     </note>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/files" id="restore_files">
+               <method name="PUT">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Include/Exclude a File to a Restore Configuration">
+                     <para role="shortdesc">Creates a restore file
+                        that is associated with a restore.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> ParentId is the ID of the restore this
+                           file is associated with.</para>
+                     </note>
+                     <para>See GET /restore/files/{restoreId}</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/files/{restoreId}"
+               id="restore_files__restoreId_">
+               <param name="restoreId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get Included/Excluded Restore Configuration Files">
+                     <para role="shortdesc">Gets files that should be
+                        included and excluded for a restore.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> Values for Filter: 1 = Include; 2 =
+                           Exclude. Values for FileItemType: 0 = File,
+                           1 = Folder, 2 = Database.</para>
+                     </note>
+                     <para>List of Restore Files included/excluded in
+                        the configuration</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/files/{restoreFileID}"
+               id="restore_files__restoreFileID_">
+               <param name="restoreFileID" style="template"/>
+               <method name="DELETE">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Delete a Restore Configuration File">
+                     <para role="shortdesc">Deletes a restore
+                        configuration file.</para>
+                     <para>204 - No Content</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="backup/availableforrestore"
+               id="backup_availableforrestore">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get Available Backups for Restore">
+                     <para role="shortdesc">Gets the backups that are
+                        eligible for restore.</para><para>A backup
+                        that is eligible for restore has completed at
+                        least once, has not been deleted, and is not
+                        expired.</para>
+                     <para>List of backups</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/action-requested"
+               id="restore_action-requested">
+               <method name="POST">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Start/Stop a Restore Manually">
+                     <para role="shortdesc">Manually starts or stops a
+                        restore.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>In the examples below, Id should be the
+                           identifier of the restore you wish to start
+                           or stop.</para>
+                     </note>
+                     <para>N/A</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/{restoreId}"
+               id="restore__restoreId_">
+               <param name="restoreId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Restore Details">
+                     <para role="shortdesc">Gets restore
+                        details.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> Restore States: 0 = Creating, 1 =
+                           Queued, 2 = InProgress, 3 = Finished, 4 =
+                           Stopped, 5 = Failed, 6 = StartRequested, 7
+                           = StopRequested</para>
+                     </note>
+                     <para>Details about a restore</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="restore/report/{restoreId}"
+               id="restore_report__restoreId_">
+               <param name="restoreId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get Report For a Completed Restore ">
+                     <para role="shortdesc">Gets a restore
+                        report.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para> Restore States: 3 = Completed 4 =
+                           Stopped 5 = Failed</para>
+                     </note>
+                     <para>Restore Report</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="system/activity/{agentId}"
+               id="system_activity__agentId_">
+               <param name="agentId" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="Get Activity Feed For An Agent">
+                     <para role="shortdesc">Lists all activity for a
+                        system that is in progress or
+                        completed.</para>
+                     <para>A list of activities</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="activity" id="activity">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Get Activity Feed For User">
+                     <para role="shortdesc">Lists all activity that is
+                        in progress or completed.</para>
+                     <para>A list of activities</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="404">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Not found</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="help/health" id="help_health">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN"
+                     title="API and Dependent Systems Health">
+                     <para role="shortdesc">Gets the health for API by
+                        checking all dependent systems.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource path="help/developerguide"
+               id="help_developerguide">
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Developer Guide">
+                     <para role="shortdesc">Gets the developer guide
+                        for this API.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+            <resource
+               path="help/supportedimages/{cloudServersPlatform}"
+               id="help_supportedimages__cloudServersPlatform_">
+               <param name="cloudServersPlatform" style="template"/>
+               <method name="GET">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN" title="Images Supported by Agent">
+                     <para role="shortdesc">Determines whether Cloud
+                        Servers images are compatible with the
+                        agent.</para>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        <para>{cloudServersPlatform}: firstgen,
+                           nextgen</para>
+                     </note>
+                     <para>List of Cloud Servers images the agent is
+                        supported to run on.</para>
+                  </wadl:doc>
+                  <response status="400">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Bad request</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Unauthorized</doc>
+                     </representation>
+                  </response>
+                  <response status="403">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Forbidden</doc>
+                     </representation>
+                  </response>
+                  <response status="500">
+                     <representation mediaType="application/json">
+                        <doc xml:lang="EN">Service Unavailable</doc>
+                     </representation>
+                  </response>
+               </method>
+            </resource>
+         </resource>
       </resource>
    </resources>
 </application>
