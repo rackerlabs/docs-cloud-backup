@@ -40,7 +40,7 @@
               <includes>rcbu-devguide.xml</includes>
 	      <security>external</security>
 <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content</canonicalUrlBase>
-              <trimWadlUriCount>2</trimWadlUriCount>
+           <!--   <trimWadlUriCount>2</trimWadlUriCount>-->
             </configuration>
           </execution>
           
