@@ -254,6 +254,18 @@
                      Consider if the data you are storing must be encrypted. If not, it is best to proceed without encryption. 
                      Encryption applies across the board, and once you encrypt a backup server, there is no turning back.</para></note>
                </wadl:doc>
+               <request>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc title="Enable an agent: JSON request">
+                        <xsdxt:code href="../wadl/samples/enableAgent_request.json"/>
+                     </doc>
+                  </representation>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc title="Disable an agent: JSON request">
+                        <xsdxt:code href="../wadl/samples/disableAgent_request.json"/>
+                     </doc>
+                  </representation>
+               </request>
                <response status="204">
                   <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
                   <representation mediaType="application/json"/>
@@ -292,9 +304,20 @@
                      ever gained access to your account, they would not be able to access your backups without your passphrase.</para></note>
                   <para xmlns="http://docbook.org/ns/docbook">If you lose or forget your passphrase, you will not be able to recover your encrypted backups.</para>
                </wadl:doc>
+               <request>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/encryptVolume_request.json"/>
+                     </doc>
+                  </representation>                  
+               </request>
                <response status="200">
-                  <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <doc title="OK" xml:lang="EN">The request succeeded.</doc>                 
+                  <representation mediaType="application/text" element="backup:Backup">
+                     <doc title="Enable volume encryption response">
+                        <xsdxt:code href="../wadl/samples/encryptVolume_response.txt"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="400">
                   <doc title="Bad request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -327,9 +350,20 @@
                   <note xmlns="http://docbook.org/ns/docbook"><para>After you turn on encryption, you cannot turn it off. This is a security measure. If anyone ever gained access to your account, they would not be able to access your backups without your passphrase.</para></note>
                   <para xmlns="http://docbook.org/ns/docbook">If you lose or forget your passphrase, you will not be able to recover your encrypted backups.</para>
                </wadl:doc>
+               <request>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/changeEncryptPassword_request.json"/>
+                     </doc>
+                  </representation>                  
+               </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/text" element="backup:Backup">
+                     <doc title="Change encryption password response">
+                        <xsdxt:code href="../wadl/samples/changeencryptPassword_response.txt"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="400">
                   <doc title="Bad request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -362,7 +396,11 @@
                </wadl:doc>
                <response status="204">
                   <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/deleteAgent_response.json"/>
+                     </doc>
+                  </representation> 
                </response>            
                <response status="400">
                   <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -395,7 +433,11 @@
                </wadl:doc>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/migrateVault_response.json"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="403">
                   <doc title="Forbidden" xml:lang="EN">Access to the requested resource was denied.</doc>
@@ -418,9 +460,20 @@
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates the backup data center, or enables or disables ServiceNet for the Cloud Backup agent, or both.</para>
                   <para xmlns="http://docbook.org/ns/docbook">If ServiceNet is enabled, the Cloud Backup agent talks to Cloud Files over ServiceNet and does not incur any bandwidth charges.</para>
                </wadl:doc>
+               <request>
+                  <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                       <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
+                   </doc>
+                  </representation>  
+               </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_response.json"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="400">
                   <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -450,9 +503,20 @@
                <wadl:doc title="List agent details by host server ID">
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent using the host server ID.</para>
                </wadl:doc>
+               <request>
+                  <representation mediaType="application/http" element="backup:Backup">
+                     <doc title="List agent details by host server ID request">
+                        <xsdxt:code href="../wadl/samples/getAgentServer-json-http_request.txt"/>
+                     </doc>
+                  </representation>
+               </request>         
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/getAgentServer_response.json"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="400">
                   <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -470,7 +534,11 @@
                   <doc title="Not Found" xml:lang="EN">The backend services did not find anything matching the request URI.</doc>
                   <representation mediaType="application/json">                  
                   </representation>
-               </response>               
+               </response>
+               <response status="500">
+                  <doc title="Instance Fault" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
+                  <representation mediaType="application/json"/>              
+               </response>      
                <response status="503">
                   <doc title="Service Unavailable" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
                   <representation mediaType="application/json"/>              
@@ -483,15 +551,26 @@
 <!-- Get all agents for this user  -->
 <!--*******************************-->                           
             <method name="GET" id="getUserAgents">
-            <wadl:doc title="Get all agents for this user">
+            <wadl:doc title="List all agents for this user">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Retrieves information for all agents for the current user.</para>
                <note xmlns="http://docbook.org/ns/docbook"><para>Cloud Backup agent <code>Status</code> is always <code>Offline</code> in this call.</para>
                   <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>,
-                     use the get agent details operation.</para></note>
+                     use the operation to get agent details.</para></note>
             </wadl:doc>
+               <request>
+                  <representation mediaType="application/http" element="backup:Backup">
+                     <doc title="List all agents for this user request">
+                        <xsdxt:code href="../wadl/samples/getUserAgents-json-http_request.txt"/>
+                     </doc>
+                  </representation>
+               </request>   
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json"/>
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/getUserAgents_response.json"/>
+                     </doc>
+                  </representation>
                </response>            
                <response status="400">
                   <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -518,6 +597,13 @@
             <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Wakes up the agent before you perform tasks. </para>
             <para xmlns="http://docbook.org/ns/docbook">This operation sends a message to an agent to wakeup. You should wait 10 to 20 seconds after using this operation before starting a backup or restore.</para>
          </wadl:doc>
+         <request>
+            <representation mediaType="application/http" element="backup:Backup">
+               <doc title="Wake up agents request">
+                  <xsdxt:code href="../wadl/samples/wakeUpAgents-json-http_request.txt"/>
+               </doc>
+            </representation>
+         </request>  
          <response status="200">
             <doc title="OK" xml:lang="EN">The request succeeded.</doc>
             <representation mediaType="application/json"/>
@@ -550,9 +636,20 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a backup configuration for the authenticated user. Returns details of a backup configuration.</para>
                <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configuration, use the GET /backup-configuration/{backupConfigurationId} operation.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/createBackupConfiguration-request.json"/>
+                  </doc>
+               </representation>  
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/createBackupConfiguration-response.json"/>
+                  </doc>
+               </representation>
             </response>            
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -592,10 +689,16 @@
       <wadl:doc title="Update backup configuration">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing backup configuration.</para>
          <note xmlns="http://docbook.org/ns/docbook">
-            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see "Get all backup configurations".</para>
+            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see the description of the operation that lists all backup configurations.</para>
          </note>
-         <para xmlns="http://docbook.org/ns/docbook">N/A</para>
       </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc>
+               <xsdxt:code href="../wadl/samples/updateBackupConfiguration-request.json"/>
+            </doc>
+         </representation>  
+      </request>
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
          <representation mediaType="application/json"/>
@@ -631,11 +734,22 @@
    <!--****************************************-->  
    <method name="GET" id="getBackupConfig">
       <wadl:doc title="List backup configuration details">
-         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists detailed information for a specified backup configuration.</para>
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists detailed information for the specified backup configuration.</para>
       </wadl:doc>
+      <request>
+         <representation mediaType="application/http" element="backup:Backup">
+            <doc title="List backup configuration details request">
+               <xsdxt:code href="../wadl/samples/getBackupConfig-json-http_request.txt"/>
+            </doc>
+         </representation>
+      </request> 
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json"/>
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc>
+               <xsdxt:code href="../wadl/samples/getBackupConfig-response.json"/>
+            </doc>
+         </representation>
       </response>            
       <response status="400">
          <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -672,7 +786,11 @@
             </wadl:doc>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getAllBackupConfigforUser-response.json"/>
+                  </doc>
+               </representation>
             </response>            
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -707,9 +825,20 @@
       <wadl:doc title="List all backup configurations for an agent">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the backup configurations for the specified agent.</para>
       </wadl:doc>
+      <request>
+         <representation mediaType="application/http" element="backup:Backup">
+            <doc title="List all backup configurations for an agent request">
+               <xsdxt:code href="../wadl/samples/getBackupConfig-json-http_request.txt"/>
+            </doc>
+         </representation>
+      </request> 
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json"/>
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc>
+               <xsdxt:code href="../wadl/samples/getAllBackupConfigforUser-response.json"/>
+            </doc>
+         </representation>
       </response>            
       <response status="400">
          <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -748,9 +877,25 @@
          <para xmlns="http://docbook.org/ns/docbook">Disabling a backup configuration does not delete it or its data.
             You can re-enabled disabled backup configurations later.</para>
       </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc title="Enable a backup configuration: JSON request">
+               <xsdxt:code href="../wadl/samples/enableBackupConfig_request.json"/>
+            </doc>
+         </representation>    
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc title="Disable a backup configuration: JSON request">
+               <xsdxt:code href="../wadl/samples/disableBackupConfig_request.json"/>
+            </doc>
+         </representation>  
+      </request>
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json"/>
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc title="Disable a backup configuration: JSON response">
+               <xsdxt:code href="../wadl/samples/disableBackupConfig_response.json"/>
+            </doc>
+         </representation>
       </response>            
       <response status="400">
          <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -785,6 +930,13 @@
             <wadl:doc title="Delete a backup configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Deletes the specified backup configuration.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Enable a backup configuration: JSON request">
+                     <xsdxt:code href="../wadl/samples/deleteBackupConfig_request.json"/>
+                  </doc>
+               </representation>      
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json"/>
@@ -824,20 +976,34 @@
          <method name="POST" id="startStopBackupManually">
             <wadl:doc title="Start or stop a backup manually">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Manually starts or stops a backup. Returns the identifier of the instance of the backup. </para>
-               <note xmlns="http://docbook.org/ns/docbook">
-               <para>
-                When manually starting a backup, provide the backup configuration identifier (backupConfigurationId) for ID. 
+               <para xmlns="http://docbook.org/ns/docbook">
+                When manually starting a backup, provide the backup configuration identifier (BackupConfigurationId) for ID. 
                 You can retrieve a list of all backup configurations for an agent with the "Get all backup configurations for an agent" operation.
                </para> 
-               <para>
-                When manually stopping a backup, provide the backup identifier for Id.
+               <para xmlns="http://docbook.org/ns/docbook">
+                When manually stopping a backup, provide the backup identifier for the ID.
+                The backup identifier is given when the backup is started. 
                </para>
-               </note>
-               <para xmlns="http://docbook.org/ns/docbook">Identifier of the instance of the backup.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Start a backup manually: JSON request">
+                     <xsdxt:code href="../wadl/samples/startBackupManually_request.json"/>
+                  </doc>
+               </representation>    
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Stop a backup manually: JSON request">
+                     <xsdxt:code href="../wadl/samples/stopBackupManually_request.json"/>
+                  </doc>
+               </representation>  
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">When manually starting a backup, the request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/text" element="backup:Backup">
+                  <doc title="Start a backup manually response">
+                     <xsdxt:code href="../wadl/samples/startBackupManually_response.txt"/>
+                  </doc>
+               </representation>
             </response>
             <response status="204">
                <doc title="No Content" xml:lang="EN">When manually stopping a backup, the request succeeded.</doc>
@@ -879,9 +1045,20 @@
                   <para>The authenticated user must have access to the specified backup in order to retrieve its details.</para>
                </note>
             </wadl:doc>
+           <request>
+              <representation mediaType="application/http" element="backup:Backup">
+                 <doc title="List backup details request">
+                    <xsdxt:code href="../wadl/samples/getBackupDetails-json-http_request.txt"/>
+                 </doc>
+              </representation>
+           </request>
            <response status="200">
               <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-              <representation mediaType="application/json"/>
+              <representation mediaType="application/json" element="backup:Backup">
+                 <doc>
+                    <xsdxt:code href="../wadl/samples/getBackupDetails_response.json"/>
+                 </doc>
+              </representation> 
            </response>
            <response status="400">
               <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -916,15 +1093,25 @@
             <wadl:doc title="List completed backups">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the details for backups that can still be restored. </para>
                <para xmlns="http://docbook.org/ns/docbook">Backups are returned only for the specified backup configuration ID (backupConfigurationId). </para>
-               <para xmlns="http://docbook.org/ns/docbook">The BackupConfigurationId is specific to the agent. You can retrieve a list of all backup configurations for an agent with the "Get all backup configurations for an agent" operation. </para>
+               <para xmlns="http://docbook.org/ns/docbook">The backup configuration ID is specific to the agent. You can retrieve a list of all backup configurations for an agent with the "Get all backup configurations for an agent" operation. </para>
                <note xmlns="http://docbook.org/ns/docbook">
                   <para>The authenticated user must have access to the specified backup configuration.</para>
                </note>
-               <para xmlns="http://docbook.org/ns/docbook">Details about the completed backups.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List completed backups request">
+                     <xsdxt:code href="../wadl/samples/getCompletedBackups-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getCompletedBackups_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -959,9 +1146,20 @@
             <wadl:doc title="Get a backup report">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets details about a completed backup.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="Get a backup report request">
+                     <xsdxt:code href="../wadl/samples/getBackupReport-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getBackupReport_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -999,9 +1197,20 @@
             <wadl:doc title="Create a restore configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a new restore configuration and returns detailed information about the restore.</para>
             </wadl:doc>
+           <request>
+              <representation mediaType="application/json" element="backup:Backup">
+                 <doc>
+                    <xsdxt:code href="../wadl/samples/createRestoreConfig_request.json"/>
+                 </doc>
+              </representation>
+           </request>
            <response status="200">
               <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-              <representation mediaType="application/json"/>
+              <representation mediaType="application/json" element="backup:Backup">
+                 <doc>
+                    <xsdxt:code href="../wadl/samples/createRestoreConfig_response.json"/>
+                 </doc>
+              </representation> 
            </response>
            <response status="400">
               <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -1032,9 +1241,16 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing restore configuration.</para>
                <para xmlns="http://docbook.org/ns/docbook">
                 You can only update restore configurations while they are in the "Creating" state.
-                Use a GET operation to get the restore details to view the current state of a restore.           
+                Use the operation to "List details about a restore" to view the current state of a restore.           
                </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/updateRestoreConfig_request.json"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="204">
                <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json"/>
@@ -1072,6 +1288,13 @@
             <wadl:doc title="Include or exclude a file in a restore configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a restore file associated with a restore.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Include a file in a restore configuration: JSON request">
+                     <xsdxt:code href="../wadl/samples/includeRestoreFile_request.json"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json"/>
@@ -1108,13 +1331,25 @@
          <method name="GET" id="getRestoreFiles">
             <wadl:doc title="List included or excluded files in a restore configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Lists files that are included or excluded for a restore.
+            Lists files that are included or excluded in a restore.
             </para>
                <para xmlns="http://docbook.org/ns/docbook">
                   This operation allows you list the files in a restore configuration. 
                   You can choose to view the included or the excluded files. You can also limit your list to files, folders, or databases.            
                </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List included or excluded files in a restore configuration request">
+                     <xsdxt:code href="../wadl/samples/getRestoreFiles_request.txt"/>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getRestoreFiles_request.json"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json"/>
@@ -1154,6 +1389,13 @@
             Deletes a restore configuration file.
             </para>
             </wadl:doc>
+           <request>
+              <representation mediaType="application/http" element="backup:Backup">
+                 <doc title="Delete a restore configuration request">
+                    <xsdxt:code href="../wadl/samples/deleteRestoreConfig_request.txt"/>
+                 </doc>
+              </representation>
+           </request>
            <response status="204">
               <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
               <representation mediaType="application/json"/>
@@ -1196,9 +1438,20 @@
                   Lists the backups that are eligible for restore (a backup that has completed at least once and has not been deleted and is not expired).
                </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List backups available for a restore request">
+                     <xsdxt:code href="../wadl/samples/getAvailableBackups-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getAvailableBackups_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -1232,7 +1485,24 @@
          <method name="POST" id="postRestoreAction">
             <wadl:doc title="Start or stop a restore manually">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Manually starts or stops a restore.</para>
-            </wadl:doc>
+            </wadl:doc>            
+            <request>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Start encrypted restore: JSON request">
+                     <xsdxt:code href="../wadl/samples/startEncryptedRestore_request.json"/>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Start unencrypted restore: JSON request">
+                     <xsdxt:code href="../wadl/samples/startUnencryptedRestore_request.json"/>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc title="Stop restore manually: JSON request">
+                     <xsdxt:code href="../wadl/samples/stopRestoreManually_request.json"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="204">
                <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json"/>
@@ -1270,9 +1540,20 @@
             <wadl:doc title="List details about a restore">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the specified restore.</para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List details about a restore request">
+                     <xsdxt:code href="../wadl/samples/getRestoreDetails-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getRestoreDetails_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -1306,12 +1587,23 @@
          <method name="GET" id="getRestoreReport">
             <wadl:doc title="Get restore report">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">
-            Gets a report for a completed restore. 
+            Gets a report for the specified, completed restore. 
             </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="Get restore report request">
+                     <xsdxt:code href="../wadl/samples/getRestoreReport-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getRestoreReport_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -1350,9 +1642,20 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists all in-progress and completed activity for an agent. Activity types are Backup, Cleanup, and Restore.
                </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List activity for an agent request">
+                     <xsdxt:code href="../wadl/samples/getAgentActivity-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getAgentActivity_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>
@@ -1388,9 +1691,20 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists all activity completed or in-progress for the user.
                </para>
             </wadl:doc>
+            <request>
+               <representation mediaType="application/http" element="backup:Backup">
+                  <doc title="List activity for a user request">
+                     <xsdxt:code href="../wadl/samples/getUserActivity-json-http_request.txt"/>
+                  </doc>
+               </representation>
+            </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json"/>
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/getUserActivity_response.json"/>
+                  </doc>
+               </representation> 
             </response>
             <response status="400">
                <doc title="Bad Request" xml:lang="EN">There were one or more errors in the request.</doc>

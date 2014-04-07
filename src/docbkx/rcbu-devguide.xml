@@ -86,10 +86,8 @@ Rackspace Cloud Backup Application Programming Interface
                         call.</para>
                   </listitem>
                   <listitem>
-                     <para>Changed normal response code from 200 to
-                        204 in <xref
-                           linkend="deleteRstoreConfiguration"
-                        />.</para>
+                     <para>Changed normal response code from 200 to 204 for the Delete a restore
+                        configuration operation.</para>
                   </listitem>
                   <listitem>
                      <para>Added <code>BackupMachineId</code>
@@ -110,18 +108,13 @@ Rackspace Cloud Backup Application Programming Interface
             <revdescription>
                <itemizedlist>
                   <listitem>
-                     <para linkend="Wake-Up_Agents-d1003">Added <xref
-                           linkend="Wake-Up_Agents-d1003"/> to <xref
-                           linkend="User"/>.</para>
+                     <para>Added the operation description for wake up agents.</para>
                   </listitem>
                   <listitem>
-                     <para linkend="Wake-Up_Agents-d1003">Changed the
-                        service access endpoint in the examples in
-                           <xref linkend="operations"/> from the
-                        generic endpoint,
-                           <code>https://backup.api.rackspacecloud.com</code>,
-                        to one of the supported endpoints,
-                           <code>https://dfw.backup.api.rackspacecloud.com.</code>
+                     <para> Changed the service access endpoint in the examples in <xref
+                           linkend="operations"/> from the generic endpoint,
+                           <code>https://backup.api.rackspacecloud.com</code>, to one of the
+                        supported endpoints, <code>https://dfw.backup.api.rackspacecloud.com</code>.
                      </para>
                   </listitem>
                </itemizedlist>
@@ -1045,10 +1038,12 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/
       </section>
       <section xml:id="Request_Response_Types-d1e903">
          <title>Request and response types</title>
-         <para>The Rackspace Cloud Backup API supports only JSON data serialization format. The
-            request format is specified using the <code>Content-Type</code> header and is required
-            for calls that have a request body. If no response format is specified, JSON is the
-            default. </para>
+         <para>The Rackspace Cloud Backup API supports only JSON data serialization format. </para>
+         <note>
+            <para>The request format is specified using the <code>Content-Type:
+                  application/json</code> header and is required for calls that have a request body.
+               If no response format is specified, JSON is the default. </para>
+         </note>
       </section>
      <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
       <section xml:id="datetimeformat">
@@ -1255,81 +1250,10 @@ associated error codes and descriptions.
 
   <chapter xml:id="operations">
       <title>API operations</title>
-      <para>This section includes descriptions of all of the Cloud
-         Backup API operations.</para>
     <section xml:id="Agent">
          <title>Agent operations</title>
-         <para> Following are the operations within this section: </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/agent/{machineAgentId}</td>
-                  <td colspan="3">Gets details about the machine and its agent.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/agent/enable</td>
-                  <td colspan="3">Enables/Disables an agent. Disabling an agent only stops
-it from making backups. The agent is not deleted and its
-data remains. Disabled agents may later be re-enabled.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/agent/encrypt</td>
-                  <td colspan="3">Enables volume encryption.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/agent/changeencryption</td>
-                  <td colspan="3">Changes the encryption
-                     password.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/agent/delete</td>
-                  <td colspan="3">Permanently and immediately deletes an agent and its
-backup data.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>PUT</command></td>
-                  <td colspan="2">/agent/migratevault</td>
-                  <td colspan="3">Migrate a backup vault from one
-                     machine agent to another. These two agents should
-                     be under the same user and their backups should
-                     not be encrypted.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command></td>
-                  <td colspan="2">/agent/{machineAgentId}</td>
-                  <td colspan="3">Updates the backup data center
-                     and/or enables/disables ServiceNet for the Cloud
-                     Backup agent. If ServiceNet is enabled, Cloud
-                     Backup agent talks to Cloud Files over ServiceNet
-                     and does not incur any bandwidth charges.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command></td>
-                  <td colspan="2">/agent/server/{hostServerId}</td>
-                  <td colspan="3">Gets details about the machine and
-                     its agent using the host server ID.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes agent operations
-            that are supported by the Cloud Backup API. </para>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the  agent
+            operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
             <wadl:resource href="../../src/wadl/rcbu.wadl#agent_machineAgentId">
                <wadl:method href="getAgentDetails"/>
@@ -1357,38 +1281,6 @@ backup data.</td>
          <?hard-pagebreak?>     
 <section xml:id="getAgent">
             <title>Get agent details</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/agent/{machineAgentId}</td>
-                     <td colspan="3">Gets details about the machine and its
-                agent.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <note>
-               <para>If the agent <code>Status</code> is showing as
-                     <code>Offline</code>, it is possible that the
-                  Cloud Backup agent might be idle and not posting any
-                  heartbeats. You can wake up your Cloud Backup agent
-                  with the operation described in <xref
-                     linkend="Wake-Up_Agents-d1003"/>. You should wait
-                  10-20 seconds after using this operation to
-                  determine online status of agent reliably.</para>
-            </note>
             <para>The following table lists and describes the response attributes. </para>
             <para>
                <table rules="all">
@@ -1525,84 +1417,10 @@ backup data.</td>
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and a response: </para>
-            <example>
-               <title>Get agent details request: JSON</title>
-               <literallayout class="monospaced">
-  GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
-          User-Agent: controlpanel.drivesrvr.com
-          Host: dfw.backup.api.rackspacecloud.com
-          Content-Type: application/json
-          Content-Length: 0
-          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-  </literallayout>
-            </example>
-            <example>
-               <title>Get agent details response: JSON</title>
-               <literallayout class="monospaced">
- {
-  "AgentVersion": "1.05.005848",
-  "Architecture": "64-bit",
-  "Flavor": "RaxCloudServer",
-  "BackupVaultSize": "35.3 MB",
-  "BackupContainer": "https://storage101.DC.clouddrive.com/
-      v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
-  "CleanupAllowed": true,
-  "Datacenter": "DFW",
-  "IPAddress": "192.168.1.1",
-  "IsDisabled": false,
-  "IsEncrypted": true,
-  "MachineAgentId": 213564,
-  "MachineName": "Web Server",
-  "OperatingSystem": "Windows Server 2012",
-  "OperatingSystemVersion": "",
-  "PublicKey": {
-    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871
-e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c7887
-71c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d
-0829073351f4a cd36074eafd036a5eb83359d2a698d0",
-    "ExponentHex": "09528"
-  },
-  "Status": "Online",
-  "TimeOfLastSuccessfulBackup": "/Date(1357817400000)/",
-  "UseServiceNet": true
-  "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
-}
-  </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       <section xml:id="enableAgent">
             <title>Enable or disable agent</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/agent/enable</td>
-                     <td colspan="3">Enables/Disables an agent. Disabling an agent 
-only stops it from making backups. The agent is not deleted 
-and its data remains. Disabled agents may later be re-enabled.
-      </td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
-            <para>Encryption is important for keeping your data confidential. However, encryption is also expensive. It
-    takes significantly longer to backup and restore encrypted data. Consider if the data you are storing
-    must be encrypted. If not, then it is best to proceed without encryption. Encryption applies across the
-    board, and once you encrypt a backup server, there is no turning back.
-  </para>
             <para>The following table lists and describes the request attributes. </para>
             <para>
                <table rules="all">
@@ -1635,66 +1453,11 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tbody>
                </table>
             </para>
-            <para>Following are example requests:</para>
-            <example>
-               <title>Enable agent request: JSON</title>
-               <literallayout class="monospaced">
-  {
-      "MachineAgentId": 92384579,
-      "Enable": true
-    }    
-      </literallayout>
-            </example>
-            <example>
-               <title>Disable agent request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "MachineAgentId": 92384579,
-      "Enable": false
-    }
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="enableEncryption">
             <title>Enable volume encryption</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/agent/encrypt</td>
-                     <td colspan="3">Enables volume encryption.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (503) </simpara>
-            <para>This operation enables volume encryption with AES-256 encryption 
-  if it is not already enabled. If you need assistance generating
-  your encrypted key, see <link xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup">
-  "Generating Your Encrypted Key In Cloud Backup"</link> in our Knowledge Center.
-</para>
-            <para>
-               <emphasis role="bold">Note:</emphasis> Once
-  encryption is turned on, it cannot be turned off. This is a
-  security measure. If anyone ever gained access to your
-  account, they would not be able to access your backups
-  without your passphrase. </para>
-            <para>
-  If you lose or forget your passphrase, you will not be able to recover 
-  your encrypted backups. 
-</para>
             <para>The following table lists and describes the request attributes. </para>
             <para>
                <table rules="all">
@@ -1728,74 +1491,11 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tbody>
                </table>
             </para>
-        
-  
-            <para>The following example shows the request and corresponding response:</para>
-            <example>
-               <title>Enable volume encryption request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "MachineAgentId" : 869,
-      "EncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
-      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
-      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
-      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
-      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
-      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
-      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
-      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
-      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
-      c1e6ef4254226249b872676af76a319cbe"
-    }      
-      </literallayout>
-            </example>
             <para> </para>
-            <example>
-               <title>Enable volume encryption response: JSON</title>
-               <literallayout class="monospaced">
-      0cee72c7-015c-493b-b5fe-a896ae444c34     
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
        <section xml:id="changeEncryption">
             <title>Change encryption password</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/agent/changeencryption</td>
-                     <td colspan="3">Changes the encryption
-                        password.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (503) </simpara>
-            <para>This operation changes the encryption password. If
-               you need assistance generating your encrypted key, see
-                  <link
-                  xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
-                  > "Generating Your Encrypted Key In Cloud
-                  Backup"</link> in our Knowledge Center. </para>
-            <para>
-               <emphasis role="bold">Note:</emphasis> Once encryption
-               is turned on, it cannot be turned off. This is a
-               security measure. If anyone ever gained access to your
-               account, they would not be able to access your backups
-               without your passphrase. </para>
-            <para>If you lose or forget your passphrase, you will not be able to recover your
-               encrypted backups. </para>
             <para>The following table lists and describes the Change
                Encryption Password request attributes. </para>
             <para>
@@ -1840,69 +1540,10 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tbody>
                </table>
             </para>
-            <para>The following example shows the request and corresponding response to change the
-               encryption password:</para>
-            <example>
-               <title>Change encryption password request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "MachineAgentId" : 869,
-      "OldEncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
-      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
-      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
-      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
-      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
-      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
-      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
-      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
-      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
-      c1e6ef4254226249b872676af76a319<emphasis role="bold">cbe</emphasis>"
-      "NewEncryptedPasswordHex" : "0bff42a526c78076a3d986fa75eecd
-      83211f166fd7692797cdde2317faee544e3300614fd54b8c0d81f975
-      3e58cb1ffbd62d3faf0d2bf52e79ce5cd9c6d84b5295e3dea629e71b
-      0a5e26efda50ff8e05a5475bb7cbd553d238c05655f56ece2df070ce
-      374ff1e0724827c2300e373241e94c4bc13441561604e3e70b5034eb
-      58d717864f304c9c73b6d1d46c4276d7ec2f0e2bd9a42a8ab0ba99eb
-      adda84f4cbb5b3611bd319627436246912139c2dde62bd00528b1464
-      20dceae949d1926ae05fc7df9b474e1ee176f89069fb424b12f8f357
-      e6e2909ba05152e9f72a68de0046b3e1520838ff5e723af02a96f51a
-      c1e6ef4254226249b872676af76a319<emphasis role="bold">fgh</emphasis>"  }      
-      </literallayout>
-            </example>
             <para> </para>
-            <example>
-               <title>Change encryption password response: JSON</title>
-               <literallayout class="monospaced">
-      0cee72c7-015c-493b-b5fe-a896ae444c34     
-      </literallayout>
-            </example>
          </section>
 <section xml:id="deleeAgent">
             <title>Delete agent</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command></td>
-                     <td colspan="2">/agent/delete</td>
-                     <td colspan="3">Permanently and immediately
-                        deletes an agent and its backup data.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
-            <para>An agent can be deleted at any time. If the agent is in the
-          middle of an operation, it will be allowed to complete. Once
-          it completes its operation, it will no longer authenticate. </para>
             <para>The following table lists and describes the response attributes. </para>
             <para>
                <table rules="all">
@@ -1928,43 +1569,10 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tbody>
                </table>
             </para>
-            <para>Following is an example response:</para>
-            <example>
-               <title>Delete agent response: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "MachineAgentId": 92384579
-    }      
-      </literallayout>
-            </example>
    
 </section>
    <section xml:id="migrateVault">
       <title>Migrate vault</title>
-      <informaltable rules="all">
-         <thead>
-            <tr align="center">
-               <td colspan="1">Verb</td>
-               <td colspan="2">URI</td>
-               <td colspan="3">Description</td>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td colspan="1"><command>PUT</command></td>
-               <td colspan="2">/agent/migratevault</td>
-               <td colspan="3">Migrate a backup vault from one machine
-                        agent to another. </td>
-            </tr>
-         </tbody>
-      </informaltable>
-      <simpara>Normal Response Code(s): 200 (OK) </simpara>
-      <simpara>Error Response Code(s): Forbidden (403), Service
-               Unavailable (500) </simpara>
-      <para>The two agents should be under the same user and their
-               backups should not be encrypted.</para>
-            <para>The destination machine agent should <emphasis role="italic">not</emphasis> have
-               any backups already configured and running. </para>
       <para>The following table lists and describes the request attributes. </para>
       <para>
          <table rules="all">
@@ -1998,47 +1606,11 @@ and its data remains. Disabled agents may later be re-enabled.
             </tbody>
          </table>
       </para>
-      <para>Following is an example request:</para>
-      <example>
-         <title>Migrate vault request: JSON</title>
-         <literallayout class="monospaced">
-     {
-                "SourceMachineAgentId": 1,
-                "DestinationMachineAgentId": 2
-            }
-    
-      </literallayout>
-      </example>
       
       
 </section>
        <section xml:id="updateAgentBehavior">
           <title>Update agent backup behavior</title>
-          <informaltable rules="all">
-             <thead>
-                <tr align="center">
-                   <td colspan="1">Verb</td>
-                   <td colspan="2">URI</td>
-                   <td colspan="3">Description</td>
-                </tr>
-             </thead>
-             <tbody>
-                <tr>
-                   <td colspan="1"><command>POST</command></td>
-                   <td colspan="2">/agent/{machineAgentId}</td>
-                   <td colspan="3">Updates the backup data center
-                        and/or enables/disables ServiceNet for the
-                        Cloud Backup agent.</td>
-                </tr>
-             </tbody>
-          </informaltable>
-          <simpara>Normal Response Code(s): 200 (OK) </simpara>
-          <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
-          <para>If ServiceNet is enabled, Cloud Backup agent talks to
-               Cloud Files over ServiceNet and does not incur any
-               bandwidth charges.</para>
           <para>The following table lists and describes the request attributes. </para>
           <para>
              <table rules="all">
@@ -2074,77 +1646,11 @@ and its data remains. Disabled agents may later be re-enabled.
                 </tbody>
              </table>
           </para>
-          <para>Following are examples of a request and a response:</para>
-          <example>
-             <title>Update agent backup behavior request: JSON</title>
-             <literallayout class="monospaced">
- POST    https://dfw.backup.api.rackspacecloud.com/v1.0/agent/{machineAgentId}
-                    User-Agent: controlpanel.drivesrvr.com
-                    Host: dfw.backup.api.rackspacecloud.com
-                    Content-Type: application/json;
-                    Content-Length: 0
-                    X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-                    
-                    {
-                    "BackupDatacenter" : "DFW",
-                    "UseServiceNet" : true
-                    }
-      </literallayout>
-          </example>
-          <example>
-             <title>Update agent backup behavior response: JSON</title>
-             <literallayout class="monospaced">
-             {
-                "AgentVersion": "1.05.005848",
-                "Architecture": "64-bit",
-                "Flavor":"RaxCloudServer",
-                "BackupVaultSize": "35.3 MB",
-                "CleanupAllowed": true,
-                "Datacenter": "DFW",
-                "BackupDatacenter": "DFW",
-                "IPAddress": "192.168.1.1",
-                "IsDisabled": false,
-                "IsEncrypted": true,
-                "MachineAgentId": 213564,
-                "MachineName": "Web Server",
-                "OperatingSystem": "Windows Server 2012",
-                "OperatingSystemVersion":"",
-                "PublicKey": {
-                                "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a98288810b8975871.... 0829073351f4acd36074eafd036a5eb83359d2a698d0",
-                                "ExponentHex": 09528 },
-                "Status": "Online",
-                "TimeOfLastSuccessfulBackup": "\/Date(1358752980000)\/",
-                "UseServiceNet": true,
-                "UseFailoverUri": true
-            }
-      </literallayout>
-          </example>
           
           
        </section>
        <section xml:id="getAgentDetailsByHostServerID">
             <title>Get agent details by host server ID</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command></td>
-                     <td colspan="2">/agent/server/{hostServerId}</td>
-                     <td colspan="3">Gets details about the machine
-                        and its agent using the host server ID.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response attributes. </para>
             <para>
                <table rules="all" width="569">
@@ -2255,80 +1761,14 @@ and its data remains. Disabled agents may later be re-enabled.
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and a response:</para>
-            <example>
-               <title>Get agent details by host server ID request: JSON</title>
-               <literallayout class="monospaced">
- GET     https://dfw.backup.api.rackspacecloud.com/v1.0/agent/server/{hostServerId}
-          User-Agent: controlpanel.drivesrvr.com
-          Host: dfw.backup.api.rackspacecloud.com
-          Content-Type: application/json
-          Content-Length: 0
-          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-            <example>
-               <title>Get agent details by host server ID response: JSON</title>
-               <literallayout class="monospaced">
-{
-  "AgentVersion": "1.05.005848",
-  "Architecture": "64-bit",
-  "Flavor": "RaxCloudServer",
-  "BackupVaultSize": "35.3 MB",
-  "CleanupAllowed": true,
-  "Datacenter": "DFW",
-  "IPAddress": "192.168.1.1",
-  "IsDisabled": false,
-  "IsEncrypted": true,
-  "MachineAgentId": 213564,
-  "MachineName": "Web Server",
-  "OperatingSystem": "Windows Server 2012",
-  "OperatingSystemVersion": "",
-  "PublicKey": {
-    "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a cd36074eafd036a5eb83359d2a698d0",
-    "ExponentHex": "09528"
-  },
-  "Status": "Online",
-  "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
-  "UseServiceNet": true,
-
-  "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
-
-}
-  </literallayout>
-            </example>
          </section>       
       </section>
       <?hard-pagebreak?>
    
     <section xml:id="User">
          <title>User operations</title>
-         <para> Following are the operations within this section:</para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/user/agents</td>
-                  <td colspan="3">Retrieves information for all agents for the current user.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command></td>
-                  <td colspan="2">/user/wakeupagents</td>
-                  <td colspan="3">Wakes up the agent before doing any
-                     tasks.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes user operations
-            that are supported by the Cloud Backup API. </para>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the user
+            operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
             <wadl:resource href="../../src/wadl/rcbu.wadl#agents">
                <wadl:method href="getUserAgents"/>
@@ -2341,37 +1781,6 @@ and its data remains. Disabled agents may later be re-enabled.
 
       <section xml:id="getAgents">
             <title>Get all agents for this user</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/user/agents</td>
-                     <td colspan="3">Retrieves information for all agents for the current user.
-Returns: <code>A list of agents.</code>
-                     </td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (503) </simpara>
-            <note>
-               <para>Cloud Backup agent <code>Status</code> is always
-                     <code>Offline</code> in this call. </para>
-               <para>To get the correct values for <code>Status</code>
-                  and <code>TimeOfLastSuccessfulBackup</code>,  use
-                  the operation described in <xref linkend="getAgent"
-                  />.</para>
-            </note>
             <para>The following table lists and describes the response attributes.</para>
             <para>
                <table rules="all">
@@ -2507,120 +1916,6 @@ Returns: <code>A list of agents.</code>
                   </tbody>
                </table>
             </para>
-            <para> The following example shows the request and corresponding response:</para>
-            <example>
-               <title>Get all agents for this user request: JSON</title>
-               <literallayout class="monospaced">
-  GET     https://dfw.backup.api.rackspacecloud.com/v1.0/user/agents
-          User-Agent: controlpanel.drivesrvr.com
-          Host: dfw.backup.api.rackspacecloud.com
-          Content-Type: application/json;
-          Content-Length: 0
-          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-
-            <example>
-               <title>Get all agents for this user response: JSON</title>
-               <literallayout class="monospaced">
-         [
-           {
-        "AgentVersion": "1.05.005848",
-        "Architecture": "64-bit",
-        "BackupVaultSize": "35.3 MB",
-        "BackupContainer": "https://storage101.DC.clouddrive.com/
-             v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
-        "CleanupAllowed": true,
-        "Datacenter": "DFW",
-        "Flavor":"RaxCloudServer",
-        "IPAddress": "192.168.1.1",
-        "IsDisabled": false,
-        "IsEncrypted": true,
-        "MachineAgentId": 213563,
-        "MachineName": "Web Server2",
-        "OperatingSystem": "Windows Server 2012",
-        "OperatingSystemVersion":"",
-        "PublicKey": {
-           "ModulusHex": "a5261939156948bb7a58dffe5ff89e
-           65f0498f9175f5a98288810b8975871e99af3b5dd9405
-           7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
-           07727c065168c788771c561a9400fb61975e9e6aa4e23
-           fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
-           6d0829073351f4acd36074eafd036a5eb83359d2a698d0",
-           "ExponentHex": 09528 },
-        "Status": "Online",
-        "TimeOfLastSuccessfulBackup": null,
-        "UseServiceNet": true
-            },
-            {
-        "AgentVersion": "1.05.005848",
-        "Architecture": "64-bit",
-        "BackupVaultSize": "35.3 MB",
-        "BackupContainer": "https://storage101.DC.clouddrive.com/
-            v1/<emphasis role="italic">yourAccount</emphasis>/CloudBackup_v2_0_<emphasis role="italic">yourUUID</emphasis>",
-        "CleanupAllowed": true,
-        "Flavor":"RaxCloudServer",
-        "Datacenter": "DFW",
-        "IPAddress": "192.168.1.3",
-        "IsDisabled": false,
-        "IsEncrypted": true,
-        "MachineAgentId": 213564,
-        "MachineName": "Web Server",
-        "OperatingSystem": "Windows Server 2012",
-        "OperatingSystemVersion" : "",
-        "PublicKey": {
-           "ModulusHex": "a5261939156948bb7a58dffe5ff89e
-           65f0498f9175f5a98288810b8975871e99af3b5dd9405
-           7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
-           07727c065168c788771c561a9400fb61975e9e6aa4e23
-           fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
-           6d0829073351f4acd360723324234234234234234234abc2",
-           "ExponentHex": 82374 },
-        "Status": "Online",
-        "TimeOfLastSuccessfulBackup": null,
-        "UseServiceNet": true
-            }
-              ]    
-      </literallayout>
-            </example>
-         </section>
-         <section xml:id="Wake-Up_Agents-d1003">
-            <title>Wake up agents </title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2"> /user/wakeupagents</td>
-                     <td colspan="3">Wakes up the agent before you
-                        perform tasks. Sends a message to an agent to
-                        wakeup. You should wait 10-20 seconds after
-                        using this operation and then start a backup
-                        or restore. </td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <para>This operation does not require a request body. </para>
-            <para>The following example shows a request:</para>
-            <example>
-               <title>Wake up agents request: JSON</title>
-               <literallayout class="monospaced">
-  POST    https://dfw.backup.api.rackspacecloud.com/v1.0/user/wakeupagents
-          User-Agent: controlpanel.drivesrvr.com
-          Host: dfw.backup.api.rackspacecloud.com
-          Content-Type: application/json;
-          Content-Length: 0
-          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
          </section>     
     </section>
       <?hard-pagebreak?>
@@ -2647,74 +1942,7 @@ Returns: <code>A list of agents.</code>
             consider, and perhaps the trickiest to handle. Files that change often invalidate blocks
             that have been stored previously. Depending on criticality, it may still be wise to
             snapshot files with high data churn and backup those snapshots. </para>
-
-         <para>Following are the operations within this section: </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/backup-configuration</td>
-                  <td colspan="3">Creates a backup configuration for the authenticated user.
-      Returns: details of a backup configuration.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>PUT</command>
-                  </td>
-                  <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
-                  <td colspan="3">Updates a backup configuration that already exists.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup-configuration/</td>
-                  <td colspan="3">Gets a list of all the backup configurations for the current
-      user.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command></td>
-                  <td colspan="2"
-                     >/backup-configuration/system/{machineAgentId}</td>
-                  <td colspan="3">Gets a list of all the backup
-                     configurations for the agent.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup-configuration/system/
-      {machineAgentId}</td>
-                  <td colspan="3">Gets a list of backup configurations for the specified
-      agent.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/backup-configuration/enable/
-      {backupConfigurationId}</td>
-                  <td colspan="3">Enables/Disables a backup configuration. Disabling a
-      backup configuration does not delete it nor its data.
-      Disabled backup configurations may later be re-enabled.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>DELETE</command>
-                  </td>
-                  <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
-                  <td colspan="3">Deletes the specified backup configuration..</td>
-               </tr>
-  
-
-  
-  
-            </tbody>
-         </informaltable>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes backup
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             configuration operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration">
@@ -2737,30 +1965,6 @@ Returns: <code>A list of agents.</code>
       
       <section xml:id="createConfig">
             <title>Create backup configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/backup-configuration</td>
-                     <td colspan="3">Creates a backup configuration for the authenticated user. Returns: details
-of a backup configuration.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Conflict (409), Service Unavailable (500) </simpara>
-            <para>See <xref linkend="getBackupConfigsAgent"/> to view a list of
-          all backup configurations. </para>
             <para>The following table lists and describes the request attributes. </para>
             <para>
                <table rules="all">
@@ -3014,121 +2218,11 @@ of a backup configuration.</td>
                </table>
             </para>
             <para> </para>
-            <para> The following example shows the request and corresponding response:</para>
-            <example>
-               <title>Create backup configuration request: JSON</title>
-               <literallayout class="monospaced">
-    {
-       "BackupConfigurationName": "Weekly Website Backup",
-       "MachineAgentId" : 156953,
-       "IsActive": true,
-       "VersionRetention": 0|30|60,
-       "MissedBackupActionId": 1,
-       "Frequency": "Hourly",
-       "StartTimeHour": 6,
-       "StartTimeMinute": 30,
-       "StartTimeAmPm": "PM",
-       "DayOfWeekId": 4,
-       "HourInterval": null,
-       "TimeZoneId": "Eastern Standard Time",
-       "NotifyRecipients": "raxtestaddress@rackspace.com",
-       "NotifySuccess": true,
-       "NotifyFailure": true,
-       "Inclusions": [
-           {
-       "FilePath": "C:\\backup_up_file.txt",
-       "FileItemType": "File"
-           },
-           {
-       "FilePath": "C:\\backed_up_folder",
-       "FileItemType": "Folder"
-           }
-       ],
-       "Exclusions": [
-           {
-       "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
-       "FileItemType": "File"
-           },
-           {
-       "FilePath": "C:\\backed_up_folder\\excluded_folder",
-       "FileItemType": "Folder"
-           }
-       ]
-     }
-      </literallayout>
-            </example>
-            <para> </para>
-            <example>
-               <title>Create backup configuration response: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "MachineAgentId": 156953,
-      "BackupConfigurationName": "Weekly Website Backup",
-      "IsActive": true,
-      "VersionRetention": 30,
-      "BackupConfigurationScheduleId": 145393,
-      "MissedBackupActionId": 1,
-      "Frequency": "Weekly",
-      "StartTimeHour": 6,
-      "StartTimeMinute": 30,
-      "StartTimeAmPm": "AM",
-      "DayOfWeekId": 4,
-      "HourInterval": null,
-      "TimeZoneId": "Eastern Standard Time",
-      "NotifyRecipients": "raxtestaddress@rackspace.com",
-      "NotifySuccess": true,
-      "NotifyFailure": true,
-      "Inclusions": [
-          {
-            "FilePath": "C:\\backup_up_file.txt",
-            "FileItemType": "File"
-          },
-          {
-            "FilePath": "C:\\backed_up_folder",
-            "FileItemType": "Folder"
-          }
-      ],
-      "Exclusions": [
-          {
-            "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
-            "FileItemType": "File"
-          },
-          {
-            "FilePath": "C:\\backed_up_folder\\excluded_folder",
-            "FileItemType": "Folder"
-          }
-      ]
-    }
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="updateBackupConfig">
             <title>Update backup configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>PUT</command>
-                     </td>
-                     <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
-                     <td colspan="3">Updates a backup configuration that already exists.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>See "Get all backup configurations" to view a list of all backup configurations
-               and their backup configuration schedule IDs. </para>
             <para>The following table lists and describes the request attributes. </para>
             <para>
                <table rules="all">
@@ -3284,77 +2378,11 @@ of a backup configuration.</td>
                   </tbody>
                </table>
             </para>
-            <para> </para>
-            <para>Following is an example request:</para>
-            <example>
-               <title>Update backup configuration request: JSON</title>
-               <literallayout class="monospaced">
-   {
-      "MachineAgentId": 156953,
-      "BackupConfigurationName": "Weekly Website Backup",
-      "IsActive": true,
-      "VersionRetention": 30,
-      "BackupConfigurationScheduleId": 145393,
-      "MissedBackupActionId": 1,
-      "Frequency": "Weekly",
-      "StartTimeHour": 6,
-      "StartTimeMinute": 30,
-      "StartTimeAmPm": "AM|PM",
-      "DayOfWeekId": 4,
-      "HourInterval": null,
-      "TimeZoneId": "Eastern Standard Time",
-      "NotifyRecipients": "raxtestaddress@rackspace.com",
-      "NotifySuccess": true,
-      "NotifyFailure": true,
-      "Inclusions": [
-          {
-            "FilePath": "C:\\backup_up_file.txt",
-            "FileItemType": "File"
-          },
-          {
-            "FilePath": "C:\\backed_up_folder",
-            "FileItemType": "Folder"
-          }
-      ],
-      "Exclusions": [
-          {
-            "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
-            "FileItemType": "File"
-          },
-          {
-            "FilePath": "C:\\backed_up_folder\\excluded_folder",
-            "FileItemType": "Folder"
-          }
-      ]
-    }     
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
 
       <section xml:id="getConfigDetails">
             <title>Get backup configuration details</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
-                     <td colspan="3">Gets detailed information for a specified backup configuration.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response
           attributes for  Get Backup Configuration Details. </para>
             <para>
@@ -3524,106 +2552,11 @@ of a backup configuration.</td>
                   </tbody>
                </table>
             </para>
-            <para>The following example shows the request and corresponding response:</para>
-            <example>
-               <title>Get backup configuration details request: JSON</title>
-               <literallayout class="monospaced">
-     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
-      </literallayout>
-            </example>
-            <para> </para>
-            <example>
-               <title>Get backup configuration details response: JSON</title>
-               <literallayout class="monospaced">
-     {
-        "BackupConfigurationId": 148325,
-        "MachineAgentId": 156953,
-        "MachineName": "Web Server",
-        "Flavor": "RaxCloudServer",
-        "IsEncrypted": false,
-        "BackupConfigurationName": "Weekly Website Backup",
-        "IsActive": true,
-        "IsDeleted": false,
-        "VersionRetention": 60,
-        "BackupConfigurationScheduleId": 145406,
-        "MissedBackupActionId": 1,
-        "Frequency": "Weekly",
-        "StartTimeHour": 11,
-        "StartTimeMinute": 30,
-        "StartTimeAmPm": "AM",
-        "DayOfWeekId": 4,
-        "HourInterval": null,
-        "TimeZoneId": "Eastern Standard Time",
-        "NextScheduledRunTime": "\/Date(1357817400000)\/",
-        "LastRunTime": null,
-        "LastRunBackupReportId": null,
-        "NotifyRecipients": "raxtestaddress@rackspace.com",
-        "NotifySuccess": false,
-        "NotifyFailure": false,
-        "Inclusions": [
-            {
-        "FilePath": "C:\\backed_up_folder",
-        "ParentId": 148325,
-        "FileItemType": "Folder",
-        "FileId": 35000
-            },
-            {
-        "FilePath": "C:\\backup_up_file.txt",
-        "ParentId": 148325,
-        "FileItemType": "File",
-        "FileId": 34999
-            }
-        ],
-        "Exclusions":[
-            {
-        "FilePath": "C:\\backed_up_folder\\excluded_folder",
-        "ParentId": 148325,
-        "FileItemType": "Folder",
-        "FileId": 35002
-            },
-            {
-        "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
-        "ParentId": 148325,
-        "FileItemType": "File",
-        "FileId": 35001
-            }
-        ]
-    }    
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="getConfigsUser">
             <title>Get all backup configurations for user</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup-configuration</td>
-                     <td colspan="3">Gets a list of all the backup configurations for 
-the current user.
-</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response attributes. </para>
             <para>
                <table rules="all">
@@ -3823,127 +2756,11 @@ the current user.
                   </tbody>
                </table>
             </para>
-            <para> </para>
-            <para>Following is an example response:</para>
-            <example>
-               <title>Get all backup configurations for user response: JSON</title>
-               <literallayout class="monospaced">
-     {
-    	[
-    	    {
-    	"BackupConfigurationId": 100850,
-    	"MachineAgentId": 96674,
-    	"MachineName": "Web Server",
-    	"Flavor": "RaxCloudServer",
-    	"IsEncrypted": false,
-    	"BackupConfigurationName": "Manual Website Backup",
-    	"IsActive": true,
-    	"IsDeleted": false,
-    	"VersionRetention": 60,
-    	"BackupConfigurationScheduleId": 98017,
-    	"MissedBackupActionId": 2,
-    	"Frequency": "Manually",
-    	"StartTimeHour": null,
-    	"StartTimeMinute": null,
-    	"StartTimeAmPm": "",
-    	"DayOfWeekId": null,
-    	"HourInterval": null,
-    	"TimeZoneId": "Eastern Standard Time",
-    	"NextScheduledRunTime": null,
-    	"LastRunTime": "\/Date(1343226053000)\/",
-    	"LastRunBackupReportId": 80071,
-    	"NotifyRecipients": "user@rackspace.com",
-    	"NotifySuccess": false,
-    	"NotifyFailure": true,
-    	"Inclusions": [
-    	    {
-    	"FilePath": "/web/",
-    	"ParentId": 100850,
-    	"FileItemType": "Folder",
-    	"FileId": 2947
-    	    }
-    	],
-    	"Exclusions": [
-    	    {
-    	"FilePath": "/web/cache/",
-    	"ParentId": 100850,
-    	"FileItemType": "Folder",
-    	"FileId": 2948
-    	    }
-    	]
-    	    },
-    	    {
-    	"BackupConfigurationId": 100928,
-    	"MachineAgentId": 96685,
-    	"MachineName": "Database Server",
-    	"Flavor": "RaxCloudServer",
-    	"IsEncrypted": false,
-    	"BackupConfigurationName": "Manual DB Backup",
-    	"IsActive": true,
-    	"IsDeleted": false,
-    	"VersionRetention": 60,
-    	"BackupConfigurationScheduleId": 98019,
-    	"MissedBackupActionId": 2,
-    	"Frequency": "Manually",
-    	"StartTimeHour": null,
-    	"StartTimeMinute": null,
-    	"StartTimeAmPm": "",
-    	"DayOfWeekId": null,
-    	"HourInterval": null,
-    	"TimeZoneId": "Eastern Standard Time",
-    	"NextScheduledRunTime": null,
-    	"LastRunTime": "\/Date(1343226074000)\/",
-    	"LastRunBackupReportId": 80116,
-    	"NotifyRecipients": "user@rackspace.com",
-    	"NotifySuccess": false,
-    	"NotifyFailure": true,
-    	"Inclusions": [
-    	    {
-    	"FilePath": "/db/dumps/",
-    	"ParentId": 100928,
-    	"FileItemType": "Folder",
-    	"FileId": 3568
-    	    }
-    	],
-    	"Exclusions": [
-    	    {
-    	"FilePath": "/db/dumps/tmp/",
-    	"ParentId": 100928,
-    	"FileItemType": "Folder",
-    	"FileId": 3570
-    	    }
-    	]
-    	    }
-    	]
-    } 
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
 
       <section xml:id="getBackupConfigsAgent">
             <title>Get all backup configurations for agent</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup-configuration/system/{machineAgentId}</td>
-                     <td colspan="3">Gets a list of backup configurations for the specified agent.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the response attributes.</para>
             <para>
                <table rules="all">
@@ -4143,132 +2960,11 @@ the current user.
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and response:</para>
-            <example>
-               <title>Get all backup configurations for agent request: JSON</title>
-               <literallayout class="monospaced">
-     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/system/224193
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-  </literallayout>
-            </example>
-
-            <example>
-               <title>Get all backup configurations for agent response: JSON</title>
-               <literallayout class="monospaced">
-    {
-        [
-            {
-        "BackupConfigurationId": 158485,
-        "MachineAgentId": 224193,
-        "MachineName": "Web Server",
-        "Flavor": "RaxCloudServer",
-        "IsEncrypted": false,
-        "BackupConfigurationName": "Manual Log Backup",
-        "IsActive": true,
-        "IsDeleted": false,
-        "VersionRetention": 60,
-        "BackupConfigurationScheduleId": 155566,
-        "MissedBackupActionId": 1,
-        "Frequency": "Manually",
-        "StartTimeHour": null,
-        "StartTimeMinute": null,
-        "StartTimeAmPm": "",
-        "DayOfWeekId": null,
-        "HourInterval": null,
-        "TimeZoneId": "Eastern Standard Time",
-        "NextScheduledRunTime": "\/Date(-62135578800000)\/",
-        "LastRunTime": null,
-        "LastRunBackupReportId": null,
-        "NotifyRecipients": "user@rackspace.com",
-        "NotifySuccess": true,
-        "NotifyFailure": true,
-        "Inclusions": [
-            {
-        "FilePath": "C:\\Websites\\Logs",
-        "ParentId": 158485,
-        "FileItemType": "Folder",
-        "FileId": 47085
-            }
-        ],
-        "Exclusions": [ ]
-            },
-            {
-        "BackupConfigurationId": 158486,
-        "MachineAgentId": 224193,
-        "MachineName": "Web Server",
-        "Flavor": "RaxCloudServer",
-        "IsEncrypted": false,
-        "BackupConfigurationName": "Weekly Website Backup",
-        "IsActive": true,
-        "IsDeleted": false,
-        "VersionRetention": 60,
-        "BackupConfigurationScheduleId": 155567,
-        "MissedBackupActionId": 1,
-        "Frequency": "Weekly",
-        "StartTimeHour": 7,
-        "StartTimeMinute": 23,
-        "StartTimeAmPm": "AM",
-        "DayOfWeekId": 1,
-        "HourInterval": null,
-        "TimeZoneId": "Eastern Standard Time",
-        "NextScheduledRunTime": "\/Date(1358752980000)\/",
-        "LastRunTime": null,
-        "LastRunBackupReportId": null,
-        "NotifyRecipients": "user@rackspace.com",
-        "NotifySuccess": true,
-        "NotifyFailure": true,
-        "Inclusions": [
-            {
-        "FilePath": "C:\\Websites",
-        "ParentId": 158486,
-        "FileItemType": "Folder",
-        "FileId":47086
-            },
-            {
-        "FilePath": "C:\\Websites\\Logs",
-        "ParentId": 158486,
-        "FileItemType": "Folder",
-        "FileId":47087
-            }
-        ],
-        "Exclusions": []
-            }
-        ]
-    }      
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
 
       <section xml:id="enableBackupConfig">
             <title>Enable or disable a backup configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/backup-configuration/enable/{backupConfigurationId}</td>
-                     <td colspan="3"> Enables/Disables a backup configuration.
-Disabling a backup configuration does not delete it nor its data.
-Disabled backup configurations may later be re-enabled.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
             <para>The following table lists and describes the request attributes.</para>
             <para>
                <table rules="all">
@@ -4464,181 +3160,15 @@ Disabled backup configurations may later be re-enabled.</td>
                   </tbody>
                </table>
             </para>
-            <para> </para>
-            <para> The following examples show requests to enable and
-          disable a backup configuration, as well as the corresponding
-          response to disable a backup configuration:</para>
-
-            <example>
-               <title>Enable a backup configuration request: JSON</title>
-               <literallayout class="monospaced">
-   POST   https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/enable/148325
-          User-Agent: controlpanel.drivesrvr.com
-          Host: dfw.backup.api.rackspacecloud.com
-          Content-Type: application/json;
-          Content-Length: 0
-          X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-        {
-          "Enable": true
-        }     
-      </literallayout>
-            </example>
-            <example>
-               <title>Disable a backup configuration request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "Enable": false
-    }      
-      </literallayout>
-            </example>
-
-            <example>
-               <title>Disable a backup configuration response: JSON</title>
-               <literallayout class="monospaced">
-  {
-        "BackupConfigurationId": 148325,
-        "MachineAgentId": 156953,
-        "MachineName": "Web Server",
-        "Flavor": "RaxCloudServer",
-        "IsEncrypted": false,
-        "BackupConfigurationName": "Weekly Website Backup",
-        "IsActive": true,
-        "IsDeleted": false,
-        "VersionRetention": 60,
-        "BackupConfigurationScheduleId": 145406,
-        "MissedBackupActionId": 1,
-        "Frequency": "Weekly",
-        "StartTimeHour": 11,
-        "StartTimeMinute": 30,
-        "StartTimeAmPm": "AM",
-        "DayOfWeekId": 4,
-        "HourInterval": null,
-        "TimeZoneId": "Eastern Standard Time",
-        "NextScheduledRunTime": "\/Date(1357817400000)\/",
-        "LastRunTime": null,
-        "LastRunBackupReportId": null,
-        "NotifyRecipients": "raxtestaddress@rackspace.com",
-        "NotifySuccess": false,
-        "NotifyFailure": false,
-        "Inclusions": [
-            {
-        "FilePath": "C:\\backed_up_folder",
-        "ParentId": 148325,
-        "FileItemType": "Folder",
-        "FileId": 35000
-            },
-            {
-        "FilePath": "C:\\backup_up_file.txt",
-        "ParentId": 148325,
-        "FileItemType": "File",
-        "FileId": 34999
-            }
-        ],
-        "Exclusions":[
-            {
-        "FilePath": "C:\\backed_up_folder\\excluded_folder",
-        "ParentId": 148325,
-        "FileItemType": "Folder",
-        "FileId": 35002
-            },
-            {
-        "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
-        "ParentId": 148325,
-        "FileItemType": "File",
-        "FileId": 35001
-            }
-        ]
-    }    
-      </literallayout>
-            </example>
          </section>
-         <?hard-pagebreak?>
-      
-      <section xml:id="deleteBackupConfig">
-            <title>Delete backup configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>DELETE</command>
-                     </td>
-                     <td colspan="2">/backup-configuration/{backupConfigurationId}</td>
-                     <td colspan="3">Deletes the specified backup configuration.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>Following is an example request for Delete Backup
-               Configuration:</para>
-            <example>
-               <title>Delete backup configuration request: JSON</title>
-               <literallayout class="monospaced">
-     DELETE   https://dfw.backup.api.rackspacecloud.com/v1.0/backup-configuration/148325
-      User-Agent: controlpanel.drivesrvr.com
-      Host: dfw.backup.api.rackspacecloud.com
-      Content-Type: application/json;
-      Content-Length: 0
-      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-     
-      </literallayout>
-            </example>
-         </section>     
+         <?hard-pagebreak?>     
     </section>
       <?hard-pagebreak?>
     
     <section xml:id="Backup">
          <title>Backup operations</title>
-         <para>Following are the operations within this section:</para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/backup/action-requested</td>
-                  <td colspan="3">Starts or Stops a Backup. Returns: Identifier of the instance
-      of the backup.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup/{backupId}</td>
-                  <td colspan="3">Gets details about the specified backup.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup/completed/
-      {backupConfigurationId}</td>
-                  <td colspan="3">Gets the details for backups that can still be restored.
-      Backups are returned only for the specified Backup
-      Configuration.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup/report/{backupId}</td>
-                  <td colspan="3">Gets details about a completed Backup.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes backup
-             operations that are supported by the Cloud Backup API. </para>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
+            operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
                <wadl:method href="startStopBackupManually"/>
@@ -4658,38 +3188,6 @@ Disabled backup configurations may later be re-enabled.</td>
     
       <section xml:id="startBackup">
             <title>Start or stop a backup manually</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1">
-                        <command>POST</command>
-                     </td>
-                     <td colspan="2">/backup/action-requested</td>
-                     <td colspan="3">Starts or Stops a Backup.
-Returns: Identifier of the instance of the backup.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK)--When manually
-               starting a backup; 204 (No Content)--When manually
-               stopping a backup </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500)</simpara>
-            <para>When manually starting a backup, provide the Backup Configuration identifier 
-  (BackupConfigurationId) for the ID. You may retrieve a list of all Backup 
-  Configurations for an Agent with the "Get All Backup Configurations for an Agent" 
-  operation.
-</para>
-            <para>When manually stopping a backup, provide the Backup Identifier for the ID. The
-               backup Id is given when the backup is started. </para>
             <para>The following tables list and describe the request
                and response attributes for Start a Backup
                Manually.</para>
@@ -4798,44 +3296,11 @@ Returns: Identifier of the instance of the backup.</td>
                   </tbody>
                </table>
             </para>
-            <example>
-               <title>Stop a backup manually request: JSON</title>
-               <literallayout class="monospaced">
-    {
-    	"Action" : "StopManual",
-    	"Id": 368785
-    }
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
 
       <section xml:id="getBackupDetails">
             <title>Get backup details</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup/{backupId}</td>
-                     <td colspan="3">Gets details about the specified backup.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para><emphasis role="bold">Note</emphasis>: The
-               authenticated user must have access to the specified
-               backup in order to retrieve its details.</para>
             <para>The following table lists and describes the response attributes.</para>
             <para>
                <table rules="all">
@@ -4909,76 +3374,11 @@ Returns: Identifier of the instance of the backup.</td>
                   </tbody>
                </table>
             </para>
-            <para>The following example shows the request and corresponding response to get backup
-               details:</para>
-
-            <example>
-               <title>Get backup details request: JSON</title>
-               <literallayout class="monospaced">
-    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/backup/134332
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-
-            <example>
-               <title>Get backup details response: JSON</title>
-               <literallayout class="monospaced">
-    {
-        "BackupId": 134332,
-        "BackupConfigurationId": 158519,
-        "CurrentState": "Queued",
-        "BackupConfigurationName": "Weekly Website Backup",
-        "MachineAgentId": 224321,
-        "MachineName": "Web Server",
-        "StateChangeTime": "\/Date(1358530097000)\/",
-        "IsEncrypted": false,
-        "EncryptionKey": {
-            "ModulusHex": "a3261939975948bb7a58dffe5ff54e65f0498f9
-            175f5a09288810b8975871e99af3b5dd94057b0fc07535f5f97444
-            504fa35169d461d0d30cf0192e307727c065168c788771c561a940
-            0fb49175e9e6aa4e23fe11af69e9412dd23b0cb6684c4c2429bce1
-            39e848ab26d0829073351f4acd36074eafd036a5eb83359d2a698d5",
-            "ExponentHex": 20010
-        }
-    }      
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="getBackups">
             <title>Get completed backups</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup/completed/{backupConfigurationId}</td>
-                     <td colspan="3">Gets the details for backups that can still be
-restored. Backups are returned only for the specified 
-Backup Configuration.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>The BackupConfigurationId is specific to the agent. You can retrieve a list of all
-               Backup Configurations for an Agent with the "Get All Backup Configurations for an
-               Agent" operation.</para>
-            <para>The authenticated user must have access to the specified backup configuration. </para>
             <para>The following table lists and describes the response attributes.</para>
             <para>
                <table rules="all">
@@ -5044,188 +3444,15 @@ Backup Configuration.</td>
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and a response:</para>
-            <example>
-               <title>Get completed backups request: JSON</title>
-               <literallayout class="monospaced">
-    GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/completed/158638
-      User-Agent: controlpanel.drivesrvr.com
-      Host: dfw.backup.api.rackspacecloud.com
-      Content-Type: application/json;
-      Content-Length: 0
-      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
-      </literallayout>
-            </example>
-            <example>
-               <title>Get completed backups response: JSON</title>
-               <literallayout class="monospaced">
-    {
-      [
-          {
-      "BackupId": 134386,
-      "BackupConfigurationId": 158638,
-      "BackupConfigurationName": "Weekly Website Backup",
-      "MachineName": "Web Server",
-      "MachineAgentId": 224505,
-      "CompletedTime": "\/Date(1358535352000)\/",
-      "BytesSearched": 10245674584,
-      "NumErrors": 0
-          }
-      ]
-    }      
-      </literallayout>
-            </example>
          </section>
-         <?hard-pagebreak?>
-      
-      <section xml:id="getBackupReport">
-            <title>Get backup report</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/backup/report/{backupId}</td>
-                     <td colspan="3">Gets details about a completed Backup.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>Following are examples of a request and a response to get a backup report.</para>
-            <example>
-               <title>Get backup report request: JSON</title>
-               <literallayout class="monospaced">
-     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/report/92500
-      User-Agent: controlpanel.drivesrvr.com
-      Host: dfw.backup.api.rackspacecloud.com
-      Content-Type: application/json;
-      Content-Length: 0
-      X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe   
-      </literallayout>
-            </example>
-
-            <example>
-               <title>Get backup report response: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "BackupId": 92500,
-      "BackupConfigurationId": 101145,
-      "BackupConfigurationName": "Database Server Backup",
-      "BackupConfigurationIsDeleted": false,
-      "ComputerName": "Database Server",
-      "MachineAgentId": 95874,
-      "State": "CompletedWithErrors",
-      "CanRestore": true,
-      "StartTime": "\/Date(1351118760000)\/",
-      "CompletedTime": "\/Date(1351119033000)\/",
-      "Duration": "00:04:33",
-      "FilesSearched": "11936",
-      "BytesSearched": "3.7 GB",
-      "FilesBackedUp": "6",
-      "BytesBackedUp": "178.1 MB",
-      "NumErrors": 2,
-      "Reason": "Success",
-      "Diagnostics": "Completed With Errors",
-      "ErrorList": [
-          {
-      "BackupReportID": 48785,
-      "ListIndex": 3210,
-      "ErrorType": 101,
-      "ErrorDesc": "The agent experienced a problem. (Rax)",
-      "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft 
-      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The 
-      process cannot access the file because it is being used by another 
-      process. .",
-      "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open] 
-      Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft 
-      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The 
-      process cannot access the file because it is being used by another 
-      process. .",
-      "ExceptionCode": 313,
-      "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
-      MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf"
-          },
-          {
-      "BackupReportID": 48785,
-      "ListIndex": 3211,
-      "ErrorType": 101,
-      "ErrorDesc": "The agent experienced a problem. (Rax)",
-      "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft 
-      SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The 
-      process cannot access the file because it is being used by another 
-      process. .",
-      "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open] 
-      Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft SQL 
-      Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The process 
-      cannot access the file because it is being used by another process. .",
-      "ExceptionCode": 313,
-      "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
-      MSSQLSERVER\\MSSQL\\DATA\\templog.ldf"
-          }
-      ]
-    }      
-      </literallayout>
-            </example>
-         </section>     
+         <?hard-pagebreak?>     
     </section>
       <?hard-pagebreak?>
     
     <section xml:id="RestoreConfig">
-         <title>Restore configuration operations</title>
-         <para>Following are the operations within this section: </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>PUT</command>
-                  </td>
-                  <td colspan="2">/restore</td>
-                  <td colspan="3">Creates a new restore configuration.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/restore</td>
-                  <td colspan="3">Updates an existing restore configuration.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>PUT</command>
-                  </td>
-                  <td colspan="2">/restore/files</td>
-                  <td colspan="3">Creates a restore file associated with a restore.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/restore/files/{restoreId}</td>
-                  <td colspan="3">Lists Files included/excluded for a restore.</td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>DELETE</command>
-                  </td>
-                  <td colspan="2">/restore/files/{restoreId}</td>
-                  <td colspan="3">Deletes a Restore Configuration file.</td>
-               </tr>
-            </tbody>
-         </informaltable>         
-       <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes restore configuration
-            operations that are supported by the Cloud Backup API. </para>
+         <title>Restore configuration operations</title>         
+       <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
+            configuration operations that are supported by the Cloud Backup API. </para>
        <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
           <wadl:resource href="../../src/wadl/rcbu.wadl#restore">
              <wadl:method href="createRestoreConfig"/>
@@ -5243,28 +3470,6 @@ Backup Configuration.</td>
 
       <section xml:id="createRestoreConfig">
             <title>Create a restore configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>PUT</command>
-                     </td>
-                     <td colspan="2">/restore</td>
-                     <td colspan="3">Creates a new restore configuration.<?linebreak?>
-Returns: Detailed information about the restore</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
             <para>The following table lists and describes the response attributes.</para>
             <para>
                <table rules="all">
@@ -5411,85 +3616,11 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para> </para>
-            <para>The following examples show a request and a response.</para>
-            <example>
-               <title>Create a restore configuration request: JSON</title>
-               <literallayout class="monospaced">
-    {
-"BackupId": 133599,
-"BackupMachineId": 156953,
-"DestinationMachineId": 156751,
-"DestinationPath": "C:\\FolderPathForRestore\\",
-"OverwriteFiles": false
-    }
-  </literallayout>
-            </example>
-            <example>
-               <title>Create a restore configuration response: JSON</title>
-               <literallayout class="monospaced">
-      {
-      "RestoreId": 1394,
-      "BackupId": 133599,
-      "DestinationMachineId": 156751,
-      "OverwriteFiles": true,
-      "BackupConfigurationId": 6265,
-      "BackupConfigurationName": "Restore_Backup",
-      "BackupRestorePoint": "\/Date(1357151359000)\/",
-      "BackupMachineId": 5,
-      "BackupMachineName": "BALAJIMBP",
-      "BackupFlavor": "RaxCloudServer",
-      "DestinationMachineName": "BILLS-TEST-WIN",
-      "DestinationPath": "C:\\FolderPathForRestore\\",
-      "IsEncrypted": false,
-      "EncryptedPassword": null,
-      "PublicKey": {
-         "ModulusHex": "CA759606B13DC5350A3FAE3F851C76F260DC
-         CD1EFF2DB7510AE74E00B4B2B6025422757493B2EC09B2C71DF
-         ACFF4901E4ADAA3C9F2E6BDE9392E80FEED6F1F81BFD1D3AD9F
-         9080646F46632C30A94275C85859C1EFCD21BF911F311841914
-         BC719B1397FD3B95BE7657495903936E3345E6F083922F37761
-         0CBB6EB67C62B719770B25C9AB17521C2AB51B75871ED5F04F9
-         65C5402443ABCD05EE5E4A5201641309B8BA1100A04C62210B2
-         900CDEAA40F6EBF267B73634E471DB1420FF67CE41940D8ED8F
-         4B6C199CF5D023B410C386C58037546D34102D245AF068E891B
-         B80F1799DDC4C9C85C6FF73DA1E45AEC98792BCC1C2DE3AAD3F
-         92F50F1661A4FFDC1",
-         "ExponentHex": 10001
-         },
-     "RestoreStateId": 0
-     }
-  </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="updateRestoreConfig">
             <title>Update a restore configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>POST</command>
-                     </td>
-                     <td colspan="2">/restore</td>
-                     <td colspan="3">Updates an existing restore configuration.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>Restores can only be updated while in the "Creating" state.
-  Use "Get Restore Details" to view the current state of a Restore.
-  </para>
             <para>The following table lists and describes the request attributes.</para>
             <para>
                <table rules="all">
@@ -5568,48 +3699,11 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para>Following is an example request:</para>
-            <example>
-               <title>Update a restore configuration request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "RestoreId": 14387,
-      "BackupConfigurationId": 148325,
-      "RestoreStateId": 1,
-      "BackupMachineId": 156953,
-      "DestinationMachineId": 156953,
-      "DestinationPath": "C:\\RestoredPath",
-      "BackupId": 133599,
-      "OverwriteFiles": true
-    }      
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="editFilesinRestoreConfiguation">
             <title>Include or exclude a file in restore configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>PUT</command>
-                     </td>
-                     <td colspan="2">/restore/files</td>
-                     <td colspan="3">Creates a restore file associated with a restore.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the
           Include/Exclude File in Restore Configuration request
           attributes.</para>
@@ -5672,48 +3766,11 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para>Following is an example request:</para>
-            <example>
-               <title>Include a file in restore configuration request: JSON</title>
-               <literallayout class="monospaced">
-    {
-      "FilePath": "C:\\ImportantFile.txt",
-      "Filter": "1",
-      "ParentId": 14387,
-      "FileItemType": "0"
-    }      
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="listFilesinRestoreConfig">
             <title>List included or excluded files in a restore configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/restore/files/{restoreId}</td>
-                     <td colspan="3">Lists Files included/excluded for a restore.
-      </td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>This call allows you list the files in a restore configuration. You may choose to
-               view the included or the excluded files. You may also limit your list to files,
-               folders, or databases.</para>
             <para>The following table lists and describes the request attributes.</para>
             <para>
                <table rules="all">
@@ -5761,122 +3818,20 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para>The following examples show requests: </para>
-            <example>
-               <title>List included or excluded files in a restore configuration request:
-                  JSON</title>
-               <literallayout class="monospaced">
-       GET    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/files/148325
-              User-Agent: controlpanel.drivesrvr.com
-              Host: dfw.backup.api.rackspacecloud.com
-              Content-Type: application/json;
-              Content-Length: 0
-              X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-            <example>
-               <title>List included or excluded files in a restore configuration request:
-                  JSON</title>
-               <literallayout class="monospaced">
-  [
-    {
-        "FilePath":"/boot",
-        "Filter":2,
-        "RestoreId":1394,
-        "FileItemType":1 
-    }
-    ]    
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
-
-      <section xml:id="deleteRstoreConfiguration">
-            <title>Delete a restore configuration</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>DELETE</command>
-                     </td>
-                     <td colspan="2">/restore/files/{restoreFileID}</td>
-                     <td colspan="3">Deletes a Restore Configuration file.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 204 (No Content) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
-            <para>Following is an example Delete a Restore
-               Configuration request:</para>
-            <example>
-               <title>Delete a restore configuration request: JSON</title>
-               <literallayout class="monospaced">
-    DELETE    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/files/1394
-              User-Agent: controlpanel.drivesrvr.com
-              Host: dfw.backup.api.rackspacecloud.com
-              Content-Type: application/json;
-              Content-Length: 0
-              X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe 
-      </literallayout>
-            </example>
-         </section>
     </section>
       <?hard-pagebreak?>
       
       <section xml:id="Restore-Operations"><title>Restore operations</title>
-      <para>It is a good idea to periodically test your restores to make sure that they are working
-            as you expect. The worst possible scenario is to need your data restored now, and then
-            to discover that your data isn't available because your backups haven't been configured
+      <para>You should periodically test your restores to make sure that they are working as you
+            expect. The worst possible scenario is to need your data restored now, and then to
+            discover that your data is not available because your backups have not been configured
             as you expected. </para>
       <para>Another point to consider is the restore destination. Restoring to the original location
             and overwriting saves the most storage space, but comes with the risk that you might
             accidentally overwrite important, existing files. Proceed with caution when restoring. </para>
-      <para>Following are the operations within this section: </para>
-      <informaltable rules="all">
-         <thead>
-            <tr align="center">
-               <td colspan="1">Verb</td>
-               <td colspan="2">URI</td>
-               <td colspan="3">Description</td>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td colspan="1"><command>GET</command>
-               </td>
-               <td colspan="2">/backup/availableforrestore</td>
-               <td colspan="3">Lists the Backups that are eligible for restore (a backup that has
-                  completed at least once and has not been deleted and is not expired).</td>
-            </tr>
-            <tr>
-               <td colspan="1"><command>POST</command>
-               </td>
-               <td colspan="2">/restore/action-requested</td>
-               <td colspan="3">Manually starts or stops a restore.</td>
-            </tr>
-            <tr>
-               <td colspan="1"><command>GET</command>
-               </td>
-               <td colspan="2">/restore/{restoreId}</td>
-               <td colspan="3">Gets details about a specified Restore.</td>
-            </tr>
-            <tr>
-               <td colspan="1"><command>GET</command>
-               </td>
-               <td colspan="2">/restore/report/{restoreId}</td>
-               <td colspan="3">Gets a report for a completed Restore.</td>
-            </tr>
-         </tbody>
-      </informaltable>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes restore
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
             operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
             <wadl:resource href="../../src/wadl/rcbu.wadl#backupAvailableForRestore">
@@ -5892,103 +3847,10 @@ Returns: Detailed information about the restore</td>
                <wadl:method href="getRestoreReport"/>
             </wadl:resource>
          </wadl:resources>
-         <?hard-pagebreak?> 
-      <section xml:id="listBackups">
-         <title>List backups available for restore</title>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/backup/availableforrestore</td>
-                  <td colspan="3">Lists the Backups that are eligible for restore (a backup that has
-                     completed at least once and has not been deleted and is not expired). </td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <simpara>Normal Response Code(s): 200 (OK) </simpara>
-         <simpara>Error Response Code(s): Bad Request (400), Unauthorized (401), Forbidden (403),
-            Not Found (404), Service Unavailable (500) </simpara>
-         <para>Following are examples of a request and a response:</para>
-         <example>
-            <title>List backups available for restore request: JSON</title>
-            <literallayout class="monospaced">
-     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/backup/availableforrestore
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-         </example>
-         <example>
-            <title>List backups available for restore response: JSON</title>
-            <literallayout class="monospaced">
-    [
-            {
-       "BackupConfigurationId": 172418,
-       "BackupConfigurationName": "BackupConfig1",
-       "MachineName": "MBP0",
-       "MachineAgentId": 252036,
-       "IsEncrypted": false,
-       "PublicKeyHex": 10001,
-       "PublicKeyMod": "a5261939975948bb7a58dffe5ff54e65f0498f9175f5a0928
-       8810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf0
-       192e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd2
-       3b0cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb8335
-       9d2a698d3",
-       "Flavor": "RaxCloudServer",
-       "LastSuccessfulBackupTime": "\/Date(1360701971000)\/"
-       },
-       {
-       "BackupConfigurationId": 172417,
-       "BackupConfigurationName": "BackupCOnfig2",
-       "MachineName": "MBP2",
-       "MachineAgentId": 252034,
-       "IsEncrypted": false,
-       "PublicKeyHex": 10001,
-       "PublicKeyMod": "a5261939975948bb7a58dffe5ff54e65f0498f9175f5a09288
-       810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf019
-       2e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd23b0
-       cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb83359d2a
-       698d3",
-       "Flavor": "RaxCloudServer",
-       "LastSuccessfulBackupTime": "\/Date(1360701957000)\/"
-       }
-     ]
-      </literallayout>
-         </example>
-      </section>
+         <?hard-pagebreak?>
       <?hard-pagebreak?>
       <section xml:id="startRestore">
          <title>Start or stop a restore manually</title>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>POST</command>
-                  </td>
-                  <td colspan="2">/restore/action-requested</td>
-                  <td colspan="3">Manually starts or stops a restore.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <simpara>Normal Response Code(s): 204 (No Content) </simpara>
-         <simpara>Error Response Code(s): Bad Request (400), Unauthorized (401), Forbidden (403),
-            Not Found (404), Service Unavailable (500) </simpara>
          <para>The following tables list and describe the attributes for the Start Encrypted
             Restore, Start Unencrypted Restore, and Stop Restore Manually requests.</para>
          <para>
@@ -6056,58 +3918,10 @@ Returns: Detailed information about the restore</td>
             </table>
          </para>
          <para>In the examples below, ID is the identifier of the restore you wish to start or stop. </para>
-         <example>
-            <title>Start encrypted restore request: JSON</title>
-            <literallayout class="monospaced">
-    {
-      "Action": "StartManual",
-      "EncryptedPassword" : 'myencryptedpassword',
-      "Id": 13689
-    }
-      </literallayout>
-         </example>
-         <example>
-            <title>Start unencrypted restore request: JSON</title>
-            <literallayout class="monospaced">
-    {
-      "Action": "StartManual",
-      "Id": 13692
-    }    
-      </literallayout>
-         </example>
-         <example>
-            <title>Stop restore manually request: JSON</title>
-            <literallayout class="monospaced">
-    {
-      "Action": "StopManual",
-      "Id": 13689
-    }    
-      </literallayout>
-         </example>
       </section>
       <?hard-pagebreak?>
       <section xml:id="getRestoreDetails">
          <title>Get details about a restore</title>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/restore/{restoreId}</td>
-                  <td colspan="3">Gets details about a specified Restore.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <simpara>Normal Response Code(s): 200 (OK) </simpara>
-         <simpara>Error Response Code(s): Bad Request (400), Unauthorized (401), Forbidden (403),
-            Not Found (404), Service Unavailable (500) </simpara>
          <para>The following table lists and describes the attributes for the response.</para>
          <para>
             <table rules="all">
@@ -6222,75 +4036,10 @@ Returns: Detailed information about the restore</td>
                </tbody>
             </table>
          </para>
-         <para>Following are examples of a Get Details about a Restore request and response:</para>
-         <example>
-            <title>Get details about a restore request: JSON</title>
-            <literallayout class="monospaced">
-    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/restore/1394
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-         </example>
-         <example>
-            <title>Get details about a restore response: JSON</title>
-            <literallayout class="monospaced">
-    {
-      "RestoreId":1394,
-      "BackupId":133886,
-      "DestinationMachineId":864,
-      "OverwriteFiles":true,
-      "BackupConfigurationId":6270,
-      "BackupConfigurationName":"Restore_Backup",
-      "BackupRestorePoint":"\/Date(1357151359000)\/",
-      "BackupMachineId":866,
-      "BackupMachineName":"sujala-test-centos",
-      "BackupFlavor":"RaxCloudServer",
-      "DestinationMachineName":"BILLS-TEST-WIN",
-      "DestinationPath":"C:\\Test\\",
-      "IsEncrypted":false,
-      "EncryptedPassword":null,
-      "PublicKey":{"ModulusHex":"CA759606B13DC5350A3FAE3F851C7
-       6F260DCCD1EFF2DB7510AE74E00B4B2B6025422757493B2EC09B2C7
-       1DFACFF4901E4ADAA3C9F2E6BDE9392E80FEED6F1F81BFD1D3AD9F9
-       080646F46632C30A94275C85859C1EFCD21BF911F311841914BC719
-       B1397FD3B95BE7657495903936E3345E6083922F377610CBB6EB67C
-       62B719770B25C9AB17521C2AB51B75871ED5F04F965C5402443ABCD
-       05EE5E4A5201641309B8BA1100A04C62210B2900CDEAA40F6EBF267
-       B73634E471DB1420FF67CE41940D8ED8F4B6C199CF5D023B410C386
-       C58037546D34102D245AF068E891BB80F1799DDC4C9C85C6FF73DA1
-       E45AEC98792BCC1C2DE3AAD3F92F50F1661A4FFDC1",
-       "ExponentHex":10001},
-      "RestoreStateId":3
-    }
-      </literallayout>
-         </example>
       </section>
       <?hard-pagebreak?>
       <section xml:id="getRestoreReport">
          <title>Get restore report</title>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/restore/report/{restoreId}</td>
-                  <td colspan="3"> Gets a report for a completed Restore.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <simpara>Normal Response Code(s): 200 (OK) </simpara>
-         <simpara>Error Response Code(s): Bad Request (400), Unauthorized (401), Forbidden (403),
-            Not Found (404), Service Unavailable (500) </simpara>
          <para>The following table lists and describes the attributes for the Get Restore Report
             response. </para>
          <para>
@@ -6395,75 +4144,12 @@ Returns: Detailed information about the restore</td>
                </tbody>
             </table>
          </para>
-         <para>Following are examples of a request and response:</para>
-         <example>
-            <title>Get restore report request: JSON</title>
-            <literallayout class="monospaced">
-    GET    https://dfw.backup.api.rackspacecloud.com/v1.0/restore/report/1394
-           User-Agent: controlpanel.drivesrvr.com
-           Host: dfw.backup.api.rackspacecloud.com
-           Content-Type: application/json;
-           Content-Length: 0
-           X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe      
-      </literallayout>
-         </example>
-         <example>
-            <title>Get restore report response: JSON</title>
-            <literallayout class="monospaced">
-    {
-      "BackupConfigurationId":6270,
-      "BackupConfigurationName":"Restore_Backup",
-      "BackupReportId":133886,
-      "RestorePoint":"\/Date(1357151359000)\/",
-      "StartTime":"\/Date(1357226521000)\/",
-      "CompletedTime":"\/Date(1357226535000)\/",
-      "Duration":"00:00:14",
-      "OriginatingComputerName":"sujala-test-centos",
-      "State":"CompletedWithErrors",
-      "NumFilesRestored":"35",
-      "NumBytesRestored":"18 MB",
-      "RestoreDestination":"BILLS-TEST-WIN",
-      "RestoreDestinationMachineId":864,
-      "NumErrors":"1",
-      "Reason":"UnableToProcessSomeFiles",
-      "Diagnostics":"Some files may not have been restored",
-      "ErrorList":[ ]
-    }      
-      </literallayout>
-         </example>
       </section>
       <?hard-pagebreak?>
       </section>
     <section xml:id="Activity">
-         <title>Activity operations</title>
-         <para>Following are the operations within this section: </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/system/activity/{agentId}</td>
-                  <td colspan="3">Lists all in progress and completed activity for
-              an agent. </td>
-               </tr>
-               <tr>
-                  <td colspan="1"><command>GET</command>
-                  </td>
-                  <td colspan="2">/activity</td>
-                  <td colspan="3">Gets a listing of all activity completed or in progress for the
-      user.
-    </td>
-               </tr>
-            </tbody>
-         </informaltable>  
-       <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes activity
+         <title>Activity operations</title>  
+       <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the activity
             operations that are supported by the Cloud Backup API. </para>
        <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
           <wadl:resource href="../../src/wadl/rcbu.wadl#system_activity_agentId">
@@ -6477,29 +4163,6 @@ Returns: Detailed information about the restore</td>
       
       <section xml:id="listAllActivity">
             <title>List activity for an agent</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/system/activity/{agentId}</td>
-                     <td colspan="3">Lists all in progress and
-                        completed activity for an agent. Activity
-                        types are Backup, Cleanup, and Restore.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Not Found (404),
-               Service Unavailable (500) </simpara>
             <para>The following table lists and describes the attributes
           for the List Activity for an Agent response.</para>
             <para>
@@ -6582,68 +4245,11 @@ Returns: Detailed information about the restore</td>
                   </tbody>
                </table>
             </para>
-            <para>Following are examples of a request and response:</para>
-            <example>
-               <title>List activity for an agent request: JSON</title>
-               <literallayout class="monospaced">
-    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/system/activity/232180
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-            <example>
-               <title>List activity for an agent response: JSON</title>
-               <literallayout class="monospaced">
-    {
-        [
-            {
-        "ID": 137987,
-        "Type": "Backup",
-        "ParentId": 162423,
-        "DisplayName": "Weekly Website Backup",
-        "IsBackupConfigurationDeleted": false,
-        "SourceMachineAgentId": 232180,
-        "SourceMachineName": "Web Server",
-        "DestinationMachineAgentId": 0,
-        "DestinationMachineName": "",
-        "CurrentState": "Completed",
-        "TimeOfActivity": "\/Date(1359033934000)\/"
-            }
-        ]
-    }
-      </literallayout>
-            </example>
          </section>
          <?hard-pagebreak?>
       
       <section xml:id="getAllActivity">
             <title>List activity for user</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1"><command>GET</command>
-                     </td>
-                     <td colspan="2">/activity</td>
-                     <td colspan="3">Gets a listing of all activity 
-completed or in progress for the user.
-</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>Normal Response Code(s): 200 (OK) </simpara>
-            <simpara>Error Response Code(s): Bad Request (400),
-               Unauthorized (401), Forbidden (403), Service
-               Unavailable (500) </simpara>
             <para>The following table lists and describes the attributes
           for the List Activity for User response.</para>
             <para>
@@ -6726,54 +4332,6 @@ completed or in progress for the user.
                   </tbody>
                </table>
             </para>
-            <para> </para>
-            <para>Following are examples of a request and a response:</para>
-            <example>
-               <title>List activity for user request: JSON</title>
-               <literallayout class="monospaced">
-    GET     https://dfw.backup.api.rackspacecloud.com/v1.0/activity
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0
-            X-Auth-Token: 95b17889-06f7-4d27-9d03-001c6a14f3fe
-      </literallayout>
-            </example>
-            <example>
-               <title>List activity for user response: JSON</title>
-               <literallayout class="monospaced">
-    {
-      [
-           {
-          "ID": 134692,
-          "Type": "Backup",
-          "ParentId": 6265,
-          "DisplayName": "Backup1",
-          "IsBackupConfigurationDeleted": false,
-          "SourceMachineAgentId": 5,
-          "SourceMachineName": "BALAJIMBP",
-          "DestinationMachineAgentId": 0,
-          "DestinationMachineName": "",
-          "CurrentState": "Completed",
-          "TimeOfActivity": "\/Date(1357230189000)\/"
-              },
-              {
-          "ID": 134693,
-          "Type": "Backup",
-          "ParentId": 6265,
-          "DisplayName": "Backup1",
-          "IsBackupConfigurationDeleted": false,
-          "SourceMachineAgentId": 5,
-          "SourceMachineName": "BALAJIMBP",
-          "DestinationMachineAgentId": 0,
-          "DestinationMachineName": "",
-          "CurrentState": "Completed",
-          "TimeOfActivity": "\/Date(1357230189000)\/"
-              }
-       ]
-    }
-      </literallayout>
-            </example>
          </section>
     </section>
       <?hard-pagebreak?>
