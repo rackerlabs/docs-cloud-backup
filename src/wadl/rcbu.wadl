@@ -340,9 +340,9 @@
                   <representation mediaType="application/json"/>              
                </response>
             </method>
-<!--**************************-->
+<!--****************************-->
 <!-- Change encryption password -->
-<!--**************************-->        
+<!--****************************-->        
             <method name="POST" id="changeEncryptPassword">
                <wadl:doc title="Change encryption password">
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Changes the encryption password.</para>
@@ -361,7 +361,7 @@
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
                   <representation mediaType="application/text" element="backup:Backup">
                      <doc title="Change encryption password response">
-                        <xsdxt:code href="../wadl/samples/changeencryptPassword_response.txt"/>
+                        <xsdxt:code href="../wadl/samples/changeEncryptPassword_response.txt"/>
                      </doc>
                   </representation>
                </response>            
