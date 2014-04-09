@@ -195,7 +195,7 @@
          <method name="GET" id="getAgentDetails">
             <wadl:doc title="List agent details">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent.</para>
-               <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent with the wake up agents operation. You should wait 10-20 seconds after using this operation
+               <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in <xref linkend="POST_postWakeUpAgents_v1__tenant_id__user_wakeupagents_User"/>. You should wait 10-20 seconds after using this operation
                   to determine the online status of the agent reliably.</para></note>
             </wadl:doc>            
             <request>
@@ -405,7 +405,9 @@
                <wadl:doc title="Enable volume encryption">
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Enables volume encryption.</para>
                   <para xmlns="http://docbook.org/ns/docbook">This operation enables volume encryption with AES-256 encryption if it is not already enabled. 
-                     If you need assistance generating your encrypted key, see "Generating Your Encrypted Key In Cloud Backup" in the Rackspace Knowledge Center.
+                     If you need assistance generating your encrypted key, see <link
+                        xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
+                        >"Generating Your Encrypted Key In Cloud Backup"</link> in the Rackspace Knowledge Center.
                   </para>
                   <note xmlns="http://docbook.org/ns/docbook"><para>After encryption is turned on, you cannot turn it off. This is a security measure. If anyone 
                      ever gained access to your account, they would not be able to access your backups without your passphrase.</para></note>
@@ -424,7 +426,7 @@
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="EncryptedPasswordHex " style="plain" required="true" type="xsd:hexBinary" path="$.parameters.EncryptedPasswordHex">
-                        <doc><p xmlns="http://www.w3.org/1999/xhtml">Your encrypted password. If you need assistance generating your encrypted password, see "Generating Your Encrypted Key In Cloud Backup" in the Rackspace Knowledge Center. 
+                        <doc><p xmlns="http://www.w3.org/1999/xhtml">Your encrypted password. 
                         </p></doc>
                      </param>
                   </representation>                  
@@ -464,7 +466,9 @@
             <method name="POST" id="changeEncryptPassword">
                <wadl:doc title="Change encryption password">
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Changes the encryption password.</para>
-                  <para xmlns="http://docbook.org/ns/docbook">This operation changes the encryption password. If you need assistance generating your encrypted key, see "Generating Your Encrypted Key In Cloud Backup" in the Rackspace Knowledge Center.</para>
+                  <para xmlns="http://docbook.org/ns/docbook">This operation changes the encryption password. If you need assistance generating your encrypted key, see <link
+                     xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
+                     >"Generating Your Encrypted Key In Cloud Backup"</link> in the Rackspace Knowledge Center.</para>
                   <note xmlns="http://docbook.org/ns/docbook"><para>After you turn on encryption, you cannot turn it off. This is a security measure. If anyone ever gained access to your account, they would not be able to access your backups without your passphrase.</para></note>
                   <para xmlns="http://docbook.org/ns/docbook">If you lose or forget your passphrase, you will not be able to recover your encrypted backups.</para>
                </wadl:doc>
@@ -486,7 +490,7 @@
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="NewEncryptedPasswordHex " style="plain" required="true" type="xsd:hexBinary" path="$.parameters.NewEncryptedPasswordHex">
-                        <doc><p xmlns="http://www.w3.org/1999/xhtml">Your new encrypted password. If you need assistance generating your encrypted password, see "Generating Your Encrypted Key In Cloud Backup" in the Rackspace Knowledge Center. 
+                        <doc><p xmlns="http://www.w3.org/1999/xhtml">Your new encrypted password. 
                         </p></doc>
                      </param>
                   </representation>                  
@@ -906,8 +910,7 @@
             <wadl:doc title="List all agents for this user">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Retrieves information for all agents for the current user.</para>
                <note xmlns="http://docbook.org/ns/docbook"><para>Cloud Backup agent <code>Status</code> is always <code>Offline</code> in this call.</para>
-                  <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>,
-                     use the operation to list agent details.</para></note>
+                  <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>, use the operation described in <xref linkend="GET_getAgentDetails_v1__tenant_id__agent__machineAgentId__Agent"/>.</para></note>
             </wadl:doc>
                <request>
                   <representation mediaType="application/http" element="backup:Backup">
@@ -1077,7 +1080,7 @@
          <method name="POST" id="createBackupConfiguration">
             <wadl:doc title="Create backup configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a backup configuration for the authenticated user. Returns details of a backup configuration.</para>
-               <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configuration, use the operation to list backup configuration details.</para>
+               <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configurations, use <xref linkend="GET_getAllBackupConfigforAgent_v1__tenant_id__backup-configuration_system__machineAgentId__backupConfig"/>.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json" element="backup:Backup">
@@ -1284,7 +1287,7 @@
       <wadl:doc title="Update backup configuration">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing backup configuration.</para>
          <note xmlns="http://docbook.org/ns/docbook">
-            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see the description of the operation that lists all backup configurations.</para>
+            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see <xref linkend="GET_getBackupConfig_v1__tenant_id__backup-configuration__backupConfigurationId__backupConfig"/>.</para>
          </note>
       </wadl:doc>
       <request>
@@ -2494,6 +2497,34 @@
                  <doc>
                     <xsdxt:code href="../wadl/samples/createRestoreConfig_request.json"/>
                  </doc>
+                 <param name="." style="plain" path="$.parameters "/>         
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="BackupId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupId">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup. 
+                    </p></doc>
+                 </param>
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="BackupMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupMachineId">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine where your backup was originally made. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. 
+                       If you decide to restore to another system, different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId. This is an agent ID - MachineAgentID from the List agent details operation.) 
+                    </p></doc>
+                 </param>                 
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="DestinationMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationMachineId">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine to which you want the backups to restore. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. If you decide to restore to another system, 
+                       different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId. This is an agent ID - MachineAgentID from the List agent details operation. )
+                    </p></doc>
+                 </param>
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="DestinationPath" style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationPath">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml"> Specifies the path where you want the backup to restore.   
+                    </p></doc>
+                 </param>
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="OverwriteFiles" style="plain" required="true" type="xsd:boolean" path="$.parameters.OverwriteFiles">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
+                    </p></doc>
+                 </param> 
               </representation>
            </request>
            <response status="200">
@@ -2632,7 +2663,7 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing restore configuration.</para>
                <para xmlns="http://docbook.org/ns/docbook">
                 You can only update restore configurations while they are in the "Creating" state.
-                Use the operation to "List details about a restore" to view the current state of a restore.           
+                For details about the operation that you use to view the current state of a restore, see <xref linkend="GET_getRestoreDetails_v1__tenant_id__restore__restoreId__Restore-Operations"/>.           
                </para>
             </wadl:doc>
             <request>
@@ -3042,7 +3073,7 @@
          <method name="GET" id="getRestoreDetails">
             <wadl:doc title="List details about a restore">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the specified restore.</para>
-               <note xmlns="http://docbook.org/ns/docbook"><para>You can use the operation to list included or excluded files in a restore configuration to get the list of inclusions and exclusions.</para></note>
+               <note xmlns="http://docbook.org/ns/docbook"><para>For details about the operation that you can use to list included or excluded files in a restore configuration, see <xref linkend="GET_getRestoreFiles_v1__tenant_id__restore_files__restoreId__RestoreConfig"/>.</para></note>
             </wadl:doc>
             <request>
                <representation mediaType="application/http" element="backup:Backup">
@@ -3270,7 +3301,7 @@
                   </param> 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="RestoreDestinationMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.RestoreDestinationMachineId">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">SSpecifies the machine ID to which the files are restored. 
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the machine ID to which the files are restored. 
                      </p></doc>
                   </param>                
                   <param xmlns="http://wadl.dev.java.net/2009/02"

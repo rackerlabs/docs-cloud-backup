@@ -23,7 +23,7 @@
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <!-- enter the publication date of this document  -->
-    <pubdate>2014-02-14</pubdate>
+    <pubdate>2014-04-14</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the
@@ -39,6 +39,13 @@ Rackspace Cloud Backup Application Programming Interface
       <!--  Create entries for each published revision of the document stating the date and what changed, briefly
     -->
     <revhistory>
+         <revision>
+            <date>2014-04-14</date>
+            <revdescription>
+               <para>Reworked <xref linkend="operations"/> to use a Web Application Description
+                  Language (WADL) file for the operation descriptions.</para>
+            </revdescription>
+         </revision>
          <revision>
             <date>2014-02-14</date>
             <revdescription>
@@ -82,8 +89,8 @@ Rackspace Cloud Backup Application Programming Interface
                         request.</para>
                   </listitem>
                   <listitem>
-                     <para>Changed normal response code from 200 to 204 for the Delete a restore
-                        configuration operation.</para>
+                     <para>Changed normal response code from 200 to 204 for the operations that
+                        deletes a restore configuration operation.</para>
                   </listitem>
                   <listitem>
                      <para>Added <code>BackupMachineId</code> parameter description to the operation
@@ -153,8 +160,8 @@ Rackspace Cloud Backup Application Programming Interface
                      <para>Added the operation to migrate the vault to <xref linkend="Agent"/>. </para>
                   </listitem>
                   <listitem>
-                     <para>Added the operation to update agent backup behavior to the agent
-                        operations. </para>
+                     <para>Added the operation to update agent backup behavior to <xref
+                           linkend="Agent"/>. </para>
                   </listitem>
                   <listitem>
                      <para>Updated regionalized service endpoints and
@@ -174,16 +181,14 @@ Rackspace Cloud Backup Application Programming Interface
                            <xref linkend="operations"/>.</para>
                 </listitem>
                 <listitem>
-                   <para>Corrected examples in the manually start a restore operation
-                        description.</para>
+                   <para>Corrected examples in the operation description to manually start a
+                        restore.</para>
                 </listitem>
                    <listitem>
-                   <para>Updated information about the use of
-                      authentication endpoints in <xref
-                         linkend="Authentication-d1e647"/>. You can
-                      now use either the US endpoint or UK endpoint
-                      to access the Authentication Service,
-                      regardless of US or UK identities. </para>
+                   <para>Updated information about the use of authentication endpoints in <xref
+                           linkend="Authentication-d1e647"/>. You can now use either the US endpoint
+                        or UK endpoint to access the Cloud Identity service, regardless of US or UK
+                        identities. </para>
                    </listitem>
                       <listitem>
                    <para>Removed the Date/Time section. The Cloud
@@ -261,17 +266,16 @@ Rackspace Cloud Backup Application Programming Interface
   
   <chapter xmlns:m="http://www.w3.org/1998/Math/MathML" xml:id="overview">
       <title>Overview</title>
-      <para>Rackspace Cloud Backup is a file-based backup application that lets you
-      choose which files and folders to backup from your Cloud Server.
-      You can choose to restore your whole system with all of its
-      folders and files, or individual files or folders from a given
-      date, or restore to an entirely different server. </para>
+      <para>Rackspace Cloud Backup is a file-based backup application that enables you to choose
+         which files and folders to back up from your cloud server. You can choose to restore your
+         whole system with all of its folders and files, or to restore  individual files or folders
+         from a given date, or to restore to an entirely different server. </para>
       <para>Interactions with Rackspace Cloud Backup occur programmatically via the Rackspace Cloud
-         Backup API as described in this guide. </para>
-      <para>Highlights for Rackspace Cloud Backup include: <itemizedlist>
+         Backup API, as described in this guide. </para>
+      <para>Following are highlights features for Rackspace Cloud Backup: <itemizedlist>
             <listitem>
-               <para>Select the files and folders that you want to back up from your Cloud
-                  Server.</para>
+               <para>Select the files and folders that you want to back up from your cloud
+                  server.</para>
             </listitem>
             <listitem>
                <para>Run your backups manually or on a schedule that works for you.</para>
@@ -287,7 +291,7 @@ Rackspace Cloud Backup Application Programming Interface
                <para>Restore individual files and folders from a particular date.</para>
             </listitem>
             <listitem>
-               <para>Save space with incremental backups that only save the changed portions of
+               <para>Save space with incremental backups that save only the changed portions of
                   files.</para>
             </listitem>
             <listitem>
@@ -300,17 +304,18 @@ Rackspace Cloud Backup Application Programming Interface
          list of endpoints, see <xref
             linkend="Service_Access_Endpoints-d1e753"/>.</para>
       <note>
-               <para>Rackspace Cloud Backup does not take snapshots of your server. To read more about how Rackspace Cloud Backup 
-    differs from snapshots, please see <link xlink:href="  http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">
-      "Rackspace Cloud Backup vs. Cloud Server Image Backups"</link> in our Knowledge Center.
-              </para>
+               <para>Rackspace Cloud Backup does not take snapshots of your server. To read more
+            about how Rackspace Cloud Backup differs from snapshots, see <link
+               xlink:href="  http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups"
+               > "Rackspace Cloud Backup vs. Cloud Server Image Backups"</link> in the Rackspace
+            Knowledge Center. </para>
       </note>
     
       <section xml:id="Intended_Audience-d1e122">
          <title>Intended audience</title>
          <para> This guide is intended to assist software developers who want to develop
-            applications using the Rackspace Cloud Backup API. It assumes the reader has a general
-            understanding of storage and is familiar with: </para>
+            applications by using the Rackspace Cloud Backup API. It assumes the reader has a
+            general understanding of storage and is familiar with the following items: </para>
          <itemizedlist spacing="compact">
             <listitem>
                <para>RESTful web services</para>
@@ -327,7 +332,7 @@ Rackspace Cloud Backup Application Programming Interface
     <section xml:id="Document_Change_History-d1e166">
          <title>Document change history</title>
          <para>This version of this guide replaces and obsoletes all earlier versions. The most
-            recent changes are described in the table below: </para>
+            recent changes are described in the following table: </para>
        <?rax revhistory?>    
  
       </section>
@@ -347,18 +352,15 @@ API-related documents from <link xlink:href="http://docs.rackspace.com/api/">doc
                xlink:href="http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw"
                >
                http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw</link>.</para>
-         <para>Additional information about Cloud Backup is also
-            available in the Rackspace Knowledge Center. Refer to the
-            Best Practices Guide at <link
+         <para>Additional information about Cloud Backup is also available in the Rackspace
+            Knowledge Center. See the Best Practices Guide at <link
                xlink:href="http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup"
                >
                http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup</link>.</para>
-      <para>For information about Rackspace Cloud products, refer to
-               <link xlink:href="http://www.rackspace.com/cloud/"
-               >www.rackspace.com/cloud</link>. This site also offers
-            links to the official support channels for Rackspace,
-            including knowledge base articles, forums, phone, chat,
-            and email. </para>
+      <para>For information about Rackspace Cloud products, see <link
+               xlink:href="http://www.rackspace.com/cloud/">www.rackspace.com/cloud</link>. This
+            site also offers links to the official support channels for Rackspace, including
+            knowledge base articles, forums, phone, chat, and email. </para>
          <para>You can follow Rackspace updates and announcements
 via twitter at: <link xlink:href="http://www.twitter.com/rackspace">www.twitter.com/rackspace</link>. </para>
          <para>This API uses standard HTTP 1.1 response codes as
@@ -385,7 +387,7 @@ documented at: <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec
             concepts:</para>
          <section xml:id="concept_Agent">
             <title>Agent</title>
-            <para>An agent is an executable that sits on your Cloud Server that knows how to perform
+            <para>An agent is an executable that sits on your cloud server that knows how to perform
                backups and restores. Agent installation currently supports Windows and Unix or Linux
                platforms. </para>
          </section>
@@ -408,14 +410,11 @@ documented at: <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec
          </section>
          <section xml:id="Server-Set-Up-d1e001">
             <title>Server setup</title>
-            <para>Because Cloud Backup is a file-level backup product,
-               you must configure a separate backup for each Cloud
-               Server and that a backup does not automatically apply
-               to an entire environment. You must select the files and
-               folders you want to back up from your Cloud Server.
-               This setup requirement applies to Rackspace Cloud
-               Servers, including the Performance Cloud Servers
-               offering.  </para>
+            <para>Because Cloud Backup is a file-level backup product, you must configure a separate
+               backup for each cloud server and that a backup does not automatically apply to an
+               entire environment. You must select the files and folders you want to back up from
+               your cloud server. This setup requirement applies to Rackspace Cloud Servers,
+               including the Performance Cloud Servers offering. </para>
          </section>
     
     
@@ -458,7 +457,7 @@ service are performed using SSL over HTTP (HTTPS) on TCP port
             </itemizedlist>
          </para>
          <para>Your user name and password are the ones that you use to login to the Cloud Control
-            Panel. Once you are logged in, you can use the Cloud Control Panel to obtain your API
+            Panel. After you are logged in, you can use the Cloud Control Panel to obtain your API
             key. </para>
          <para><emphasis role="bold">To find your API key:</emphasis>
          </para>
@@ -555,9 +554,9 @@ service are performed using SSL over HTTP (HTTPS) on TCP port
                </listitem>
                <listitem>
                   <para>Use the authentication token to send a <command>GET</command> to a service
-                     you would like to use. For instance, here is an example of passing an
-                     authentication token to the Cloud Files service, using the Cloud Files service
-                     catalog endpoint that was returned along with the token.</para>
+                     you would like to use. Here is an example of passing an authentication token to
+                     the Cloud Files service, using the Cloud Files service catalog endpoint that
+                     was returned along with the token.</para>
                   <para>
                      <literallayout class="monospaced">curl -X GET https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_aaaaaaaa-bbbb-cccc-dddd-eeeeeeee
 -H 'X-Auth-Token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --verbose</literallayout>
@@ -583,7 +582,7 @@ service are performed using SSL over HTTP (HTTPS) on TCP port
                cloudServersOpenStack is the OpenStack version of compute whereas cloudServers is the
                legacy version of compute. The same user can have access to both services. In the
                Cloud Identity Service v2.0, the service type attribute can be used as a key to
-               recognize similar services. See the tip below.</para>
+               recognize similar services. See the following tip.</para>
          </important>
          <tip>
             <para>Beginning with Rackspace Cloud Identity Service  v2.0 (earlier versions were
@@ -792,8 +791,8 @@ The user of the service is therefore responsible for
 appropriate replication, caching, and overall maintenance of
 Rackspace Cloud Backup data across regional boundaries to other
 Rackspace Cloud Backup servers.</para>
-         <para>You can find the available service endpoints for
-            Rackspace Cloud Backup in the table below. </para>
+         <para>You can find the available service endpoints for Rackspace Cloud Backup in the
+            following table. </para>
          <?rax-fo keep-with-next?>
       <para>
             <table rules="all">
@@ -837,7 +836,7 @@ Rackspace Cloud Backup servers.</para>
          </para>
          <para>Replace the sample account ID number (which is also called the tenant ID),
                <parameter>1234</parameter>, with your actual account number that is returned as part
-            of the authentication service response.</para>
+            of the Cloud Identity service response.</para>
          <para>You will find the actual account number after the final
 '/' in the <code>publicURL</code> field returned by the
 authentication response.</para>
@@ -846,16 +845,21 @@ authentication response.</para>
          <title>Rackspace Cloud Backup service versions</title>
          <para>The Rackspace Cloud Backup version defines the contract and build information for the
             API. </para>
+         <section xml:id="contractVersion">
+            <title>Contract version</title>
          <para>The contract version denotes the data model and behavior that the API supports. The
-            contract version is included in all request URIs. Different contract versions of the API
-            may be available at any given time and are not guaranteed to be compatible with one
-            another. </para>
+               contract version is included in all request URIs. Different contract versions of the
+               API might be available at any given time and are not guaranteed to be compatible with
+               one another. </para>
          <example>
             <title>Example request  URI (contract version in bold)</title>
             <programlisting>
 https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/1234/
   </programlisting>
          </example>
+         </section>
+         <section xml:id="apiVersion">
+            <title>List API version</title>
          <para>You can list which API versions are available for your account by using the list
             versions request.</para>
          <para>Issue a <command>GET</command> request to the root endpoint for a service. In the
@@ -870,6 +874,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/
          <para>This operation does not require a request body. </para>
          <para>Normal Response Codes: 200, 203 </para>
          <para>Error Response Codes: 400, 413, 500, 503 </para>
+            
       </section>
       <section xml:id="Request_Response_Types-d1e903">
          <title>Request and response types</title>
@@ -890,7 +895,7 @@ date/time values.
          <example>
             <title>Service Date/Time Format</title>
             <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-            <para>See the table below for a description of the date/time
+            <para>See the following table for a description of the date/time
   format codes.</para>
             <para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the
   following format:</para>
@@ -1076,19 +1081,16 @@ associated error codes and descriptions.
                </listitem>
             </itemizedlist>
          </para>
-
-
          </section>
-
+      </section>
   </chapter>
-
-
-  <chapter xml:id="operations">
+   <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook"
+      role="api-reference">
       <title>API operations</title>
       <para>This section includes descriptions of all of the Cloud Backup API operations.</para>
     <section xml:id="Agent">
          <title>Agent operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the  agent
+       <para xmlns:wadl="http://wadl.dev.java.net/2009/02">This section describes the  agent
             operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
             <wadl:resource href="../../src/wadl/rcbu.wadl#agent_machineAgentId">
@@ -1116,18 +1118,13 @@ associated error codes and descriptions.
                <wadl:method href="getAgentServer"/>
             </wadl:resource>  
          </wadl:resources>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>       
-      </section>
-      <?hard-pagebreak?>
-   
+       <?hard-pagebreak?>
+      </section>      
     <section xml:id="User">
          <title>User operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the user
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
+       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu.wadl#agents">
                <wadl:method href="getUserAgents"/>
             </wadl:resource>
@@ -1136,9 +1133,7 @@ associated error codes and descriptions.
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>     
-    </section>
-      <?hard-pagebreak?>
-    
+    </section>      
     <section xml:id="backupConfig">
          <title>Backup configuration operations</title>
          <para>When trying to determine how often to back up a file in your backup configuration,
@@ -1157,44 +1152,40 @@ associated error codes and descriptions.
             decisions. The more critical the file is to your business operations, the more often
             you'll want to back this file up. Size is an important consideration if the speed of
             backups/restores is important to you. Large files take longer to backup and to restore.
-            It may be wise to backup large files less frequently. Data churn is the last variable to
-            consider, and perhaps the trickiest to handle. Files that change often invalidate blocks
-            that have been stored previously. Depending on criticality, it may still be wise to
-            snapshot files with high data churn and backup those snapshots. </para>
+            It might be wise to backup large files less frequently. Data churn is the last variable
+            to consider, and perhaps the trickiest to handle. Files that change often invalidate
+            blocks that have been stored previously. Depending on criticality, it might still be
+            wise to snapshot files with high data churn and backup those snapshots. </para>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             configuration operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
+       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration">
                <wadl:method href="createBackupConfiguration"/>
-               <wadl:method href="getAllBackupConfigforUser"/>
             </wadl:resource>
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
                <wadl:method href="updateBackupConfig"/>
                <wadl:method href="getBackupConfig"/>
-               <wadl:method href="deleteBackupConfig"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration">
+               <wadl:method href="getAllBackupConfigforUser"/>
             </wadl:resource>
             <wadl:resource href="../../src/wadl/rcbu.wadl#machineAgentId">
                <wadl:method href="getAllBackupConfigforAgent"/>
             </wadl:resource>
             <wadl:resource href="../../src/wadl/rcbu.wadl#backupConfigurationId">
                <wadl:method href="enableBackupConfig"/>
+            </wadl:resource>  
+               <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
+                  <wadl:method href="deleteBackupConfig"/>               
             </wadl:resource>
          </wadl:resources>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>     
-    </section>
-      <?hard-pagebreak?>
-    
+         <?hard-pagebreak?>       
+    </section>    
     <section xml:id="Backup">
          <title>Backup operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
+       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
                <wadl:method href="startStopBackupManually"/>
             </wadl:resource>
@@ -1208,18 +1199,13 @@ associated error codes and descriptions.
                <wadl:method href="getBackupReport"/>
             </wadl:resource>
          </wadl:resources>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
          <?hard-pagebreak?>     
-    </section>
-      <?hard-pagebreak?>
-    
+    </section>  
     <section xml:id="RestoreConfig">
          <title>Restore configuration operations</title>         
        <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
             configuration operations that are supported by the Cloud Backup API. </para>
-       <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
+       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">         
           <wadl:resource href="../../src/wadl/rcbu.wadl#restore">
              <wadl:method href="createRestoreConfig"/>
              <wadl:method href="updateRestoreConfig"/>
@@ -1233,13 +1219,7 @@ associated error codes and descriptions.
           </wadl:resource>
        </wadl:resources>
        <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
-         <?hard-pagebreak?>
     </section>
-      <?hard-pagebreak?>
-      
       <section xml:id="Restore-Operations"><title>Restore operations</title>
       <para>You should periodically test your restores to make sure that they are working as you
             expect. The worst possible scenario is to need your data restored now, and then to
@@ -1250,7 +1230,7 @@ associated error codes and descriptions.
             accidentally overwrite important, existing files. Proceed with caution when restoring. </para>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
+         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">         
             <wadl:resource href="../../src/wadl/rcbu.wadl#backupAvailableForRestore">
                <wadl:method href="getAvailableBackups"/>
             </wadl:resource>       
@@ -1265,16 +1245,12 @@ associated error codes and descriptions.
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
-      <?hard-pagebreak?>
-      <?hard-pagebreak?>
-      <?hard-pagebreak?>
-      <?hard-pagebreak?>
       </section>
     <section xml:id="Activity">
          <title>Activity operations</title>  
        <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the activity
             operations that are supported by the Cloud Backup API. </para>
-       <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">         
+       <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">         
           <wadl:resource href="../../src/wadl/rcbu.wadl#system_activity_agentId">
              <wadl:method href="getAgentActivity"/>
           </wadl:resource>       
@@ -1283,9 +1259,7 @@ associated error codes and descriptions.
           </wadl:resource>
        </wadl:resources>
        <?hard-pagebreak?>
-         <?hard-pagebreak?>
     </section>
-      <?hard-pagebreak?>
 <!-- 6-24-2013 Removed entire section 2.8 at Balaji's request    
     <section xml:id="Help">
          <title>Help Operations</title>
