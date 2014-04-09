@@ -840,6 +840,11 @@ Rackspace Cloud Backup servers.</para>
          <para>You will find the actual account number after the final
 '/' in the <code>publicURL</code> field returned by the
 authentication response.</para>
+         <note>
+            <para>The Cloud Backup API runs with or without the specification of the account ID
+               number in the endpoint. However, the examples in this guide include the account
+               number in the request URIs.</para>
+         </note>
       </section>
       <section xml:id="DB_service_versions">
          <title>Rackspace Cloud Backup service versions</title>
