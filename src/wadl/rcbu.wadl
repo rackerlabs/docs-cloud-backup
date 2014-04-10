@@ -13,7 +13,7 @@
 <!--       All Resources                                              -->
 <!--******************************************************************-->      
    <resources base="http://localhost">
-      <resource id="version" path="v1">
+      <resource id="version" path="v1.0">
          <resource id="tenant_id" path="{tenant_id}">
             <param name="tenant_id" style="template"
                type="xsd:string">
@@ -195,7 +195,7 @@
          <method name="GET" id="getAgentDetails">
             <wadl:doc title="List agent details">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent.</para>
-               <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in <xref linkend="POST_postWakeUpAgents_v1__tenant_id__user_wakeupagents_User"/>. You should wait 10-20 seconds after using this operation
+               <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in <xref linkend="POST_postWakeUpAgents_v1.0__tenant_id__user_wakeupagents_User"/>. You should wait 10-20 seconds after using this operation
                   to determine the online status of the agent reliably.</para></note>
             </wadl:doc>            
             <request>
@@ -910,7 +910,7 @@
             <wadl:doc title="List all agents for this user">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Retrieves information for all agents for the current user.</para>
                <note xmlns="http://docbook.org/ns/docbook"><para>Cloud Backup agent <code>Status</code> is always <code>Offline</code> in this call.</para>
-                  <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>, use the operation described in <xref linkend="GET_getAgentDetails_v1__tenant_id__agent__machineAgentId__Agent"/>.</para></note>
+                  <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>, use the operation described in <xref linkend="GET_getAgentDetails_v1.0__tenant_id__agent__machineAgentId__Agent"/>.</para></note>
             </wadl:doc>
                <request>
                   <representation mediaType="application/http" element="backup:Backup">
@@ -1080,7 +1080,7 @@
          <method name="POST" id="createBackupConfiguration">
             <wadl:doc title="Create backup configuration">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a backup configuration for the authenticated user. Returns details of a backup configuration.</para>
-               <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configurations, use <xref linkend="GET_getAllBackupConfigforAgent_v1__tenant_id__backup-configuration_system__machineAgentId__backupConfig"/>.</para>
+               <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configurations, use <xref linkend="GET_getAllBackupConfigforAgent_v1.0__tenant_id__backup-configuration_system__machineAgentId__backupConfig"/>.</para>
             </wadl:doc>
             <request>
                <representation mediaType="application/json" element="backup:Backup">
@@ -1287,7 +1287,7 @@
       <wadl:doc title="Update backup configuration">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing backup configuration.</para>
          <note xmlns="http://docbook.org/ns/docbook">
-            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see <xref linkend="GET_getBackupConfig_v1__tenant_id__backup-configuration__backupConfigurationId__backupConfig"/>.</para>
+            <para>To view a list of all backup configurations and their backup configuration schedule IDs, see <xref linkend="GET_getBackupConfig_v1.0__tenant_id__backup-configuration__backupConfigurationId__backupConfig"/>.</para>
          </note>
       </wadl:doc>
       <request>
@@ -1938,8 +1938,7 @@
          <representation mediaType="application/http" element="backup:Backup">
             <doc title="Enable or disable a backup configuration request">
                <xsdxt:code href="../wadl/samples/enableBackupConfig_request_http.txt"/>
-            </doc>
-            <param name="." style="plain" path="$.parameters "/>         
+            </doc>         
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="Enable" style="plain" required="true" type="xsd:boolean" path="$.parameters.Enable">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if backup configuration is enabled (true) or disabled (false).
@@ -2663,7 +2662,7 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates an existing restore configuration.</para>
                <para xmlns="http://docbook.org/ns/docbook">
                 You can only update restore configurations while they are in the "Creating" state.
-                For details about the operation that you use to view the current state of a restore, see <xref linkend="GET_getRestoreDetails_v1__tenant_id__restore__restoreId__Restore-Operations"/>.           
+                For details about the operation that you use to view the current state of a restore, see <xref linkend="GET_getRestoreDetails_v1.0__tenant_id__restore__restoreId__Restore-Operations"/>.           
                </para>
             </wadl:doc>
             <request>
@@ -3073,7 +3072,7 @@
          <method name="GET" id="getRestoreDetails">
             <wadl:doc title="List details about a restore">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the specified restore.</para>
-               <note xmlns="http://docbook.org/ns/docbook"><para>For details about the operation that you can use to list included or excluded files in a restore configuration, see <xref linkend="GET_getRestoreFiles_v1__tenant_id__restore_files__restoreId__RestoreConfig"/>.</para></note>
+               <note xmlns="http://docbook.org/ns/docbook"><para>For details about the operation that you can use to list included or excluded files in a restore configuration, see <xref linkend="GET_getRestoreFiles_v1.0__tenant_id__restore_files__restoreId__RestoreConfig"/>.</para></note>
             </wadl:doc>
             <request>
                <representation mediaType="application/http" element="backup:Backup">
