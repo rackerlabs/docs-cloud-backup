@@ -49,7 +49,7 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>
             <date>2014-02-14</date>
             <revdescription>
-               <para>Added the operation to change the encryption password.</para>
+               <para>Added the change encryption password operation.</para>
             </revdescription>
          </revision>
        
@@ -62,7 +62,7 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>
             <date>2014-01-28</date>
             <revdescription>
-               <para>Updated the operation description that lists agent details to include
+               <para>Updated the description of the lists agent details operation to include
                   instructions to retrieve the correct values for
                      <code>TimeOfLastSuccessfulBackup</code>, as well as <code>Status</code>.</para>
             </revdescription>
@@ -70,8 +70,8 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>         
             <date>2014-01-10</date>
             <revdescription>
-               <para>Added the <code>BackupContainer</code> response parameter to the operation that
-                  lists agent details.</para>
+               <para>Added the <code>BackupContainer</code> response parameter to the lists agent
+                  details operation.</para>
             </revdescription>
          </revision>
         <revision>
@@ -81,20 +81,20 @@ Rackspace Cloud Backup Application Programming Interface
                   <listitem>
                      <para>Added a note that describes how to handle an agent with a
                            <code>Status</code> of <code>Offline</code> that is not posting any
-                        heartbeats to the operation description that lists agent details.</para>
+                        heartbeats to the description of the lists agent details operation.</para>
                   </listitem>
                   <listitem>
-                     <para>Added a note to the description pf the operation that list agent details
-                        that <code>Status</code> is always <code>Offline</code> for this operation
+                     <para>Added a note to the description of the list agent details operation that
+                           <code>Status</code> is always <code>Offline</code> for this operation
                         request.</para>
                   </listitem>
                   <listitem>
-                     <para>Changed normal response code from 200 to 204 for the operations that
-                        deletes a restore configuration operation.</para>
+                     <para>Changed the normal response code from 200 to 204 for the delete restore
+                        configuration operation.</para>
                   </listitem>
                   <listitem>
-                     <para>Added <code>BackupMachineId</code> parameter description to the operation
-                        description to create a restore configuration.</para>
+                     <para>Added the <code>BackupMachineId</code> parameter description to the
+                        create restore configuration operation.</para>
                   </listitem>
                   <listitem>
                      <para>Updated the instructions for locating the API key, Tenant ID, and account
@@ -110,7 +110,7 @@ Rackspace Cloud Backup Application Programming Interface
             <revdescription>
                <itemizedlist>
                   <listitem>
-                     <para>Added the operation description for wake up agents.</para>
+                     <para>Added the wake up agent operation.</para>
                   </listitem>
                   <listitem>
                      <para> Changed the service access endpoint in the examples in <xref
@@ -135,11 +135,11 @@ Rackspace Cloud Backup Application Programming Interface
             <revdescription>
                <itemizedlist>
                   <listitem>
-                     <para>Added the <code>HostServerId</code> response parameter the operation that
-                        lists agent details.</para>
+                     <para>Added the <code>HostServerId</code> response parameter to the list agent
+                        details operation.</para>
                   </listitem>
                   <listitem>
-                     <para>Added the operation to list agent details by host server ID to <xref
+                     <para>Added the list agent details by host server ID operation to <xref
                            linkend="Agent"/>.</para>
                   </listitem>
                </itemizedlist>
@@ -148,8 +148,8 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>
             <date>2013-09-11</date>
             <revdescription>
-               <para>Added the <code>MachineAgentId</code> request parameter to the operation that
-                  creates a backup configuration.</para>
+               <para>Added the <code>MachineAgentId</code> request parameter to the create backup
+                  configuration operation.</para>
             </revdescription>
          </revision>
          <revision>
@@ -157,11 +157,11 @@ Rackspace Cloud Backup Application Programming Interface
             <revdescription>
                <itemizedlist>
                   <listitem>
-                     <para>Added the operation to migrate the vault to <xref linkend="Agent"/>. </para>
+                     <para>Added the migrate vault operation to <xref linkend="Agent"/>. </para>
                   </listitem>
                   <listitem>
-                     <para>Added the operation to update agent backup behavior to <xref
-                           linkend="Agent"/>. </para>
+                     <para>Added the update agent backup behavior operation to <xref linkend="Agent"
+                        />. </para>
                   </listitem>
                   <listitem>
                      <para>Updated regionalized service endpoints and
@@ -200,9 +200,8 @@ Rackspace Cloud Backup Application Programming Interface
                       datacenter specifications.</para>
                          </listitem>
                             <listitem>
-                   <para>Removed the Help Operations section that
-                      was at the end of the book as these are
-                      classified as internal calls.</para>
+                   <para>Removed the Help operations section that was at the end of the book as
+                        these are classified as internal calls.</para>
                             </listitem>
                                <listitem>
                    <para>Changed all occurrences of

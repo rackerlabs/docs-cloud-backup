@@ -26,7 +26,7 @@
     </copyright>
     <releaseinfo>API v1</releaseinfo>
     <productname>Rackspace Cloud Backup</productname>
-    <pubdate>2014-02-14</pubdate>
+    <pubdate>2014-04-14</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -43,9 +43,17 @@
       xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <revision>
+        <date>2014-04-14</date>
+        <revdescription>
+          <para>Reworked the API operations chapter in the <citetitle>Cloud Backup Developer
+              Guide</citetitle> to use a Web Application Description Language (WADL) file for the
+            operation descriptions.</para>
+        </revdescription>
+      </revision>
+      <revision>
         <date>2014-02-14</date>
         <revdescription>
-          <para>Added the Change Encryption Password operation.</para>
+          <para>Added the change encryption password operation.</para>
         </revdescription>
       </revision>
       <revision>
@@ -57,11 +65,9 @@
       <revision>
         <date>2014-01-28</date>
         <revdescription>
-          <para>Updated the Get All Agents for this User operation
-            description to include instructions to use the Get Agent
-            Details operation to retrieve the correct values for
-              <code>TimeOfLastSuccessfulBackup</code>, as well as
-              <code>Status</code>.</para>
+          <para>Updated the description of the list all agents for this user operation to include
+            instructions to use the list agent details operation to retrieve the correct values for
+              <code>TimeOfLastSuccessfulBackup</code>, as well as <code>Status</code>.</para>
         </revdescription>
       </revision>
       <revision>
@@ -69,8 +75,8 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the <code>BackupContainer</code> response
-                attribute to the Get Agent Details operation.</para>
+              <para>Added the <code>BackupContainer</code> response parameter to the list agent
+                details operation. </para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -80,29 +86,25 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added a note to the Get Agent Details operation to
-                describe how to handle an agent with a
-                  <code>Status</code> of <code>Offline</code> that is
+              <para>Added a note to the description of the list agent details operation to describe
+                how to handle an agent with a <code>Status</code> of <code>Offline</code> that is
                 not posting any heartbeats.</para>
             </listitem>
             <listitem>
-              <para>Added a note to the Get Agent Details operation
-                that <code>Status</code> is always
-                  <code>Offline</code> for this operation.</para>
+              <para>Added a note to the description of the list agent details operation to indicate
+                that <code>Status</code> is always <code>Offline</code> for this operation.</para>
             </listitem>
             <listitem>
-              <para>Changed normal response code from 200 to 204 for
-                the Delete a Restore Configuration operation.</para>
+              <para>Changed the normal response code from 200 to 204 for the delete restore
+                configuration operation.</para>
             </listitem>
             <listitem>
-              <para>Added <code>BackupMachineId</code> attribute
-                description to the Create a Restore Configuration
-                operation.</para>
+              <para>Added the <code>BackupMachineId</code> parameter description to the create
+                restore configuration operation.</para>
             </listitem>
             <listitem>
-              <para>Updated the instructions for locating the API Key,
-                Tenant ID, and account number in the Cloud Control
-                Panel in the Authentication section.</para>
+              <para>Updated the instructions for locating the API key, tenant ID, and account number
+                in the Cloud Control Panel in the Authentication section.</para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -112,16 +114,13 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the Wake Up
-                Agent operation. </para>
+              <para>Added the wake up agents operation. </para>
             </listitem>
             <listitem>
-              <para>Changed the service
-                access endpoint in the examples in the API Operations
+              <para>Changed the service access endpoint in the examples in the API operations
                 chapter from the generic endpoint,
-                  <code>https://backup.api.rackspacecloud.com</code>,
-                to one of the supported endpoints,
-                  <code>https://dfw.backup.api.rackspacecloud.com.</code>
+                  <code>https://backup.api.rackspacecloud.com</code>, to one of the supported
+                endpoints, <code>https://dfw.backup.api.rackspacecloud.com.</code>
               </para>
             </listitem>
           </itemizedlist>
@@ -138,12 +137,11 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added the <code>HostServerId</code> response
-                attribute to the Get Agent Details operation.</para>
+              <para>Added the <code>HostServerId</code> response parameter to the list agent details
+                operation.</para>
             </listitem>
             <listitem>
-              <para>Added the Get Agent Details By Host Server ID
-                operation.</para>
+              <para>Added the list agent details by host server ID operation.</para>
             </listitem>
           </itemizedlist>
         </revdescription>
@@ -151,8 +149,8 @@
       <revision>
         <date>2013-09-11</date>
         <revdescription>
-          <para>Added <code>MachineAgentId</code> to the table of
-            Create Backup Configuration Request Attributes.</para>
+          <para>Added <code>MachineAgentId</code> to the request parameters for the create backup
+            configuration operation.</para>
         </revdescription>
       </revision>
       <revision>
@@ -160,12 +158,10 @@
         <revdescription>
           <itemizedlist>
             <listitem>
-              <para>Added Migrate Vault to the agent
-                operations.</para>
+              <para>Added the migrate vault operation to the agent operations.</para>
             </listitem>
             <listitem>
-              <para>Added Update Agent Backup Behavior to the agent
-                operations.</para>
+              <para>Added the update agent backup behavior operation to the agent operations.</para>
             </listitem>
             <listitem>
               <para>Updated regionalized service endpoints and added
@@ -181,16 +177,13 @@
               <citetitle>Cloud Backup Developer Guide</citetitle>: </para>
           <itemizedlist>
             <listitem>
-              <para>Added tables describing request and response
-                attributes for all operations in the API Operations
-                chapter. </para>
+              <para>Added descriptions of request and response parameters for all operations in the
+                API operations chapter. </para>
             </listitem>
             <listitem>
-              <para>Updated information about the use of
-                authentication endpoints. You can now use either the
-                US endpoint or UK endpoint to access the
-                Authentication Service, regardless of US or UK
-                identities. </para>
+              <para>Updated information about the use of authentication endpoints. You can now use
+                either the US endpoint or UK endpoint to access the Identity service, regardless of
+                US or UK identities. </para>
             </listitem>
             <listitem>
               <para>Removed the Date/Time section. The Cloud Backup
@@ -202,9 +195,8 @@
                 specifications.</para>
             </listitem>
             <listitem>
-              <para>Removed the Help Operations section that was at
-                the end of the book as these are classified as
-                internal calls.</para>
+              <para>Removed the Help operations section that was at the end of the book as these are
+                classified as internal calls.</para>
             </listitem>
             <listitem>
               <para>Changed all occurrences of
@@ -264,17 +256,29 @@
       following table:</para>
     <?rax revhistory?>
   </chapter>
+  <chapter xml:id="Apr14">
+    <title>April 14, 2014</title>
+    <para>This release includes the following changes for the Cloud Backup API.</para>
+    <itemizedlist>
+      <title>Documentation</title>
+      <listitem>
+        <para>The API operations chapter in the <citetitle xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/the key 1998/Math/MathML">Cloud Backup Developer
+            Guide</citetitle> was reworked to use a Web Application Description Language (WADL) file
+          for the operation descriptions. </para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
   <chapter xml:id="Feb13">
     <title>February 14, 2014</title>
-    <para>This release of the Cloud Backup API adds the Change
-      Encryption Password operation. </para><para>This operation changes the encryption password. (If you need
+    <para>This release of the Cloud Backup API adds the change encryption password operation. </para><para>This operation changes the encryption password. (If you need
       assistance generating your encrypted key, see <link
         xlink:href="http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup"
         >"Generating Your Encrypted Key In Cloud Backup"</link> in the
       Knowledge Center.) </para>
-    <para>For more information, see the Change Encryption Password
-      section in the API Operations chapter in the <citetitle>Cloud
-        Backup Developer Guide</citetitle>.</para>
+    <para>For more information, see the Change encryption password section in the API operations
+      chapter in the <citetitle>Cloud Backup Developer Guide</citetitle>.</para>
   </chapter>
   <chapter xml:id="Feb05">
     <title>February 5, 2014</title>
@@ -300,19 +304,14 @@
     <itemizedlist>
       <title>Documentation</title>
       <listitem>
-        <para>The Get All Agents for this User operation description
-          was updated to include instructions to use the Get Agent
-          Details operation to retrieve the correct values for <code
-            xmlns:html="http://www.w3.org/1999/xhtml"
-            xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
-            >TimeOfLastSuccessfulBackup</code>, as well as <code
-            xmlns:html="http://www.w3.org/1999/xhtml"
-            xmlns:wadl="http://wadl.dev.java.net/2009/02"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
-            >Status</code>. </para>
+        <para>The description of the list all agents for this user operation was updated to include
+          instructions to use the list agent details operation to retrieve the correct values for
+            <code xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/the key 1998/Math/MathML">TimeOfLastSuccessfulBackup</code>,
+          as well as <code xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/the key 1998/Math/MathML">Status</code>. </para>
       </listitem>
     </itemizedlist>
   </chapter>
@@ -324,11 +323,10 @@
       <title>Documentation</title>
       <listitem>
         <para xmlns:html="http://www.w3.org/1999/xhtml"
-          xmlns:wadl="http://wadl.dev.java.net/2009/02"
-          xmlns:svg="http://www.w3.org/2000/svg"
-          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">The Get
-          Agent Details operation description was updated to include
-          the <code>BackupContainer</code> response attribute.</para>
+          xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">The description for the list agent
+          details operation was updated to include the <code>BackupContainer</code> response
+          parameter.</para>
       </listitem>
     </itemizedlist>
   </chapter>
@@ -342,30 +340,25 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>The Get Agent Details operation description was updated
-          to describe how to handle an agent with a
-            <code>Status</code> of <code>Offline</code> that is not
-          posting any heartbeats.</para>
+        <para>The description for the list agent details operation was updated to describe how to
+          handle an agent with a <code>Status</code> of <code>Offline</code> that is not posting any
+          heartbeats.</para>
       </listitem>
       <listitem>
-        <para>The Get Agent Details operation description was updated
-          to include a note that <code>Status</code> is always
-            <code>Offline</code> for this operation.</para>
+        <para>The description for the list agent details operation was updated to include a note
+          that <code>Status</code> is always <code>Offline</code> for this operation.</para>
       </listitem>
       <listitem>
-        <para>The Delete a Restore Configuration operation description
-          was updated to change the normal response code from 200 to
-          204.</para>
+        <para>The description for the delete restore configuration operation was updated to change
+          the normal response code from 200 to 204.</para>
       </listitem>
       <listitem>
-        <para>The Create a Restore Configuration operation description
-          was updated to add the <code>BackupMachineId</code>
-          attribute description.</para>
+        <para>The description for the create restore configuration operation was updated to add the
+            <code>BackupMachineId</code> parameter description.</para>
       </listitem>
       <listitem>
-        <para>The instructions for locating the API Key, Tenant ID,
-          and account number in the Cloud Control Panel in the
-          Authentication section was updated.</para>
+        <para>The instructions for locating the API key, tenant ID, and account number in the Cloud
+          Control Panel in the Authentication section was updated.</para>
       </listitem>
     </itemizedlist>
   </chapter> 
@@ -379,7 +372,7 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>API Updates</title>
       <listitem>
-        <para>The Wake Up Agent operation was added. </para>
+        <para>The wake up agents operation was added. </para>
       </listitem>
     </itemizedlist>
     <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
@@ -388,14 +381,12 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>The Wake Up Agent Operation description was added. </para>
+        <para>The description for the wake up agents operation was added. </para>
       </listitem>
       <listitem>
-        <para>The service access endpoint in the examples in the API
-          Operations chapter was changed from the generic endpoint,
-            <code>https://backup.api.rackspacecloud.com</code>, to one
-          of the supported endpoints,
-            <code>https://dfw.backup.api.rackspacecloud.com.</code>
+        <para>The service access endpoint in the examples in the API operations chapter was changed
+          from the generic endpoint, <code>https://backup.api.rackspacecloud.com</code>, to one of
+          the supported endpoints, <code>https://dfw.backup.api.rackspacecloud.com.</code>
         </para>
       </listitem>
     </itemizedlist>
@@ -415,8 +406,7 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>API Updates</title>
       <listitem>
-        <para>The Get Agent Details By Host Server ID operation was
-          added.</para>
+        <para>The list agent details by host server ID operation was added.</para>
       </listitem>
     </itemizedlist>
     <itemizedlist xmlns:html="http://www.w3.org/1999/xhtml"
@@ -425,13 +415,12 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>The <code>HostServerId</code> response attribute
-          description was added to the Get Agent Details operation
-          description.</para>
+        <para>The <code>HostServerId</code> response parameter description was added to the
+          description of the list agent details operation.</para>
       </listitem>
       <listitem>
-        <para>The Get Agent Details By Host Server ID operation
-          description was added.</para>
+        <para>The description of the list agent details by host server ID operation was
+          added.</para>
       </listitem>
     </itemizedlist>
   </chapter>
@@ -445,9 +434,8 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>The  <code>MachineAgentId</code>  request attribute
-          description was added to the Create Backup Configuration
-          operation description.</para>
+        <para>The <code>MachineAgentId</code> request parameter description was added to the
+          description of the create backup configuration operation.</para>
       </listitem>
     </itemizedlist>
   </chapter>
@@ -461,12 +449,10 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>API Updates</title>
       <listitem>
-        <para>The Migrate Vault operation was added to the agent
-          operations.</para>
+        <para>The migrate vault operation was added to the agent operations.</para>
       </listitem>
       <listitem>
-        <para>The Update Agent Backup Behavior  operation was added to
-          the agent operations.</para>
+        <para>The update agent backup behavior operation was added to the agent operations.</para>
       </listitem>
       <listitem>
         <para>The regionalized service endpoints were updated to add
@@ -479,12 +465,12 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>The Migrate Vault operation description was added to the
-          agent operations.</para>
+        <para>The description of the migrate vault operation was added to the agent
+          operations.</para>
       </listitem>
       <listitem>
-        <para>The Update Agent Backup Behavior operation description
-          was added to the agent operations.</para>
+        <para>The description of the update agent backup behavior operation was added to the agent
+          operations.</para>
       </listitem>
       <listitem>
         <para>The regionalized service endpoints section were updated
@@ -502,9 +488,8 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>API Updates</title>
       <listitem>
-        <para>You can now use either the US endpoint or UK endpoint to
-          access the Authentication Service, regardless of US or UK
-          identities. </para>
+        <para>You can now use either the US endpoint or UK endpoint to access the Identity service,
+          regardless of US or UK identities. </para>
       </listitem>
       <listitem>
         <para>The Date/Time section was removed. The Cloud Backup API
@@ -521,15 +506,13 @@
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
       <title>Documentation</title>
       <listitem>
-        <para>Tables describing request and response attributes were
-          added for all operations in the API Operations chapter.
-        </para>
+        <para>Descriptions of  the request and response parameters were added for all operations in
+          the API operations chapter. </para>
       </listitem>
       <listitem>
-        <para>The information about the use of authentication
-          endpoints was updated. You can now use either the US
-          endpoint or UK endpoint to access the Authentication
-          Service, regardless of US or UK identities. </para>
+        <para>The information about the use of authentication endpoints was updated. You can now use
+          either the US endpoint or UK endpoint to access the Identity service, regardless of US or
+          UK identities. </para>
       </listitem>
       <listitem>
         <para>The Date/Time section was removed. The Cloud Backup API
@@ -540,8 +523,8 @@
           specifications.</para>
       </listitem>
       <listitem>
-        <para>The Help Operations section was removed as these are
-          classified as internal calls.</para>
+        <para>The Help operations section was removed as these are classified as internal
+          calls.</para>
       </listitem>
       <listitem>
         <para>All occurrences of raxtestaddress@gmail.com were changed
