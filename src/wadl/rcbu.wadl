@@ -199,8 +199,8 @@
                   to determine the online status of the agent reliably.</para></note>
             </wadl:doc>            
             <request>
-            <representation mediaType="application/http" element="backup:Backup">
-               <doc title="List agent details request">
+            <representation mediaType="application/json" element="backup:Backup">
+               <doc>
                   <xsdxt:code href="../wadl/samples/getAgentDetails-json-http_request.txt"/>
                </doc>
             </representation>
@@ -619,15 +619,11 @@
                   <para xmlns="http://docbook.org/ns/docbook">If ServiceNet is enabled, the Cloud Backup agent talks to Cloud Files over ServiceNet and does not incur any bandwidth charges.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/http" element="backup:Backup">
-                     <doc title="Update agent backup behavior request">
-                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request_json_http.txt"/>
-                     </doc>
-                  </representation>
                   <representation mediaType="application/json" element="backup:Backup">
-                  <doc>
-                       <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
-                   </doc>
+                     <doc>
+                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request_json_http.txt"/>
+                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
+                     </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="BackupDataCenter" style="plain" required="false" type="xsd:string" path="$.parameters.BackupDataCenter">
@@ -639,7 +635,7 @@
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Enables or disables the ServiceNet for this agent. Valid values are true or false.  
                         </p></doc>
                      </param> 
-                  </representation>  
+                  </representation>
                </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
@@ -769,8 +765,8 @@
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent using the host server ID.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/http" element="backup:Backup">
-                     <doc title="List agent details by host server ID request">
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
                         <xsdxt:code href="../wadl/samples/getAgentServer-json-http_request.txt"/>
                      </doc>
                   </representation>
@@ -913,8 +909,8 @@
                   <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>, use the operation described in <xref linkend="GET_getAgentDetails_v1.0__tenant_id__agent__machineAgentId__Agent"/>.</para></note>
             </wadl:doc>
                <request>
-                  <representation mediaType="application/http" element="backup:Backup">
-                     <doc title="List all agents for this user request">
+                  <representation mediaType="application/json" element="backup:Backup">
+                     <doc>
                         <xsdxt:code href="../wadl/samples/getUserAgents-json-http_request.txt"/>
                      </doc>
                   </representation>
@@ -1044,8 +1040,8 @@
             <para xmlns="http://docbook.org/ns/docbook">This operation sends a message to an agent to wakeup. You should wait 10 to 20 seconds after using this operation before starting a backup or restore.</para>
          </wadl:doc>
          <request>
-            <representation mediaType="application/http" element="backup:Backup">
-               <doc title="Wake up agents request">
+            <representation mediaType="application/json" element="backup:Backup">
+               <doc>
                   <xsdxt:code href="../wadl/samples/wakeUpAgents-json-http_request.txt"/>
                </doc>
             </representation>
@@ -1421,8 +1417,8 @@
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists detailed information for the specified backup configuration.</para>
       </wadl:doc>
       <request>
-         <representation mediaType="application/http" element="backup:Backup">
-            <doc title="List backup configuration details request">
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc>
                <xsdxt:code href="../wadl/samples/getBackupConfig-json-http_request.txt"/>
             </doc>
          </representation>
@@ -1752,8 +1748,8 @@
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the backup configurations for the specified agent.</para>
       </wadl:doc>
       <request>
-         <representation mediaType="application/http" element="backup:Backup">
-            <doc title="List all backup configurations for an agent request">
+         <representation mediaType="application/json" element="backup:Backup">
+            <doc>
                <xsdxt:code href="../wadl/samples/getAllBackupConfigforAgent-json-http_request .txt"/>
             </doc>
          </representation>
@@ -2114,8 +2110,8 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Deletes the specified backup configuration.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="Delete a backup configuration request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/deleteBackupConfig_request.txt"/>
                   </doc>
                </representation>      
@@ -2253,8 +2249,8 @@
                </note>
             </wadl:doc>
            <request>
-              <representation mediaType="application/http" element="backup:Backup">
-                 <doc title="List backup details request">
+              <representation mediaType="application/json" element="backup:Backup">
+                 <doc>
                     <xsdxt:code href="../wadl/samples/getBackupDetails-json-http_request.txt"/>
                  </doc>
               </representation>
@@ -2352,8 +2348,8 @@
                </note>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List completed backups request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getCompletedBackups-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -2441,8 +2437,8 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets details about a completed backup.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="Get a backup report request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getBackupReport-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -2835,13 +2831,9 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List included or excluded files in a restore configuration request">
-                     <xsdxt:code href="../wadl/samples/getRestoreFiles_request.txt"/>
-                  </doc>                             
-               </representation>
                <representation mediaType="application/json" element="backup:Backup">
                   <doc>
+                     <xsdxt:code href="../wadl/samples/getRestoreFiles_request.txt"/>
                      <xsdxt:code href="../wadl/samples/getRestoreFiles_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
@@ -2864,7 +2856,7 @@
                      name="FileItemType" style="plain" required="true" type="xsd:integer" path="$.parameters.FileItemType">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the type of file. Valid values are 0 for file, 1 for folder, and 2 for database. 
                      </p></doc>
-                  </param>            
+                  </param>         
                </representation>
             </request>
             <response status="200">
@@ -2907,8 +2899,8 @@
             </para>
             </wadl:doc>
            <request>
-              <representation mediaType="application/http" element="backup:Backup">
-                 <doc title="Delete a restore configuration request">
+              <representation mediaType="application/json" element="backup:Backup">
+                 <doc>
                     <xsdxt:code href="../wadl/samples/deleteRestoreConfig_request.txt"/>
                  </doc>
               </representation>
@@ -2956,8 +2948,8 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List backups available for a restore request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getAvailableBackups-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -3075,8 +3067,8 @@
                <note xmlns="http://docbook.org/ns/docbook"><para>For details about the operation that you can use to list included or excluded files in a restore configuration, see <xref linkend="GET_getRestoreFiles_v1.0__tenant_id__restore_files__restoreId__RestoreConfig"/>.</para></note>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List details about a restore request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreDetails-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -3224,8 +3216,8 @@
             </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="Get restore report request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreReport-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -3363,8 +3355,8 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List activity for an agent request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getAgentActivity-json-http_request.txt"/>
                   </doc>
                </representation>
@@ -3464,8 +3456,8 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/http" element="backup:Backup">
-                  <doc title="List activity for a user request">
+               <representation mediaType="application/json" element="backup:Backup">
+                  <doc>
                      <xsdxt:code href="../wadl/samples/getUserActivity-json-http_request.txt"/>
                   </doc>
                </representation>
