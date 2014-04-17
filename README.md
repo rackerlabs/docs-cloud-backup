@@ -19,6 +19,6 @@ You can use any editor to work with the files. The files that are most likely to
 
     o src/docbkx/rcbu-devguide.xml
     o src/docbkx/rbcu-releasenotes.xml
-    
-NOTE: A WADL is not yet used for the Developer Guide. That is currently a work-in-progress.
+    o src/wadl/rbcu.wadl (operation descriptions for the dev guide)
+
 
