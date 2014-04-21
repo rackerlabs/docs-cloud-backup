@@ -199,7 +199,7 @@
                   to determine the online status of the agent reliably.</para></note>
             </wadl:doc>            
             <request>
-            <representation mediaType="application/json" element="backup:Backup">
+            <representation mediaType="application/json">
                <doc>
                   <xsdxt:code href="../wadl/samples/getAgentDetails-json-http_request.txt"/>
                </doc>
@@ -207,7 +207,7 @@
             </request>
             <response status="200">                
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
                      <xsdxt:code href="../wadl/samples/getAgentDetails_response.json"/>
                   </wadl:doc>
@@ -351,23 +351,23 @@
                      Encryption applies across the board, and once you encrypt a backup server, there is no turning back.</para></note>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc title="Enable an agent: JSON request">
                         <xsdxt:code href="../wadl/samples/enableAgent_request.json"/>
                      </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+                        name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
                         </p></doc>
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="Enable" style="plain" required="true" type="xsd:boolean" path="$.parameters.Enable">
+                        name="Enable" style="plain" required="true" path="$.parameters.Enable">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if agent is enabled (true) or disabled (false).
                         </p></doc>
                      </param>
                   </representation>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc title="Disable an agent: JSON request">
                         <xsdxt:code href="../wadl/samples/disableAgent_request.json"/>
                      </doc>
@@ -414,18 +414,18 @@
                   <para xmlns="http://docbook.org/ns/docbook">If you lose or forget your passphrase, you will not be able to recover your encrypted backups.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/encryptVolume_request.json"/>
                      </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+                        name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
                         </p></doc>
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="EncryptedPasswordHex " style="plain" required="true" type="xsd:hexBinary" path="$.parameters.EncryptedPasswordHex">
+                        name="EncryptedPasswordHex " style="plain" required="true" path="$.parameters.EncryptedPasswordHex">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Your encrypted password. 
                         </p></doc>
                      </param>
@@ -433,7 +433,7 @@
                </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>                 
-                  <representation mediaType="application/text" element="backup:Backup">
+                  <representation mediaType="application/text">
                      <doc title="Enable volume encryption response">
                         <xsdxt:code href="../wadl/samples/encryptVolume_response.txt"/>
                      </doc>
@@ -473,23 +473,23 @@
                   <para xmlns="http://docbook.org/ns/docbook">If you lose or forget your passphrase, you will not be able to recover your encrypted backups.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/changeEncryptPassword_request.json"/>
                      </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+                        name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
                         </p></doc>
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="OldEncryptedPasswordHex " style="plain" required="true" type="xsd:hexBinary" path="$.parameters.OldEncryptedPasswordHex">
+                        name="OldEncryptedPasswordHex " style="plain" required="true" path="$.parameters.OldEncryptedPasswordHex">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Your old encrypted password.  
                         </p></doc>
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="NewEncryptedPasswordHex " style="plain" required="true" type="xsd:hexBinary" path="$.parameters.NewEncryptedPasswordHex">
+                        name="NewEncryptedPasswordHex " style="plain" required="true" path="$.parameters.NewEncryptedPasswordHex">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Your new encrypted password. 
                         </p></doc>
                      </param>
@@ -497,7 +497,7 @@
                </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/text" element="backup:Backup">
+                  <representation mediaType="application/text">
                      <doc title="Change encryption password response">
                         <xsdxt:code href="../wadl/samples/changeEncryptPassword_response.txt"/>
                      </doc>
@@ -534,13 +534,13 @@
                </wadl:doc>
                <response status="204">
                   <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/deleteAgent_response.json"/>
                      </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+                        name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
                         </p></doc>
                      </param>
@@ -576,18 +576,18 @@
                   <para xmlns="http://docbook.org/ns/docbook">To use the migrate vault operation, the two agents should be under the same user and their backups should not be encrypted. The destination machine agent should not have any backups already configured and running.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                         <doc>
                            <xsdxt:code href="../wadl/samples/migrateVault_request.json"/>
                         </doc>  
                   <param name="." style="plain" path="$.parameters "/>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="SourceMachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.SourceMachineAgentId">
+                     name="SourceMachineAgentId" style="plain" required="true" path="$.parameters.SourceMachineAgentId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Agent ID of the source. Backups are migrated from this agent.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="DestinationMachineAgentID " style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationMachineAgentID">
+                     name="DestinationMachineAgentID " style="plain" required="true" path="$.parameters.DestinationMachineAgentID">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Agent ID of the destination. Backups are migrated to this agent.  
                      </p></doc>
                   </param>
@@ -619,19 +619,19 @@
                   <para xmlns="http://docbook.org/ns/docbook">If ServiceNet is enabled, the Cloud Backup agent talks to Cloud Files over ServiceNet and does not incur any bandwidth charges.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request_json_http.txt"/>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
                      </doc>
                      <param name="." style="plain" path="$.parameters "/>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="BackupDataCenter" style="plain" required="false" type="xsd:string" path="$.parameters.BackupDataCenter">
+                        name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where this Agent's backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
                         </p></doc>
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="UseServiceNet " style="plain" required="true" type="xsd:boolean" path="$.parameters.UseServiceNet">
+                        name="UseServiceNet " style="plain" required="true" path="$.parameters.UseServiceNet">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Enables or disables the ServiceNet for this agent. Valid values are true or false.  
                         </p></doc>
                      </param> 
@@ -639,7 +639,7 @@
                </request>
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_response.json"/>
                      </doc>
@@ -765,7 +765,7 @@
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent using the host server ID.</para>
                </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/getAgentServer-json-http_request.txt"/>
                      </doc>
@@ -773,7 +773,7 @@
                </request>         
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/getAgentServer_response.json"/>
                      </doc>
@@ -909,7 +909,7 @@
                   <para>To get the correct values for <code>Status</code> and <code>TimeOfLastSuccessfulBackup</code>, use the operation described in <xref linkend="GET_getAgentDetails_v1.0__tenant_id__agent__machineAgentId__Agent"/>.</para></note>
             </wadl:doc>
                <request>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/getUserAgents-json-http_request.txt"/>
                      </doc>
@@ -917,7 +917,7 @@
                </request>   
                <response status="200">
                   <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-                  <representation mediaType="application/json" element="backup:Backup">
+                  <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/getUserAgents_response.json"/>
                      </doc>
@@ -1040,7 +1040,7 @@
             <para xmlns="http://docbook.org/ns/docbook">This operation sends a message to an agent to wakeup. You should wait 10 to 20 seconds after using this operation before starting a backup or restore.</para>
          </wadl:doc>
          <request>
-            <representation mediaType="application/json" element="backup:Backup">
+            <representation mediaType="application/json">
                <doc>
                   <xsdxt:code href="../wadl/samples/wakeUpAgents-json-http_request.txt"/>
                </doc>
@@ -1079,78 +1079,78 @@
                <para xmlns="http://docbook.org/ns/docbook">To view a list of all backup configurations, use <xref linkend="GET_getAllBackupConfigforAgent_v1.0__tenant_id__backup-configuration_system__machineAgentId__backupConfig"/>.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/createBackupConfiguration-request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupConfigurationName" style="plain" required="true" type="xsd:string" path="$.parameters.BackupConfigurationName">
+                     name="BackupConfigurationName" style="plain" required="true" path="$.parameters.BackupConfigurationName">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">The name of the backup configuration. The configuration typically has the backup schedule, files to backup, and notification options.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+                     name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="IsActive" style="plain" required="true" type="xsd:boolean" path="$.parameters.IsActive">
+                     name="IsActive" style="plain" required="true" path="$.parameters.IsActive">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if a backup configuration is active. Valid values are true or false. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="VersionRetention" style="plain" required="true" type="xsd:integer" path="$.parameters.VersionRetention">
+                     name="VersionRetention" style="plain" required="true" path="$.parameters.VersionRetention">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates how many days backup revisions are maintained. Valid values are 0, 30 , and 60. 0 means indefinite. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Frequency" style="plain" required="true" type="xsd:string" path="$.parameters.Frequency">
+                     name="Frequency" style="plain" required="true" path="$.parameters.Frequency">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Frequency of backup schedule. Valid values are "Manually", "Hourly", "Daily", and "Weekly".
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="StartTimeHour" style="plain" required="true" type="xsd:integer" path="$.parameters.StartTimeHour">
+                     name="StartTimeHour" style="plain" required="true" path="$.parameters.StartTimeHour">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the hour when the backup runs. Valid values are 1 through 12, as well as null when the Frequency value is "Manually" or "Hourly". 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="StartTimeMinute " style="plain" required="true" type="xsd:integer" path="$.parameters.StartTimeMinute ">
+                     name="StartTimeMinute " style="plain" required="true" path="$.parameters.StartTimeMinute ">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the minute when the backup runs. Valid values are 0 through 59, as well as null when the Frequency value is "Manually" or "Hourly". 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="StartTimeAmPm" style="plain" required="true" type="xsd:string" path="$.parameters.StartTimeAmPm">
+                     name="StartTimeAmPm" style="plain" required="true" path="$.parameters.StartTimeAmPm">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates AM or PM. Valid values are "AM" or "PM", as well as null when the Frequency value is "Manually" or "Hourly". 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="DayOfWeekId" style="plain" required="true" type="xsd:integer" path="$.parameters.DayOfWeekId">
+                     name="DayOfWeekId" style="plain" required="true" path="$.parameters.DayOfWeekId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the day of the week. Valid values are 0 through 6, with 0 representing Sunday and 6 representing Saturday. null is also a valid value when the Frequency value is "Manually" ,"Hourly", or "Daily". 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="HourInterval" style="plain" required="true" type="xsd:integer" path="$.parameters.HourInterval">
+                     name="HourInterval" style="plain" required="true" path="$.parameters.HourInterval">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the hour. Valid values are 1 through 23, as well as null when the Frequency value is "Manually" ,"Daily", or "Weekly".
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="TimeZoneId" style="plain" required="true" type="xsd:string" path="$.parameters.TimeZoneId">
+                     name="TimeZoneId" style="plain" required="true" path="$.parameters.TimeZoneId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the time zone where the backup runs, for example "Eastern Standard Time". 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="NotifyRecipients" style="plain" required="true" type="xsd:string" path="$.parameters.NotifyRecipients">
+                     name="NotifyRecipients" style="plain" required="true" path="$.parameters.NotifyRecipients">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the email address to notify in case of backup success or failure.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="NotifySuccess" style="plain" required="true" type="xsd:boolean" path="$.parameters.NotifySuccess">
+                     name="NotifySuccess" style="plain" required="true" path="$.parameters.NotifySuccess">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if emails are sent after a successful backup. Valid values are true or false.
                      </p></doc>  
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="NotifyFailure" style="plain" required="true" type="xsd:boolean" path="$.parameters.NotifyFailure">
+                     name="NotifyFailure" style="plain" required="true" path="$.parameters.NotifyFailure">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if emails are sent after a failed backup. Valid values are true or false.
                      </p></doc>  
                   </param>
@@ -1158,7 +1158,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/createBackupConfiguration-response.json"/>
                   </doc>
@@ -1287,93 +1287,93 @@
          </note>
       </wadl:doc>
       <request>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples/updateBackupConfiguration-request.json"/>
             </doc>
             <param name="." style="plain" path="$.parameters "/>         
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="MachineAgentId" style="plain" required="true" type="xsd:integer" path="$.parameters.MachineAgentId">
+               name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent. 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="BackupConfigurationName" style="plain" required="true" type="xsd:string" path="$.parameters.BackupConfigurationName">
+               name="BackupConfigurationName" style="plain" required="true" path="$.parameters.BackupConfigurationName">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">The name of the backup configuration. The configuration typically has the backup schedule, files to backup, and notification options.
                </p></doc>
             </param>           
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="IsActive" style="plain" required="true" type="xsd:boolean" path="$.parameters.IsActive">
+               name="IsActive" style="plain" required="true" path="$.parameters.IsActive">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if a backup configuration is active. Valid values are true or false. 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="VersionRetention" style="plain" required="true" type="xsd:integer" path="$.parameters.VersionRetention">
+               name="VersionRetention" style="plain" required="true" path="$.parameters.VersionRetention">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates how many days backup revisions are maintained. Valid values are 0, 30 , and 60. 0 means indefinite. 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="BackupConfigurationScheduled" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupConfigurationScheduled">
+               name="BackupConfigurationScheduled" style="plain" required="true" path="$.parameters.BackupConfigurationScheduled">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Uniquely identifies the schedule that is associated with this configuration. 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="Frequency" style="plain" required="true" type="xsd:string" path="$.parameters.Frequency">
+               name="Frequency" style="plain" required="true" path="$.parameters.Frequency">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Frequency of backup schedule. Valid values are "Manually", "Hourly", "Daily", and "Weekly".
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="StartTimeHour" style="plain" required="true" type="xsd:integer" path="$.parameters.StartTimeHour">
+               name="StartTimeHour" style="plain" required="true" path="$.parameters.StartTimeHour">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the hour when the backup runs. Valid values are 1 through 12, as well as null when the Frequency value is "Manually" or "Hourly". 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="StartTimeMinute " style="plain" required="true" type="xsd:integer" path="$.parameters.StartTimeMinute ">
+               name="StartTimeMinute " style="plain" required="true" path="$.parameters.StartTimeMinute ">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the minute when the backup runs. Valid values are 0 through 59, as well as null when the Frequency value is "Manually" or "Hourly". 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="StartTimeAmPm" style="plain" required="true" type="xsd:string" path="$.parameters.StartTimeAmPm">
+               name="StartTimeAmPm" style="plain" required="true" path="$.parameters.StartTimeAmPm">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates AM or PM. Valid values are "AM" or "PM", as well as null when the Frequency value is "Manually" or "Hourly". 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="DayOfWeekId" style="plain" required="true" type="xsd:integer" path="$.parameters.DayOfWeekId">
+               name="DayOfWeekId" style="plain" required="true" path="$.parameters.DayOfWeekId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the day of the week. Valid values are 0 through 6, with 0 representing Sunday and 6 representing Saturday. null is also a valid value when the Frequency value is "Manually" ,"Hourly", or "Daily". 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="HourInterval" style="plain" required="true" type="xsd:integer" path="$.parameters.HourInterval">
+               name="HourInterval" style="plain" required="true" path="$.parameters.HourInterval">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the hour. Valid values are 1 through 23, as well as null when the Frequency value is "Manually" ,"Daily", or "Weekly".
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="TimeZoneId" style="plain" required="true" type="xsd:string" path="$.parameters.TimeZoneId">
+               name="TimeZoneId" style="plain" required="true" path="$.parameters.TimeZoneId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the time zone where the backup runs, for example "Eastern Standard Time". 
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="NotifyRecipients" style="plain" required="true" type="xsd:string" path="$.parameters.NotifyRecipients">
+               name="NotifyRecipients" style="plain" required="true" path="$.parameters.NotifyRecipients">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the email address to notify in case of backup success or failure.
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="NotifySuccess" style="plain" required="true" type="xsd:boolean" path="$.parameters.NotifySuccess">
+               name="NotifySuccess" style="plain" required="true" path="$.parameters.NotifySuccess">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if emails are sent after a successful backup. Valid values are true or false.
                </p></doc>  
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="NotifyFailure" style="plain" required="true" type="xsd:boolean" path="$.parameters.NotifyFailure">
+               name="NotifyFailure" style="plain" required="true" path="$.parameters.NotifyFailure">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if emails are sent after a failed backup. Valid values are true or false.
                </p></doc>  
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="Inclusions" style="plain" required="false" type="xsd:string" path="$.parameters.Inclusions">
+               name="Inclusions" style="plain" required="false" path="$.parameters.Inclusions">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the list of files and folders to back up.
                </p></doc>  
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="Exclusions" style="plain" required="false" type="xsd:string" path="$.parameters.Exclusions">
+               name="Exclusions" style="plain" required="false" path="$.parameters.Exclusions">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the list of files and folders not to back up.
                </p></doc>  
             </param> 
@@ -1417,7 +1417,7 @@
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists detailed information for the specified backup configuration.</para>
       </wadl:doc>
       <request>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples/getBackupConfig-json-http_request.txt"/>
             </doc>
@@ -1425,7 +1425,7 @@
       </request> 
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples/getBackupConfig-response.json"/>
             </doc>
@@ -1577,7 +1577,7 @@
             </wadl:doc>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAllBackupConfigforUser-response.json"/>
                   </doc>
@@ -1748,7 +1748,7 @@
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the backup configurations for the specified agent.</para>
       </wadl:doc>
       <request>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples/getAllBackupConfigforAgent-json-http_request .txt"/>
             </doc>
@@ -1756,7 +1756,7 @@
       </request> 
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples/getAllBackupConfigforAgent-response.json"/>
             </doc>
@@ -1931,22 +1931,22 @@
             You can re-enabled disabled backup configurations later.</para>
       </wadl:doc>
       <request>
-         <representation mediaType="application/http" element="backup:Backup">
+         <representation mediaType="application/http">
             <doc title="Enable or disable a backup configuration request">
                <xsdxt:code href="../wadl/samples/enableBackupConfig_request_http.txt"/>
             </doc>         
             <param xmlns="http://wadl.dev.java.net/2009/02"
-               name="Enable" style="plain" required="true" type="xsd:boolean" path="$.parameters.Enable">
+               name="Enable" style="plain" required="true" path="$.parameters.Enable">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if backup configuration is enabled (true) or disabled (false).
                </p></doc>
             </param> 
          </representation>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc title="Enable a backup configuration: JSON request">
                <xsdxt:code href="../wadl/samples/enableBackupConfig_request.json"/>
             </doc>
          </representation>  
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc title="Disable a backup configuration: JSON request">
                <xsdxt:code href="../wadl/samples/disableBackupConfig_request.json"/>
             </doc>
@@ -1954,7 +1954,7 @@
       </request>
       <response status="200">
          <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-         <representation mediaType="application/json" element="backup:Backup">
+         <representation mediaType="application/json">
             <doc title="Disable a backup configuration: JSON response">
                <xsdxt:code href="../wadl/samples/disableBackupConfig_response.json"/>
             </doc>
@@ -2110,7 +2110,7 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Deletes the specified backup configuration.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/deleteBackupConfig_request.txt"/>
                   </doc>
@@ -2166,23 +2166,23 @@
                <note xmlns="http://docbook.org/ns/docbook"><para>You might need to call the operation to wake up agents before starting or stopping a backup manually.</para></note>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Start a backup manually: JSON request">
                      <xsdxt:code href="../wadl/samples/startBackupManually_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Action" style="plain" required="true" type="xsd:string" path="$.parameters.Action">
+                     name="Action" style="plain" required="true" path="$.parameters.Action">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action. Valid values are “Start Manual” and "Stop Manual".
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Id" style="plain" required="true" type="xsd:integer" path="$.parameters.Id">
+                     name="Id" style="plain" required="true" path="$.parameters.Id">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the value of BackupConfigurationId.
                      </p></doc>
                   </param>
                </representation>    
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Stop a backup manually: JSON request">
                      <xsdxt:code href="../wadl/samples/stopBackupManually_request.json"/>
                   </doc>
@@ -2190,7 +2190,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">When manually starting a backup, the request succeeded.</doc>
-               <representation mediaType="application/text" element="backup:Backup">
+               <representation mediaType="application/text">
                   <doc title="Start a backup manually response">
                      <xsdxt:code href="../wadl/samples/startBackupManually_response.txt"/>
                   </doc>               
@@ -2249,7 +2249,7 @@
                </note>
             </wadl:doc>
            <request>
-              <representation mediaType="application/json" element="backup:Backup">
+              <representation mediaType="application/json">
                  <doc>
                     <xsdxt:code href="../wadl/samples/getBackupDetails-json-http_request.txt"/>
                  </doc>
@@ -2257,7 +2257,7 @@
            </request>
            <response status="200">
               <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-              <representation mediaType="application/json" element="backup:Backup">
+              <representation mediaType="application/json">
                  <doc>
                     <xsdxt:code href="../wadl/samples/getBackupDetails_response.json"/>
                  </doc>
@@ -2348,7 +2348,7 @@
                </note>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getCompletedBackups-json-http_request.txt"/>
                   </doc>
@@ -2356,7 +2356,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getCompletedBackups_response.json"/>
                   </doc>
@@ -2437,7 +2437,7 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Gets details about a completed backup.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getBackupReport-json-http_request.txt"/>
                   </doc>
@@ -2445,7 +2445,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getBackupReport_response.json"/>
                   </doc>
@@ -2488,35 +2488,35 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a new restore configuration and returns detailed information about the restore.</para>
             </wadl:doc>
            <request>
-              <representation mediaType="application/json" element="backup:Backup">
+              <representation mediaType="application/json">
                  <doc>
                     <xsdxt:code href="../wadl/samples/createRestoreConfig_request.json"/>
                  </doc>
                  <param name="." style="plain" path="$.parameters "/>         
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="BackupId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupId">
+                    name="BackupId" style="plain" required="true" path="$.parameters.BackupId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup. 
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="BackupMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupMachineId">
+                    name="BackupMachineId" style="plain" required="true" path="$.parameters.BackupMachineId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine where your backup was originally made. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. 
                        If you decide to restore to another system, different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId. This is an agent ID - MachineAgentID from the List agent details operation.) 
                     </p></doc>
                  </param>                 
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="DestinationMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationMachineId">
+                    name="DestinationMachineId" style="plain" required="true" path="$.parameters.DestinationMachineId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine to which you want the backups to restore. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. If you decide to restore to another system, 
                        different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId. This is an agent ID - MachineAgentID from the List agent details operation. )
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="DestinationPath" style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationPath">
+                    name="DestinationPath" style="plain" required="true" path="$.parameters.DestinationPath">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml"> Specifies the path where you want the backup to restore.   
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="OverwriteFiles" style="plain" required="true" type="xsd:boolean" path="$.parameters.OverwriteFiles">
+                    name="OverwriteFiles" style="plain" required="true" path="$.parameters.OverwriteFiles">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
                     </p></doc>
                  </param> 
@@ -2524,7 +2524,7 @@
            </request>
            <response status="200">
               <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-              <representation mediaType="application/json" element="backup:Backup">
+              <representation mediaType="application/json">
                  <doc>
                     <xsdxt:code href="../wadl/samples/createRestoreConfig_response.json"/>
                  </doc>
@@ -2662,50 +2662,50 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/updateRestoreConfig_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="RestoreId" style="plain" required="true" type="xsd:integer" path="$.parameters.RestoreId">
+                     name="RestoreId" style="plain" required="true" path="$.parameters.RestoreId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Creates a restore configuration and in response you get RestoreID. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupId">
+                     name="BackupId" style="plain" required="true" path="$.parameters.BackupId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupMachineId">
+                     name="BackupMachineId" style="plain" required="true" path="$.parameters.BackupMachineId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine where your backup was originally made. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. 
                         If you decide to restore to another system, different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId.)   
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="DestinationMachineId" style="plain" required="true" type="xsd:integer" path="$.parameters.DestinationMachineId">
+                     name="DestinationMachineId" style="plain" required="true" path="$.parameters.DestinationMachineId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies the machine to which you want the backups to restore. (If you restore files to the same system, BackupMachineId and DestinationMachineId are the same. If you decide to restore to another system, 
                         different from where the files were originally backed up, DestinationMachineId is different from BackupMachineId.)
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="OverwriteFiles" style="plain" required="true" type="xsd:boolean" path="$.parameters.OverwriteFiles">
+                     name="OverwriteFiles" style="plain" required="true" path="$.parameters.OverwriteFiles">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupConfigurationId" style="plain" required="true" type="xsd:integer" path="$.parameters.BackupConfigurationId">
+                     name="BackupConfigurationId" style="plain" required="true" path="$.parameters.BackupConfigurationId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies the backup configuration that is associated with this backup. 
                      </p></doc>
                   </param>                 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="DestinationPath" style="plain" required="true" type="xsd:string" path="$.parameters.DestinationPath">
+                     name="DestinationPath" style="plain" required="true" path="$.parameters.DestinationPath">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the path where you want the backup to restore. 
                      </p></doc>
                   </param>                
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="RestoreStateId" style="plain" required="true" type="xsd:integer" path="$.parameters.RestoreStateId">
+                     name="RestoreStateId" style="plain" required="true" path="$.parameters.RestoreStateId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the restore state ID. Valid values are 0 for Creating, 1 for Queued, 2 for InProgress, 3 for Completed, 4 for stopped, 5 for Failed, 6 for startRequested, 
                         7 for Stoprequested, 8 for Completed WithErrors, and 9 for Preparing.
                      </p></doc>
@@ -2750,38 +2750,38 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a restore file associated with a restore.</para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Include a file in a restore configuration: JSON request">
                      <xsdxt:code href="../wadl/samples/includeRestoreFile_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FilePath" style="plain" required="true" type="xsd:string" path="$.parameters.FilePath">
+                     name="FilePath" style="plain" required="true" path="$.parameters.FilePath">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the file or directory to restore. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FilePathEncoded" style="plain" required="false" type="xsd:string" path="$.parameters.FilePathEncoded">
+                     name="FilePathEncoded" style="plain" required="false" path="$.parameters.FilePathEncoded">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies 64-bit encoding of FilePath.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Filter" style="plain" required="true" type="xsd:integer" path="$.parameters.Filter">
+                     name="Filter" style="plain" required="true" path="$.parameters.Filter">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies if a filter is included or excluded. Valid values for Filter are 1 for Include and 2 for Exclude.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="ParentId" style="plain" required="true" type="xsd:integer" path="$.parameters.ParentId">
+                     name="ParentId" style="plain" required="true" path="$.parameters.ParentId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the restore ID to which this file is associated.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FileItemType" style="plain" required="true" type="xsd:integer" path="$.parameters.FileItemType">
+                     name="FileItemType" style="plain" required="true" path="$.parameters.FileItemType">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the type of file. Valid values are 0 for file, 1 for folder, and 2 for database. 
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FileId" style="plain" required="false" type="xsd:integer" path="$.parameters.FileId">
+                     name="FileId" style="plain" required="false" path="$.parameters.FileId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies a file ID value.
                      </p></doc>
                   </param>         
@@ -2831,29 +2831,29 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreFiles_request.txt"/>
                      <xsdxt:code href="../wadl/samples/getRestoreFiles_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FilePath" style="plain" required="true" type="xsd:string" path="$.parameters.FilePath">
+                     name="FilePath" style="plain" required="true" path="$.parameters.FilePath">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the file or directory to restore. 
                      </p></doc>
                   </param>                 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Filter" style="plain" required="true" type="xsd:integer" path="$.parameters.Filter">
+                     name="Filter" style="plain" required="true" path="$.parameters.Filter">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies if a filter is included or excluded. Valid values for Filter are 1 for Include and 2 for Exclude.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="RestoreId" style="plain" required="true" type="xsd:integer" path="$.parameters.RestoreId">
+                     name="RestoreId" style="plain" required="true" path="$.parameters.RestoreId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Creates a restore configuration and in response you get RestoreID.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="FileItemType" style="plain" required="true" type="xsd:integer" path="$.parameters.FileItemType">
+                     name="FileItemType" style="plain" required="true" path="$.parameters.FileItemType">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the type of file. Valid values are 0 for file, 1 for folder, and 2 for database. 
                      </p></doc>
                   </param>         
@@ -2899,7 +2899,7 @@
             </para>
             </wadl:doc>
            <request>
-              <representation mediaType="application/json" element="backup:Backup">
+              <representation mediaType="application/json">
                  <doc>
                     <xsdxt:code href="../wadl/samples/deleteRestoreConfig_request.txt"/>
                  </doc>
@@ -2948,7 +2948,7 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAvailableBackups-json-http_request.txt"/>
                   </doc>
@@ -2956,7 +2956,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAvailableBackups_response.json"/>
                   </doc>
@@ -2996,33 +2996,33 @@
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Manually starts or stops a restore.</para>
             </wadl:doc>            
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Start encrypted restore: JSON request">
                      <xsdxt:code href="../wadl/samples/startEncryptedRestore_request.json"/>
                   </doc>
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Action" style="plain" required="true" type="xsd:string" path="$.parameters.Action">
+                     name="Action" style="plain" required="true" path="$.parameters.Action">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action to perform. Valid values are "Start Manual" and "Stop Manual".
                      </p></doc>
                   </param>                 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="EncryptedPassword" style="plain" required="true" type="xsd:hexBinary" path="$.parameters.EncryptedPassword">
+                     name="EncryptedPassword" style="plain" required="true" path="$.parameters.EncryptedPassword">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Used only when you specify Action:"Start Manual" to specify null or the encrypted key.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Id" style="plain" required="true" type="xsd:integer" path="$.parameters.Id">
+                     name="Id" style="plain" required="true" path="$.parameters.Id">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the restore ID.
                      </p></doc>
                   </param>
                </representation>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Start unencrypted restore: JSON request">
                      <xsdxt:code href="../wadl/samples/startUnencryptedRestore_request.json"/>
                   </doc>
                </representation>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc title="Stop restore manually: JSON request">
                      <xsdxt:code href="../wadl/samples/stopRestoreManually_request.json"/>
                   </doc>
@@ -3067,7 +3067,7 @@
                <note xmlns="http://docbook.org/ns/docbook"><para>For details about the operation that you can use to list included or excluded files in a restore configuration, see <xref linkend="GET_getRestoreFiles_v1.0__tenant_id__restore_files__restoreId__RestoreConfig"/>.</para></note>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreDetails-json-http_request.txt"/>
                   </doc>
@@ -3075,7 +3075,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreDetails_response.json"/>
                   </doc>                  
@@ -3216,7 +3216,7 @@
             </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreReport-json-http_request.txt"/>
                   </doc>
@@ -3224,7 +3224,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreReport_response.json"/>
                   </doc>
@@ -3355,7 +3355,7 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAgentActivity-json-http_request.txt"/>
                   </doc>
@@ -3363,7 +3363,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAgentActivity_response.json"/>
                   </doc>
@@ -3456,7 +3456,7 @@
                </para>
             </wadl:doc>
             <request>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getUserActivity-json-http_request.txt"/>
                   </doc>
@@ -3464,7 +3464,7 @@
             </request>
             <response status="200">
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
-               <representation mediaType="application/json" element="backup:Backup">
+               <representation mediaType="application/json">
                   <doc>
                      <xsdxt:code href="../wadl/samples/getUserActivity_response.json"/>
                   </doc>
