@@ -23,6 +23,6 @@
     },
     "Status": "Online",
     "TimeOfLastSuccessfulBackup": "/Date(1357817400000)/",
-    "UseServiceNet": true
+    "UseServiceNet": "true",
     "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
 }

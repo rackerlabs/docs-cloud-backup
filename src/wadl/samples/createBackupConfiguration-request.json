@@ -2,7 +2,7 @@
     "BackupConfigurationName": "Weekly Website Backup",
     "MachineAgentId" : 156953,
     "IsActive": true,
-    "VersionRetention": 0|30|60,
+    "VersionRetention": 30,
     "MissedBackupActionId": 1,
     "Frequency": "Hourly",
     "StartTimeHour": 6,

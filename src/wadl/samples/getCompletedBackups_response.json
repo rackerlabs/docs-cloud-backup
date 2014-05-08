@@ -1,5 +1,4 @@
-{
-    [
+   [
         {
             "BackupId": 134386,
             "BackupConfigurationId": 158638,
@@ -10,5 +9,4 @@
             "BytesSearched": 10245674584,
             "NumErrors": 0
         }
-     ]
-}
+   ]

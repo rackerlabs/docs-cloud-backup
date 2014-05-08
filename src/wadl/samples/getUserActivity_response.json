@@ -1,5 +1,4 @@
-{
-   [
+[
      {
         "ID": 134692,
         "Type": "Backup",
@@ -26,5 +25,4 @@
         "CurrentState": "Completed",
         "TimeOfActivity": "\/Date(1357230189000)\/"
      }
-    ]
-}
+ ]
