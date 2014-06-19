@@ -2519,7 +2519,12 @@
                     name="OverwriteFiles" style="plain" required="true" path="$.parameters.OverwriteFiles">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
                     </p></doc>
-                 </param> 
+                 </param>
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where the backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
+                    </p></doc>
+                 </param>
               </representation>
            </request>
            <response status="200">
@@ -2554,6 +2559,11 @@
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="OverwriteFiles" style="plain" path="$.parameters.OverwriteFiles">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
+                    </p></doc>
+                 </param>
+                 <param xmlns="http://wadl.dev.java.net/2009/02"
+                    name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where the backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"

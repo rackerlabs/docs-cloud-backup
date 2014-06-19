@@ -23,36 +23,20 @@
             "ListIndex": 3210,
             "ErrorType": 101,
             "ErrorDesc": "The agent experienced a problem. (Rax)",
-            "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft
-                  SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\
-                  ". The process cannot access the file because it is being 
-                  used by another process. .",
-            "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open]
-                  Error Code(313): Cannot open file \"C:\\Program Files\\
-                  Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\
-                  DATA\\tempdb.mdf\". The process cannot access the file 
-                  because it is being used by another process. .",
+            "ExceptionDesc": "Cannot open file \"C:\\Program Files\\MicrosoftSQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The process cannot access the file because it is beingused by another process. .",
+            "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open]Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf\". The process cannot access the file because it is being used by another process. .",
             "ExceptionCode": 313,
-            "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
-                  MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf"
+            "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\tempdb.mdf"
         },
         {
             "BackupReportID": 48785,
             "ListIndex": 3211,
             "ErrorType": 101,
             "ErrorDesc": "The agent experienced a problem. (Rax)",
-            "ExceptionDesc": "Cannot open file \"C:\\Program Files\\Microsoft
-                  SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf
-                  \". The process cannot access the file because it is being 
-                  used by another process. .",
-            "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open]
-                  Error Code(313): Cannot open file \"C:\\Program Files\
-                  \Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\
-                  DATA\\templog.ldf\". The process cannot access the file 
-                  because it is being used by another process. .",
+            "ExceptionDesc": "Cannot open file \"C:\\Program Files\\MicrosoftSQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The process cannot access the file because it is being used by another process. .",
+            "ExceptionDetails": "1: [WindowsFs.cpp: 157-rax::WindowsFs::Open]Error Code(313): Cannot open file \"C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf\". The process cannot access the file because it is being used by another process. .",
             "ExceptionCode": 313,
-            "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.
-                  MSSQLSERVER\\MSSQL\\DATA\\templog.ldf"
+            "Path": "C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.MSSQLSERVER\\MSSQL\\DATA\\templog.ldf"
         }
     ]
 }      
