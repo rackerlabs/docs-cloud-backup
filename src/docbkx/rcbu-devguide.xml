@@ -43,7 +43,7 @@ Rackspace Cloud Backup Application Programming Interface
             <date>2014-06-19</date>
             <revdescription>
                <para>Added the <code>BackupDataCenter</code> request and response parameter to the
-                  create a retore configuration operation.</para>
+                  create a restore configuration operation.</para>
             </revdescription>
          </revision>
          <revision>
