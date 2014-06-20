@@ -42,8 +42,21 @@ Rackspace Cloud Backup Application Programming Interface
          <revision>
             <date>2014-06-19</date>
             <revdescription>
-               <para>Added the <code>BackupDataCenter</code> request and response parameter to the
-                  create a restore configuration operation.</para>
+               <para>Added the <code>BackupDataCenter</code> parameter to the following operations: </para>
+               <itemizedlist>
+                  <listitem>
+                     <para>as a request and response parameter to the operation to create a restore
+                        configuration </para>
+                  </listitem>
+                  <listitem>
+                     <para>as a request parameter to the operation to update a restore
+                        configuration</para>
+                  </listitem>
+                  <listitem>
+                     <para>as a response parameter to the operation to list details about a
+                        restore</para>
+                  </listitem>
+               </itemizedlist>
             </revdescription>
          </revision>
          <revision>

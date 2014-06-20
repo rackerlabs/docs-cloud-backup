@@ -2522,7 +2522,7 @@
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
-                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where the backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the datacenter where the original machine agent that was responsible for creating the backup, that is being used for the restore, is or was located (the source machine does not have to be online).
                     </p></doc>
                  </param>
               </representation>
@@ -2562,8 +2562,8 @@
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                    name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
-                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where the backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
+                    name="BackupDataCenter" style="plain" required="true" path="$.parameters.BackupDataCenter">
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the datacenter where the original machine agent that was responsible for creating the backup, that is being used for the restore, is or was located (the source machine does not have to be online).
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -2702,6 +2702,11 @@
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="OverwriteFiles" style="plain" required="true" path="$.parameters.OverwriteFiles">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
+                     </p></doc>
+                  </param>
+                  <param xmlns="http://wadl.dev.java.net/2009/02"
+                     name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the datacenter where the original machine agent that was responsible for creating the backup, that is being used for the restore, is or was located (the source machine does not have to be online).
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -3115,6 +3120,11 @@
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="OverwriteFiles" style="plain" path="$.parameters.OverwriteFiles">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if files are overwritten. Valid values are true and false. 
+                     </p></doc>
+                  </param>
+                  <param xmlns="http://wadl.dev.java.net/2009/02"
+                     name="BackupDataCenter" style="plain" required="true" path="$.parameters.BackupDataCenter">
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the datacenter where the original machine agent that was responsible for creating the backup, that is being used for the restore, is or was located (the source machine does not have to be online).
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
