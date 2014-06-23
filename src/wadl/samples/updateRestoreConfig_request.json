@@ -6,6 +6,5 @@
     "DestinationMachineId": 156953,
     "DestinationPath": "C:\\RestoredPath",
     "BackupId": 133599,
-    "OverwriteFiles": true,
-    "BackupDataCenter": "ORD"
+    "OverwriteFiles": true
 }

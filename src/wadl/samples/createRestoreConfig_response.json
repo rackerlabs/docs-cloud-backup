@@ -3,7 +3,6 @@
     "BackupId": 133599,
     "DestinationMachineId": 156751,
     "OverwriteFiles": false,
-    "BackupDataCenter": "ORD",
     "BackupConfigurationId": 6265,
     "BackupConfigurationName": "Restore_Backup",
     "BackupRestorePoint": "\/Date(1357151359000)\/",
