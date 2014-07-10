@@ -1154,6 +1154,16 @@
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if emails are sent after a failed backup. Valid values are true or false.
                      </p></doc>  
                   </param>
+                  <param xmlns="http://wadl.dev.java.net/2009/02"
+                     name="Inclusions" style="plain" required="false" path="$.parameters.Inclusions">
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the list of files and folders to back up.
+                     </p></doc>  
+                  </param>
+                  <param xmlns="http://wadl.dev.java.net/2009/02"
+                     name="Exclusions" style="plain" required="false" path="$.parameters.Exclusions">
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the list of files and folders not to back up.
+                     </p></doc>  
+                  </param> 
                </representation>  
             </request>
             <response status="200">
