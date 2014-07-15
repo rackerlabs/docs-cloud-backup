@@ -12,9 +12,8 @@
 
 
   <title>Rackspace Cloud Backup Developer Guide</title>
-  <titleabbrev>RCBU Developer Guide</titleabbrev>
+  <titleabbrev>Rackspace Cloud Backup Developer Guide</titleabbrev>
   <info>
-    <!-- The &PRODNAME; and &PRODABBV; are set in the entities at the top of this document   -->
     
     <copyright>
          <year>2013</year>
@@ -22,7 +21,6 @@
       </copyright>
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
-      <!-- enter the publication date of this document  -->
     <pubdate>2014-04-14</pubdate>
       <legalnotice role="rs-api">
          <annotation>
@@ -36,8 +34,6 @@ interested in developing applications using the
 Rackspace Cloud Backup Application Programming Interface
   (<abbrev>API</abbrev>). </para>
       </abstract>
-      <!--  Create entries for each published revision of the document stating the date and what changed, briefly
-    -->
     <revhistory>
 <!--         <revision>
             <date>2014-06-19</date>
@@ -232,7 +228,7 @@ Rackspace Cloud Backup Application Programming Interface
           </revdescription>
        </revision>
          <revision>
-            <date>2013-06-05 </date>
+            <date>2013-06-05</date>
             <revdescription>
                <itemizedlist>
                   <listitem>
