@@ -26,7 +26,7 @@
     </copyright>
     <releaseinfo>API v1</releaseinfo>
     <productname>Rackspace Cloud Backup</productname>
-    <pubdate>2014-04-14</pubdate>
+    <pubdate>2014-07-22</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -42,6 +42,14 @@
       xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <revision>
+        <date>2014-07-22</date>
+        <revdescription>
+          <para>Added a link to guidance on choosing a regionalized endpoint in <olink
+              targetdoc="cf-devguide" targetptr="Service-Access-Endpoints-d1e003">“Service access
+              endpoints”</olink>.</para>
+        </revdescription>
+      </revision>
  <!--     <revision>
         <date>2014-06-19</date>
         <revdescription>
@@ -290,6 +298,23 @@
       </itemizedlist></para>
         
   </chapter> -->
+  <chapter xml:id="Jul22">
+    <title>July 22, 2014</title>
+    <para>This release includes the following changes for the Cloud Backup API.</para>
+    <itemizedlist>
+      <title>Documentation</title>
+      <listitem>
+        <para xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">In <olink targetdoc="cf-devguide"
+            targetptr="Service-Access-Endpoints-d1e003">“Service access endpoints”</olink>, a link
+          to <link
+            xlink:href="http://www.rackspace.com/knowledge_center/article/what-is-ord-and-dfw"
+            >http://www.rackspace.com/knowledge_center/article/what-is-ord-and-dfw</link> was added
+          to provide guidance on choosing a regionalized endpoint.</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
   <chapter xml:id="Apr14">
     <title>April 14, 2014</title>
     <para>This release includes the following changes for the Cloud Backup API.</para>
