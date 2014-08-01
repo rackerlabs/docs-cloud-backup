@@ -45,9 +45,11 @@
       <revision>
         <date>2014-07-22</date>
         <revdescription>
-          <para>Added a link to guidance on choosing a regionalized endpoint in <olink
-              targetdoc="cf-devguide" targetptr="Service-Access-Endpoints-d1e003">“Service access
-              endpoints”</olink>.</para>
+          <para>In the "Service access endpoints" section in the <citetitle>Cloud Backup Developer
+              Guide</citetitle>, added a link to <link
+                xlink:href="http://ord.admin.kc.rakr.net/knowledge_center/article/about-regions"
+                >About Regions</link> to
+            provide guidance on choosing a regionalized endpoint.</para>
         </revdescription>
       </revision>
  <!--     <revision>
@@ -307,11 +309,10 @@
         <para xmlns:html="http://www.w3.org/1999/xhtml"
           xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
           xmlns:m="http://www.w3.org/the key 1998/Math/MathML">In <olink targetdoc="cf-devguide"
-            targetptr="Service-Access-Endpoints-d1e003">“Service access endpoints”</olink>, a link
-          to <link
-            xlink:href="http://www.rackspace.com/knowledge_center/article/what-is-ord-and-dfw"
-            >http://www.rackspace.com/knowledge_center/article/what-is-ord-and-dfw</link> was added
-          to provide guidance on choosing a regionalized endpoint.</para>
+            targetptr="Service-Access-Endpoints-d1e003">“Service access endpoints”</olink> in the
+            <citetitle>Cloud Backup Developer Guide</citetitle>, a link to <link
+            xlink:href="http://ord.admin.kc.rakr.net/knowledge_center/article/about-regions">About
+            Regions</link> was added to provide guidance on choosing a regionalized endpoint.</para>
       </listitem>
     </itemizedlist>
   </chapter>

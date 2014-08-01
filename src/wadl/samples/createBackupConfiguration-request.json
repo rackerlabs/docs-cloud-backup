@@ -1,17 +1,17 @@
 {
+    "MachineAgentId": 202743,
     "BackupConfigurationName": "Weekly Website Backup",
-    "MachineAgentId" : 156953,
     "IsActive": true,
     "VersionRetention": 30,
     "MissedBackupActionId": 1,
-    "Frequency": "Hourly",
-    "StartTimeHour": 6,
+    "Frequency": "Weekly",
+    "StartTimeHour": 7,
     "StartTimeMinute": 30,
     "StartTimeAmPm": "PM",
-    "DayOfWeekId": 4,
+    "DayOfWeekId": 5,
     "HourInterval": null,
     "TimeZoneId": "Eastern Standard Time",
-    "NotifyRecipients": "raxtestaddress@rackspace.com",
+    "NotifyRecipients": "test@my-email-address.com",
     "NotifySuccess": true,
     "NotifyFailure": true,
     "Inclusions": [
@@ -28,10 +28,6 @@
         {
             "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
             "FileItemType": "File"
-        },
-        {
-            "FilePath": "C:\\backed_up_folder\\excluded_folder",
-            "FileItemType": "Folder"
         }
     ]
 }

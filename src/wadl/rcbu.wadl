@@ -730,7 +730,7 @@
                         </p></doc>  
                      </param>
                      <param xmlns="http://wadl.dev.java.net/2009/02"
-                        name="UseFailoverUri" style="plain" path="$.parameters.HostServerId">
+                        name="UseFailoverUri" style="plain" path="$.parameters.UseFailoverUri">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if a failover URI should be used. Valid values are true or false.
                         </p></doc>  
                      </param> 
@@ -3449,7 +3449,7 @@
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="CurrentState" style="plain" path="$.parameters.State">
+                     name="CurrentState" style="plain" path="$.parameters.CurrentState">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the current state. Valid values are Creating, Queued, InProgress, Completed, Stopped, 
                         Failed, startRequested, Stoprequested, Completed WithErrors, and Preparing.
                      </p></doc>
