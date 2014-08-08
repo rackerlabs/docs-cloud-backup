@@ -2193,7 +2193,7 @@
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="Action" style="plain" required="true" path="$.parameters.Action">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action. Valid values are “Start Manual” and "Stop Manual".
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action. Valid values are “StartManual” and "StopManual".
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -2294,7 +2294,7 @@
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="CurrentState" style="plain" path="$.parameters.CurrentState">
-                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the current state of the backup. Valid values are Queued, InProgress, Skipped, Missed, Stopped, Completed, Failed, Preparing, Start Requested, StartScheduled, StopRequested, and CompletedWithErrors. 
+                    <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates the current state of the backup. Valid values are Queued, InProgress, Skipped, Missed, Stopped, Completed, Failed, Preparing, StartRequested, StartScheduled, StopRequested, and CompletedWithErrors. 
                     </p></doc>
                  </param>
                  <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -3038,12 +3038,12 @@
                   <param name="." style="plain" path="$.parameters "/>         
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="Action" style="plain" required="true" path="$.parameters.Action">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action to perform. Valid values are "Start Manual" and "Stop Manual".
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action to perform. Valid values are "StartManual" and "StopManual".
                      </p></doc>
                   </param>                 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="EncryptedPassword" style="plain" required="true" path="$.parameters.EncryptedPassword">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Used only when you specify Action:"Start Manual" to specify null or the encrypted key.
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Used only when you specify Action:"StartManual" to specify null or the encrypted key.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"

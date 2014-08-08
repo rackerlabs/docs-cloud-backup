@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -27,6 +28,8 @@
       <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>clouddocs-maven-plugin</artifactId>
+        <!-- this <version> relates only to the *plugin* used for document formatting -->
+        <!-- the version of the *API* that is the subject of the document is indicated within each document -->
         <version>2.1.2</version>
         
         <executions>
@@ -38,11 +41,11 @@
             <phase>generate-sources</phase>
             <configuration>
               <includes>rcbu-devguide.xml</includes>
-	      <security>external</security>
-<canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content</canonicalUrlBase>
-           <!--   <trimWadlUriCount>2</trimWadlUriCount>-->
-            </configuration>
-          </execution>
+	            <security>external</security>
+              <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content</canonicalUrlBase>
+              <!--   <trimWadlUriCount>2</trimWadlUriCount>-->
+           </configuration> 
+          </execution>  
           
           <execution>
             <id>rcbu-release-notes</id>
@@ -59,7 +62,24 @@
               <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content</canonicalUrlBase>
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
-          </execution>
+          </execution> 
+         
+          <execution>
+            <id>rcbu-getting-started</id>
+            <goals>
+              <goal>generate-webhelp</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <enableDisqus>1</enableDisqus> 
+              <includes>
+                rcbu-getting-started.xml
+              </includes>
+              <security> internal</security>
+              <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content</canonicalUrlBase>
+              <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
+            </configuration>
+          </execution> 
           
         </executions>
         
