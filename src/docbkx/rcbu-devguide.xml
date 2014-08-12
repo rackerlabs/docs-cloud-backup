@@ -338,13 +338,11 @@
       </section>
       <section xml:id="Additional_Resources-d1e532">
          <title>Additional resources</title>
-         <para>You can download the most current versions of the API-related documents from <link
-               xlink:href="http://docs.rackspace.com/api/">docs.rackspace.com/api/</link>. </para>
-         <!-- [Add this note if there is a Getting Started Guide]
-      <para>For information about getting started using &PRODNAME;, 
-      refer to <citetitle>Getting Started
-  with Rackspace &PRODNAME;</citetitle>.</para> 
--->
+         <para>For information about getting started using Cloud Backup using cURL, refer to the
+               <citetitle>Cloud Backup Getting Started Guide</citetitle> at <link
+               xlink:href="http://docs.rackspace.com/api/">docs.rackspace.com</link>. You can
+            download the most current versions of the API-related documents from <link
+               xlink:href="http://docs.rackspace.com/api/">docs.rackspace.com</link>. </para>
          <para>For more information about using the Cloud Backup API with cURL, see <link
                xlink:href="http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw"
                >
