@@ -75,7 +75,6 @@
               <includes>
                 rcbu-getting-started.xml
               </includes>
-              <security> internal</security>
               <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content</canonicalUrlBase>
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
