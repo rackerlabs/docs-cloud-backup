@@ -553,9 +553,9 @@
             <para>An HTTP status code of 200 (OK) indicates that the request succeeded.</para>
             <example>
                 <title>List all agents for the user</title>
-                <programlisting>curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/user/agents \
+                <programlisting language="bash">curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/user/agents \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" | python -m json.tool</programlisting>
-                <programlisting>[
+                <programlisting language="bash">[
     {
         "AgentVersion": "1.10.006176", 
         "Architecture": "64-bit", 
@@ -607,11 +607,11 @@
                 succeeded.</para>
             <example>
                 <title>List agent details</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/agent/<emphasis role="bold">yourMachineAgentID </emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" | python -m json.tool
 </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 {
     "AgentVersion": "1.10.006176", 
     "Architecture": "64-bit", 
@@ -712,7 +712,7 @@ curl -s -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="b
     ]
 }'  | python -m json.tool 
  </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 {
     "BackupConfigurationId": 174084, 
     "BackupConfigurationName": "Weekly Website Backup", 
@@ -798,7 +798,7 @@ curl -s -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="b
 curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/backup-configuration/system/<emphasis role="bold">youMachineAgentID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" | python -m json.tool
 </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 [   
     {
         "BackupConfigurationId": 174084, 
@@ -960,7 +960,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
             <para>
                 <example>
                     <title>Start a backup manually</title>
-                    <programlisting>
+                    <programlisting language="bash">
 curl -i -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/backup/action-request \
 -H "X-Auth-Token: <emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAuthToken</emphasis>"  \
 -H "Content-Type: application/json" \
@@ -969,7 +969,7 @@ curl -i -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="b
    }' </programlisting>
                     <para>The response comes from the server. The number at the end of the response
                         is the ID of the job.</para>
-                    <programlisting>
+                    <programlisting language="bash">
 HTTP/1.1 200 OK 
 ... 
 Date: Thu, 31 Jul 2014 16:54:38 GMT  
@@ -984,7 +984,7 @@ Date: Thu, 31 Jul 2014 16:54:38 GMT
                 <code>NotifyRecipients</code>, <code>NotifySuccess</code>, and
                     <code>NotifyFailure</code> parameters that you specify when you create your
                 backup configuration (see <xref linkend="createBackupConfiguration-d1e01"/>). </para>
-            <programlisting>
+            <programlisting language="bash" >
 Rackspace Cloud Backup 
 Backed Up: Weekly Website Backup v2 on web2 
 Status: Completed 
@@ -1054,7 +1054,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-Type: application/json | python -m json.tool
 </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 {
     "BackupId": 368785,
     "BackupConfigurationId": 174084,
@@ -1096,12 +1096,12 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 succeeded.</para>
             <example>
                 <title>List activity for an agent</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold">yourAccountID</emphasis>/system/activity/<emphasis role="bold">yourAgentID</emphasis> /
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-Type: application/json" | python -m json.tool
 </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 [
     {
         "CurrentState": "Completed", 
@@ -1158,7 +1158,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 (OK) in the response indicates that the request succeeded.</para>
             <example>
                 <title>Create a restore configuration</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X PUT https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/restore /
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-Type: application/json" \
@@ -1168,7 +1168,7 @@ curl -s -X PUT https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
       "DestinationPath": "C:\\FolderPathForRestore\\", 
       "OverwriteFiles": false }' | python -m json.tool 
   </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 {
     "RestoreId": 1394,
     "BackupId": 368785,
@@ -1211,7 +1211,7 @@ curl -s -X PUT https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 indicates that the request succeeded.</para>
             <example>
                 <title>Start a restore manually</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X POST https: //dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/restore/action-requested \
   -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
   -H "Content-Type: application/json" \
@@ -1223,7 +1223,7 @@ curl -s -X POST https: //dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="
                         <code>NotifyRecipients</code>, <code>NotifySuccess</code>, and
                         <code>NotifyFailure</code> parameters that you specify when you create your
                     backup configuration (see <xref linkend="createBackupConfiguration-d1e01"/>). </para>
-                <programlisting>
+                <programlisting language="bash">
 Rackspace Cloud Backup 
 Status: Completed
 Started: 01 Aug 2014 14:40 UTC 
@@ -1251,12 +1251,12 @@ Errors Encountered: 0
                 (OK) in the response indicates that the request succeeded.</para>
             <example>
                 <title>Get a restore report</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/restore/report/<emphasis role="bold">yourRestoreID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" \
 -H "Content-Type: application/json" | python -m json.tool
 </programlisting>
-                <programlisting>
+                <programlisting language="bash">
 {
   "BackupConfigurationId": 174084,
   "BackupConfigurationName": "Weekly Website Backup v2",
@@ -1298,7 +1298,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 that the request succeeded.  </para>
             <example>
                 <title>Delete a backup configuration</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -i -X DELETE https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/backup-configuration/<emphasis role="bold">yourBackupConfigurationID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" 
 </programlisting>
@@ -1307,11 +1307,11 @@ curl -i -X DELETE https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role=
                 details to see <code>IsDeleted: True</code>. </para>
             <example>
                 <title>List backup configuration details</title>
-                <programlisting>
+                <programlisting language="bash">
 curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/backup-configuration/<emphasis role="bold">yourBackupConfigurationID</emphasis> \
 -H "X-Auth-Token: <emphasis role="bold">yourAuthToken</emphasis>" | python -m json.tool
 </programlisting>
-                <programlisting>{ 
+                <programlisting language="bash">{ 
 "BackupConfigurationId": 174084, 
 "BackupConfigurationName": "Weekly Website Backup v2",
  ..... 
