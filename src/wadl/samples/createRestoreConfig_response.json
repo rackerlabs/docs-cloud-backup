@@ -11,6 +11,7 @@
     "BackupFlavor": "RaxCloudServer",
     "DestinationMachineName": "BILLS-TEST-WIN",
     "DestinationPath": "C:\\FolderPathForRestore\\",
+    "BackupDataCenter": "DFW",
     "IsEncrypted": false,
     "EncryptedPassword": null,
     "PublicKey": {

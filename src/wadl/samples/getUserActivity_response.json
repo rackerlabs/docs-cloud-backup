@@ -10,7 +10,8 @@
         "DestinationMachineAgentId": 0,
         "DestinationMachineName": "",
         "CurrentState": "Completed",
-        "TimeOfActivity": "\/Date(1357230189000)\/"
+        "TimeOfActivity": "\/Date(1357230189000)\/",
+        "BackupId": 134332
      },
      {
         "ID": 134693,
@@ -23,6 +24,7 @@
         "DestinationMachineAgentId": 0,
         "DestinationMachineName": "",
         "CurrentState": "Completed",
-        "TimeOfActivity": "\/Date(1357230189000)\/"
+        "TimeOfActivity": "\/Date(1357230189000)\/",
+        "BackupId": 134386
      }
  ]

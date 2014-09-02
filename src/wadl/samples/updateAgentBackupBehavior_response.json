@@ -5,7 +5,7 @@
     "BackupVaultSize": "35.3 MB",
     "CleanupAllowed": true,
     "Datacenter": "DFW",
-    "BackupDatacenter": "DFW",
+    "BackupDataCenter": "DFW",
     "IPAddress": "192.168.1.1",
     "IsDisabled": false,
     "IsEncrypted": true,

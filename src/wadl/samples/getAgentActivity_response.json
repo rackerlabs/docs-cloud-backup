@@ -10,6 +10,7 @@
             "DestinationMachineAgentId": 0,
             "DestinationMachineName": "",
             "CurrentState": "Completed",
-            "TimeOfActivity": "\/Date(1359033934000)\/"
+            "TimeOfActivity": "\/Date(1359033934000)\/",
+            "BackupId": 134332
         }
      ]

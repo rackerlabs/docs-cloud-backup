@@ -5,6 +5,7 @@
     "BackupMachineId": 156953,
     "DestinationMachineId": 156953,
     "DestinationPath": "C:\\RestoredPath",
+    "BackupDataCenter": "DFW",
     "BackupId": 133599,
     "OverwriteFiles": true
 }
