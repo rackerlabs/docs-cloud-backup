@@ -366,6 +366,12 @@
     <title>September 02, 2014</title>
     <para>This release includes the following changes for the Cloud Backup API.</para>
     <itemizedlist>
+      <title>Product enhancement</title>
+      <listitem>
+        <para>Cloud Backup was enhanced to enable cross-datacenter restores.</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist>
       <title>Documentation</title>
       <para xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wadl="http://wadl.dev.java.net/2009/02"
         xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/the key 1998/Math/MathML"
