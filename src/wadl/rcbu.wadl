@@ -211,7 +211,7 @@
                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
                      <xsdxt:code href="../wadl/samples/getAgentDetails_response.json"/>
                   </wadl:doc>
-                  <param name="." style="plain" path="$.parameters "/>
+<!--                  <param name="." style="plain" path="$.parameters "/> -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
@@ -355,7 +355,7 @@
                      <doc title="Enable an agent: JSON request">
                         <xsdxt:code href="../wadl/samples/enableAgent_request.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
@@ -418,7 +418,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/encryptVolume_request.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
@@ -477,7 +477,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/changeEncryptPassword_request.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/> -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
@@ -538,7 +538,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/deleteAgent_response.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/> -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
@@ -580,7 +580,7 @@
                         <doc>
                            <xsdxt:code href="../wadl/samples/migrateVault_request.json"/>
                         </doc>  
-                  <param name="." style="plain" path="$.parameters "/>
+<!--                  <param name="." style="plain" path="$.parameters "/> -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="SourceMachineAgentId" style="plain" required="true" path="$.parameters.SourceMachineAgentId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Agent ID of the source. Backups are migrated from this agent.
@@ -624,7 +624,7 @@
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request_json_http.txt"/>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="BackupDataCenter" style="plain" required="false" path="$.parameters.BackupDataCenter">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the backup data center where this Agent's backup will reside. You must have VMs in the data center specified by BackupDataCenter or this operation will fail.
@@ -643,7 +643,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_response.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
@@ -777,7 +777,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/getAgentServer_response.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
@@ -921,7 +921,7 @@
                      <doc>
                         <xsdxt:code href="../wadl/samples/getUserAgents_response.json"/>
                      </doc>
-                     <param name="." style="plain" path="$.parameters "/>
+<!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
                         name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
@@ -1083,7 +1083,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/createBackupConfiguration-request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>
+<!--                  <param name="." style="plain" path="$.parameters "/> -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="BackupConfigurationName" style="plain" required="true" path="$.parameters.BackupConfigurationName">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">The name of the backup configuration. The configuration typically has the backup schedule, files to backup, and notification options.
@@ -1172,7 +1172,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/createBackupConfiguration-response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>
+<!--                  <param name="." style="plain" path="$.parameters "/> -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
@@ -1311,7 +1311,7 @@
             <doc>
                <xsdxt:code href="../wadl/samples/updateBackupConfiguration-request.json"/>
             </doc>
-            <param name="." style="plain" path="$.parameters "/>         
+<!--            <param name="." style="plain" path="$.parameters "/>         -->
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="MachineAgentId" style="plain" required="true" path="$.parameters.MachineAgentId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent. 
@@ -1449,7 +1449,7 @@
             <doc>
                <xsdxt:code href="../wadl/samples/getBackupConfig-response.json"/>
             </doc>
-            <param name="." style="plain" path="$.parameters "/>         
+<!--            <param name="." style="plain" path="$.parameters "/>         -->
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="BackupConfigurationId" style="plain" path="$.parameters.BackupConfigurationId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies a backup configuration. This ID is required on subsequent GET/UPDATE/DELETE calls.
@@ -1601,7 +1601,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAllBackupConfigforUser-response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>    -->     
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="BackupConfigurationId" style="plain" path="$.parameters.BackupConfigurationId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies a backup configuration. This ID is required on subsequent GET/UPDATE/DELETE calls.
@@ -1780,7 +1780,7 @@
             <doc>
                <xsdxt:code href="../wadl/samples/getAllBackupConfigforAgent-response.json"/>
             </doc>
-            <param name="." style="plain" path="$.parameters "/>         
+<!--            <param name="." style="plain" path="$.parameters "/>       -->  
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="BackupConfigurationId" style="plain" path="$.parameters.BackupConfigurationId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies a backup configuration. This ID is required on subsequent GET/UPDATE/DELETE calls.
@@ -1978,7 +1978,7 @@
             <doc title="Disable a backup configuration: JSON response">
                <xsdxt:code href="../wadl/samples/disableBackupConfig_response.json"/>
             </doc>
-            <param name="." style="plain" path="$.parameters "/>         
+<!--            <param name="." style="plain" path="$.parameters "/>         -->
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="BackupConfigurationId" style="plain" path="$.parameters.BackupConfigurationId">
                <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies a backup configuration. This ID is required on subsequent GET/UPDATE/DELETE calls.
@@ -2190,7 +2190,7 @@
                   <doc title="Start a backup manually: JSON request">
                      <xsdxt:code href="../wadl/samples/startBackupManually_request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>       -->  
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="Action" style="plain" required="true" path="$.parameters.Action">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action. Valid values are “StartManual” and "StopManual".
@@ -2281,7 +2281,7 @@
                  <doc>
                     <xsdxt:code href="../wadl/samples/getBackupDetails_response.json"/>
                  </doc>
-                 <param name="." style="plain" path="$.parameters "/>         
+<!--                 <param name="." style="plain" path="$.parameters "/>       -->  
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="BackupId" style="plain" path="$.parameters.BackupId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup. 
@@ -2380,7 +2380,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getCompletedBackups_response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>      -->   
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="BackupId" style="plain" path="$.parameters.BackupId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup. 
@@ -2512,7 +2512,7 @@
                  <doc>
                     <xsdxt:code href="../wadl/samples/createRestoreConfig_request.json"/>
                  </doc>
-                 <param name="." style="plain" path="$.parameters "/>         
+ <!--                <param name="." style="plain" path="$.parameters "/>    -->     
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="BackupId" style="plain" required="true" path="$.parameters.BackupId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Identifies a unique backup. 
@@ -2553,7 +2553,7 @@
                  <doc>
                     <xsdxt:code href="../wadl/samples/createRestoreConfig_response.json"/>
                  </doc>
-                 <param name="." style="plain" path="$.parameters "/>         
+ <!--                <param name="." style="plain" path="$.parameters "/>         -->
                  <param xmlns="http://wadl.dev.java.net/2009/02"
                     name="RestoreId" style="plain" path="$.parameters.RestoreId">
                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Creates a restore configuration and in response you get RestoreID. 
@@ -2696,7 +2696,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/updateRestoreConfig_request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>     -->    
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="RestoreId" style="plain" required="true" path="$.parameters.RestoreId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Creates a restore configuration and in response you get RestoreID. 
@@ -2789,7 +2789,7 @@
                   <doc title="Include a file in a restore configuration: JSON request">
                      <xsdxt:code href="../wadl/samples/includeRestoreFile_request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>        --> 
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="FilePath" style="plain" required="true" path="$.parameters.FilePath">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the file or directory to restore. 
@@ -2871,7 +2871,7 @@
                      <xsdxt:code href="../wadl/samples/getRestoreFiles_request.txt"/>
                      <xsdxt:code href="../wadl/samples/getRestoreFiles_request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>    -->     
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="FilePath" style="plain" required="true" path="$.parameters.FilePath">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the file or directory to restore. 
@@ -3035,7 +3035,7 @@
                   <doc title="Start encrypted restore: JSON request">
                      <xsdxt:code href="../wadl/samples/startEncryptedRestore_request.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>         -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="Action" style="plain" required="true" path="$.parameters.Action">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the action to perform. Valid values are "StartManual" and "StopManual".
@@ -3114,7 +3114,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreDetails_response.json"/>
                   </doc>                  
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>         -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="RestoreId" style="plain" path="$.parameters.RestoreId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Creates a restore configuration and in response you get RestoreID. 
@@ -3268,7 +3268,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getRestoreReport_response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>         -->
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="BackupConfigurationId" style="plain" path="$.parameters.BackupConfigurationId">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Autogenerated ID that uniquely identifies the backup configuration just created.  
@@ -3407,7 +3407,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getAgentActivity_response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>      -->   
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="Id" style="plain" path="$.parameters.Id">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the restore ID, backup ID, or cleanup ID.  
@@ -3518,7 +3518,7 @@
                   <doc>
                      <xsdxt:code href="../wadl/samples/getUserActivity_response.json"/>
                   </doc>
-                  <param name="." style="plain" path="$.parameters "/>         
+<!--                  <param name="." style="plain" path="$.parameters "/>      -->   
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="ID" style="plain" path="$.parameters.Id">
                      <doc><p xmlns="http://www.w3.org/1999/xhtml">Specifies the restore ID, backup ID, or cleanup ID.  
