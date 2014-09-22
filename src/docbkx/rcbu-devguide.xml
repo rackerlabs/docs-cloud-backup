@@ -373,15 +373,14 @@
                xlink:href="http://docs.rackspace.com/api/">docs.rackspace.com</link>. You can
             download the most current versions of the API-related documents from <link
                xlink:href="http://docs.rackspace.com/api/">docs.rackspace.com</link>. </para>
-         <para>For more information about using the Cloud Backup API with cURL, see <link
+         <para>For more information about using the Cloud Backup API with cURL, see the blog post
+               <link
                xlink:href="http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw"
-               >
-               http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw</link>.</para>
+               >Rackspace Cloud Backup API with cURL</link>.</para>
          <para>Additional information about Cloud Backup is also available in the Rackspace
-            Knowledge Center. See the Best Practices Guide at <link
+            Knowledge Center at <link
                xlink:href="http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup"
-               >
-               http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup</link>.</para>
+               >Best Practices for Cloud Backup</link>.</para>
          <para>For information about Rackspace Cloud products, see <link
                xlink:href="http://www.rackspace.com/cloud/">www.rackspace.com/cloud</link>. This
             site also offers links to the official support channels for Rackspace, including
@@ -766,13 +765,13 @@
             Backup servers.</para>
          <para>You can find the available service endpoints for Rackspace Cloud Backup in the
             following table. </para>
-         <tip>
-            <para>To help you decide which regionalized endpoint to use, read about special
+
+            <para>To help you decide which regionalized endpoint to use, read the Knowledge Center article about special
                considerations for choosing a data center at <link
-                  xlink:href="http://ord.admin.kc.rakr.net/knowledge_center/article/about-regions"
-                  >http://ord.admin.kc.rakr.net/knowledge_center/article/about-regions</link>.
+                  xlink:href="http://www.rackspace.com/knowledge_center/article/about-regions"
+                  >About Regions</link>.
             </para>
-         </tip> 
+          
          <?rax-fo keep-with-next?>
          <para>
             <table rules="all">
