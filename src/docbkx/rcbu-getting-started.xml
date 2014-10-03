@@ -1344,7 +1344,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 >http://status.rackspacecloud.com/cloudbackup/</link>. This page is updated to
             reflect up-to-date information about the system’s current health and status. </para>
         <para>Visit the <link
-            xlink:href="https://feedback.rackspace.com"
+            xlink:href="http://feedback.rackspace.com"
                 >Product Feedback Forum</link> and tell us what you think about Cloud Backup.</para>
         <para>You can follow Rackspace updates and announcements via Twitter at <link
                 xlink:href="http://www.twitter.com/rackspace"
