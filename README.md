@@ -45,5 +45,4 @@ The files that are most likely to be of interest to you are as follows:
 * [src/docbkx/rcbu-devguide.xml](src/docbkx/rcbu-devguide.xml)
 * [src/wadl/rcbu.wadl](src/wadl/rcbu.wadl)
 
-If you want to make changes to the example files referenced in the WADL file, you can find the example files at  [src/wadl/samples](src/wadl/samples)
-
+If you want to make changes to the example files referenced in the WADL file, you can find the example files at [src/wadl/samples](src/wadl/samples).
