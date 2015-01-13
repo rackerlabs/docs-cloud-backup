@@ -474,7 +474,16 @@
          </para>
          <para>Your user name and password are the ones that you use to login to the Cloud Control
             Panel. After you are logged in, you can use the Cloud Control Panel to obtain your API
-            key. </para>
+            key.</para>
+         <note>
+            <para>
+               If you authenticate with username and password credentials, you can set up multi-factor authentication 
+               to add an additional level of security to your account. This feature is not available for username and 
+               API credentials. For information about setting up and using multi-factor authentication, see 
+               <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multifactor authentication</link> 
+               in the <citetitle>Cloud Identity Client Developer Guide</citetitle>.
+            </para>
+         </note>
          <para><emphasis role="bold">To find your API key:</emphasis>
          </para>
          <orderedlist>
@@ -555,12 +564,47 @@
                         </para>
                      </listitem>
                   </itemizedlist>
-                  <para>Successful authentication returns a token that you can use as evidence that
-                     your identity has already been authenticated. To use the token, pass it to
-                     other services as in the <code>X-Auth-Token</code> header. </para>
-                  <para>Authentication also returns a service catalog, listing the endpoints you can
-                     use for Cloud services. </para>
                </listitem>
+               <listitem>
+                  <para>Review the authentication response.
+                     <itemizedlist>
+                        <listitem>
+                           <para>Successful authentication returns a token that you can use as evidence that your
+                              identity has already been authenticated along with a service catalog, which lists the
+                              endpoints that you can use for Rackspace Cloud services. To use the token, pass it to
+                              other services as an <code>X-Auth-Token</code> header.</para>
+                        </listitem>
+                        <listitem>
+                           <para>If the Identity service returns a returns a 401 message with a request for
+                              additional credentials, your account requires <link
+                                 xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-admin-devguide/content/MFA_Ops.htmlmulti-factor authentication"
+                                 >multi-factor authentication</link>. To complete the authentication process,
+                              submit a second <guilabel>POST tokens</guilabel> request with these multi-factor
+                              authentication credentials: <itemizedlist>
+                                 <listitem>
+                                    <para>The session ID value returned in the <code>WWW-Authenticate: OS-MF
+                                       sessionId</code> header parameter that is included in the response to
+                                       the initial authentication request.</para>
+                                 </listitem>
+                                 <listitem>
+                                    <para>The passcode from the mobile phone associated with your user
+                                       account.</para>
+                                    <example>
+                                       <title>Authentication request with multi-factor authentication
+                                          credentials</title>
+                                       <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
+     -X POST \
+     -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
+     -H "X-SessionId: $SESSION_ID" \
+     -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting>
+                                    </example>
+                                 </listitem>
+                              </itemizedlist></para>
+                        </listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+               
                <listitem>
                   <para>Use the authentication token to send a <command>GET</command> to a service
                      you would like to use. Here is an example of passing an authentication token to
