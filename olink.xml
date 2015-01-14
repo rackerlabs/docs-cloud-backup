@@ -1,4 +1,5 @@
 <books xmlns="http://docs.rackspace.com/olink">
+  <book path="src/docbkx/rcbu-getting-started.xml"/>
   <book path="src/docbkx/rcbu-devguide.xml"/>
   <book path="src/docbkx/rcbu-releasenotes.xml"/>
 </books>

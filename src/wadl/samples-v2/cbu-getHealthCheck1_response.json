@@ -1,0 +1,25 @@
+{
+    "storage": {
+        "cassandra": {
+            "online": true,
+            "links": [
+                      {
+                      "href": "https://cloudbackupapi.apiary-mock.com/health/storage/cassandra",
+                      "rel": "self"
+                      }
+                      ]
+        }
+    },
+    "transport": {
+        "pecan": {
+            "online": true,
+            "node": "phx-web-01",
+            "links": [
+                      {
+                      "href": "https://cloudbackupapi.apiary-mock.com/health/transport/pecan",
+                      "rel": "self"
+                      }
+                      ]
+        }
+    }
+}

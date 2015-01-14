@@ -22,11 +22,12 @@
     <copyright>
       <year>2013</year>
       <year>2014</year>
+      <year>2015</year>
       <holder>Rackspace US, Inc.</holder>
     </copyright>
     <releaseinfo>API v1</releaseinfo>
     <productname>Rackspace Cloud Backup</productname>
-    <pubdate>2014-09-02</pubdate>
+    <pubdate>2015-01-14</pubdate>
     <legalnotice role="rs-api">
       <annotation>
         <remark>Copyright details are filled in by the template. </remark>
@@ -42,6 +43,22 @@
       xmlns:wadl="http://wadl.dev.java.net/2009/02"
       xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+      <revision>
+        <date>2015-01-14</date>
+        <revdescription>
+          <para>Added information and links about multi-factor authentication in the following documents:<itemizedlist>
+              <listitem>
+                <para><olink targetdoc="rcbu-getting-started"
+                  targetptr="generateAuthenticationToken-d1e01">“Generate an authentication
+                  token”</olink></para>
+              </listitem>
+              <listitem>
+                <para><olink targetdoc="rcbu-devguide" targetptr="Authentication-d1e647"
+                    >“Authentication”</olink></para>
+              </listitem>
+            </itemizedlist></para>
+        </revdescription>
+      </revision>
       <revision>
         <date>2014-09-02</date>
         <revdescription>
@@ -109,24 +126,6 @@
               Regions</link> to provide guidance on choosing a regionalized endpoint.</para>
         </revdescription>
       </revision>
- <!--     <revision>
-        <date>2014-06-19</date>
-        <revdescription>
-          <para>Added the <code>BackupDataCenter</code> parameter to the following operations: </para>
-          <itemizedlist>
-            <listitem>
-              <para>as a request and response parameter to the operation to create a restore
-                configuration </para>
-            </listitem>
-            <listitem>
-              <para>as a request parameter to the operation to update a restore configuration</para>
-            </listitem>
-            <listitem>
-              <para>as a response parameter to the operation to list details about a restore</para>
-            </listitem>
-          </itemizedlist>
-        </revdescription>
-      </revision> -->
       <revision>
         <date>2014-04-14</date>
         <revdescription>
@@ -346,22 +345,27 @@
       following table:</para>
     <?rax revhistory?>
   </chapter>
-<!--  <chapter xml:id="Jun19">
-    <title>June 19, 2014</title>
-    <para>This release added the <code>BackupDataCenter</code> parameter to the following operations:<itemizedlist>
-        <listitem>
-          <para>as a request and response parameter to the operation to create a restore
-            configuration </para>
-        </listitem>
-        <listitem>
-          <para>as a request parameter to the operation to update a restore configuration</para>
-        </listitem>
-        <listitem>
-          <para>as a response parameter to the operation to list details about a restore</para>
-        </listitem>
-      </itemizedlist></para>
-        
-  </chapter> -->
+  <chapter xml:id="Jan14">
+    <title>January 14, 2015</title>
+    <para>This release includes the following changes for the Cloud Backup API.</para>
+    <itemizedlist>
+      <title>Documentation</title>
+      <listitem>
+        <para>Added information and links about multi-factor authentication in the following
+          documents: <itemizedlist>
+            <listitem>
+              <para><olink targetdoc="rcbu-getting-started"
+                targetptr="generateAuthenticationToken-d1e01">“Generate an authentication
+                token”</olink></para>
+            </listitem>
+            <listitem>
+              <para><olink targetdoc="rcbu-devguide" targetptr="Authentication-d1e647"
+                  >“Authentication”</olink></para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
   <chapter xml:id="Sep02">
     <title>September 02, 2014</title>
     <para>This release includes the following changes for the Cloud Backup API.</para>

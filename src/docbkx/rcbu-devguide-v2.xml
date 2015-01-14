@@ -11,11 +11,10 @@
       <copyright>
          <year>2013</year>
          <year>2014</year>
-         <year>2015</year>
       </copyright>
-      <releaseinfo>API v1.0</releaseinfo>
+      <releaseinfo>API v2.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
-      <pubdate>2015-01-14</pubdate>
+      <pubdate/>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the template.</remark>
@@ -28,273 +27,9 @@
       </abstract>
       <revhistory>
          <revision>
-            <date>2015-01-14</date>
+            <date>2014-12-08</date>
             <revdescription>
-               <para>Added information and links about multi-factor authentication in <xref
-                     linkend="Authentication-d1e647"/>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-09-02</date>
-            <revdescription>
-               <para>The following additions were made to enhance Cloud Backup to enable
-                  cross-datacenter restores:</para>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the <code>BackupDataCenter</code> parameter to the following
-                        operations in <olink targetdoc="rcbu-devguide" targetptr="RestoreConfig"
-                           >“Restore configuration operations”</olink>:</para>
-                     <itemizedlist>
-                        <listitem>
-                           <para>As a request and response parameter to the operation to create a
-                              restore configuration</para>
-                        </listitem>
-                        <listitem>
-                           <para>As a request parameter to the operation to update a restore
-                              configuration</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-                  <listitem>
-                     <para>Added the <code>BackupDataCenter</code> parameter to the following
-                        operation in <olink targetdoc="rcbu-devguide" targetptr="Restore-Operations"
-                           >“Restore operations”</olink> :</para>
-                     <itemizedlist>
-                        <listitem>
-                           <para>As a response parameter to the operation to list details about a
-                              restore</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-                  <listitem>
-                     <para>Added the <code>BackupId</code> parameter to the following operations in
-                           <olink targetdoc="rcbu-devguide" targetptr="Activity">“Activity
-                           operations”</olink>:</para>
-                     <itemizedlist>
-                        <listitem>
-                           <para>As a response parameter to the operation to list the activity for
-                              an agent</para>
-                        </listitem>
-                        <listitem>
-                           <para>As a response parameter to the operation to list the activity for a
-                              user</para>
-                        </listitem>
-                     </itemizedlist>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-07-22</date>
-            <revdescription>
-               <para>Added a link to guidance on choosing a regionalized endpoint in <xref
-                     linkend="Service_Access_Endpoints-d1e753"/>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-04-14</date>
-            <revdescription>
-               <para>Reworked <xref linkend="operations"/> to use a Web Application Description
-                  Language (WADL) file for the operation descriptions.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-02-14</date>
-            <revdescription>
-               <para>Added the change encryption password operation.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-02-05</date>
-            <revdescription>
-               <para>Added <xref linkend="RBAC-d1e001"/>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-01-28</date>
-            <revdescription>
-               <para>Updated the description of the lists agent details operation to include
-                  instructions to retrieve the correct values for
-                     <code>TimeOfLastSuccessfulBackup</code>, as well as <code>Status</code>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2014-01-10</date>
-            <revdescription>
-               <para>Added the <code>BackupContainer</code> response parameter to the lists agent
-                  details operation.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-12-31</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added a note that describes how to handle an agent with a
-                           <code>Status</code> of <code>Offline</code> that is not posting any
-                        heartbeats to the description of the lists agent details operation.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Added a note to the description of the list agent details operation that
-                           <code>Status</code> is always <code>Offline</code> for this operation
-                        request.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Changed the normal response code from 200 to 204 for the delete restore
-                        configuration operation.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Added the <code>BackupMachineId</code> parameter description to the
-                        create restore configuration operation.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Updated the instructions for locating the API key, Tenant ID, and account
-                        number in the Cloud Control Panel in <xref linkend="Authentication-d1e647"
-                           xmlns:m="http://www.w3.org/1998/Math/MathML"/>.</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-11-04</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the wake up agent operation.</para>
-                  </listitem>
-                  <listitem>
-                     <para> Changed the service access endpoint in the examples in <xref
-                           linkend="operations"/> from the generic endpoint,
-                           <code>https://backup.api.rackspacecloud.com</code>, to one of the
-                        supported endpoints, <code>https://dfw.backup.api.rackspacecloud.com</code>.
-                     </para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision xmlns:m="http://www.w3.org/1998/Math/MathML">
-            <date>2013-10-21</date>
-            <revdescription>
-               <para>Added the HKG service endpoint to <xref
-                     linkend="Service_Access_Endpoints-d1e753"/>.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-10-16</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the <code>HostServerId</code> response parameter to the list agent
-                        details operation.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Added the list agent details by host server ID operation to <xref
-                           linkend="Agent"/>.</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-09-11</date>
-            <revdescription>
-               <para>Added the <code>MachineAgentId</code> request parameter to the create backup
-                  configuration operation.</para>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-07-31</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the migrate vault operation to <xref linkend="Agent"/>. </para>
-                  </listitem>
-                  <listitem>
-                     <para>Added the update agent backup behavior operation to <xref linkend="Agent"
-                        />. </para>
-                  </listitem>
-                  <listitem>
-                     <para>Updated regionalized service endpoints and added IAD (<xref
-                           linkend="Service_Access_Endpoints-d1e753"/>).</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-06-24</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Added the request and response parameter descriptions to the operations
-                        in <xref linkend="operations"/>.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Corrected examples in the operation description to manually start a
-                        restore.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Updated information about the use of authentication endpoints in <xref
-                           linkend="Authentication-d1e647"/>. You can now use either the US endpoint
-                        or UK endpoint to access the Cloud Identity service, regardless of US or UK
-                        identities. </para>
-                  </listitem>
-                  <listitem>
-                     <para>Removed the Date/Time section. The Cloud Backup API now supports only
-                        Microsoft Date Format and not ISO.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Added Sydney (SYD) data center to datacenter specifications.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Removed the Help operations section that was at the end of the book as
-                        these are classified as internal calls.</para>
-                  </listitem>
-                  <listitem>
-                     <para>Changed all occurrences of raxtestaddress@gmail.com to
-                        raxtestaddress@rackspace.com.</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-06-05</date>
-            <revdescription>
-               <itemizedlist>
-                  <listitem>
-                     <para>Updated the example for creation of a backup configuration request to
-                        include <code>"MachineAgentId"</code> near top of example.</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-05-20</date>
-            <revdescription>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Changed Rackspace control panel to Cloud Control Panel in <xref
-                           linkend="Authentication-d1e647"/> .</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-04-17</date>
-            <revdescription>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Removed limits.</para>
-                  </listitem>
-               </itemizedlist>
-            </revdescription>
-         </revision>
-         <revision>
-            <date>2013-03-05</date>
-            <revdescription>
-               <itemizedlist spacing="compact">
-                  <listitem>
-                     <para>Created initial document.</para>
-                  </listitem>
-               </itemizedlist>
+               <para>Initial release of Cloud Backup v2.0</para>
             </revdescription>
          </revision>
       </revhistory>
@@ -482,16 +217,7 @@
          </para>
          <para>Your user name and password are the ones that you use to login to the Cloud Control
             Panel. After you are logged in, you can use the Cloud Control Panel to obtain your API
-            key.</para>
-         <note>
-            <para> If you authenticate with username and password credentials, you can set up
-               multi-factor authentication to add an additional level of security to your account.
-               This feature is not available for username and API credentials. For information about
-               setting up and using multi-factor authentication, see <link
-                  xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html"
-                  >Multi-factor authentication</link> in the <citetitle>Cloud Identity Client
-                  Developer Guide</citetitle>. </para>
-         </note>
+            key. </para>
          <para><emphasis role="bold">To find your API key:</emphasis>
          </para>
          <orderedlist>
@@ -572,48 +298,12 @@
                         </para>
                      </listitem>
                   </itemizedlist>
+                  <para>Successful authentication returns a token that you can use as evidence that
+                     your identity has already been authenticated. To use the token, pass it to
+                     other services as in the <code>X-Auth-Token</code> header. </para>
+                  <para>Authentication also returns a service catalog, listing the endpoints you can
+                     use for Cloud services. </para>
                </listitem>
-               <listitem>
-                  <para>Review the authentication response.
-                     <itemizedlist>
-                        <listitem>
-                           <para>Successful authentication returns a token that you can use as evidence that your
-                              identity has already been authenticated along with a service catalog, which lists the
-                              endpoints that you can use for Rackspace Cloud services. To use the token, pass it to
-                              other services as an <code>X-Auth-Token</code> header.</para>
-                        </listitem>
-                        <listitem>
-                           <para>If the Identity service returns a returns a 401 message with a
-                              request for additional credentials, your account requires <link
-                                 xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-admin-devguide/content/MFA_Ops.htmlmulti-factor authentication"
-                                 >multi-factor authentication</link>. To complete the authentication
-                              process, submit a second <guilabel>POST tokens</guilabel> request with
-                              these multi-factor authentication credentials: <itemizedlist>
-                                 <listitem>
-                                    <para>The session ID value returned in the
-                                          <code>WWW-Authenticate: OS-MF sessionId</code> header
-                                       parameter that is included in the response to the initial
-                                       authentication request.</para>
-                                 </listitem>
-                                 <listitem>
-                                    <para>The passcode from the mobile phone associated with your
-                                       user account.</para>
-                                    <example>
-                                       <title>Authentication request with multi-factor
-                                          authentication credentials</title>
-                                       <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
-     -X POST \
-     -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
-     -H "X-SessionId: $SESSION_ID" \
-     -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting>
-                                    </example>
-                                 </listitem>
-                              </itemizedlist></para>
-                        </listitem>
-                     </itemizedlist>
-                  </para>
-               </listitem>
-               
                <listitem>
                   <para>Use the authentication token to send a <command>GET</command> to a service
                      you would like to use. Here is an example of passing an authentication token to
@@ -840,41 +530,41 @@
                <tbody>
                   <tr>
                      <td>Dallas/Ft. Worth (DFW)</td>
-                     <td><code>https://dfw.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code>
+                     <td><code>https://dfw.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code>
                      </td>
                   </tr>
                   <tr>
                      <td>Chicago (ORD)</td>
-                     <td><code>https://ord.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://ord.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>London (LON) </td>
-                     <td><code>https://lon.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://lon.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Hong Kong (HKG)</td>
-                     <td><code>https://hkg.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://hkg.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Northern Virginia (IAD)</td>
-                     <td><code>https://iad.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://iad.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Sydney (SYD)</td>
-                     <td><code>https://syd.backup.api.rackspacecloud.com/v1.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://syd.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
                   </tr>
                </tbody>
             </table>
          </para>
-         <para>Replace the sample account ID number (which is also called the tenant ID),
-               <parameter>1234</parameter>, with your actual account number that is returned as part
-            of the Cloud Identity service response.</para>
-         <para>You will find the actual account number after the final '/' in the
-               <code>publicURL</code> field returned by the authentication response.</para>
+         <para>Every REST requires a project ID (which is also referred to as the account ID or
+            tenant ID) in the service access endpoint or in the <code>X-Project-Id</code> header. </para>
+         <para>In the endpoints in the table above, replace the example project ID,
+               <parameter>1234</parameter>, with your actual project ID that is returned in the
+            service catalog as part of the Cloud Identity service response. </para>
+         <para>You will find the actual project ID after the final '/' in the <code>publicURL</code>
+            field returned by the authentication response.</para>
          <note>
-            <para>The Cloud Backup API runs with or without the specification of the account ID
-               number in the endpoint. However, the examples in this guide include the account
-               number in the request URIs.</para>
+            <para>The examples in this guide include the project ID in the request URIs.</para>
          </note>
       </section>
       <section xml:id="DB_service_versions">
@@ -890,7 +580,7 @@
             <example>
                <title>Example request URI (contract version in bold)</title>
                <programlisting>
-https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/1234/
+https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/1234/
   </programlisting>
             </example>
          </section>
@@ -914,79 +604,14 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/
          <section xml:id="Request_Response_Types-d1e903">
             <title>Request and response types</title>
             <para>The Rackspace Cloud Backup API supports only JSON data serialization format. </para>
-            <note>
-               <para>The request format is specified using the <code>Content-Type:
-                     application/json</code> header and is required for calls that have a request
-                  body. If no response format is specified, JSON is the default. </para>
-            </note>
+            <para>All responses with a message body have a <code>Content-Type</code> header defined
+               as <code>application/json</code>.</para>
+            <para>Most requests with a message body also require a <code>Content-Type</code> of
+                  <code>application/json</code>. <command>PATCH</command> requests require a
+                  <code>Content-Type</code> of <code>application/json</code></para>
          </section>
-         <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
-      <section xml:id="datetimeformat">
-         <title>Date/Time Format</title>
-         <para> The Rackspace Cloud Backup Service uses an ISO-8601-compliant 
-date format for the display and consumption of
-date/time values. 
-      </para>
-         <example>
-            <title>Service Date/Time Format</title>
-            <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-            <para>See the following table for a description of the date/time
-  format codes.</para>
-            <para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the
-  following format:</para>
-            <programlisting>2011-05-19T08:07:08-05:00</programlisting>
-         </example>
-         <table rules="all">
-            <caption>Explanation of Date/Time Format Codes</caption>
-            <thead>
-               <tr>
-                  <td>Code</td>
-                  <td>Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>yyyy</td>
-                  <td>Four digit year</td>
-               </tr>
-               <tr>
-                  <td>MM</td>
-                  <td>Two digit month</td>
-               </tr>
-               <tr>
-                  <td>dd</td>
-                  <td>Two digit day of month</td>
-               </tr>
-               <tr>
-                  <td>T</td>
-                  <td>Separator for date/time</td>
-               </tr>
-               <tr>
-                  <td>HH</td>
-                  <td>Two digit hour of day (00-23)</td>
-               </tr>
-               <tr>
-                  <td>mm</td>
-                  <td>Two digit minutes of hour</td>
-               </tr>
-               <tr>
-                  <td>ss</td>
-                  <td>Two digit seconds of the minute</td>
-               </tr>
-               <tr>
-                  <td>SSS</td>
-                  <td>Three digit milliseconds of the second</td>
-               </tr>
-               <tr>
-                  <td>Z</td>
-                  <td>RFC-822 timezone</td>
-               </tr>
-            </tbody>
-         </table>
-      </section>
- -->
          <section xml:id="DB_faults">
-            <title>Faults and common issues</title>
+            <title>Common HTTP response codes</title>
             <para>When an error occurs, the Rackspace Cloud Backup Service returns a fault object
                containing an HTTP error response code that denotes the type of error. In the body of
                the response, the system returns additional information about the fault. </para>
@@ -995,60 +620,97 @@ date/time values.
             <informaltable rules="all">
                <thead>
                   <tr align="center">
-                     <td colspan="2">Fault type</td>
-                     <td colspan="1">Associated error code</td>
+                     <td colspan="2">Response code</td>
+                     <td colspan="1">Type</td>
                      <td colspan="3">Description</td>
                   </tr>
                </thead>
                <tbody>
                   <tr>
-                     <td colspan="2"><code>Bad Request</code>
+                     <td colspan="2"><code>200</code>
                      </td>
-                     <td colspan="1">400</td>
-                     <td colspan="3">There was one or more errors in the user request.</td>
+                     <td colspan="1">OK</td>
+                     <td colspan="3">The request succeeded. Some successful requests might return
+                        more specific 200-class codes.</td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Unauthorized</code>
-                     </td>
-                     <td colspan="1">401</td>
-                     <td colspan="3">The supplied token is not authorized to access the resources,
-                        either it's expired or invalid.</td>
+                     <td colspan="2"><code>201</code></td>
+                     <td colspan="1">Created</td>
+                     <td colspan="3">The request was fulfilled and has resulted in one or more new
+                        resources being created.</td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Forbidden</code>
+                     <td colspan="2"><code>202</code></td>
+                     <td colspan="1">Accepted</td>
+                     <td colspan="3">The request was accepted for processing, but the processing has
+                        not been completed.</td>
+                  </tr>
+                  <tr>
+                     <td colspan="2"><code>204</code></td>
+                     <td colspan="1">No Content</td>
+                     <td colspan="3">The server successfully fulfilled the request, and there is no
+                        additional content to send in the response body.</td>
+                  </tr>
+                  <tr>
+                     <td colspan="2"><code>400</code></td>
+                     <td colspan="1">Bad Request</td>
+                     <td colspan="3">The server cannot or will not process the request due to
+                        something that is perceived as a client error (for example, malformed
+                        syntax, invalid request framing, or deceptive request routing).</td>
+                  </tr>
+                  <tr>
+                     <td colspan="2"><code>401</code>
                      </td>
-                     <td colspan="1">403</td>
+                     <td colspan="1">Unauthorized</td>
+                     <td colspan="3">The supplied token is not authorized to access the resources.
+                        Either it's expired or invalid.</td>
+                  </tr>
+                  <tr>
+                     <td colspan="2"><code>403</code>
+                     </td>
+                     <td colspan="1">Forbidden</td>
                      <td colspan="3">Access to the requested resource was denied.</td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Not Found</code>
+                     <td colspan="2"><code>404</code>
                      </td>
-                     <td colspan="1">404</td>
-                     <td colspan="3">The back-end services did not find anything matching the
-                        Request-URI.</td>
+                     <td colspan="1">Not Found</td>
+                     <td colspan="3">The server did not find anything matching the r equest URI or
+                        is not willing to disclose that one exists. </td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Instance Fault</code>
-                     </td>
-                     <td colspan="1">500</td>
-                     <td colspan="3">This is a generic server error and the message contains the
-                        reason for the error. This error could wrap several error messages and is a
-                        catch all.</td>
+                     <td colspan="2"><code>405</code></td>
+                     <td colspan="1">Method Not Allowed</td>
+                     <td colspan="3">The method received in the request line is known by the origin
+                        server but is not supported by the target resource.</td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Not Implemented</code>
+                     <td colspan="2"><code>500</code>
                      </td>
-                     <td colspan="1">501</td>
-                     <td colspan="3">The requested method or resource is not implemented.</td>
+                     <td colspan="1">Internal Server Error</td>
+                     <td colspan="3">The server encountered an unexpected condition that prevented
+                        it from fulfilling the request. This error could wrap several error messages
+                        and is a catch all.</td>
                   </tr>
                   <tr>
-                     <td colspan="2"><code>Service Unavailable</code>
+                     <td colspan="2"><code>503</code>
                      </td>
-                     <td colspan="1">503</td>
-                     <td colspan="3">The Rackspace Cloud Backup Service is not available.</td>
+                     <td colspan="1">Service Unavailable</td>
+                     <td colspan="3">The server is currently unable to handle the request due to a
+                        temporary overload or scheduled maintenance, which will likely be alleviated
+                        after some delay.</td>
                   </tr>
                </tbody>
             </informaltable>
+            <para>When possible, error responses include a response body that details the error. A
+               typical example response follows:  </para>
+            <programlisting>{
+   "message": "Validation failed.",     
+   "errors": [         
+      "Name is required.",         
+      "RSA public key is required."     
+   ] 
+} </programlisting>
             <para>The symptoms and solutions for some frequently encountered issues follow. </para>
             <para>
                <itemizedlist>
@@ -1111,6 +773,21 @@ date/time values.
    <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook" role="api-reference">
       <title>API operations</title>
       <para>This section includes descriptions of all of the Cloud Backup API operations.</para>
+      <section xml:id="Health" >
+         <title>Health operations</title>
+         <para>This section describes the health checking opeation that are supported by the Cloud
+            Backup API.</para><wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#version">
+                  <wadl:method href="#getHealthCheck"/>
+               </wadl:resource>
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#dependent_system">
+                  <wadl:method href="#getHealthDetails"/>
+               </wadl:resource>
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#ping">
+                  <wadl:method href="#getPing"/>
+               </wadl:resource>
+            </wadl:resources>
+      </section>
       <section xml:id="Agent">
          <title>Agent operations</title>
          <para xmlns:wadl="http://wadl.dev.java.net/2009/02">This section describes the agent
@@ -1285,139 +962,6 @@ date/time values.
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <!-- 6-24-2013 Removed entire section 2.8 at Balaji's request    
-    <section xml:id="Help">
-         <title>Help Operations</title>
-         <para> Following are the operations within this section: </para>
-         <informaltable rules="all">
-            <thead>
-               <tr align="center">
-                  <td colspan="1">Verb</td>
-                  <td colspan="2">URI</td>
-                  <td colspan="3">Description</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td colspan="1">
-                     <command>GET</command>
-                  </td>
-                  <td colspan="2">/help/developerguide</td>
-                  <td colspan="3">Gets the Developer Guide for this API.</td>
-               </tr>
-               <tr>
-                  <td colspan="1">
-                     <command>GET</command>
-                  </td>
-                  <td colspan="2">/help/supportedimages/
-      {cloudServersPlatform}</td>
-                  <td colspan="3">Lists the Cloud Servers images the RCBU agent may
-              be run on.</td>
-               </tr>
-            </tbody>
-         </informaltable>
-         <?hard-pagebreak?>
-    
-
-      
-      <section xml:id="getGuide">
-            <title>Get the Developer Guide</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1">
-                        <command>GET</command>
-                     </td>
-                     <td colspan="2">/help/developerguide</td>
-                     <td colspan="3">Gets the Developer Guide for this API.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
-            <para>
-  This operation does not require a request body.
-</para>
-            <para/>
-         </section>
-         <?hard-pagebreak?>
-   
-
-      
-      <section xml:id="getImages">
-            <title>List Images Supported by Agent</title>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="1">Verb</td>
-                     <td colspan="2">URI</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="1">
-                        <command>GET</command>
-                     </td>
-                     <td colspan="2">/help/supportedimages/{cloudServersPlatform}</td>
-                     <td colspan="3">Lists the Cloud Servers images the RCBU agent
-                may be run on.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <simpara>
-  Normal Response Code(s): <returnvalue>200</returnvalue> (OK)
-</simpara>
-            <simpara> Error Response Code(s): 
-  Bad Request (400),
-  Unauthorized (401),
-  Forbidden (403),
-  Service Unavailable (500)
-</simpara>
-            <example>
-               <title>List Images Supported by Agent Request: JSON</title>
-               <literallayout class="monospaced">
-     GET    https://dfw.backup.api.rackspacecloud.com/v1.0/help/supportedimages/nextgen
-            User-Agent: controlpanel.drivesrvr.com
-            Host: dfw.backup.api.rackspacecloud.com
-            Content-Type: application/json;
-            Content-Length: 0   
-      </literallayout>
-            </example>
-            <example>
-               <title>List Images Supported by Agent Response: JSON</title>
-               <literallayout class="monospaced">
-       [
-   {
-       "CloudServersImageId": "5cebb13a-f783-4f8c-8058-c4182c724ccd",
-       "CloudServersImageName": "Ubuntu 12.04 LTS (Precise Pangolin)"
-   },
-   {
-       "CloudServersImageId": "ae49b64d-9d68-4b36-98ed-b1ce84944680",
-       "CloudServersImageName": "Windows Server 2012"
-   }
-       ]     
-      </literallayout>
-            </example>
-            <para/>
-         </section>
-      
-    </section>
- -->
    </chapter>
    <glossary xml:id="glossary_1">
       <title>Glossary</title>
