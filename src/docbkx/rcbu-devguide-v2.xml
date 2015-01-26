@@ -4,13 +4,13 @@
    xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wadl="http://wadl.dev.java.net/2009/02"
    xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:m="http://www.w3.org/the key 1998/Math/MathML" version="5.0" xml:id="rcbu-devguide">
-   <?rax pdf.url="../../../rcbu-devguide-latest.pdf"?>
+
+   <?rax pdf.url="../../../rcbu-devguide-latest.pdf" status.bar.text="INTERNAL DRAFT" ?>
    <title>Rackspace Cloud Backup Developer Guide</title>
    <titleabbrev>Rackspace Cloud Backup Developer Guide</titleabbrev>
    <info>
       <copyright>
-         <year>2013</year>
-         <year>2014</year>
+         <year>2015</year>
       </copyright>
       <releaseinfo>API v2.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
@@ -27,9 +27,9 @@
       </abstract>
       <revhistory>
          <revision>
-            <date>2014-12-08</date>
+            <date>2015-06-30</date>
             <revdescription>
-               <para>Initial release of Cloud Backup v2.0</para>
+               <para>Initial release of Cloud Backup v2.0.</para>
             </revdescription>
          </revision>
       </revhistory>
@@ -608,7 +608,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                as <code>application/json</code>.</para>
             <para>Most requests with a message body also require a <code>Content-Type</code> of
                   <code>application/json</code>. <command>PATCH</command> requests require a
-                  <code>Content-Type</code> of <code>application/json</code></para>
+                  <code>Content-Type</code> of <code>application/json-patch+json</code>.</para>
          </section>
          <section xml:id="DB_faults">
             <title>Common HTTP response codes</title>
@@ -643,7 +643,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                      <td colspan="2"><code>202</code></td>
                      <td colspan="1">Accepted</td>
                      <td colspan="3">The request was accepted for processing, but the processing has
-                        not been completed.</td>
+                        not completed.</td>
                   </tr>
                   <tr>
                      <td colspan="2"><code>204</code></td>
@@ -662,21 +662,23 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                      <td colspan="2"><code>401</code>
                      </td>
                      <td colspan="1">Unauthorized</td>
-                     <td colspan="3">The supplied token is not authorized to access the resources.
-                        Either it's expired or invalid.</td>
+                     <td colspan="3">The request has not been applied because it lacks valid
+                        authentication credentials for the target resource. The credentials are
+                        either expired or invalid.</td>
                   </tr>
                   <tr>
                      <td colspan="2"><code>403</code>
                      </td>
                      <td colspan="1">Forbidden</td>
-                     <td colspan="3">Access to the requested resource was denied.</td>
+                     <td colspan="3">The server understood the request but refuses to authorize
+                        it.</td>
                   </tr>
                   <tr>
                      <td colspan="2"><code>404</code>
                      </td>
                      <td colspan="1">Not Found</td>
-                     <td colspan="3">The server did not find anything matching the r equest URI or
-                        is not willing to disclose that one exists. </td>
+                     <td colspan="3">The server did not find a current representation for the target
+                        resource or is not willing to disclose that one exists. </td>
                   </tr>
                   <tr>
                      <td colspan="2"><code>405</code></td>
@@ -689,8 +691,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                      </td>
                      <td colspan="1">Internal Server Error</td>
                      <td colspan="3">The server encountered an unexpected condition that prevented
-                        it from fulfilling the request. This error could wrap several error messages
-                        and is a catch all.</td>
+                        it from fulfilling the request. </td>
                   </tr>
                   <tr>
                      <td colspan="2"><code>503</code>
@@ -772,12 +773,13 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
    </chapter>
    <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook" role="api-reference">
       <title>API operations</title>
-      <para>This section includes descriptions of all of the Cloud Backup API operations.</para>
-      <section xml:id="Health" >
-         <title>Health operations</title>
-         <para>This section describes the health checking opeation that are supported by the Cloud
-            Backup API.</para><wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#version">
+      <para>This chapter describes each of the Cloud Backup API operations, which are summarized in
+         the following table.</para>
+      <section xml:id="Health-Operations" >
+         <title>Health Check operations</title>
+         <para>This section describes the health checking operations for the Cloud Backup
+            API.</para><wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#health">
                   <wadl:method href="#getHealthCheck"/>
                </wadl:resource>
                <wadl:resource href="../../src/wadl/rcbu-v2.wadl#dependent_system">
@@ -788,54 +790,60 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                </wadl:resource>
             </wadl:resources>
       </section>
-      <section xml:id="Agent">
-         <title>Agent operations</title>
-         <para xmlns:wadl="http://wadl.dev.java.net/2009/02">This section describes the agent
-            operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_machineAgentId">
-               <wadl:method href="getAgentDetails"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_enable">
-               <wadl:method href="enableAgent"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_encrypt">
-               <wadl:method href="encryptVolume"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_changeencryption">
-               <wadl:method href="changeEncryptPassword"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_delete">
-               <wadl:method href="deleteAgent"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_migratevault">
-               <wadl:method href="migrateVault"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_machineAgentId">
-               <wadl:method href="updateAgentBackupBehavior"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agent_server">
-               <wadl:method href="getAgentServer"/>
+     <section xml:id="Activity-Operations">
+         <title>Activity operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the activity
+            operation that is supported by the Cloud Backup API. </para>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#activities">
+               <wadl:method href="#getProjectActivities"/>
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <section xml:id="User">
-         <title>User operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the user
+<!--      
+      <section xml:id="Backup-Operations">
+         <title>Backup operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agents">
-               <wadl:method href="getUserAgents"/>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
+               <wadl:method href="startStopBackupManually"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#wakeupagents">
-               <wadl:method href="postWakeUpAgents"/>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup__backupId">
+               <wadl:method href="getBackupDetails"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#completedBackupConfigurationId">
+               <wadl:method href="getCompletedBackups"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup_report_backupId">
+               <wadl:method href="getBackupReport"/>
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <section xml:id="backupConfig">
-         <title>Backup configuration operations</title>
+      <section xml:id="Cleanup-Operations">
+         <title>Cleanup operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
+            operations that are supported by the Cloud Backup API. </para>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
+               <wadl:method href="startStopBackupManually"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup__backupId">
+               <wadl:method href="getBackupDetails"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#completedBackupConfigurationId">
+               <wadl:method href="getCompletedBackups"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#backup_report_backupId">
+               <wadl:method href="getBackupReport"/>
+            </wadl:resource>
+         </wadl:resources>
+         <?hard-pagebreak?>
+      </section>
+      <section xml:id="Configuration-Operations">
+         <title>Configuration operations</title>
          <para>When trying to determine how often to back up a file in your backup configuration,
             there are three variables to consider: <orderedlist>
                <listitem>
@@ -881,45 +889,22 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <section xml:id="Backup">
-         <title>Backup operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
+-->      
+      <section xml:id="Events-Operations">
+         <title>Events operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the user
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
-               <wadl:method href="startStopBackupManually"/>
+<!--         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#agents">
+               <wadl:method href="getUserAgents"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup__backupId">
-               <wadl:method href="getBackupDetails"/>
+            <wadl:resource href="../../src/wadl/rcbu.wadl#wakeupagents">
+               <wadl:method href="postWakeUpAgents"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#completedBackupConfigurationId">
-               <wadl:method href="getCompletedBackups"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup_report_backupId">
-               <wadl:method href="getBackupReport"/>
-            </wadl:resource>
-         </wadl:resources>
+         </wadl:resources>  -->
          <?hard-pagebreak?>
       </section>
-      <section xml:id="RestoreConfig">
-         <title>Restore configuration operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
-            configuration operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#restore">
-               <wadl:method href="createRestoreConfig"/>
-               <wadl:method href="updateRestoreConfig"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#files">
-               <wadl:method href="createRestoreFile"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#restoreId">
-               <wadl:method href="getRestoreFiles"/>
-               <wadl:method href="deletetRestoreConfig"/>
-            </wadl:resource>
-         </wadl:resources>
-         <?hard-pagebreak?>
-      </section>
+<!--      
       <section xml:id="Restore-Operations">
          <title>Restore operations</title>
          <para>You should periodically test your restores to make sure that they are working as you
@@ -947,21 +932,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
-      </section>
-      <section xml:id="Activity">
-         <title>Activity operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the activity
-            operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#system_activity_agentId">
-               <wadl:method href="getAgentActivity"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#activity">
-               <wadl:method href="getUserActivity"/>
-            </wadl:resource>
-         </wadl:resources>
-         <?hard-pagebreak?>
-      </section>
+      </section> -->
    </chapter>
    <glossary xml:id="glossary_1">
       <title>Glossary</title>

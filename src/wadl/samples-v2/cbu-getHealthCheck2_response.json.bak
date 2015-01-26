@@ -4,7 +4,7 @@
             "online": false,
             "links": [
                       {
-                      "href": "https://global.cdn.api.rackspacecloud.com/health/storage/cassandra",
+                      "href": "https://cloudbackupapi.apiary-mock.com/health/storage/cassandra",
                       "rel": "self"
                       }
                       ]
@@ -16,7 +16,7 @@
             "node": "phx-web-01",
             "links": [
                       {
-                      "href": "https://global.cdn.api.rackspacecloud.com/health/transport/pecan",
+                      "href": "https://cloudbackupapi.apiary-mock.com/health/transport/pecan",
                       "rel": "self"
                       }
                       ]

@@ -16,16 +16,18 @@
 <!--******************************************************************-->
 <!--       All Resources                                              -->
 <!--******************************************************************-->      
-   <resources base="http://localhost">
+   <resources base="https://dfw.backup.api.rackspacecloud.com/">
       <resource id="version" path="v2.0">
-         <resource id="tenant_id" path="{tenant_id}">
-            <param name="tenant_id" style="template"
+         
+         <resource id="project_id" path="{project_id}">
+            <param name="project_id" style="template"
                type="xsd:string">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">
-                  <para>The unique identifier of the tenant. Also referred to as the project ID 
+                  <para>The unique identifier of the project. Also referred to as the tenant ID 
                      or account ID.</para></wadl:doc>
                   </param>
+                  
             <resource id="health" path="health">
                <method href="#getHealthCheck"/>              
                <resource id="dependent_system" path="{dependent_system}">
@@ -41,6 +43,15 @@
             <resource id="ping" path="ping"> 	
                <method href="#getPing"/> 
             </resource>
+            
+            <resource id="activities" path="activities">
+               <method href="#getProjectActivities"/>
+            </resource>
+            
+            <resource id="events" path="events">
+               <method href="#postEvents"/>
+            </resource>
+            
 <!--            
             <resource id="agent" path="agent">            
                <resource id="agent_machineAgentId" path="{machineAgentId}">
@@ -217,9 +228,10 @@
 	<method name="GET" id="getHealthCheck">
 		<wadl:doc xml:lang="EN" title="Perform health check"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Performs a health check on the specified dependent system.</para>
-			<para>This operation performs a health check on the specified dependent system. </para>			
+			<para role="shortdesc">Performs a health check for all dependent systems.</para>
+			<para>This operation performs a health check for all dependent systems. </para>			
 		</wadl:doc>
+	   
 		<request>
 			<representation mediaType="application/json" >
 				<doc>
@@ -227,18 +239,22 @@
 				</doc>
 			</representation>
 		</request>
+	   
 		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
 			<representation mediaType="application/json">
 				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
-					<xsdxt:code
+				   xml:lang="EN" title="Example 1: Perform health check: JSON response">
+					<xsdxt:code 
 						href="../wadl/samples-v2/cbu-getHealthCheck1_response-json-http.txt"
 					/>
 					<xsdxt:code
 						href="../wadl/samples-v2/cbu-getHealthCheck1_response.json"
 					/>
-					<xsdxt:code
+				</wadl:doc>
+				   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+				      xml:lang="EN" title="Example 2: Perform health check: JSON response">
+					<xsdxt:code 
 						href="../wadl/samples-v2/cbu-getHealthCheck2_response-json-http.txt"
 					/>
 					<xsdxt:code
@@ -247,40 +263,45 @@
 				</wadl:doc>
 			</representation>
 		</response>
+	   
 		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
-		   <doc title="Service Unavailable" xml:lang="EN">Any dependent system returns the response if it is experiencing an issue. 
-		      The service is temporarily unavailable (for example, for scheduled
-				platform maintenance). Try again later. </doc>			
+		   <doc title="Service Unavailable" xml:lang="EN">This response code is returned if any dependent system is experiencing an issue. </doc>			
 		</response>
+	   
 	</method>	
-   <!--*******************************************************-->
-   <!--     Get health details   - ?? move to Admin WADL ??   -->
-   <!--*******************************************************-->
+<!--*******************************************************-->
+<!--     Get health details   - ?? move to Admin WADL ??   -->
+<!--*******************************************************-->
 	<method name="GET" id="getHealthDetails">
 		<wadl:doc xml:lang="EN" title="Get health details"
 			xmlns="http://docbook.org/ns/docbook">
-			<para role="shortdesc">Gets the health details for a subsystem.</para>
-			<para>This operation shows whether a subsystem is online or offline. </para>
+			<para role="shortdesc">Gets the health details for the specified dependent system. </para>
+			<para>This operation shows whether the specified dependent system is online or offline. </para>
 					
 		</wadl:doc>
-		<request>
+		
+	   <request>
 			<representation mediaType="application/json" >
 				<doc>
 					<xsdxt:code href="../wadl/samples-v2/cbu-getHealthDetails_request-json-http.txt"/>
 				</doc>
 			</representation>
 		</request>
-		<response status="200" xmlns="http://wadl.dev.java.net/2009/02">
+		
+	   <response status="200" xmlns="http://wadl.dev.java.net/2009/02">
 			<doc title="OK" xml:lang="EN">Success.</doc>
 			<representation mediaType="application/json">
-				<wadl:doc xmlns="http://docbook.org/ns/docbook"
-					xml:lang="EN">
+			   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+			      xml:lang="EN" title="Example 1: Get health details: JSON response">
 					<xsdxt:code
 						href="../wadl/samples-v2/cbu-getHealthDetails1_response-json-http.txt"
 					/>
 					<xsdxt:code
 						href="../wadl/samples-v2/cbu-getHealthDetails1_response.json"
 					/>
+			   </wadl:doc>
+			      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+			         xml:lang="EN" title="Example 2: Get health details: JSON response">
 					<xsdxt:code
 					href="../wadl/samples-v2/cbu-getHealthDetails2_response-json-http.txt"
 					/>
@@ -290,21 +311,22 @@
 				</wadl:doc>
 			</representation>
 		</response>
-		<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
-		   <doc title="Service Unavailable" xml:lang="EN">Any dependent system returns the response if it is experiencing an issue. The service is temporarily unavailable (for example, for scheduled
-				platform maintenance). Try again later.</doc>			
+		
+	   <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+		   <doc title="Service Unavailable" xml:lang="EN">Any dependent system returns the response if it is experiencing an issue. </doc>			
 		</response>
+	   
 	</method> 
-   <!--*******************************************************-->
-   <!--               Get ping                                -->
-   <!--*******************************************************-->
+<!--*******************************************************-->
+<!--               Get ping                                -->
+<!--*******************************************************-->
    <method name="GET" id="getPing">
       <wadl:doc xml:lang="EN" title="Ping the application"
          xmlns="http://docbook.org/ns/docbook">
          <para role="shortdesc">Ping the application.</para>
-         <para>This operation gives a quick indication of whether the application is running or not. It is used by a load balancer's health checker. </para>
-         
+         <para>This operation gives a quick indication of whether the application is running or not. It is used by a load balancer's health checker. </para>         
       </wadl:doc>
+      
       <request>
          <representation mediaType="application/json" >
             <doc>
@@ -312,6 +334,7 @@
             </doc>
          </representation>
       </request>
+      
       <response status="204" xmlns="http://wadl.dev.java.net/2009/02">
          <doc title="No Content" xml:lang="EN">The server successfully processed the request, but is not returning any content.</doc>
          <representation mediaType="application/json">
@@ -323,157 +346,246 @@
             </wadl:doc>
          </representation>
       </response>
+      
    </method>
    
 <!--******************************************************************-->
-<!--       Agent methods                                              -->
+<!--       Activity method                                            -->
 <!--******************************************************************--> 
-<!--**********************-->
-<!-- Get agent details    -->
-<!--**********************-->                    
-         <method name="GET" id="getAgentDetails">
-            <wadl:doc title="List agent details">
-               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent.</para>
-               <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in <xref linkend="POST_postWakeUpAgents_v1.0__tenant_id__user_wakeupagents_User"/>. You should wait 10-20 seconds after using this operation
-                  to determine the online status of the agent reliably.</para></note>
-            </wadl:doc>            
+<!--********************************-->
+<!-- List activities for project    -->
+<!--********************************-->                    
+         <method name="GET" id="getProjectActivities">
+            <wadl:doc title="List activities for a project">
+               <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the activities for the project. </para>
+               <para xmlns="http://docbook.org/ns/docbook">This operation lists the activities for the project. If no activities are available, the <code>activities</code>" parameter in the response is an empty array. (TODO: Add restorable to backups to indicate which are available for restore?)</para>
+            </wadl:doc>
+            
             <request>
-            <representation mediaType="application/json">
-               <doc>
-                  <xsdxt:code href="../wadl/samples/getAgentDetails-json-http_request.txt"/>
-               </doc>
-            </representation>
+               <param name="marker" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies the <code>id</code> of the last known activity. For example: 2d26bb8d-12d0-4579-bbd0-5db7216128ef</wadl:doc>
+               </param>
+               <param name="limit" style="query" type="xsd:integer"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies the number of activites to list. The default
+                     value is 100.
+                  </wadl:doc>
+               </param>
+               <param name="sort_dir" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies the direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+                  </wadl:doc>
+               </param>
+               <param name="type" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies the type of activities to filter. Valid values are <code>backup</code>, <code>cleanup</code>, or <code>restore</code>.
+                     </wadl:doc>
+               </param>
+               <param name="state" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies the state of the activities to filter. Valid values are any state defined by a backup, a cleanup, or a restore, such as <code>completed_with_errors</code>.
+                  </wadl:doc>
+               </param>
+               <param name="agent_ids" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies a comma-separated list of agent IDs by which to filter. For example: <code>8f135b4f-7a69-4b8a-947f-5e80d772fd97</code>,<code>6d94a88d-1c17-484b-9247-b76f731f4731</code>
+                  </wadl:doc>
+               </param>
+               <param name="configuration_ids" style="query" type="xsd:string"
+                  required="false">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                     xml:lang="EN">Specifies a comma-separated list of configuration IDs by which to filter. For example: <code>7c8ee069-568f-4d5a-932f-fb2af86b5fd5</code>,<code>abf89721-616e-4922-94d4-29757d6a8671</code>
+                  </wadl:doc>
+               </param>
+               <representation mediaType="application/json" >
+                  <doc>
+                     <xsdxt:code href="../wadl/samples-v2/cbu-getProjectActivities_request-json-http.txt"/>
+                  </doc>
+               </representation>
             </request>
+            
             <response status="200">                
                <doc title="OK" xml:lang="EN">The request succeeded.</doc>
                <representation mediaType="application/json">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
-                     <xsdxt:code href="../wadl/samples/getAgentDetails_response.json"/>
-                  </wadl:doc>
-<!--                  <param name="." style="plain" path="$.parameters "/> -->
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Architecture" style="plain" path="$.parameters.Architecture">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Base architecture of the Cloud Server. Valid values are 64-bit or 32-bit.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Flavor" style="plain" path="$.parameters.Flavor">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">RaxCloudServer – for Rackspace Cloud Servers.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupVaultSize" style="plain" path="$.parameters.BackupVaultSize">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Size of backup data in MB.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="BackupContainer" style="plain" path="$.parameters.BackupContainer">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Full public URI for Cloud Files where backups are stored for this agent.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="CleanupAllowed" style="plain" path="$.parameters.CleanupAllowed">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates whether a cleanup can be manually triggered on the backup vault. Valid values are true or false.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Datacenter" style="plain" path="$.parameters.Datacenter">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Data center where the Cloud Server is located. Valid values are IAD, ORD, DFW, HKG, LON, or SYD).
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="IPAddress" style="plain" path="$.parameters.IPAddress">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Public IPv4 address of the Cloud Server.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="IsDisabled" style="plain" path="$.parameters.IsDisabled">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if the Rackspace Cloud Backup agent on the server is disabled. Valid values are true or false.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="IsEncrypted" style="plain" path="$.parameters.IsEncrypted">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if backups are encrypted. Valid values are true or false.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="MachineName" style="plain" path="$.parameters.MachineName">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Name of the Cloud Server.
-                     </p></doc>
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="OperatingSystem" style="plain" path="$.parameters.OperatingSystem">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Operating system of Cloud Server.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="OperatingSystemVersion" style="plain" path="$.parameters.OperatingSystemVersion">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Operating system version of Cloud Server.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="PublicKey" style="plain" path="$.parameters.PublicKey">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Public key of the public/private encryption key pair.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="Status" style="plain" path="$.parameters.Status">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Status of the Cloud Backup agent. Valid values are Online or Offline.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="TimeOfLastSuccessfulBackup" style="plain" path="$.parameters.TimeOfLastSuccessfulBackup">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Time of last successful backup.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="UseServiceNet" style="plain" path="$.parameters.UseServiceNet">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if the Cloud Backup agent is using ServiceNet to backup data to Cloud Files. Valid values are true or false.
-                     </p></doc>  
-                  </param>
-                  <param xmlns="http://wadl.dev.java.net/2009/02"
-                     name="HostServerId" style="plain" path="$.parameters.HostServerId">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">Server ID of the host server where the Cloud Backup agent is running.
-                     </p></doc>  
-                  </param>
+                  <xsdxt:code 
+                     href="../wadl/samples-v2/cbu-getProjectActivities_response-json-http.txt"
+                  />
+                  <xsdxt:code
+                     href="../wadl/samples-v2/cbu-getProjectActivities_response.json"
+                  />
+                  </wadl:doc>   
                </representation>               
-            </response>            
-            <response status="400">
-               <doc title="Bad request" xml:lang="EN">There were one or more errors in the request.</doc>
-               <representation mediaType="application/json"/>              
             </response>
-            <response status="401">
-               <doc title="Unauthorized" xml:lang="EN">The supplied token was not authorized to access the resources. Either it is expired or invalid.</doc>
-               <representation mediaType="application/json"/>
-            </response>
-            <response status="403">
-               <doc title="Forbidden" xml:lang="EN">Access to the requested resource was denied.</doc>
-               <representation mediaType="application/json"/>
-               </response>
-            <response status="404">
-               <doc title="Not Found" xml:lang="EN">The backend services did not find anything matching the request URI.</doc>
-               <representation mediaType="application/json">                  
-               </representation>
-            </response>
-            <response status="500">
-               <doc title="Instance Fault" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
-               <representation mediaType="application/json"/>              
-            </response>
-            <response status="503">
-               <doc title="Service Unavailable" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
-               <representation mediaType="application/json"/>               
-            </response>
+            
          </method>
+   
+<!--******************************************************************-->
+<!--        Events methods                                            -->
+<!--******************************************************************--> 
+<!--********************************-->
+<!--       Post project events      -->
+<!--********************************-->       
+   
+   
+   
+   
+   
+   <!--********************************-->
+   <!-- List agent details            -->
+   <!--********************************-->                    
+   <method name="GET" id="getAgentDetails">
+      <wadl:doc title="List agent details">
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the machine and its agent.</para>
+         <note xmlns="http://docbook.org/ns/docbook"><para>If the agent <code>Status</code> is showing as <code>Offline</code>, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in <xref linkend="POST_postWakeUpAgents_v1.0__tenant_id__user_wakeupagents_User"/>. You should wait 10-20 seconds after using this operation
+            to determine the online status of the agent reliably.</para></note>
+      </wadl:doc>            
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples/getAgentDetails-json-http_request.txt"/>
+            </doc>
+         </representation>
+      </request>
+      <response status="200">                
+         <doc title="OK" xml:lang="EN">The request succeeded.</doc>
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
+               <xsdxt:code href="../wadl/samples/getAgentDetails_response.json"/>
+            </wadl:doc>
+            <!--                  <param name="." style="plain" path="$.parameters "/> -->
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="AgentVersion" style="plain" path="$.parameters.AgentVersion">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Version of the Rackspace Cloud Backup agent.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="Architecture" style="plain" path="$.parameters.Architecture">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Base architecture of the Cloud Server. Valid values are 64-bit or 32-bit.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="Flavor" style="plain" path="$.parameters.Flavor">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">RaxCloudServer – for Rackspace Cloud Servers.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="BackupVaultSize" style="plain" path="$.parameters.BackupVaultSize">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Size of backup data in MB.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="BackupContainer" style="plain" path="$.parameters.BackupContainer">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Full public URI for Cloud Files where backups are stored for this agent.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="CleanupAllowed" style="plain" path="$.parameters.CleanupAllowed">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates whether a cleanup can be manually triggered on the backup vault. Valid values are true or false.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="Datacenter" style="plain" path="$.parameters.Datacenter">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Data center where the Cloud Server is located. Valid values are IAD, ORD, DFW, HKG, LON, or SYD).
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="IPAddress" style="plain" path="$.parameters.IPAddress">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Public IPv4 address of the Cloud Server.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="IsDisabled" style="plain" path="$.parameters.IsDisabled">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if the Rackspace Cloud Backup agent on the server is disabled. Valid values are true or false.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="IsEncrypted" style="plain" path="$.parameters.IsEncrypted">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if backups are encrypted. Valid values are true or false.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="MachineName" style="plain" path="$.parameters.MachineName">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Name of the Cloud Server.
+               </p></doc>
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="OperatingSystem" style="plain" path="$.parameters.OperatingSystem">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Operating system of Cloud Server.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="OperatingSystemVersion" style="plain" path="$.parameters.OperatingSystemVersion">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Operating system version of Cloud Server.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="PublicKey" style="plain" path="$.parameters.PublicKey">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Public key of the public/private encryption key pair.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="Status" style="plain" path="$.parameters.Status">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Status of the Cloud Backup agent. Valid values are Online or Offline.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="TimeOfLastSuccessfulBackup" style="plain" path="$.parameters.TimeOfLastSuccessfulBackup">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Time of last successful backup.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="UseServiceNet" style="plain" path="$.parameters.UseServiceNet">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Indicates if the Cloud Backup agent is using ServiceNet to backup data to Cloud Files. Valid values are true or false.
+               </p></doc>  
+            </param>
+            <param xmlns="http://wadl.dev.java.net/2009/02"
+               name="HostServerId" style="plain" path="$.parameters.HostServerId">
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">Server ID of the host server where the Cloud Backup agent is running.
+               </p></doc>  
+            </param>
+         </representation>               
+      </response>            
+      <response status="400">
+         <doc title="Bad request" xml:lang="EN">There were one or more errors in the request.</doc>
+         <representation mediaType="application/json"/>              
+      </response>
+      <response status="401">
+         <doc title="Unauthorized" xml:lang="EN">The supplied token was not authorized to access the resources. Either it is expired or invalid.</doc>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <doc title="Forbidden" xml:lang="EN">Access to the requested resource was denied.</doc>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="404">
+         <doc title="Not Found" xml:lang="EN">The backend services did not find anything matching the request URI.</doc>
+         <representation mediaType="application/json">                  
+         </representation>
+      </response>
+      <response status="500">
+         <doc title="Instance Fault" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
+         <representation mediaType="application/json"/>              
+      </response>
+      <response status="503">
+         <doc title="Service Unavailable" xml:lang="EN">This is a generic server error. The message contains the reason for the error. This error could wrap several error messages.</doc>
+         <representation mediaType="application/json"/>               
+      </response>
+   </method>  
+   
+   
 <!--*************************-->
 <!-- Enable or disable agent -->
 <!--*************************-->        
