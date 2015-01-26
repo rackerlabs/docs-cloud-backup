@@ -1,0 +1,95 @@
+{
+    "activities": [
+        {
+            "id": "2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+            "type": "backup",
+            "time": "2014-10-27T18:22:21.238641Z",
+            "state": "completed_with_errors",
+            "agent": {
+                "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                "links": [
+                    {
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                        "rel": "full"
+                    }
+                ]
+            },
+            "configuration": {
+                "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
+                "links": [
+                    {
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
+                        "rel": "full"
+                    }
+                ]
+            },
+            "links": [
+                {
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+                    "rel": "backup"
+                }
+            ]
+        },
+        {
+            "id": "dd7175fd-57ee-4cfb-8458-acb6ad354271",
+            "type": "cleanup",
+            "time": "2014-10-27T18:22:20.238641Z",
+            "state": "completed_with_errors",
+            "agent": {
+                "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                "links": [
+                    {
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                        "rel": "full"
+                    }
+                ]
+            },
+            "links": [
+                {
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/cleanups/dd7175fd-57ee-4cfb-8458-acb6ad354271",
+                    "rel": "cleanup"
+                }
+            ]
+        },
+        {
+            "id": "4c166552-aee3-416f-8cba-c063090d2aa5",
+            "type": "restore",
+            "time": "2014-10-27T18:22:19.238641Z",
+            "state": "completed_with_errors",
+            "agent": {
+                "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                "links": [
+                    {
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+                        "rel": "full"
+                    }
+                ]
+            },
+            "configuration": {
+                "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
+                "links": [
+                    {
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
+                        "rel": "full"
+                    }
+                ]
+            },
+            "links": [
+                {
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5",
+                    "rel": "restore"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/activities?marker=2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+            "rel": "next"
+        },
+        {
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/activities?marker=4c166552-aee3-416f-8cba-c063090d2aa5&sort_dir=asc",
+            "rel": "previous"
+        }
+    ]
+}
