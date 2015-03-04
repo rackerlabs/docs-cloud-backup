@@ -1704,7 +1704,7 @@
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
                      name="LastRunBackupReportId" style="plain" path="$.parameters.LastRunBackupReportId">
-                     <doc><p xmlns="http://www.w3.org/1999/xhtml">If the backup ran successfully ran last time, indicates the ID of the backup report.
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">If the backup ran successfully last time, indicates the ID of the backup report.
                      </p></doc>
                   </param>
                   <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -1883,7 +1883,7 @@
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"
                name="LastRunBackupReportId" style="plain" path="$.parameters.LastRunBackupReportId">
-               <doc><p xmlns="http://www.w3.org/1999/xhtml">If the backup ran successfully ran last time, indicates the ID of the backup report.
+               <doc><p xmlns="http://www.w3.org/1999/xhtml">If the backup ran successfully last time, indicates the ID of the backup report.
                </p></doc>
             </param>
             <param xmlns="http://wadl.dev.java.net/2009/02"

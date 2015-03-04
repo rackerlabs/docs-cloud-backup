@@ -15,7 +15,7 @@
       </copyright>
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
-      <pubdate>2015-01-14</pubdate>
+      <pubdate>2015-03-04</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the template.</remark>
@@ -27,6 +27,18 @@
                (<abbrev>API</abbrev>). </para>
       </abstract>
       <revhistory>
+         <revision xmlns:m="http://www.w3.org/1998/Math/MathML">
+            <date>2015-03-04</date>
+            <revdescription>
+               <itemizedlist spacing="compact">
+                  <listitem>
+                     <para>Removed the London endpoint, since Rackspace now has one global endpoint
+                        for authentication using the Rackspace Cloud Identity service. See <xref
+                           linkend="Authentication-d1e647"/>.</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
          <revision>
             <date>2015-01-14</date>
             <revdescription>
@@ -531,18 +543,28 @@
          <para>
             <emphasis role="bold">USE YOUR AUTHENTICATION ENDPOINT</emphasis>
          </para>
-         <para>You can use either of the following endpoints to access the Cloud Identity Service,
-            regardless of US or UK identities: <itemizedlist spacing="compact">
+         <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
+            UK identities: <itemizedlist spacing="compact">
                <listitem>
                   <para><link xlink:href=" https://identity.api.rackspacecloud.com/v2.0/">
                         https://identity.api.rackspacecloud.com/v2.0/</link></para>
                </listitem>
-               <listitem>
-                  <para><link xlink:href="https://lon.identity.api.rackspacecloud.com/v2.0/"
-                        >https://lon.identity.api.rackspacecloud.com/v2.0/</link></para>
-               </listitem>
             </itemizedlist>
          </para>
+         <para>Your account may be based in either the US or the UK. This is not determined by your
+            physical location but by the location of the Rackspace retail site that was used to
+            create your account: </para>
+         <itemizedlist spacing="compact">
+            <listitem>
+               <para> If your account was created via <link
+                     xlink:href="http://www.rackspacecloud.com"
+                  >http://www.rackspacecloud.com</link>, it is a US-based account. </para>
+            </listitem>
+            <listitem>
+               <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk"
+                     >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
+            </listitem>
+         </itemizedlist>
          <para>
             <emphasis role="bold">SEND YOUR CREDENTIALS TO YOUR AUTHENTICATION ENDPOINT</emphasis>
          </para>
@@ -585,7 +607,7 @@
                         <listitem>
                            <para>If the Identity service returns a returns a 401 message with a
                               request for additional credentials, your account requires <link
-                                 xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-admin-devguide/content/MFA_Ops.htmlmulti-factor authentication"
+                                 xlink:href="https://identity.api.rackspacecloud.com/v2.0"
                                  >multi-factor authentication</link>. To complete the authentication
                               process, submit a second <guilabel>POST tokens</guilabel> request with
                               these multi-factor authentication credentials: <itemizedlist>

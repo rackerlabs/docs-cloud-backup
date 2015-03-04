@@ -892,19 +892,17 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
 -->      
       <section xml:id="Events-Operations">
          <title>Events operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the user
-            operations that are supported by the Cloud Backup API. </para>
-<!--         <wadl:resources>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#agents">
-               <wadl:method href="getUserAgents"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#wakeupagents">
-               <wadl:method href="postWakeUpAgents"/>
-            </wadl:resource>
-         </wadl:resources>  -->
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the events
+            operations for the Cloud Backup API. </para>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#events">
+               <wadl:method href="postEvents"/>
+               <wadl:method href="getEvents"/>            
+            </wadl:resource>            
+         </wadl:resources>               
          <?hard-pagebreak?>
       </section>
-<!--      
+      
       <section xml:id="Restore-Operations">
          <title>Restore operations</title>
          <para>You should periodically test your restores to make sure that they are working as you
@@ -917,22 +915,15 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
             restoring. </para>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backupAvailableForRestore">
-               <wadl:method href="getAvailableBackups"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#restore_action-requested">
-               <wadl:method href="postRestoreAction"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#restore_restoreId">
-               <wadl:method href="getRestoreDetails"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#restore_report_restoreId">
-               <wadl:method href="getRestoreReport"/>
-            </wadl:resource>
-         </wadl:resources>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#restores">
+               <wadl:method href="postRestores"/>
+               <wadl:method href="getRestores"/>
+               
+            </wadl:resource>            
+         </wadl:resources>               
          <?hard-pagebreak?>
-      </section> -->
+      </section>
    </chapter>
    <glossary xml:id="glossary_1">
       <title>Glossary</title>
