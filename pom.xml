@@ -77,7 +77,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
-          
+<!--          
           <execution>
             <id>rcbu-devguide-v2</id>
             <goals>
@@ -94,7 +94,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
-          
+-->          
         </executions>
         
         <configuration>

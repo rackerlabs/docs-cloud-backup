@@ -461,8 +461,8 @@
       <listitem>
         <para xmlns:html="http://www.w3.org/1999/xhtml"
           xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:svg="http://www.w3.org/2000/svg"
-          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">In <olink targetdoc="cf-devguide"
-            targetptr="Service-Access-Endpoints-d1e003">“Service access endpoints”</olink> in the
+          xmlns:m="http://www.w3.org/the key 1998/Math/MathML">In <olink targetdoc="rcbu-devguide"
+            targetptr="Service_Access_Endpoints-d1e753">“Service access endpoints”</olink> in the
             <citetitle>Cloud Backup Developer Guide</citetitle> and in the <citetitle>Cloud Backup
             Getting Started Guide</citetitle>, a link to the Knowledge Center article <link
             xlink:href="http://www.rackspace.com/knowledge_center/article/about-regions">About
