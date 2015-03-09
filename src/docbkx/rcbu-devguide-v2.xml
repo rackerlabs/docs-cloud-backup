@@ -257,15 +257,11 @@
          <para>
             <emphasis role="bold">USE YOUR AUTHENTICATION ENDPOINT</emphasis>
          </para>
-         <para>You can use either of the following endpoints to access the Cloud Identity Service,
-            regardless of US or UK identities: <itemizedlist spacing="compact">
+         <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
+            UK identities: <itemizedlist spacing="compact">
                <listitem>
                   <para><link xlink:href=" https://identity.api.rackspacecloud.com/v2.0/">
                         https://identity.api.rackspacecloud.com/v2.0/</link></para>
-               </listitem>
-               <listitem>
-                  <para><link xlink:href="https://lon.identity.api.rackspacecloud.com/v2.0/"
-                        >https://lon.identity.api.rackspacecloud.com/v2.0/</link></para>
                </listitem>
             </itemizedlist>
          </para>
@@ -770,15 +766,21 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
             </para>
          </section>
       </section>
+      <section  xml:id="agentHeader">
+         <title>Agent header</title>
+         <para>Agents communicating with Cloud Backup should always send an <code>X-Agent-Id</code>
+            header in the request.</para>
+      </section>
    </chapter>
    <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook" role="api-reference">
       <title>API operations</title>
       <para>This chapter describes each of the Cloud Backup API operations, which are summarized in
          the following table.</para>
-      <section xml:id="Health-Operations" >
-         <title>Health Check operations</title>
+      <section xml:id="Health-operations" >
+         <title>Health check operations</title>
          <para>This section describes the health checking operations for the Cloud Backup
-            API.</para><wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            API.</para>
+            <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
                <wadl:resource href="../../src/wadl/rcbu-v2.wadl#health">
                   <wadl:method href="#getHealthCheck"/>
                </wadl:resource>
@@ -790,13 +792,29 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                </wadl:resource>
             </wadl:resources>
       </section>
-     <section xml:id="Activity-Operations">
+     <section xml:id="Activity-operations">
          <title>Activity operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the activity
             operation that is supported by the Cloud Backup API. </para>
          <wadl:resources>
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#activities">
                <wadl:method href="#getProjectActivities"/>
+            </wadl:resource>
+         </wadl:resources>
+         <?hard-pagebreak?>
+      </section>
+      <section xml:id="Agents-operations">
+         <title>Agents operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the agents
+            operations that are supported by the Cloud Backup API. </para>
+         <wadl:resources>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agents">
+               <wadl:method href="#postAgent"/>
+               <wadl:method href="#getProjectAgents"/>
+            </wadl:resource>
+            
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agent_id">
+               <wadl:method href="#updateAgent"/>               
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
@@ -890,20 +908,20 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
          <?hard-pagebreak?>
       </section>
 -->      
-      <section xml:id="Events-Operations">
+      <section xml:id="Events-operations">
          <title>Events operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the events
             operations for the Cloud Backup API. </para>
-         <wadl:resources>
+         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#events">
                <wadl:method href="postEvents"/>
                <wadl:method href="getEvents"/>            
             </wadl:resource>            
-         </wadl:resources>               
+         </wadl:resources>            
          <?hard-pagebreak?>
       </section>
       
-      <section xml:id="Restore-Operations">
+      <section xml:id="Restore-operations">
          <title>Restore operations</title>
          <para>You should periodically test your restores to make sure that they are working as you
             expect. The worst possible scenario is to need your data restored now, and then to
@@ -915,13 +933,28 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
             restoring. </para>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the restore
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources>
+
+         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#restores">
                <wadl:method href="postRestores"/>
                <wadl:method href="getRestores"/>
-               
-            </wadl:resource>            
-         </wadl:resources>               
+            </wadl:resource> 
+            
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#restore_id">
+                  <wadl:method href="#getRestoreDetails"/>
+                  <wadl:method href="#updateRestore"/>               
+            </wadl:resource>
+            
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#errors">
+               <wadl:method href="#getRestoreErrors"/>
+            </wadl:resource>
+            
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#event">
+               <wadl:method href="#getRestoreEvents"/>
+            </wadl:resource>
+            
+         </wadl:resources>                 
          <?hard-pagebreak?>
       </section>
    </chapter>

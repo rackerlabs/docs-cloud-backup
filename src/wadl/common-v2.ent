@@ -1,0 +1,56 @@
+<!ENTITY ndash "&#8211;">
+<!ENTITY mdash "&#8212;">
+
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+<!ENTITY PATCH '<command xmlns="http://docbook.org/ns/docbook">PATCH</command>'>
+
+
+        
+           
+<!--
+         A collection of common faults, these are pretty much expected
+         in every request.          
+-->
+     <!ENTITY commonFaults
+           '                             
+        <response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="500" xmlns="http://wadl.dev.java.net/2009/02">           
+            <representation mediaType="application/xml" element="rcbu:internalServerError"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '> 
+           
+   <!--
+          Faults on GET
+      -->
+     <!ENTITY getFaults
+           '
+        <response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>      
+ 
+      

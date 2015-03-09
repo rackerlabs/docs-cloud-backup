@@ -1,0 +1,4 @@
+PATCH https://dfw.backup.api.rackspacecloud.com/v2.0/110011/restores/4c166552-aee3-416f-8cba-c063090d2aa5 HTTP/1.1
+Host: dfw.backup.api.rackspacecloud.com
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Content-Type: application/json-patch+json

@@ -31,7 +31,7 @@
         <artifactId>rackspace-docs-maven-plugin</artifactId>
         
         <executions>
-          <execution>
+          <!--         <execution>
             <id>rcbu-devguide</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -41,8 +41,9 @@
               <includes>rcbu-devguide.xml</includes>
 	            <security>external</security>
               <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content</canonicalUrlBase>
+ -->             
               <!--   <trimWadlUriCount>2</trimWadlUriCount>-->
-           </configuration> 
+<!--           </configuration> 
           </execution>  
           
           <execution>
@@ -77,7 +78,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
-<!--          
+-->          
           <execution>
             <id>rcbu-devguide-v2</id>
             <goals>
@@ -94,7 +95,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
--->          
+          
         </executions>
         
         <configuration>

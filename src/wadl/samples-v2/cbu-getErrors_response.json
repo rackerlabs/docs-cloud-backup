@@ -1,0 +1,24 @@
+{
+    "count": 1,
+    "reason": "unable_to_process_some_files",
+    "diagnostics": "Some files may not have been restored.",
+    "list": [
+        {
+            "index": 3,
+            "path": "/usr/bin/h2xs",
+            "type": "phx_exception",
+            "description": "The agent experience a problem (Phoenix).",
+            "exception": {
+                "code": 9016,
+                "description": "WRITE failed (3042): No space left on device",
+                "details": "1: [virtual void phx::LinuxFs::Write(boost::shared_ptr<phx::AbstractFileRef>, phx::BinaryStream&, phx::file_size_t): 290-virtual void phx::LinuxFs::Write(boost::shared_ptr<phx::AbstractFileRef>, phx::BinaryStream&, phx::file_size_t)] Ex Code(9016): WRITE failed (3042): No space left on device"
+            }
+        }
+    ],
+    "links": [
+        {
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5/errors",
+            "rel": "self"
+        }
+    ]
+}
