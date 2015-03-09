@@ -814,7 +814,9 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
             </wadl:resource>
             
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agent_id">
-               <wadl:method href="#updateAgent"/>               
+               <wadl:method href="#getAgentDetails"/>
+               <wadl:method href="#updateAgent"/>
+               <wadl:method href="#deleteAgent"/>
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
