@@ -62,7 +62,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
-         
+-->         
           <execution>
             <id>rcbu-getting-started</id>
             <goals>
@@ -75,10 +75,11 @@
                 rcbu-getting-started.xml
               </includes>
               <canonicalUrlBase>http://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content</canonicalUrlBase>
+              <webhelpDefaultTopic>Overview-d1e01.html</webhelpDefaultTopic>
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
--->          
+          
           <execution>
             <id>rcbu-devguide-v2</id>
             <goals>

@@ -1,0 +1,4 @@
+GET https://dfw.backup.api.rackspacecloud.com/v2/110011/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/activities?marker=2d26bb8d-12d0-4579-bbd0-5db7216128ef&limit=100&sort_dir=asc&type=backup&state=completed_with_errors&configuration_ids=7c8ee069-568f-4d5a-932f-fb2af86b5fd5%2Cabf89721-616e-4922-94d4-29757d6a8671 HTTP/1.1
+Host: dfw.backup.api.rackspacecloud.com
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Content-type: application/json

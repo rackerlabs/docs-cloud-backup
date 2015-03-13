@@ -12,7 +12,7 @@
       <copyright>
          <year>2015</year>
       </copyright>
-      <releaseinfo>API v2.0</releaseinfo>
+      <releaseinfo>API v2</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
       <pubdate/>
       <legalnotice role="rs-api">
@@ -29,7 +29,7 @@
          <revision>
             <date>2015-06-30</date>
             <revdescription>
-               <para>Initial release of Cloud Backup v2.0.</para>
+               <para>Initial release of Cloud Backup v2.</para>
             </revdescription>
          </revision>
       </revhistory>
@@ -255,13 +255,11 @@
             upper-right side of the top navigation pane in the Cloud Control Panel. The tenant ID or
             account number is in parentheses just to the right of your user name.</para>
          <para>
-            <emphasis role="bold">USE YOUR AUTHENTICATION ENDPOINT</emphasis>
+            <emphasis role="bold">USE THE GLOBAL AUTHENTICATION ENDPOINT</emphasis>
          </para>
-         <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
-            UK identities: <itemizedlist spacing="compact">
+         <para>Use the following global endpoint to access the Cloud Identity Service: <itemizedlist spacing="compact">
                <listitem>
-                  <para><link xlink:href=" https://identity.api.rackspacecloud.com/v2.0/">
-                        https://identity.api.rackspacecloud.com/v2.0/</link></para>
+                  <para><code>https://identity.api.rackspacecloud.com/v2.0/</code></para>
                </listitem>
             </itemizedlist>
          </para>
@@ -338,7 +336,7 @@
                names; for example, <code>type="compute"</code> identifies compute services such as
                cloudServers and cloudServersOpenStack. Some developers have found the service type
                attribute to be useful in parsing the service catalog. For Cloud Identity Service
-               v2.0 , you can see the service type attribute in the "Service Catalog in
+               v2.0, you can see the service type attribute in the "Service Catalog in
                Authentication Response" samples in the <citetitle>Cloud Identity Client Developer
                   Guide</citetitle> at <link
                   xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html"
@@ -526,28 +524,28 @@
                <tbody>
                   <tr>
                      <td>Dallas/Ft. Worth (DFW)</td>
-                     <td><code>https://dfw.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code>
+                     <td><code>https://dfw.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code>
                      </td>
                   </tr>
                   <tr>
                      <td>Chicago (ORD)</td>
-                     <td><code>https://ord.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://ord.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>London (LON) </td>
-                     <td><code>https://lon.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://lon.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Hong Kong (HKG)</td>
-                     <td><code>https://hkg.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://hkg.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Northern Virginia (IAD)</td>
-                     <td><code>https://iad.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://iad.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code></td>
                   </tr>
                   <tr>
                      <td>Sydney (SYD)</td>
-                     <td><code>https://syd.backup.api.rackspacecloud.com/v2.0/<parameter>1234</parameter>/</code></td>
+                     <td><code>https://syd.backup.api.rackspacecloud.com/v2/<parameter>1234</parameter>/</code></td>
                   </tr>
                </tbody>
             </table>
@@ -576,7 +574,7 @@
             <example>
                <title>Example request URI (contract version in bold)</title>
                <programlisting>
-https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/1234/
+https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/1234/
   </programlisting>
             </example>
          </section>
@@ -804,8 +802,8 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
          <?hard-pagebreak?>
       </section>
       <section xml:id="Agents-operations">
-         <title>Agents operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the agents
+         <title>Agent operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the agent
             operations that are supported by the Cloud Backup API. </para>
          <wadl:resources>
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agents">
@@ -817,7 +815,20 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
                <wadl:method href="#getAgentDetails"/>
                <wadl:method href="#updateAgent"/>
                <wadl:method href="#deleteAgent"/>
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agentActivities">
+                  <wadl:method href="#getAgentActivities"/>
+               </wadl:resource>
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#browseRequest">
+                  <wadl:method href="#postAgentBrowseRequest"/>
+               </wadl:resource>
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#request_id">
+                  <wadl:method href="#getAgentBrowseResult"/>
+               </wadl:resource>
             </wadl:resource>
+            
+<!--            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agentActivities">
+               <wadl:method href="#getAgentActivities"/>
+            </wadl:resource> -->
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
@@ -911,8 +922,8 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2.0</emphasis>/
       </section>
 -->      
       <section xml:id="Events-operations">
-         <title>Events operations</title>
-         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the events
+         <title>Event operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the event
             operations for the Cloud Backup API. </para>
          <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#events">

@@ -112,12 +112,7 @@
             <raxm:priority>10</raxm:priority>
         </raxm:metadata>
     </info>
-    <chapter xml:id="docChangeHistory">
-        <title>Document change history</title>
-        <para>This version of the guide replaces and obsoletes all earlier versions. The most recent
-            changes are described in the following table:</para>
-        <?rax revhistory?>
-    </chapter>
+    
     <chapter xml:id="Overview-d1e01" >
         <title>Overview</title>
         <para>The Rackspace Cloud Backup service enables you to select and back up specific files
@@ -1403,6 +1398,14 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 >www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
        
     </chapter>
+    
+    <chapter xml:id="docChangeHistory">
+        <title>Document change history</title>
+        <para>This version of the guide replaces and obsoletes all earlier versions. The most recent
+            changes are described in the following table:</para>
+        <?rax revhistory?>
+    </chapter>
+    
     <glossary xml:id="glossary_1" xmlns:wadl="http://wadl.dev.java.net/2009/02"
         xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
         <title>Glossary</title>

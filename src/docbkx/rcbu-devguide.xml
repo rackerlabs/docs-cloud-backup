@@ -543,14 +543,14 @@
          <para>
             <emphasis role="bold">USE YOUR AUTHENTICATION ENDPOINT</emphasis>
          </para>
-         <para>Use the following endpoint to access the Cloud Identity Service, regardless of US or
-            UK identities: <itemizedlist spacing="compact">
+         <para>Use the following global endpoint to access the Cloud Identity Service: <itemizedlist
+               spacing="compact">
                <listitem>
                   <para><link xlink:href=" https://identity.api.rackspacecloud.com/v2.0/">
                         https://identity.api.rackspacecloud.com/v2.0/</link></para>
                </listitem>
             </itemizedlist>
-         </para>
+            <!--         </para>
          <para>Your account may be based in either the US or the UK. This is not determined by your
             physical location but by the location of the Rackspace retail site that was used to
             create your account: </para>
@@ -565,6 +565,9 @@
                      >http://www.rackspace.co.uk</link>, it is a UK-based account. </para>
             </listitem>
          </itemizedlist>
+-->
+         </para>
+         
          <para>
             <emphasis role="bold">SEND YOUR CREDENTIALS TO YOUR AUTHENTICATION ENDPOINT</emphasis>
          </para>

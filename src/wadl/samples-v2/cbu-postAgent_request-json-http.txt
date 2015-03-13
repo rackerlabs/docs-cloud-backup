@@ -1,4 +1,4 @@
-POST https://dfw.backup.api.rackspacecloud.com/v2.0/110011/agents HTTP/1.1
+POST https://dfw.backup.api.rackspacecloud.com/v2/110011/agents HTTP/1.1
 Host: dfw.backup.api.rackspacecloud.com
 X-Auth-Token: 0f6e9f63600142f0a970911583522217
 Content-type: application/json
