@@ -60,7 +60,7 @@
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
         <productname>Rackspace Cloud Backup</productname>
-        <pubdate>2015-03-04</pubdate>
+        <pubdate>2015-03-18</pubdate>
         <legalnotice role="rs-api">
             <annotation>
                 <remark>Copyright details are filled in by the doc build process.</remark>
@@ -73,16 +73,19 @@
         </abstract>
         <revhistory>
             <revision>
+                <date>2015-03-18</date>
+                <revdescription>
+                    <para>Corrected the cURL example in <xref linkend="startBackupManually-d1e01"/>
+                        by changing<code> action-request</code> to <code>action-requested</code> at
+                        the end of the endpoint.</para>
+                </revdescription>
+            </revision>
+            <revision>
                 <date>2015-03-04</date>
                 <revdescription>
-                    <itemizedlist spacing="compact">
-                        <listitem>
-                            <para>Removed the London endpoint, since Rackspace now has one global
-                                endpoint for authentication using the Rackspace Cloud Identity
-                                service. See <xref linkend="generateAuthenticationToken-d1e01"
-                                />.</para>
-                        </listitem>
-                    </itemizedlist>
+                    <para>Removed the London endpoint, since Rackspace now has one global endpoint
+                        for authentication using the Rackspace Cloud Identity service. See <xref
+                            linkend="generateAuthenticationToken-d1e01"/>.</para>
                 </revdescription>
             </revision>
             <revision>
@@ -98,11 +101,7 @@
             <revision>
                 <date>2014-08-12</date>
                 <revdescription>
-                    <itemizedlist spacing="compact">
-                        <listitem>
-                            <para>Initial publishing of this guide.</para>
-                        </listitem>
-                    </itemizedlist>
+                    <para>Initial publishing of this guide.</para>
                 </revdescription>
             </revision>
         </revhistory>
@@ -1005,7 +1004,7 @@ curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bo
                 <example>
                     <title>Start a backup manually</title>
                     <programlisting language="bash">
-curl -i -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/backup/action-request \
+curl -i -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/<emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAccountID</emphasis>/backup/action-requested \
 -H "X-Auth-Token: <emphasis role="bold" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">yourAuthToken</emphasis>"  \
 -H "Content-Type: application/json" \
 -d '{   "Action" : "StartManual",    

@@ -1,0 +1,25 @@
+{
+    "project_id": "123456",
+    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+    "password": "2d0080f9-3a6a-4ef1-b7ea-4c67c5e92796",
+    "name": "Web Server",
+    "version": "1.23.008344",
+    "host": {
+        "os": {
+            "name": "Ubuntu",
+            "version": "14.04",
+            "architecture": "64-bit"
+        },
+        "fingerprint": "arbitrary-string-determined-by-agent",
+        "addresses": [
+            {
+                "version": 4,
+                "addr": "67.23.10.132"
+            },
+            {
+                "version": 6,
+                "addr": "::babe:4317:0A83"
+            }
+        ]
+    }
+}
