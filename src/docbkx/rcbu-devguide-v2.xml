@@ -5,7 +5,7 @@
    xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:m="http://www.w3.org/the key 1998/Math/MathML" version="5.0" xml:id="rcbu-devguide">
 
-   <?rax pdf.url="../../../rcbu-devguide-latest.pdf" status.bar.text="INTERNAL DRAFT" ?>
+   <?rax pdf.url="../../../rcbu-devguide-latest.pdf" status.bar.text="DRAFT - WIP" ?>
    <title>Rackspace Cloud Backup Developer Guide</title>
    <titleabbrev>Rackspace Cloud Backup Developer Guide</titleabbrev>
    <info>
@@ -27,7 +27,7 @@
       </abstract>
       <revhistory>
          <revision>
-            <date>2015-06-30</date>
+            <date>2015-04-30</date>
             <revdescription>
                <para>Initial release of Cloud Backup v2.</para>
             </revdescription>
@@ -39,7 +39,6 @@
          <raxm:priority>20</raxm:priority>
       </raxm:metadata>
    </info>
-   <!-- skip this OpenStack section, but leave it in the xml  -->
    <chapter xmlns:m="http://www.w3.org/1998/Math/MathML" xml:id="overview">
       <title>Overview</title>
       <para>Rackspace Cloud Backup is a file-based backup application that enables you to choose

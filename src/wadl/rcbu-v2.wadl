@@ -153,14 +153,16 @@
                         <method href="#postAgentVaultPasswordReport"/> 
                         <method href="#getAgentVaultPasswordReport"/>
                      </resource>
-                     <resource id="tokens" path="tokens">
-                        <method href="#postAgentTokens"/>
-                     </resource>
-                  </resource>                  
-               </resource>                          
+                     
+                  </resource> 
+                  
+               </resource> 
+               <resource id="tokens" path="tokens">
+                  <method href="#postAgentTokens"/>
+               </resource>
              </resource>
                   
-             </resource>           
+                       
             
          <!--************************************************-->
          <!--       Events Resources                         -->
@@ -196,13 +198,10 @@
                      <method href="#getRestoreEvents"/>
                   </resource> 
                </resource>
-                  
+             </resource>     
             </resource>
          </resource>
    </resources>
-
-
-
 
 
   
@@ -356,7 +355,7 @@
                <param name="limit" style="query" type="xsd:integer"
                   required="false">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">Number of activites to list. The default
+                     xml:lang="EN">Number of activities to list. The default
                      value is 100.
                   </wadl:doc>
                </param>
@@ -423,9 +422,9 @@
                               xml:lang="EN">Type of the activity.
                            </wadl:doc>
                         </param>
-                        <param name="time" style="plain" path="$.activities.time">
+                        <param name="last_updated_time" style="plain" path="$.activities.last_updated_time">
                            <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                              xml:lang="EN">Time of the activity.
+                              xml:lang="EN">Time of the last update for the activity.
                            </wadl:doc>
                         </param>
                         <param name="agent" style="plain" path="$.activities.agent">
@@ -1122,7 +1121,7 @@
                      <listitem><para><code>/enabled</code></para><para>Valid values are <code>true</code> or <code>false</code>.</para></listitem>
                      <listitem><para><code>/vault/region</code></para><para>A valid value is any of the vendor's valid region identifiers.</para></listitem>
                      <listitem><para><code>/vault/use_internal</code></para><para>Valid values are <code>true</code> or <code>false</code>.</para></listitem>
-                     <listitem><para><code>/log_level</code></para><para>Valid values are <code>all</code>, <code>trace</code>, <code>debug</code>, <code>infor</code>, <code>warn</code>, <code>err0r</code> which is the default value, or <code>fatal</code>.</para></listitem>
+                     <listitem><para><code>/log_level</code></para><para>Valid values are <code>all</code>, <code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, <code>err0r</code> which is the default value, or <code>fatal</code>.</para></listitem>
                   </itemizedlist>           
             <para>You can use the <code>add</code> and <code>replace</code> operations interchangeably as they are interpreted identically.</para>
             <para>When the response code is something other than 204, a response body is returned with additional information about the error.</para></note>
@@ -1141,7 +1140,7 @@
             </param>
             <param name="path" style="plain" path="$.path" required="true">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Path. Valid values are <code>/enabled</code>, <code>/vault/region</code>, <code>/vault/use-interal</code>, and <code>/log-level</code>.      
+                  xml:lang="EN">Path. Valid values are <code>/enabled</code>, <code>/vault/region</code>, <code>/vault/use_internal</code>, and <code>/log-level</code>.      
                </wadl:doc>
             </param> 
             <param name="value" style="plain" path="$.value" required="true">
@@ -1297,12 +1296,12 @@
                   </param>
                   <param name="type" style="plain" path="$.activities.type">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">Type of the activity.
+                        xml:lang="EN">Type of the last update for the activity.
                      </wadl:doc>
                   </param>
-                  <param name="time" style="plain" path="$.activities.time">
+                  <param name="last_updated_time" style="plain" path="$.activities.last_updated_time">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">Time of the activity.
+                        xml:lang="EN">Time of the update of the activity.
                      </wadl:doc>
                   </param>
                   <param name="agent" style="plain" path="$.activities.agent">
@@ -1435,7 +1434,7 @@
    <method name="GET" id="getAgentBrowseResult">      
       <wadl:doc xml:lang="EN" title="View results of a browse request"  xmlns="http://docbook.org/ns/docbook">
          <para role="shortdesc">Shows the results for the specified browse request ID for the specified agent's files.</para>
-         <para>This operation shows the results for a browse request request ID for the specified agent's files. The request returns a 404 response code until the agent responds to the browse request (insert link to browse request operation here). Consider this response transient as it might disappear after a minute or so. </para>
+         <para>This operation shows the results for a browse request ID for the specified agent's files. The request returns a 404 response code until the agent responds to the browse request (insert link to browse request operation here). Consider this response transient as it might disappear after a minute or so. </para>
       </wadl:doc>
       
       <request>
@@ -1554,7 +1553,7 @@
             </doc> 
             <param name="system_preferences" style="plain" path="$.system_preferences">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Information about the preferences set for the sytem.
+                  xml:lang="EN">Information about the preferences set for the system.
                </wadl:doc>
             </param>
                   <param name="environment" style="plain" path="$.system_preferences.environment">
@@ -1569,7 +1568,7 @@
                            </param>
                   <param name="logging" style="plain" path="$.system_preferences.logging">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">Information about loggin.
+                        xml:lang="EN">Information about logging.
                      </wadl:doc>
                   </param>
                         <param name="level" style="plain" path="$.system_preferences.logging.level">
@@ -2092,7 +2091,7 @@
                                         </param>
                   <param name="mode" style="plain" path="$.events.mode">
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                          xml:lang="EN">Mode of the event when the <code>event</code> is <code>agent_activiate</code>.
+                          xml:lang="EN">Mode of the event when the <code>event</code> is <code>agent_activate</code>.
                       </wadl:doc>
                   </param>
                   <param name="request_id" style="plain" path="$.events.request_id">
@@ -2827,7 +2826,7 @@
    <method name="POST" id="postEvents">
       <wadl:doc title="Post project events">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Posts events from the API.</para>
-         <para xmlns="http://docbook.org/ns/docbook">This operation results in the agent checking for events from the API periodically, based on a schedule. The operation also causes the agent to post heartbeat events periodically so clients can determine if the agent is online or offline. By setting the <code>event</code> to <code>agent_activate</code> the the request, you can then use the <code>mode</code> parameter to indicate how often the agent should post events.</para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation results in the agent checking for events from the API periodically, based on a schedule. The operation also causes the agent to post heartbeat events periodically so clients can determine if the agent is online or offline. By setting the <code>event</code> to <code>agent_activate</code> the request, you can then use the <code>mode</code> parameter to indicate how often the agent should post events.</para>
          <note xmlns="http://docbook.org/ns/docbook"><para>After a specified period of time, the agent falls back to a <code>mode</code> of <code>idle</code>.</para></note>
       </wadl:doc> 
       
@@ -2846,7 +2845,7 @@
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Type of event collection. Valid values are <code>idle</code>, <code>active</code>, and <code>real_time</code>.
                
-               <code>idle</code> specifies that the agents checks for and posts events periodically, but not frequetnly. You do not have a need to communicate with the agent immediately. Note: Testing the agent's <code>online</code> or <code>offline</code> status is not safe in this <code>mode</code>.
+               <code>idle</code> specifies that the agents checks for and posts events periodically, but not frequently. You do not have a need to communicate with the agent immediately. Note: Testing the agent's <code>online</code> or <code>offline</code> status is not safe in this <code>mode</code>.
                <code>active</code> specifies that the agent checks for and posts events frequently.
                <code>real_time</code> specifies that the agent checks for and posts events very frequently. Typically, in this <code>mode</code>, you want to perform multiple, rapid, time-sensitive tasks with the agent, such as browsing files on the host or in a previous backup.
                
@@ -3328,7 +3327,7 @@
             </doc> 
             <param name="op" style="plain" path="$.op" required="true">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">SThe <code>replace</code> or <code>add</code> operation to update the restore.
+                  xml:lang="EN">The <code>replace</code> or <code>add</code> operation to update the restore.
                </wadl:doc>
             </param>
             <param name="path" style="plain" path="$.path" required="true">
