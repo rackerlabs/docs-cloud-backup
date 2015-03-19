@@ -71,16 +71,14 @@
             <resource id="agents" path="agents">
                <method href="#postAgent"/>
                <method href="#getProjectAgents"/>
-<!--                  <resource id="tokens" path="tokens">
-                     <method href="#postAgentTokens"/>
-                  </resource> -->
+                  
                <resource id="agent_id" path="{agent_id}"> 
-               <param name="agent_id" style="template" type="xsd:string" required="true"> 
-                  <wadl:doc 
-                     xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN"><para>Agent ID. For example, 8f135b4f-7a69-4b8a-947f-5e80d772fd97</para> 
-                  </wadl:doc>
-               </param>
+                  <param name="agent_id" style="template" type="xsd:string" required="true"> 
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">
+                        <para>Agent ID. For example, 8f135b4f-7a69-4b8a-947f-5e80d772fd97</para> 
+                     </wadl:doc>
+                  </param>
                   <method href="#getAgentDetails"/>
                   <method href="#updateAgent"/>
                   <method href="#deleteAgent"/>
@@ -151,8 +149,12 @@
                               xml:lang="EN"><para>Password verification request ID. For example, f353f472-4931-463a-9920-1dcad25f88e7</para> 
                            </wadl:doc>
                         </param>
+                        <method href="#postAgentVaultPasswordRequest"/> 
                         <method href="#postAgentVaultPasswordReport"/> 
                         <method href="#getAgentVaultPasswordReport"/>
+                     </resource>
+                     <resource id="tokens" path="tokens">
+                        <method href="#postAgentTokens"/>
                      </resource>
                   </resource>                  
                </resource>                          

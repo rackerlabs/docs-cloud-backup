@@ -801,38 +801,44 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <section xml:id="Agents-operations">
+      <section xml:id="Agent-operations">
          <title>Agent operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the agent
             operations that are supported by the Cloud Backup API. </para>
-         <wadl:resources>
+         
+         <wadl:resources xmlns:m="http://www.w3.org/1998/Math/MathML">
+            
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agents">
                <wadl:method href="#postAgent"/>
                <wadl:method href="#getProjectAgents"/>
-             <!--  <wadl:resource href="../../src/wadl/rcbu-v2.wadl#tokens">
-                  <wadl:method href="#postAgentTokens"/>
-               </wadl:resource> -->
             </wadl:resource>
             
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agent_id">
                <wadl:method href="#getAgentDetails"/>
                <wadl:method href="#updateAgent"/>
                <wadl:method href="#deleteAgent"/>
+            </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agentActivities">
                       <wadl:method href="#getAgentActivities"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#browseRequest">
                       <wadl:method href="#postAgentBrowseRequest"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#request_id">
                       <wadl:method href="#getAgentBrowseResult"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configuration">
                       <wadl:method href="#getAgentConfig"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configurations">
                       <wadl:method href="#getAgentConfigs"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#agentEvents">
                      <wadl:method href="#postAgentEvents"/>
                      <wadl:method href="#getAgentEvents"/>
@@ -841,32 +847,43 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
                      <wadl:method href="#postAgentLogfile"/>
                      <wadl:method href="#getAgentLogfiles"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#logfile_id">
                      <wadl:method href="#getAgentLogfileDetails"/>
                      <wadl:method href="#updateLogfile"/>
                      <wadl:method href="#deleteLogfile"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#status">
                      <wadl:method href="#getAgentStatus"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#vault">
                      <wadl:method href="#postAgentVault"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#vault-encryption-requests">
                      <wadl:method href="#postAgentVaultEncryptionRequest"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#encryption_request_id">
                      <wadl:method href="#postAgentVaultEncryptionReport"/>
                    </wadl:resource>
+            
                    <wadl:resource href="../../src/wadl/rcbu-v2.wadl#vault-password-verification-requests">
                      <wadl:method href="#postAgentVaultPasswordRequest"/>
                    </wadl:resource>
                
                <wadl:resource href="../../src/wadl/rcbu-v2.wadl#password_request_id">
+                  <wadl:method href="#postAgentVaultPasswordRequest"/>
                   <wadl:method href="#postAgentVaultPasswordReport"/>
                   <wadl:method href="#getAgentVaultPasswordReport"/>
                </wadl:resource> 
+            
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#tokens">
+               <wadl:method href="#postAgentTokens"/>
             </wadl:resource>
+
             
          </wadl:resources>
          </section> 
@@ -962,7 +979,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          <?hard-pagebreak?>
       </section>
 -->      
-      <section xml:id="Events-operations">
+      <section xml:id="Event-operations">
          <title>Event operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the event
             operations for the Cloud Backup API. </para>
