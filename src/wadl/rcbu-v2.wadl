@@ -185,7 +185,7 @@
                   <param name="restore_id" style="template" type="xsd:string" required="true"> 
                      <wadl:doc 
                         xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN"><para>Restore ID. For example, 4c166552-aee3-416f-8cba-c063090d2aa5</para> </wadl:doc>
+                        xml:lang="EN"><para>Restore ID. For example, e87e6f7d-d166-11e4-8689-c8e0eb190e3d</para> </wadl:doc>
                   </param>
                   <method href="#getRestoreDetails"/>
                   <method href="#updateRestore"/>
@@ -3016,7 +3016,7 @@
             <param name="marker" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">The <code>id</code> of the last known restore. For example: 4c166552-aee3-416f-8cba-c063090d2aa5</wadl:doc>
+                  xml:lang="EN">The <code>id</code> of the last known restore. For example: e87e6f7d-d166-11e4-8689-c8e0eb190e3d</wadl:doc>
             </param>
             <param name="limit" style="query" type="xsd:integer"
                required="false">
