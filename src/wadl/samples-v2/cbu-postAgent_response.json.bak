@@ -2,7 +2,7 @@
     "restores": [
         {
             "project_id": "123456",
-            "id": "4c166552-aee3-416f-8cba-c063090d2aa5",
+            "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d",
             "backup": {
                 "id": "2d26bb8d-12d0-4579-bbd0-5db7216128ef",
                 "links": [
@@ -32,7 +32,7 @@
                 "diagnostics": "Some files may not have been restored.",
                 "links": [
                     {
-                        "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5/errors",
+                        "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d/errors",
                         "rel": "full"
                     }
                 ]
@@ -41,11 +41,11 @@
             "bytes_restored": 1512,
             "links": [
                 {
-                    "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5",
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d",
                     "rel": "full"
                 },
                 {
-                    "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5/events",
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d/events",
                     "rel": "events"
                 }
             ]
@@ -53,11 +53,11 @@
     ],
     "links": [
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores?marker=4c166552-aee3-416f-8cba-c063090d2aa5",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores?marker=e87e6f7d-d166-11e4-8689-c8e0eb190e3d",
             "rel": "next"
         },
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores?marker=4c166552-aee3-416f-8cba-c063090d2aa5&sort_dir=asc",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores?marker=e87e6f7d-d166-11e4-8689-c8e0eb190e3d&sort_dir=asc",
             "rel": "previous"
         }
     ]

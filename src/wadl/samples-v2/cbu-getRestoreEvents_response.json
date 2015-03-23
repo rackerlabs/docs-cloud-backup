@@ -20,7 +20,7 @@
                 "snapshot_id": 1111
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5",
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d",
                 "destination_path": "/tmp/restore",
                 "overwrite_files": false,
                 "inclusions": [
@@ -57,7 +57,7 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             }
         },
         {
@@ -71,7 +71,7 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             },
             "bytes_completed": 1,
             "bytes_remaining": 3,
@@ -88,7 +88,7 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             }
         },
         {
@@ -102,7 +102,7 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             }
         },
         {
@@ -116,7 +116,7 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             }
         },
         {
@@ -130,17 +130,17 @@
                 "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5"
             },
             "restore": {
-                "id": "4c166552-aee3-416f-8cba-c063090d2aa5"
+                "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
             }
         }
     ],
     "links": [
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5/events?marker=282856510",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d/events?marker=282856510",
             "rel": "next"
         },
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/4c166552-aee3-416f-8cba-c063090d2aa5/events?marker=282856406&sort_dir=desc",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d/events?marker=282856406&sort_dir=desc",
             "rel": "previous"
         }
     ]
