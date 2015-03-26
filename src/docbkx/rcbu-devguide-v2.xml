@@ -889,27 +889,37 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
 
          <?hard-pagebreak?>
 
-<!--      
+
       <section xml:id="Backup-Operations">
          <title>Backup operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             operations that are supported by the Cloud Backup API. </para>
          <wadl:resources>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-action-requested">
-               <wadl:method href="startStopBackupManually"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#backups">
+               <wadl:method href="#postBackups"/>
+               <wadl:method href="#getBackups"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup__backupId">
-               <wadl:method href="getBackupDetails"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#backup_id">
+               <wadl:method href="#getBackupDetails"/>
+               <wadl:method href="#updateBackup"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#completedBackupConfigurationId">
-               <wadl:method href="getCompletedBackups"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#backupsBrowseRequests">
+               <wadl:method href="#postBackupBrowseRequest"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup_report_backupId">
-               <wadl:method href="getBackupReport"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#backup_request_id">
+               <wadl:method href="#getBackupBrowseResult"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#errors">
+               <wadl:method href="#getBackupErrors"/>
+            </wadl:resource>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#backupEvents">
+               <wadl:method href="#getBackupEvents"/>
             </wadl:resource>
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
+      
+<!--  
       <section xml:id="Cleanup-Operations">
          <title>Cleanup operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup

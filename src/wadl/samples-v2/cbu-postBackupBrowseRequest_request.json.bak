@@ -1,0 +1,4 @@
+{
+    "path": "/",
+    "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+}

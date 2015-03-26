@@ -1,0 +1,20 @@
+{
+    "id": "5152884001",
+    "time": "2014-10-07T14:34:05.376357Z",
+    "event": "backup_browsed",
+    "agent": {
+        "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
+    },
+    "request_id": "ae7528c8-bcc3-4356-a237-f20fbdd79ee4",
+    "succeeded": true,
+    "path": "/path/to/browse/",
+    "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/",
+    "items": [
+        {
+            "name": "initrd.img",
+            "name_encoded": "optional_base64encoded_name_if_non-utf-8_characters_present",
+            "bytes": 0,
+            "mime_type": "application/x-symlink-file"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "agent_id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
+    "encrypted_password_hex": null,
+    "path": "/path/to/browse",
+    "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present"
+}

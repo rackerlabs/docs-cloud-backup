@@ -1,0 +1,73 @@
+[
+    {
+        "op": "replace",
+        "path": "/state",
+        "value": "completed_with_errors"
+    },
+    {
+        "op": "add",
+        "path": "/started_time",
+        "value": "2014-08-05T18:22:22.238641Z"
+    },
+    {
+        "op": "add",
+        "path": "/ended_time",
+        "value": "2014-08-05T18:23:50.489715Z"
+    },
+    {
+        "op": "add",
+        "path": "/snapshot_id",
+        "value": 1111
+    },
+    {
+        "op": "add",
+        "path": "/errors",
+        "value": {
+            "count": 1,
+            "reason": "unable_to_process_some_files",
+            "diagnostics": "Some files could not be backed up. Partial list follows.",
+            "list": [
+                {
+                    "index": 0,
+                    "path": "C:\\Users\\admin\\AppData\\Local\\Temp\\3\\AdobeARM.log",
+                    "type": "file_or_folder_missing",
+                    "exception": {
+                        "code": 3015,
+                        "description": "GetLastError(The system cannot find the path specified. ) Cannot open file \"C:\\Users\\admin\\AppData\\Local\\Temp\\3\\AdobeARM.log\"",
+                        "details": "1: [phx::WindowsFs::Open: 166-phx::WindowsFs::Open] Ex Code(3015): GetLastError(The system cannot find the path specified. ) Cannot open file \"C:\\Users\\admin\\AppData\\Local\\Temp\\3\\AdobeARM.log\""
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "op": "add",
+        "path": "/files_searched",
+        "value": 1222
+    },
+    {
+        "op": "add",
+        "path": "/files_backed_up",
+        "value": 6
+    },
+    {
+        "op": "add",
+        "path": "/bytes_searched",
+        "value": 3700000000
+    },
+    {
+        "op": "add",
+        "path": "/bytes_backed_up",
+        "value": 127000000
+    },
+    {
+        "op": "add",
+        "path": "/bytes_in_db",
+        "value": 49340871
+    },
+    {
+        "op": "add",
+        "path": "/bandwidth_avg_bps",
+        "value": 16628982
+    }
+]
