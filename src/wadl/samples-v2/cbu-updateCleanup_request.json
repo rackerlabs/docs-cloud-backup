@@ -1,0 +1,50 @@
+[
+    {
+        "op": "replace",
+        "path": "/state",
+        "value": "completed_with_errors"
+    },
+    {
+        "op": "add",
+        "path": "/started_time",
+        "value": "2014-10-10T19:05:44.632393Z"
+    },
+    {
+        "op": "add",
+        "path": "/ended_time",
+        "value": "2014-10-10T19:35:44.632393Z"
+    },
+    {
+        "op": "add",
+        "path": "/snapshot_ids",
+        "value": [23, 51]
+    },
+    {
+        "op": "add",
+        "path": "/errors",
+        "value": {
+            "count": 1,
+            "reason": "error_deleting_object",
+            "diagnostics": null,
+            "list": [
+                {
+                    "index": 34,
+                    "path": "/var/www/html/log/st_808_playlist.txt",
+                    "type": "file_missing_blocks",
+                    "description": "A vault validation determined that the specified file is missing blocks.",
+                    "exception": null
+                }
+            ]
+        }
+    },
+    {
+        "op": "add",
+        "path": "/bytes_before",
+        "value": 1073741824
+    },
+    {
+        "op": "add",
+        "path": "/bytes_after",
+        "value": 1067030938
+    }
+]

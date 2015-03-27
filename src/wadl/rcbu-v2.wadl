@@ -200,7 +200,36 @@
                      <method href="#getBackupEvents"/>
                   </resource>
                   
-            </resource>                             
+            </resource> 
+            </resource>
+               
+               
+               <!--************************************************-->
+               <!--       Cleanups Resources                        -->
+               <!--************************************************-->
+               
+               <resource id="cleanups" path="cleanups">
+                  <method href="#postCleanups"/>
+                  <method href="#getCleanups"/>
+                  
+                  <resource id="cleanup_id" path="{cleanup_id}">
+                     <param name="cleanup_id" style="template" type="xsd:string" required="true"> 
+                        <wadl:doc 
+                           xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN"><para>Cleanup ID. For example, 2f8708b3-d16b-11e4-bc22-c8e0eb190e3d</para> </wadl:doc>
+                     </param>
+                     <method href="#getCleanupDetails"/>
+                     <method href="#updateCleanup"/>
+                     
+                     <resource id="cleanupErrors" path="errors">
+                        <method href="#getCleanupErrors"/>
+                     </resource>
+                     
+                     <resource id="cleanupEvents" path="events">
+                        <method href="#getCleanupEvents"/>
+                     </resource>
+                     
+                  </resource>                  
             
          <!--************************************************-->
          <!--       Events Resources                         -->
@@ -240,6 +269,7 @@
             </resource>
          </resource>
       </resource>
+
    </resources>
 
 
@@ -3020,7 +3050,7 @@
             
                   <param name="state" style="plain" path="$.backups.state">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">State of the back. For example, <code>completed_with_errors</code>
+                        xml:lang="EN">State of the backup. For example, <code>completed_with_errors</code>
                      </wadl:doc>
                   </param>
                   <param name="started_time" style="plain" path="$.backups.started_time">
@@ -3401,22 +3431,22 @@
             </param>
                    <param name="count" style="plain" path="$.value.count" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">Number of errors, when <code>path</code> is <code>\errors</code>.
+                         xml:lang="EN">Number of errors, when <code>path</code> is <code>/errors</code>.
                       </wadl:doc>
                    </param>            
                    <param name="reason" style="plain" path="$.value.reason" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">Cause of the error, when <code>path</code> is <code>\errors</code>. For example, <code>unable_to_process_some_files</code>
+                         xml:lang="EN">Cause of the error, when <code>path</code> is <code>/errors</code>. For example, <code>unable_to_process_some_files</code>
                       </wadl:doc>
                    </param>
                    <param name="diagnostics" style="plain" path="$.value.diagnostics" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">When <code>path</code> is <code>\errors</code>, additional information about the cause of the error. For example, <code>Some files could not be backed up. Partial list follows.</code>
+                         xml:lang="EN">When <code>path</code> is <code>/errors</code>, additional information about the cause of the error. For example, <code>Some files could not be backed up. Partial list follows.</code>
                       </wadl:doc>
                    </param>
                   <param name="list" style="plain" path="$.value.list" >
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">When <code>path</code> is <code>\errors</code>, additional information about the error.
+                        xml:lang="EN">When <code>path</code> is <code>/errors</code>, additional information about the error.
                      </wadl:doc>
                   </param>
                            <param name="index" style="plain" path="$.value.list.index" >
@@ -3660,19 +3690,24 @@
             </param>
                    <param name="index" style="plain" path="$.list.index" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">Index for the errors.
+                         xml:lang="EN">Index for the error.
                       </wadl:doc>
                    </param>
                    <param name="path" style="plain" path="$.list.path" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">Path for the errors.
+                         xml:lang="EN">Path for the error.
                       </wadl:doc>
                    </param>
                    <param name="type" style="plain" path="$.list.type" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                         xml:lang="EN">Type of errors.
+                         xml:lang="EN">Type of the error.
                       </wadl:doc>
                    </param>
+                  <param name="description" style="plain" path="$.list.description" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Description of the error.
+                     </wadl:doc>
+                  </param>
                    <param name="exception" style="plain" path="$.list.exception" >
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
                          xml:lang="EN">Information about the exception.
@@ -3894,7 +3929,726 @@
       </response>
       &commonFaults;
    </method>
-  
+ 
+   <!--******************************************************************-->
+   <!--       Cleanups methods                                           -->
+   <!--******************************************************************--> 
+   <!--********************************-->
+   <!--       Start a cleanup          -->
+   <!--********************************-->                    
+   <method name="POST" id="postCleanups">
+      <wadl:doc title="Start a cleanup">
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Starts a cleanup. </para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation starts a cleanup. Start a cleanup by specifying one of the following states:
+         <itemizedlist>
+            <listitem><para><code>start_requested</code>: A manual cleanup is requested by a user.</para></listitem>
+            <listitem><para><code>start_scheduled</code>: A scheduled cleanup is started by the agent.</para></listitem>
+         </itemizedlist></para>
+         <para xmlns="http://docbook.org/ns/docbook">If encryption is enabled for the agent, provide <code>encrypted_password_hex</code>. Otherwise, <code>encrypted_password_hex</code> can be <code>null</code>.</para>
+      </wadl:doc>
+      
+      <request>         
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-postCleanup_request-json-http.txt"/> 
+               <xsdxt:code href="../wadl/samples-v2/cbu-postCleanup_request.json"/> 
+            </doc>
+            <param name="agent_id" style="plain" type="xsd:string"
+               required="true" path="$.agent_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the agent.
+               </wadl:doc>
+            </param>
+            <param name="state" style="plain" type="xsd:string" required="true" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Cleanup state. Either <code>start_requested</code>, a manual backup requested by a user, or <code>start_scheduled</code>, a scheduled backup started by the agent.
+               </wadl:doc>
+            </param> 
+            <param name="encrypted_password_hex" style="plain" type="xsd:string" required="true" path="$.encrypted_password_hex">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Encrypted password in hex.
+            </wadl:doc>
+            </param> 
+         </representation>
+      </request>
+      
+      <response status="201">                
+         <doc title="Created" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
+               <xsdxt:code 
+                  href="../wadl/samples-v2/cbu-postCleanup_response-json-http.txt"/> 
+            </wadl:doc> 
+            
+         </representation>               
+      </response>
+      &commonFaults; 
+   </method> 
+   
+   <!--********************************-->
+   <!--  List cleanups for project     -->
+   <!--********************************-->                    
+   <method name="GET" id="getCleanups">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List the cleanups for a project">
+         <para role="shortdesc">Lists the cleanups for a project. </para>
+         <para>This operation lists the cleanups for a project.</para>
+         <note><para>If no cleanups have been created for the project, the <code>cleanups</code> parameter in the response is an empty array.</para></note>
+      </wadl:doc>
+      
+      <request>         
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getProjectCleanups_request-json-http.txt"/>  
+            </doc> 
+            <param name="marker" style="query" type="xsd:string"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID of the last known cleanup. For example, 2f8708b3-d16b-11e4-bc22-c8e0eb190e3d</wadl:doc>
+            </param>
+            <param name="limit" style="query" type="xsd:integer"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of cleanups to list. The default
+                  value is 100.
+               </wadl:doc>
+            </param>
+            <param name="sort_dir" style="query" type="xsd:string"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+               </wadl:doc>
+            </param>    
+         </representation>
+      </request>
+      
+      <response status="200">                
+         <doc title="OK" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
+               <xsdxt:code 
+                  href="../wadl/samples-v2/cbu-getProjectCleanups_response-json-http.txt"/>  
+               <xsdxt:code
+                  href="../wadl/samples-v2/cbu-getProjectCleanups_response.json"/> 
+            </wadl:doc>
+            <param name="cleanups" style="plain" path="$.cleanups">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the cleanups for the project.
+               </wadl:doc>
+            </param>
+                  <param name="project_id" style="plain" path="$.cleanups.project_id">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Project ID.
+                     </wadl:doc>
+                  </param>                
+                  <param name="id" style="plain" path="$.cleanups.id">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Cleanup ID.
+                     </wadl:doc>
+                  </param>
+                  <param name="agent" style="plain" path="$.cleanups.agent">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Information about the agent for the cleanup.
+                     </wadl:doc>
+                  </param>
+                        <param name="id" style="plain" path="$.cleanups.agent.id">
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">Agent ID.
+                           </wadl:doc>
+                        </param>
+                        <param name="links" style="plain" path="$.cleanups.agent.links">
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">Link information about the agent.
+                           </wadl:doc>
+                        </param> 
+                               <param name="href" style="plain" path="$.cleanups.agent.links.href" >
+                                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                     xml:lang="EN">Location (URI).
+                                  </wadl:doc>
+                               </param>
+                               <param name="rel" style="plain" path="$.cleanups.agent.links.rel" >
+                                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                     xml:lang="EN">How the href link provided is related to this resource_url.
+                                  </wadl:doc>
+                               </param>                                       
+            
+                  <param name="state" style="plain" path="$.cleanups.state">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">State of the cleanup. For example, <code>completed_with_errors</code>
+                     </wadl:doc>
+                  </param>
+                  <param name="started_time" style="plain" path="$.cleanups.started_time">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Time the cleanup started.
+                     </wadl:doc>
+                  </param>
+                  <param name="ended_time" style="plain" path="$.cleanups.ended_time">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Time the cleanup ended.
+                     </wadl:doc>
+                  </param>
+                  <param name="snapshot_ids" style="plain" path="$.cleanups.snapshot_ids" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Snapshot IDs.
+                     </wadl:doc>
+                  </param>
+                  <param name="errors" style="plain" path="$.cleanups.errors" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Information about errors.
+                     </wadl:doc>
+                  </param>
+                           <param name="count" style="plain" path="$.cleanups.errors.count" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Number of errors.
+                              </wadl:doc>
+                           </param>            
+                           <param name="reason" style="plain" path="$.cleanups.errors.reason" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Cause of the error. For example, <code>Error deleting object. Server returned HTTP 503.</code>
+                              </wadl:doc>
+                           </param>
+                           <param name="diagnostics" style="plain" path="$.cleanups.errors.diagnostics" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Additional information about the cause of the error if available.
+                              </wadl:doc>
+                           </param> 
+                           <param name="links" style="plain" path="$.cleanups.errors.links">
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Links for information about the errors.
+                              </wadl:doc>
+                           </param>
+                                  <param name="href" style="plain" path="$.cleanups.errors.links.href" >
+                                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                         xml:lang="EN">Location (URI).
+                                     </wadl:doc>
+                                  </param>
+                                  <param name="rel" style="plain" path="$.cleanups.errors.links.rel" >
+                                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                         xml:lang="EN">How the href link provided is related to this resource_url.
+                                     </wadl:doc>
+                                  </param>  
+           
+                  <param name="bytes_before" style="plain" path="$.cleanups.bytes_before" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Number of bytes before the cleanup.
+                     </wadl:doc>
+                  </param>
+                  <param name="bytes_after" style="plain" path="$.cleanups.bytes_after">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Number of bytes after the cleanup.
+                     </wadl:doc>
+                  </param>          
+                  
+                  <param name="links" style="plain" path="$.cleanups.links">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Links with information about the cleanups.
+                     </wadl:doc>
+                  </param>
+                           <param name="href" style="plain" path="$.cleanups.links.href" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Location (URI).
+                              </wadl:doc>
+                           </param>
+                           <param name="rel" style="plain" path="$.cleanups.links.rel" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">How the href link provided is related to this resource_url.
+                              </wadl:doc>
+                           </param>  
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Links for the next and previous cleanup.
+               </wadl:doc>
+            </param>
+                     <param name="href" style="plain" path="$.links.href" >
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">Location (URI).
+                        </wadl:doc>
+                     </param>
+                     <param name="rel" style="plain" path="$.links.rel" >
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">How the href link provided is related to this resource_url.
+                        </wadl:doc>
+                     </param>                         
+         </representation>               
+      </response>
+      &commonFaults;
+      &getFaults;	 
+   </method> 
+   
+   <!--************************************-->
+   <!--   List details about a cleanup     -->
+   <!--************************************-->                    
+   <method name="GET" id="getCleanupDetails">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List details about a cleanup">
+         <para role="shortdesc">Lists details about the specified cleanup. </para>
+         <para>This operation lists details about the specified cleanup.</para>
+      </wadl:doc>
+      
+      <request>         
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupDetails_request-json-http.txt"/>    
+            </doc>    
+         </representation>
+      </request>
+      
+      <response status="200">                
+         <doc title="OK" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
+               <xsdxt:code 
+                  href="../wadl/samples-v2/cbu-getCleanupDetails_response-json-http.txt"/>  
+               <xsdxt:code
+                  href="../wadl/samples-v2/cbu-getCleanupDetails_response.json"/> 
+            </wadl:doc>
+            
+            <param name="project_id" style="plain" path="$.project_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Project ID.
+               </wadl:doc>
+            </param>                
+            <param name="id" style="plain" path="$.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Cleanup ID.
+               </wadl:doc>
+            </param>            
+            <param name="agent" style="plain" path="$.agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the agent for the cleanup.
+               </wadl:doc>
+            </param>
+                   <param name="id" style="plain" path="$.agent.id">
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Agent ID.
+                      </wadl:doc>
+                   </param>
+                   <param name="links" style="plain" path="$.agent.links">
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Link information about the agent.
+                      </wadl:doc>
+                   </param> 
+                           <param name="href" style="plain" path="$.agent.links.href" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Location (URI).
+                              </wadl:doc>
+                           </param>
+                           <param name="rel" style="plain" path="$.agent.links.rel" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">How the href link provided is related to this resource_url.
+                              </wadl:doc>
+                           </param>                                                
+            
+            <param name="state" style="plain" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">State of the cleanup. For example, <code>completed_with_errors</code>
+               </wadl:doc>
+            </param>
+            <param name="started_time" style="plain" path="$.started_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the cleanup started.
+               </wadl:doc>
+            </param>
+            <param name="ended_time" style="plain" path="$.ended_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the cleanup ended.
+               </wadl:doc>
+            </param>
+            <param name="snapshot_ids" style="plain" path="$.snapshot_ids" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Snapshot IDs.
+               </wadl:doc>
+            </param>
+            <param name="errors" style="plain" path="$.errors" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about errors.
+               </wadl:doc>
+            </param>
+                   <param name="count" style="plain" path="$.errors.count" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Number of errors.
+                      </wadl:doc>
+                   </param>            
+                   <param name="reason" style="plain" path="$.errors.reason" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Cause of the error. For example, <code>Error deleting object. Server returned HTTP 503.</code>
+                      </wadl:doc>
+                   </param>
+                   <param name="diagnostics" style="plain" path="$.errors.diagnostics" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Additional information about the cause of the error, if available.
+                      </wadl:doc>
+                   </param> 
+                   <param name="links" style="plain" path="$.errors.links">
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Links for information about the errors.
+                      </wadl:doc>
+                   </param>
+                           <param name="href" style="plain" path="$.errors.links.href" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Location (URI).
+                              </wadl:doc>
+                           </param>
+                           <param name="rel" style="plain" path="$.errors.links.rel" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">How the href link provided is related to this resource_url.
+                              </wadl:doc>
+                           </param>  
+            
+            <param name="bytes_before" style="plain" path="$.bytes_before" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes before the cleanup.
+               </wadl:doc>
+            </param>
+            <param name="bytes_after" style="plain" path="$.bytes_after">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes after the cleanup.
+               </wadl:doc>
+            </param>          
+            
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Links with information about the cleanups.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>                       
+         </representation>               
+      </response>
+      &commonFaults;
+      &getFaults;	 
+   </method>  
+ 
+   <!--********************************-->
+   <!--       Update a cleanup         -->
+   <!--********************************-->       
+   <method name="PATCH" id="updateCleanup">
+      
+      <wadl:doc xml:lang="EN" title="Update a cleanup"  xmlns="http://docbook.org/ns/docbook">
+         <para role="shortdesc">Updates the specified cleanup.</para>
+         <para>This operation updates the specified cleanup. Cleanups are updated with the JSON PATCH. For more information about the JSON PATCH, see <link
+            xlink:href="http://tools.ietf.org/html/rfc6902">RFC6902</link>.</para>
+         <note><title>Notes</title>
+            <para>You can issue updates only for the following scenarios:</para>                                          
+            <itemizedlist>
+               <listitem><para>The agent is reporting the state of the cleanup: <code>[{ "op": "replace", "path": "/state", "value": "queued" }]</code>. The following values are valid for <code>value</code>:</para>
+               <itemizedlist>
+                  <listitem><para><code>queued</code></para></listitem>
+                  <listitem><para><code>in_progress</code></para></listitem>
+               </itemizedlist>
+               </listitem>
+               <listitem><para>The agent is reporting the results of the finished cleanup (see the example request in this section). Valid values for <code>/state</code> are:</para>
+                  <itemizedlist>
+                  <listitem><para><code>completed</code></para></listitem>
+                  <listitem><para><code>completed_with_errors</code></para></listitem>
+                  <listitem><para><code>failed</code></para></listitem>
+                  <listitem><para><code>stopped</code></para></listitem>  
+               </itemizedlist>
+               </listitem>
+               <listitem><para>You are issuing a request to stop the cleanup:<code> [{ "op": "replace", "path": "/state", "value": "stop_requested" }</code>]</para></listitem>              
+            </itemizedlist>           
+            <para>You can use the <code>add</code> and <code>replace</code> operations interchangeably as they are interpreted identically for these scenarios.</para>
+            </note>
+      </wadl:doc>
+      
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_request-json-http.txt"/>  
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_request.json"/>
+            </doc> 
+            <param name="op" style="plain" path="$.op" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">The <code>replace</code> or <code>add</code> operation to update the cleanup.
+               </wadl:doc>
+            </param>
+            <param name="path" style="plain" path="$.path" required="true" type="xsd:string">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path.      
+               </wadl:doc>
+            </param> 
+            <param name="value" style="plain" path="$.value" required="true" type="xsd:string">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Value related to the <code>path</code>. See the "Notes" above for additional information.
+               </wadl:doc>
+            </param>
+            <param name="count" style="plain" path="$.value.count" required="false" type="xsd:integer" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Number of errors, when <code>path</code> is <code>/errors</code>.
+                      </wadl:doc>
+                   </param>            
+                  <param name="reason" style="plain" path="$.value.reason" required="false" type="xsd:string" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Cause of the error, when <code>path</code> is <code>/errors</code>. For example, <code>error_deleting_object</code>
+                      </wadl:doc>
+                   </param>
+                  <param name="diagnostics" style="plain" path="$.value.diagnostics" required="false" type="xsd:string"  >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">When <code>path</code> is <code>/errors</code>, additional information about the cause of the error.
+                      </wadl:doc>
+                   </param>
+            <param name="list" style="plain" path="$.value.list" required="false" type="xsd:string" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">When <code>path</code> is <code>/errors</code>, additional information about the error.
+                     </wadl:doc>
+                  </param>
+            <param name="index" style="plain" path="$.value.list.index" required="false" type="xsd:integer" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Index.
+                              </wadl:doc>
+                           </param>            
+            <param name="path" style="plain" path="$.value.list.path"  required="false" type="xsd:string">
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Path to the log.
+                              </wadl:doc>
+                           </param>
+            <param name="type" style="plain" path="$.value.list.type" required="false" type="xsd:string" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Type of error.
+                              </wadl:doc>
+                           </param>
+            <param name="exception" style="plain" path="$.value.list.exception" required="false" type="xsd:string" >
+                              <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                 xml:lang="EN">Information about the exception.
+                              </wadl:doc>
+                           </param>
+         </representation>
+      </request>
+      
+      <response status="204">                
+         <doc title="No Content" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_response-json-http.txt"/>
+            </doc>  
+         </representation>         
+      </response>    
+      &commonFaults;
+   </method> 
+ 
+   
+   <!--*************************************-->
+   <!--      Get errors for a cleanup       -->
+   <!--*************************************-->       
+   <method name="GET" id="getCleanupErrors">
+      <wadl:doc title="List errors for a cleanup">
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the errors for the specified cleanup.</para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation lists the errors for the specified cleanup.</para> 
+         <note xmlns="http://docbook.org/ns/docbook"><para>Because the agent does not submit any diagnostics or exceptions, both <code>diagnostics</code> and <code>exception</code> have the value <code>null</code>.</para></note>
+      </wadl:doc> 
+      
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupErrors_request-json-http.txt"/>   
+            </doc> 
+         </representation>
+      </request>
+      
+      <response status="200">                
+         <doc title="OK" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupErrors_response-json-http.txt"/>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupErrors_response.json"/> 
+            </doc>
+            <param name="count" style="plain" path="$.count">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of errors that the cleanup encountered.</wadl:doc>
+            </param>
+            <param name="reason" style="plain" path="$.reason">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Reason for the errors.</wadl:doc>
+            </param>
+            <param name="diagnostics" style="plain" path="$.diagnostics">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about possible reason for the errors, but <code>null</code> for this operation.</wadl:doc>
+            </param>
+            <param name="list" style="plain" path="$.list" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Additional information for the errors.
+               </wadl:doc>
+            </param>
+                   <param name="index" style="plain" path="$.list.index" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Index for the error.
+                      </wadl:doc>
+                   </param>
+                   <param name="path" style="plain" path="$.list.path" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Path for the error.
+                      </wadl:doc>
+                   </param>
+                   <param name="type" style="plain" path="$.list.type" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Type of the error.
+                      </wadl:doc>
+                   </param>
+                   <param name="description" style="plain" path="$.list.description" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Description of the error.
+                      </wadl:doc>
+                   </param>
+                   <param name="exception" style="plain" path="$.list.exception" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Information about the exception, but <code>null</code> for this operation.
+                      </wadl:doc>
+                   </param>
+                   
+            <param name="links" style="plain" path="$.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information for the errors.
+               </wadl:doc>
+            </param>
+                     <param name="href" style="plain" path="$.links.href" >
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">Location (URI) for the errors.
+                        </wadl:doc>
+                     </param>
+                     <param name="rel" style="plain" path="$.links.rel" >
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">How the href link provided is related to this resource_url.
+                        </wadl:doc>
+                     </param>
+         </representation>
+      </response>
+      &commonFaults;
+   </method>
+
+   <!--***************************************************-->
+   <!--           List events for a cleanup               -->
+   <!--***************************************************-->       
+   <method name="GET" id="getCleanupEvents">      
+      <wadl:doc xml:lang="EN" title="List events for a cleanup"  xmlns="http://docbook.org/ns/docbook">
+         <para role="shortdesc">Lists the events for the specified cleanup.</para>
+         <para>This operation lists all events for the specified cleanup. You should consider these events to be transient, and they might disappear after a minute or so. 
+            Therefore, this operation is most useful for monitoring a running cleanup. </para>         
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupEvents_request-json-http.txt"/>   
+               
+            </doc> 
+            <param name="marker" style="query" type="xsd:string"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Event ID. For example, 5152883998. Only events newer than the event specified by marker are returned. Use of <code>marker</code> is 
+                  most useful when continuously monitoring this endpoint for new events, such that old events are not repeated back to you in subsequent calls.</wadl:doc>
+            </param>
+            <param name="limit" style="query" type="xsd:integer"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of events to list. The default value is 100.
+               </wadl:doc>
+            </param>
+            <param name="sort_dir" style="query" type="xsd:string"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+               </wadl:doc>
+            </param>
+         </representation>
+      </request>
+      
+      <response status="200">                
+         <doc title="OK" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupEvents_response-json-http.txt"/>   
+               <xsdxt:code href="../wadl/samples-v2/cbu-getCleanupEvents_response.json"/>  
+            </doc>
+            <param name="events" style="plain" path="$.events">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about events for the backup.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.events.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the event.
+               </wadl:doc>
+            </param>
+            <param name="time" style="plain" path="$.events.time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time of the event.
+               </wadl:doc>
+            </param>
+            <param name="event" style="plain" path="$.events.event">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Type of the event.
+               </wadl:doc>
+            </param>
+            <param name="agent" style="plain" path="$.events.agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the agent for each <code>event</code>.
+               </wadl:doc>
+            </param>
+                     <param name="id" style="plain" path="$.events.agent.id">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">Agent ID.
+                        </wadl:doc>
+                     </param>
+                     <param name="vault" style="plain" path="$.events.agent.vault">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">Information about the vault for the cleanup.
+                        </wadl:doc>
+                     </param>
+                            <param name="id" style="plain" path="$.events.agent.vault.id">
+                               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                  xml:lang="EN">Vault ID.
+                               </wadl:doc>
+                            </param>
+                            <param name="encrypted" style="plain" path="$.events.agent.vault.encrypted">
+                               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                                  xml:lang="EN">Indicates if the vault is encrypted.
+                               </wadl:doc>
+                            </param>
+                        
+            <param name="cleanup" style="plain" path="$.events.cleanup">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the cleanup for each <code>event</code>.
+               </wadl:doc>
+            </param>
+                   <param name="id" style="plain" path="$.events.cleanup.id">
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Cleanup ID.
+                      </wadl:doc>
+                   </param>
+            <param name="encrypted_password_hex" style="plain" path="$.events.encrypted_password_hex">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Encrypted password in hex.
+               </wadl:doc>
+            </param> 
+            
+           
+
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information for the next and previous events. 
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>
+         </representation>         
+      </response>
+      &commonFaults;
+   </method>
+
+
 <!--******************************************************************-->
 <!--        Events methods                                            -->
 <!--******************************************************************--> 

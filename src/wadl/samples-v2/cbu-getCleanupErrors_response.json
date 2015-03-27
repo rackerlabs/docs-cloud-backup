@@ -1,0 +1,20 @@
+{
+    "count": 1,
+    "reason": "Error deleting object. Server returned HTTP 503",
+    "diagnostics": null,
+    "list": [
+        {
+            "index": 34,
+            "path": "/var/www/html/log/st_808_playlist.txt",
+            "type": "file_missing_blocks",
+            "description": "A vault validation determined that the specified file is missing blocks.",
+            "exception": null
+        }
+    ],
+    "links": [
+        {
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/cleanups/2f8708b3-d16b-11e4-bc22-c8e0eb190e3d/errors",
+            "rel": "self"
+        }
+    ]
+}

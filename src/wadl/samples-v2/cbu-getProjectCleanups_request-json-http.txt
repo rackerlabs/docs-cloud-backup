@@ -1,0 +1,5 @@
+GET https://dfw.backup.api.rackspacecloud.com/v2/110011/cleanups?marker=2f8708b3-d16b-11e4-bc22-c8e0eb190e3d&limit=100&sort_dir=asc HTTP/1.1
+Host: dfw.backup.api.rackspacecloud.com
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+Content-type: application/json
