@@ -1,9 +1,7 @@
 204 (No Content)
 Content-Type: application/json
 
-
 or
-
 
 404 (Not Found)
 Content-Type: application/json

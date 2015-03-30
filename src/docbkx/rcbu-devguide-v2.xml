@@ -942,7 +942,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
-      <!--  
+ 
       <section xml:id="Configuration-Operations">
          <title>Configuration operations</title>
          <para>When trying to determine how often to back up a file in your backup configuration,
@@ -968,9 +968,10 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the backup
             configuration operations that are supported by the Cloud Backup API. </para>
          <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration">
-               <wadl:method href="createBackupConfiguration"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configure">
+               <wadl:method href="postConfiguration"/>
             </wadl:resource>
+            <!--
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
                <wadl:method href="updateBackupConfig"/>
                <wadl:method href="getBackupConfig"/>
@@ -986,11 +987,12 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
             </wadl:resource>
             <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
                <wadl:method href="deleteBackupConfig"/>
-            </wadl:resource>
+            </wadl:resource> 
+            -->
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
--->      
+     
       <section xml:id="Event-operations">
          <title>Event operations</title>
          <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the event
