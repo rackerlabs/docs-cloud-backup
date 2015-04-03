@@ -1,9 +1,9 @@
 {
     "activities": [
         {
-            "id": "2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+            "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
             "type": "backup",
-            "time": "2014-10-27T18:22:21.238641Z",
+            "last_updated_time": "2014-10-27T18:22:21.238641Z",
             "state": "completed_with_errors",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
@@ -25,15 +25,15 @@
             },
             "links": [
                 {
-                    "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
                     "rel": "backup"
                 }
             ]
         },
         {
-            "id": "dd7175fd-57ee-4cfb-8458-acb6ad354271",
+            "id": "2f8708b3-d16b-11e4-bc22-c8e0eb190e3d",
             "type": "cleanup",
-            "time": "2014-10-27T18:22:20.238641Z",
+            "last_updated_time": "2014-10-27T18:22:20.238641Z",
             "state": "completed_with_errors",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
@@ -46,7 +46,7 @@
             },
             "links": [
                 {
-                    "href": "https://cloudbackupapi.apiary-mock.com/v2/cleanups/dd7175fd-57ee-4cfb-8458-acb6ad354271",
+                    "href": "https://cloudbackupapi.apiary-mock.com/v2/cleanups/2f8708b3-d16b-11e4-bc22-c8e0eb190e3d",
                     "rel": "cleanup"
                 }
             ]
@@ -54,7 +54,7 @@
         {
             "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d",
             "type": "restore",
-            "time": "2014-10-27T18:22:19.238641Z",
+            "last_updated_time": "2014-10-27T18:22:19.238641Z",
             "state": "completed_with_errors",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
@@ -84,7 +84,7 @@
     ],
     "links": [
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/activities?marker=2d26bb8d-12d0-4579-bbd0-5db7216128ef",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/activities?marker=0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
             "rel": "next"
         },
         {

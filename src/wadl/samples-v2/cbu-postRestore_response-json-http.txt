@@ -1,1 +1,3 @@
-204 (No Content)
+201 (Created)
+Content-Type: application/json
+Location: https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d

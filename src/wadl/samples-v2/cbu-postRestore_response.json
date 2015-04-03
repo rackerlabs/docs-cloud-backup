@@ -41,13 +41,13 @@
             "path": "/web/cache.jpg"
         }
     ],
-    "state": "completed_with_errors",
-    "started_time": "2014-10-20T13:11:58.985151Z",
-    "ended_time": "2014-10-20T13:12:58.985151Z",
+    "state": "start_requested",
+    "started_time": null,
+    "ended_time": null,
     "errors": {
-        "count": 1,
-        "reason": "unable_to_process_some_files",
-        "diagnostics": "Some files may not have been restored.",
+        "count": 0,
+        "reason": "",
+        "diagnostics": "",
         "links": [
             {
                 "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d/errors",
@@ -55,8 +55,8 @@
             }
         ]
     },
-    "files_restored": 2,
-    "bytes_restored": 1512,
+    "files_restored": 0,
+    "bytes_restored": 0,
     "links": [
         {
             "href": "https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d",

@@ -229,6 +229,7 @@
                      </resource>
                      
                   </resource> 
+               </resource>
                   
                   <!--************************************************-->
                   <!--       Configurations Resources                 -->
@@ -296,7 +297,7 @@
              </resource>     
             </resource>
          </resource>
-      </resource>
+
 
    </resources>
 
@@ -440,14 +441,14 @@
          <method name="GET" id="getProjectActivities">
             <wadl:doc title="List activities for a project">
                <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the activities for the project. </para>
-               <para xmlns="http://docbook.org/ns/docbook">This operation lists the activities for the project. If no activities are available, the <code>activities</code>" parameter in the response is an empty array. (TODO: Add restorable to backups to indicate which are available for restore?)</para>
+               <para xmlns="http://docbook.org/ns/docbook">This operation lists the activities for the project. If no activities are available, the <code>activities</code>" parameter in the response is an empty array.</para>
             </wadl:doc>
             
             <request>
                <param name="marker" style="query" type="xsd:string"
                   required="false">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                     xml:lang="EN">The <code>id</code> of the last known activity. For example: 2d26bb8d-12d0-4579-bbd0-5db7216128ef</wadl:doc>
+                     xml:lang="EN">The <code>id</code> of the last known activity. For example: 0d95d699-d16b-11e4-93bd-c8e0eb190e3d</wadl:doc>
                </param>
                <param name="limit" style="query" type="xsd:integer"
                   required="false">
@@ -462,6 +463,8 @@
                      xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
                   </wadl:doc>
                </param>
+               
+<!--           <remark>Removed 4/2 per email from Bryan</remark>     
                <param name="type" style="query" type="xsd:string"
                   required="false">
                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -486,6 +489,7 @@
                      xml:lang="EN">Comma-separated list of configuration IDs by which to filter. For example: <code>7c8ee069-568f-4d5a-932f-fb2af86b5fd5</code>,<code>abf89721-616e-4922-94d4-29757d6a8671</code>
                   </wadl:doc>
                </param>
+-->               
                <representation mediaType="application/json" >
                   <doc>
                      <xsdxt:code href="../wadl/samples-v2/cbu-getProjectActivities_request-json-http.txt"/>
@@ -662,6 +666,7 @@
                                   xml:lang="EN">Machine ID.
                                </wadl:doc>
                             </param>
+                               
                      <param name="os" style="plain" path="$.host.os" required="true">
                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
                            xml:lang="EN">Information about the operating system.
@@ -682,11 +687,11 @@
                                   xml:lang="EN">Architecture of the operating system.
                               </wadl:doc>
                            </param>
-                     <param name="fingerprint" style="plain" path="$.host.fingerprint" required="true">
-                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN">String determined by the agent.
-                        </wadl:doc>
-                     </param>
+                      <param name="fingerprint" style="plain" path="$.host.fingerprint" required="true">
+                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN">String determined by the agent.
+                         </wadl:doc>
+                      </param>
                      <param name="addresses" style="plain" path="$.host.addresses" required="true">
                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
                            xml:lang="EN">Information about the addresses for the agent.
@@ -743,6 +748,183 @@
             <param name="password" style="plain" path="$.password">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Password for the agent.
+               </wadl:doc>
+            </param>
+            <param name="name" style="plain" path="$.name" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Name of the agent.
+               </wadl:doc>
+            </param>
+            <param name="version" style="plain" path="$.version" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Version of the agent.
+               </wadl:doc>
+            </param>
+            <param name="host" style="plain" path="$.host" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the host.
+               </wadl:doc>
+            </param>
+            <param name="flavor" style="plain" path="$.host.flavor" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Flavor for the agent.
+               </wadl:doc>
+            </param>
+            <param name="region" style="plain" path="$.host.region" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Region for the agent.
+               </wadl:doc>
+            </param>
+            <param name="machine" style="plain" path="$.host.machine" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the machine.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.host.machine.id" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Machine ID.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.host.machine.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the machine.
+               </wadl:doc>
+            </param>
+                  <param name="href" style="plain" path="$.host.machine.links.href" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Location (URI).
+                     </wadl:doc>
+                  </param>
+                  <param name="rel" style="plain" path="$.host.machine.links.rel" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">How the href link provided is related to this resource_url.
+                     </wadl:doc>
+                  </param> 
+            <param name="os" style="plain" path="$.host.os" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the operating system.
+               </wadl:doc>
+            </param>
+                  <param name="name" style="plain" path="$.host.os.name" required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Name of the operating system.
+                     </wadl:doc>
+                  </param>
+                  <param name="version" style="plain" path="$.host.os.version" required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Version of the operating system.
+                     </wadl:doc>
+                  </param>
+                  <param name="architecture" style="plain" path="$.host.os.architecture" required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Architecture of the operating system.
+                     </wadl:doc>
+                  </param>
+            
+            <param name="addresses" style="plain" path="$.host.addresses" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the addresses for the agent.
+               </wadl:doc>
+            </param> 
+                <param name="version" style="plain" path="$.host.addresses.version" required="true">
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN">Version for the address.
+                   </wadl:doc>
+                </param> 
+                <param name="addr" style="plain" path="$.host.addresses.addr" required="true">
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN">Address.
+                   </wadl:doc>
+                </param>
+            <param name="enabled" style="plain" path="$.enabled">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether the agents are enabled.
+               </wadl:doc>
+            </param>
+            <param name="rsa_public_key" style="plain" path="$.rsa_public_key" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the rsa public key.
+               </wadl:doc>
+            </param>
+                  <param name="modulus" style="plain" path="$.rsa_public_key.modulus" required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Modulus for the rsa public key.
+                     </wadl:doc>
+                  </param>
+                  <param name="exponent" style="plain" path="$.rsa_public_key.exponent" required="true">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Exponent for the rsa public key.
+                     </wadl:doc>
+                  </param>
+            <param name="vault" style="plain" path="$.vault" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the vault.
+               </wadl:doc>
+            </param> 
+            <param name="id" style="plain" path="$.vault.id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the vault.
+               </wadl:doc>
+            </param>
+            <param name="name" style="plain" path="$.vault.name" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Name of the vault.
+               </wadl:doc>
+            </param>
+            <param name="flavor" style="plain" path="$.vault.flavor" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Flavor for the vault.
+               </wadl:doc>
+            </param>
+            <param name="encrypted" style="plain" path="$.vault.encrypted" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether the vault is encrypted.
+               </wadl:doc>
+            </param>            
+            <param name="region" style="plain" path="$.vault.region" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Region for the vault.
+               </wadl:doc>
+            </param>
+            <param name="use_internal" style="plain" path="$.vault.use_internal" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether use of the vault is internal.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.vault.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the vault.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.vault.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.vault.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="log_level" style="plain" path="$.log_level" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Level for the logs.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the agents.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
                </wadl:doc>
             </param>
          </representation>               
@@ -1338,7 +1520,7 @@
             <param name="marker" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">ID of the last known activity. For example: 2d26bb8d-12d0-4579-bbd0-5db7216128ef</wadl:doc>
+                  xml:lang="EN">ID of the last known activity. For example: 0d95d699-d16b-11e4-93bd-c8e0eb190e3d</wadl:doc>
             </param>
             <param name="limit" style="query" type="xsd:integer"
                required="false">
@@ -1353,6 +1535,8 @@
                   xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
                </wadl:doc>
             </param>
+            
+<!--        <remark>Removed 4/2 per email from Bryan.</remark>    
             <param name="type" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1371,6 +1555,7 @@
                   xml:lang="EN">Comma-separated list of configuration IDs by which to filter. For example: <code>7c8ee069-568f-4d5a-932f-fb2af86b5fd5</code>,<code>abf89721-616e-4922-94d4-29757d6a8671</code>
                </wadl:doc>
             </param>
+-->            
          </representation>
       </request>
       
@@ -2278,7 +2463,38 @@
          <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-postAgentLogfile_response-json-http.txt"/>
-            </doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-postAgentLogfile_response.json"/>
+            </doc> 
+            <param name="id" style="plain" path="$.id">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Log file ID.
+            </wadl:doc>
+            </param>
+            <param name="date" style="plain" path="$.date">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Date of the log file.
+               </wadl:doc>
+            </param>
+            <param name="state" style="plain" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">State of the log file.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information for the log file.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param> 
          </representation>
       </response>
       &commonFaults;
@@ -2956,8 +3172,178 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
                <xsdxt:code 
                   href="../wadl/samples-v2/cbu-postBackup_response-json-http.txt"/>
+               <xsdxt:code 
+                  href="../wadl/samples-v2/cbu-postBackup_response.json"/> 
             </wadl:doc> 
+            <param name="project_id" style="plain" path="$.project_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Project ID.
+               </wadl:doc>
+            </param>                
+            <param name="id" style="plain" path="$.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"> Backup ID.
+               </wadl:doc>
+            </param>
+            <param name="agent" style="plain" path="$.agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the agent for the backup.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.agent.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Agent ID.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.agent.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information about the backup for the agent.
+               </wadl:doc>
+            </param> 
+            <param name="href" style="plain" path="$.agent.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.agent.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>              
             
+            
+            <param name="configuration" style="plain" path="$.configuration" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the configuration.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.configuration.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Configuration ID.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.configuration.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information about the configuration for the backup.
+               </wadl:doc>
+            </param> 
+            <param name="href" style="plain" path="$.configuration.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.configuration.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>                            
+            
+            <param name="state" style="plain" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">State of the backup. For example, <code>completed_with_errors</code>
+               </wadl:doc>
+            </param>
+            <param name="started_time" style="plain" path="$.started_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the backup started.
+               </wadl:doc>
+            </param>
+            <param name="ended_time" style="plain" path="$.ended_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the backup ended.
+               </wadl:doc>
+            </param>
+            <param name="snapshot_id" style="plain" path="$.snapshot_id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Snapshot ID.
+               </wadl:doc>
+            </param>
+            <param name="errors" style="plain" path="$.errors" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about errors.
+               </wadl:doc>
+            </param>
+            <param name="count" style="plain" path="$.errors.count" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of errors.
+               </wadl:doc>
+            </param>            
+            <param name="reason" style="plain" path="$.errors.reason" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Cause of the error. For example, <code>unable_to_process_some_files</code>
+               </wadl:doc>
+            </param>
+            <param name="diagnostics" style="plain" path="$.errors.diagnostics" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Additional information about the cause of the error. For example, <code>Some files could not be backed up. Partial list follows.</code>
+               </wadl:doc>
+            </param> 
+            <param name="links" style="plain" path="$.errors.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.errors.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.errors.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>  
+            <param name="files_searched" style="plain" path="$.files_searched" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of files searched.
+               </wadl:doc>
+            </param>
+            <param name="files_backed_up" style="plain" path="$.filed_backed_up">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of files backed up.
+               </wadl:doc>
+            </param>
+            <param name="bytes_searched" style="plain" path="$.bytes_searched" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes searched.
+               </wadl:doc>
+            </param>
+            <param name="bytes_backed_up" style="plain" path="$.bytes_backed_up">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes backed up.
+               </wadl:doc>
+            </param>          
+            <param name="bytes_in_db" style="plain" path="$.bytes_in_db">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes in the backup database.
+               </wadl:doc>
+            </param>
+            <param name="bandwidth_avg_bps" style="plain" path="$.backups.bandwidth_avg_bps">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Average bandwidth in bytes per second.
+               </wadl:doc>
+            </param>
+            <param name="restorable" style="plain" path="$.restorable">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Indicates if the backup can be used for restores.
+               </wadl:doc>
+            </param>             
+            <param name="links" style="plain" path="$.backups.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the backup.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>  
+               
          </representation>               
       </response>
       &commonFaults; 
@@ -2995,7 +3381,19 @@
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
                </wadl:doc>
-            </param>    
+            </param>
+            <param name="restorable" style="query" type="xsd:boolean"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Indicates if only restorable backups are returned. If <code>restorable</code> is <code>true</code>, only restorable backups are returned.
+               </wadl:doc>
+            </param>
+            <param name="configuration_id" style="query" type="xsd:string"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Use only in conjunction with <code>restorable=true</code>. If you provide <code>configuration_id</code>, only restorable backups for the specified configuration are returned. For example, 7c8ee069-568f-4d5a-932f-fb2af86b5fd5
+               </wadl:doc>
+            </param>  
          </representation>
       </request>
       
@@ -3992,11 +4390,13 @@
                   xml:lang="EN">Cleanup state. Either <code>start_requested</code>, a manual backup requested by a user, or <code>start_scheduled</code>, a scheduled backup started by the agent.
                </wadl:doc>
             </param> 
+<!--        <remark>Removed per Bryan email of 3/26.</remark>            
             <param name="encrypted_password_hex" style="plain" type="xsd:string" required="true" path="$.encrypted_password_hex">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
                xml:lang="EN">Encrypted password in hex.
             </wadl:doc>
-            </param> 
+            </param>
+-->            
          </representation>
       </request>
       
@@ -4006,8 +4406,128 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">                                       
                <xsdxt:code 
                   href="../wadl/samples-v2/cbu-postCleanup_response-json-http.txt"/> 
+               <xsdxt:code 
+                  href="../wadl/samples-v2/cbu-postCleanup_response.json"/> 
             </wadl:doc> 
+            <param name="project_id" style="plain" path="$.project_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Project ID.
+               </wadl:doc>
+            </param>                
+            <param name="id" style="plain" path="$.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Cleanup ID.
+               </wadl:doc>
+            </param>
+            <param name="agent" style="plain" path="$.agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the agent for the cleanup.
+               </wadl:doc>
+            </param>
+                  <param name="id" style="plain" path="$.agent.id">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Agent ID.
+                     </wadl:doc>
+                  </param>
+                  <param name="links" style="plain" path="$.agent.links">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Link information about the agent.
+                     </wadl:doc>
+                  </param> 
+                        <param name="href" style="plain" path="$.agent.links.href" >
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">Location (URI).
+                           </wadl:doc>
+                        </param>
+                        <param name="rel" style="plain" path="$.agent.links.rel" >
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">How the href link provided is related to this resource_url.
+                           </wadl:doc>
+                        </param>                                       
             
+            <param name="state" style="plain" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">State of the cleanup. For example, <code>start_requested</code>
+               </wadl:doc>
+            </param>
+            <param name="started_time" style="plain" path="$.started_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the cleanup started.
+               </wadl:doc>
+            </param>
+            <param name="ended_time" style="plain" path="$.ended_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the cleanup ended.
+               </wadl:doc>
+            </param>
+            <param name="snapshot_ids" style="plain" path="$.snapshot_ids" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Snapshot IDs.
+               </wadl:doc>
+            </param>
+            <param name="errors" style="plain" path="$.errors" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about errors.
+               </wadl:doc>
+            </param>
+                  <param name="count" style="plain" path="$.errors.count" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Number of errors.
+                     </wadl:doc>
+                  </param>            
+                  <param name="reason" style="plain" path="$.errors.reason" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Cause of the error. For example, <code>Error deleting object. Server returned HTTP 503.</code>
+                     </wadl:doc>
+                  </param>
+                   <param name="diagnostics" style="plain" path="$.errors.diagnostics" >
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Additional information about the cause of the error if available.
+                      </wadl:doc>
+                   </param> 
+                   <param name="links" style="plain" path="$.errors.links">
+                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                         xml:lang="EN">Links for information about the errors.
+                      </wadl:doc>
+                   </param>
+                        <param name="href" style="plain" path="$.errors.links.href" >
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">Location (URI).
+                           </wadl:doc>
+                        </param>
+                        <param name="rel" style="plain" path="$.errors.links.rel" >
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                              xml:lang="EN">How the href link provided is related to this resource_url.
+                           </wadl:doc>
+                        </param>  
+            
+            <param name="bytes_before" style="plain" path="$.bytes_before" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes before the cleanup.
+               </wadl:doc>
+            </param>
+            <param name="bytes_after" style="plain" path="$.bytes_after">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes after the cleanup.
+               </wadl:doc>
+            </param>          
+            
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Links with information about the cleanups.
+               </wadl:doc>
+            </param>
+                <param name="href" style="plain" path="$.links.href" >
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN">Location (URI).
+                   </wadl:doc>
+                </param>
+                <param name="rel" style="plain" path="$.links.rel" >
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN">How the href link provided is related to this resource_url.
+                   </wadl:doc>
+                </param>  
+             
          </representation>               
       </response>
       &commonFaults; 
@@ -4648,12 +5168,13 @@
                          xml:lang="EN">Cleanup ID.
                       </wadl:doc>
                    </param>
+<!--        <remark>Removed per email from Bryan on 3/26.</remark>            
             <param name="encrypted_password_hex" style="plain" path="$.events.encrypted_password_hex">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Encrypted password in hex.
                </wadl:doc>
             </param> 
-            
+-->            
            
 
             <param name="links" style="plain" path="$.links">
@@ -5009,7 +5530,13 @@
          <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-getProjectConfigurations_request-json-http.txt"/>   
-            </doc>            
+            </doc>
+            <param name="restorable" style="query" type="xsd:boolean"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Indicates if only restorable backups are returned. If <code>restorable</code> is <code>true</code>, only configurations with restorable backups are returned.
+               </wadl:doc>
+            </param>
          </representation>
       </request>
       
@@ -5022,6 +5549,7 @@
                <xsdxt:code
                   href="../wadl/samples-v2/cbu-getProjectConfigurations_response.json"/> 
             </wadl:doc>
+            
             <param name="configurations" style="plain" path="$.configurations">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about the configurations for the project.
@@ -5511,12 +6039,15 @@
                   xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
                </wadl:doc>
             </param>
+            
+<!--        <remark>Removed 4/2 per email from Bryan.</remark>    
             <param name="state" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">State of the activities to filter. Valid values are any state defined by a backup, such as <code>completed_with_errors</code>.
                </wadl:doc>
             </param>
+-->            
          </representation>
       </request>
       
@@ -5640,11 +6171,11 @@
          <para role="shortdesc">Lists the events for the specified configuration.</para>
          <para>This operation lists all events for the specified configuration. You should consider these events to be transient, and they might disappear after a minute or so. 
             Therefore, this operation is most useful for monitoring a configuration's current activity. </para>
-         <para>Sample events t hat might be returned from this endpoint can be found in the descriptions for the following endpoints:
-         <itemlizedlist>
+         <para>Sample events t hat might be returned from this endpoint can be found in the descriptions for the following endpoints:</para>
+<!--         <itemlizedlist>
             <listitem><para>GET /v2/backups/{id}/events (insert link)</para></listitem>
             <listitem><para>GET /v2/restores/{id}/events (insert link)</para></listitem>
-         </itemlizedlist></para>         
+         </itemlizedlist> -->        
       </wadl:doc>
       <request>
          <representation mediaType="application/json">
@@ -5920,7 +6451,7 @@
    <method name="POST" id="postRestores">
       <wadl:doc title="Start a restore">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Start a restore.</para>
-         <para xmlns="http://docbook.org/ns/docbook">This operation starts are restore.</para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation starts a restore.</para>
       </wadl:doc> 
       
       <request>
@@ -5992,7 +6523,215 @@
          <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-postRestore_response-json-http.txt"/>
+               <xsdxt:code href="../wadl/samples-v2/cbu-postRestore_response.json"/> 
             </doc>
+            <param name="project_id" style="plain" path="$.project_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the project associated with the restore.
+               </wadl:doc>
+            </param>
+            
+            <param name="id" style="plain" path="$.id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the restore.
+               </wadl:doc>
+            </param>
+            
+            <param name="backup" style="plain" path="$.backup" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the backup.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.backup.id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the backup.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.backup.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the backup.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.backup.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the backup.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.backup.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="destination_agent" style="plain" path="$.destination_agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the destination agent.                  
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.destination_agent.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the destination agent.                  
+               </wadl:doc>
+            </param>               
+            <param name="links" style="plain" path="$.destination_agent.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the destination agent.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.destination_agent.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the destination agent.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.destination_agent.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="destination_path" style="plain" path="$.destination_path">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path for the destination.                  
+               </wadl:doc>
+            </param>
+            
+            <param name="overwrite_files" style="plain" path="$.overwrite_files">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether any existing files were overwritten. 
+               </wadl:doc>
+            </param>
+            
+            <param name="inclusions" style="plain" path="$.inclusions">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Resources included in the restore.                  
+               </wadl:doc>
+            </param>
+            <param name="type" style="plain" path="$.inclusions.type">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Type of resources included in the restore.                 
+               </wadl:doc>
+            </param>
+            <param name="path" style="plain" path="$.inclusions.path">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path to the resources included in the restore.                  
+               </wadl:doc>
+            </param>
+            
+            <param name="exclusions" style="plain" path="$.exclusions">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Resources excluded from the restore.                 
+               </wadl:doc>
+            </param>
+            <param name="type" style="plain" path="$.exclusions.type">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Type of resources excluded from the restore.                  
+               </wadl:doc>
+            </param>
+            <param name="path" style="plain" path="$.exclusions.path">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path of the resources excluded from the restore.                  
+               </wadl:doc>
+            </param>
+            
+            <param name="state" style="plain" path="$.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Current status of the restore.</wadl:doc>
+            </param>
+            <param name="queued" style="plain" path="$.state.queued">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether the restore is queued.</wadl:doc>
+            </param>
+            <param name="preparing" style="plain" path="$.state.preparing">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore is in a preparation state.</wadl:doc>
+            </param>
+            <param name="in_progress" style="plain" path="$.state.in_progress">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore is in progress.</wadl:doc>
+            </param>
+            <param name="completed" style="plain" path="$.state.completed">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore completed.</wadl:doc>
+            </param>
+            <param name="completed_with_errors" style="plain" path="$.state.completed_with_errors">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore completed with errors.</wadl:doc>
+            </param>
+            <param name="failed" style="plain" path="$.state.failed">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore failed.</wadl:doc>
+            </param>
+            <param name="stopped" style="plain" path="$.state.stopped">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore stopped.</wadl:doc>
+            </param>
+            
+            <param name="started_time" style="plain" path="$.started_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time that the restore started.</wadl:doc>
+            </param>
+            
+            <param name="ended_time" style="plain" path="$.ended_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time that the restore ended.</wadl:doc>
+            </param>
+            
+            <param name="errors" style="plain" path="$.errors">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about any errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="count" style="plain" path="$.errors.count">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="reason" style="plain" path="$.errors.reason">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Reason for the errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="diagnostics" style="plain" path="$.errors.diagnostics">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about possible reason for the errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.errors.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the errors.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.errors.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the errors.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.errors.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="files_restored" style="plain" path="$.files_restored">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of files restored.</wadl:doc>
+            </param>
+            <param name="bytes_restored" style="plain" path="$.bytes_restored">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes restored.</wadl:doc>
+            </param>
+            
+            <param name="links" style="plain" path="$.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the restore.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the restore.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>   
          </representation>
       </response>
       &commonFaults;
@@ -6040,6 +6779,196 @@
                <xsdxt:code href="../wadl/samples-v2/cbu-getRestores_response-json-http.txt"/>
                <xsdxt:code href="../wadl/samples-v2/cbu-getRestores_response.json"/>
             </doc> 
+            <param name="project_id" style="plain" path="$.restores.project_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the project associated with the restore.
+               </wadl:doc>
+            </param>
+            
+            <param name="id" style="plain" path="$.restores.id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the restore.
+               </wadl:doc>
+            </param>
+            
+            <param name="backup" style="plain" path="$.restores.backup" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the backup.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.restores.backup.id" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the backup.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.restores.backup.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the backup.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.restores.backup.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the backup.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.restores.backup.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="destination_agent" style="plain" path="$.restores.destination_agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the destination agent.                  
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.restores.destination_agent.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the destination agent.                  
+               </wadl:doc>
+            </param>               
+            <param name="links" style="plain" path="$.restores.destination_agent.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the destination agent.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.restores.destination_agent.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the destination agent.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.restores.destination_agent.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="destination_path" style="plain" path="$.restores.destination_path">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path for the destination.                  
+               </wadl:doc>
+            </param>
+            
+            <param name="overwrite_files" style="plain" path="$.restores.overwrite_files">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether any existing files were overwritten. 
+               </wadl:doc>
+            </param>
+            
+            <param name="state" style="plain" path="$.restores.state">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Current status of the restore.</wadl:doc>
+            </param>
+            <param name="queued" style="plain" path="$.restores.state.queued">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether the restore is queued.</wadl:doc>
+            </param>
+            <param name="preparing" style="plain" path="$.restores.state.preparing">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore is in a preparation state.</wadl:doc>
+            </param>
+            <param name="in_progress" style="plain" path="$.restores.state.in_progress">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore is in progress.</wadl:doc>
+            </param>
+            <param name="completed" style="plain" path="$.restores.state.completed">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore completed.</wadl:doc>
+            </param>
+            <param name="completed_with_errors" style="plain" path="$.restores.state.completed_with_errors">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore completed with errors.</wadl:doc>
+            </param>
+            <param name="failed" style="plain" path="$.restores.state.failed">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore failed.</wadl:doc>
+            </param>
+            <param name="stopped" style="plain" path="$.restores.state.stopped">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Restore stopped.</wadl:doc>
+            </param>
+            
+            <param name="started_time" style="plain" path="$.restores.started_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time that the restore started.</wadl:doc>
+            </param>
+            
+            <param name="ended_time" style="plain" path="$.restores.ended_time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time that the restore ended.</wadl:doc>
+            </param>
+            
+            <param name="errors" style="plain" path="$.restores.errors">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about any errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="count" style="plain" path="$.restores.errors.count">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="reason" style="plain" path="$.restores.errors.reason">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Reason for the errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="diagnostics" style="plain" path="$.restores.errors.diagnostics">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about possible reason for the errors encountered by the restore.</wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.restores.errors.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the errors.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.restores.errors.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the errors.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.restores.errors.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
+            
+            <param name="files_restored" style="plain" path="$.restores.files_restored">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of files restored.</wadl:doc>
+            </param>
+            <param name="bytes_restored" style="plain" path="$.restores.bytes_restored">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Number of bytes restored.</wadl:doc>
+            </param>
+            
+            <param name="links" style="plain" path="$.restores.links" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the links for the restore.
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.restores.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the restore.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.restores.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.links" >
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Information for the next and previous links for the restore.
+            </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI) for the restore.
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to the resource_url.
+               </wadl:doc>
+            </param>
          </representation>
       </response>
       &commonFaults;
@@ -6295,27 +7224,27 @@
             <para>You can issue updates only for the following scenarios:</para>
             <itemizedlist>
             <listitem>
-               <para>The agent is reporting the state of the restore: <code>[{ "op": "replace", "path": "/state", "value": "queued" }]</code>. Valid values for <code>"value"</code> are:</para>
+               <para>The agent is reporting the state of the restore: <code>[{ "op": "replace", "path": "/state", "value": "queued" }]</code>. Valid values for <code>value</code> are:</para>
                <itemizedlist spacing="compact">
-                  <listitem><para>"queued"</para></listitem>
-                  <listitem><para>"preparing"</para></listitem>
-                  <listitem><para>"in_progress"</para></listitem>
+                  <listitem><para><code>queued</code></para></listitem>
+                  <listitem><para><code>preparing</code></para></listitem>
+                  <listitem><para><code>in_progress</code></para></listitem>
                </itemizedlist>
             </listitem>
             <listitem>
-               <para>The agent is reporting the results of the finished restore (see the example request in this section). Valid values for <code>"/state"</code> are:</para>
+               <para>The agent is reporting the results of the finished restore (see the example request in this section). Valid values for <code>/state</code> are:</para>
                <itemizedlist spacing="compact">
-                  <listitem><para>"completed"</para></listitem>
-                  <listitem><para>"completed_with_errors"</para></listitem>
-                  <listitem><para>"failed"</para></listitem>
-                  <listitem><para>"stopped"</para></listitem>
+                  <listitem><para><code>completed</code></para></listitem>
+                  <listitem><para><code>completed_with_errors</code></para></listitem>
+                  <listitem><para><code>failed</code></para></listitem>
+                  <listitem><para><code>stopped</code></para></listitem>
                </itemizedlist>
             </listitem>
             <listitem>
                <para>The agent is issuing a request to stop the restore: <code>[{ "op": "replace", "path": "/state", "value": "stop_requested" }]</code>.</para>
             </listitem>
          </itemizedlist>
-            <para>You can use the <code>"add"</code> and <code>"replace"</code> operations interchangeably as they are interpreted identically for these scenarios. The only paths that you cannot modify are those listed in this endpoint's description here.</para></note>
+            <para>You can use the <code>add</code> and <code>replace</code> operations interchangeably as they are interpreted identically for these scenarios. The only paths that you cannot modify are those listed in this endpoint's description here.</para></note>
       </wadl:doc>
       
       <request>
@@ -6407,7 +7336,7 @@
    
 <!--*************************************-->
 <!--       Get errors for a restore      -->
-<!--*************************************-->       
+<!--*************************************-->  
    <method name="GET" id="getRestoreErrors">
       <wadl:doc title="List errors for a restore">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the errors for the specified restore.</para>

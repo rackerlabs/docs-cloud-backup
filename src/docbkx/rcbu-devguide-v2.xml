@@ -970,25 +970,20 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configure">
                <wadl:method href="postConfiguration"/>
+               <wadl:method href="getConfigurations"/>
+            </wadl:resource>           
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configuration_id">
+               <wadl:method href="getConfigDetails"/>
+               <wadl:method href="updateConfig"/>
+               <wadl:method href="deleteConfig"/>
             </wadl:resource>
-            <!--
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
-               <wadl:method href="updateBackupConfig"/>
-               <wadl:method href="getBackupConfig"/>
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configActivities">
+               <wadl:method href="getConfigActivities"/>
             </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration">
-               <wadl:method href="getAllBackupConfigforUser"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#machineAgentId">
-               <wadl:method href="getAllBackupConfigforAgent"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backupConfigurationId">
-               <wadl:method href="enableBackupConfig"/>
-            </wadl:resource>
-            <wadl:resource href="../../src/wadl/rcbu.wadl#backup-configuration-Id">
-               <wadl:method href="deleteBackupConfig"/>
-            </wadl:resource> 
-            -->
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#configEvents">
+               <wadl:method href="getConfigEvents"/>
+            </wadl:resource>          
+            
          </wadl:resources>
          <?hard-pagebreak?>
       </section>
@@ -1031,7 +1026,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
                   <wadl:method href="#updateRestore"/>               
             </wadl:resource>
             
-            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#errors">
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#restoreErrors">
                <wadl:method href="#getRestoreErrors"/>
             </wadl:resource>
             
