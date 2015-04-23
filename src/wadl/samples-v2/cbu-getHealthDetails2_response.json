@@ -1,3 +1,9 @@
 {
-    "online": false
+    "online": false,
+    "links": [
+        {
+            "href": "https://cloudbackupapi.apiary-mock.com/health/storage/cassandra",
+            "rel": "self"
+        }
+    ]
 }

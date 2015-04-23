@@ -6171,7 +6171,7 @@
          <para role="shortdesc">Lists the events for the specified configuration.</para>
          <para>This operation lists all events for the specified configuration. You should consider these events to be transient, and they might disappear after a minute or so. 
             Therefore, this operation is most useful for monitoring a configuration's current activity. </para>
-         <para>Sample events t hat might be returned from this endpoint can be found in the descriptions for the following endpoints:</para>
+         <para>Sample events that might be returned from this endpoint can be found in the descriptions for the following endpoints:</para>
 <!--         <itemlizedlist>
             <listitem><para>GET /v2/backups/{id}/events (insert link)</para></listitem>
             <listitem><para>GET /v2/restores/{id}/events (insert link)</para></listitem>
@@ -6386,7 +6386,11 @@
       
       <response status="202">                
          <doc title="Accepted" xml:lang="EN">The request has been accepted for processing, but the processing has not been completed.</doc>
-         <representation mediaType="application/json">                      
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-postEvents_response-json-http.txt"/> 
+              
+            </doc> 
          </representation>
       </response>
       &commonFaults;
@@ -6435,7 +6439,132 @@
             <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
                <xsdxt:code href="../wadl/samples-v2/cbu-getEvents_response-json-http.txt"/>
                <xsdxt:code href="../wadl/samples-v2/cbu-getEvents_response.json"/>
-            </wadl:doc>            
+            </wadl:doc>
+            <param name="events" style="plain" path="$.events">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about events for the agent.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.events.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID for the event.
+               </wadl:doc>
+            </param>
+            <param name="time" style="plain" path="$.events.time">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time of the event.
+               </wadl:doc>
+            </param>
+            <param name="event" style="plain" path="$.events.event">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Type of the event.
+               </wadl:doc>
+            </param>
+            <param name="agent" style="plain" path="$.events.agent">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the agent for each <code>event</code> except <code>mode</code>.
+               </wadl:doc>
+            </param>
+            <param name="id" style="plain" path="$.events.agent.id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Agent ID.
+               </wadl:doc>
+            </param>
+            <param name="name" style="plain" path="$.events.agent.name">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Name of the agent.
+               </wadl:doc>
+            </param>
+            <param name="host" style="plain" path="$.events.agent.host">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the host.
+               </wadl:doc>
+            </param>
+            <param name="os" style="plain" path="$.events.agent.host.os">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the operating system for the host.
+               </wadl:doc>
+            </param>
+            <param name="name" style="plain" path="$.events.agent.host.os.name">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Name of the operating system.
+               </wadl:doc>
+            </param>
+            <param name="version" style="plain" path="$.events.agent.host.os.version">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Version of the operating system.
+               </wadl:doc>
+            </param>
+            <param name="architecture" style="plain" path="$.events.agent.host.os.architecture">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Architecture of the operating system.
+               </wadl:doc>
+            </param>
+            <param name="mode" style="plain" path="$.events.mode">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Mode of the event when the <code>event</code> is <code>agent_activate</code>.
+               </wadl:doc>
+            </param>
+            <param name="request_id" style="plain" path="$.events.request_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID of the request when the <code>event</code> is <code>vault_encryption_enable</code>, <code>vault_encryption_change</code>, <code>vault_password_verify</code>, <code>vault_db_download_in_progress</code>, <code>vault_db_download_completed</code>, <code>vault_db_download_failed</code>, <code>host_browse</code>, <code>logfile_upload</code>, <code>logfile_upload</code>, or <code>logfile_completed</code> .
+               </wadl:doc>
+            </param>
+            <param name="old_encrypted_password_hex" style="plain" path="$.events.old_encrypted_password_hex">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Encrypted old password when <code>event</code> is <code>vault_encryption_change</code>.
+               </wadl:doc>
+            </param>
+            <param name="new_encrypted_password_hex" style="plain" path="$.events.new_encrypted_password_hex">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Encrypted new password when <code>event</code> is <code>vault_encryption_change</code>.
+               </wadl:doc>
+            </param>
+            <param name="encrypted_password_hex" style="plain" path="$.events.encrypted_password_hex">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Encrypted password when <code>event</code> is <code>vault_encryption_enable</code> or <code>vault_password_verify</code>.
+               </wadl:doc>
+            </param>
+            <param name="path" style="plain" path="$.events.path">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Path to which to browse when <code>event</code> is <code>host_browse</code>.
+               </wadl:doc>
+            </param>
+            <param name="path_encoded" style="plain" path="$.events.path_encoded">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Encoded path to which to browse hen <code>event</code> is <code>host_browse</code>.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.events.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information when <code>event</code> is <code>logfile_upload</code>. 
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.events.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.events.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param>
+            <param name="links" style="plain" path="$.links">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Link information for the next and previous events. 
+               </wadl:doc>
+            </param>
+            <param name="href" style="plain" path="$.links.href" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Location (URI).
+               </wadl:doc>
+            </param>
+            <param name="rel" style="plain" path="$.links.rel" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">How the href link provided is related to this resource_url.
+               </wadl:doc>
+            </param> 
          </representation>
       </response>
       &commonFaults;
