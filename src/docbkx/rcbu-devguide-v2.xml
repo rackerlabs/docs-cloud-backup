@@ -768,6 +768,15 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          <para>Agents communicating with Cloud Backup should always send an <code>X-Agent-Id</code>
             header in the request.</para>
       </section>
+      <section xml:id="linksParameter">
+         <title><code>Links</code> parameter</title>
+         <para>Operations in <xref linkend="operations"/> that return a list of resources usually
+            have a <code>links</code> output parameter specifying the URLs for the next and previous
+            results in the list. The <code>links</code> might not be present when the list of
+            resources is empty. In that case, the <code>links</code> obtained during a previous
+            request might still be valid.  If this is the first request using the operation, you
+            might retry the original request until the <code>links</code> results appear.</para>
+      </section>
    </chapter>
    <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook" role="api-reference">
       <title>API operations</title>

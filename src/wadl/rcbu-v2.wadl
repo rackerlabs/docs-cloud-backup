@@ -648,8 +648,32 @@
             </param>
                      <param name="flavor" style="plain" path="$.host.flavor" required="true">
                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN">Flavor for the agent.
-                        </wadl:doc>
+                           xml:lang="EN"><para>Flavor for the agent. The available flavors are <code>nova</code>, <code>rackspace_dedicated</code>, and <code>rackspace_private_cloud</code>. Depending on the flavor specified, the following notes apply:
+                           
+                           <itemizedlist>
+                              <listitem><para><code>nova</code></para>
+                              
+                              <itemizedlist>
+                                 <listitem><para>Specification of <code>host/region</code> is preferred, but it can be <code>null</code>. </para></listitem>
+                                 <listitem><para>Specification of the <code>vault/use_internal</code> is optional. The default value is <code>true</code>.</para></listitem>
+                              </itemizedlist></listitem>
+                                 
+                           <listitem><para><code>rackspace_dedicated</code></para>
+                              
+                              <itemizedlist>
+                                 <listitem><para>Specification of <code>host/region</code> is required. </para></listitem>
+                                 <listitem><para>Specification of the <code>vault/use_internal</code> is optional. The default value is <code>false</code>.</para></listitem>
+                              </itemizedlist></listitem>
+                               
+                              <listitem><para><code>rackspace_private_cloud</code></para>
+                              
+                              <itemizedlist>
+                                 <listitem><para>Specification of <code>host/region</code> is required. </para></listitem>
+                                 <listitem><para>Specification of the <code>vault/use_internal</code> is optional. The default value is <code>true</code>.</para></listitem>
+                              </itemizedlist></listitem>
+                                 
+                           </itemizedlist>
+                           </para></wadl:doc>
                      </param>
                      <param name="region" style="plain" path="$.host.region" required="true">
                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -722,6 +746,17 @@
                         xml:lang="EN">Exponent for the rsa public key.
                      </wadl:doc>
                   </param>
+            <param name="vault" style="plain" path="$.vault" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Information about the vault.
+               </wadl:doc>
+            </param> 
+            
+            <param name="use_internal" style="plain" path="$.vault.use_internal" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Whether use of the vault is internal.
+               </wadl:doc> 
+            </param>
          </representation>
       </request>
       
