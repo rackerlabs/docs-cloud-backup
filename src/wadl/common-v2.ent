@@ -36,6 +36,10 @@
             <representation mediaType="application/xml" element="rcbu:badMethod"/>
             <representation mediaType="application/json"/>
         </response>
+         <response status="409" xmlns="http://wadl.dev.java.net/2009/02">
+            <representation mediaType="application/xml" element="rcbu:conflict"/>
+            <representation mediaType="application/json"/>
+        </response>
         <response status="500" xmlns="http://wadl.dev.java.net/2009/02">           
             <representation mediaType="application/xml" element="rcbu:internalServerError"/>
             <representation mediaType="application/json"/>

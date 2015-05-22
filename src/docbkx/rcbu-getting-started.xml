@@ -223,8 +223,10 @@
             <para>Cloud Backup is part of the Rackspace Cloud and your use of the Cloud Backup API
                 is billed according to the pricing schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/backup/pricing/"
-                    >http://www.rackspace.com/cloud/backup/pricing/</link>. Information about
-                service level agreements (SLAs) is also available from that link.</para>
+                    >http://www.rackspace.com/cloud/backup/pricing/</link>.</para>
+            <para xmlns:wadl="http://wadl.dev.java.net/2009/02">While Cloud Backup does not provide
+                a service level agreement (SLA), applicable SLAs for the underlying infrastructure,
+                such as Cloud Files, apply.</para>
         </section>
     </chapter>
    

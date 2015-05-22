@@ -1,0 +1,10 @@
+{
+    "id": "5650135586",
+    "time": "2014-10-09T12:26:18.233501Z",
+    "event": "vault_encryption_enabled",
+    "agent": {
+        "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
+    },
+    "request_id": "9072bb51-d5fd-4fc5-ad80-d62e573236b6",
+    "succeeded": true
+}
