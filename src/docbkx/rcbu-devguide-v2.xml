@@ -762,7 +762,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
                      Storage outweigh the need for faster backups or restores. </para>
                   </listitem>
                   <listitem>
-                     <para><emphasis>Solution:</emphasis> Ensure that you're running the latest
+                     <para><emphasis>Solution:</emphasis> Ensure that you are running the latest
                      agent release. After that, attempt to determine the cause of the error, and try
                      the backup or restore again if it is an intermittent error. We are always
                      working to make backup more robust. </para>
