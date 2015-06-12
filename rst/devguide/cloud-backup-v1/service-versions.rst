@@ -16,7 +16,8 @@ The contract version denotes the data model and behavior that the API supports. 
 **Example request URI (contract version in bold)**
 
 .. code::  
-  https://dfw.backup.api.rackspacecloud.com/v1.0/1234/
+
+    https://dfw.backup.api.rackspacecloud.com/v1.0/1234/
 
 .. _cbu-dgv1-serviceversion-list:
 
@@ -29,7 +30,8 @@ Issue a **GET** request to the root endpoint for a service. In the request, trun
 
 **Example list versions request**
 
-  .. code::  
+.. code::  
+
     GET HTTP/1.1
     Host: https://dfw.backup.api.rackspacecloud.com/
       
