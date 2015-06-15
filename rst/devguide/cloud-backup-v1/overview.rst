@@ -53,7 +53,7 @@ This version of this guide replaces and obsoletes all earlier versions. The most
 +------------------+------------------------------------------------------+
 |  Revision Date   |                  Summary of Changes                  |
 +==================+======================================================+
-| April 23, 2015   | Corrected links in `Assigning roles to account users |
+| April 23, 2015   | Corrected links in Assigning roles to account users  |
 +------------------+------------------------------------------------------+
 | March 4, 2015    | Removed the London endpoint, since Rackspace now has |
 |                  | one global endpoint for authentication using the     |
