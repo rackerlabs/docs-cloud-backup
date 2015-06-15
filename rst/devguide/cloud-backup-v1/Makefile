@@ -19,11 +19,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-<<<<<<< HEAD
 .PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
-=======
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -34,10 +30,6 @@ help:
 	@echo "  json       to make JSON files"
 	@echo "  htmlhelp   to make HTML files and a HTML help project"
 	@echo "  qthelp     to make HTML files and a qthelp project"
-<<<<<<< HEAD
-=======
-	@echo "  applehelp  to make an Apple Help Book"
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
 	@echo "  devhelp    to make HTML files and a Devhelp project"
 	@echo "  epub       to make an epub"
 	@echo "  latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
@@ -53,10 +45,6 @@ help:
 	@echo "  pseudoxml  to make pseudoxml-XML files for display purposes"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
-<<<<<<< HEAD
-=======
-	@echo "  coverage   to run coverage check of the documentation (if enabled)"
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
 
 clean:
 	rm -rf $(BUILDDIR)/*
@@ -97,36 +85,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-<<<<<<< HEAD
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/cloud-backup-v1.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/docs-cloud-backup.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/cloud-backup-v1.qhc"
-=======
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/RackspaceDeveloperPortal.qhcp"
-	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/RackspaceDeveloperPortal.qhc"
-
-applehelp:
-	$(SPHINXBUILD) -b applehelp $(ALLSPHINXOPTS) $(BUILDDIR)/applehelp
-	@echo
-	@echo "Build finished. The help book is in $(BUILDDIR)/applehelp."
-	@echo "N.B. You won't be able to view it unless you put it in" \
-	      "~/Library/Documentation/Help or install it in your application" \
-	      "bundle."
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/docs-cloud-backup.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-<<<<<<< HEAD
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/cloud-backup-v1"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/cloud-backup-v1"
-=======
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/RackspaceDeveloperPortal"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/RackspaceDeveloperPortal"
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/docs-cloud-backup"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/docs-cloud-backup"
 	@echo "# devhelp"
 
 epub:
@@ -197,14 +166,6 @@ doctest:
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
-<<<<<<< HEAD
-=======
-coverage:
-	$(SPHINXBUILD) -b coverage $(ALLSPHINXOPTS) $(BUILDDIR)/coverage
-	@echo "Testing of coverage in the sources finished, look at the " \
-	      "results in $(BUILDDIR)/coverage/python.txt."
-
->>>>>>> c8ef1e132c35a0387f9f5811b409825e08adeebb
 xml:
 	$(SPHINXBUILD) -b xml $(ALLSPHINXOPTS) $(BUILDDIR)/xml
 	@echo

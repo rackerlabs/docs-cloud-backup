@@ -105,12 +105,10 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <p>You can list which API versions are available for your account by using the list versions request.</p>
 <p>Issue a <strong>GET</strong> request to the root endpoint for a service. In the request, truncate the version and everything to the right of it.</p>
 <p><strong>Example list versions request</strong></p>
-<blockquote>
-<div><div class="code highlight-python"><div class="highlight"><pre>GET HTTP/1.1
+<div class="code highlight-python"><div class="highlight"><pre>GET HTTP/1.1
 Host: https://dfw.backup.api.rackspacecloud.com/
 </pre></div>
 </div>
-</div></blockquote>
 <p>This operation does not require a request body.</p>
 <p>Normal Response Codes: 200, 203</p>
 <p>Error Response Codes: 400, 413, 500, 503</p>
