@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; Rackspace Developer Portal 1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Rackspace Developer Portal 1 documentation" href="../../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../../index.html">Rackspace Developer Portal 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<span id="cbu-dgv1-overview"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
+<p>Rackspace Cloud Backup is a file-based backup application that enables you to choose which files and folders to back up from your cloud server. You can choose to restore your whole system with all of its folders and to restore to an entirely different server.</p>
+<p>Interactions with Rackspace Cloud Backup occur programmatically via the Rackspace Cloud Backup API, as described in this guide.</p>
+<p>Following are some of the tasks you can perform using Rackspace Cloud Backup:</p>
+<ul class="simple">
+<li>Select the files and folders that you want to back up from your cloud server.</li>
+<li>Run your backups manually or on a schedule that works for you.</li>
+<li>See the activity from all your backups, for both current and previous backups.</li>
+<li>Use AES-256 encryption with a private encryption key known only to you.</li>
+<li>Save space with incremental backups that save only the changed portions of files.</li>
+<li>Create unlimited backups.</li>
+</ul>
+<p>Choose your <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">backup endpoint</a> based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see <a class="reference external" href="Service_Access_Endpoints-d1e753.html">Section&nbsp;2.3, “Service access endpoints”</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Rackspace Cloud Backup does not take snapshots of your server. Read more about <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups">how Rackspace Cloud Backup differs</a> from snapshots.</p>
+</div>
+<div class="section" id="intended-audience">
+<span id="cbu-dgv1-overview-intended"></span><h2>Intended audience<a class="headerlink" href="#intended-audience" title="Permalink to this headline">#</a></h2>
+<p>This guide is intended to assist software developers who want to develop applications by using the Rackspace Cloud Backup API. It assumes the reader has a general understanding of storage and is familiar with the following items:</p>
+<ul class="simple">
+<li>RESTful web services</li>
+<li>HTTP/1.1 conventions</li>
+<li>JSON data serialization formats</li>
+</ul>
+</div>
+<div class="section" id="document-change-history">
+<span id="cbu-dgv1-overview-changehist"></span><h2>Document change history<a class="headerlink" href="#document-change-history" title="Permalink to this headline">#</a></h2>
+<p>This version of this guide replaces and obsoletes all earlier versions. The most recent changes are described in the following table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Revision Date</th>
+<th class="head">Summary of Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>April 23, 2015</td>
+<td>Corrected links in <a href="#id1"><span class="problematic" id="id2">`</span></a>Assigning roles to account users</td>
+</tr>
+<tr class="row-odd"><td>March 4, 2015</td>
+<td>Removed the London endpoint, since Rackspace now has
+one global endpoint for authentication using the
+Rackspace Cloud Identity service.</td>
+</tr>
+<tr class="row-even"><td>January 14, 2015</td>
+<td>Added information and links about
+multi-factor authentication.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="additional-resources">
+<span id="cbu-dgv1-overview-additional"></span><h2>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">#</a></h2>
+<p>For information about getting started using Cloud Backup using cURL, refer to the <a class="reference external" href="http://docs.rackspace.com/api/">Cloud Backup Getting Started Guide</a>.</p>
+<p>For more information about using the Cloud Backup API with cURL, see the blog post <a class="reference external" href="http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw">Rackspace Cloud Backup API with cURL</a>.</p>
+<p>Additional information about Cloud Backup is also available in the Rackspace Knowledge Center at <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup">Best Practices for Cloud Backup</a>.</p>
+<p>For information about Rackspace Cloud products, <a class="reference external" href="http://www.rackspace.com/cloud/">the Rackspace Cloud site</a> offers links to the official support channels for Rackspace, including knowledge base articles, forums, phone, chat, and email.</p>
+<p>You can follow Rackspace updates and announcements <a class="reference external" href="www.twitter.com/rackspace">via twitter</a>.</p>
+<p>This API uses standard <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP 1.1 response codes</a>.</p>
+</div>
+<div class="section" id="api-contract-changes">
+<span id="cbu-dgv1-overview-contract"></span><h2>API contract changes<a class="headerlink" href="#api-contract-changes" title="Permalink to this headline">#</a></h2>
+<p>Rackspace notifies customers in release notes when and if the contract changes.</p>
+</div>
+<div class="section" id="pricing-and-service-level">
+<span id="cbu-dgv1-overview-pricing"></span><h2>Pricing and service level<a class="headerlink" href="#pricing-and-service-level" title="Permalink to this headline">#</a></h2>
+<p>Cloud Backup is part of the Rackspace Cloud and your use of the Cloud Backup API will be billed according to the <a class="reference external" href="http://www.rackspace.com/cloud/backup/pricing/">pricing schedule</a>. Information about service level agreements (SLAs) is also available from that link.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#intended-audience">Intended audience</a></li>
+<li><a class="reference internal" href="#document-change-history">Document change history</a></li>
+<li><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+<li><a class="reference internal" href="#api-contract-changes">API contract changes</a></li>
+<li><a class="reference internal" href="#pricing-and-service-level">Pricing and service level</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/devguide/cloud-backup-v1/dev-guide/overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../../index.html">Rackspace Developer Portal 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Rackspace.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>

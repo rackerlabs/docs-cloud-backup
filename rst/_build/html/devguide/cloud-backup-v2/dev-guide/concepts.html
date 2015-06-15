@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Concepts &mdash; Rackspace Developer Portal 1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Rackspace Developer Portal 1 documentation" href="../../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../../../index.html">Rackspace Developer Portal 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="concepts">
+<span id="cbu-dgv2-concepts"></span><h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">#</a></h1>
+<p>To use the Rackspace Cloud Backup API effectively, you should understand several key concepts:</p>
+<div class="section" id="agent">
+<h2>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">#</a></h2>
+<p>An agent is an executable that sits on your cloud server that knows how to perform backups and restores. Agent installation currently supports Windows and Unix or Linux platforms.</p>
+</div>
+<div class="section" id="backup-configuration">
+<h2>Backup configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">#</a></h2>
+<p>Backup configuration defines what needs to be backed up and when it needs to be backed up. The backup configuration includes a schedule for the backup, files to back up, and notifications.</p>
+</div>
+<div class="section" id="restore">
+<h2>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">#</a></h2>
+<p>Restore is a process of bringing your system back to a previously saved state, usually by using a backup as the checkpoint.</p>
+</div>
+<div class="section" id="restore-configuration">
+<h2>Restore configuration<a class="headerlink" href="#restore-configuration" title="Permalink to this headline">#</a></h2>
+<p>A restore configuration defines what the restore checkpoint is and the where the backup should be restored.</p>
+</div>
+<div class="section" id="server-setup">
+<h2>Server setup<a class="headerlink" href="#server-setup" title="Permalink to this headline">#</a></h2>
+<p>Because Cloud Backup is a file-level backup product, you must configure a separate backup for each cloud server and that a backup does not automatically apply to an entire environment. You must select the files and folders you want to back up from your cloud server. This setup requirement applies to Rackspace Cloud Servers, including the Performance Cloud Servers offering.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Concepts</a><ul>
+<li><a class="reference internal" href="#agent">Agent</a></li>
+<li><a class="reference internal" href="#backup-configuration">Backup configuration</a></li>
+<li><a class="reference internal" href="#restore">Restore</a></li>
+<li><a class="reference internal" href="#restore-configuration">Restore configuration</a></li>
+<li><a class="reference internal" href="#server-setup">Server setup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/devguide/cloud-backup-v2/dev-guide/concepts.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../../../index.html">Rackspace Developer Portal 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Rackspace.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>
