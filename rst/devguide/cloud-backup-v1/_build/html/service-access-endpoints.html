@@ -94,24 +94,40 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <p>The Rackspace Cloud Backup Service is a regionalized service. The user of the service is therefore responsible for appropriate replication, caching, and overall maintenance of Rackspace Cloud Backup data across regional boundaries to other Rackspace Cloud Backup servers.</p>
 <p>You can find the available service endpoints for Rackspace Cloud Backup in the following table.</p>
 <p>To help you decide which regionalized endpoint to use, read the Knowledge Center article about special considerations for choosing a data center at <a class="reference external" href="http://www.rackspace.com/knowledge_center/article/about-regions">About Regions</a>.</p>
-<p><strong>Regionalized service endpoints</strong>
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| Region              | Endpoint                                              |
-+=====================+=======================================================+
-| Dallas/Ft. Worth    | <cite>https://dfw.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-| (DFW)               |                                                       |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| Chicago (ORD)       | <cite>https://ord.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| London (LON)        | <cite>https://lon.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| Hong Kong (HKG)     | <cite>https://hkg.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| Northern Virginia   | <cite>https://iad.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-| (IAD)               |                                                       |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+
-| Sydney (SYD)        | <cite>https://syd.backup.api.rackspacecloud.com/v2/1234</cite>/  |
-+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+</p>
+<p><strong>Regionalized service endpoints</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Region</th>
+<th class="head">Endpoint</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Dallas/Ft. Worth
+(DFW)</td>
+<td><cite>https://dfw.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+<tr class="row-odd"><td>Chicago (ORD)</td>
+<td><cite>https://ord.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+<tr class="row-even"><td>London (LON)</td>
+<td><cite>https://lon.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+<tr class="row-odd"><td>Hong Kong (HKG)</td>
+<td><cite>https://hkg.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+<tr class="row-even"><td>Northern Virginia
+(IAD)</td>
+<td><cite>https://iad.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+<tr class="row-odd"><td>Sydney (SYD)</td>
+<td><cite>https://syd.backup.api.rackspacecloud.com/v2/1234</cite>/</td>
+</tr>
+</tbody>
+</table>
 <p>Replace the sample account ID number (which is also called the tenant ID), 1234, with your actual account number that is returned as part of the Cloud Identity service response.</p>
 <p>You will find the actual account number after the final &#8216;/&#8217; in the <cite>publicURL</cite> field returned by the authentication response.</p>
 <div class="admonition note">

@@ -4,11 +4,11 @@
 Overview
 ========
 
-Rackspace Cloud Backup is a file-based backup application that enables you to choose which files and folders to back up from your cloud server. You can choose to restore your whole system with all of its folders and to restore to an entirely different server.
+Rackspace Cloud Backup is a file-based backup application that enables you to choose which files and folders to back up from your cloud server. You can choose to restore your whole system with all of its folders and files, or to restore individual files or folders from a given date, or to restore to an entirely different server. 
 
 Interactions with Rackspace Cloud Backup occur programmatically via the Rackspace Cloud Backup API, as described in this guide.
 
-Following are some of the tasks you can perform using Rackspace Cloud Backup:
+Following are some of the tasks that you can perform using Rackspace Cloud Backup:
 
 -  Select the files and folders that you want to back up from your cloud server.
 
@@ -18,16 +18,17 @@ Following are some of the tasks you can perform using Rackspace Cloud Backup:
 
 -  Use AES-256 encryption with a private encryption key known only to you.
 
+-  Restore individual files and folders from a particular date.
+
 -  Save space with incremental backups that save only the changed portions of files.
 
 -  Create unlimited backups.
 
-Choose your `backup endpoint`_ based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see `Section 2.3, “Service access endpoints” <Service_Access_Endpoints-d1e753.html>`__.
+Choose your the endpoint for your backup based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see :ref:`Service access endpoints <cbu-dgv1-service>`.
 
 ..  note:: 
     Rackspace Cloud Backup does not take snapshots of your server. Read more about `how Rackspace Cloud Backup differs`_ from snapshots.
 
-.. _backup endpoint: 
 .. _how Rackspace Cloud Backup differs: http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups
 
 .. _cbu-dgv1-overview-intended:
@@ -80,11 +81,11 @@ You can follow Rackspace updates and announcements `via twitter`_.
 
 This API uses standard `HTTP 1.1 response codes`_.
 
-.. _Cloud Backup Getting Started Guide: http://docs.rackspace.com/api/
-.. _Rackspace Cloud Backup API with cURL: http://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl.html#.UVmiv6tetLw
+.. _Cloud Backup Getting Started Guide: http://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content/Overview-d1e01.html
+.. _Rackspace Cloud Backup API with cURL: https://developer.rackspace.com/blog/rackspace-cloud-backup-api-with-curl/
 .. _Best Practices for Cloud Backup: http://www.rackspace.com/knowledge_center/article/best-practices-for-cloud-backup
 .. _the Rackspace Cloud site: http://www.rackspace.com/cloud/
-.. _via twitter: www.twitter.com/rackspace
+.. _via twitter: https://twitter.com/rackspace
 .. _HTTP 1.1 response codes: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 
 .. _cbu-dgv1-overview-contract:
@@ -99,6 +100,8 @@ Rackspace notifies customers in release notes when and if the contract changes.
 Pricing and service level
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cloud Backup is part of the Rackspace Cloud and your use of the Cloud Backup API will be billed according to the `pricing schedule`_. Information about service level agreements (SLAs) is also available from that link.
+Cloud Backup is part of the Rackspace Cloud and your use of the Cloud Backup API will be billed according to the `pricing schedule`_. 
+
+While Cloud Backup does not provide a service level agreement (SLA), applicable SLAs for the underlying infrastructure, such as Cloud Files, apply.
 
 .. _pricing schedule: http://www.rackspace.com/cloud/backup/pricing/

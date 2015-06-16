@@ -13,7 +13,7 @@ Contract version
 
 The contract version denotes the data model and behavior that the API supports. The contract version is included in all request URIs. Different contract versions of the API might be available at any given time and are not guaranteed to be compatible with one another.
 
-**Example request URI (contract version in bold)**
+**Example request URI**
 
 
 .. code::  
@@ -91,6 +91,8 @@ The following table lists possible fault types with their associated error codes
 |           500 | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|           501 | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |           503 | Service         | The server is currently unable to handle the request      |
 |               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
 |               |                 | which will likely be alleviated after some delay.         |
@@ -100,6 +102,8 @@ The following table lists possible fault types with their associated error codes
 
 Frequently encountered issues
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The symptoms and solutions for some frequently encountered issues follow.
 
 .. _cbu-dgv1-serviceversion-frequent-corrupted:
 
@@ -152,7 +156,7 @@ Backup or Restore is slow
    If your system uses Cloud Block Storage as the storage medium, this
    is known to introduce some slowdowns. Consider whether the benefits
    of using Cloud Block Storage outweigh the need for faster
-   backups/restores.
+   backups and restores.
 
 -  *Solution:* Make sure that you're running the latest agent release.
    After that, attempt to determine the cause of the error, and try the

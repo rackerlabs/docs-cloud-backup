@@ -11,6 +11,7 @@ You can find the available service endpoints for Rackspace Cloud Backup in the f
 To help you decide which regionalized endpoint to use, read the Knowledge Center article about special considerations for choosing a data center at `About Regions`_.
 
 **Regionalized service endpoints**
+
 +---------------------+-------------------------------------------------------+
 | Region              | Endpoint                                              |
 +=====================+=======================================================+

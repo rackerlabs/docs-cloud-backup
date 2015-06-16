@@ -95,7 +95,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <div class="section" id="contract-version">
 <span id="cbu-dgv1-serviceversion-contract"></span><h2>Contract version<a class="headerlink" href="#contract-version" title="Permalink to this headline">¶</a></h2>
 <p>The contract version denotes the data model and behavior that the API supports. The contract version is included in all request URIs. Different contract versions of the API might be available at any given time and are not guaranteed to be compatible with one another.</p>
-<p><strong>Example request URI (contract version in bold)</strong></p>
+<p><strong>Example request URI</strong></p>
 <div class="code highlight-python"><div class="highlight"><pre>https://dfw.backup.api.rackspacecloud.com/v1.0/1234/
 </pre></div>
 </div>
@@ -177,7 +177,11 @@ Error</td>
 <td>The server encountered an unexpected condition
 that prevented it from fulfilling the request.</td>
 </tr>
-<tr class="row-even"><td>503</td>
+<tr class="row-even"><td>501</td>
+<td>Not Implemented</td>
+<td>The requested method or resource is not implemented.</td>
+</tr>
+<tr class="row-odd"><td>503</td>
 <td>Service
 Unavailable</td>
 <td>The server is currently unable to handle the request
@@ -190,6 +194,7 @@ which will likely be alleviated after some delay.</td>
 </div>
 <div class="section" id="frequently-encountered-issues">
 <span id="cbu-dgv1-serviceversion-frequent"></span><h2>Frequently encountered issues<a class="headerlink" href="#frequently-encountered-issues" title="Permalink to this headline">¶</a></h2>
+<p>The symptoms and solutions for some frequently encountered issues follow.</p>
 <div class="section" id="backups-get-corrupted">
 <span id="cbu-dgv1-serviceversion-frequent-corrupted"></span><h3>Backups get corrupted<a class="headerlink" href="#backups-get-corrupted" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
