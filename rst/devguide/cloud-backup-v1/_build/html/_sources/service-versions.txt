@@ -51,7 +51,7 @@ Request and response types
 The Rackspace Cloud Backup API supports only JSON data serialization format.
 
 .. note::
-  The request format is specified using the Content-Type: application/json header and is required for calls that have a request body. If no response format is specified, JSON is the default.
+  The request format is specified using the ``Content-Type: application/json`` header and is required for calls that have a request body. If no response format is specified, JSON is the default.
 
 .. _cbu-dgv1-serviceversion-faults:
 
@@ -156,7 +156,7 @@ Backup or Restore is slow
    If your system uses Cloud Block Storage as the storage medium, this
    is known to introduce some slowdowns. Consider whether the benefits
    of using Cloud Block Storage outweigh the need for faster
-   backups/restores.
+   backups and restores.
 
 -  *Solution:* Make sure that you're running the latest agent release.
    After that, attempt to determine the cause of the error, and try the
