@@ -52,7 +52,7 @@ Use the global authentication endpoint
 
 Use the following global endpoint to access the Cloud Identity Service:
 
--  `https://identity.api.rackspacecloud.com/v2.0/`
+``https://identity.api.rackspacecloud.com/v2.0/``
 
 .. _cbu-dgv1-general-auth-send:
 

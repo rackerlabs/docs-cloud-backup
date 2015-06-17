@@ -4,7 +4,7 @@
 Role Based Access Control
 =========================
 
-Role Based Access Control (RBAC) restricts access to the capabilities of Rackspace Cloud services, including the Cloud Backup API, to authorized users only. RBAC enables Rackspace Cloud customers to specify which account users of their Cloud account have access to which Cloud Backup API service capabilities, based on `roles defined by Rackspace <cbu-dgv1-rbac-available>`. 
+Role Based Access Control (RBAC) restricts access to the capabilities of Rackspace Cloud services, including the Cloud Backup API, to authorized users only. RBAC enables Rackspace Cloud customers to specify which account users of their Cloud account have access to which Cloud Backup API service capabilities, based on :ref:`roles defined by Rackspace <cbu-dgv1-rbac-available>`. 
 
 The permissions to perform certain operations in Cloud Backup API — create, read, update, delete — are assigned to specific roles, and these roles can be assigned by the Cloud account admin user to account users of the account.
 

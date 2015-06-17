@@ -434,8 +434,8 @@
             be billed according to the pricing schedule at <link
                xlink:href="http://www.rackspace.com/cloud/backup/pricing/"
                >http://www.rackspace.com/cloud/backup/pricing/</link>. </para>
-         <para>While Cloud Backup does not provide a service level agreement (SLA), applicable SLAs
-            for the underlying infrastructure, such as Cloud Files, apply.</para>
+         <para>Although Cloud Backup does not provide a service level agreement (SLA), applicable
+            SLAs for the underlying infrastructure, such as Cloud Files, apply.</para>
       </section>
       <section xml:id="Concepts">
          <title>Concepts</title>
