@@ -949,15 +949,7 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v1.0</emphasis>/
             <para>Normal Response Codes: 200, 203 </para>
             <para>Error Response Codes: 400, 413, 500, 503 </para>
          </section>
-         <section xml:id="Request_Response_Types-d1e903">
-            <title>Request and response types</title>
-            <para>The Rackspace Cloud Backup API supports only JSON data serialization format. </para>
-            <note>
-               <para>The request format is specified using the <code>Content-Type:
-                     application/json</code> header and is required for calls that have a request
-                  body. If no response format is specified, JSON is the default. </para>
-            </note>
-         </section>
+      </section>
          <!--6-24-2013 Removed per Balaji - Backup now supports only Microsoft Date Format and not ISO.   
       <section xml:id="datetimeformat">
          <title>Date/Time Format</title>
@@ -1023,128 +1015,139 @@ date/time values.
          </table>
       </section>
  -->
-         <section xml:id="DB_faults">
-            <title>Faults and common issues</title>
-            <para>When an error occurs, the Rackspace Cloud Backup Service returns a fault object
-               containing an HTTP error response code that denotes the type of error. In the body of
-               the response, the system returns additional information about the fault. </para>
-            <para>The following table lists possible fault types with their associated error codes
-               and descriptions. </para>
-            <informaltable rules="all">
-               <thead>
-                  <tr align="center">
-                     <td colspan="2">Fault type</td>
-                     <td colspan="1">Associated error code</td>
-                     <td colspan="3">Description</td>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td colspan="2"><code>Bad Request</code>
-                     </td>
-                     <td colspan="1">400</td>
-                     <td colspan="3">There was one or more errors in the user request.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Unauthorized</code>
-                     </td>
-                     <td colspan="1">401</td>
-                     <td colspan="3">The supplied token is not authorized to access the resources,
-                        either it's expired or invalid.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Forbidden</code>
-                     </td>
-                     <td colspan="1">403</td>
-                     <td colspan="3">Access to the requested resource was denied.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Not Found</code>
-                     </td>
-                     <td colspan="1">404</td>
-                     <td colspan="3">The back-end services did not find anything matching the
-                        Request-URI.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Instance Fault</code>
-                     </td>
-                     <td colspan="1">500</td>
-                     <td colspan="3">This is a generic server error and the message contains the
-                        reason for the error. This error could wrap several error messages and is a
-                        catch all.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Not Implemented</code>
-                     </td>
-                     <td colspan="1">501</td>
-                     <td colspan="3">The requested method or resource is not implemented.</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2"><code>Service Unavailable</code>
-                     </td>
-                     <td colspan="1">503</td>
-                     <td colspan="3">The Rackspace Cloud Backup Service is not available.</td>
-                  </tr>
-               </tbody>
-            </informaltable>
-            <para>The symptoms and solutions for some frequently encountered issues follow. </para>
-            <para>
-               <itemizedlist>
-                  <title>Backups get corrupted</title>
-                  <listitem>
-                     <para>Does your server have a backup agent and did you clone it to create a new
-                        backup system? This means that two backup agents exist with the same
-                        credentials writing to the same vault. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Ensure the agent on the cloned backup
-                        server is re-registered before any backups are run. </para>
-                  </listitem>
-               </itemizedlist>
-               <itemizedlist>
-                  <title>Backups get network error</title>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure that your backup server has a
-                        connection to both service net and public net. If it is on an isolated
-                        network, the backup agent is able to function properly. </para>
-                  </listitem>
-               </itemizedlist>
-               <itemizedlist>
-                  <title>Backups sometimes fail</title>
-                  <listitem>
-                     <para>This is most commonly caused by either a failure to communicate with
-                        Cloud Files, running out of disk space, or a failure to communicate with
-                        Cloud Backup. </para>
-                     <para>Sometimes the agent might fail to backup a particular file because of a
-                        permissions error. Either the file is in use when the agent attempts to save
-                        it or the file in question cannot be read by the agent. Consider permissions
-                        when hunting for the root cause of a backup failure. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure that you're running the latest
-                        agent release. After that, attempt to determine the cause of the error, and
-                        try the backup or restore again if it is an intermittent error. </para>
-                  </listitem>
-               </itemizedlist>
-               <itemizedlist>
-                  <title>Backup or Restore is slow</title>
-                  <listitem>
-                     <para>If your backup or restore is encrypted, it can be especially slow.
-                        Encryption comes at a cost. </para>
-                     <para>If your system uses Cloud Block Storage as the storage medium, this is
-                        known to introduce some slowdowns. Consider whether the benefits of using
-                        Cloud Block Storage outweigh the need for faster backups/restores. </para>
-                  </listitem>
-                  <listitem>
-                     <para><emphasis>Solution:</emphasis> Make sure that you're running the latest
-                        agent release. After that, attempt to determine the cause of the error, and
-                        try the backup or restore again if it is an intermittent error. We're always
-                        working on making backup more robust. </para>
-                  </listitem>
-               </itemizedlist>
-            </para>
-         </section>
-      </section>
+         
+  
+ 
+      <section xml:id="Request_Response_Types-d1e903">
+         <title>Request and response types</title>
+         <para>The Rackspace Cloud Backup API supports only JSON data serialization format. </para>
+         <note>
+            <para>The request format is specified using the <code>Content-Type:
+               application/json</code> header and is required for calls that have a request
+               body. If no response format is specified, JSON is the default. </para>
+         </note>
+      </section> 
+      <section xml:id="DB_faults">
+         <title>Faults and common issues</title>
+         <para>When an error occurs, the Rackspace Cloud Backup Service returns a fault object
+            containing an HTTP error response code that denotes the type of error. In the body of
+            the response, the system returns additional information about the fault. </para>
+         <para>The following table lists possible fault types with their associated error codes
+            and descriptions. </para>
+         <informaltable rules="all">
+            <thead>
+               <tr align="center">
+                  <td colspan="2">Fault type</td>
+                  <td colspan="1">Associated error code</td>
+                  <td colspan="3">Description</td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td colspan="2"><code>Bad Request</code>
+                  </td>
+                  <td colspan="1">400</td>
+                  <td colspan="3">There was one or more errors in the user request.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Unauthorized</code>
+                  </td>
+                  <td colspan="1">401</td>
+                  <td colspan="3">The supplied token is not authorized to access the resources,
+                     either it's expired or invalid.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Forbidden</code>
+                  </td>
+                  <td colspan="1">403</td>
+                  <td colspan="3">Access to the requested resource was denied.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Not Found</code>
+                  </td>
+                  <td colspan="1">404</td>
+                  <td colspan="3">The back-end services did not find anything matching the
+                     Request-URI.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Instance Fault</code>
+                  </td>
+                  <td colspan="1">500</td>
+                  <td colspan="3">This is a generic server error and the message contains the
+                     reason for the error. This error could wrap several error messages and is a
+                     catch all.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Not Implemented</code>
+                  </td>
+                  <td colspan="1">501</td>
+                  <td colspan="3">The requested method or resource is not implemented.</td>
+               </tr>
+               <tr>
+                  <td colspan="2"><code>Service Unavailable</code>
+                  </td>
+                  <td colspan="1">503</td>
+                  <td colspan="3">The Rackspace Cloud Backup Service is not available.</td>
+               </tr>
+            </tbody>
+         </informaltable>
+         <para>The symptoms and solutions for some frequently encountered issues follow. </para>
+         <para>
+            <itemizedlist>
+               <title>Backups get corrupted</title>
+               <listitem>
+                  <para>Does your server have a backup agent and did you clone it to create a new
+                     backup system? This means that two backup agents exist with the same
+                     credentials writing to the same vault. </para>
+               </listitem>
+               <listitem>
+                  <para><emphasis>Solution:</emphasis> Ensure the agent on the cloned backup
+                     server is re-registered before any backups are run. </para>
+               </listitem>
+            </itemizedlist>
+            <itemizedlist>
+               <title>Backups get network error</title>
+               <listitem>
+                  <para><emphasis>Solution:</emphasis> Make sure that your backup server has a
+                     connection to both service net and public net. If it is on an isolated
+                     network, the backup agent is able to function properly. </para>
+               </listitem>
+            </itemizedlist>
+            <itemizedlist>
+               <title>Backups sometimes fail</title>
+               <listitem>
+                  <para>This is most commonly caused by either a failure to communicate with
+                     Cloud Files, running out of disk space, or a failure to communicate with
+                     Cloud Backup. </para>
+                  <para>Sometimes the agent might fail to backup a particular file because of a
+                     permissions error. Either the file is in use when the agent attempts to save
+                     it or the file in question cannot be read by the agent. Consider permissions
+                     when hunting for the root cause of a backup failure. </para>
+               </listitem>
+               <listitem>
+                  <para><emphasis>Solution:</emphasis> Make sure that you're running the latest
+                     agent release. After that, attempt to determine the cause of the error, and
+                     try the backup or restore again if it is an intermittent error. </para>
+               </listitem>
+            </itemizedlist>
+            <itemizedlist>
+               <title>Backup or Restore is slow</title>
+               <listitem>
+                  <para>If your backup or restore is encrypted, it can be especially slow.
+                     Encryption comes at a cost. </para>
+                  <para>If your system uses Cloud Block Storage as the storage medium, this is
+                     known to introduce some slowdowns. Consider whether the benefits of using
+                     Cloud Block Storage outweigh the need for faster backups/restores. </para>
+               </listitem>
+               <listitem>
+                  <para><emphasis>Solution:</emphasis> Make sure that you're running the latest
+                     agent release. After that, attempt to determine the cause of the error, and
+                     try the backup or restore again if it is an intermittent error. We're always
+                     working on making backup more robust. </para>
+               </listitem>
+            </itemizedlist>
+         </para>
+      </section>   
    </chapter>
    <chapter xml:id="operations" xmlns="http://docbook.org/ns/docbook" role="api-reference">
       <title>API operations</title>
