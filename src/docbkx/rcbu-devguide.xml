@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?rax-warinfo rcbu-v1.0-rcbu-devguide?>
+
+<!DOCTYPE book [
+      <!-- Some useful entities borrowed from HTML -->
+        <!ENTITY ndash  "&#x2013;">
+        <!ENTITY mdash  "&#x2014;">
+        <!ENTITY hellip "&#x2026;">                
+]>
+
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
    xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wadl="http://wadl.dev.java.net/2009/02"
    xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -15,7 +23,7 @@
       </copyright>
       <releaseinfo>API v1.0</releaseinfo>
       <productname>Rackspace Cloud Backup</productname>
-      <pubdate>2015-04-23</pubdate>
+      <pubdate>2015-06-30</pubdate>
       <legalnotice role="rs-api">
          <annotation>
             <remark>Copyright details are filled in by the template.</remark>
@@ -27,6 +35,18 @@
                (<abbrev>API</abbrev>). </para>
       </abstract>
       <revhistory>
+         <revision>
+            <date>2015-06-30</date>
+            <revdescription>
+               <itemizedlist>
+                  <listitem>
+                     <para>Added the <link
+                           xlink:href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/Limits.html"
+                           >Limits</link> section.</para>
+                  </listitem>
+               </itemizedlist>
+            </revdescription>
+         </revision>
          <revision>
             <date>2015-04-23</date>
             <revdescription>
@@ -1026,6 +1046,84 @@ date/time values.
                application/json</code> header and is required for calls that have a request
                body. If no response format is specified, JSON is the default. </para>
          </note>
+      </section>
+      <section xml:id="Limits">
+         <title>Limits</title>
+         <para>All accounts, by default, have a preconfigured set of thresholds (or limits) to
+            manage capacity and prevent abuse of the system. </para>
+         <para>The following table lists the limits for Cloud Backup. </para>
+         <table rules="all" xmlns:m="http://www.w3.org/the key 1998/Math/MathML">
+            <caption>Limits for Cloud Backup</caption>
+            <col width="30%"/>
+            <col width="70%"/>
+            <thead>
+               <tr>
+                  <th>Limit</th>
+                  <th>Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Maximum number of backup configurations per agent</td>
+                  <td>The number of backup configurations per agent is limited only by the maximum
+                     JSON document size for the agent configuration. (The agent configuration
+                     contains all of the configuration information specific to an agent.) Currently,
+                     the maximum JSON document size is 1 MB for the total document. </td>
+               </tr>
+               <tr>
+                  <td>Maximum number of exclusions and inclusions per backup configuration</td>
+                  <td>The maximum number of exclusions and inclusions per backup configuration is
+                     limited only by the maximum JSON document size for the agent configuration.
+                     (The agent configuration contains all of the configuration information specific
+                     to an agent.) Currently, the maximum JSON document size is 1 MB for the total
+                     document. </td>
+               </tr>
+               <tr>
+                  <td>Maximum length of file paths in the configuration</td>
+                  <td>The maximum length of file paths in the configuration is limited first by the
+                     maximum JSON document size of the agent configuration (see the preceding limit)
+                     and then by the operating system (OS) limitations. See the documentation for
+                     your OS for the exact maximum size of file paths on your OS.</td>
+               </tr>
+               <tr>
+                  <td>Maximum backup upload speeds</td>
+                  <td>The maximum upload speed of a backup is currently 2 MB per second but that
+                     speed depends on multiple factors including Cloud Files server load, network
+                     bandwidth, number of CPUs, noisy neighbors, duplicate blocks, and similar
+                     items. These factors can reduce the upload speed of a backup by varying
+                     amounts. However, duplicate or existing blocks actually increase the speed
+                     because uploads are not necessary for those blocks. </td>
+               </tr>
+               <tr>
+                  <td>CPU usage limits</td>
+                  <td>During an operation like a backup or restore, CPU usage limits are 95 percent
+                     by default. </td>
+               </tr>
+               <tr>
+                  <td>Simultaneous uploads </td>
+                  <td>Simultaneous uploads are based on available CPUs. If a server has one or two
+                     CPUs, the agent uses one CPU for its work. If a server has three or four CPUs,
+                     the agent uses two CPUs. If a server has five or six CPUs, the agent uses three
+                     CPUs. If the server has more than six CPUs, the agent uses no more than four
+                     CPUs. </td>
+               </tr>
+               <tr>
+                  <td>Disk space limits for the cache drive</td>
+                  <td>The disk space of the cache drive is where the agent stores log and database
+                     files, as well as temporary files. Currently, if this drive has less than 100
+                     MB free space, Cloud Backup throttles logging and posts a message to the logs.
+                     Currently, the total size of the rollover logs is set to 10 files at 500 MB by
+                     default, but you can edit the <code>log4cxx.xml</code> file to change this
+                     value on a per-machine basis.. </td>
+               </tr>
+               <tr>
+                  <td>Really Simple Events (RSE) throttling levels</td>
+                  <td>RSE communicates with the agent. RSE throttling levels control the traffic to
+                     RSE and are defined based on the state of the agent: Idle&#x2014;once every 30
+                     seconds, Active&#x2014;once every 2 seconds, and  Realtime&#x2014;continuous.</td>
+               </tr>
+            </tbody>
+         </table>
       </section> 
       <section xml:id="DB_faults">
          <title>Faults and common issues</title>
