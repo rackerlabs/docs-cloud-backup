@@ -1,0 +1,197 @@
+=============================================================================
+Get Restore Report -  Rackspace Cloud Backup Developer Guide v1
+=============================================================================
+
+Get Restore Report
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Request <GET_get_restore_report_v1.0_tenant_id_restore_report_restoreid_.rst#request>`__
+`Response <GET_get_restore_report_v1.0_tenant_id_restore_report_restoreid_.rst#response>`__
+
+.. code-block:: javascript
+
+    GET /v1.0/{tenant_id}/restore/report/{restoreId}
+
+Gets a report for the specified, completed restore.
+
+
+
+This table shows the possible response codes for this operation:
+
+
++--------------------------+-------------------------+-------------------------+
+|Response Code             |Name                     |Description              |
++==========================+=========================+=========================+
+|200                       |OK                       |The request succeeded.   |
++--------------------------+-------------------------+-------------------------+
+|400                       |Bad Request              |There were one or more   |
+|                          |                         |errors in the request.   |
++--------------------------+-------------------------+-------------------------+
+|401                       |Unauthorized             |The supplied token was   |
+|                          |                         |not authorized to access |
+|                          |                         |the resources. Either it |
+|                          |                         |is expired or invalid.   |
++--------------------------+-------------------------+-------------------------+
+|403                       |Forbidden                |Access to the requested  |
+|                          |                         |resource was denied.     |
++--------------------------+-------------------------+-------------------------+
+|404                       |Not Found                |The backend services did |
+|                          |                         |not find anything        |
+|                          |                         |matching the request URI.|
++--------------------------+-------------------------+-------------------------+
+|500                       |Instance Fault           |This is a generic server |
+|                          |                         |error. The message       |
+|                          |                         |contains the reason for  |
+|                          |                         |the error. This error    |
+|                          |                         |could wrap several error |
+|                          |                         |messages.                |
++--------------------------+-------------------------+-------------------------+
+|503                       |Service Unavailable      |This is a generic server |
+|                          |                         |error. The message       |
+|                          |                         |contains the reason for  |
+|                          |                         |the error. This error    |
+|                          |                         |could wrap several error |
+|                          |                         |messages.                |
++--------------------------+-------------------------+-------------------------+
+
+
+Request
+^^^^^^^^^^^^^^^^^
+
+This table shows the URI parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|{tenant_id}               |xsd:string               |The unique identifier of |
+|                          |                         |the tenant or account.   |
++--------------------------+-------------------------+-------------------------+
+|{restoreId}               |xsd:integer              |The unique identifier    |
+|                          |                         |for a restore.           |
++--------------------------+-------------------------+-------------------------+
+
+
+
+
+
+
+
+
+**Example Get Restore Report: JSON request**
+
+
+.. code::
+
+    GET https://dfw.backup.api.rackspacecloud.com/v1.0/1234/restore/report/1394
+    User-Agent: controlpanel.drivesrvr.com
+    Host: dfw.backup.api.rackspacecloud.com
+    Content-Type: application/json;
+    Content-Length: 0
+    X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe
+
+
+Response
+^^^^^^^^^^^^^^^^^^
+
+
+This table shows the body parameters for the response:
+
++----------------------------+------------------------+------------------------+
+|Name                        |Type                    |Description             |
++============================+========================+========================+
+|BackupConfigurationId       |                        |Autogenerated ID that   |
+|                            |                        |uniquely identifies the |
+|                            |                        |backup configuration    |
+|                            |                        |just created.           |
++----------------------------+------------------------+------------------------+
+|BackupConfigurationName     |                        |Specifies the name of   |
+|                            |                        |the backup              |
+|                            |                        |configuration.          |
++----------------------------+------------------------+------------------------+
+|BackupReportId              |                        |Indicates the ID of the |
+|                            |                        |backup report.          |
++----------------------------+------------------------+------------------------+
+|RestorePoint                |                        |Indicates the time of   |
+|                            |                        |the restore.            |
++----------------------------+------------------------+------------------------+
+|StartTime                   |                        |Indicates the starting  |
+|                            |                        |time of the restore.    |
++----------------------------+------------------------+------------------------+
+|CompletedTime               |                        |Indicates the completed |
+|                            |                        |time of the restore.    |
++----------------------------+------------------------+------------------------+
+|Duration                    |                        |Indicates the total     |
+|                            |                        |time to restore.        |
++----------------------------+------------------------+------------------------+
+|OriginatingComputerName     |                        |Specifies the backup    |
+|                            |                        |machine name.           |
++----------------------------+------------------------+------------------------+
+|State                       |                        |Indicates the state of  |
+|                            |                        |the restore. Valid      |
+|                            |                        |values include          |
+|                            |                        |Creating, Queued,       |
+|                            |                        |InProgress, Completed,  |
+|                            |                        |Stopped, Failed,        |
+|                            |                        |startRequested,         |
+|                            |                        |Stoprequested,          |
+|                            |                        |CompletedWithErrors,    |
+|                            |                        |and Preparing.          |
++----------------------------+------------------------+------------------------+
+|NumFilesRestored            |                        |Indicates the number of |
+|                            |                        |files restored.         |
++----------------------------+------------------------+------------------------+
+|NumBytesRestored            |                        |Indicates the number of |
+|                            |                        |bytes (size of total    |
+|                            |                        |files) restored.        |
++----------------------------+------------------------+------------------------+
+|RestoreDestination          |                        |Specifies the system to |
+|                            |                        |which the files are     |
+|                            |                        |restored.               |
++----------------------------+------------------------+------------------------+
+|RestoreDestinationMachineId |                        |Specifies the machine   |
+|                            |                        |ID to which the files   |
+|                            |                        |are restored.           |
++----------------------------+------------------------+------------------------+
+|NumErrors                   |                        |Indicates the number of |
+|                            |                        |errors encountered.     |
++----------------------------+------------------------+------------------------+
+|Reason                      |                        |Explanation of errors.  |
++----------------------------+------------------------+------------------------+
+|Diagnostics                 |                        |Further explanation of  |
+|                            |                        |errors.                 |
++----------------------------+------------------------+------------------------+
+|ErrorList                   |                        |List of errors.         |
++----------------------------+------------------------+------------------------+
+
+
+
+
+
+**Example Get Restore Report: JSON request**
+
+
+.. code::
+
+    {
+        "BackupConfigurationId":6270,
+        "BackupConfigurationName":"Restore_Backup",
+        "BackupReportId":133886,
+        "RestorePoint":"\/Date(1357151359000)\/",
+        "StartTime":"\/Date(1357226521000)\/",
+        "CompletedTime":"\/Date(1357226535000)\/",
+        "Duration":"00:00:14",
+        "OriginatingComputerName":"sujala-test-centos",
+        "State":"CompletedWithErrors",
+        "NumFilesRestored":"35",
+        "NumBytesRestored":"18 MB",
+        "RestoreDestination":"BILLS-TEST-WIN",
+        "RestoreDestinationMachineId":864,
+        "NumErrors":"1",
+        "Reason":"UnableToProcessSomeFiles",
+        "Diagnostics":"Some files may not have been restored",
+        "ErrorList":[
+        
+        ]
+    }
+    
+
