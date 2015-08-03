@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Configurations For An Agent -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List Configurations For An Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-configurations-for-an-agent-v2-project-id-agents-agent-id-configurations.html#request>`__
-`Response <get-list-configurations-for-an-agent-v2-project-id-agents-agent-id-configurations.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -68,6 +61,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -84,7 +79,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

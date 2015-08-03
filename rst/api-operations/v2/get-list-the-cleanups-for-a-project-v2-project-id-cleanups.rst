@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List The Cleanups For A Project -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List The Cleanups For A Project
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-the-cleanups-for-a-project-v2-project-id-cleanups.html#request>`__
-`Response <get-list-the-cleanups-for-a-project-v2-project-id-cleanups.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,7 +43,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -69,16 +62,16 @@ This table shows the query parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |xsd:string *(Required)*  |ID of the last known     |
+|marker                    |xsd:string *(Optional)*  |ID of the last known     |
 |                          |                         |cleanup, for example,    |
 |                          |                         |``2f8708b3-d16b-11e4-    |
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |xsd:integer *(Required)* |Number of cleanups to    |
+|limit                     |xsd:integer *(Optional)* |Number of cleanups to    |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |xsd:string *(Required)*  |Direction to sort the    |
+|sort_dir                  |xsd:string *(Optional)*  |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -87,6 +80,8 @@ This table shows the query parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -104,7 +99,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

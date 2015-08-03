@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Included Or Excluded Files In A Restore Configuration -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 List Included Or Excluded Files In A Restore Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-included-or-excluded-files-in-a-restore-configuration-v1.0-tenant-id-restore-files-restoreid.html#request>`__
-`Response <get-list-included-or-excluded-files-in-a-restore-configuration-v1.0-tenant-id-restore-files-restoreid.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -61,7 +54,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -122,8 +115,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

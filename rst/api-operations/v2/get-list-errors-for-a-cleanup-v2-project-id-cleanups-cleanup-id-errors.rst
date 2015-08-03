@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Errors For A Cleanup -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List Errors For A Cleanup
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-errors-for-a-cleanup-v2-project-id-cleanups-cleanup-id-errors.html#request>`__
-`Response <get-list-errors-for-a-cleanup-v2-project-id-cleanups-cleanup-id-errors.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -53,7 +46,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -73,6 +66,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -88,7 +83,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

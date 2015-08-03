@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Enable Or Change Encryption For An Agent'S Vault -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Enable Or Change Encryption For An Agent'S Vault
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-enable-or-change-encryption-for-an-agent's-vault-v2-project-id-agents-agent-id-vault-encryption-requests.html#request>`__
-`Response <post-enable-or-change-encryption-for-an-agent's-vault-v2-project-id-agents-agent-id-vault-encryption-requests.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -58,7 +51,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -108,8 +101,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

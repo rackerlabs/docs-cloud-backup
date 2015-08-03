@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Request To Browse An Agent'S Files -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Request To Browse An Agent'S Files
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-request-to-browse-an-agent's-files-v2-project-id-agents-agent-id-browse-requests.html#request>`__
-`Response <post-request-to-browse-an-agent's-files-v2-project-id-agents-agent-id-browse-requests.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -96,8 +89,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

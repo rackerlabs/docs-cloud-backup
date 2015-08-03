@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Enable Or Disable A Backup Configuration -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Enable Or Disable A Backup Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-enable-or-disable-a-backup-configuration-v1.0-tenant-id-backup-configuration-enable-backupconfigurationid.html#request>`__
-`Response <post-enable-or-disable-a-backup-configuration-v1.0-tenant-id-backup-configuration-enable-backupconfigurationid.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -61,7 +54,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -129,7 +122,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

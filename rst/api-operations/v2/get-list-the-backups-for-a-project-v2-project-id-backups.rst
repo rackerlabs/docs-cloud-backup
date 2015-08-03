@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List The Backups For A Project -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List The Backups For A Project
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-the-backups-for-a-project-v2-project-id-backups.html#request>`__
-`Response <get-list-the-backups-for-a-project-v2-project-id-backups.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,7 +43,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -69,22 +62,22 @@ This table shows the query parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |xsd:string *(Required)*  |ID of the last known     |
+|marker                    |xsd:string *(Optional)*  |ID of the last known     |
 |                          |                         |backup, for example,     |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |xsd:integer *(Required)* |Number of backups to     |
+|limit                     |xsd:integer *(Optional)* |Number of backups to     |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |xsd:string *(Required)*  |Direction to sort the    |
+|sort_dir                  |xsd:string *(Optional)*  |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
-|restorable                |xsd:boolean *(Required)* |Indicates if only        |
+|restorable                |xsd:boolean *(Optional)* |Indicates if only        |
 |                          |                         |restorable backups are   |
 |                          |                         |returned. If             |
 |                          |                         |``restorable`` is        |
@@ -92,7 +85,7 @@ This table shows the query parameters for the request:
 |                          |                         |restorable backups are   |
 |                          |                         |returned.                |
 +--------------------------+-------------------------+-------------------------+
-|configuration_id          |xsd:string *(Required)*  |Use only in conjunction  |
+|configuration_id          |xsd:string *(Optional)*  |Use only in conjunction  |
 |                          |                         |with                     |
 |                          |                         |``restorable=true``. If  |
 |                          |                         |you provide              |
@@ -107,6 +100,8 @@ This table shows the query parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -124,7 +119,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

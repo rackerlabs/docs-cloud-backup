@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Enable Volume Encryption -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Enable Volume Encryption
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-enable-volume-encryption-v1.0-tenant-id-agent-encrypt.html#request>`__
-`Response <post-enable-volume-encryption-v1.0-tenant-id-agent-encrypt.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -64,7 +57,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -107,8 +100,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

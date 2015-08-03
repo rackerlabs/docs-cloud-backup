@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Update Backup Configuration -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Update Backup Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <put-update-backup-configuration-v1.0-tenant-id-backup-configuration-backupconfigurationid.html#request>`__
-`Response <put-update-backup-configuration-v1.0-tenant-id-backup-configuration-backupconfigurationid.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -64,7 +57,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -186,11 +179,11 @@ This table shows the body parameters for the request:
 |                             |                        |values are true or     |
 |                             |                        |false.                 |
 +-----------------------------+------------------------+-----------------------+
-|Inclusions                   |*(Required)*            |Indicates the list of  |
+|Inclusions                   |*(Optional)*            |Indicates the list of  |
 |                             |                        |files and folders to   |
 |                             |                        |back up.               |
 +-----------------------------+------------------------+-----------------------+
-|Exclusions                   |*(Required)*            |Indicates the list of  |
+|Exclusions                   |*(Optional)*            |Indicates the list of  |
 |                             |                        |files and folders not  |
 |                             |                        |to back up.            |
 +-----------------------------+------------------------+-----------------------+
@@ -245,8 +238,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

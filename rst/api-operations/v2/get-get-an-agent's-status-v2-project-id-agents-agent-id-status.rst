@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Get An Agent'S Status -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Get An Agent'S Status
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-get-an-agent's-status-v2-project-id-agents-agent-id-status.html#request>`__
-`Response <get-get-an-agent's-status-v2-project-id-agents-agent-id-status.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -68,6 +61,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -83,7 +78,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

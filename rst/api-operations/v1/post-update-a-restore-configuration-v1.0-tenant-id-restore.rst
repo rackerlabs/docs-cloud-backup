@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Update A Restore Configuration -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Update A Restore Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-update-a-restore-configuration-v1.0-tenant-id-restore.html#request>`__
-`Response <post-update-a-restore-configuration-v1.0-tenant-id-restore.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -61,7 +54,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -126,7 +119,7 @@ This table shows the body parameters for the request:
 |                          |                         |values are true and      |
 |                          |                         |false.                   |
 +--------------------------+-------------------------+-------------------------+
-|BackupDataCenter          |*(Required)*             |Specifies the datacenter |
+|BackupDataCenter          |*(Optional)*             |Specifies the datacenter |
 |                          |                         |where the original       |
 |                          |                         |machine agent that was   |
 |                          |                         |responsible for creating |
@@ -183,8 +176,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Activities For An Agent -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List Activities For An Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-activities-for-an-agent-v2-project-id-agents-agent-id-activities.html#request>`__
-`Response <get-list-activities-for-an-agent-v2-project-id-agents-agent-id-activities.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -57,7 +50,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -80,16 +73,16 @@ This table shows the query parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |xsd:string *(Required)*  |ID of the last known     |
+|marker                    |xsd:string *(Optional)*  |ID of the last known     |
 |                          |                         |activity. For example,   |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |xsd:integer *(Required)* |Number of activities to  |
+|limit                     |xsd:integer *(Optional)* |Number of activities to  |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |xsd:string *(Required)*  |Direction to sort the    |
+|sort_dir                  |xsd:string *(Optional)*  |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -98,6 +91,8 @@ This table shows the query parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -114,7 +109,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

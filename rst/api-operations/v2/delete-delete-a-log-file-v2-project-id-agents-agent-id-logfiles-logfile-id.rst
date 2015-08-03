@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Delete A Log File -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Delete A Log File
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <delete-delete-a-log-file-v2-project-id-agents-agent-id-logfiles-logfile-id.html#request>`__
-`Response <delete-delete-a-log-file-v2-project-id-agents-agent-id-logfiles-logfile-id.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -72,6 +65,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -87,8 +82,10 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

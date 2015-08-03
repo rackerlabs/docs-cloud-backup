@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Request Download Of The Log File For An Agent -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Request Download Of The Log File For An Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-request-download-of-the-log-file-for-an-agent-v2-project-id-agents-agent-id-logfiles.html#request>`__
-`Response <post-request-download-of-the-log-file-for-an-agent-v2-project-id-agents-agent-id-logfiles.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -68,6 +61,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -83,7 +78,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

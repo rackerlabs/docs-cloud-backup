@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-View Results Of A Browse Request For A Backup -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 View Results Of A Browse Request For A Backup
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-view-results-of-a-browse-request-for-a-backup-v2-project-id-backups-backup-id-browse-requests-request-id.html#request>`__
-`Response <get-view-results-of-a-browse-request-for-a-backup-v2-project-id-backups-backup-id-browse-requests-request-id.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -48,7 +41,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -72,6 +65,8 @@ This table shows the URI parameters for the request:
 
 
 
+This operation does not accept a request body.
+
 
 
 
@@ -87,7 +82,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

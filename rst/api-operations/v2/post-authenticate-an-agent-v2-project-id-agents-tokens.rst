@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Authenticate An Agent -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Authenticate An Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-authenticate-an-agent-v2-project-id-agents-tokens.html#request>`__
-`Response <post-authenticate-an-agent-v2-project-id-agents-tokens.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -59,7 +52,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -137,7 +130,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

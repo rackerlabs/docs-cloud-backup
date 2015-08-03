@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Start Or Stop A Restore Manually -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Start Or Stop A Restore Manually
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-start-or-stop-a-restore-manually-v1.0-tenant-id-restore-action-requested.html#request>`__
-`Response <post-start-or-stop-a-restore-manually-v1.0-tenant-id-restore-action-requested.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -59,7 +52,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -132,8 +125,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

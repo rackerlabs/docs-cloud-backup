@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Update A Cleanup -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Update A Cleanup
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <patch-update-a-cleanup-v2-project-id-cleanups-cleanup-id.html#request>`__
-`Response <patch-update-a-cleanup-v2-project-id-cleanups-cleanup-id.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -71,7 +64,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -107,30 +100,30 @@ This table shows the body parameters for the request:
 |                         |                        |beginning of this section  |
 |                         |                        |for additional information.|
 +-------------------------+------------------------+---------------------------+
-|count                    |*(Required)*            |Number of errors, when     |
+|count                    |*(Optional)*            |Number of errors, when     |
 |                         |                        |``path`` is ``/errors``.   |
 +-------------------------+------------------------+---------------------------+
-|reason                   |*(Required)*            |Cause of the error, when   |
+|reason                   |*(Optional)*            |Cause of the error, when   |
 |                         |                        |``path`` is ``/errors``;   |
 |                         |                        |for example,               |
 |                         |                        |``error_deleting_object``. |
 +-------------------------+------------------------+---------------------------+
-|diagnostics              |*(Required)*            |Additional information     |
+|diagnostics              |*(Optional)*            |Additional information     |
 |                         |                        |about the cause of the     |
 |                         |                        |error, when ``path`` is    |
 |                         |                        |``/errors``.               |
 +-------------------------+------------------------+---------------------------+
-|list                     |*(Required)*            |Additional information     |
+|list                     |*(Optional)*            |Additional information     |
 |                         |                        |about the error, when      |
 |                         |                        |``path`` is ``/errors``.   |
 +-------------------------+------------------------+---------------------------+
-|index                    |*(Required)*            |Index.                     |
+|index                    |*(Optional)*            |Index.                     |
 +-------------------------+------------------------+---------------------------+
-|path                     |*(Required)*            |Path to the log.           |
+|path                     |*(Optional)*            |Path to the log.           |
 +-------------------------+------------------------+---------------------------+
-|type                     |*(Required)*            |Type of error.             |
+|type                     |*(Optional)*            |Type of error.             |
 +-------------------------+------------------------+---------------------------+
-|exception                |*(Required)*            |Information about the      |
+|exception                |*(Optional)*            |Information about the      |
 |                         |                        |exception.                 |
 +-------------------------+------------------------+---------------------------+
 
@@ -150,8 +143,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List All Agents For This User -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 List All Agents For This User
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-all-agents-for-this-user-v1.0-tenant-id-user-agents.html#request>`__
-`Response <get-list-all-agents-for-this-user-v1.0-tenant-id-user-agents.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -55,7 +48,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -69,6 +62,8 @@ This table shows the URI parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -87,7 +82,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

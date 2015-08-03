@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Backups Available For A Restore -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 List Backups Available For A Restore
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-backups-available-for-a-restore-v1.0-tenant-id-backup-availableforrestore.html#request>`__
-`Response <get-list-backups-available-for-a-restore-v1.0-tenant-id-backup-availableforrestore.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -59,7 +52,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -73,6 +66,8 @@ This table shows the URI parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -91,8 +86,10 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

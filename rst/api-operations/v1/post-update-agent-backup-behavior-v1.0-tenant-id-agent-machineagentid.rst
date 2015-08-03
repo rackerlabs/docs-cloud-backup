@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Update Agent Backup Behavior -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Update Agent Backup Behavior
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-update-agent-backup-behavior-v1.0-tenant-id-agent-machineagentid.html#request>`__
-`Response <post-update-agent-backup-behavior-v1.0-tenant-id-agent-machineagentid.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -57,7 +50,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -80,7 +73,7 @@ This table shows the body parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|BackupDataCenter          |*(Required)*             |Specifies the backup     |
+|BackupDataCenter          |*(Optional)*             |Specifies the backup     |
 |                          |                         |data center where this   |
 |                          |                         |Agent's backup will      |
 |                          |                         |reside. You must have    |
@@ -113,7 +106,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

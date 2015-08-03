@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-List Agents For A Project -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 List Agents For A Project
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <get-list-agents-for-a-project-v2-project-id-agents.html#request>`__
-`Response <get-list-agents-for-a-project-v2-project-id-agents.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,7 +43,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -69,7 +62,7 @@ This table shows the query parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|host_machine_id           |xsd:string *(Required)*  |ID of the host machine   |
+|host_machine_id           |xsd:string *(Optional)*  |ID of the host machine   |
 |                          |                         |on which the agent       |
 |                          |                         |resides. For example,    |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
@@ -78,6 +71,8 @@ This table shows the query parameters for the request:
 
 
 
+
+This operation does not accept a request body.
 
 
 
@@ -95,7 +90,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

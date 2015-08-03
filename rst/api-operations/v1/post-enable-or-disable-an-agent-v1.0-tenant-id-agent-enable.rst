@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Enable Or Disable An Agent -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Enable Or Disable An Agent
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-enable-or-disable-an-agent-v1.0-tenant-id-agent-enable.html#request>`__
-`Response <post-enable-or-disable-an-agent-v1.0-tenant-id-agent-enable.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -60,7 +53,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -116,8 +109,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

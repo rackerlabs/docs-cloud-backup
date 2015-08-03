@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Update A Log File -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Update A Log File
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <patch-update-a-log-file-v2-project-id-agents-agent-id-logfiles-logfile-id.html#request>`__
-`Response <patch-update-a-log-file-v2-project-id-agents-agent-id-logfiles-logfile-id.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,7 +43,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -108,8 +101,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

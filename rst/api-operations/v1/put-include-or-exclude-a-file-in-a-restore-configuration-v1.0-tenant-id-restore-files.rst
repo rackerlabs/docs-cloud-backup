@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Include Or Exclude A File In A Restore Configuration -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Include Or Exclude A File In A Restore Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <put-include-or-exclude-a-file-in-a-restore-configuration-v1.0-tenant-id-restore-files.html#request>`__
-`Response <put-include-or-exclude-a-file-in-a-restore-configuration-v1.0-tenant-id-restore-files.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -59,7 +52,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -82,7 +75,7 @@ This table shows the body parameters for the request:
 |FilePath                  |*(Required)*             |Specifies the file or    |
 |                          |                         |directory to restore.    |
 +--------------------------+-------------------------+-------------------------+
-|FilePathEncoded           |*(Required)*             |Specifies 64-bit         |
+|FilePathEncoded           |*(Optional)*             |Specifies 64-bit         |
 |                          |                         |encoding of FilePath.    |
 +--------------------------+-------------------------+-------------------------+
 |Filter                    |*(Required)*             |Specifies if a filter is |
@@ -100,7 +93,7 @@ This table shows the body parameters for the request:
 |                          |                         |for file, 1 for folder,  |
 |                          |                         |and 2 for database.      |
 +--------------------------+-------------------------+-------------------------+
-|FileId                    |*(Required)*             |Specifies a file ID      |
+|FileId                    |*(Optional)*             |Specifies a file ID      |
 |                          |                         |value.                   |
 +--------------------------+-------------------------+-------------------------+
 
@@ -122,8 +115,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

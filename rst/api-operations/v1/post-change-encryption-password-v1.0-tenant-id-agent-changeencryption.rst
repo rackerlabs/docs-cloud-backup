@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Change Encryption Password -  Rackspace Cloud Backup Developer Guide v1
-=============================================================================
-
 Change Encryption Password
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-change-encryption-password-v1.0-tenant-id-agent-changeencryption.html#request>`__
-`Response <post-change-encryption-password-v1.0-tenant-id-agent-changeencryption.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -64,7 +57,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -112,8 +105,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

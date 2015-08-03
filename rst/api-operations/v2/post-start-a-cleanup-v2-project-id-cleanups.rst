@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Start A Cleanup -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Start A Cleanup
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-start-a-cleanup-v2-project-id-cleanups.html#request>`__
-`Response <post-start-a-cleanup-v2-project-id-cleanups.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -54,7 +47,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -102,7 +95,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

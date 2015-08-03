@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Create A Configuration -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Create A Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-create-a-configuration-v2-project-id-configurations.html#request>`__
-`Response <post-create-a-configuration-v2-project-id-configurations.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -68,7 +61,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -189,7 +182,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:

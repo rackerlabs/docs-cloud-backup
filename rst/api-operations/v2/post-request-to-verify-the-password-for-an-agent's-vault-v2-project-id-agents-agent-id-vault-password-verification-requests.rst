@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Request To Verify The Password For An Agent'S Vault -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Request To Verify The Password For An Agent'S Vault
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-request-to-verify-the-password-for-an-agent's-vault-v2-project-id-agents-agent-id-vault-password-verification-requests.html#request>`__
-`Response <post-request-to-verify-the-password-for-an-agent's-vault-v2-project-id-agents-agent-id-vault-password-verification-requests.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,7 +43,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -99,8 +92,10 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
+
+This operation does not accept a response body.
 
 
 

@@ -1,15 +1,8 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-=============================================================================
-Start A Restore -  Rackspace Cloud Backup Developer Guide v2
-=============================================================================
-
 Start A Restore
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Request <post-start-a-restore-v2-project-id-restores.html#request>`__
-`Response <post-start-a-restore-v2-project-id-restores.html#response>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -51,7 +44,7 @@ This table shows the possible response codes for this operation:
 
 
 Request
-^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 This table shows the URI parameters for the request:
 
@@ -80,7 +73,7 @@ This table shows the body parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |destination_path          |*(Required)*             |Path for the destination.|
 +--------------------------+-------------------------+-------------------------+
-|overwrite_files           |*(Required)*             |Specifies whether to     |
+|overwrite_files           |*(Optional)*             |Specifies whether to     |
 |                          |                         |overwrite any existing   |
 |                          |                         |files. The default is    |
 |                          |                         |``false``.               |
@@ -126,7 +119,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""
 
 
 This table shows the body parameters for the response:
