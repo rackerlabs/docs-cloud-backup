@@ -45,7 +45,7 @@
            </configuration> 
           </execution>  
           
-          <!--         <execution>
+          <execution>
             <id>rcbu-release-notes</id>
             <goals>
               <goal>generate-webhelp</goal>
@@ -61,7 +61,7 @@
               <feedbackEmail>catherine.richardson@rackspace.com</feedbackEmail>
             </configuration>
           </execution> 
--->         
+
           <execution>
             <id>rcbu-getting-started</id>
             <goals>
