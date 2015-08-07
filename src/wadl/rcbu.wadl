@@ -624,7 +624,7 @@
                   <representation mediaType="application/json">
                      <doc>
                         <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request_json_http.txt"/>
-                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
+<!--                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/> -->
                      </doc>
 <!--                     <param name="." style="plain" path="$.parameters "/>  -->
                      <param xmlns="http://wadl.dev.java.net/2009/02"
@@ -637,6 +637,11 @@
                         <doc><p xmlns="http://www.w3.org/1999/xhtml">Enables or disables the ServiceNet for this agent. Valid values are true or false.  
                         </p></doc>
                      </param> 
+                  </representation>
+                  <representation mediaType="application/json">
+                     <doc>                       
+                        <xsdxt:code href="../wadl/samples/updateAgentBackupBehavior_request.json"/>
+                     </doc>                    
                   </representation>
                </request>
                <response status="200">

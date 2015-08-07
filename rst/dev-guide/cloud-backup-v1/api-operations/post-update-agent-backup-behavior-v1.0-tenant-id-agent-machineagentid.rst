@@ -105,6 +105,17 @@ This table shows the body parameters for the request:
     X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe
 
 
+**Example Update Agent Backup Behavior: JSON request**
+
+
+.. code::
+
+    {
+        "BackupDataCenter" : "DFW",
+        "UseServiceNet" : true
+    }
+
+
 Response
 """"""""""""""""
 
