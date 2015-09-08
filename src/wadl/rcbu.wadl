@@ -534,6 +534,18 @@
                   <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Immediately permanently deletes an agent and its backup data.</para>
                   <para xmlns="http://docbook.org/ns/docbook">You can delete an agent at any time. If the agent is in the middle of an operation, it is allowed to complete. After it completes, it no longer authenticates.</para>
                </wadl:doc>
+               <request><representation mediaType="application/json">
+                  <doc>
+                     <xsdxt:code href="../wadl/samples/deleteAgent_request.json"/>
+                  </doc>
+                
+                  <param xmlns="http://wadl.dev.java.net/2009/02"
+                     name="MachineAgentId" style="plain" path="$.parameters.MachineAgentId">
+                     <doc><p xmlns="http://www.w3.org/1999/xhtml">ID that uniquely identifies a Cloud Backup agent.
+                     </p></doc>
+                  </param>
+               </representation> 
+               </request>
                <response status="204">
                   <doc title="No Content" xml:lang="EN">The request succeeded.</doc>
                   <representation mediaType="application/json">
