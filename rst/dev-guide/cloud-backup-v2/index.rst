@@ -1,48 +1,22 @@
-================================
-Cloud Backup Developer Guide, v2
-================================
+.. _index:
 
-Overview
---------
+=========================================================
+Rackspace Cloud Backup API 1.0
+=========================================================
 
-.. toctree::
+Learn how to use the Rackspace Cloud Backup service by using the REST API. 
+
+- For details about using the API, see the :ref:`Developer Guide <developer-guide>`.
+- For details about API resources, operations, requests and responses, see the 
+  :ref:`API reference <api-reference>`.
+
+.. toctree:: :hidden:
    :maxdepth: 2
-
-   overview
-
-Concepts
---------
-
-.. toctree::
-   :maxdepth: 2
-
+ 
+   overview/index
+   developer-guide
    concepts
-
-General API information
------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   general-api-info
-   authentication
-   role-based-access-control
-   service-access-endpoints
-   service-versions
-   
-API Operations
--------------------
-
-.. toctree::
-    :maxdepth: 1
-    :glob:
-
-    api-operations/*     
-
-Glossary
---------
-.. toctree::
-   :maxdepth: 2
-
+   general-api-info/index 
+   api-reference
+   api-operations/index
    glossary
-   

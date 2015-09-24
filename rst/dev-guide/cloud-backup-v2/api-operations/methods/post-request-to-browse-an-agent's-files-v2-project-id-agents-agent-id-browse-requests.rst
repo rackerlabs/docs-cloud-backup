@@ -1,0 +1,129 @@
+
+.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
+
+.. _post-request-to-browse-an-agent's-files-v2-project-id-agents-agent-id-browse-requests:
+
+Request to browse an agent's files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code::
+
+    POST /v2/{project_id}/agents/{agent_id}/browse-requests
+
+Makes a request to browse the specified agent's files.
+
+This operation makes a request to browse the specified agent's files.
+
+
+
+This table shows the possible response codes for this operation:
+
+
++--------------------------+-------------------------+-------------------------+
+|Response Code             |Name                     |Description              |
++==========================+=========================+=========================+
+|202                       |Accepted                 |                         |
++--------------------------+-------------------------+-------------------------+
+|400                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|401                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|403                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|404                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|405                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|409                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|500                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+|503                       |                         |                         |
++--------------------------+-------------------------+-------------------------+
+
+
+Request
+""""""""""""""""
+
+
+
+
+This table shows the URI parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|{project_id}              |String                   |Project ID of the user.  |
+|                          |                         |Also referred to as the  |
+|                          |                         |tenant ID or account ID. |
++--------------------------+-------------------------+-------------------------+
+|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|                          |                         |``8f135b4f-7a69-4b8a-    |
+|                          |                         |947f-5e80d772fd97``.     |
++--------------------------+-------------------------+-------------------------+
+
+
+
+
+
+This table shows the body parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|\ **path**                |String *(Required)*      |Path for the browse      |
+|                          |                         |request.                 |
++--------------------------+-------------------------+-------------------------+
+|\ **path_encoded**        |String *(Required)*      |Encoded path for the     |
+|                          |                         |browse request.          |
++--------------------------+-------------------------+-------------------------+
+
+
+
+
+
+**Example Request to browse an agent's files: JSON request**
+
+
+.. code::
+
+   POST https://dfw.backup.api.rackspacecloud.com/v2/110011/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/browse-requests HTTP/1.1
+   Host: dfw.backup.api.rackspacecloud.com
+   X-Auth-Token: 0f6e9f63600142f0a970911583522217
+   Content-type: application/json
+
+
+.. code::
+
+   {
+       "path": "/",
+       "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+   }
+
+
+
+
+
+Response
+""""""""""""""""
+
+
+
+
+
+
+
+
+
+
+**Example Request to browse an agent's files: JSON response**
+
+
+.. code::
+
+   202 (Accepted)
+   Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/browse-request/16ce47f7-88b2-4983-8b1c-d4a82306ae87
+
+
+
+

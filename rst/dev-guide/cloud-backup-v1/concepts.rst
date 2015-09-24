@@ -1,8 +1,7 @@
 .. _cbu-dgv1-concepts:
 
-========
 Concepts
-========
+--------
 
 To use the Rackspace Cloud Backup API effectively, you should understand several key concepts:
 

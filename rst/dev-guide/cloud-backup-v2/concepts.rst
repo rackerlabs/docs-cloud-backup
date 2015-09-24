@@ -1,8 +1,7 @@
-.. _cbu-dgv2-concepts:
+.. _cbu-dgv1-concepts:
 
-========
 Concepts
-========
+--------
 
 To use the Rackspace Cloud Backup API effectively, you should understand several key concepts:
 
@@ -30,8 +29,3 @@ Server setup
 ~~~~~~~~~~~~
 
 Because Cloud Backup is a file-level backup product, you must configure a separate backup for each cloud server and that a backup does not automatically apply to an entire environment. You must select the files and folders you want to back up from your cloud server. This setup requirement applies to Rackspace Cloud Servers, including the Performance Cloud Servers offering.
-
-Vault
-~~~~~
-
-The vault is a set of backup data for an agent. The vault is stored in a Rackspace Cloud Files container.
