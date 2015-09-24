@@ -10,6 +10,11 @@ Agent
 
 An agent is an executable that sits on your cloud server that knows how to perform backups and restores. Agent installation currently supports Windows and Unix or Linux platforms.
 
+Backup
+~~~~~~
+
+A group of folders, files, or both stored on Cloud Backup for a particular server and configuration.
+
 Backup configuration
 ~~~~~~~~~~~~~~~~~~~~
 

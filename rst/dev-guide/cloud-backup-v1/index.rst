@@ -19,4 +19,3 @@ Learn how to use the Rackspace Cloud Backup service by using the REST API.
    general-api-info/index 
    api-reference
    api-operations/index
-   glossary
