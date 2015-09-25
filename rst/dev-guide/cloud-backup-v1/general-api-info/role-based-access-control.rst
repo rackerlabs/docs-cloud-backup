@@ -1,14 +1,14 @@
-.. _cbu-dgv1-rbac:
+.. _rbac:
 
 =========================
 Role Based Access Control
 =========================
 
-Role Based Access Control (RBAC) restricts access to the capabilities of Rackspace Cloud services, including the Cloud Backup API, to authorized users only. RBAC enables Rackspace Cloud customers to specify which account users of their Cloud account have access to which Cloud Backup API service capabilities, based on :ref:`roles defined by Rackspace <cbu-dgv1-rbac-available>`. 
+Role Based Access Control (RBAC) restricts access to the capabilities of Rackspace Cloud services, including the Cloud Backup API, to authorized users only. RBAC enables Rackspace Cloud customers to specify which account users of their Cloud account have access to which Cloud Backup API service capabilities, based on :ref:`roles defined by Rackspace <rbac-available>`. 
 
 The permissions to perform certain operations in Cloud Backup API — create, read, update, delete — are assigned to specific roles, and these roles can be assigned by the Cloud account admin user to account users of the account.
 
-.. _cbu-dgv1-rbac-assigning:
+.. _rbac-assigning:
 
 Assigning roles to account users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,7 +32,7 @@ See the *Cloud Identity Client Developer Guide* for information about how to per
 
 .. _Delete roles from account users: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html
 
-.. _cbu-dgv1-rbac-available: 
+.. _rbac-available: 
 
 Roles available for Cloud Backup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -71,7 +71,7 @@ Additionally, two multiproduct roles apply to all products. Users with multiprod
 |                                      | granted.                             |
 +--------------------------------------+--------------------------------------+
 
-.. _cbu-dgv1-rbac-resolving:
+.. _rbac-resolving:
 
 Resolving conflicts between RBAC multiproduct vs. custom (product-specific) roles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,7 +96,7 @@ The following table shows two examples of how potential conflicts between user r
 | Cloud Backup observer    | role                 | ignored.                |
 +--------------------------+----------------------+-------------------------+
 
-.. _cbu-dgv1-rbac-permissions:
+.. _rbac-permissions:
 
 RBAC permissions cross-reference to Cloud Backup API operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
