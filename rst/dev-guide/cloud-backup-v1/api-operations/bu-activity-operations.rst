@@ -1,4 +1,4 @@
-.. _bu-activity-operations:
+.. _activity-operations:
 
 Activity operations
 ~~~~~~~~~~~~~~~~~~~

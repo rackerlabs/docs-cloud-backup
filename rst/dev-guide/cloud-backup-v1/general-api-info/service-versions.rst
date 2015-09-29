@@ -1,4 +1,4 @@
-.. _bu-service-versions:
+.. _service-versions:
 
 ================
 Service versions

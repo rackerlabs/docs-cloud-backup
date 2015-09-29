@@ -1,4 +1,4 @@
-.. _bu-limits:
+.. _limits:
 
 Limits
 ~~~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-.. _bu-config-operations:
+.. _config-operations:
 
 Backup configuration operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

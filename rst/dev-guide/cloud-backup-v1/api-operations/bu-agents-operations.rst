@@ -1,4 +1,4 @@
-.. _bu-agent-operations:
+.. _agent-operations:
 
 Agent operations
 ~~~~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-.. _bu-operations:
+.. _operations:
 
 Backup operations
 ~~~~~~~~~~~~~~~~~

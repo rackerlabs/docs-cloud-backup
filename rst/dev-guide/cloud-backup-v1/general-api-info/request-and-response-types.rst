@@ -1,4 +1,4 @@
-.. _bu-request-and-response-types:
+.. _request-and-response-types:
 
 Request and response types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

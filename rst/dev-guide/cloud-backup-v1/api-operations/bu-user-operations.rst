@@ -1,4 +1,4 @@
-.. _bu—user-operations:
+.. _user-operations:
 
 User operations
 ~~~~~~~~~~~~~~~

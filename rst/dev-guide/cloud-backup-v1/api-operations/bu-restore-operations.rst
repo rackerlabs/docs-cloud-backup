@@ -1,4 +1,4 @@
-.. _bu-restore-operations:
+.. _restore-operations:
 
 Restore operations
 ~~~~~~~~~~~~~~~~~~

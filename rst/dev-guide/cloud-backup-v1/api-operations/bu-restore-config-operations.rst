@@ -1,4 +1,4 @@
-.. _bu-restore-config-operations:
+.. _restore-config-operations:
 
 Restore configuration operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
