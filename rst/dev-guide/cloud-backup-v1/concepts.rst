@@ -1,4 +1,4 @@
-.. _cbu-dgv1-concepts:
+.. _concepts:
 
 Concepts
 --------

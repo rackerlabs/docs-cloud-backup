@@ -1,4 +1,4 @@
-.. _response-codes:
+.. _bu-response-codes:
 
 Response codes
 ~~~~~~~~~~~~~~

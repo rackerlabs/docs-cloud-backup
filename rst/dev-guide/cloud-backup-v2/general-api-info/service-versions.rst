@@ -1,4 +1,4 @@
-.. _cbu-dgv1-serviceversions:
+.. _service-versions:
 
 ================
 Service versions
@@ -6,7 +6,7 @@ Service versions
 
 The Rackspace Cloud Backup version defines the contract and build information for the API.
 
-.. _cbu-dgv1-serviceversion-contract:
+.. _service-version-contract:
 
 Contract version
 ~~~~~~~~~~~~~~~~
@@ -20,7 +20,7 @@ The contract version denotes the data model and behavior that the API supports. 
 
     https://dfw.backup.api.rackspacecloud.com/v1.0/1234/
 
-.. _cbu-dgv1-serviceversion-list:
+.. _service-version-list:
 
 List API version
 ~~~~~~~~~~~~~~~~
@@ -43,7 +43,7 @@ Normal Response Codes: 200, 203
 
 Error Response Codes: 400, 413, 500, 503
 
-.. _cbu-dgv1-serviceversion-requestresponse:
+.. _service-version-requestresponse:
 
 Request and response types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +53,7 @@ The Rackspace Cloud Backup API supports only JSON data serialization format.
 .. note::
   The request format is specified using the ``Content-Type: application/json`` header and is required for calls that have a request body. If no response format is specified, JSON is the default.
 
-.. _cbu-dgv1-serviceversion-faults:
+.. _service-version-faults:
 
 Faults and common issues
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,7 +98,7 @@ The following table lists possible fault types with their associated error codes
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-.. _cbu-dgv1-serviceversion-frequent:
+.. _service-version-frequent:
 
 Frequently encountered issues
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,7 +117,7 @@ Backups get corrupted
 -  *Solution:* Ensure the agent on the cloned backup server is
    re-registered before any backups are run.
 
-.. _cbu-dgv1-serviceversion-frequent-network:
+.. _cservice-version-frequent-network:
 
 Backups get network error
 -------------------------
@@ -126,7 +126,7 @@ Backups get network error
    both service net and public net. If it is on an isolated network, the
    backup agent is able to function properly.
 
-.. _cbu-dgv1-serviceversion-frequent-fail:
+.. _service-version-frequent-fail:
 
 Backups sometimes fail
 ----------------------
@@ -145,7 +145,7 @@ Backups sometimes fail
    After that, attempt to determine the cause of the error, and try the
    backup or restore again if it is an intermittent error.
 
-.. _cbu-dgv1-serviceversion-frequent-slow:
+.. _service-version-frequent-slow:
 
 Backup or Restore is slow
 -------------------------

@@ -1,4 +1,4 @@
-.. _cbu-dgv1-service:
+.. _service-access-endpoints:
 
 ========================
 Service access endpoints

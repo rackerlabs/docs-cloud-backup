@@ -1,4 +1,4 @@
-.. _cbu-dgv1-serviceversions:
+.. _bu-service-versions:
 
 ================
 Service versions
@@ -6,7 +6,7 @@ Service versions
 
 The Rackspace Cloud Backup version defines the contract and build information for the API.
 
-.. _cbu-dgv1-serviceversion-contract:
+.. _service-version-contract:
 
 Contract version
 ~~~~~~~~~~~~~~~~
@@ -20,7 +20,7 @@ The contract version denotes the data model and behavior that the API supports. 
 
     https://dfw.backup.api.rackspacecloud.com/v1.0/1234/
 
-.. _cbu-dgv1-serviceversion-list:
+.. _service-version-list:
 
 List API version
 ~~~~~~~~~~~~~~~~

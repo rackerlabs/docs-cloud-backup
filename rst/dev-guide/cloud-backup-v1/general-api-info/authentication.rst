@@ -1,4 +1,4 @@
-.. _cbu-dgv1-general-auth:
+.. _general-auth:
 
 ==============
 Authentication
@@ -8,7 +8,7 @@ Every REST request against the Rackspace Cloud Backup Service requires the inclu
 
 To authenticate, submit a `POST/v2.0/tokens` request, presenting valid Rackspace customer credentials in the message body to a Rackspace authentication endpoint.
 
-.. _cbu-dgv1-general-auth-cred:
+.. _auth-cred:
 
 Get your credentials
 ~~~~~~~~~~~~~~~~~~~~
@@ -45,7 +45,7 @@ You also need your cloud account number. In the documentation, the account numbe
 
 To find your tenant ID or cloud account number, locate your user name on the upper-right side of the top navigation pane in the Cloud Control Panel. The tenant ID or account number is in parentheses just to the right of your user name.
 
-.. _cbu-dgv1-general-auth-global:
+.. _auth-global:
 
 Use the global authentication endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,7 +54,7 @@ Use the following global endpoint to access the Cloud Identity Service:
 
 ``https://identity.api.rackspacecloud.com/v2.0/``
 
-.. _cbu-dgv1-general-auth-send:
+.. _auth-send:
 
 Send your credentials to your authentication endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
