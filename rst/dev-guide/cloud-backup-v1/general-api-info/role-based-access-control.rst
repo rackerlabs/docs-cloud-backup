@@ -15,22 +15,18 @@ Assigning roles to account users
 
 The account owner (identity:user-admin) can create account users on the account and then assign roles to those users. The roles grant the account users specific permissions for accessing the capabilities of the Cloud Backup service. Each account has only one account owner, and that role is assigned by default to any Rackspace Cloud account when the account is created.
 
-See the *Cloud Identity Client Developer Guide* for information about how to perform the following tasks:
+See the :rax-devguide:`Cloud Identity Client Developer Guide <cloud-identity/v2>` for
+information about how to perform these tasks:
 
--  `Create account users`_
+* :rax-devdocs:`Add user <cloud-identity/v2/developer-guide/#add-user>`  
 
--  `Assign roles to account users`_
+* :rax-devdocs:`Add role to user <cloud-identity/v2/developer-guide/#add-role-to-user>`  
 
--  `Delete roles from account users`_
+* :rax-devdocs:`Delete global role from user <cloud-identity/v2/developer-guide/#delete-global-role-from-user>` 
 
 ..  note:: 
     The account admin user (identity:user-admin) role cannot hold any additional roles because it already has full access to all capabilities by default.
 
-.. _Create account users: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_User_Calls.html
-
-.. _Assign roles to account users: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html
-
-.. _Delete roles from account users: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole__v2.0_users__userId__roles_OS-KSADM__roleid__Role_Calls.html
 
 .. _rbac-available: 
 
@@ -101,6 +97,5 @@ The following table shows two examples of how potential conflicts between user r
 RBAC permissions cross-reference to Cloud Backup API operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-API operations for Cloud Backup may or may not be available to all roles. To see which operations are permitted to invoke which calls, please review `the Knowledge Center article`_.
+API operations for Cloud Backup may or may not be available to all roles. To see which operations are permitted to invoke which calls, review :kc-article:`Permissions Matrix for Role Based Access Control<permissions-matrix-for-role-based-access-control-rbac>`.
 
-.. _the Knowledge Center article: http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac

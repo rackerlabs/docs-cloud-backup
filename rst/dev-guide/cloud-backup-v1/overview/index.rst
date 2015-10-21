@@ -26,9 +26,7 @@ Following are some of the tasks that you can perform using Rackspace Cloud Backu
 Choose your the endpoint for your backup based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see :ref:`Service access endpoints <service-access-endpoints>`.
 
 ..  note:: 
-    Rackspace Cloud Backup does not take snapshots of your server. Read more about `how Rackspace Cloud Backup differs`_ from snapshots.
-
-.. _how Rackspace Cloud Backup differs: http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-vs-cloud-server-image-backups
+    Rackspace Cloud Backup does not take snapshots of your server. Read more about :kc-article:`how Rackspace Cloud Backup differs<rackspace-cloud-backup-vs-cloud-server-image-backups>` from snapshots.
 
 
 

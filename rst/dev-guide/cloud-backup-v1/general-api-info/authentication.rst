@@ -22,7 +22,7 @@ You can use either of two sets of credentials:
 Your user name and password are the ones that you use to login to the Cloud Control Panel. After you are logged in, you can use the Cloud Control Panel to obtain your API key.
 
 .. note::
-  If you authenticate with username and password credentials, you can set up multi-factor authentication to add an additional level of security to your account. This feature is not available for username and API credentials. For information about setting up and using multi-factor authentication, see `Multi-factor authentication`_.
+  If you authenticate with username and password credentials, you can set up multi-factor authentication to add an additional level of security to your account. This feature is not available for username and API credentials. For information about setting up and using multi-factor authentication, see :rax-devdocs:`Multi-factor authentication <cloud-identity/v2/developer-guide/#document-authentication-info/use-mfa-ops>`.
 
 **To find your API key:**
 
@@ -112,8 +112,8 @@ Authentication tokens are typically valid for 24 hours. Applications should be d
   If you are programmatically parsing an authentication response, be aware that service names are stable for the life of the particular service and can be used as keys. You should also be aware that a user's service catalog can include multiple uniquely-named services that perform similar functions. For example, cloudServersOpenStack is the OpenStack version of compute whereas cloudServers is the legacy version of compute. The same user can have access to both services. In the Cloud Identity Service v2.0, the service type attribute can be used as a key to recognize similar services. See the following tip.
 
 ..  tip:: 
-  Beginning with Rackspace Cloud Identity Service v2.0 (earlier versions were called Rackspace Cloud Authentication Service), the service catalog includes a service type attribute to identify services that perform similar functions but have different names; for example, `type="compute"` identifies compute services such as cloudServers and cloudServersOpenStack. Some developers have found the service type attribute to be useful in parsing the service catalog. For Cloud Identity Service v2.0, you can see the service type attribute in the "Service Catalog in Authentication Response" samples in the `Cloud Identity Client Developer Guide`_.
+  Beginning with Rackspace Cloud Identity Service v2.0 (earlier versions were called Rackspace Cloud Authentication Service), the service catalog includes a service type attribute to identify services that perform similar functions but have different names; for example, `type="compute"` identifies compute services such as cloudServers and cloudServersOpenStack. Some developers have found the service type attribute to be useful in parsing the service catalog. For Cloud Identity Service v2.0, you can see the service type attribute in :rax-devdocs:`Annotated authentication request and response <cloud-identity/v2/developer-guide/#document-authentication-info/sample-auth-req-response>`.
 
-.. _Multi-factor authentication: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html
+
 .. _cURL: http://curl.haxx.se/
-.. _Cloud Identity Client Developer Guide: http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Sample_Request_Response-d1e64.html
+

@@ -10,7 +10,7 @@ Enable volume encryption
 
     POST /v1.0/{tenant_id}/agent/encrypt
 
-This operation enables volume encryption with AES-256 encryption if it is not already enabled. If you need assistance generating your encrypted key, see `"Generating Your Encrypted Key In Cloud Backup" <http://www.rackspace.com/knowledge_center/article/generating-your-encrypted-key-in-cloud-backup>`__ in the Rackspace Knowledge Center.
+This operation enables volume encryption with AES-256 encryption if it is not already enabled. If you need assistance generating your encrypted key, see :kc-article:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
 
 .. note::
    After encryption is turned on, you cannot turn it off. This is a security measure. If anyone ever gained access to your account, they would not be able to access your backups without your passphrase.
