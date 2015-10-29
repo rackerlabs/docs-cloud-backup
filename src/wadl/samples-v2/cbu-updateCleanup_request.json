@@ -31,7 +31,6 @@
                     "index": 34,
                     "path": "/var/www/html/log/st_808_playlist.txt",
                     "type": "file_missing_blocks",
-                    "description": "A vault validation determined that the specified file is missing blocks.",
                     "exception": null
                 }
             ]

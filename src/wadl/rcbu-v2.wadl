@@ -298,7 +298,21 @@
             </resource>
          </resource>
 
+      <!--************************************************-->
+      <!--       Settings Resources                       -->
+      <!--************************************************-->
+      
+      <resource id="settings" path="settings"> 
+         <resource id="summaries" path="summaries">
+            <method href="#putSummarySettings"/>
+            <method href="#getSummarySettings"/>
+         </resource>
+      </resource>     
 
+<!--*************************************-->
+<!--       Final ending resource tag     -->
+<!--*************************************-->     
+      
    </resources>
 
 
@@ -2355,15 +2369,24 @@
    <method name="POST" id="postAgentEvents">      
       <wadl:doc xml:lang="EN" title="Post events for an agent"  xmlns="http://docbook.org/ns/docbook">
          <para role="shortdesc">Posts events for the specified agent.</para>
-         <para>This operation posts events for the specified agent. Note that the operation to post events for a project (see "Post project events") is similar. </para>
+         <para>This operation posts events for the specified agent.  </para>
+         <note><para>Another valid request is "Post project events" (POST /v2/events). When processed as a "Post events for an agent" operation as described here, the activation applies to only a single agent instead of all agents for the project.</para>
+            <para>
+            </para></note>
       </wadl:doc>
       
       <request>
+         <param 
+            name="X-Agent-Id" style="header" type="xsd:string">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Agent ID. For example, 8f135b4f-7a69-4b8a-947f-5e80d772fd97.</wadl:doc>
+         </param>
          <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-postAgentEvents_request-json-http.txt"/>
                <xsdxt:code href="../wadl/samples-v2/cbu-postAgentEvents_request.json"/> 
             </doc> 
+            
             <param name="event" style="plain" path="$.event" required="true">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">The event to post. Valid values are <code>startup</code> and <code>shutdown</code>. For the <code>startup</code> event, 
@@ -2413,7 +2436,7 @@
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Event ID. For example, <code>5152883998</code>. Only events newer than the event specified by marker are returned. Use of <code>marker</code> is 
-                     most useful when you are continuously monitoring this endpoint for new events, so that old events are not repeated back to you in subsequent calls.</wadl:doc>
+                     most useful when you are continuously monitoring this endpoint for new events, so that old events are not repeatedly listed for you in subsequent calls.</wadl:doc>
             </param>
             <param name="limit" style="query" type="xsd:integer"
                required="false">
@@ -2424,7 +2447,7 @@
             <param name="sort_dir" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>asc</code>.
                </wadl:doc>
             </param>
          </representation>
@@ -2454,7 +2477,7 @@
                   </param>
                   <param name="event" style="plain" path="$.events.event">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">Type of the event.
+                        xml:lang="EN">Type of the event. You can see the types of events in the response example below.
                      </wadl:doc>
                   </param>
                   <param name="agent" style="plain" path="$.events.agent">
@@ -2497,6 +2520,13 @@
                                               xml:lang="EN">Architecture of the operating system.
                                            </wadl:doc>
                                         </param>
+         
+            <param name="request_id" style="plain" path="$.events.request_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">ID of the request.
+               </wadl:doc>
+            </param>
+            
                   <param name="mode" style="plain" path="$.events.mode">
                       <wadl:doc xmlns="http://docbook.org/ns/docbook"
                           xml:lang="EN">Mode of the event when <code>event</code> is <code>agent_activate</code>.
@@ -2504,7 +2534,7 @@
                   </param>
                   <param name="request_id" style="plain" path="$.events.request_id">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">ID of the request when <code>event</code> is <code>vault_encryption_enable</code>, <code>vault_encryption_change</code>, <code>vault_password_verify</code>, <code>vault_db_download_in_progress</code>, <code>vault_db_download_completed</code>, <code>vault_db_download_failed</code>, <code>host_browse</code>, <code>logfile_upload</code>, <code>logfile_upload</code>, or <code>logfile_completed</code> .
+                        xml:lang="EN">ID of the request when <code>event</code> is <code>agent_activate</code>, <code>agent_registered</code>, <code>agent_shutdown</code>, <code>configuration_changes</code>, <code>vault_encryption_enable</code>, <code>vault_encryption_change</code>, <code>vault_password_verify</code>, <code>vault_db_download_in_progress</code>, <code>vault_db_download_completed</code>, <code>vault_db_download_failed</code>, <code>host_browse</code>, <code>logfile_upload</code>, <code>logfile_upload</code>, or <code>logfile_completed</code>.
                      </wadl:doc>
                   </param>
                   <param name="old_encrypted_password_hex" style="plain" path="$.events.old_encrypted_password_hex">
@@ -3349,11 +3379,16 @@
          <para xmlns="http://docbook.org/ns/docbook">This operation starts a backup. Start backups by specifying one of the following states:
          <itemizedlist>
             <listitem><para><code>start_requested</code>: A manual backup is requested by a user.</para></listitem>
-            <listitem><para><code>start_scheduled</code>: A scheduled backup is started by the agent.</para></listitem>
+            <listitem><para><code>start_scheduled</code>: A scheduled backup is started by the agent. <code>start_scheduled</code> requires that the <code>X-Agent-Id</code> header is in the request.</para></listitem>
          </itemizedlist></para>
       </wadl:doc>
       
-      <request>         
+      <request>
+         <param 
+            name="X-Agent-Id" style="header" type="xsd:string">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Agent ID, which is required when you specify the state <code>start_scheduled</code>. For example, 8f135b4f-7a69-4b8a-947f-5e80d772fd97.</wadl:doc>
+         </param>
          <representation mediaType="application/json">
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-postBackup_request-json-http.txt"/>
@@ -3367,7 +3402,7 @@
             </param>
             <param name="state" style="plain" path="$.state" required="true">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Backup state. Either <code>start_requested</code>, a manual backup requested by a user, or <code>start_scheduled</code>, a scheduled backup started by the agent.
+                  xml:lang="EN">Backup state. Either <code>start_requested</code>, a manual backup requested by a user, or <code>start_scheduled</code>, a scheduled backup started by the agent. Note that <code>start_scheduled</code> also requires that the <code>X-Agent-Id</code> header is in the request 
                </wadl:doc>
             </param>           
          </representation>
@@ -4012,10 +4047,10 @@
       
       <wadl:doc xml:lang="EN" title="Update a backup"  xmlns="http://docbook.org/ns/docbook">
          <para role="shortdesc">Updates the specified backup.</para>
-         <para>This operation updates the specified backup. Backups are updated with the JSON Patch. For more information about the JSON Patch, see <link
-            xlink:href="http://tools.ietf.org/html/rfc6902">RFC6902</link>.</para>
+         <para>This operation updates the specified backup. Backups are updated with the <link
+            xlink:href="http://tools.ietf.org/html/rfc6902">JSON Patch</link>.</para>
          
-            <para>You can issue updates only for the following scenarios:</para>                                          
+         <para>You can issue updates for the following scenarios only:</para>                                          
             <itemizedlist>
                <listitem><para>The agent is reporting the state of the backup; for example, <code>[{ "op": "replace", "path": "/state", "value": "queued" }]</code>. The following values are valid for <code>value</code>:</para>
                <itemizedlist>
@@ -4120,11 +4155,24 @@
       <response status="204">                
          <doc title="No Content" xml:lang="EN"/>
          <representation mediaType="application/json">
-            <doc>
+            <doc title="Update a backup: 204 response">
                <xsdxt:code href="../wadl/samples-v2/cbu-updateBackup_response-json-http.txt"/>
+            </doc>
+            <doc title="Update a backup: 409 response">
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateBackup_response409-json-http.txt"/> 
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateBackup_response409.json"/> 
             </doc>  
          </representation>         
-      </response>    
+      </response>
+<!--      <response status="409">                
+         <doc title="Conflict" xml:lang="EN"/>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateBackup_response409-json-http.txt"/> 
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateBackup_response409.json"/>  
+            </doc>
+         </representation>         
+      </response>     -->
       &commonFaults;
    </method> 
  
@@ -4407,7 +4455,7 @@
             <param name="sort_dir" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>asc</code>.
                </wadl:doc>
             </param>
          </representation>
@@ -4452,17 +4500,17 @@
                      </param>
                      <param name="vault" style="plain" path="$.events.agent.vault">
                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN">Information about the vault for the backup.
+                           xml:lang="EN">For <code>backup_browse</code> events, information about the vault for the backup.
                         </wadl:doc>
                      </param>
                             <param name="id" style="plain" path="$.events.agent.vault.id">
                                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                                  xml:lang="EN">ID of the vault.
+                                  xml:lang="EN">For <code>backup_browse</code> events, the ID of the vault.
                                </wadl:doc>
                             </param>
                             <param name="encrypted" style="plain" path="$.events.agent.vault.encrypted">
                                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                                  xml:lang="EN">Specifies whether the vault is encrypted.
+                                  xml:lang="EN">For <code>backup_browse</code> events, specifies whether the vault is encrypted.
                                </wadl:doc>
                             </param>
                         
@@ -4495,7 +4543,7 @@
             
             <param name="request_id" style="plain" path="$.events.request_id">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">ID of the request.
+                  xml:lang="EN">ID of the request (for <code>backup_start</code>, <code>backup_missed</code>, <code>backup_skipped</code>, <code>backup_stop_request</code>, and <code>backup_browse</code> events.
                </wadl:doc>
             </param>                 
             
@@ -4519,19 +4567,19 @@
             
             <param name="path" style="plain" path="$.events.path">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Path for the browse request.
+                  xml:lang="EN">For <code>backup_browse</code> events, the path for the browse request.
                </wadl:doc>
             </param>
             
             <param name="path_encoded" style="plain" path="$.events.path_encoded">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Encoded path for the browse request.
+                  xml:lang="EN">For <code>backup_browse</code> events, the encoded path for the browse request.
                </wadl:doc>
             </param> 
             
             <param name="encrypted_password_hex" style="plain" path="$.events.encrypted_password_hex">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Encrypted password in hexadecimal notation.
+                  xml:lang="EN">For <code>backup_browse</code> events, the encrypted password in hexadecimal notation.
                </wadl:doc>
             </param> 
 
@@ -5166,8 +5214,12 @@
       <response status="204">                
          <doc title="No Content" xml:lang="EN"/>
          <representation mediaType="application/json">
-            <doc>
+            <doc title="Update a cleanup: 204 response">
                <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_response-json-http.txt"/>
+            </doc> 
+            <doc title="Update a cleanup: 409 response">
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_response409-json-http.txt"/>  
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateCleanup_response409.json"/> 
             </doc>  
          </representation>         
       </response>    
@@ -5293,7 +5345,7 @@
             <param name="sort_dir" style="query" type="xsd:string"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+                  xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>asc</code>.
                </wadl:doc>
             </param>
          </representation>
@@ -5369,7 +5421,11 @@
                </wadl:doc>
             </param> 
 -->            
-           
+            <param name="request_id" style="plain" path="$.events.request_id">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">For <code>cleanup_start_request</code> and <code>cleanup_stop_request</code> events, the request ID.
+               </wadl:doc>
+            </param>          
 
             <param name="links" style="plain" path="$.links">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -7617,8 +7673,12 @@
       <response status="204">                
          <doc title="No Content" xml:lang="EN"/>
          <representation mediaType="application/json">
-            <doc>
+            <doc title="Update a restore: 204 response">
             <xsdxt:code href="../wadl/samples-v2/cbu-updateRestore_response-json-http.txt"/>
+            </doc>
+            <doc title="Update a restore: 409 response">
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateRestore_response409-json-http.txt"/>   
+               <xsdxt:code href="../wadl/samples-v2/cbu-updateRestore_response409.json"/> 
             </doc>  
          </representation>
       </response>
@@ -7746,7 +7806,7 @@
          <param name="sort_dir" style="query" type="xsd:string"
             required="false">
             <wadl:doc xmlns="http://docbook.org/ns/docbook"
-               xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>desc</code>.
+               xml:lang="EN">Direction to sort the results. Valid values are <code>asc</code> and <code>desc</code>. The default value is <code>asc</code>.
             </wadl:doc>
          </param>
          <representation mediaType="application/json">
@@ -7886,7 +7946,7 @@
                                 </param>
                   <param name="request_id" style="plain" path="$.events.request_id">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">ID of the request.                 
+                        xml:lang="EN">For the <code>restore_start_request</code> and <code>restore_stop_request</code> events, the ID of the request.                 
                      </wadl:doc>
                   </param>
                   <param name="bytes_completed" style="plain" path="$.events.bytes_completed">
@@ -7923,5 +7983,121 @@
       </response>
       &commonFaults;
    </method>
+   
+   <!--************************************************-->
+   <!--       Settings methods                         -->
+   <!--************************************************-->
+   
+   <!--****************************************-->
+   <!--       PUT - Update summary settings    -->
+   <!--****************************************-->       
+   <method name="PUT" id="putSummarySettings">
+      <wadl:doc title="Update summary settings">
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Updates summary settings.</para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation updates the summary settings. </para>
+      </wadl:doc> 
+      
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-putSummarySettings_request-json-http.txt"/> 
+               <xsdxt:code href="../wadl/samples-v2/cbu-putSummarySettings_request.json"/> 
+            </doc> 
+            <param name="daily" style="plain" path="$.daily" required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"> When set to <code>true</code>, creates daily summaries.
+               </wadl:doc>
+            </param>
+            <param name="weekly" style="plain" path="$.weekly" required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"> When set to <code>true</code>, creates weekly summaries.
+               </wadl:doc>
+            </param>
+            <param name="notifications" style="plain" path="$.notifications" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Provides information for the notifications that are sent.                  
+               </wadl:doc>
+            </param> 
+            <param name="type" style="plain" path="$.notifications.type" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Specifies the type of notification to send, such as <code>email</code>.                  
+               </wadl:doc>
+            </param> 
+            <param name="destination" style="plain" path="$.notifications.destination" required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Specifies the destination for the notification, such as an email address.                  
+               </wadl:doc>
+            </param> 
+         </representation>
+      </request>
+      
+      <response status="204">                
+         <doc title="No Content" xml:lang="EN">The request has been accepted for processing, but the processing has not been completed.</doc>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-putSummarySettings_response-json-http.txt"/>  
+               
+            </doc> 
+         </representation>
+      </response>
+      &commonFaults;
+   </method>
+   
+   <!--****************************************-->
+   <!--       GET - Get summary settings       -->
+   <!--****************************************-->       
+   <method name="GET" id="getSummarySettings">
+      <wadl:doc title="Get summary settings">
+         <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Retrieves the summary settings.</para>
+         <para xmlns="http://docbook.org/ns/docbook">This operation retrieves the summary settings.</para>        
+      </wadl:doc> 
+      
+      <request>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getSummarySettings_request-json-http.txt"/> 
+               
+            </doc>                   
+         </representation>
+      </request>
+      
+      <response status="200">                
+         <doc title="OK" xml:lang="EN">Success.</doc>
+         <representation mediaType="application/json">
+            <doc>
+               <xsdxt:code href="../wadl/samples-v2/cbu-getSummarySettings_response-json-http.txt"/> 
+               <xsdxt:code href="../wadl/samples-v2/cbu-getSummarySettings_response.json"/>                
+            </doc> 
+            <param name="daily" style="plain" path="$.daily">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"> When set to <code>true</code>, creates daily summaries.
+               </wadl:doc>
+            </param>
+            <param name="weekly" style="plain" path="$.weekly">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"> When set to <code>true</code>, creates weekly summaries.
+               </wadl:doc>
+            </param>
+            <param name="notifications" style="plain" path="$.notifications" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Provides information for the notifications that are sent.                  
+               </wadl:doc>
+            </param> 
+            <param name="type" style="plain" path="$.notifications.type">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Specifies the type of notification to send, such as <code>email</code>.                  
+               </wadl:doc>
+            </param> 
+            <param name="destination" style="plain" path="$.notifications.destination">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Specifies the destination for the notification, such as an email address.                  
+               </wadl:doc>
+            </param> 
+         </representation>
+      </response>
+      &commonFaults;
+   </method> 
+ 
+      
  
 </application>

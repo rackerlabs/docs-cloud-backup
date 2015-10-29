@@ -1,8 +1,8 @@
 {
     "events": [
         {
-            "id": "5650135583",
-            "time": "2014-10-09T12:26:15.233501Z",
+            "id": "5650135582",
+            "time": "2014-10-09T12:26:14.233501Z",
             "event": "agent_registered",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
@@ -14,21 +14,32 @@
                         "architecture": "64-bit"
                     }
                 }
-            }
+            },
+            "request_id": "a3ab3016-5af4-4a4a-a1ea-46a37b04b327"
+        },
+        {
+            "id": "5650135583",
+            "time": "2014-10-09T12:26:15.233501Z",
+            "event": "agent_activate",
+            "mode": "active",
+            "request_id": "129cf219-d260-43e4-9164-233fd0ea3a6b"
         },
         {
             "id": "5650135584",
             "time": "2014-10-09T12:26:16.233501Z",
-            "event": "agent_activate",
-            "mode": "active"
-        },
-        {
-            "id": "5650135585",
-            "time": "2014-10-09T12:26:17.233501Z",
             "event": "agent_heartbeat",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
             }
+        },
+        {
+            "id": "5650135585",
+            "time": "2014-10-09T12:26:17.233501Z",
+            "event": "agent_shutdown",
+            "agent": {
+                "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
+            },
+            "request_id": "1a6ded7a-03f0-4f2e-bbee-bc2d9973c980"
         },
         {
             "id": "5650135586",
@@ -36,7 +47,8 @@
             "event": "configuration_changed",
             "agent": {
                 "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
-            }
+            },
+            "request_id": "4a0d123c-43ac-4556-a232-6c3a8c00d4ce"
         },
         {
             "id": "5650135587",
@@ -143,11 +155,11 @@
     ],
     "links": [
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d/events?marker=5650135596",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/events?marker=5650135596",
             "rel": "next"
         },
         {
-            "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d/events?marker=5650135583&sort_dir=desc",
+            "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/events?marker=5650135582&sort_dir=desc",
             "rel": "previous"
         }
     ]

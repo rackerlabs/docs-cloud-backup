@@ -1062,6 +1062,21 @@ https://dfw.backup.api.rackspacecloud.com/<emphasis role="bold">v2</emphasis>/12
          </wadl:resources>                 
          <?hard-pagebreak?>
       </section>
+      
+      <section xml:id="SummarySetting-operations">
+         <title>Summary settings operations</title>
+         <para xmlns:m="http://www.w3.org/1998/Math/MathML">This section describes the summary settings operations for the Cloud Backup API. </para>
+         <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource href="../../src/wadl/rcbu-v2.wadl#settings">
+               <wadl:resource href="../../src/wadl/rcbu-v2.wadl#summaries">
+                  <wadl:method href="putSummarySettings"/>
+                  <wadl:method href="getSummarySettings"/> 
+               </wadl:resource>
+            </wadl:resource>            
+         </wadl:resources>            
+         <?hard-pagebreak?>
+      </section> 
+      
    </chapter>
    <glossary xml:id="glossary_1">
       <title>Glossary</title>
