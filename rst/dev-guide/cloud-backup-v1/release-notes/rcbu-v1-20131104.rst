@@ -1,0 +1,17 @@
+API |contract version| updates, November 04, 2013
+-------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  The wake up agents operation was added.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

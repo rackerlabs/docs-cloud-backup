@@ -28,7 +28,7 @@ Choose your the endpoint for your backup based on the location of the server tha
 ..  note:: 
     Rackspace Cloud Backup does not take snapshots of your server. Read more about :kc-article:`how Rackspace Cloud Backup differs<rackspace-cloud-backup-vs-cloud-server-image-backups>` from snapshots.
 
-
+This document describes the features available with API |contract version|.
 
 .. toctree:: :hidden:
    :maxdepth: 3
@@ -36,3 +36,4 @@ Choose your the endpoint for your backup based on the location of the server tha
    additional-resources
    api-contract-changes
    pricing-service-level
+   api-service-updates

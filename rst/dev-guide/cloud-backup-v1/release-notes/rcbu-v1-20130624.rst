@@ -1,0 +1,25 @@
+API |contract version| updates, June 24, 2013
+------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  You can now use either the US endpoint or UK endpoint to access the
+   Identity service, regardless of US or UK identities.
+
+-  The Cloud Backup API now supports only Microsoft Date Format and not ISO.
+
+-  The Sydney (SYD) data center was added to data center specifications.
+
+-  The Help operations were classified as internal calls.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|
+

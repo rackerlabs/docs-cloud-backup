@@ -1,0 +1,38 @@
+API |contract version| updates, September 02, 2014
+--------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  Cloud Backup was enhanced to enable cross-datacenter restores.
+
+-  Added the ``BackupDataCenter`` parameter to the following operations:
+
+   -  As a request and response parameter to the operation to create a
+      restore configuration
+
+   -  As a request parameter to the operation to update a restore
+      configuration
+
+-  Added the ``BackupDataCenter`` parameter to the following operation:
+
+   -  As a response parameter to the operation to list details about a
+      restore
+
+-  Added the ``BackupId`` parameter to the following operations:
+
+   -  As a response parameter to the operation to list the activity for
+      an agent
+
+   -  As a response parameter to the operation to list the activity for
+      a user
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|
