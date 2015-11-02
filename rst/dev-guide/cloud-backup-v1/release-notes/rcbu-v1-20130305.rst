@@ -1,0 +1,17 @@
+API |contract version| updates, March 05, 2013
+------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+Initial release release for Cloud Backup.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

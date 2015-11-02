@@ -1,0 +1,17 @@
+API |contract version| updates, February 14, 2014
+-------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+- The change encryption password operation was added.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|
