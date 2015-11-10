@@ -4,7 +4,7 @@ API |contract version| updates, February 05, 2014
 What's new
 ~~~~~~~~~~
 
-- Support was added for Role Based Access Control (RBAC).
+Support was added for :ref:`Role Based Access Control (RBAC) <rbac>`.
 
 Resolved issues
 ~~~~~~~~~~~~~~~

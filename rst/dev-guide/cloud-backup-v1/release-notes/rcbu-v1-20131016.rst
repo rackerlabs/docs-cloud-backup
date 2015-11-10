@@ -4,10 +4,11 @@ API |contract version| updates, October 16, 2013
 What's new
 ~~~~~~~~~~
 
--  The list agent details by host server ID operation was added.
+-  The :ref:`list agent details by host server ID <get-list-agent-details-by-host-server-id>` 
+   operation was added.
 
 -  The ``HostServerId`` response parameter was added to the
-   list agent details operation.
+   :ref:`list agent details <get-agent-details>` operation.
 
 Resolved issues
 ~~~~~~~~~~~~~~~
