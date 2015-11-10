@@ -4,7 +4,7 @@ API |contract version| updates, November 04, 2013
 What's new
 ~~~~~~~~~~
 
--  The wake up agents operation was added.
+The :ref:`wake up agents <wake-up-agents>` operation was added.
 
 Resolved issues
 ~~~~~~~~~~~~~~~
