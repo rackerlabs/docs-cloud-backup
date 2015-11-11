@@ -16,6 +16,8 @@ Learn how to use the Rackspace Cloud Backup service by using the REST API.
 .. toctree:: :hidden:
    :maxdepth: 2
  
+   Cloud Backup 1.0 <self>
+   API Status <http://www.rackspacestatus.com/>
    overview/index
    developer-guide
    concepts
