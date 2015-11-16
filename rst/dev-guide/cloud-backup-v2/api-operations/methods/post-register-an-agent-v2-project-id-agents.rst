@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _post-register-an-agent-v2-project-id-agents:
+.. _post-register-an-agent:
 
 Register an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,8 +10,6 @@ Register an agent
 
     POST /v2/{project_id}/agents
 
-Registers an agent. 
-
 This operation registers an agent for the specified project.
 
 
@@ -19,27 +17,42 @@ This operation registers an agent for the specified project.
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|201                       |Created                  |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|201            | Created         | The request was fulfilled and has resulted in one or more |
+|               |                 | new resources being created.                              |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -109,7 +122,7 @@ This table shows the body parameters for the request:
 +-----------------------+-----------------------+------------------------------+
 |host.machine.\ **id**  |String *(Required)*    |Machine ID.                   |
 +-----------------------+-----------------------+------------------------------+
-|h\ **os**t.\ **os**    |String *(Required)*    |Information about the         |
+|\ **host.**\ **os**    |String *(Required)*    |Information about the         |
 |                       |                       |operating system.             |
 +-----------------------+-----------------------+------------------------------+
 |host.os.\ **name**     |String *(Required)*    |Name of the operating system. |
@@ -129,7 +142,7 @@ This table shows the body parameters for the request:
 |host.addresses.\       |String *(Required)*    |Version of the address (4 for |
 |**version**            |                       |IPv4 or 6 for IPv6).          |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **addr**esses.\ |String *(Required)*    |IP address.                   |
+|host.\ **addresses**.\ |String *(Required)*    |IP address.                   |
 |**addr**               |                       |                              |
 +-----------------------+-----------------------+------------------------------+
 |\ **rsa_public_key**   |String *(Required)*    |Information about the RSA     |
@@ -247,7 +260,7 @@ This table shows the body parameters for the response:
 |**rel**                   |                         |provided is related to   |
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
-|h\ **os**t.\ **os**       |String *(Required)*      |Information about the    |
+|\ **host**.\ **os**       |String *(Required)*      |Information about the    |
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
 |host.os.\ **name**        |String *(Required)*      |Name of the operating    |
@@ -266,7 +279,7 @@ This table shows the body parameters for the response:
 |**version**               |                         |(4 for IPv4 or 6 for     |
 |                          |                         |IPv6) .                  |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **addr**esses.\    |String *(Required)*      |IP address.              |
+|host.\ **addresses**.\    |String *(Required)*      |IP address.              |
 |**addr**                  |                         |                         |
 +--------------------------+-------------------------+-------------------------+
 |\ **enabled**             |String                   |Specifies whether the    |

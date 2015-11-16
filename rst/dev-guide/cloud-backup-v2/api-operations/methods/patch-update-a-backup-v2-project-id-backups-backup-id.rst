@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _patch-update-a-backup-v2-project-id-backups-backup-id:
+.. _patch-update-a-backup:
 
 Update a backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,11 +10,9 @@ Update a backup
 
     PATCH /v2/{project_id}/backups/{backup_id}
 
-Updates the specified backup.
+This operation updates the specified backup. Backups are updated with the `JSON Patch <http://tools.ietf.org/html/rfc6902>`__.
 
-This operation updates the specified backup. Backups are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
-
-You can issue updates only for the following scenarios:
+You can issue updates for the following scenarios only:
 
 
 
@@ -44,28 +42,42 @@ You can use the ``add`` and ``replace`` operations interchangeably because they 
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|204                       |No Content               |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|204            | No Content      | The server successfully fulfilled the request, and there  |
+|               |                 | is no additional content to send in the response body.    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 Request
 """"""""""""""""
@@ -249,12 +261,26 @@ Response
 
 
 
-**Example Update a backup: JSON response**
+**Example Update a backup: 204 response**
 
 
 .. code::
 
    204 (No Content)
+
+
+**Example Update a backup: 409 response**
+
+.. code::
+
+   409 (Conflict)
+
+
+.. code::
+
+   {
+       "message": "Modifying a backup that is already in a state of ['completed', 'completed_with_errors', 'failed', 'stopped', 'skipped', 'missed'] is not allowed."
+   }
 
 
 

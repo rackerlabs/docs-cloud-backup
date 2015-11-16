@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _patch-update-an-agent-v2-project-id-agents-agent-id:
+.. _patch-update-an-agent:
 
 Update an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -148,13 +148,13 @@ Response
 
 
 
+This operation does not require a response body.
 
 
 
 
 
-
-**Example Update an agent: JSON response**
+**Example Update an agent: 204 response**
 
 
 .. code::

@@ -7134,7 +7134,7 @@
 <!--****************************************-->
 <!--       List restores for a project      -->
 <!--****************************************-->       
-   <method name="POST" id="getRestores">
+   <method name=“GET” id="getRestores">
       <wadl:doc title="List the restores for a project">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists the restores available for the specified project.</para>
          <para xmlns="http://docbook.org/ns/docbook">This operation retrieves a list of restores available for the specified project. If no restores have been created, the <code>restores</code> parameter in the response is an empty array.</para>
@@ -7350,7 +7350,7 @@
 <!--****************************************-->
 <!--       Get details about a restore      -->
 <!--****************************************-->       
-   <method name="POST" id="getRestoreDetails">
+   <method name=“GET” id="getRestoreDetails">
       <wadl:doc title="List details about a restore">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the specified restore.</para>
          <para xmlns="http://docbook.org/ns/docbook">This operation lists details about the specified restore.</para>         
