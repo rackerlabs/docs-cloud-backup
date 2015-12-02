@@ -27,8 +27,8 @@ request example> \| python -m json.tool**.
 This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
- 
-**Example: Update a backup configuration**
+ 
+**Example: Update a backup configuration**
 
 .. code::  
 

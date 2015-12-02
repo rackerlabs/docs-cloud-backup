@@ -1,6 +1,6 @@
 .. _check-backup-status:
 
-Checking backup status
+Check backup status
 ~~~~~~~~~~~~~~~~~~~~~~
 
 You can verify whether your backup jobs ran properly, and if they did
