@@ -13,26 +13,19 @@ types are ``Backup``, ``Cleanup``, and ``Restore``.
 The HTTP request must include a header to specify the authentication
 token.
 
-The cURL request uses the ``-s`` option for silent or quiet mode (no
-progress or error messages shown) and the ``-X`` option to specify the
-request operation to use when communicating with the HTTP server
-(instead of using the default operation).
-
-If you have the tools, you can run the cURL JSON request examples with
-the following option to format the output from cURL: **<cURL JSON
-request example> \| python -m json.tool**.
-
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
  
-**Example: List activity for an agent**
+**cURL list activity for an agent request**
 
 .. code::  
 
-   curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/system/activity/yourAgentID /
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/system/activity/yourAgentID /
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
+
+**List activity for an agent response**
 
 .. code::  
 

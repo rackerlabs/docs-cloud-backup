@@ -15,25 +15,16 @@ that you used in :ref:`Create a backup configuration <gsg-create-backup-config>`
 The HTTP request must include a header to specify the authentication
 token.
 
-The cURL request uses the ``-s`` option for silent or quiet mode (no
-progress or error messages shown) and the ``-X`` option to specify the
-request operation to use when communicating with the HTTP server
-(instead of using the default operation).
-
-If you have the tools, you can run the cURL JSON request examples with
-the following option to format the output from cURL: **<cURL JSON
-request example> \| python -m json.tool**.
-
 This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
  
-**Example: Update a backup configuration**
+**cURL update a backup configuration request**
 
 .. code::  
 
-   curl -i -X PUT https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup-configuration/yourBackupConfigurationID \
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -i -X PUT $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/yourBackupConfigurationID \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" \
    -d '{
         "MachineAgentId": 202743,
@@ -73,7 +64,9 @@ You can verify that the configuration is updated by using the following
 cURL request, specifying the same ``BackupConfigurationId`` that you
 used in the update request.
 
+**cURL list a backup configuration request**
+
 .. code::  
 
-   curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup-configuration/yourBackupConfigurationID \
-   -H "X-Auth-Token: yourAuthToken" | python -m
+   curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/yourBackupConfigurationID \
+   -H "X-Auth-Token: $AUTH_TOKEN" | python -m

@@ -13,31 +13,28 @@ removed.
 The HTTP request must include a header to specify the authentication
 token.
 
-The cURL request uses the ``-i`` option to send the HTTP response to
-terminal output and the ``-X`` option to specify the correct HTTP
-method.
-
 This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
  
-**Example: Delete a backup configuration**
+**cURL delete a backup configuration request**
 
 .. code::  
 
-   curl -i -X DELETE https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup-configuration/yourBackupConfigurationID \
-   -H "X-Auth-Token: yourAuthToken" 
+   curl -i -X DELETE $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/yourBackupConfigurationID \
+   -H "X-Auth-Token: $AUTH_TOKEN" 
 
 To verify that the backup configuration is deleted, list the backup
 configuration details to see ``IsDeleted: True``.
-
  
-**Example: List backup configuration details**
+**cURL list backup configuration details request**
 
 .. code::  
 
-   curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup-configuration/yourBackupConfigurationID \
-   -H "X-Auth-Token: yourAuthToken" | python -m json.tool
+   curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/yourBackupConfigurationID \
+   -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
+
+**List backup configuration details response**
 
 .. code::  
 

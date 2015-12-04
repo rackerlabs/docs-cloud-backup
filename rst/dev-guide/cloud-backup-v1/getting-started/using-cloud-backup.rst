@@ -11,6 +11,13 @@ cURL, followed by the response.
 
 Before running the examples, review the :ref:`Cloud Backup concepts<concepts>`.
 
+.. note:: 
+     These examples use the ``$API_ENDPOINT``, ``$AUTH_TOKEN``, and ``$TENANT_ID`` environment 
+     variables to specify the API endpoint, authentication token, and project ID values 
+     for accessing the service. Make sure you 
+     :ref:`configure these variables<configure-environment-variables>` before running the 
+     code samples. 
+
 For more information about all Cloud Files operations, see the
 :ref:`API reference <api-reference>`. 
 
