@@ -15,20 +15,16 @@ job.
 The HTTP request must include a header to specify the authentication
 token.
 
-The cURL request uses the ``-i`` option to send the HTTP response to
-terminal output and the ``-X`` option to specify the correct HTTP
-method.
-
 This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
  
-**Example: Start a backup manually**
+**cURL start a backup manually request**
 
 .. code::  
 
-   curl -i -X POST https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup/action-requested \
-   -H "X-Auth-Token: yourAuthToken"  \
+   curl -i -X POST $API_ENDPOINT/v1.0/$TENANT_ID/backup/action-requested \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" \
    -d '{   "Action" : "StartManual",    
             "Id": yourBackupConfigurationId
@@ -36,6 +32,8 @@ This operation does not return a response body. An HTTP status code of
 
 The response comes from the server. The number at the end of the
 response is the ID of the job.
+
+**Start a backup manually response**
 
 .. code::  
 
@@ -51,6 +49,8 @@ in the following example. Receiving the email is based on the
 ``NotifyRecipients``, ``NotifySuccess``, and ``NotifyFailure``
 parameters that you specify when you create your backup configuration
 (see :ref:`Create a backup configuration <gsg-create-backup-config>`).
+
+**Start a backup manually email**
 
 .. code::  
 

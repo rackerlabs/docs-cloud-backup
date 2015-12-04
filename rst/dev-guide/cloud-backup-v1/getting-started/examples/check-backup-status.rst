@@ -9,15 +9,6 @@ not, what errors occurred.
 The HTTP request must include a header to specify the authentication
 token.
 
-The cURL request uses the ``-s`` option for silent or quiet mode (no
-progress or error messages shown) and the ``-X`` option to specify the
-request operation to use when communicating with the HTTP server
-(instead of using the default operation).
-
-If you have the tools, you can run the cURL JSON request examples with
-the following option to format the output from cURL: **<cURL JSON
-request example> \| python -m json.tool**.
-
 The following example output shows ``"CurrentState": "Queued"``. Other
 valid values for ``CurrentState`` are as follows:
 
@@ -45,15 +36,16 @@ valid values for ``CurrentState`` are as follows:
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
-
  
-**Example: Checking backup status**
+**cURL check backup status request**
 
 .. code::  
 
-   curl -s -X GET https://dfw.backup.api.rackspacecloud.com/v1.0/yourAccountID/backup/yourBackupID \
-   -H "X-Auth-Token: yourAuthToken" \
+   curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/backup/yourBackupID \
+   -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json | python -m json.tool
+
+**Check backup status response**
 
 .. code::  
 
