@@ -56,7 +56,7 @@ authentication request for syntax or coding errors. If you are using cURL, see t
 
 
 ``401 Unable to authenticate user with credentials provided.``: Verify the authentication credentials 
-submitted in theauthentication request. If necessary, contact your Rackspace Cloud Administrator 
+submitted in the authentication request. If necessary, contact your Rackspace Cloud Administrator 
 or Rackspace Support to get valid credentials.
 
 ..  note::
