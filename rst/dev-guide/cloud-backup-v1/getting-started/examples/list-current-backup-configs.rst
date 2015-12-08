@@ -1,7 +1,7 @@
 
 
-List all backup configurations for an agent 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Listing all backup configurations for an agent 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To verify that your backup configuration exists, you can list all of the
 backup configurations for your agent. The output is similar to that in

@@ -1,7 +1,7 @@
 .. _gsg-restore-backup:
 
-Start a restore operation manually 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Starting a restore operation manually 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can manually run a restore operation that is based on a restore
 configuration. Use the ``RestoreId`` that was returned in 

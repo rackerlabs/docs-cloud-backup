@@ -1,7 +1,7 @@
 .. _list-all-agents:
 
-List all agents for the user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Listing all agents for the user
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The agent is an important component of Cloud Backup. You must install
 the agent on all servers that you want to back up. Documentation about
@@ -38,6 +38,7 @@ An HTTP status code of 200 (OK) indicates that the request succeeded.
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
 **List all agents for the user response**
+
 .. code::  
 
    [

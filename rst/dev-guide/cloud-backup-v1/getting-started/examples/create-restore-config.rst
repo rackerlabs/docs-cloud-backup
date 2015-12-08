@@ -1,7 +1,7 @@
 .. _gsg-create-restore-config:
 
-Create a restore configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a restore configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that you have a backup, you can restore it to a different location
 on your server. You can also restore it to a different server, or to the

@@ -1,7 +1,7 @@
 .. _gsg-create-backup-config:
 
-Create a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating a backup configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a backup configuration in which you define the following basic
 items:

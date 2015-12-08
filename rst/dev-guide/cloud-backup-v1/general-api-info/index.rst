@@ -11,9 +11,9 @@ The Rackspace Cloud Backup API is implemented using a RESTful web service interf
 .. toctree:: :hidden:
    :maxdepth: 2
    
-   authentication 
-   role-based-access-control
+   authentication
    service-access-endpoints
+   role-based-access-control   
    service-versions
    request-and-response-types
    limits
