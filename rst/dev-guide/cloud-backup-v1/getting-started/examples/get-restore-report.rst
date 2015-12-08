@@ -1,7 +1,7 @@
 .. _gsg-get-restore-report:
 
-Get a restore report
-~~~~~~~~~~~~~~~~~~~~
+Getting a restore report
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can request a restore report that provides information about the
 restore operation and tells you if the operation ran successfully.

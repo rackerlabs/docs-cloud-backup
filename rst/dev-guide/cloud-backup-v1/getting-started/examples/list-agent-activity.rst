@@ -1,7 +1,7 @@
 .. _list-agent-activity:
 
-List activity for an agent
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Listing activity for an agent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can display all the activities for an agent to find out whether your
 backups ran successfully or failed. This operation is useful if you do

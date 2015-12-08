@@ -1,7 +1,7 @@
 
 
-Delete a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deleting a backup configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can delete the backup configuration file and verify that it was
 removed.

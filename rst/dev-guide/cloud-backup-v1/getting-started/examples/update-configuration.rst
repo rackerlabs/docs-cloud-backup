@@ -1,7 +1,7 @@
 .. _gsg-update-configuration:
 
-Update a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Updating a backup configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To schedule the backup for one hour later, for example, you can update
 the backup configuration that you created earlier. Specify the

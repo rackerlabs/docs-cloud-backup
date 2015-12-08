@@ -1,7 +1,7 @@
 .. _gsg-start-backup:
 
-Start a backup manually
-~~~~~~~~~~~~~~~~~~~~~~~
+Starting a backup manually
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you do not do anything, Cloud Backup runs the backup at the scheduled
 time.

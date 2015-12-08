@@ -1,12 +1,11 @@
 .. _list-agent-details:
 
-List agent details
-~~~~~~~~~~~~~~~~~~
+Listing agent details
+~~~~~~~~~~~~~~~~~~~~~~
 
 To check whether the agent is online, list the agent's details and check
 its status. If the agent is not online, Cloud Backup cannot run the
-backup job. Use ``MachineAgentId`` from `Section 5.2, “List agent
-details ” <listAgentDetails-d1e01.html>`__ for **yourMachineAgentID**.
+backup job. Use ``MachineAgentId`` from :ref:`List all agents for the user<list-all-agents>` for **yourMachineAgentID**.
 
 The HTTP request must include a header to specify the authentication
 token.
