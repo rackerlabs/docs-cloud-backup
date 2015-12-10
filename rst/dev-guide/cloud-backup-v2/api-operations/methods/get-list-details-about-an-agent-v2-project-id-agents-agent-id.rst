@@ -204,6 +204,9 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |\ **log_level**           |String                   |Level for the logs.      |
 +--------------------------+-------------------------+-------------------------+
+|\ **registered_time**     |String                   |Time agent was           |
+|                          |                         |registered.              |
++--------------------------+-------------------------+-------------------------+
 |\ **links**               |String                   |Links with information   |
 |                          |                         |about the agent.         |
 +--------------------------+-------------------------+-------------------------+
@@ -289,6 +292,7 @@ This table shows the body parameters for the response:
            ]
        },
        "log_level": "warn",
+       "registered_time": "2014-10-27T18:22:00.238640+00:00",
        "links": [
            {
                "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
