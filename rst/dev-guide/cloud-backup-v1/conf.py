@@ -37,7 +37,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -77,7 +77,7 @@ release = '1'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'samples', 'api-operations/methods*']
+exclude_patterns = ['_build', 'samples', 'api-operations/methods*', 'common-gs', 'getting-started/examples']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -121,6 +121,20 @@ extlinks = {
     'rackerlabs': ('https://github.com/rackerlabs/%s', ''),
     'rocket': ('https://objectrocket.com/%s', '')
 }
+
+
+# Global variables that are replaced by the specified value during the build process.
+
+rst_epilog = """
+.. |apiservice| replace:: Rackspace Cloud Backup API
+.. |no changes| replace:: None for this release.
+.. |contract version| replace:: 1.0
+.. |product name| replace:: Rackspace Cloud Backup
+"""
+
+
+#Software release.version currently deployed in production.
+release='v1.'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []

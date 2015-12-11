@@ -1,0 +1,37 @@
+API |contract version| updates, September 02, 2014
+--------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+-  Cloud Backup was enhanced to enable restores across data centers.
+
+-  The ``BackupDataCenter`` parameter was added to the following operations:
+
+   -  As a request and response parameter to the operation to 
+      :ref:`create a restore configuration <create-a-restore-configuration>`
+
+   -  As a request parameter to the operation to  
+      :ref:`update a restore configuration <update-a-restore-configuration>`
+
+   -  As a response parameter to the operation to 
+      :ref:`list details about a restore configuration <get-details-about-a-restore>`
+
+- The ``BackupId`` parameter was added to the following operations:
+
+   -  As a response parameter to the operation to 
+      :ref:`list the activity for an agent <get-activity-for-an-agent>`
+      
+
+   -  As a response parameter to the operation to 
+      :ref:`list the activity for a user <get-activity-for-a-user>`
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

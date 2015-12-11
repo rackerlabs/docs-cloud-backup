@@ -1,0 +1,18 @@
+API |contract version| updates, January 10, 2014
+------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+The :ref:`list agent details <get-agent-details>` operation was updated to
+include the ``BackupContainer`` response parameter.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

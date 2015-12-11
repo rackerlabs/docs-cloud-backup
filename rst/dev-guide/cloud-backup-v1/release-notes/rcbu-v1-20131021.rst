@@ -1,0 +1,19 @@
+API |contract version| updates, October 21, 2013
+------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+This release includes the addition of the HKG service endpoint for the
+Cloud Backup API.
+
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

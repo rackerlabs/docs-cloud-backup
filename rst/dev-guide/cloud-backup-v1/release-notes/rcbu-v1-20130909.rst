@@ -1,0 +1,19 @@
+API |contract version| updates, September 09, 2013
+--------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+The ``MachineAgentId`` request parameter was added to the
+:ref:`create backup configuration <create-backup-configuration>` operation.
+
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

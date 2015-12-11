@@ -1,0 +1,17 @@
+API |contract version| release, March 05, 2013
+------------------------------------------------
+
+What's new
+~~~~~~~~~~
+
+This is the initial release of the Rackspace Cloud Backup API.
+
+Resolved issues
+~~~~~~~~~~~~~~~
+
+|no changes|
+
+Known issues
+~~~~~~~~~~~~
+
+|no changes|

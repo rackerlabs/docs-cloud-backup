@@ -1,23 +1,31 @@
 .. _index:
 
 =========================================================
-Rackspace Cloud Backup API 1.0
+Rackspace Cloud Backup API |contract version|
 =========================================================
 
 *Last updated:* |today|
 
-Learn how to use the Rackspace Cloud Backup service by using the REST API. 
+Use the following links to jump directly to user and reference information for 
+using the |apiservice|. 
 
-- For details about using the API, see the :ref:`Developer Guide <developer-guide>`.
-- For details about API resources, operations, requests and responses, see the 
-  :ref:`API reference <api-reference>`.
+* :ref:`Getting Started Guide<getting-started>`
+* :ref:`Developer Guide<developer-guide>`
+* :ref:`API Reference<api-reference>`
+* :ref:`Release Notes<release-notes>`
+
 
 .. toctree:: :hidden:
    :maxdepth: 2
  
+   Cloud Backup 1.0 <self>
+   API Status <https://status.rackspace.com>
    overview/index
+   getting-started
+   getting-started/index
    developer-guide
    concepts
    general-api-info/index 
    api-reference
    api-operations/index
+   release-notes
