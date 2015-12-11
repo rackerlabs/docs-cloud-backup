@@ -25,21 +25,25 @@
     "inclusions": [
         {
             "type": "folder",
-            "path": "/web/"
+            "path": "/web/",
+            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
         },
         {
             "type": "file",
-            "path": "/etc/web/app.conf"
+            "path": "/etc/web/app.conf",
+            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
         }
     ],
     "exclusions": [
         {
             "type": "folder",
-            "path": "/web/cache/"
+            "path": "/web/cache/",
+            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
         },
         {
             "type": "file",
-            "path": "/web/cache.jpg"
+            "path": "/web/cache.jpg",
+            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
         }
     ],
     "notifications": [

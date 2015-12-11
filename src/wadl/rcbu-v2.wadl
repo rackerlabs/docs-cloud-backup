@@ -1049,10 +1049,16 @@
                </wadl:doc>
             </param>
             
+
             <param name="log_level" style="plain" path="$.log_level" >
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Level for the logs.
                </wadl:doc>
+            </param>
+            <param name="registered_time" style="plain" path="$.registered_time" >
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">Time the agent was registered.
+            </wadl:doc>
             </param>
             <param name="links" style="plain" path="$.links">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
@@ -1283,6 +1289,11 @@
                         xml:lang="EN">Level for the logs.
                      </wadl:doc>
                   </param>
+            <param name="registered_time" style="plain" path="$.agents.registered_time" >
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xml:lang="EN">Time the agent was registered.
+                     </wadl:doc>
+                  </param>
                   <param name="links" style="plain" path="$.agents.links">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
                         xml:lang="EN">Links with information about the agents.
@@ -1502,6 +1513,11 @@
                   xml:lang="EN">Level for the logs.
                </wadl:doc>
             </param>
+            <param name="registered_time" style="plain" path="$.registered_time" >
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Time the agent was registered.
+               </wadl:doc>
+            </param>
             <param name="links" style="plain" path="$.links">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Links with information about the agent.
@@ -1539,7 +1555,7 @@
                      <listitem><para><code>/enabled</code></para><para>Valid values are <code>true</code> or <code>false</code>.</para></listitem>
                      <listitem><para><code>/vault/region</code></para><para>A valid value is any of the vendor's valid region identifiers.</para></listitem>
                      <listitem><para><code>/vault/use_internal</code></para><para>Valid values are <code>true</code> or <code>false</code>.</para></listitem>
-                     <listitem><para><code>/log_level</code></para><para>Valid values are <code>all</code>, <code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, <code>error</code> (which is the default value), or <code>fatal</code>.</para></listitem>
+                     <listitem><para><code>/log_level</code></para><para>Valid values are <code>all</code>, <code>trace</code>, <code>debug</code>, <code>info</code>  (which is the default value), <code>warn</code>, <code>error</code>, or <code>fatal</code>.</para></listitem>
                   </itemizedlist>           
             <note><para>You can use the <code>add</code> and <code>replace</code> operations interchangeably as they are interpreted identically.</para>
                <para>When the response code is something other than 204, a response body is returned with additional information about the error.</para></note>
@@ -1572,22 +1588,22 @@
       <response status="204">                
          <doc title="No Content" xml:lang="EN"/>
          <representation mediaType="application/json">
-            <doc>
+            <doc title="Example 1: Update agent 204 response"> 
                <xsdxt:code href="../wadl/samples-v2/cbu-updateAgent_response1-json-http.txt"/>
             </doc>  
          </representation>
-<!--         <representation mediaType="application/json">
-            <doc title="Example 2: Update agent response">
+         <representation mediaType="application/json">
+            <doc title="Example 2: Update agent 403 response">
                <xsdxt:code href="../wadl/samples-v2/cbu-updateAgent_response2-json-http.txt"/>
                <xsdxt:code href="../wadl/samples-v2/cbu-updateAgent_response2.json"/>
             </doc>  
          </representation>
          <representation mediaType="application/json">
-            <doc title="Example 3: Update agent response">
+            <doc title="Example 3: Update agent 404 response">
                <xsdxt:code href="../wadl/samples-v2/cbu-updateAgent_response3-json-http.txt"/>
                <xsdxt:code href="../wadl/samples-v2/cbu-updateAgent_response3.json"/>
             </doc>  
-         </representation> -->
+         </representation> 
       </response>
 <!--      <response>                
 
@@ -5458,7 +5474,22 @@
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Creates a configuration. </para>
          <para xmlns="http://docbook.org/ns/docbook">This operation creates a configuration. </para>
          
-            <para>The following restrictions apply to the <code>inclusions</code> parameter:</para>
+         <para>The following restrictions apply to the <code>schedule</code> parameter:</para>
+         <itemizedlist>
+            <listitem><para>Only a single <code>recurrence</code> within a <code>schedule</code> is currently supported.</para></listitem>
+            <listitem><para>You must specify <code>time_zone</code> according to the <link
+               xlink:href="http://www.iana.org/time-zones">Internet Assigned Numbers Authority (IANA)</link> .</para></listitem>
+            <listitem><para>If <code>null</code> is provided for <code>schedule</code>, backups must be manually started for the
+               configuration.</para></listitem>
+         </itemizedlist> 
+         <note xmlns="http://docbook.org/ns/docbook"><para>Backups will be retained forever if <code>0</code> is provided to <code>retention/days</code>..</para></note>
+         <para>Following are some example schedules:</para>
+         <itemizedlist>
+            <listitem><para>Hourly: <code>RRULE:FREQ=HOURLY;INTERVAL=2</code></para></listitem>
+            <listitem><para>Daily: <code>RRULE:FREQ=DAILY;INTERVAL=1;BYHOUR=14;BYMINUTE=0</code></para></listitem>
+            <listitem><para>Weekly: <code>RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH;BYHOUR=14;BYMINUTE=0</code></para></listitem>
+         </itemizedlist>
+         <para>The following restrictions apply to the <code>inclusions</code> parameter:</para>
             <itemizedlist>
                <listitem><para>Multiple entries with the same <code>path</code> are forbidden.</para></listitem>
                <listitem><para>Entries with the same <code>path</code> as an entry in <code>exclusions</code> are forbidden.</para></listitem>
@@ -5472,6 +5503,7 @@
                <listitem><para>Files or folders cannot be excluded under existing exclusion rules.</para></listitem>
                <listitem><para>Each exclusion <code>path</code> must be included under an inclusion path.</para></listitem>
             </itemizedlist>
+         <note xmlns="http://docbook.org/ns/docbook"><para>At least one notifications must specify <code>on_failure</code> as <code>true</code>.</para></note>
       </wadl:doc>      
         
       
@@ -5540,6 +5572,11 @@
                            xml:lang="EN">The path to the object to include.
                         </wadl:doc> 
                      </param>
+                     <param name="path_encoded" style="plain" required="true" path="$.inclusions.path_encoded">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                           xml:lang="EN">The encoded path to the object to include.
+                        </wadl:doc> 
+                     </param>
             <param name="exclusions" style="plain" required="true" path="$.exclusions">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about what to exclude from the backup. See the beginning of this section for restrictions. 
@@ -5554,6 +5591,11 @@
                       <param name="path" style="plain" required="true" path="$.exclusions.path">
                          <wadl:doc xmlns="http://docbook.org/ns/docbook"
                             xml:lang="EN">The path to the object to exclude.
+                         </wadl:doc> 
+                      </param>
+                      <param name="path_encoded" style="plain" required="true" path="$.exclusions.path_encoded">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN">The encoded path to the object to exclude.
                          </wadl:doc> 
                       </param>
             <param name="notifications" style="plain" required="true" path="$.notifications">
@@ -5679,6 +5721,11 @@
                          xml:lang="EN">The path to the object to include.
                       </wadl:doc> 
                    </param>
+            <param name="path_encoded" style="plain" required="true" path="$.inclusions.path_encoded">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">The encoded path to the object to include.
+               </wadl:doc> 
+            </param>
             <param name="exclusions" style="plain" path="$.exclusions">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about what is excluded from the backup. 
@@ -5695,6 +5742,11 @@
                          xml:lang="EN">The path to the object to exclude.
                       </wadl:doc> 
                    </param>
+            <param name="path_encoded" style="plain" required="true" path="$.exclusions.path_encoded">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">The encoded path to the object to exclude.
+               </wadl:doc> 
+            </param>
             <param name="notifications" style="plain" path="$.notifications">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about notifications. Note that least one notification must specify <code>on_failure</code> as <code>true</code>.
