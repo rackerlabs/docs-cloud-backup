@@ -38,7 +38,7 @@
          </revision>
       </revhistory>
       <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-         <raxm:displayname>API Developer Guide</raxm:displayname>
+         <raxm:displayname>API Developer Guide, v2 (i)</raxm:displayname>
          <raxm:product version="v1.0">rcbu</raxm:product>
          <raxm:priority>20</raxm:priority>
       </raxm:metadata>
