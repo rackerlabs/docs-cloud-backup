@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _patch-update-an-agent-v2-project-id-agents-agent-id:
+.. _patch-update-an-agent:
 
 Update an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ Update an agent
 .. code::
 
     PATCH /v2/{project_id}/agents/{agent_id}
-
-Updates the specified agent.
 
 This operation updates the specified agent. Agents are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
@@ -21,15 +19,18 @@ You can modify values for only the following parameters, which are represented a
 *  ``/enabled``
    
    Valid values are ``true`` or ``false``.
+
 *  ``/vault/region``
    
-   A valid value is any of the vendor's valid region identifiers.
+   A valid value is any of the vendor's valid region identifiers. Values can only modified only if the vault is empty.
+
 *  ``/vault/use_internal``
    
    Valid values are ``true`` or ``false``.
+
 *  ``/log_level``
    
-   Valid values are ``all``, ``trace``, ``debug``, ``info``, ``warn``, ``error`` (which is the default value), or ``fatal``.
+   Valid values are ``all``, ``trace``, ``debug``, ``info`` (which is the default value), ``warn``, ``error`` , or ``fatal``.
 
 
 .. note::
@@ -44,27 +45,43 @@ You can modify values for only the following parameters, which are represented a
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|204                       |No Content               |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|201            | Created         | The request was fulfilled and has resulted in one or more |
+|               |                 | new resources being created.                              |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
+
 
 
 Request
@@ -148,13 +165,12 @@ Response
 
 
 
+This operation does not require a response body for the 204 response.
 
 
 
 
-
-
-**Example Update an agent: JSON response**
+**Example Update an agent: 204 response**
 
 
 .. code::
@@ -162,5 +178,31 @@ Response
    204 (No Content)
 
 
+**Example Update an agent: 403 response**
 
 
+.. code::
+
+   403 (Forbidden)
+   Content-Type:application/json  
+
+.. code::
+
+   {
+  "message": "The vault property (region) cannot be updated, reason: vault is not empty."
+   }   
+   
+**Example Update an agent: 404 response**
+
+
+.. code::
+
+   404 (Not Found)
+   Content-Type:application/json  
+
+.. code::
+
+   {
+  "message": "Agent not found."
+   }
+   

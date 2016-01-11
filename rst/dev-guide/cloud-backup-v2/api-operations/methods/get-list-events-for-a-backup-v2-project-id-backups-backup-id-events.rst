@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-events-for-a-backup-v2-project-id-backups-backup-id-events:
+.. _get-list-events-for-a-backup:
 
 List events for a backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,8 +10,6 @@ List events for a backup
 
     GET /v2/{project_id}/backups/{backup_id}/events
 
-Lists events for the specified backup.
-
 This operation lists all events for the specified backup. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring a running backup. 
 
 
@@ -19,27 +17,41 @@ This operation lists all events for the specified backup. You should consider th
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -91,7 +103,7 @@ This table shows the query parameters for the request:
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
-|                          |                         |value is ``desc``.       |
+|                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -102,7 +114,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for a backup: JSON request**
+**Example List events for a backup: HTTP request**
 
 
 .. code::
@@ -125,76 +137,88 @@ Response
 
 This table shows the body parameters for the response:
 
-+---------------------------+-------------------------+------------------------+
-|Name                       |Type                     |Description             |
-+===========================+=========================+========================+
-|\ **events**               |String                   |Information about       |
-|                           |                         |events for the backup.  |
-+---------------------------+-------------------------+------------------------+
-|events.\ **id**            |String                   |ID of the event.        |
-+---------------------------+-------------------------+------------------------+
-|events.\ **time**          |String                   |Time of the event.      |
-+---------------------------+-------------------------+------------------------+
-|\ **event**s.\ **event**   |String                   |Type of the event.      |
-+---------------------------+-------------------------+------------------------+
-|events.\ **agent**         |String                   |Information about the   |
-|                           |                         |agent for each          |
-|                           |                         |``event``.              |
-+---------------------------+-------------------------+------------------------+
-|events.agent.\ **id**      |String                   |ID of the agent.        |
-+---------------------------+-------------------------+------------------------+
-|events.agent.\ **vault**   |String                   |Information about the   |
-|                           |                         |vault for the backup.   |
-+---------------------------+-------------------------+------------------------+
-|events.agent.vault.\ **id**|String                   |ID of the vault.        |
-+---------------------------+-------------------------+------------------------+
-|events.agent.vault.\       |String                   |Specifies whether the   |
-|**encrypted**              |                         |vault is encrypted.     |
-+---------------------------+-------------------------+------------------------+
-|events.\ **configuration** |String                   |Information about the   |
-|                           |                         |configuration for each  |
-|                           |                         |``event``.              |
-+---------------------------+-------------------------+------------------------+
-|events.configuration.\     |String                   |ID of the configuration.|
-|**id**                     |                         |                        |
-+---------------------------+-------------------------+------------------------+
-|events.\ **backup**        |String                   |Information about the   |
-|                           |                         |backup for each         |
-|                           |                         |``event``.              |
-+---------------------------+-------------------------+------------------------+
-|events.backup.\ **id**     |String                   |ID of the backup.       |
-+---------------------------+-------------------------+------------------------+
-|events.backup.\            |String                   |ID of the snapshot.     |
-|**snapshot_id**            |                         |                        |
-+---------------------------+-------------------------+------------------------+
-|events.\ **request_id**    |String                   |ID of the request.      |
-+---------------------------+-------------------------+------------------------+
-|events.\                   |String                   |Number of bytes         |
-|**bytes_completed**        |                         |completed.              |
-+---------------------------+-------------------------+------------------------+
-|events.\                   |String                   |Number of bytes         |
-|**bytes_remaining**        |                         |remaining.              |
-+---------------------------+-------------------------+------------------------+
-|events.\ **total_bytes**   |String                   |Total number of bytes.  |
-+---------------------------+-------------------------+------------------------+
-|events.\ **path**          |String                   |Path for the browse     |
-|                           |                         |request.                |
-+---------------------------+-------------------------+------------------------+
-|events.\ **path_encoded**  |String                   |Encoded path for the    |
-|                           |                         |browse request.         |
-+---------------------------+-------------------------+------------------------+
-|events.\                   |String                   |Encrypted password in   |
-|**encrypted_password_hex** |                         |hexadecimal notation.   |
-+---------------------------+-------------------------+------------------------+
-|\ **links**                |String                   |Links for the next and  |
-|                           |                         |previous events.        |
-+---------------------------+-------------------------+------------------------+
-|links.\ **href**           |String                   |Location (URI).         |
-+---------------------------+-------------------------+------------------------+
-|links.\ **rel**            |String                   |How the href link       |
-|                           |                         |provided is related to  |
-|                           |                         |this resource URI.      |
-+---------------------------+-------------------------+------------------------+
++---------------------------+-----------------------+--------------------------+
+|Name                       |Type                   |Description               |
++===========================+=======================+==========================+
+|\ **events**               |String                 |Information about events  |
+|                           |                       |for the backup.           |
++---------------------------+-----------------------+--------------------------+
+|events.\ **id**            |String                 |ID of the event.          |
++---------------------------+-----------------------+--------------------------+
+|events.\ **time**          |String                 |Time of the event.        |
++---------------------------+-----------------------+--------------------------+
+|\ **event**s.\ **event**   |String                 |Type of the event.        |
++---------------------------+-----------------------+--------------------------+
+|events.\ **agent**         |String                 |Information about the     |
+|                           |                       |agent for each ``event``. |
++---------------------------+-----------------------+--------------------------+
+|events.agent.\ **id**      |String                 |ID of the agent.          |
++---------------------------+-----------------------+--------------------------+
+|events.agent.\ **vault**   |String                 |For ``backup_browse``     |
+|                           |                       |events, information about |
+|                           |                       |the vault for the backup. |
++---------------------------+-----------------------+--------------------------+
+|events.agent.vault.\ **id**|String                 |For ``backup_browse``     |
+|                           |                       |events, the ID of the     |
+|                           |                       |vault.                    |
++---------------------------+-----------------------+--------------------------+
+|events.agent.vault.\       |String                 |For ``backup_browse``     |
+|**encrypted**              |                       |events, specifies whether |
+|                           |                       |the vault is encrypted.   |
++---------------------------+-----------------------+--------------------------+
+|events.\ **configuration** |String                 |Information about the     |
+|                           |                       |configuration for each    |
+|                           |                       |``event``.                |
++---------------------------+-----------------------+--------------------------+
+|events.configuration.\     |String                 |ID of the configuration.  |
+|**id**                     |                       |                          |
++---------------------------+-----------------------+--------------------------+
+|events.\ **backup**        |String                 |Information about the     |
+|                           |                       |backup for each ``event``.|
++---------------------------+-----------------------+--------------------------+
+|events.backup.\ **id**     |String                 |ID of the backup.         |
++---------------------------+-----------------------+--------------------------+
+|events.backup.\            |String                 |ID of the snapshot.       |
+|**snapshot_id**            |                       |                          |
++---------------------------+-----------------------+--------------------------+
+|events.\ **request_id**    |String                 |ID of the request (for    |
+|                           |                       |``backup_start``,         |
+|                           |                       |``backup_missed``,        |
+|                           |                       |``backup_skipped``,       |
+|                           |                       |``backup_stop_request``,  |
+|                           |                       |and ``backup_browse``     |
+|                           |                       |events.                   |
++---------------------------+-----------------------+--------------------------+
+|events.\                   |String                 |Number of bytes completed.|
+|**bytes_completed**        |                       |                          |
++---------------------------+-----------------------+--------------------------+
+|events.\                   |String                 |Number of bytes remaining.|
+|**bytes_remaining**        |                       |                          |
++---------------------------+-----------------------+--------------------------+
+|events.\ **total_bytes**   |String                 |Total number of bytes.    |
++---------------------------+-----------------------+--------------------------+
+|events.\ **path**          |String                 |For ``backup_browse``     |
+|                           |                       |events, the path for the  |
+|                           |                       |browse request.           |
++---------------------------+-----------------------+--------------------------+
+|events.\ **path_encoded**  |String                 |For ``backup_browse``     |
+|                           |                       |events, the encoded path  |
+|                           |                       |for the browse request.   |
++---------------------------+-----------------------+--------------------------+
+|events.\                   |String                 |For ``backup_browse``     |
+|**encrypted_password_hex** |                       |events, the encrypted     |
+|                           |                       |password in hexadecimal   |
+|                           |                       |notation.                 |
++---------------------------+-----------------------+--------------------------+
+|\ **links**                |String                 |Links for the next and    |
+|                           |                       |previous events.          |
++---------------------------+-----------------------+--------------------------+
+|links.\ **href**           |String                 |Location (URI).           |
++---------------------------+-----------------------+--------------------------+
+|links.\ **rel**            |String                 |How the href link         |
+|                           |                       |provided is related to    |
+|                           |                       |this resource URI.        |
++---------------------------+-----------------------+--------------------------+
 
 
 
@@ -214,7 +238,7 @@ This table shows the body parameters for the response:
 .. code::
 
    {
-   "events": [
+       "events": [
            {
                "id": "5152883867",
                "time": "2014-08-05T18:22:21.238641Z",
@@ -329,7 +353,8 @@ This table shows the body parameters for the response:
                },
                "backup": {
                    "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d"
-               }
+               },
+               "request_id": "25243c6d-b853-41f1-86a9-7a90d2d656ba"
            },
            {
                "id": "5152883998",
@@ -343,7 +368,8 @@ This table shows the body parameters for the response:
                },
                "backup": {
                    "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d"
-               }
+               },
+               "request_id": "5a8714d4-8178-499c-8632-2e8792a08339"
            },
            {
                "id": "5152883999",
@@ -357,7 +383,8 @@ This table shows the body parameters for the response:
                },
                "backup": {
                    "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d"
-               }
+               },
+               "request_id": "d60c3459-9f0b-4faf-98eb-4c2f40056c16"
            },
            {
                "id": "5152884000",
@@ -406,7 +433,7 @@ This table shows the body parameters for the response:
                "rel": "previous"
            }
        ]
-    }   
+   }
 
 
 

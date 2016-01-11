@@ -7,10 +7,13 @@
 .. toctree:: 
    :maxdepth: 2
 
-   bu-agents-operations
-   bu-user-operations
-   bu-config-operations
-   bu-operations
-   bu-restore-config-operations
-   bu-restore-operations
-   bu-activity-operations   
+   bu2-healthCheck-operations
+   bu2-activity-operations   
+   bu2-agent-operations
+   bu2-backup-operations   
+   bu2-cleanup-operations
+   bu2-config-operations
+   bu2-event-operations   
+   bu2-restore-operations
+   bu2-summarySettings-operations
+    

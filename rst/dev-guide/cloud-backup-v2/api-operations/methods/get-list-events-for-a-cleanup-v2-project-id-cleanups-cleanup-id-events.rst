@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-events-for-a-cleanup-v2-project-id-cleanups-cleanup-id-events:
+.. _get-list-events-for-a-cleanup:
 
 List events for a cleanup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,8 +10,6 @@ List events for a cleanup
 
     GET /v2/{project_id}/cleanups/{cleanup_id}/events
 
-Lists the events for the specified cleanup.
-
 This operation lists all events for the specified cleanup. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring a running cleanup. 
 
 
@@ -19,27 +17,41 @@ This operation lists all events for the specified cleanup. You should consider t
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -91,7 +103,7 @@ This table shows the query parameters for the request:
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
-|                          |                         |value is ``desc``.       |
+|                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -102,7 +114,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for a cleanup: JSON request**
+**Example List events for a cleanup: HTTP request**
 
 
 .. code::
@@ -125,47 +137,52 @@ Response
 
 This table shows the body parameters for the response:
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|\ **events**              |String                   |Information about events |
-|                          |                         |for the backup.          |
-+--------------------------+-------------------------+-------------------------+
-|events.\ **id**           |String                   |ID of the event.         |
-+--------------------------+-------------------------+-------------------------+
-|events.\ **time**         |String                   |Time of the event.       |
-+--------------------------+-------------------------+-------------------------+
-|\ **event**s.\ **event**  |String                   |Type of the event.       |
-+--------------------------+-------------------------+-------------------------+
-|events.\ **agent**        |String                   |Information about the    |
-|                          |                         |agent for each ``event``.|
-+--------------------------+-------------------------+-------------------------+
-|events.agent.\ **id**     |String                   |Agent ID.                |
-+--------------------------+-------------------------+-------------------------+
-|events.agent.\ **vault**  |String                   |Information about the    |
-|                          |                         |vault for the cleanup.   |
-+--------------------------+-------------------------+-------------------------+
-|events.agent.vault.\      |String                   |ID of the vault.         |
-|**id**                    |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|events.agent.vault.\      |String                   |Specifies whether the    |
-|**encrypted**             |                         |vault is encrypted.      |
-+--------------------------+-------------------------+-------------------------+
-|events.\ **cleanup**      |String                   |Information about the    |
-|                          |                         |cleanup for each         |
-|                          |                         |``event``.               |
-+--------------------------+-------------------------+-------------------------+
-|events.cleanup.\ **id**   |String                   |ID of the cleanup.       |
-+--------------------------+-------------------------+-------------------------+
-|\ **links**               |String                   |Link information for the |
-|                          |                         |next and previous events.|
-+--------------------------+-------------------------+-------------------------+
-|links.\ **href**          |String                   |Location (URI).          |
-+--------------------------+-------------------------+-------------------------+
-|links.\ **rel**           |String                   |How the href link        |
-|                          |                         |provided is related to   |
-|                          |                         |this resource URI.       |
-+--------------------------+-------------------------+-------------------------+
++-------------------------+------------------------+---------------------------+
+|Name                     |Type                    |Description                |
++=========================+========================+===========================+
+|\ **events**             |String                  |Information about events   |
+|                         |                        |for the backup.            |
++-------------------------+------------------------+---------------------------+
+|events.\ **id**          |String                  |ID of the event.           |
++-------------------------+------------------------+---------------------------+
+|events.\ **time**        |String                  |Time of the event.         |
++-------------------------+------------------------+---------------------------+
+|\ **event**s.\ **event** |String                  |Type of the event.         |
++-------------------------+------------------------+---------------------------+
+|events.\ **agent**       |String                  |Information about the      |
+|                         |                        |agent for each ``event``.  |
++-------------------------+------------------------+---------------------------+
+|events.agent.\ **id**    |String                  |Agent ID.                  |
++-------------------------+------------------------+---------------------------+
+|events.agent.\ **vault** |String                  |Information about the      |
+|                         |                        |vault for the cleanup.     |
++-------------------------+------------------------+---------------------------+
+|events.agent.vault.\     |String                  |ID of the vault.           |
+|**id**                   |                        |                           |
++-------------------------+------------------------+---------------------------+
+|events.agent.vault.\     |String                  |Specifies whether the      |
+|**encrypted**            |                        |vault is encrypted.        |
++-------------------------+------------------------+---------------------------+
+|events.\ **cleanup**     |String                  |Information about the      |
+|                         |                        |cleanup for each ``event``.|
++-------------------------+------------------------+---------------------------+
+|events.cleanup.\ **id**  |String                  |ID of the cleanup.         |
++-------------------------+------------------------+---------------------------+
+|events.\ **request_id**  |String                  |For                        |
+|                         |                        |``cleanup_start_request``  |
+|                         |                        |and                        |
+|                         |                        |``cleanup_stop_request``   |
+|                         |                        |events, the request ID.    |
++-------------------------+------------------------+---------------------------+
+|\ **links**              |String                  |Link information for the   |
+|                         |                        |next and previous events.  |
++-------------------------+------------------------+---------------------------+
+|links.\ **href**         |String                  |Location (URI).            |
++-------------------------+------------------------+---------------------------+
+|links.\ **rel**          |String                  |How the href link provided |
+|                         |                        |is related to this         |
+|                         |                        |resource URI.              |
++-------------------------+------------------------+---------------------------+
 
 
 
@@ -199,7 +216,8 @@ This table shows the body parameters for the response:
                },
                "cleanup": {
                    "id": "2f8708b3-d16b-11e4-bc22-c8e0eb190e3d"
-               }
+               },
+               "request_id": "cb09ab38-c98b-4910-8034-99127beb07b0"
            },
            {
                "id": "5690138409",
@@ -254,7 +272,8 @@ This table shows the body parameters for the response:
                },
                "cleanup": {
                    "id": "2f8708b3-d16b-11e4-bc22-c8e0eb190e3d"
-               }
+               },
+               "request_id": "ea588e78-e33c-4c3d-af0c-32103928f399"
            },
            {
                "id": "5690138414",
