@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _post-start-a-backup-v2-project-id-backups:
+.. _post-start-a-backup:
 
 Start a backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,12 +10,10 @@ Start a backup
 
     POST /v2/{project_id}/backups
 
-Starts a backup. 
-
 This operation starts a backup. Start backups by specifying one of the following states: 
 
 * ``start_requested`` : A manual backup is requested by a user.
-* ``start_scheduled`` : A scheduled backup is started by the agent.
+* ``start_scheduled`` : A scheduled backup is started by the agent. ``start_scheduled`` requires that the ``X-Agent-Id`` header is in the request.
 
 
 
@@ -25,31 +23,60 @@ This operation starts a backup. Start backups by specifying one of the following
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|201                       |Created                  |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|201            | Created         | The request was fulfilled and has resulted in one or more |
+|               |                 | new resources being created.                              |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
 """"""""""""""""
+
+
+This table shows the header parameters for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|X-Agent-Id                |String                   |Agent ID, which is       |
+|                          |                         |required when you        |
+|                          |                         |specify the state        |
+|                          |                         |``start_scheduled``. For |
+|                          |                         |example, 8f135b4f-7a69-  |
+|                          |                         |4b8a-947f-5e80d772fd97.  |
++--------------------------+-------------------------+-------------------------+
 
 
 
@@ -68,32 +95,12 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|configuarion_id           |String *(Required)*      |ID of the configuration, |
-|                          |                         |for example, ``7c8ee069- |
-|                          |                         |568f-4d5a-932f-          |
-|                          |                         |fb2af86b5fd5``,          |
-|                          |                         |``abf89721-616e-4922-    |
-|                          |                         |94d4-29757d6a8671``.     |
-+--------------------------+-------------------------+-------------------------+
-|\ **state**               |String *(Required)*      |Backup state. Either     |
-|                          |                         |``start_requested``, a   |
-|                          |                         |manual backup requested  |
-|                          |                         |by a user, or            |
-|                          |                         |``start_scheduled``, a   |
-|                          |                         |scheduled backup started |
-|                          |                         |by the agent.            |
-+--------------------------+-------------------------+-------------------------+
+This operation does not accept a request body.
 
 
 
 
-
-**Example Start a backup: JSON request**
+**Example Start a backup: HTTP request**
 
 
 .. code::

@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _post-create-a-configuration-v2-project-id-configurations:
+.. _post-create-a-configuration:
 
 Create a configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,23 +10,36 @@ Create a configuration
 
     POST /v2/{project_id}/configurations
 
-Creates a configuration. 
-
 This operation creates a configuration. 
 
+The following restrictions apply to the ``schedule`` parameter:
+
+*  Only a single ``recurrence`` within a ``schedule`` is currently supported.
+*  You must specify ``time_zone`` according to the `Internet Assigned Numbers Authority (IANA) Time Zone Database`_. 
+*  If ``null`` is provided for ``schedule``, backups must be manually started for the
+   configuration.
+
+.. note::
+
+   Backups will be retained forever if ``0`` is provided to ``retention/days``.
+
+
+Following are some example schedules:
+
+*  Hourly: ``RRULE:FREQ=HOURLY;INTERVAL=2``
+
+*  Daily: ``RRULE:FREQ=DAILY;INTERVAL=1;BYHOUR=14;BYMINUTE=0``
+
+*  Weekly: ``RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH;BYHOUR=14;BYMINUTE=0``
+
 The following restrictions apply to the ``inclusions`` parameter:
-
-
 
 *  Multiple entries with the same ``path`` are forbidden.
 *  Entries with the same ``path`` as an entry in ``exclusions`` are forbidden.
 *  Files or folders cannot be included under existing inclusion rules.
 *  Files or folders cannot be included under existing exclusion rules.
 
-
 The following restrictions apply to the ``exclusions`` parameter:
-
-
 
 *  Multiple entries with the same ``path`` are forbidden.
 *  Entries with the same ``path`` as an entry in ``inclusions`` are forbidden.
@@ -34,32 +47,49 @@ The following restrictions apply to the ``exclusions`` parameter:
 *  Each exclusion ``path`` must be included under an inclusion path.
 
 
+.. note::
 
+   At least one notifications must specify ``on_failure`` as ``true``.
 
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|201                       |Created                  |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|201            | Created         | The request was fulfilled and has resulted in one or more |
+|               |                 | new resources being created.                              |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -138,6 +168,9 @@ This table shows the body parameters for the request:
 |inclusions.\ **path**    |String *(Required)*     |The path to the object to  |
 |                         |                        |include.                   |
 +-------------------------+------------------------+---------------------------+
+|inclusions.\             |String *(Required)*     |The encoded path to the    |
+| **path_encoded**        |                        |object to include.         |
++-------------------------+------------------------+---------------------------+
 |\ **exclusions**         |String *(Required)*     |Information about what to  |
 |                         |                        |exclude from the backup.   |
 |                         |                        |See the beginning of this  |
@@ -149,6 +182,9 @@ This table shows the body parameters for the request:
 +-------------------------+------------------------+---------------------------+
 |exclusions.\ **path**    |String *(Required)*     |The path to the object to  |
 |                         |                        |exclude.                   |
++-------------------------+------------------------+---------------------------+
+|exclusions.\             |String *(Required)*     |The encoded path to the    |
+| **path_encoded**        |                        |object to include.         |
 +-------------------------+------------------------+---------------------------+
 |\ **notifications**      |String *(Required)*     |Information about          |
 |                         |                        |notifications. Note that   |
@@ -204,21 +240,25 @@ This table shows the body parameters for the request:
        "inclusions": [
            {
                "type": "folder",
-               "path": "/web/"
+               "path": "/web/“,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            },
            {
                "type": "file",
-               "path": "/etc/web/app.conf"
+               "path": "/etc/web/app.conf”,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            }
        ],
        "exclusions": [
            {
                "type": "folder",
-               "path": "/web/cache/"
+               "path": "/web/cache/“,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            },
            {
                "type": "file",
                "path": "/web/cache.jpg"
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            }
        ],
        "notifications": [
@@ -307,6 +347,9 @@ This table shows the body parameters for the response:
 |inclusions.\ **path**     |String                   |The path to the object   |
 |                          |                         |to include.              |
 +--------------------------+-------------------------+-------------------------+
+|inclusions.\              |String                   |The encoded path to the  |
+| **path_encoded**         |                         |object to include.       |
++--------------------------+-------------------------+-------------------------+
 |\ **exclusions**          |String                   |Information about what   |
 |                          |                         |is excluded from the     |
 |                          |                         |backup.                  |
@@ -317,6 +360,9 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |exclusions.\ **path**     |String                   |The path to the object   |
 |                          |                         |to exclude.              |
++--------------------------+-------------------------+-------------------------+
+|exclusions.\              |String *(Required)*      |The encoded path to the  |
+| **path_encoded**         |                         |object to include.       |
 +--------------------------+-------------------------+-------------------------+
 |\ **notifications**       |String                   |Information about        |
 |                          |                         |notifications. Note that |
@@ -411,21 +457,25 @@ This table shows the body parameters for the response:
        "inclusions": [
            {
                "type": "folder",
-               "path": "/web/"
+               "path": "/web/“,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            },
            {
                "type": "file",
-               "path": "/etc/web/app.conf"
+               "path": "/etc/web/app.conf”,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            }
        ],
        "exclusions": [
            {
                "type": "folder",
-               "path": "/web/cache/"
+               "path": "/web/cache/“,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            },
            {
                "type": "file",
-               "path": "/web/cache.jpg"
+               "path": "/web/cache.jpg”,
+               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            }
        ],
        "notifications": [
@@ -459,6 +509,5 @@ This table shows the body parameters for the response:
        ]
    }
 
-
-
+.. _Internet Assigned Numbers Authority (IANA) Time Zone Database: http://www.iana.org/time-zones
 

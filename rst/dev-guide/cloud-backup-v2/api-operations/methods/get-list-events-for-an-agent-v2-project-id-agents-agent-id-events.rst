@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-events-for-an-agent-v2-project-id-agents-agent-id-events:
+.. _get-list-events-for-an-agent:
 
 List events for an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ List events for an agent
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/events
-
-Lists events for the specified agent.
 
 This operation lists all events for the specified agent. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring an agent's current activity. 
 
@@ -33,27 +31,41 @@ You can find additional event information in the following operation description
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -93,9 +105,9 @@ This table shows the query parameters for the request:
 |                          |                         |continuously monitoring  |
 |                          |                         |this endpoint for new    |
 |                          |                         |events, so that old      |
-|                          |                         |events are not repeated  |
-|                          |                         |back to you in           |
-|                          |                         |subsequent calls.        |
+|                          |                         |events are not           |
+|                          |                         |repeatedly listed for    |
+|                          |                         |you in subsequent calls. |
 +--------------------------+-------------------------+-------------------------+
 |limit                     |Integer *(Optional)*     |Number of events to      |
 |                          |                         |list. The default value  |
@@ -105,7 +117,7 @@ This table shows the query parameters for the request:
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
-|                          |                         |value is ``desc``.       |
+|                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -116,7 +128,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for an agent: JSON request**
+**Example List events for an agent: HTTP request**
 
 
 .. code::
@@ -149,7 +161,9 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.\ **time**              |String   |Time of the event.                  |
 +-------------------------------+---------+------------------------------------+
-|\ **event**s.\ **event**       |String   |Type of the event.                  |
+|\ **event**s.\ **event**       |String   |Type of the event. You can see the  |
+|                               |         |types of events in the response     |
+|                               |         |example below.                      |
 +-------------------------------+---------+------------------------------------+
 |events.\ **agent**             |String   |Information about the agent for     |
 |                               |         |each ``event`` except ``mode``.     |
@@ -160,8 +174,8 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.agent.\ **host**        |String   |Information about the host.         |
 +-------------------------------+---------+------------------------------------+
-|events.agent.h\ **os**t.\      |String   |Information about the operating     |
-|**os**                         |         |system for the host.                |
+|events.agent.host.\ **os**     |String   |Information about the operating     |
+|                               |         |system for the host.                |
 +-------------------------------+---------+------------------------------------+
 |events.agent.host.os.\ **name**|String   |Name of the operating system.       |
 +-------------------------------+---------+------------------------------------+
@@ -171,10 +185,16 @@ This table shows the body parameters for the response:
 |events.agent.host.os.\         |String   |Architecture of the operating       |
 |**architecture**               |         |system.                             |
 +-------------------------------+---------+------------------------------------+
+|events.\ **request_id**        |String   |ID of the request.                  |
++-------------------------------+---------+------------------------------------+
 |events.\ **mode**              |String   |Mode of the event when ``event`` is |
 |                               |         |``agent_activate``.                 |
 +-------------------------------+---------+------------------------------------+
 |events.\ **request_id**        |String   |ID of the request when ``event`` is |
+|                               |         |``agent_activate``,                 |
+|                               |         |``agent_registered``,               |
+|                               |         |``agent_shutdown``,                 |
+|                               |         |``configuration_changes``,          |
 |                               |         |``vault_encryption_enable``,        |
 |                               |         |``vault_encryption_change``,        |
 |                               |         |``vault_password_verify``,          |
@@ -184,7 +204,7 @@ This table shows the body parameters for the response:
 |                               |         |``host_browse``,                    |
 |                               |         |``logfile_upload``,                 |
 |                               |         |``logfile_upload``, or              |
-|                               |         |``logfile_completed`` .             |
+|                               |         |``logfile_completed``.              |
 +-------------------------------+---------+------------------------------------+
 |events.\                       |String   |Encrypted old password when         |
 |**old_encrypted_password_hex** |         |``event`` is                        |
@@ -241,8 +261,8 @@ This table shows the body parameters for the response:
    {
        "events": [
            {
-               "id": "5650135583",
-               "time": "2014-10-09T12:26:15.233501Z",
+               "id": "5650135582",
+               "time": "2014-10-09T12:26:14.233501Z",
                "event": "agent_registered",
                "agent": {
                    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
@@ -254,21 +274,32 @@ This table shows the body parameters for the response:
                            "architecture": "64-bit"
                        }
                    }
-               }
+               },
+               "request_id": "a3ab3016-5af4-4a4a-a1ea-46a37b04b327"
+           },
+           {
+               "id": "5650135583",
+               "time": "2014-10-09T12:26:15.233501Z",
+               "event": "agent_activate",
+               "mode": "active",
+               "request_id": "129cf219-d260-43e4-9164-233fd0ea3a6b"
            },
            {
                "id": "5650135584",
                "time": "2014-10-09T12:26:16.233501Z",
-               "event": "agent_activate",
-               "mode": "active"
-           },
-           {
-               "id": "5650135585",
-               "time": "2014-10-09T12:26:17.233501Z",
                "event": "agent_heartbeat",
                "agent": {
                    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
                }
+           },
+           {
+               "id": "5650135585",
+               "time": "2014-10-09T12:26:17.233501Z",
+               "event": "agent_shutdown",
+               "agent": {
+                   "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
+               },
+               "request_id": "1a6ded7a-03f0-4f2e-bbee-bc2d9973c980"
            },
            {
                "id": "5650135586",
@@ -276,7 +307,8 @@ This table shows the body parameters for the response:
                "event": "configuration_changed",
                "agent": {
                    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97"
-               }
+               },
+               "request_id": "4a0d123c-43ac-4556-a232-6c3a8c00d4ce"
            },
            {
                "id": "5650135587",
@@ -383,11 +415,11 @@ This table shows the body parameters for the response:
        ],
        "links": [
            {
-               "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d/events?marker=5650135596",
+               "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/events?marker=5650135596",
                "rel": "next"
            },
            {
-               "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d/events?marker=5650135583&sort_dir=desc",
+               "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/events?marker=5650135582&sort_dir=desc",
                "rel": "previous"
            }
        ]

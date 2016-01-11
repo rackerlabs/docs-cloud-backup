@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-agents-for-a-project-v2-project-id-agents:
+.. _get-list-agents:
 
 List agents for a project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ List agents for a project
 .. code::
 
     GET /v2/{project_id}/agents
-
-Lists the agents for the specified project. 
 
 This operation lists all of the agents for a project.
 
@@ -21,27 +19,41 @@ If no agents have been created for the project, the ``agents`` parameter in the 
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -82,7 +94,7 @@ This operation does not accept a request body.
 
 
 
-**Example List agents for a project: JSON request**
+**Example List agents for a project: HTTP request**
 
 
 .. code::
@@ -142,7 +154,7 @@ This table shows the body parameters for the response:
 |**rel**                      |                        |provided is related to |
 |                             |                        |this resource URI.     |
 +-----------------------------+------------------------+-----------------------+
-|agents.h\ **os**t.\ **os**   |String                  |Information about the  |
+|agents.host.\ **os**         |String                  |Information about the  |
 |                             |                        |operating system.      |
 +-----------------------------+------------------------+-----------------------+
 |agents.host.os.\ **name**    |String                  |Name of the operating  |
@@ -161,8 +173,8 @@ This table shows the body parameters for the response:
 |**version**                  |                        |(4 for IPv4 or 6 for   |
 |                             |                        |IPv6).                 |
 +-----------------------------+------------------------+-----------------------+
-|agents.host.\                |String                  |IP address.            |
-|**addr**esses.\ **addr**     |                        |                       |
+|agents.host.addresses.\      |String                  |IP address.            |
+|**addr**                     |                        |                       |
 +-----------------------------+------------------------+-----------------------+
 |agents.\ **enabled**         |String                  |Specifies whether the  |
 |                             |                        |agent is enabled.      |
@@ -204,6 +216,9 @@ This table shows the body parameters for the response:
 |                             |                        |this resource URI.     |
 +-----------------------------+------------------------+-----------------------+
 |agents.\ **log_level**       |String                  |Level for the logs.    |
++-----------------------------+------------------------+-----------------------+
+|agents.\ **registered_time** |String                  |Time agent was         |
+|                             |                        |registered.            |
 +-----------------------------+------------------------+-----------------------+
 |agents.\ **links**           |String                  |Links with information |
 |                             |                        |about the agents.      |
@@ -291,6 +306,7 @@ This table shows the body parameters for the response:
                    ]
                },
                "log_level": "warn",
+               "registered_time": "2014-10-27T18:22:00.238640+00:00",
                "links": [
                    {
                        "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",

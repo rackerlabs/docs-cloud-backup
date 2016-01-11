@@ -15,9 +15,11 @@ The Rackspace Cloud Backup API is implemented using a RESTful web service interf
    role-based-access-control
    service-access-endpoints
    service-versions
-   request-and-response-types
-   limits
-   response-codes  
+   request-and-response-types   
+   response-codes
+   limits   
+   agent-header
+   links-parameter  
      
       
    

@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-details-for-the-log-files-for-an-agent-v2-project-id-agents-agent-id-logfiles-logfile-id:
+.. _get-list-details-for-the-log-files-for-an-agent:
 
 List details for the log files for an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,8 +10,6 @@ List details for the log files for an agent
 
     GET /v2/{project_id}/agents/{agent_id}/logfiles/{logfile_id}
 
-Lists details for the specified log file for the specified agent.
-
 This operation lists details for the specified log file for the specified agent.
 
 
@@ -19,27 +17,6 @@ This operation lists details for the specified log file for the specified agent.
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
 
 
 Request
@@ -75,7 +52,7 @@ This operation does not accept a request body.
 
 
 
-**Example List details for the log files for an agent: JSON request**
+**Example List details for the log files for an agent: HTTP request**
 
 
 .. code::

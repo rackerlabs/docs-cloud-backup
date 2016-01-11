@@ -54,14 +54,14 @@ builder = 'deconst-single'
 
 # General information about the project.
 project = 'Rackspace Developer Documentation'
-copyright = '2015, Rackspace'
+copyright = '2016, Rackspace'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '1'
+version = '2'
 # The full version, including alpha/beta/rc tags.
 release = '1'
 
@@ -71,7 +71,7 @@ release = '1'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
-#today = ''
+#today = 'September 29, 2015'
 # Else, today_fmt is used as the format for a strftime call.
 #today_fmt = '%B %d, %Y'
 
@@ -101,22 +101,39 @@ pygments_style = 'sphinx'
 extlinks = {
     'rax': ('http://www.rackspace.com/%s', ''),
     'rax-cloud': ('http://www.rackspace.com/cloud/%s', ''),
-    'rax-docs': ('http://docs.rackspace.com/%s', ''),
     'rax-dev': ('https://developer.rackspace.com/%s', ''),
-    'rax-api': ('http://api.rackspace.com/%s', ''),
+    'rax-devdocs': ('http://developer.rackspace.com/docs/%s', ''),
+    'rax-devguide':('http:/developer.rackspace.com/docs/%s/developer-guide/',''),
+    'rax-api': ('http:/developer.rackspace.com/docs/%s/developer-guide/#api-reference',''),
     'rax-git': ('https://github.com/rackspace/%s', ''),
     'mycloud': ('https://mycloud.rackspace.com/%s', ''),
     'kc': ('http://www.rackspace.com/knowledge_center/%s', ''),
     'kc-article': ('http://www.rackspace.com/knowledge_center/article/%s', ''),
-    'kc-faq': ('http://www.rackspace.com/knowledge_center/frequently-asked-question/%s', ''),
-    'kc-product-faq': ('http://www.rackspace.com/knowledge_center/product-faq/%s', ''),
+    'kc-faq': ('http://www.rackspace.com/knowledge_center/'
+               'frequently-asked-question/%s', ''),
+    'kc-product-faq': ('http://www.rackspace.com/knowledge_center/'
+                       'product-faq/%s', ''),
     'os': ('http://www.openstack.org/%s', ''),
     'os-docs': ('http://docs.openstack.org/%s', ''),
     'os-wiki': ('http://wiki.openstack.org/%s', ''),
-    'git-repo': ('https://github.com/rackerlabs/docs-core-infra-user-guide/%s', ''),
+    'git-repo': ('https://github.com/rackerlabs/'
+                 'docs-core-infra-user-guide/%s', ''),
     'rackerlabs': ('https://github.com/rackerlabs/%s', ''),
     'rocket': ('https://objectrocket.com/%s', '')
 }
+
+# Global variables that are replaced by the specified value during the build process.
+
+rst_epilog = """
+.. |apiservice| replace:: Rackspace Cloud Backup API
+.. |no changes| replace:: None for this release.
+.. |contract version| replace:: 2.0
+.. |product name| replace:: Rackspace Cloud Backup
+"""
+
+
+#Software release.version currently deployed in production.
+release='v2.'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -141,7 +158,7 @@ extlinks = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Rackspace Cloud Backup version 1.0 API Developer Guide'
+html_title = 'Rackspace Cloud Backup version 2.0 API Developer Guide'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 html_short_title = 'Rackspace Cloud Backup'

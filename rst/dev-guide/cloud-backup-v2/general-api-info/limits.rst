@@ -1,7 +1,8 @@
 .. _bu-limits:
 
+=========================
 Limits
-~~~~~~~~~~~~~~~
+=========================
 
 All accounts, by default, have a preconfigured set of thresholds (or limits) to manage capacity and prevent abuse of the system.
 
