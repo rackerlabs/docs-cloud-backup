@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-list-events-for-a-restore-v2-project-id-restores-restore-id-events:
+.. _get-list-events-for-a-restore:
 
 List events for a restore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ List events for a restore
 .. code::
 
     GET /v2/{project_id}/restores/{restore_id}/events
-
-Lists the events for the specified restore.
 
 This operation lists the events for the specified restore.
 
@@ -24,27 +22,41 @@ This operation lists the events for the specified restore.
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -95,7 +107,7 @@ This table shows the query parameters for the request:
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
-|                          |                         |value is ``desc``.       |
+|                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -106,7 +118,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for a restore: JSON request**
+**Example List events for a restore: HTTP request**
 
 
 .. code::
@@ -130,104 +142,99 @@ Response
 
 This table shows the body parameters for the response:
 
-+-----------------------------+------------------------+-----------------------+
-|Name                         |Type                    |Description            |
-+=============================+========================+=======================+
-|\ **events**                 |String                  |Information about      |
-|                             |                        |events.                |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **id**              |String                  |ID of the event.       |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **time**            |String                  |Time of the event.     |
-+-----------------------------+------------------------+-----------------------+
-|\ **event**s.\ **event**     |String                  |Type of the event.     |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **agent**           |String                  |Agent information for  |
-|                             |                        |the event.             |
-+-----------------------------+------------------------+-----------------------+
-|events.agent.\ **id**        |String                  |ID of the agent.       |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **source_agent**    |String                  |Source agent           |
-|                             |                        |information for the    |
-|                             |                        |event.                 |
-+-----------------------------+------------------------+-----------------------+
-|events.source_agent.\        |String                  |Vault information for  |
-|**vault**                    |                        |the source agent for   |
-|                             |                        |the event.             |
-+-----------------------------+------------------------+-----------------------+
-|events.source_agent.vault.\  |String                  |ID of the vault for    |
-|**id**                       |                        |the source agent for   |
-|                             |                        |the event.             |
-+-----------------------------+------------------------+-----------------------+
-|events.source_agent.vault.\  |String                  |Specifies whether the  |
-|**encrypted**                |                        |vault is encrypted.    |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **configuration**   |String                  |Information about the  |
-|                             |                        |configuration.         |
-+-----------------------------+------------------------+-----------------------+
-|events.configuration.\ **id**|String                  |ID of the              |
-|                             |                        |configuration.         |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **backup**          |String                  |Information about the  |
-|                             |                        |backup.                |
-+-----------------------------+------------------------+-----------------------+
-|events.backup.\              |String                  |ID of the snapshot.    |
-|**snapshot_id**              |                        |                       |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **restore**         |String                  |Information about the  |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.\ **id**      |String                  |ID of the restore.     |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.\             |String                  |Destination path for   |
-|**destination_path**         |                        |the restore.           |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.\             |String                  |Specifies whether      |
-|**overwrite_files**          |                        |existing files were    |
-|                             |                        |overwritten during the |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.\             |String                  |Resources included in  |
-|**inclusions**               |                        |the restore.           |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.inclusions.\  |String                  |Type of resources      |
-|**type**                     |                        |included in the        |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.inclusions.\  |String                  |Path to the resources  |
-|**path**                     |                        |included in the        |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.\             |String                  |Resources excluded     |
-|**exclusions**               |                        |from the restore.      |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.exclusions.\  |String                  |Type of resources      |
-|**type**                     |                        |excluded from the      |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.restore.exclusions.\  |String                  |Path of the resources  |
-|**path**                     |                        |excluded from the      |
-|                             |                        |restore.               |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **request_id**      |String                  |ID of the request.     |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **bytes_completed** |String                  |Bytes completed.       |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **bytes_remaining** |String                  |Bytes remaining.       |
-+-----------------------------+------------------------+-----------------------+
-|events.\ **total_bytes**     |String                  |Total bytes.           |
-+-----------------------------+------------------------+-----------------------+
-|\ **links**                  |String                  |Information about the  |
-|                             |                        |links for the events   |
-|                             |                        |for the restore.       |
-+-----------------------------+------------------------+-----------------------+
-|links.\ **href**             |String                  |Location (URI) for the |
-|                             |                        |events for the restore.|
-+-----------------------------+------------------------+-----------------------+
-|links.\ **rel**              |String                  |How the href link      |
-|                             |                        |provided is related to |
-|                             |                        |this resource URL.     |
-+-----------------------------+------------------------+-----------------------+
++-----------------------------+--------------------+---------------------------+
+|Name                         |Type                |Description                |
++=============================+====================+===========================+
+|\ **events**                 |String              |Information about events.  |
++-----------------------------+--------------------+---------------------------+
+|events.\ **id**              |String              |ID of the event.           |
++-----------------------------+--------------------+---------------------------+
+|events.\ **time**            |String              |Time of the event.         |
++-----------------------------+--------------------+---------------------------+
+|\ **event**s.\ **event**     |String              |Type of the event.         |
++-----------------------------+--------------------+---------------------------+
+|events.\ **agent**           |String              |Agent information for the  |
+|                             |                    |event.                     |
++-----------------------------+--------------------+---------------------------+
+|events.agent.\ **id**        |String              |ID of the agent.           |
++-----------------------------+--------------------+---------------------------+
+|events.\ **source_agent**    |String              |Source agent information   |
+|                             |                    |for the event.             |
++-----------------------------+--------------------+---------------------------+
+|events.source_agent.\        |String              |Vault information for the  |
+|**vault**                    |                    |source agent for the event.|
++-----------------------------+--------------------+---------------------------+
+|events.source_agent.vault.\  |String              |ID of the vault for the    |
+|**id**                       |                    |source agent for the event.|
++-----------------------------+--------------------+---------------------------+
+|events.source_agent.vault.\  |String              |Specifies whether the      |
+|**encrypted**                |                    |vault is encrypted.        |
++-----------------------------+--------------------+---------------------------+
+|events.\ **configuration**   |String              |Information about the      |
+|                             |                    |configuration.             |
++-----------------------------+--------------------+---------------------------+
+|events.configuration.\ **id**|String              |ID of the configuration.   |
++-----------------------------+--------------------+---------------------------+
+|events.\ **backup**          |String              |Information about the      |
+|                             |                    |backup.                    |
++-----------------------------+--------------------+---------------------------+
+|events.backup.\              |String              |ID of the snapshot.        |
+|**snapshot_id**              |                    |                           |
++-----------------------------+--------------------+---------------------------+
+|events.\ **restore**         |String              |Information about the      |
+|                             |                    |restore.                   |
++-----------------------------+--------------------+---------------------------+
+|events.restore.\ **id**      |String              |ID of the restore.         |
++-----------------------------+--------------------+---------------------------+
+|events.restore.\             |String              |Destination path for the   |
+|**destination_path**         |                    |restore.                   |
++-----------------------------+--------------------+---------------------------+
+|events.restore.\             |String              |Specifies whether existing |
+|**overwrite_files**          |                    |files were overwritten     |
+|                             |                    |during the restore.        |
++-----------------------------+--------------------+---------------------------+
+|events.restore.\             |String              |Resources included in the  |
+|**inclusions**               |                    |restore.                   |
++-----------------------------+--------------------+---------------------------+
+|events.restore.inclusions.\  |String              |Type of resources included |
+|**type**                     |                    |in the restore.            |
++-----------------------------+--------------------+---------------------------+
+|events.restore.inclusions.\  |String              |Path to the resources      |
+|**path**                     |                    |included in the restore.   |
++-----------------------------+--------------------+---------------------------+
+|events.restore.\             |String              |Resources excluded from    |
+|**exclusions**               |                    |the restore.               |
++-----------------------------+--------------------+---------------------------+
+|events.restore.exclusions.\  |String              |Type of resources excluded |
+|**type**                     |                    |from the restore.          |
++-----------------------------+--------------------+---------------------------+
+|events.restore.exclusions.\  |String              |Path of the resources      |
+|**path**                     |                    |excluded from the restore. |
++-----------------------------+--------------------+---------------------------+
+|events.\ **request_id**      |String              |For the                    |
+|                             |                    |``restore_start_request``  |
+|                             |                    |and                        |
+|                             |                    |``restore_stop_request``   |
+|                             |                    |events, the ID of the      |
+|                             |                    |request.                   |
++-----------------------------+--------------------+---------------------------+
+|events.\ **bytes_completed** |String              |Bytes completed.           |
++-----------------------------+--------------------+---------------------------+
+|events.\ **bytes_remaining** |String              |Bytes remaining.           |
++-----------------------------+--------------------+---------------------------+
+|events.\ **total_bytes**     |String              |Total bytes.               |
++-----------------------------+--------------------+---------------------------+
+|\ **links**                  |String              |Information about the      |
+|                             |                    |links for the events for   |
+|                             |                    |the restore.               |
++-----------------------------+--------------------+---------------------------+
+|links.\ **href**             |String              |Location (URI) for the     |
+|                             |                    |events for the restore.    |
++-----------------------------+--------------------+---------------------------+
+|links.\ **rel**              |String              |How the href link provided |
+|                             |                    |is related to this         |
+|                             |                    |resource URL.              |
++-----------------------------+--------------------+---------------------------+
 
 
 
@@ -365,7 +372,8 @@ This table shows the body parameters for the response:
                },
                "restore": {
                    "id": "e87e6f7d-d166-11e4-8689-c8e0eb190e3d"
-               }
+               },
+               "request_id": "d7cedd90-b668-4f00-abb0-54f46d123e68"
            },
            {
                "id": "282856510",

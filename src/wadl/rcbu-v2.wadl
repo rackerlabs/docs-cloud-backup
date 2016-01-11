@@ -7402,6 +7402,7 @@
 <!--****************************************-->
 <!--       Get details about a restore      -->
 <!--****************************************-->       
+
    <method name="GET" id="getRestoreDetails">
       <wadl:doc title="List details about a restore">
          <para xmlns="http://docbook.org/ns/docbook" role="shortdesc">Lists details about the specified restore.</para>

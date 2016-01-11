@@ -1,7 +1,8 @@
 .. _response-codes:
 
+=========================
 Response codes
-~~~~~~~~~~~~~~
+=========================
 
 Cloud Backup returns an HTTP code that denotes the type of response.
 
@@ -19,60 +20,61 @@ This API uses `standard HTTP 1.1 response codes`_.
 The following table lists possible fault types with their associated error codes and descriptions. 
 
 
-+--------------------------+--------------------------+-----------------------+
-| Response                 | Associated               | Description           |
-|                          | response code            |                       |
-+--------------------------+--------------------------+-----------------------+
-| OK                       | 200                      | The request has       |
-|                          |                          | succeeded.            |
-+--------------------------+--------------------------+-----------------------+
-| Created                  | 201                      | The request has been  |
-|                          |                          | fulfilled and a       |
-|                          |                          | resource was created. |
-+--------------------------+--------------------------+-----------------------+
-| Accepted                 | 202                      | The request has been  |
-|                          |                          | accepted for          |
-|                          |                          | processing.           |
-+--------------------------+--------------------------+-----------------------+
-| No Content               | 204                      | The request has been  |
-|                          |                          | fulfilled but does not|
-|                          |                          | return a              |
-|                          |                          | representation (that  |
-|                          |                          | is, the response is   |
-|                          |                          | empty).               |
-+--------------------------+--------------------------+-----------------------+
-| Bad Request              | 400                      | There was one or more |
-|                          |                          | errors in the user    |
-|                          |                          | request.              |
-+--------------------------+--------------------------+-----------------------+
-| Unauthorized             | 401                      | The supplied token is |
-|                          |                          | not authorized to     |
-|                          |                          | access the resources, |
-|                          |                          | either it's expired or|
-|                          |                          | invalid.              |
-+--------------------------+--------------------------+-----------------------+
-| Forbidden                | 403                      | Access to the         |
-|                          |                          | requested resource was|
-|                          |                          | denied.               |
-+--------------------------+--------------------------+-----------------------+
-| Not Found                | 404                      | A requested resource  |
-|                          |                          | was not found.        |
-+--------------------------+--------------------------+-----------------------+
-| Instance Fault           | 500                      | This is a generic     |
-|                          |                          | server error and the  |
-|                          |                          | message contains the  |
-|                          |                          | reason for the error. |
-|                          |                          | This error could wrap |
-|                          |                          | several error messages|
-|                          |                          | and is a catch all.   |
-+--------------------------+--------------------------+-----------------------+
-| Not Implemented          | 501                      | The requested method  |
-|                          |                          | or resource is not    |
-|                          |                          | implemented.          |
-+--------------------------+--------------------------+-----------------------+
-| Service Unavailable      | 503                      | The Rackspace Cloud   |
-|                          |                          | Backup Service is not |
-+--------------------------+--------------------------+-----------------------+
++---------------+-----------------+-----------------------------------------------------------+
+| Response code |      Type       |                        Description                        |
++===============+=================+===========================================================+
+|           200 | OK              | The request succeeded. Some successful requests might     |
+|               |                 | return more specific 200 class codes.                     |
++---------------+-----------------+-----------------------------------------------------------+
+|           201 | Created         | The request was fulfilled and has resulted in one or      |
+|               |                 | more new resources being created.                         |
++---------------+-----------------+-----------------------------------------------------------+
+|           202 | Accepted        | The request was accepted for processing, but the          |
+|               |                 | processing has not completed.                             |
++---------------+-----------------+-----------------------------------------------------------+
+|           204 | No content      | The server successfully fulfilled the request, and there  |
+|               |                 | is no additional content to send in the response body.    |
++---------------+-----------------+-----------------------------------------------------------+
+|           400 | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|           401 | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|           403 | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|           404 | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|           405 | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|           409 | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|           500 | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|           501 | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
+|           503 | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
+
+When possible, error responses include a response body that details the error. A typical example 
+response follows:
+
+.. code::
+
+   {      "message": "Validation failed.",      "errors": [         "Name is required.",         "RSA public key is required."      ]
+   }
 
 The symptoms and solutions for some frequently encountered issues follow.
 

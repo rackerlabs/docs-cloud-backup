@@ -1,7 +1,7 @@
 
 .. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
 
-.. _get-retrieve-project-events-v2-project-id-events:
+.. _get-retrieve-project-events:
 
 Retrieve project events
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,8 +9,6 @@ Retrieve project events
 .. code::
 
     GET /v2/{project_id}/events
-
-Retrieves all events for the specified project.
 
 This operation returns events that are similar to those returned from the ``GET /v2/agents/{id}/events{?marker,limit,sort_dir}`` (see "List events for an agent") except that this operation returns events for all agents in the project instead of a single agent. Additional ``agent_activate`` events that have been sent to the entire project instead of to a single agent are also returned.
 
@@ -24,27 +22,41 @@ This operation returns events that are similar to those returned from the ``GET 
 This table shows the possible response codes for this operation:
 
 
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |The request succeeded.   |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|409                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|500                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
++---------------+-----------------+-----------------------------------------------------------+
+|Response Code  |Name             |Description                                                |
++===============+=================+===========================================================+
+|200            | OK              | The request succeeded.                                    |
++---------------+-----------------+-----------------------------------------------------------+
+|400            | Bad Request     | The server cannot or will not process the request         |
+|               |                 | due to something that is perceived as a client error      |
+|               |                 | (for example, malformed syntax, invalid request framing,  |
+|               |                 | or deceptive request routing).                            |
++---------------+-----------------+-----------------------------------------------------------+
+|401            | Unauthorized    | The request has not been applied because it lacks         |
+|               |                 | valid authentication credentials for the target           |
+|               |                 | resource. The credentials are either expired or invalid.  |
++---------------+-----------------+-----------------------------------------------------------+
+|403            | Forbidden       | The server understood the request but refuses             |
+|               |                 | to authorize it.                                          |
++---------------+-----------------+-----------------------------------------------------------+
+|404            | Not Found       | The server did not find a current representation          |
+|               |                 | for the target resource or is not willing to              |
+|               |                 | disclose that one exists.                                 |
++---------------+-----------------+-----------------------------------------------------------+
+|405            | Method Not      | The method received in the request line is                |
+|               | Allowed         | known by the origin server but is not supported by        |
+|               |                 | the target resource.                                      |
++---------------+-----------------+-----------------------------------------------------------+
+|409            | Conflict        | The request could not be completed due to a conflict with |
+|               |                 | the current state of the resource.                        |
++---------------+-----------------+-----------------------------------------------------------+
+|500            | Internal Server | The server encountered an unexpected condition            |
+|               | Error           | that prevented it from fulfilling the request.            |
++---------------+-----------------+-----------------------------------------------------------+
+|503            | Service         | The server is currently unable to handle the request      |
+|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               |                 | which will likely be alleviated after some delay.         |
++---------------+-----------------+-----------------------------------------------------------+
 
 
 Request
@@ -103,7 +115,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve project events: JSON request**
+**Example Retrieve project events: HTTP request**
 
 
 .. code::
@@ -136,7 +148,7 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.\ **time**              |String   |Time of the event.                  |
 +-------------------------------+---------+------------------------------------+
-|\ **event**s.\ **event**       |String   |Type of the event.                  |
+|\ **events**.\ **event**       |String   |Type of the event.                  |
 +-------------------------------+---------+------------------------------------+
 |events.\ **agent**             |String   |Information about the agent for     |
 |                               |         |each ``event`` except ``mode``.     |
@@ -147,8 +159,8 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.agent.\ **host**        |String   |Information about the host.         |
 +-------------------------------+---------+------------------------------------+
-|events.agent.h\ **os**t.\      |String   |Information about the operating     |
-|**os**                         |         |system for the host.                |
+|events.agent.host.\ **os**     |String   |Information about the operating     |
+|                               |         |system for the host.                |
 +-------------------------------+---------+------------------------------------+
 |events.agent.host.os.\ **name**|String   |Name of the operating system.       |
 +-------------------------------+---------+------------------------------------+
