@@ -8,7 +8,7 @@ Update summary settings
 
 .. code::
 
-    PUT /settings/summaries
+    PUT /v2/{project_id}/settings/summaries
 
 This operation updates the summary settings. 
 
@@ -59,7 +59,15 @@ Request
 
 
 
+This table shows the URI parameters for the request:
 
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|{project_id}              |String                   |Project ID of the user.  |
+|                          |                         |Also referred to as the  |
+|                          |                         |tenant ID or account ID. |
++--------------------------+-------------------------+-------------------------+
 
 
 

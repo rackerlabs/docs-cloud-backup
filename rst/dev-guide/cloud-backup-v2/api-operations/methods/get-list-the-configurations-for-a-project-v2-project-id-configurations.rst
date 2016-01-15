@@ -76,6 +76,17 @@ This table shows the URI parameters for the request:
 
 
 
+This table shows the query parameter for the request:
+
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|restorable                |Boolean                  |If ``restorable=true``,  |
+|                          |                         |return only              |
+|                          |                         |configurations with      |
+|                          |                         |restorable backups.      |
++--------------------------+-------------------------+-------------------------+
+
 
 
 This operation does not accept a request body.

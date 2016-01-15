@@ -8,7 +8,7 @@ Get summary settings
 
 .. code::
 
-    GET /settings/summaries
+    GET /v2/{project_id}/settings/summaries
 
 This operation retrieves the summary settings.
 
@@ -58,7 +58,15 @@ Request
 """"""""""""""""
 
 
+This table shows the URI parameters for the request:
 
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|{project_id}              |String                   |Project ID of the user.  |
+|                          |                         |Also referred to as the  |
+|                          |                         |tenant ID or account ID. |
++--------------------------+-------------------------+-------------------------+
 
 
 

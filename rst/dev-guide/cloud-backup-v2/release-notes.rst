@@ -13,4 +13,4 @@ resolved issues, and other important details about |apiservice| |contract versio
 .. toctree::
    :maxdepth: 2  
       
-   January 6, 2016 <release-notes/rcbu-v2-20160106>
+   XXXX X, 2016 <release-notes/rcbu-v2-20160106>
