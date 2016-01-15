@@ -292,11 +292,12 @@
                   
                   <resource id="event" path="events">
                      <method href="#getRestoreEvents"/>
-                  </resource> 
+                  </resource>
+                  
                </resource>
-             </resource>     
-            </resource>
-         </resource>
+             </resource>  
+            
+
 
       <!--************************************************-->
       <!--       Settings Resources                       -->
@@ -312,7 +313,11 @@
 <!--*************************************-->
 <!--       Final ending resource tag     -->
 <!--*************************************-->     
+
+         </resource>
+      </resource>
       
+         
    </resources>
 
 
@@ -2550,7 +2555,7 @@
                   </param>
                   <param name="request_id" style="plain" path="$.events.request_id">
                      <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                        xml:lang="EN">ID of the request when <code>event</code> is <code>agent_activate</code>, <code>agent_registered</code>, <code>agent_shutdown</code>, <code>configuration_changes</code>, <code>vault_encryption_enable</code>, <code>vault_encryption_change</code>, <code>vault_password_verify</code>, <code>vault_db_download_in_progress</code>, <code>vault_db_download_completed</code>, <code>vault_db_download_failed</code>, <code>host_browse</code>, <code>logfile_upload</code>, <code>logfile_upload</code>, or <code>logfile_completed</code>.
+                        xml:lang="EN">ID of the request when <code>event</code> is <code>agent_activate</code>, <code>agent_registered</code>, <code>agent_shutdown</code>, <code>configuration_changed</code>, <code>vault_encryption_enable</code>, <code>vault_encryption_change</code>, <code>vault_password_verify</code>, <code>vault_db_download_in_progress</code>, <code>vault_db_download_completed</code>, <code>vault_db_download_failed</code>, <code>host_browse</code>, <code>logfile_upload</code>, <code>logfile_upload</code>, or <code>logfile_completed</code>.
                      </wadl:doc>
                   </param>
                   <param name="old_encrypted_password_hex" style="plain" path="$.events.old_encrypted_password_hex">

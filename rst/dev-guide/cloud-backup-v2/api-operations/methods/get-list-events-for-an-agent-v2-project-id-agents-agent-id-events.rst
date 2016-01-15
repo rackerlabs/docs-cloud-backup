@@ -194,7 +194,7 @@ This table shows the body parameters for the response:
 |                               |         |``agent_activate``,                 |
 |                               |         |``agent_registered``,               |
 |                               |         |``agent_shutdown``,                 |
-|                               |         |``configuration_changes``,          |
+|                               |         |``configuration_changed``,          |
 |                               |         |``vault_encryption_enable``,        |
 |                               |         |``vault_encryption_change``,        |
 |                               |         |``vault_password_verify``,          |
