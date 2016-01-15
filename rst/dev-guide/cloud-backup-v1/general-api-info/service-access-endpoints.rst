@@ -12,23 +12,23 @@ To help you decide which regionalized endpoint to use, read the Knowledge Center
 
 **Regionalized service endpoints**
 
-+---------------------+---------------------------------------------------------+
-| Region              | Endpoint                                                |
-+=====================+=========================================================+
-| Dallas/Ft. Worth    | ``https://dfw.backup.api.rackspacecloud.com/v2/123456/``|
-| (DFW)               |                                                         |
-+---------------------+---------------------------------------------------------+
-| Chicago (ORD)       | ``https://ord.backup.api.rackspacecloud.com/v2/123456/``|
-+---------------------+---------------------------------------------------------+
-| London (LON)        | ``https://lon.backup.api.rackspacecloud.com/v2/123456/``|
-+---------------------+---------------------------------------------------------+
-| Hong Kong (HKG)     | ``https://hkg.backup.api.rackspacecloud.com/v2/123456/``|
-+---------------------+---------------------------------------------------------+
-| Northern Virginia   | ``https://iad.backup.api.rackspacecloud.com/v2/123456/``|
-| (IAD)               |                                                         |
-+---------------------+---------------------------------------------------------+
-| Sydney (SYD)        | ``https://syd.backup.api.rackspacecloud.com/v2/123456/``|
-+---------------------+---------------------------------------------------------+
++---------------------+-----------------------------------------------------------+
+| Region              | Endpoint                                                  |
++=====================+===========================================================+
+| Dallas/Ft. Worth    | ``https://dfw.backup.api.rackspacecloud.com/v1.0/123456/``|
+| (DFW)               |                                                           |
++---------------------+-----------------------------------------------------------+
+| Chicago (ORD)       | ``https://ord.backup.api.rackspacecloud.com/v1.0/123456/``|
++---------------------+-----------------------------------------------------------+
+| London (LON)        | ``https://lon.backup.api.rackspacecloud.com/v1.0/123456/``|
++---------------------+-----------------------------------------------------------+
+| Hong Kong (HKG)     | ``https://hkg.backup.api.rackspacecloud.com/v1.0/123456/``|
++---------------------+-----------------------------------------------------------+
+| Northern Virginia   | ``https://iad.backup.api.rackspacecloud.com/v1.0/123456/``|
+| (IAD)               |                                                           |
++---------------------+-----------------------------------------------------------+
+| Sydney (SYD)        | ``https://syd.backup.api.rackspacecloud.com/v1.0/123456/``|
++---------------------+-----------------------------------------------------------+
 
 Replace the sample account ID number (which is also called the tenant ID), 123456, with your actual account number that is returned as part of the Cloud Identity service response.
 
