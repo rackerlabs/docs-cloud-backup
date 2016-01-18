@@ -3648,7 +3648,7 @@
             <param name="restorable" style="query" type="xsd:boolean"
                required="false">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Indicates if only restorable backups are returned. If <code>restorable</code> is <code>true</code>, only restorable backups are returned.
+                  xml:lang="EN">Indicates whether only restorable backups are returned. If <code>restorable</code> is <code>true</code>, only restorable backups are returned.
                </wadl:doc>
             </param>
             <param name="configuration_id" style="query" type="xsd:string"
@@ -5837,6 +5837,12 @@
             <doc>
                <xsdxt:code href="../wadl/samples-v2/cbu-getProjectConfigurations_request-json-http.txt"/>   
             </doc>
+            <param name="restorable" style="query" type="xsd:boolean"
+               required="false">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN">Indicates if only restorable configurations are returned. If <code>restorable</code> is <code>true</code>, only restorable configurations are returned.
+               </wadl:doc>
+            </param>
          </representation>
       </request>
       
