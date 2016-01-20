@@ -79,7 +79,7 @@ To set up your build environment:
     
 To build the documentation, run the following commands:
 
-    cd api-docs
+    cd dev-guide
     make clean singlehtml
 
 To view the HTML build results in the target directory (``_build/html/``), run the following command:
