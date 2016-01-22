@@ -40,21 +40,44 @@ extensions and build tools.
 Source files for the Sphinx documentation project are in the ``rst/dev-guide`` directory. Here are the key files that define 
 the Sphinx project and content architecture for the documentation: 
 
+**VERSION 2 of Cloud Backup**
+
 Content | File
 --- | ---
-|Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/conf.py) (Typically, this file does not require changes.)
-|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/index.rst)
-|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/overview/index.rst)
-|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/getting-started.rst)
-|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/getting-started/index.rst)
-|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/developer-guide.rst)
-|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-docs-cloud-backup/blob/master/rst/dev-guide/concepts.rst)
-|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/general-api-info/index.rst)
-|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/api-reference.rst)
-|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/api-operations/index.rst)
-|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/api-operations/methods) 
-|Release notes introduction and index|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/release-notes.rst)
-|Release notes by version|[release notes folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/release-notes)
+|Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/cloud-backup-v1/conf.py) (Typically, this file does not require changes.)
+|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/index.rst)
+|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/overview/index.rst)
+|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/getting-started.rst)
+|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/getting-started/index.rst)
+|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/developer-guide.rst)
+|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-docs-cloud-backup-v2/blob/master/rst/dev-guide/concepts.rst)
+|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/general-api-info/index.rst)
+|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/api-reference.rst)
+|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/api-operations/index.rst)
+|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup-v2/tree/master/rst/dev-guide/api-operations/methods) 
+|Release notes introduction and index|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-backup-v2/blob/master/rst/dev-guide/release-notes.rst)
+|Release notes by version|[release notes folder](https://github.com/rackerlabs/docs-cloud-backup-v2/tree/master/rst/dev-guide/release-notes)
+|**make.bat**|Windows build script
+|**Makefile**| Linux and OS X build
+
+
+**VERSION 1 of Cloud Backup**
+
+Content | File
+--- | ---
+|Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/cloud-backup-v1/conf.py) (Typically, this file does not require changes.)
+|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/index.rst)
+|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/overview/index.rst)
+|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/getting-started.rst)
+|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/getting-started/index.rst)
+|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/developer-guide.rst)
+|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-docs-cloud-backup-v1/blob/master/rst/dev-guide/concepts.rst)
+|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/general-api-info/index.rst)
+|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/api-reference.rst)
+|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/api-operations/index.rst)
+|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup-v1/tree/master/rst/dev-guide/api-operations/methods) 
+|Release notes introduction and index|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-backup-v1/blob/master/rst/dev-guide/release-notes.rst)
+|Release notes by version|[release notes folder](https://github.com/rackerlabs/docs-cloud-backup-v1/tree/master/rst/dev-guide/release-notes)
 |**make.bat**|Windows build script
 |**Makefile**| Linux and OS X build
 
