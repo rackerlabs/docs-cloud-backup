@@ -79,7 +79,7 @@ Content | File
 |Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/concepts.rst)
 |General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/general-api-info/index.rst)
 |API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/api-reference.rst)
-|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/acloud-backup-v1/pi-operations/index.rst)
+|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/api-operations/index.rst)
 |API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/cloud-backup-v1/api-operations/methods) 
 |Release notes introduction and index|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/cloud-backup-v1/release-notes)
 |Release notes by version|[release notes folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/cloud-backup-v1/release-notes)
