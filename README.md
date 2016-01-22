@@ -37,24 +37,6 @@ extensions and build tools.
 
 ## Structure
 
-Source files for the Sphinx documentation project are in the ``rst/dev-guide`` (https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide) directory. Here are the key files that define 
-the Sphinx project and content architecture for the documentation. 
-
-* [conf.py](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/conf.py): Sphinx documentation configuration file. (Typically, this file does not require changes.)
-* [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/index.rst): Index page for the main content structure.
-* [getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/getting-started/index.rst): Topic index for the Getting Started section.
-* [general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/general-api-info/index.rst): Topic index for the General API section.
-* [api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/api-reference.rst): Introduction to API reference.
-* [api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/api-operations/index.rst): Index for API Reference.
-* [api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/cloud-backup-v1/api-operations/methods): All rst files for the methods.
-* [release-notes](https://github.com/rackerlabs/docs-cloud-backup/tree/master/rst/dev-guide/cloud-backup-v1/release-notes): 
-Individual files for each release note - release_notes.rst is at the top-level is the index page for this.
-* [developer-guide.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/developer-guide.rst): Introduction to Developer Guide.
-* [overview/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/rst/dev-guide/cloud-backup-v1/overview/index.rst): Index for the Overview section.
-
-
-## Structure
-
 Source files for the Sphinx documentation project are in the ``rst/dev-guide`` directory. Here are the key files that define 
 the Sphinx project and content architecture for the documentation: 
 
