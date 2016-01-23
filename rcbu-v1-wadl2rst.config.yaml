@@ -1,0 +1,7 @@
+src/wadl/rcbu.wadl:
+    title: Rackspace Cloud Backup Developer Guide v1
+    output_directory: rst/dev-guide/cloud-backup-v1/api-operations
+
+src/wadl/rcbu-v2.wadl:
+    title: Rackspace Cloud Backup Developer Guide v2
+    output_directory: rst/dev-guide/cloud-backup-v2/api-operations
