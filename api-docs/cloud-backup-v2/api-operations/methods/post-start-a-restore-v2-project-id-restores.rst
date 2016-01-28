@@ -1,6 +1,3 @@
-
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-start-a-restore:
 
 Start a restore
@@ -20,7 +17,7 @@ This table shows the possible response codes for this operation:
 +---------------+-----------------+-----------------------------------------------------------+
 |Response Code  |Name             |Description                                                |
 +===============+=================+===========================================================+
-|201            | Created         |The request has beenaccepted for processing, but the       |
+|201            | Created         |The request has been accepted for processing, but the      |
 |               |                 |processing has not been completed.                         |
 +---------------+-----------------+-----------------------------------------------------------+
 |400            | Bad Request     | The server cannot or will not process the request         |
@@ -86,8 +83,14 @@ This table shows the body parameters for the request:
 |\ **destination_agent_ID** |String *(Required)*      |ID of the destination   |
 |                           |                         |agent.                  |
 +---------------------------+-------------------------+------------------------+
-|\ **destination_path**     |String *(Required)*      |Path for the            |
-|                           |                         |destination.            |
+|\ **destination_path**     |String *(Required)*      |Path for the destination|
+|                           |                         |of the restored files.  |
+|                           |                         |If restoring to the same|
+|                           |                         |host that the backup was|
+|                           |                         |performed on, provide   |
+|                           |                         |``null`` to restore     |
+|                           |                         |files to their original |
+|                           |                         |locations.              |
 +---------------------------+-------------------------+------------------------+
 |\ **overwrite_files**      |String *(Optional)*      |Specifies whether to    |
 |                           |                         |overwrite any existing  |
@@ -213,7 +216,12 @@ This table shows the body parameters for the response:
 |destination_agent.links.\  |String            |How the href link provided is  |
 |**rel**                    |                  |related to the resource URI.   |
 +---------------------------+------------------+-------------------------------+
-|\ **destination_path**     |String            |Path for the destination.      |
+|\ **destination_path**     |String            |Path for the destination of the|
+|                           |                  |restored files. If restoring to|
+|                           |                  |the same host that the backup  |
+|                           |                  |was performed on, provide      |
+|                           |                  |``null`` to restore files to   |
+|                           |                  |their original locations.      |
 +---------------------------+------------------+-------------------------------+
 |\ **overwrite_files**      |String            |Specifies whether any existing |
 |                           |                  |files were overwritten.        |
@@ -306,7 +314,7 @@ This table shows the body parameters for the response:
            "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
                    "rel": "full"
                }
            ]
@@ -369,7 +377,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-
