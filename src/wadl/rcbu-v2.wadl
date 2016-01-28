@@ -6956,7 +6956,7 @@
             </param>
             <param name="destination_path" style="plain" path="$.destination_path" required="true">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Path for the destination.                  
+                  xml:lang="EN">Path for the destination of the restored files. If restoring to the same host that the backup was performed on, provide <code>null</code> to restore the files to their original locations.                              
                </wadl:doc>
             </param>
             <param name="overwrite_files" style="plain" path="$.overwrite_files" required="false">
@@ -7075,7 +7075,7 @@
             
             <param name="destination_path" style="plain" path="$.destination_path">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Path for the destination.                  
+                  xml:lang="EN">Path for the destination of the restored files. If restoring to the same host that the backup was performed on, provide <code>null</code> to restore the files to their original locations.                  
                </wadl:doc>
             </param>
             
