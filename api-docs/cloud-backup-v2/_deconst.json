@@ -1,3 +1,9 @@
 {
-  "contentIDBase": "https://github.com/rackerlabs/docs-cloud-backup/v2/"
+  "contentIDBase": "https://github.com/rackerlabs/docs-cloud-backup/",
+  "githubUrl": "https://github.com/rackerlabs/docs-cloud-backup/",
+  "githubBranch": "master",
+  "meta": {
+    "preferGithubIssues": false
+  }
+}
 }
