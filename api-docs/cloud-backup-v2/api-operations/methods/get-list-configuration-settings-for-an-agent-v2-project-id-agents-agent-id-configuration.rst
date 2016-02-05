@@ -399,13 +399,6 @@ This table shows the body parameters for the response:
                "retention": {
                    "days": 30
                },
-               "schedule": {
-                   "start": "2014-08-05T18:22:21Z",
-                   "recurrence": [
-                       "RRULE:FREQ=HOURLY;INTERVAL=2"
-                   ],
-                   "time_zone": "US/Central"
-               },
                "times": [
                    "2014-08-05T18:22:21Z",
                    "2014-08-05T20:22:21Z",
