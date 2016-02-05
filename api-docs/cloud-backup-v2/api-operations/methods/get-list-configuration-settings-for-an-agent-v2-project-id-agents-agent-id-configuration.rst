@@ -1,6 +1,3 @@
-
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _get-list-configuration-settings-for-an-agent:
 
 List configuration settings for an agent
@@ -94,7 +91,7 @@ This operation does not accept a request body.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-   
+
 
 
 
@@ -259,22 +256,15 @@ This table shows the body parameters for the response:
 |                                           |                 |that a backup   |
 |                                           |                 |is retained.    |
 +-------------------------------------------+-----------------+----------------+
-|configurations.\ **schedule**              |String           |Information     |
-|                                           |                 |about backup    |
-|                                           |                 |schedule        |
-|                                           |                 |specified in    |
-|                                           |                 |the             |
-|                                           |                 |configuration.  |
-+-------------------------------------------+-----------------+----------------+
-|configurations.schedule.\ **start**        |String           |Start time of   |
-|                                           |                 |the backup.     |
-+-------------------------------------------+-----------------+----------------+
-|configurations.schedule.\ **recurrence**   |String           |How often the   |
-|                                           |                 |backup occurs.  |
-+-------------------------------------------+-----------------+----------------+
-|configurations.schedule.\ **time_zone**    |String           |Time zone where |
-|                                           |                 |the backup      |
-|                                           |                 |occurs.         |
+|configurations.\ **times**                 |Array            |Times at which  |
+|                                           |                 |this scheduled  |
+|                                           |                 |backup is set to|
+|                                           |                 |occur. `null`   |
+|                                           |                 |will be provided|
+|                                           |                 |for             |
+|                                           |                 |configurations  |
+|                                           |                 |only triggered  |
+|                                           |                 |manually.       |
 +-------------------------------------------+-----------------+----------------+
 |configurations.\ **backups**               |String           |Information     |
 |                                           |                 |about backups   |
@@ -416,6 +406,11 @@ This table shows the body parameters for the response:
                    ],
                    "time_zone": "US/Central"
                },
+               "times": [
+                   "2014-08-05T18:22:21Z",
+                   "2014-08-05T20:22:21Z",
+                   "2014-08-05T22:22:21Z"
+               ],
                "backups": {
                    "next": {
                        "scheduled_time": "2014-08-05T20:22:21Z"
@@ -444,7 +439,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-
