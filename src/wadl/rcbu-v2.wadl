@@ -2149,11 +2149,14 @@
                            xml:lang="EN">Number of days that a backup is retained.
                         </wadl:doc>
                      </param>
-            <param name="schedule" style="plain" path="$.configurations.times">
+
+            <param name="times" style="plain" path="$.configurations.times">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Times at which this scheduled backup is set to occur. `null` will be provided for configurations only triggered manually. 
+                  xml:lang="EN">Times at which this scheduled backup is set to occur. <code>null</code> will be provided for configurations only triggered manually. 
                </wadl:doc>
             </param>
+                      
+                      
             <param name="backups" style="plain" path="$.configurations.backups">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about backups specified in the configuration.
