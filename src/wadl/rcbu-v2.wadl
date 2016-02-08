@@ -2152,26 +2152,11 @@
 
             <param name="times" style="plain" path="$.configurations.times">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Times at which this scheduled backup is set to occur. <code>null</code> will be provided for configurations only triggered manually. 
+                  xml:lang="EN">Times at which this scheduled backup is set to occur. <code>null</code> will be provided for configurations only triggered manually.
                </wadl:doc>
             </param>
-                      
-                      
-            <param name="backups" style="plain" path="$.configurations.backups">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">Information about backups specified in the configuration.
-               </wadl:doc>
-            </param>
-                      <param name="next" style="plain" path="$.configurations.backups.next">
-                         <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                            xml:lang="EN">Start time of the next backup.
-                         </wadl:doc>
-                      </param>
-                                <param name="scheduled_time" style="plain" path="$.configurations.backups.next.scheduled_time">
-                                   <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                                      xml:lang="EN">Start time scheduled for the next backup.
-                                   </wadl:doc>
-                                </param>
+
+
             <param name="inclusions" style="plain" path="$.configurations.inclusions">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about objects included in backups in this configuration.
