@@ -266,19 +266,6 @@ This table shows the body parameters for the response:
 |                                           |                 |only triggered  |
 |                                           |                 |manually.       |
 +-------------------------------------------+-----------------+----------------+
-|configurations.\ **backups**               |String           |Information     |
-|                                           |                 |about backups   |
-|                                           |                 |specified in    |
-|                                           |                 |the             |
-|                                           |                 |configuration.  |
-+-------------------------------------------+-----------------+----------------+
-|configurations.backups.\ **next**          |String           |Start time of   |
-|                                           |                 |the next backup.|
-+-------------------------------------------+-----------------+----------------+
-|configurations.backups.next.\              |String           |Start time      |
-|**scheduled_time**                         |                 |scheduled for   |
-|                                           |                 |the next backup.|
-+-------------------------------------------+-----------------+----------------+
 |configurations.\ **inclusions**            |String           |Information     |
 |                                           |                 |about objects   |
 |                                           |                 |included in     |
@@ -400,15 +387,10 @@ This table shows the body parameters for the response:
                    "days": 30
                },
                "times": [
-                   "2014-08-05T18:22:21Z",
                    "2014-08-05T20:22:21Z",
-                   "2014-08-05T22:22:21Z"
+                   "2014-08-05T22:22:21Z",
+                   "2014-08-05T24:22:21Z"
                ],
-               "backups": {
-                   "next": {
-                       "scheduled_time": "2014-08-05T20:22:21Z"
-                   }
-               },
                "inclusions": [
                    {
                        "type": "folder",
