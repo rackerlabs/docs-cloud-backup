@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-request-to-verify-the-password-for-an-agent's-vault:
 
 Request to verify the password for an agent's vault

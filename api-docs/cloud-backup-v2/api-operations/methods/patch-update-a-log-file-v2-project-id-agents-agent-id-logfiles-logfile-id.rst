@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _patch-update-a-log-file-for—an-agent:
 
 Update a log file

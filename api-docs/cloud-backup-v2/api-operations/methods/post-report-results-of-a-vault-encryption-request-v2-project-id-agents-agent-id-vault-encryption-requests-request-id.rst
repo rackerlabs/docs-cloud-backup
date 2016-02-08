@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-report-results-of-a-vault-encryption-request:
 
 Report results of a vault encryption request
