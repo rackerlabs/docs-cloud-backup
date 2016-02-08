@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-request-to-browse-a-backup's-files:
 
 Request to browse a backup's files

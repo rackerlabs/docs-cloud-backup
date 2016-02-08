@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _get-list-details-for-the-log-files-for-an-agent:
 
 List details for the log files for an agent

@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _get-view-results-of-a-browse-request-for-an-agent:
 
 View results of a browse request for an agent

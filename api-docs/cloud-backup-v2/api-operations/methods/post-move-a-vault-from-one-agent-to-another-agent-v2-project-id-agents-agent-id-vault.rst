@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-move-a-vault-from-one-agent-to-another-agent:
 
 Move a vault from one agent to another agent

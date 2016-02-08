@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-request-download-of-the-log-file-for-an-agent:
 
 Request download of the log file for an agent

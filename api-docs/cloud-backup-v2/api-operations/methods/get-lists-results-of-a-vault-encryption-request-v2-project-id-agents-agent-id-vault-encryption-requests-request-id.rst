@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _get-lists-results-of-a-vault-encryption-request:
 
 Lists results of a vault encryption request

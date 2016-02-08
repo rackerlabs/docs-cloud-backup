@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _post-enable-or-change-encryption-for-an-agent's-vault:
 
 Enable or change encryption for an agent's vault
