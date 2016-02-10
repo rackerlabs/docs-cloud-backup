@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _put-include-or-exclude-a-file-in-a-restore-configuration:
 
 Include or exclude a file in a restore configuration
