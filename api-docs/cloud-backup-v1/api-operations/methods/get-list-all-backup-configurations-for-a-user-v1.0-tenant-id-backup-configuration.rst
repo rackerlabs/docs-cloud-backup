@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _get-all-backup-configurations-for-a-user:
 
 List all backup configurations for a user

@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _enable-or-disable-a-backup-configuration:
 
 Enable or disable a backup configuration

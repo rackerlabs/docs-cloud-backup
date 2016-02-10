@@ -1,6 +1,4 @@
 
-.. THIS OUTPUT IS GENERATED FROM THE WADL. DO NOT EDIT.
-
 .. _start-or-stop-a-backup-manually:
 
 Start or stop a backup manually
