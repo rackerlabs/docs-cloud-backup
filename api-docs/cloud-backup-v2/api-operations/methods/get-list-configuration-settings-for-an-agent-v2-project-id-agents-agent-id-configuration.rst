@@ -389,7 +389,7 @@ This table shows the body parameters for the response:
                "times": [
                    "2014-08-05T20:22:21Z",
                    "2014-08-05T22:22:21Z",
-                   "2014-08-05T24:22:21Z"
+                   "2014-08-06T00:22:21Z"
                ],
                "inclusions": [
                    {
