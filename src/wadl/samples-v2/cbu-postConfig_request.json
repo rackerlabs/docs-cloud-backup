@@ -14,25 +14,21 @@
     "inclusions": [
         {
             "type": "folder",
-            "path": "/web/",
-            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+            "path": "/web/"
         },
         {
             "type": "file",
-            "path": "/etc/web/app.conf",
-            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+            "path": "/etc/web/app.conf"
         }
     ],
     "exclusions": [
         {
             "type": "folder",
-            "path": "/web/cache/",
-            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+            "path": "/web/cache/"
         },
         {
             "type": "file",
-            "path": "/web/cache.jpg",
-            "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+            "path": "/web/cache.jpg"
         }
     ],
     "notifications": [

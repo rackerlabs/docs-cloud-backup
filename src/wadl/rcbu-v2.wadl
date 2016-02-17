@@ -5550,11 +5550,6 @@
                            xml:lang="EN">The path to the object to include.
                         </wadl:doc>
                      </param>
-                     <param name="path_encoded" style="plain" required="true" path="$.inclusions.path_encoded">
-                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                           xml:lang="EN">The encoded path to the object to include.
-                        </wadl:doc>
-                     </param>
             <param name="exclusions" style="plain" required="true" path="$.exclusions">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about what to exclude from the backup. See the beginning of this section for restrictions.
@@ -5569,11 +5564,6 @@
                       <param name="path" style="plain" required="true" path="$.exclusions.path">
                          <wadl:doc xmlns="http://docbook.org/ns/docbook"
                             xml:lang="EN">The path to the object to exclude.
-                         </wadl:doc>
-                      </param>
-                      <param name="path_encoded" style="plain" required="true" path="$.exclusions.path_encoded">
-                        <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                            xml:lang="EN">The encoded path to the object to exclude.
                          </wadl:doc>
                       </param>
             <param name="notifications" style="plain" required="true" path="$.notifications">
@@ -5699,11 +5689,6 @@
                          xml:lang="EN">The path to the object to include.
                       </wadl:doc>
                    </param>
-            <param name="path_encoded" style="plain" required="true" path="$.inclusions.path_encoded">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">The encoded path to the object to include.
-               </wadl:doc>
-            </param>
             <param name="exclusions" style="plain" path="$.exclusions">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about what is excluded from the backup.
@@ -5720,11 +5705,6 @@
                          xml:lang="EN">The path to the object to exclude.
                       </wadl:doc>
                    </param>
-            <param name="path_encoded" style="plain" required="true" path="$.exclusions.path_encoded">
-               <wadl:doc xmlns="http://docbook.org/ns/docbook"
-                  xml:lang="EN">The encoded path to the object to exclude.
-               </wadl:doc>
-            </param>
             <param name="notifications" style="plain" path="$.notifications">
                <wadl:doc xmlns="http://docbook.org/ns/docbook"
                   xml:lang="EN">Information about notifications. Note that least one notification must specify <code>on_failure</code> as <code>true</code>.

@@ -8,12 +8,12 @@ Create a configuration
 
     POST /v2/{project_id}/configurations
 
-This operation creates a configuration. 
+This operation creates a configuration.
 
 The following restrictions apply to the ``schedule`` parameter:
 
 *  Only a single ``recurrence`` within a ``schedule`` is currently supported.
-*  You must specify ``time_zone`` according to the `Internet Assigned Numbers Authority (IANA) Time Zone Database`_. 
+*  You must specify ``time_zone`` according to the `Internet Assigned Numbers Authority (IANA) Time Zone Database`_.
 *  If ``null`` is provided for ``schedule``, backups must be manually started for the
    configuration.
 
@@ -166,9 +166,6 @@ This table shows the body parameters for the request:
 |inclusions.\ **path**    |String *(Required)*     |The path to the object to  |
 |                         |                        |include.                   |
 +-------------------------+------------------------+---------------------------+
-|inclusions.\             |String *(Required)*     |The encoded path to the    |
-| **path_encoded**        |                        |object to include.         |
-+-------------------------+------------------------+---------------------------+
 |\ **exclusions**         |String *(Required)*     |Information about what to  |
 |                         |                        |exclude from the backup.   |
 |                         |                        |See the beginning of this  |
@@ -180,9 +177,6 @@ This table shows the body parameters for the request:
 +-------------------------+------------------------+---------------------------+
 |exclusions.\ **path**    |String *(Required)*     |The path to the object to  |
 |                         |                        |exclude.                   |
-+-------------------------+------------------------+---------------------------+
-|exclusions.\             |String *(Required)*     |The encoded path to the    |
-| **path_encoded**        |                        |object to include.         |
 +-------------------------+------------------------+---------------------------+
 |\ **notifications**      |String *(Required)*     |Information about          |
 |                         |                        |notifications. Note that   |
@@ -238,25 +232,21 @@ This table shows the body parameters for the request:
        "inclusions": [
            {
                "type": "folder",
-               "path": "/web/“,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/web/"
            },
            {
                "type": "file",
-               "path": "/etc/web/app.conf”,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/etc/web/app.conf"
            }
        ],
        "exclusions": [
            {
                "type": "folder",
-               "path": "/web/cache/“,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/web/cache/"
            },
            {
                "type": "file",
                "path": "/web/cache.jpg"
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
            }
        ],
        "notifications": [
@@ -345,9 +335,6 @@ This table shows the body parameters for the response:
 |inclusions.\ **path**     |String                   |The path to the object   |
 |                          |                         |to include.              |
 +--------------------------+-------------------------+-------------------------+
-|inclusions.\              |String                   |The encoded path to the  |
-| **path_encoded**         |                         |object to include.       |
-+--------------------------+-------------------------+-------------------------+
 |\ **exclusions**          |String                   |Information about what   |
 |                          |                         |is excluded from the     |
 |                          |                         |backup.                  |
@@ -358,9 +345,6 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |exclusions.\ **path**     |String                   |The path to the object   |
 |                          |                         |to exclude.              |
-+--------------------------+-------------------------+-------------------------+
-|exclusions.\              |String *(Required)*      |The encoded path to the  |
-| **path_encoded**         |                         |object to include.       |
 +--------------------------+-------------------------+-------------------------+
 |\ **notifications**       |String                   |Information about        |
 |                          |                         |notifications. Note that |
@@ -455,25 +439,21 @@ This table shows the body parameters for the response:
        "inclusions": [
            {
                "type": "folder",
-               "path": "/web/“,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/web/"
            },
            {
                "type": "file",
-               "path": "/etc/web/app.conf”,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/etc/web/app.conf"
            }
        ],
        "exclusions": [
            {
                "type": "folder",
-               "path": "/web/cache/“,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/web/cache/"
            },
            {
                "type": "file",
-               "path": "/web/cache.jpg”,
-               "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
+               "path": "/web/cache.jpg"
            }
        ],
        "notifications": [
@@ -508,4 +488,3 @@ This table shows the body parameters for the response:
    }
 
 .. _Internet Assigned Numbers Authority (IANA) Time Zone Database: http://www.iana.org/time-zones
-
