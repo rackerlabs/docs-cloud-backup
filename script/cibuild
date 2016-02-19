@@ -15,5 +15,5 @@ fi
 cd api-docs/cloud-backup-v1
 deconst-preparer-sphinx
 
-cd api-docs/cloud-backup-v2
+cd ../cloud-backup-v2
 deconst-preparer-sphinx
