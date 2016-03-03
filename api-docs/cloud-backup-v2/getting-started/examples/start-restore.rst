@@ -1,6 +1,6 @@
 .. _gsg-start-restore:
 
-Start a restore
+Start a restore using your backup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that you have a backup, you can restore it to a different location

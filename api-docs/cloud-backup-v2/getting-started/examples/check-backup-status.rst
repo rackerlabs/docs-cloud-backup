@@ -1,4 +1,4 @@
-.. _check-backup-status:
+.. _gsg-check-backup-status:
 
 Check backup status
 ~~~~~~~~~~~~~~~~~~~~~~

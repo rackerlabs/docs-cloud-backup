@@ -1,6 +1,6 @@
 .. _gsg-update-configuration:
 
-Update a configuration
+Update a backup configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can update the configuration that you created earlier in :ref:`Create a configuration <gsg-create-backup-config>`. Configurations are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.

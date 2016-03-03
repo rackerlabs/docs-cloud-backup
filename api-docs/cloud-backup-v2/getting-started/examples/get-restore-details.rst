@@ -1,6 +1,6 @@
 .. _gsg-get-restore-details:
 
-List details about a restore
+List the restore details 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can get the details about a restore that includes information about the
 restore operation and tells you if the operation ran successfully.

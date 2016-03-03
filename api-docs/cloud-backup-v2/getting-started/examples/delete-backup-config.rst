@@ -1,6 +1,6 @@
+.. _gsg-delete-config:
 
-
-Delete a configuration
+Delete a backup configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can delete the configuration file and verify that it was

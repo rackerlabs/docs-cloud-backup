@@ -1,10 +1,10 @@
-.. _list-agent-details:
+.. _gsg-list-agent-details:
 
 List agent details
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To check whether the agent is enabled, list the agent's details. If the agent is not online, Cloud Backup cannot run the
-backup job. Use the agent ID from :ref:`List all agents for a project<list-all-agents>` for **yourAgentID**.
+backup job. Use the agent ID from :ref:`List all agents for a project<gsg-list-all-agents>` for **yourAgentID**.
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.

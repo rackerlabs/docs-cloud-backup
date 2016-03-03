@@ -1,6 +1,6 @@
+.. _gsg-list-agent-configs:
 
-
-List configurations for an agent 
+List agent configurations 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To verify that your configuration exists, you can list all of the
