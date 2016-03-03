@@ -193,6 +193,8 @@ This table shows the body parameters for the response:
 +-----------------------------+------------------------+-----------------------+
 |agents.vault.\ **name**      |String                  |Name of the vault.     |
 +-----------------------------+------------------------+-----------------------+
+|agents.vault.\ **state**     |String                  |State of the vault.    |
++-----------------------------+------------------------+-----------------------+
 |agents.vault.\ **flavor**    |String                  |Flavor for the vault.  |
 +-----------------------------+------------------------+-----------------------+
 |agents.vault.\ **encrypted** |String                  |Specifies whether the  |
@@ -288,6 +290,7 @@ This table shows the body parameters for the response:
                "vault": {
                    "id": "7cd999c3-a0c3-4985-99d4-42b544685456",
                    "name": "phoenix_7cd999c3-a0c3-4985-99d4-42b544685456",
+                   "state": "created",
                    "flavor": "swift",
                    "encrypted": true,
                    "region": "DFW",
@@ -338,7 +341,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-
