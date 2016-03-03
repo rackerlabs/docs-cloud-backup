@@ -1,7 +1,7 @@
 
 .. _get-list-details-about-a-configuration:
 
-List details about a configuration
+List details for a configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
