@@ -1,4 +1,4 @@
-.. _list-all-agents:
+.. _gsg-list-all-agents:
 
 List all agents for a project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

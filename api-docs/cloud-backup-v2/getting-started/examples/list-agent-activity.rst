@@ -1,14 +1,14 @@
-.. _list-agent-activity:
+.. _gsg-list-agent-activity:
 
-List activities for an agent
+List agent activities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can display all the activities for an agent to find out whether your
 backups ran successfully or failed. This operation is useful if you do
 not set email notifications when you create your backup configuration and want
 to create a report about the state of previous backups. The operation
-lists all in-progress and completed activity for an agent. Activity
-types are ``Backup``, ``Cleanup``, and ``Restore``.
+lists all in-progress and completed activity for an agent. Values for the ``type``
+response parameter are ``backup``, ``cleanup``, and ``restore``.
 
 
 An HTTP status code of 200 (OK) in the response indicates that the

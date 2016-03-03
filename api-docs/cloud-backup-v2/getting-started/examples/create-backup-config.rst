@@ -1,6 +1,6 @@
 .. _gsg-create-backup-config:
 
-Create a configuration
+Create a backup configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a configuration in which you define the following basic
@@ -14,13 +14,10 @@ items:
 
 -  How often you want to back up
 
-Look carefully at the ``Inclusions`` and ``Exclusions`` sections. Note
+Look carefully at the ``inclusions`` and ``exclusions`` sections. Note
 that each exclusion must be within a folder that is included. If you
 like, you can programmatically create many configuration files like this
 with small changes for each server that you create.
-
-The HTTP request must include a header to specify the authentication
-token.
 
 An HTTP status code of 201 (Created) in the response indicates that the
 request succeeded.

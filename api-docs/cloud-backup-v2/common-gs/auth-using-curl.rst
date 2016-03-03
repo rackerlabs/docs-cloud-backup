@@ -100,7 +100,7 @@ endpoints
 	on choosing an endpoint, see :ref:`Service access endpoints <service-access-endpoints>`.
 
 
-To make it easier to include these and other values in API requests, use the ``export `` command to create
+To make it easier to include these and other values in API requests, use the ``export`` command to create
 environment variables that can be substituted for the actual values. For example, you can
 create an ``API_ENDPOINT`` variable to store the URL for accessing an API service.
 To reference the value in an API request, prefix the variable name with a $, for example
