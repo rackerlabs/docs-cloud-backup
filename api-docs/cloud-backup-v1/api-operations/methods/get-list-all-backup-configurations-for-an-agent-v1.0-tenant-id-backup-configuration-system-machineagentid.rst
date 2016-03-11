@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example List all backup configurations for an agent: JSON request**
+**Example: List all backup configurations for an agent JSON request**
 
 
 .. code::
@@ -285,7 +285,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List all backup configurations for an agent: JSON response**
+**Example: List all backup configurations for an agent JSON response**
 
 
 .. code::

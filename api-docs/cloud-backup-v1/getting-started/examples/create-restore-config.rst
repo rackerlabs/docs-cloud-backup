@@ -16,7 +16,7 @@ An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
  
-**cURL create a restore configuration request**
+**Example: cURL create a restore configuration request**
 
 .. code::  
 
@@ -29,7 +29,7 @@ request succeeded.
           "DestinationPath": "C:\\FolderPathForRestore\\", 
           "OverwriteFiles": false }' | python -m json.tool 
       
-**Create a restore configuration response**
+**Example: Create a restore configuration response**
 
 .. code::  
 

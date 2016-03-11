@@ -93,7 +93,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Start encrypted restore: JSON request**
+**Example: Start encrypted restore JSON request**
 
 
 .. code::
@@ -108,7 +108,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Start unencrypted restore: JSON request**
+**Example: Start unencrypted restore JSON request**
 
 
 .. code::
@@ -122,7 +122,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Stop restore manually: JSON request**
+**Example: Stop restore manually JSON request**
 
 
 .. code::

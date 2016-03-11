@@ -14,14 +14,14 @@ An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
  
-**cURL list all backup configurations for an agent request**
+**Example: cURL list all backup configurations for an agent request**
 
 .. code::  
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/system/youMachineAgentID \
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
-**List all backup configurations for an agent response**
+**Example: List all backup configurations for an agent response**
 
 .. code::  
 

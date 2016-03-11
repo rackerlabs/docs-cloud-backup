@@ -101,7 +101,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Start a backup manually: JSON request**
+**Example: Start a backup manually JSON request**
 
 
 .. code::
@@ -116,7 +116,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Stop a backup manually: JSON request**
+**Example: Stop a backup manually JSON request**
 
 
 .. code::
@@ -154,7 +154,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Start a backup manually response**
+**Example: Start a backup manually response**
 
 
 .. code::

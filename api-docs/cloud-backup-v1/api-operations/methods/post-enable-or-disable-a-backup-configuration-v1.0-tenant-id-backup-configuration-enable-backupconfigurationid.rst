@@ -90,7 +90,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Enable or disable a backup configuration request**
+**Example: Enable or disable a backup configuration request**
 
 
 .. code::
@@ -107,7 +107,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Enable a backup configuration: JSON request**
+**Example: Enable a backup configuration JSON request**
 
 
 .. code::
@@ -120,7 +120,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Disable a backup configuration: JSON request**
+**Example: Disable a backup configuration JSON request**
 
 
 .. code::
@@ -310,7 +310,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Disable a backup configuration: JSON response**
+**Example: Disable a backup configuration JSON response**
 
 
 .. code::

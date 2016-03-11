@@ -158,7 +158,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a restore configuration: JSON request**
+**Example: Update a restore configuration JSON request**
 
 
 .. code::

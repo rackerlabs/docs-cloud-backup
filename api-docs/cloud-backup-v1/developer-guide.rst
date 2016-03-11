@@ -9,7 +9,7 @@ using the application programming interface (API) for the Rackspace Cloud Backup
 service. 
 
 To use the information provided here, you should have a general understanding of the
-:kc-product-faq:`Cloud Backup FAQ<cloud-backup>` and have a `Rackspace Cloud account`_ with access to the Cloud Backup service. You should also be familiar with the following technologies:
+:how-to:`Cloud Backup FAQ<cloud-backup>` and have a `Rackspace Cloud account`_ with access to the Cloud Backup service. You should also be familiar with the following technologies:
 
 -  *RESTful* web services
 
@@ -17,5 +17,4 @@ To use the information provided here, you should have a general understanding of
 
 -  JSON data serialization format
 
-.. _Rackspace Cloud Backup service: https://www.rackspace.com/knowledge_center/product-faq/cloud-backup
 .. _Rackspace Cloud Account: https://cart.rackspace.com/cloud

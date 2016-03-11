@@ -82,7 +82,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Delete agent: JSON request**
+**Example: Delete agent JSON request**
 
 
 .. code::
@@ -118,7 +118,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Delete agent: JSON response**
+**Example: Delete agent JSON response**
 
 
 .. code::

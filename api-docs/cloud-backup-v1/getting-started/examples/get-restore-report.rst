@@ -12,7 +12,7 @@ token.
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
  
-**cURL get a restore report request**
+**Example: cURL get a restore report request**
 
 .. code::  
 
@@ -20,7 +20,7 @@ request succeeded.
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
 
-**Get a restore report response**
+**Example: Get a restore report response**
 
 .. code::  
 

@@ -83,7 +83,7 @@ This operation does not accept a request body.
 
 
 
-**Example List details about a restore: JSON request**
+**Example: List details about a restore JSON request**
 
 
 .. code::
@@ -241,7 +241,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List details about a restore: JSON response**
+**Example: List details about a restore JSON response**
 
 
 .. code::

@@ -64,7 +64,7 @@ This operation does not accept a request body.
 
 
 
-**Example Wake up agents: JSON request**
+**Example: Wake up agents JSON request**
 
 
 .. code::

@@ -83,7 +83,7 @@ This operation does not accept a request body.
 
 
 
-**Example List agent details: JSON request**
+**Example: List agent details JSON request**
 
 
 .. code::
@@ -205,7 +205,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List agent details: JSON response**
+**Example: List agent details JSON response**
 
 
 .. code::

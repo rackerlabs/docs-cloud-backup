@@ -17,7 +17,7 @@ An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
  
-**cURL list activity for an agent request**
+**Example: cURL list activity for an agent request**
 
 .. code::  
 
@@ -25,7 +25,7 @@ request succeeded.
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
 
-**List activity for an agent response**
+**Example: List activity for an agent response**
 
 .. code::  
 

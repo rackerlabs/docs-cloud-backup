@@ -75,7 +75,7 @@ This operation does not accept a request body.
 
 
 
-**Example List backups available for a restore: JSON request**
+**Example: List backups available for a restore JSON request**
 
 
 .. code::
@@ -103,7 +103,7 @@ Response
 
 
 
-**Example List backups available for a restore: JSON response**
+**Example: List backups available for a restore JSON response**
 
 
 .. code::

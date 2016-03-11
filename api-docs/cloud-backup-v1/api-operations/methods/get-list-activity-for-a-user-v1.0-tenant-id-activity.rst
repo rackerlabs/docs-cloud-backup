@@ -75,7 +75,7 @@ This operation does not accept a request body.
 
 
 
-**Example List activity for a user: JSON request**
+**Example: List activity for a user JSON request**
 
 
 .. code::
@@ -168,7 +168,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List activity for a user: JSON response**
+**Example: List activity for a user JSON response**
 
 
 .. code::

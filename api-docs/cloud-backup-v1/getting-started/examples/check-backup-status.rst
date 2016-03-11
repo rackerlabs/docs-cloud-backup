@@ -37,7 +37,7 @@ valid values for ``CurrentState`` are as follows:
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
  
-**cURL check backup status request**
+**Example: cURL check backup status request**
 
 .. code::  
 
@@ -45,7 +45,7 @@ request succeeded.
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json | python -m json.tool
 
-**Check backup status response**
+**Example: Check backup status response**
 
 .. code::  
 

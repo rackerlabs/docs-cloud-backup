@@ -17,7 +17,7 @@ This operation does not return a response body. An HTTP status code of
 204 (No Content) in the response indicates that the request succeeded.
 
  
-**cURL start a restore manually request**
+**Example: cURL start a restore manually request**
 
 .. code::  
 
@@ -33,7 +33,7 @@ shown in the following example. Receiving the email is based on the
 parameters that you specify when you create your backup configuration
 (see :ref:`Create a backup configuration <gsg-create-backup-config>`).
 
-**Start a restore manually email**
+**Example: Start a restore manually email**
 
 .. code::  
 

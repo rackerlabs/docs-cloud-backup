@@ -8,7 +8,7 @@ The Rackspace Cloud Backup Service is a regionalized service. The user of the se
 
 You can find the available service endpoints for Rackspace Cloud Backup in the following table.
 
-To help you decide which regionalized endpoint to use, read the Knowledge Center article about special considerations for choosing a data center at :kc-article:`About regions<about-regions>`.
+To help you decide which regionalized endpoint to use, read about special considerations for choosing a data center at :how-to:`About regions<about-regions>`.
 
 **Regionalized service endpoints**
 

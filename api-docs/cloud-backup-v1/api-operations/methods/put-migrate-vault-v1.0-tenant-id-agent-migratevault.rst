@@ -80,7 +80,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Migrate vault: JSON request**
+**Example: Migrate vault JSON request**
 
 
 .. code::

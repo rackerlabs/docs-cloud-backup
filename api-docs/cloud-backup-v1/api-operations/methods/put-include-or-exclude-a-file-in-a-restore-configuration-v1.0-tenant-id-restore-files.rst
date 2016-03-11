@@ -104,7 +104,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Include a file in a restore configuration: JSON request**
+**Example: Include a file in a restore configuration JSON request**
 
 
 .. code::

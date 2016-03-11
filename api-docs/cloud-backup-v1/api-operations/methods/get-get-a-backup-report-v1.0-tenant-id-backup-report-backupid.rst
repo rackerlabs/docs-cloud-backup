@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get a backup report: JSON request**
+**Example: Get a backup report JSON request**
 
 
 .. code::
@@ -106,7 +106,7 @@ Response
 
 
 
-**Example Get a backup report: JSON response**
+**Example: Get a backup report JSON response**
 
 
 .. code::

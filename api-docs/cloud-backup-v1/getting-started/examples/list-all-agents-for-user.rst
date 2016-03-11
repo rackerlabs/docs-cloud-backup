@@ -6,7 +6,7 @@ Listing all agents for the user
 The agent is an important component of Cloud Backup. You must install
 the agent on all servers that you want to back up. Documentation about
 installing agents is available from the link on Rackspace Control Panel
-under the **Backup** tab or at :kc-article:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
+under the **Backup** tab or at :how-to:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
 After the agent is installed on one or many servers, you can use the
 Cloud Backup API to configure your backups.
 
@@ -30,14 +30,14 @@ token.
 An HTTP status code of 200 (OK) indicates that the request succeeded.
 
  
-**cURL list all agents for the user request**
+**Example: cURL list all agents for the user request**
 
 .. code::  
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/user/agents \
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
-**List all agents for the user response**
+**Example: List all agents for the user response**
 
 .. code::  
 
