@@ -112,7 +112,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for a cleanup: HTTP request**
+**Example: List events for a cleanup HTTP request**
 
 
 .. code::
@@ -188,7 +188,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List events for a cleanup: JSON response**
+**Example: List events for a cleanup JSON response**
 
 
 .. code::

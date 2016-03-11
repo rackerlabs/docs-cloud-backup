@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete a configuration: HTTP request**
+**Example: Delete a configuration HTTP request**
 
 
 .. code::
@@ -108,7 +108,7 @@ This operation does not return a response body.
 
 
 
-**Example Delete a configuration: 204 response**
+**Example: Delete a configuration HTTP 204 response**
 
 
 .. code::
@@ -117,7 +117,7 @@ This operation does not return a response body.
    Content-Type: application/json
 
 
-**Example Delete a configuration: 404 response**
+**Example: Delete a configuration HTTP 404 response**
    
 .. code::
 

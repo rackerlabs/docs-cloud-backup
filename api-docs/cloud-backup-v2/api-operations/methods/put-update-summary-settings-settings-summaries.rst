@@ -99,7 +99,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update summary settings: JSON request**
+**Example: Update summary settings JSON request**
 
 
 .. code::
@@ -143,7 +143,7 @@ This operation does not return a response body.
 
 
 
-**Example Update summary settings: JSON response**
+**Example: Update summary settings JSON response**
 
 
 .. code::

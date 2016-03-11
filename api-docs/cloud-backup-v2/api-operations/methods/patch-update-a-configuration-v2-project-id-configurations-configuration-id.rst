@@ -118,7 +118,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a configuration: JSON request**
+**Example: Update a configuration JSON request**
 
 
 .. code::
@@ -155,7 +155,7 @@ This operation does not return a response body.
 
 
 
-**Example Update a configuration: 204 response**
+**Example: Update a configuration 204 response**
 
 
 .. code::

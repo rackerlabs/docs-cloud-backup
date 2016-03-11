@@ -86,7 +86,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete a log file: HTTP request**
+**Example: Delete a log file HTTP request**
 
 
 .. code::
@@ -112,14 +112,14 @@ This operation does not return a response body.
 
 
 
-**Example Delete a log file: 204 response**
+**Example: Delete a log file HTTP 204 response**
 
 .. code::
 
    204 (No Content)
    Content-Type: application/json
    
-**Example Delete a log file: 404 response**
+**Example: Delete a log file HTTP 404 response**
    
 .. code::
    

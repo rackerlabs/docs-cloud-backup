@@ -92,7 +92,7 @@ This operation does not accept a request body.
 
 
 
-**Example List the configurations for a project: HTTP request**
+**Example: List the configurations for a project HTTP request**
 
 
 .. code::
@@ -254,7 +254,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List the configurations for a project: JSON response**
+**Example: List the configurations for a project JSON response**
 
 
 .. code::

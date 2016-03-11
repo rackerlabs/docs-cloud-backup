@@ -129,7 +129,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Start a restore: JSON request**
+**Example: Start a restore JSON request**
 
 
 .. code::
@@ -296,7 +296,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Start a restore: JSON response**
+**Example: Start a restore JSON response**
 
 
 .. code::

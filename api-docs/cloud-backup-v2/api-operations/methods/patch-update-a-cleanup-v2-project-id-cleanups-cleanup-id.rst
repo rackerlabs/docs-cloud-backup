@@ -148,7 +148,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a cleanup: JSON request**
+**Example: Update a cleanup JSON request**
 
 
 .. code::
@@ -227,7 +227,7 @@ Response
 
 
 
-**Example Update a cleanup: 204 response**
+**Example: Update a cleanup 204 response**
 
 
 .. code::
@@ -235,7 +235,7 @@ Response
    204 (No Content)
 
 
-**Example Update a cleanup: 404 response**
+**Example: Update a cleanup 404 response**
 
 .. code::
 

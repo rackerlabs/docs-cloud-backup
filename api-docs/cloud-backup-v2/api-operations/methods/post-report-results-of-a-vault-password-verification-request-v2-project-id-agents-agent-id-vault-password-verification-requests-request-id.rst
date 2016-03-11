@@ -97,7 +97,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Report results of a vault password verification request: JSON request**
+**Example: Report results of a vault password verification request JSON request**
 
 
 .. code::
@@ -130,7 +130,7 @@ This operation does not return a response body.
 
 
 
-**Example Report results of a vault password verification request: 204 response**
+**Example: Report results of a vault password verification request HTTP response**
 
 
 .. code::

@@ -165,7 +165,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a restore: JSON request**
+**Example: Update a restore JSON request**
 
 
 .. code::
@@ -243,7 +243,7 @@ Response
 
 
 
-**Example Update a restore: 204 response**
+**Example: Update a restore 204 response**
 
 
 .. code::
@@ -252,7 +252,7 @@ Response
    
 
 
-**Example Update a restore: 409 response**
+**Example: Update a restore 409 response**
 
 
 .. code::

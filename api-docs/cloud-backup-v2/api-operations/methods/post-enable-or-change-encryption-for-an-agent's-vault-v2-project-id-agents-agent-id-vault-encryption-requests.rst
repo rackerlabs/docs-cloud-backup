@@ -107,7 +107,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Enable or change encryption for an agent's vault: JSON request**
+**Example: Enable or change encryption for an agent's vault JSON request**
 
 
 .. code::
@@ -141,7 +141,7 @@ Response
 
 
 
-**Example Enable or change encryption for an agent's vault: 202 response**
+**Example: Enable or change encryption for an agent's vault HTTP 202 response**
 
 
 .. code::
@@ -150,7 +150,7 @@ Response
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/vault-encryption-request/9072bb51-d5fd-4fc5-ad80-d62e573236b6
    
    
-**Example Enable or change encryption for an agent's vault: JSON response**
+**Example: Enable or change encryption for an agent's vault JSON response**
 
 .. code::   
    

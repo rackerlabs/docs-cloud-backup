@@ -112,7 +112,7 @@ This operation does not accept a request body.
 
 
 
-**Example List events for a backup: HTTP request**
+**Example: List events for a backup HTTP request**
 
 
 .. code::
@@ -224,7 +224,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List events for a backup: JSON response**
+**Example: List events for a backup JSON response**
 
 
 .. code::

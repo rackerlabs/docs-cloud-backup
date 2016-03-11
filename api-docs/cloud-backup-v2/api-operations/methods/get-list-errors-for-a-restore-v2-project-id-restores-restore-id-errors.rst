@@ -81,7 +81,7 @@ This operation does not accept a request body.
 
 
 
-**Example List errors for a restore: HTTP request**
+**Example: List errors for a restore HTTP request**
 
 
 .. code::
@@ -153,7 +153,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List errors for a restore: JSON response**
+**Example: List errors for a restore JSON response**
 
 
 .. code::

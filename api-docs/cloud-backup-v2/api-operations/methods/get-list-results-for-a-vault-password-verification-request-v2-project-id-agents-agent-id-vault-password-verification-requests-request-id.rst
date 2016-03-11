@@ -88,7 +88,7 @@ This operation does not accept a request body.
 
 
 
-**Example List results for a vault password verification request: HTTP request**
+**Example: List results for a vault password verification request HTTP request**
 
 
 .. code::
@@ -138,7 +138,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List results for a vault password verification request: JSON response**
+**Example: List results for a vault password verification request JSON response**
 
 
 .. code::

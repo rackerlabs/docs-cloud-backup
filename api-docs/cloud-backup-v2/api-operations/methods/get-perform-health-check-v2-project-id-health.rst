@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example Perform health check: HTTP request**
+**Example: Perform health check HTTP request**
 
 
 .. code::
@@ -156,7 +156,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Perform health check with response code 200: JSON response**
+**Example: Perform health check with response code 200**
 
 
 .. code::
@@ -197,7 +197,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Perform health check with response code 503: JSON response**
+**Example: Perform health check with response code 503**
 
 
 .. code::

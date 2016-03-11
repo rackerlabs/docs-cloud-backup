@@ -96,7 +96,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Request to verify the password for an agent's vault: JSON request**
+**Example: Request to verify the password for an agent's vault JSON request**
 
 
 .. code::
@@ -130,7 +130,7 @@ Response
 
 
 
-**Example Request to verify the password for an agent's vault: 202 response**
+**Example: Request to verify the password for an agent's vault 202 response**
 
 
 .. code::
@@ -139,7 +139,7 @@ Response
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/vault-password-verification-request/f353f472-4931-463a-9920-1dcad25f88e7
    
    
-**Example Request to verify the password for an agent's vault: 403 response**
+**Example: Request to verify the password for an agent's vault 403 response**
 
 
 .. code::

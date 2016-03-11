@@ -98,7 +98,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Move a vault from one agent to another agent: JSON request**
+**Example: Move a vault from one agent to another agent JSON request**
 
 
 .. code::
@@ -131,7 +131,7 @@ This operation does not return a response body.
 
 
 
-**Example Move a vault from one agent to another agent: 204 response**
+**Example: Move a vault from one agent to another agent HTTP response**
 
 
 .. code::

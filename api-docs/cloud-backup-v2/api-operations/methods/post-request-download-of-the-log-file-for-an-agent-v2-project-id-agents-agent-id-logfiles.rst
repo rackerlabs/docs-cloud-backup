@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example Request download of the log file for an agent: HTTP request**
+**Example: Request download of the log file for an agent HTTP request**
 
 
 .. code::
@@ -131,7 +131,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Request download of the log file for an agent: JSON response**
+**Example: Request download of the log file for an agent JSON response**
 
 
 .. code::

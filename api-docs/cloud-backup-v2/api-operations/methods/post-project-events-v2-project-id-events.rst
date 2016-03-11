@@ -126,7 +126,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Post project events: JSON request**
+**Example: Post project events JSON request**
 
 
 .. code::
@@ -160,7 +160,7 @@ This operation does not return a response body.
 
 
 
-**Example Post project events: JSON response**
+**Example: Post project events HTTP response**
 
 
 .. code::

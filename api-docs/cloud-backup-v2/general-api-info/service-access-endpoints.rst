@@ -8,7 +8,7 @@ The Rackspace Cloud Backup Service is a regionalized service. The user of the se
 
 You can find the available service endpoints for Rackspace Cloud Backup in the following table.
 
-To help you decide which regionalized endpoint to use, read the Knowledge Center article about special considerations for choosing a data center at `About Regions`_.
+To help you decide which regionalized endpoint to use, read about special considerations for choosing a data center in :how-to:`about regions <about-regions>`.
 
 **Regionalized service endpoints**
 
@@ -37,4 +37,3 @@ You will find the actual account number after the final slash (/) in the ``publi
 ..  note:: 
     The Cloud Backup API runs with or without the specification of the account ID number in the endpoint. However, the examples in this guide include the account number in the request URIs.
 
-.. _About Regions: http://www.rackspace.com/knowledge_center/article/about-regions

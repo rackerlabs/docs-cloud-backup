@@ -105,7 +105,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a log file: JSON request**
+**Example: Update a log file JSON request**
 
 
 .. code::
@@ -142,7 +142,7 @@ This operation does not return a response body.
 
 
 
-**Example Update a log file: 204 response**
+**Example: Update a log file 204 response**
 
 
 .. code::

@@ -132,7 +132,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update an agent: JSON request**
+**Example: Update an agent JSON request**
 
 
 .. code::
@@ -168,7 +168,7 @@ This operation does not require a response body for the 204 response.
 
 
 
-**Example Update an agent: 204 response**
+**Example: Update an agent 204 response**
 
 
 .. code::
@@ -176,7 +176,7 @@ This operation does not require a response body for the 204 response.
    204 (No Content)
 
 
-**Example Update an agent: 403 response**
+**Example: Update an agent 403 response**
 
 
 .. code::
@@ -190,7 +190,7 @@ This operation does not require a response body for the 204 response.
   "message": "The vault property (region) cannot be updated, reason: vault is not empty."
    }   
    
-**Example Update an agent: 404 response**
+**Example: Update an agent 404 response**
 
 
 .. code::

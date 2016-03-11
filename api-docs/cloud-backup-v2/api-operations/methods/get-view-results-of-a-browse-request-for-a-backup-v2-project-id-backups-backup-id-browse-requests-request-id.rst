@@ -84,7 +84,7 @@ This operation does not accept a request body.
 
 
 
-**Example View results of a browse request for a backup: HTTP request**
+**Example: View results of a browse request for a backup HTTP request**
 
 
 .. code::
@@ -151,7 +151,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example View results of a browse request for a backup: JSON response**
+**Example: View results of a browse request for a backup JSON response**
 
 
 .. code::

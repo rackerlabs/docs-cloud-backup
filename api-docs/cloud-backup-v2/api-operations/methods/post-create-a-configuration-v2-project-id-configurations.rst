@@ -203,7 +203,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create a configuration: JSON request**
+**Example: Create a configuration JSON request**
 
 
 .. code::
@@ -400,7 +400,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Create a configuration: JSON response**
+**Example: Create a configuration JSON response**
 
 
 .. code::

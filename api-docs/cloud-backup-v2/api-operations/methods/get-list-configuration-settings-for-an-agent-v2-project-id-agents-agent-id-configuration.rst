@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example List configuration settings for an agent: HTTP request**
+**Example: List configuration settings for an agent HTTP request**
 
 
 .. code::
@@ -299,7 +299,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List configuration settings for an agent: JSON response**
+**Example: List configuration settings for an agent JSON response**
 
 
 .. code::
