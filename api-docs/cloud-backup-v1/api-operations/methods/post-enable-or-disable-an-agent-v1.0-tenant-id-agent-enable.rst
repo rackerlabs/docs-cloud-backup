@@ -89,7 +89,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Enable an agent: JSON request**
+**Example: Enable an agent JSON request**
 
 
 .. code::
@@ -103,7 +103,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Disable an agent: JSON request**
+**Example: Disable an agent JSON request**
 
 
 .. code::

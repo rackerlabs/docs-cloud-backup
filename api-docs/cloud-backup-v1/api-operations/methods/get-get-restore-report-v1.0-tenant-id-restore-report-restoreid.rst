@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get restore report: JSON request**
+**Example: Get restore report JSON request**
 
 
 .. code::
@@ -180,7 +180,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get restore report: JSON response**
+**Example: Get restore report JSON response**
 
 
 .. code::

@@ -8,7 +8,7 @@ Enable volume encryption
 
     POST /v1.0/{tenant_id}/agent/encrypt
 
-This operation enables volume encryption with AES-256 encryption if it is not already enabled. If you need assistance generating your encrypted key, see :kc-article:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
+This operation enables volume encryption with AES-256 encryption if it is not already enabled. If you need assistance generating your encrypted key, see :how-to:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
 
 .. note::
    After encryption is turned on, you cannot turn it off. This is a security measure. If anyone ever gained access to your account, they would not be able to access your backups without your passphrase.
@@ -90,7 +90,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Enable volume encryption: JSON request**
+**Example: Enable volume encryption JSON request**
 
 
 .. code::
@@ -116,7 +116,7 @@ Response
 
 
 
-**Example Enable volume encryption response**
+**Example: Enable volume encryption response**
 
 
 .. code::

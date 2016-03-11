@@ -204,7 +204,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update backup configuration: JSON request**
+**Example: Update backup configuration JSON request**
 
 
 .. code::

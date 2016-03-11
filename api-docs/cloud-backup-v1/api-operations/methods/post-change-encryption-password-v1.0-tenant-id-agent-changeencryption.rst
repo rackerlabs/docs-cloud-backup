@@ -10,7 +10,7 @@ Change encryption password
 
 This operation changes the encryption password.
 
-This operation changes the encryption password. If you need assistance generating your encrypted key, see :kc-article:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
+This operation changes the encryption password. If you need assistance generating your encrypted key, see :how-to:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
 
 .. note::
    After you turn on encryption, you cannot turn it off. This is a security measure. If anyone ever gained access to your account, they would not be able to access your backups without your passphrase.
@@ -95,7 +95,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Change encryption password: JSON request**
+**Example: Change encryption password JSON request**
 
 
 .. code::
@@ -122,7 +122,7 @@ Response
 
 
 
-**Example Change encryption password response**
+**Example: Change encryption password response**
 
 
 .. code::

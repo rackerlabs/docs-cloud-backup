@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete a restore configuration: JSON request**
+**Example: Delete a restore configuration JSON request**
 
 
 .. code::

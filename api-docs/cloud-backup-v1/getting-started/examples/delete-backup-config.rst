@@ -17,7 +17,7 @@ This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
  
-**cURL delete a backup configuration request**
+**Example: cURL delete a backup configuration request**
 
 .. code::  
 
@@ -27,14 +27,14 @@ This operation does not return a response body. An HTTP status code of
 To verify that the backup configuration is deleted, list the backup
 configuration details to see ``IsDeleted: True``.
  
-**cURL list backup configuration details request**
+**Example: cURL list backup configuration details request**
 
 .. code::  
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/backup-configuration/yourBackupConfigurationID \
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
-**List backup configuration details response**
+**Example: List backup configuration details response**
 
 .. code::  
 

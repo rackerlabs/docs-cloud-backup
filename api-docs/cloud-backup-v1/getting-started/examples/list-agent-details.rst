@@ -14,14 +14,14 @@ An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
  
-**cURL list agent details request**
+**Example: cURL list agent details request**
 
 .. code::  
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/agent/yourMachineAgentID  \
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
-**List agent details response**
+**Example: List agent details response**
 
 .. code::  
 

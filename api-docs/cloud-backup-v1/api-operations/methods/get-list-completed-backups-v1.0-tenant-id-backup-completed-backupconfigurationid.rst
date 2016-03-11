@@ -87,7 +87,7 @@ This operation does not accept a request body.
 
 
 
-**Example List completed backups: JSON request**
+**Example: List completed backups JSON request**
 
 
 .. code::
@@ -155,7 +155,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List completed backups: JSON response**
+**Example: List completed backups JSON response**
 
 
 .. code::

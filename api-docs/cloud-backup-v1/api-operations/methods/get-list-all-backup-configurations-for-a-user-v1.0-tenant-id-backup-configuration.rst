@@ -265,7 +265,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List all backup configurations for a user: JSON response**
+**Example: List all backup configurations for a user JSON response**
 
 
 .. code::

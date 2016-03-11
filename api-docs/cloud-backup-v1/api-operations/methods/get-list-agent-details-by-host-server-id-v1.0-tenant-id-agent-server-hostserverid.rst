@@ -80,7 +80,7 @@ This operation does not accept a request body.
 
 
 
-**Example List agent details by host server ID: JSON request**
+**Example: List agent details by host server ID JSON request**
 
 
 .. code::
@@ -197,7 +197,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List agent details by host server ID: JSON response**
+**Example: List agent details by host server ID JSON response**
 
 
 .. code::

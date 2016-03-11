@@ -104,7 +104,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example List included or excluded files in a restore configuration: JSON request**
+**Example: List included or excluded files in a restore configuration JSON request**
 
 
 .. code::

@@ -71,7 +71,7 @@ This operation does not accept a request body.
 
 
 
-**Example List all agents for this user: JSON request**
+**Example: List all agents for this user JSON request**
 
 
 .. code::
@@ -188,7 +188,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List all agents for this user: JSON response**
+**Example: List all agents for this user JSON response**
 
 
 .. code::

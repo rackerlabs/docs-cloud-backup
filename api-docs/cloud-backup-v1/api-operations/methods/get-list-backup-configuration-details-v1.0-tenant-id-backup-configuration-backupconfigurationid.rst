@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example List backup configuration details: JSON request**
+**Example: List backup configuration details JSON request**
 
 
 .. code::
@@ -266,7 +266,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List backup configuration details: JSON response**
+**Example: List backup configuration details JSON response**
 
 
 .. code::

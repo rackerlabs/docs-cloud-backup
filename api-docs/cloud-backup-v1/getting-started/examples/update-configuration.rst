@@ -19,7 +19,7 @@ This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
 
  
-**cURL update a backup configuration request**
+**Example: cURL update a backup configuration request**
 
 .. code::  
 
@@ -64,7 +64,7 @@ You can verify that the configuration is updated by using the following
 cURL request, specifying the same ``BackupConfigurationId`` that you
 used in the update request.
 
-**cURL list a backup configuration request**
+**Example: cURL list a backup configuration request**
 
 .. code::  
 

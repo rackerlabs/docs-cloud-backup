@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example List activity for an agent: JSON request**
+**Example: List activity for an agent JSON request**
 
 
 .. code::
@@ -171,7 +171,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List activity for an agent: JSON response**
+**Example: List activity for an agent JSON response**
 
 
 .. code::

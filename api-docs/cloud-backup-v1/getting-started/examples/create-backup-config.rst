@@ -25,7 +25,7 @@ token.
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
  
-**cURL create a backup configuration request**
+**Example: cURL create a backup configuration request**
 
 .. code::  
 
@@ -67,7 +67,7 @@ request succeeded.
     }'  | python -m json.tool 
      
 
-**Create a backup configuration response**
+**Example: Create a backup configuration response**
 
 .. code::  
 

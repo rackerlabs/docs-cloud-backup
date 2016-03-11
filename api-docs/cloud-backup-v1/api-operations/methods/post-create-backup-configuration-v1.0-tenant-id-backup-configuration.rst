@@ -186,7 +186,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create backup configuration: JSON request**
+**Example: Create backup configuration JSON request**
 
 
 .. code::
@@ -377,7 +377,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Create backup configuration: JSON response**
+**Example: Create backup configuration JSON response**
 
 
 .. code::

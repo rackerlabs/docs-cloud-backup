@@ -139,7 +139,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Create a restore configuration: JSON request**
+**Example: Create a restore configuration JSON request**
 
 
 .. code::
@@ -299,7 +299,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Create a restore configuration: JSON response**
+**Example: Create a restore configuration JSON response**
 
 
 .. code::

@@ -95,7 +95,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update agent backup behavior: JSON request**
+**Example: Update agent backup behavior JSON request**
 
 
 .. code::
@@ -111,7 +111,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update agent backup behavior: JSON request**
+**Example: Update agent backup behavior JSON request**
 
 
 .. code::
@@ -226,7 +226,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Update agent backup behavior: JSON response**
+**Example: Update agent backup behavior JSON response**
 
 
 .. code::
