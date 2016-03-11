@@ -110,7 +110,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Report results of a vault encryption request: JSON request**
+**Example: Report results of a vault encryption request JSON request**
 
 
 .. code::
@@ -144,7 +144,7 @@ This operation does not return a response body.
 
 
 
-**Example Report results of a vault encryption request: 204 response**
+**Example: Report results of a vault encryption request HTTP response**
 
 
 .. code::

@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get an agent's status: HTTP request**
+**Example: Get an agent's status HTTP request**
 
 
 .. code::
@@ -121,7 +121,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get an agent's status: JSON response**
+**Example: Get an agent's status JSON response**
 
 
 .. code::

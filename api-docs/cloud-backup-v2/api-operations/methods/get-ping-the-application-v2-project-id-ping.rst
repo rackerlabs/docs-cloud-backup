@@ -78,7 +78,7 @@ This operation does not accept a request body.
 
 
 
-**Example Ping the application: HTTP request**
+**Example: Ping the application HTTP request**
 
 
 .. code::
@@ -105,7 +105,7 @@ Response
 
 
 
-**Example Ping the application: JSON response**
+**Example: Ping the application HTTP response**
 
 
 .. code::

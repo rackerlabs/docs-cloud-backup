@@ -99,7 +99,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Start a cleanup: JSON request**
+**Example: Start a cleanup JSON request**
 
 
 .. code::
@@ -208,7 +208,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Start a cleanup: JSON response**
+**Example: Start a cleanup JSON response**
 
 
 .. code::

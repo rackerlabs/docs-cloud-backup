@@ -81,7 +81,7 @@ This operation does not accept a request body.
 
 
 
-**Example List details about a backup: HTTP request**
+**Example: List details about a backup HTTP request**
 
 
 .. code::
@@ -197,7 +197,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List details about a backup: JSON response**
+**Example: List details about a backup JSON response**
 
 
 .. code::

@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example Delete an agent: HTTP request**
+**Example: Delete an agent HTTP request**
 
 
 .. code::
@@ -108,7 +108,7 @@ Response
 
 
 
-**Example Delete an agent: 204 response**
+**Example: Delete an agent HTTP 204 response**
 
 .. code::
 
@@ -116,7 +116,7 @@ Response
    Content-Type: application/json
    
    
-**Example Delete an agent: 404 response**
+**Example: Delete an agent HTTP 404 response**
 
 .. code::  
    

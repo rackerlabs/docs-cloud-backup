@@ -156,7 +156,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Update a backup: JSON request**
+**Example: Update a backup JSON request**
 
 
 .. code::
@@ -259,7 +259,7 @@ Response
 
 
 
-**Example Update a backup: 204 response**
+**Example: Update a backup 204 response**
 
 
 .. code::
@@ -267,7 +267,7 @@ Response
    204 (No Content)
 
 
-**Example Update a backup: 409 response**
+**Example: Update a backup 409 response**
 
 .. code::
 

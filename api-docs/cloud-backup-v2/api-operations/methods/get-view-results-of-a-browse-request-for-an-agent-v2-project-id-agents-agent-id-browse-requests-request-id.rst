@@ -86,7 +86,7 @@ This operation does not accept a request body.
 
 
 
-**Example View results of a browse request for an agent: HTTP request**
+**Example: View results of a browse request for an agent HTTP request**
 
 
 .. code::
@@ -153,7 +153,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example View results of a browse request for an agent: JSON response**
+**Example: View results of a browse request for an agent JSON response**
 
 
 .. code::

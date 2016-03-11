@@ -92,7 +92,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Request to browse an agent's files: JSON request**
+**Example: Request to browse an agent's files JSON request**
 
 
 .. code::
@@ -126,7 +126,7 @@ This operation does not return a response body.
 
 
 
-**Example Request to browse an agent's files: HTTP response**
+**Example: Request to browse an agent's files HTTP response**
 
 
 .. code::

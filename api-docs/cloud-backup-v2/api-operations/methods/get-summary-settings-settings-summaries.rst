@@ -75,7 +75,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get summary settings: HTTP request**
+**Example: Get summary settings HTTP request**
 
 
 .. code::
@@ -126,7 +126,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get summary settings: JSON response**
+**Example: Get summary settings JSON response**
 
 
 .. code::

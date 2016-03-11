@@ -90,7 +90,7 @@ This operation does not accept a request body.
 
 
 
-**Example Lists results of a vault encryption request: HTTP request**
+**Example: Lists results of a vault encryption request HTTP request**
 
 
 .. code::
@@ -139,7 +139,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Lists results of a vault encryption request: JSON response**
+**Example: Lists results of a vault encryption request JSON response**
 
 
 .. code::

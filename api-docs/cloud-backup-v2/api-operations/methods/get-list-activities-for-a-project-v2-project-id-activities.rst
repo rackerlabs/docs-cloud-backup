@@ -99,7 +99,7 @@ This operation does not accept a request body.
 
 
 
-**Example List activities for a project: HTTP request**
+**Example: List activities for a project HTTP request**
 
 
 .. code::
@@ -209,7 +209,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example List activities for a project: JSON response**
+**Example: List activities for a project JSON response**
 
 
 .. code::

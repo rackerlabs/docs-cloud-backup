@@ -113,7 +113,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Post events for an agent: JSON request**
+**Example: Post events for an agent JSON request**
 
 
 .. code::
@@ -147,7 +147,7 @@ This operation does not return a response body.
 
 
 
-**Example Post events for an agent: 202 response**
+**Example: Post events for an agent HTTP response**
 
 
 .. code::

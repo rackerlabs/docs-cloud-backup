@@ -80,7 +80,7 @@ This operation does not accept a request body.
 
 
 
-**Example Get health details: HTTP request**
+**Example: Get health details HTTP request**
 
 
 .. code::
@@ -128,7 +128,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get health details with response code 200: JSON response**
+**Example: Get health details with response code 200 response**
 
 
 .. code::
@@ -153,7 +153,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Get health details with response code 503: JSON response**
+**Example: Get health details with response code 503 response**
 
 
 .. code::

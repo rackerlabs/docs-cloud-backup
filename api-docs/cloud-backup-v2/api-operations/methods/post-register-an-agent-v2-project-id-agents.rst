@@ -162,7 +162,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Register an agent: JSON request**
+**Example: Register an agent JSON request**
 
 
 .. code::
@@ -343,7 +343,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Register an agent: JSON response**
+**Example: Register an agent JSON response**
 
 
 .. code::

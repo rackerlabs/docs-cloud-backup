@@ -98,7 +98,7 @@ This table shows the body parameters for the request:
 
 
 
-**Example Request to browse a backup's files: JSON request**
+**Example: Request to browse a backup's files JSON request**
 
 
 .. code::
@@ -134,7 +134,7 @@ This operation does not require a response body.
 
 
 
-**Example Request to browse a backup's files: HTTP response**
+**Example: Request to browse a backup's files HTTP response**
 
 
 .. code::

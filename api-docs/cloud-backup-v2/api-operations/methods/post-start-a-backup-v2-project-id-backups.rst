@@ -98,7 +98,7 @@ This operation does not accept a request body.
 
 
 
-**Example Start a backup: HTTP request**
+**Example: Start a backup JSON request**
 
 
 .. code::
@@ -224,7 +224,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Start a backup: JSON response**
+**Example: Start a backup JSON response**
 
 
 .. code::

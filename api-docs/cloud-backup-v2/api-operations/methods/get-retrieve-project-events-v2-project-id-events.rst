@@ -113,7 +113,7 @@ This operation does not accept a request body.
 
 
 
-**Example Retrieve project events: HTTP request**
+**Example: Retrieve project events HTTP request**
 
 
 .. code::
@@ -225,7 +225,7 @@ This table shows the body parameters for the response:
 
 
 
-**Example Retrieve project events: JSON response**
+**Example: Retrieve project events JSON response**
 
 
 .. code::
