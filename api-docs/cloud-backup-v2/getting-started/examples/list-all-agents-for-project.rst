@@ -6,7 +6,7 @@ List all agents for a project
 The agent is an important component of Cloud Backup. You must install
 an agent on all servers that you want to back up. Documentation about
 installing agents is available from the link on Rackspace Control Panel
-under the **Backup** tab or at :kc-article:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
+under the **Backup** tab or at :how-to:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
 After the agent is installed on one or many servers, you can use the
 Cloud Backup API to configure your backups.
 
