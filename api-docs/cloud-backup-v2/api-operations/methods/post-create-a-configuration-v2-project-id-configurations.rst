@@ -30,6 +30,11 @@ Following are some example schedules:
 
 *  Weekly: ``RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH;BYHOUR=14;BYMINUTE=0``
 
+.. note::
+
+   These example schedules use the `iCalendar specification standards`_. However,
+   Cloud Backup uses *only the fields shown* in the example schedules.  
+
 The following restrictions apply to the ``inclusions`` parameter:
 
 *  Multiple entries with the same ``path`` are forbidden.
@@ -488,3 +493,4 @@ This table shows the body parameters for the response:
    }
 
 .. _Internet Assigned Numbers Authority (IANA) Time Zone Database: http://www.iana.org/time-zones
+.. _iCalendar specification standards: https://www.ietf.org/rfc/rfc2445.txt
