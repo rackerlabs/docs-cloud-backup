@@ -8,10 +8,10 @@ List events for an agent
 
     GET /v2/{project_id}/agents/{agent_id}/events
 
-This operation lists all events for the specified agent. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring an agent's current activity. 
+This operation lists all events for the specified agent. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring an agent's current activity.
 
-You can find additional event information in the following operation descriptions: 
- 
+You can find additional event information in the following operation descriptions:
+
 * GET /v2/agents/{id}/browse-request/{request_id} (See :ref:`View results of a browse request for an agent <get-view-results-of-a-browse-request-for-an-agent>`.)
 * GET /v2/agents/{id}/vault-encryption-request/{request_id} (See :ref:`Lists results of a vault encryption request <get-lists-results-of-a-vault-encryption-request>`.)
 * GET /v2/agents/{id}/vault-password-verification-request/{request_id} (See :ref:`View results for a vault password verification request <get-list-results-for-a-vault-password-verification-request>`.)
@@ -25,11 +25,11 @@ You can find additional event information in the following operation description
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
@@ -71,7 +71,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -87,7 +87,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the query parameters for the request:
+The following table shows the query parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -146,7 +146,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +-------------------------------+---------+------------------------------------+
 |Name                           |Type     |Description                         |
@@ -160,7 +160,7 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.\ **event**             |String   |Type of the event. You can see the  |
 |                               |         |types of events in the response     |
-|                               |         |example below.                      |
+|                               |         |example that follows this table.    |
 +-------------------------------+---------+------------------------------------+
 |events.\ **agent**             |String   |Information about the agent for     |
 |                               |         |each ``event`` except ``mode``.     |
@@ -421,7 +421,3 @@ This table shows the body parameters for the response:
            }
        ]
    }
-
-
-
-

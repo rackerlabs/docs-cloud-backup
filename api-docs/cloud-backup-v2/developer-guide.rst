@@ -11,9 +11,9 @@ service.
 To use the information provided here, you should have a general understanding of the
 :how-to:`Cloud Backup FAQ<cloud-backup>` and have a `Rackspace Cloud account`_ with access to the Cloud Backup service. You should also be familiar with the following technologies:
 
--  *RESTful* web services
+-  RESTful web services
 
--  *HTTP*/1.1
+-  HTTP/1.1
 
 -  JSON data serialization format
 

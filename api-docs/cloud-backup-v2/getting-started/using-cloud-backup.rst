@@ -1,6 +1,6 @@
 .. _gsg-using-cloud-backup:
 
-Create and work with backups
+Create and manage Cloud Backups
 ----------------------------------------------
 
 You can use the examples in this section to get agent information, 
@@ -18,7 +18,7 @@ Before running the examples, review the :ref:`Cloud Backup concepts<bu-concepts>
      code samples. 
 
 For more information about all Cloud Backup operations, see the
-:ref:`API reference <api-reference>`.
+:ref:`API Reference <api-reference>`.
 
 
 

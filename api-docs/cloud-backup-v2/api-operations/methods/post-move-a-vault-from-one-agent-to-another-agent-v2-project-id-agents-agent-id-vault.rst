@@ -21,11 +21,11 @@ A 403 response code is returned in any of the following error conditions:
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |204            | No Content      | The server successfully fulfilled the request, and there  |
 |               |                 | is no additional content to send in the response body.    |
@@ -67,7 +67,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -85,7 +85,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
