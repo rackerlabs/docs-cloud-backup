@@ -8,21 +8,15 @@ Start a backup
 
     POST /v2/{project_id}/backups
 
-This operation starts a backup. Start backups by specifying one of the following states: 
-
-* ``start_requested`` : A manual backup is requested by a user.
-* ``start_scheduled`` : A scheduled backup is started by the agent. ``start_scheduled`` requires that the ``X-Agent-Id`` header is in the request.
+This operation starts a backup. 
 
 
 
-
-
-
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
@@ -63,7 +57,7 @@ Request
 """"""""""""""""
 
 
-This table shows the header parameters for the request:
+The following table shows the header parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -79,7 +73,7 @@ This table shows the header parameters for the request:
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -90,11 +84,31 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 
 
+The following table shows the body parameters for the request.
 
-
-
-This operation does not accept a request body.
-
++--------------------------+-------------------------+-------------------------+
+|Name                      |Type                     |Description              |
++==========================+=========================+=========================+
+|configuration_id          |String                   |Project ID of the user.  |
+|                          |*(Required)*             |Also referred to as the  |
+|                          |                         |tenant ID or account ID. |
++--------------------------+-------------------------+-------------------------+
+|state                     |String                   |The state of the backup. |
+|                          |*(Required)*             |Valid values are         |
+|                          |                         |``start_requested`` and  |
+|                          |                         |``start_scheduled``.     |
+|                          |                         |``start_requested`` is   |
+|                          |                         |for a manual backup that |
+|                          |                         |is requested by a user.  |
+|                          |                         |``start_scheduled`` is   |
+|                          |                         |for a scheduled backup   |
+|                          |                         |that is started by the   |
+|                          |                         |agent.                   |
+|                          |                         |``start_scheduled``      |
+|                          |                         |requires that the        |
+|                          |                         |``X-Agent-Id`` header is |
+|                          |                         |in the request.          |
++--------------------------+-------------------------+-------------------------+
 
 
 
@@ -127,7 +141,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +-----------------------+-------------------+----------------------------------+
 |Name                   |Type               |Description                       |

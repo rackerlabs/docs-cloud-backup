@@ -4,11 +4,17 @@
 Service access endpoints
 =========================
 
-The Rackspace Cloud Backup Service is a regionalized service. The user of the service is therefore responsible for appropriate replication, caching, and overall maintenance of Rackspace Cloud Backup data across regional boundaries to other Rackspace Cloud Backup servers.
+The Cloud Backup service is a regionalized service. The user of the service is therefore responsible for appropriate replication, caching, and overall maintenance of Rackspace Cloud Backup data across regional boundaries to other Rackspace Cloud Backup servers.
 
-You can find the available service endpoints for Rackspace Cloud Backup in the following table.
+To determine which region to operate against, select an endpoint from
+the following table.
 
-To help you decide which regionalized endpoint to use, read about special considerations for choosing a data center in :how-to:`about regions <about-regions>`.
+.. tip::
+   To help you decide which regionalized endpoint to use, read about :how-to:`special considerations for choosing a region <about-regions>`.
+
+
+
+
 
 **Regionalized service endpoints**
 

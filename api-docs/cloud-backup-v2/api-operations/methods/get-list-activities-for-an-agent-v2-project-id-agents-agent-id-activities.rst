@@ -21,11 +21,11 @@ If no activities are available, the ``activities`` parameter in the response is 
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
@@ -68,7 +68,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -84,7 +84,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the query parameters for the request:
+The following table shows the query parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -105,11 +105,13 @@ This table shows the query parameters for the request:
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-Note: ``sort_dir`` returns the latest activities when set to ``desc``.
+.. note:: 
 
-Note: ``sort_dir`` effects the entire result set, not just the data set returned.
-      For example, if there are 1000 activities, then ``desc`` will return entries
-      1,000-901 while ``asc`` will return entries 1-100.
+   ``sort_dir`` returns the latest activities when set to ``desc``.
+
+   ``sort_dir`` effects the entire result set, not just the data set returned.
+   For example, if there are 1000 activities, then ``desc`` will return entries
+   1,000-901 while ``asc`` will return entries 1-100.
 
 
 This operation does not accept a request body.
@@ -138,7 +140,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +----------------------------------+---------------------+---------------------+
 |Name                              |Type                 |Description          |

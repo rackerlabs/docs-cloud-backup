@@ -17,11 +17,11 @@ This operation results in the agent checking for events from the API periodicall
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |202            | Accepted        |The request has beenaccepted for processing,but the        |
 |               |                 |processing has not been completed.                         |
@@ -65,7 +65,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -79,7 +79,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +-------------------------+-------------------------+--------------------------+
 |Name                     |Type                     |Description               |
@@ -93,7 +93,7 @@ This table shows the body parameters for the request:
 |\ **mode**               |String *(Required)*      |Type of event collection. |
 |                         |                         |Valid values are          |
 |                         |                         |``idle``, ``active``, and |
-|                         |                         |``real_time``.``idle``    |
+|                         |                         |``real_time``. ``idle``   |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events periodically, but  |
@@ -104,11 +104,11 @@ This table shows the body parameters for the request:
 |                         |                         |Testing the agent's       |
 |                         |                         |``online`` or ``offline`` |
 |                         |                         |status is not safe in     |
-|                         |                         |this ``mode``.``active``  |
+|                         |                         |this ``mode``. ``active`` |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events                    |
-|                         |                         |frequently.``real_time``  |
+|                         |                         |frequently. ``real_time`` |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events very frequently.   |

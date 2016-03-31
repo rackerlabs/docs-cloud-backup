@@ -3,27 +3,27 @@
 Concepts
 --------
 
-To use the Rackspace Cloud Backup API effectively, you should understand several key concepts:
+To use the Rackspace Cloud Backup API effectively, you should understand several key concepts.
 
 Agent
 ~~~~~
 
-An agent is an executable that is installed on your cloud server and performs backups and restores. You can install the agent Windows and Unix or Linux platforms.
+An *agent* is an executable that is installed on your cloud server and performs backups and restores. You can install the agent Windows and Unix or Linux platforms.
 
 Backup configuration
 ~~~~~~~~~~~~~~~~~~~~
 
-Backup configuration defines what needs to be backed up and when it needs to be backed up. The backup configuration includes a schedule for the backup, files to back up, and notifications.
+A *backup configuration* defines what needs to be backed up and when it needs to be backed up. The backup configuration includes a schedule for the backup, files to back up, and notifications.
 
 Restore
 ~~~~~~~
 
-Restore is a process of bringing your system back to a previously saved state, usually by using a backup as the checkpoint.
+A *restore* is a process of bringing your system back to a previously saved state, usually by using a backup as the checkpoint.
 
 Restore configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-A restore configuration defines what the restore checkpoint is and the where the backup should be restored.
+A *restore configuration* defines what the restore checkpoint is and the where the backup should be restored.
 
 Server setup
 ~~~~~~~~~~~~
@@ -33,4 +33,4 @@ Because Cloud Backup is a file-level backup product, you must configure a separa
 Vault
 ~~~~~
 
-The vault is a set of backup data for an agent. The vault is stored in a Rackspace Cloud Files container.
+The *vault* is a set of backup data for an agent. The vault is stored in a Rackspace Cloud Files container.

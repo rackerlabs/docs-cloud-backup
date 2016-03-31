@@ -22,11 +22,11 @@ If either of the following conditions is true, a 403 response code is returned w
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |202            | Accepted        | The request was accepted for processing, but the          |
 |               |                 | processing has not completed.                             |
@@ -69,7 +69,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -87,7 +87,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +-------------------------------+-----------------------+----------------------+
 |Name                           |Type                   |Description           |

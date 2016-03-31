@@ -8,21 +8,19 @@ Start a cleanup
 
     POST /v2/{project_id}/cleanups
 
-This operation starts a cleanup. Start a cleanup by specifying one of the following states: 
-
-* ``start_requested`` : A manual cleanup is requested by a user.
-* ``start_scheduled`` : A scheduled cleanup is started by the agent.
+This operation starts a cleanup. 
 
 
 
 
 
 
-This table shows the possible response codes for this operation:
+
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
@@ -65,7 +63,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -79,7 +77,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the body parameters for the request:
+The following table shows the body parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -128,7 +126,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |

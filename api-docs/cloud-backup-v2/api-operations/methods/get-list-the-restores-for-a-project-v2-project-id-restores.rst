@@ -12,11 +12,11 @@ This operation retrieves a list of restores available for the specified project.
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
@@ -57,7 +57,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -69,7 +69,7 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the query parameters for the request:
+The following table shows the query parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -119,7 +119,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +------------------------------------+---------+-------------------------------+
 |Name                                |Type     |Description                    |

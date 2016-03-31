@@ -4,7 +4,7 @@ Get your credentials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To communicate with Rackspace Cloud services by using the REST API, you need your
-Rackspace Cloud account username, API key, and account number. To get this 
+Rackspace Cloud account username, API key, and account number. To get this
 information, log in to the `Cloud Control Panel`_.
 
 .. note::
@@ -28,7 +28,7 @@ Save your API key
 
 .. important::
       Protect your API key. Do not expose the value in code samples, screen captures, or
-      insecure client-server communications. Also, make sure that the value is not
+      insecure client-server communications. Also, ensure that the value is not
       included in source code that is stored in public repositories.
 
 Save your account number
@@ -39,4 +39,4 @@ Save your account number
 #. Copy and save the account number.
 
 
-.. _Cloud Control Panel: https://mycloud.rackspace.com/   
+.. _Cloud Control Panel: https://mycloud.rackspace.com/

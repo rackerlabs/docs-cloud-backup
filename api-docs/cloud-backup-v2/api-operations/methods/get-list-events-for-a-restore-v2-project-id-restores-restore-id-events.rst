@@ -17,11 +17,11 @@ This operation lists the events for the specified restore.
 
 
 
-This table shows the possible response codes for this operation:
+The following table shows the possible response codes for this operation.
 
 
 +---------------+-----------------+-----------------------------------------------------------+
-|Response Code  |Name             |Description                                                |
+|Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
@@ -63,7 +63,7 @@ Request
 
 
 
-This table shows the URI parameters for the request:
+The following table shows the URI parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
@@ -79,18 +79,18 @@ This table shows the URI parameters for the request:
 
 
 
-This table shows the query parameters for the request:
+The following table shows the query parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
 |marker                    |String *(Optional)*      |Event ID , such as       |
-|                          |                         |282856510. Only events   |
-|                          |                         |newer than the event     |
-|                          |                         |specified by marker are  |
-|                          |                         |returned. This parameter |
-|                          |                         |is most useful when you  |
-|                          |                         |are continuously         |
+|                          |                         |``282856510``. Only      |
+|                          |                         |events newer than the    |
+|                          |                         |event specified by marker|
+|                          |                         |are returned. This       |
+|                          |                         |parameter is most useful |
+|                          |                         |when you are continuously|
 |                          |                         |monitoring this endpoint |
 |                          |                         |for new events, so that  |
 |                          |                         |old events will not be   |
@@ -138,7 +138,7 @@ Response
 
 
 
-This table shows the body parameters for the response:
+The following table shows the body parameters for the response.
 
 +-----------------------------+--------------------+---------------------------+
 |Name                         |Type                |Description                |
@@ -149,7 +149,7 @@ This table shows the body parameters for the response:
 +-----------------------------+--------------------+---------------------------+
 |events.\ **time**            |String              |Time of the event.         |
 +-----------------------------+--------------------+---------------------------+
-|\ **event**s.\ **event**     |String              |Type of the event.         |
+|events.\ **event**           |String              |Type of the event.         |
 +-----------------------------+--------------------+---------------------------+
 |events.\ **agent**           |String              |Agent information for the  |
 |                             |                    |event.                     |
