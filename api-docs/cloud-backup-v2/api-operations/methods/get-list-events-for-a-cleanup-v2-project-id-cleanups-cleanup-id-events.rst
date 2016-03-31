@@ -8,7 +8,9 @@ List events for a cleanup
 
     GET /v2/{project_id}/cleanups/{cleanup_id}/events
 
-This operation lists all events for the specified cleanup. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring a running cleanup. 
+This operation lists all events for the specified cleanup. You should consider these events to 
+be transient because they might disappear after a minute or so. Therefore, this operation is most 
+useful for monitoring a running cleanup. 
 
 
 
@@ -145,7 +147,7 @@ This table shows the body parameters for the response:
 +-------------------------+------------------------+---------------------------+
 |events.\ **time**        |String                  |Time of the event.         |
 +-------------------------+------------------------+---------------------------+
-|\ **event**s.\ **event** |String                  |Type of the event.         |
+|events.\ **event**       |String                  |Type of the event.         |
 +-------------------------+------------------------+---------------------------+
 |events.\ **agent**       |String                  |Information about the      |
 |                         |                        |agent for each ``event``.  |

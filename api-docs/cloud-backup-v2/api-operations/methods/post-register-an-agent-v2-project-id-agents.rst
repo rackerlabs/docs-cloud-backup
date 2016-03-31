@@ -91,28 +91,41 @@ This table shows the body parameters for the request:
 |                       |                       |``rackspace_private_cloud``.  |
 |                       |                       |Depending on the flavor       |
 |                       |                       |specified, the following      |
-|                       |                       |notes apply: * ``nova`` *     |
-|                       |                       |Specification of              |
-|                       |                       |``host/region`` is preferred, |
-|                       |                       |but it can be ``null``. *     |
-|                       |                       |Specification of the          |
-|                       |                       |``vault/use_internal`` is     |
-|                       |                       |optional. The default value   |
-|                       |                       |is ``true``. *                |
-|                       |                       |``rackspace_dedicated`` *     |
-|                       |                       |Specification of              |
-|                       |                       |``host/region`` is required.  |
-|                       |                       |* Specification of the        |
-|                       |                       |``vault/use_internal`` is     |
-|                       |                       |optional. The default value   |
-|                       |                       |is ``false``. *               |
-|                       |                       |``rackspace_private_cloud`` * |
-|                       |                       |Specification of              |
-|                       |                       |``host/region`` is required.  |
-|                       |                       |* Specification of the        |
-|                       |                       |``vault/use_internal`` is     |
-|                       |                       |optional. The default value   |
-|                       |                       |is ``true``.                  |
+|                       |                       |notes apply.                  |
+|                       |                       |                              |
+|                       |                       |``nova``                      |
+|                       |                       |                              |
+|                       |                       |- Specification of            |
+|                       |                       |  ``host/region`` is          |
+|                       |                       |  preferred, but it can be    |
+|                       |                       |  ``null``.                   |
+|                       |                       |                              |                    
+|                       |                       |- Specification of the        |
+|                       |                       |  ``vault/use_internal`` is   |
+|                       |                       |  optional. The default value |
+|                       |                       |  is ``true``.                |
+|                       |                       |                              |
+|                       |                       |``rackspace_dedicated``       |
+|                       |                       |                              |
+|                       |                       |-  Specification of           |
+|                       |                       |   ``host/region`` is         |
+|                       |                       |   required.                  |
+|                       |                       |                              |
+|                       |                       |-  Specification of the       |
+|                       |                       |   ``vault/use_internal`` is  |
+|                       |                       |   optional. The default value|
+|                       |                       |   is ``false``.              |
+|                       |                       |                              |
+|                       |                       |``rackspace_private_cloud``   | 
+|                       |                       |                              |
+|                       |                       |-  Specification of           |
+|                       |                       |   ``host/region`` is         |
+|                       |                       |   required.                  |
+|                       |                       |                              |
+|                       |                       |-  Specification of the       |
+|                       |                       |   ``vault/use_internal`` is  |
+|                       |                       |   optional. The default value|
+|                       |                       |   is ``true``.               |
 +-----------------------+-----------------------+------------------------------+
 |host.\ **region**      |String *(Required)*    |Region for the agent.         |
 +-----------------------+-----------------------+------------------------------+

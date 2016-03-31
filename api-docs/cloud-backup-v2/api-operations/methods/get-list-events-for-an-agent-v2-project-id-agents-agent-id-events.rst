@@ -11,15 +11,14 @@ List events for an agent
 This operation lists all events for the specified agent. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring an agent's current activity. 
 
 You can find additional event information in the following operation descriptions: 
-
-* 
-* GET /v2/agents/{id}/browse-request/{request_id} (See "View results of a browse request for an agent".)
-* GET /v2/agents/{id}/vault-encryption-request/{request_id} (See "Lists results of a vault encryption request".)
-* GET /v2/agents/{id}/vault-password-verification-request/{request_id} (See "View results for a vault password verification request".)
-* GET /v2/backups/{id}/browse-request/{request_id} (See "View results of a browse request for a backup".)
-* GET /v2/backups/{id}/events (See "List events for a backup".)
-* GET /v2/cleanups/{id}/events (See "List events for a cleanup".)
-* GET /v2/restores/{id}/events (See "List events for a restore".)
+ 
+* GET /v2/agents/{id}/browse-request/{request_id} (See :ref:`View results of a browse request for an agent <get-view-results-of-a-browse-request-for-an-agent>`.)
+* GET /v2/agents/{id}/vault-encryption-request/{request_id} (See :ref:`Lists results of a vault encryption request <get-lists-results-of-a-vault-encryption-request>`.)
+* GET /v2/agents/{id}/vault-password-verification-request/{request_id} (See :ref:`View results for a vault password verification request <get-list-results-for-a-vault-password-verification-request>`.)
+* GET /v2/backups/{id}/browse-request/{request_id} (See :ref:`View results of a browse request for a backup <get-view-results-of-a-browse-request-for-a-backup>`.)
+* GET /v2/backups/{id}/events (See :ref:`List events for a backup <get-list-events-for-a-backup>`.)
+* GET /v2/cleanups/{id}/events (See :ref:`List events for a cleanup <get-list-events-for-a-cleanup>`.)
+* GET /v2/restores/{id}/events (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
 
 
 
@@ -159,7 +158,7 @@ This table shows the body parameters for the response:
 +-------------------------------+---------+------------------------------------+
 |events.\ **time**              |String   |Time of the event.                  |
 +-------------------------------+---------+------------------------------------+
-|\ **event**s.\ **event**       |String   |Type of the event. You can see the  |
+|events.\ **event**             |String   |Type of the event. You can see the  |
 |                               |         |types of events in the response     |
 |                               |         |example below.                      |
 +-------------------------------+---------+------------------------------------+

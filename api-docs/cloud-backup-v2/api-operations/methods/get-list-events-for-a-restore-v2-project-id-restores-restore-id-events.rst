@@ -85,12 +85,12 @@ This table shows the query parameters for the request:
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
 |marker                    |String *(Optional)*      |Event ID , such as       |
-|                          |                         |282856510. Only events   |
-|                          |                         |newer than the event     |
-|                          |                         |specified by marker are  |
-|                          |                         |returned. This parameter |
-|                          |                         |is most useful when you  |
-|                          |                         |are continuously         |
+|                          |                         |``282856510``. Only      |
+|                          |                         |events newer than the    |
+|                          |                         |event specified by marker|
+|                          |                         |are returned. This       |
+|                          |                         |parameter is most useful |
+|                          |                         |when you are continuously|
 |                          |                         |monitoring this endpoint |
 |                          |                         |for new events, so that  |
 |                          |                         |old events will not be   |
@@ -149,7 +149,7 @@ This table shows the body parameters for the response:
 +-----------------------------+--------------------+---------------------------+
 |events.\ **time**            |String              |Time of the event.         |
 +-----------------------------+--------------------+---------------------------+
-|\ **event**s.\ **event**     |String              |Type of the event.         |
+|events.\ **event**           |String              |Type of the event.         |
 +-----------------------------+--------------------+---------------------------+
 |events.\ **agent**           |String              |Agent information for the  |
 |                             |                    |event.                     |

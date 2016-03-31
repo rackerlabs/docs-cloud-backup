@@ -8,7 +8,7 @@ Retrieve project events
 
     GET /v2/{project_id}/events
 
-This operation returns events that are similar to those returned from the ``GET /v2/agents/{id}/events{?marker,limit,sort_dir}`` (see "List events for an agent") except that this operation returns events for all agents in the project instead of a single agent. Additional ``agent_activate`` events that have been sent to the entire project instead of to a single agent are also returned.
+This operation returns events that are similar to those returned from the ``GET /v2/agents/{id}/events{?marker,limit,sort_dir}`` (see :re:`List events for an agent <get-list-events-for-an-agent>`) except that this operation returns events for all agents in the project instead of a single agent. Additional ``agent_activate`` events that have been sent to the entire project instead of to a single agent are also returned.
 
 .. note::
    You should consider these events as transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring the specified project's current events.

@@ -8,10 +8,8 @@ Start a cleanup
 
     POST /v2/{project_id}/cleanups
 
-This operation starts a cleanup. Start a cleanup by specifying one of the following states: 
+This operation starts a cleanup. 
 
-* ``start_requested`` : A manual cleanup is requested by a user.
-* ``start_scheduled`` : A scheduled cleanup is started by the agent.
 
 
 

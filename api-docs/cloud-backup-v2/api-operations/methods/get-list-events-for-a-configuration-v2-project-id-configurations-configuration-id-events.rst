@@ -14,8 +14,8 @@ Sample events that might be returned from this endpoint can be found in the desc
 
 
 
-*  GET /v2/backups/{id}/events (See "List events for a backup".)
-*  GET /v2/restores/{id}/events (See "List events for a restore".)
+*  GET /v2/backups/{id}/events (See :ref:`List events for a backup <get-list-events-for-a-backup>`.)
+*  GET /v2/restores/{id}/events (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
 
 
 
@@ -155,7 +155,7 @@ This table shows the body parameters for the response:
 +-----------------------------+------------------------+-----------------------+
 |events.\ **time**            |String                  |Time of the event.     |
 +-----------------------------+------------------------+-----------------------+
-|\ **event**s.\ **event**     |String                  |Type of the event.     |
+|events.\ **event**           |String                  |Type of the event.     |
 +-----------------------------+------------------------+-----------------------+
 |events.\ **agent**           |String                  |Information about the  |
 |                             |                        |agent for each         |

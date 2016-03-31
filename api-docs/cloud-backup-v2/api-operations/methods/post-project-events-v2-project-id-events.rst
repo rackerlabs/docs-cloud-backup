@@ -93,7 +93,7 @@ This table shows the body parameters for the request:
 |\ **mode**               |String *(Required)*      |Type of event collection. |
 |                         |                         |Valid values are          |
 |                         |                         |``idle``, ``active``, and |
-|                         |                         |``real_time``.``idle``    |
+|                         |                         |``real_time``. ``idle``   |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events periodically, but  |
@@ -104,11 +104,11 @@ This table shows the body parameters for the request:
 |                         |                         |Testing the agent's       |
 |                         |                         |``online`` or ``offline`` |
 |                         |                         |status is not safe in     |
-|                         |                         |this ``mode``.``active``  |
+|                         |                         |this ``mode``. ``active`` |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events                    |
-|                         |                         |frequently.``real_time``  |
+|                         |                         |frequently. ``real_time`` |
 |                         |                         |specifies that the agent  |
 |                         |                         |checks for and posts      |
 |                         |                         |events very frequently.   |

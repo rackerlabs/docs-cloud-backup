@@ -105,11 +105,13 @@ This table shows the query parameters for the request:
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-Note: ``sort_dir`` returns the latest activities when set to ``desc``.
+.. note:: 
 
-Note: ``sort_dir`` effects the entire result set, not just the data set returned.
-      For example, if there are 1000 activities, then ``desc`` will return entries
-      1,000-901 while ``asc`` will return entries 1-100.
+   ``sort_dir`` returns the latest activities when set to ``desc``.
+
+   ``sort_dir`` effects the entire result set, not just the data set returned.
+   For example, if there are 1000 activities, then ``desc`` will return entries
+   1,000-901 while ``asc`` will return entries 1-100.
 
 
 This operation does not accept a request body.

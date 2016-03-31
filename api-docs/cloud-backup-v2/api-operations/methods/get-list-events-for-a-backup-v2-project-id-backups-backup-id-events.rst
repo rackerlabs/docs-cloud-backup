@@ -8,7 +8,9 @@ List events for a backup
 
     GET /v2/{project_id}/backups/{backup_id}/events
 
-This operation lists all events for the specified backup. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring a running backup. 
+This operation lists all events for the specified backup. You should consider these events to be 
+transient because they might disappear after a minute or so. Therefore, this operation is most 
+useful for monitoring a running backup. 
 
 
 
@@ -145,7 +147,7 @@ This table shows the body parameters for the response:
 +---------------------------+-----------------------+--------------------------+
 |events.\ **time**          |String                 |Time of the event.        |
 +---------------------------+-----------------------+--------------------------+
-|\ **event**s.\ **event**   |String                 |Type of the event.        |
+|events.\ **event**         |String                 |Type of the event.        |
 +---------------------------+-----------------------+--------------------------+
 |events.\ **agent**         |String                 |Information about the     |
 |                           |                       |agent for each ``event``. |
