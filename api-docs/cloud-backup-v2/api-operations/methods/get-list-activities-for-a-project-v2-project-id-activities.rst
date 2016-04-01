@@ -138,7 +138,7 @@ The following table shows the body parameters for the response.
 |                                  |               |for the activity.          |
 +----------------------------------+---------------+---------------------------+
 |activities.\ **state**            |String         |State of the activities.   |
-|                                  |*(Optional)*   |Valid values are any state |
+|                                  |               |Valid values are any state |
 |                                  |               |defined by a backup, a     |
 |                                  |               |cleanup, or a restore,     |
 |                                  |               |such as                    |
@@ -315,7 +315,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

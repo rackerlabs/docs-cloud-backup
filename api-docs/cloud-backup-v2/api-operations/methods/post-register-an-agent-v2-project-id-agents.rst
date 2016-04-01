@@ -99,7 +99,7 @@ The following table shows the body parameters for the request.
 |                       |                       |  ``host/region`` is          |
 |                       |                       |  preferred, but it can be    |
 |                       |                       |  ``null``.                   |
-|                       |                       |                              |                    
+|                       |                       |                              |
 |                       |                       |- Specification of the        |
 |                       |                       |  ``vault/use_internal`` is   |
 |                       |                       |  optional. The default value |
@@ -116,7 +116,7 @@ The following table shows the body parameters for the request.
 |                       |                       |   optional. The default value|
 |                       |                       |   is ``false``.              |
 |                       |                       |                              |
-|                       |                       |``rackspace_private_cloud``   | 
+|                       |                       |``rackspace_private_cloud``   |
 |                       |                       |                              |
 |                       |                       |-  Specification of           |
 |                       |                       |   ``host/region`` is         |
@@ -245,21 +245,21 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |\ **password**            |String                   |Password for the agent.  |
 +--------------------------+-------------------------+-------------------------+
-|\ **name**                |String *(Required)*      |Name of the agent.       |
+|\ **name**                |String                   |Name of the agent.       |
 +--------------------------+-------------------------+-------------------------+
-|\ **version**             |String *(Required)*      |Version of the agent.    |
+|\ **version**             |String                   |Version of the agent.    |
 +--------------------------+-------------------------+-------------------------+
-|\ **host**                |String *(Required)*      |Information about the    |
+|\ **host**                |String                   |Information about the    |
 |                          |                         |host.                    |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **flavor**         |String *(Required)*      |Flavor for the agent.    |
+|host.\ **flavor**         |String                   |Flavor for the agent.    |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **region**         |String *(Required)*      |Region for the agent.    |
+|host.\ **region**         |String                   |Region for the agent.    |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **machine**        |String *(Required)*      |Information about the    |
+|host.\ **machine**        |String                   |Information about the    |
 |                          |                         |machine.                 |
 +--------------------------+-------------------------+-------------------------+
-|host.machine.\ **id**     |String *(Required)*      |Machine ID.              |
+|host.machine.\ **id**     |String                   |Machine ID.              |
 +--------------------------+-------------------------+-------------------------+
 |host.machine.\ **links**  |String                   |Links with information   |
 |                          |                         |about the machine.       |
@@ -271,38 +271,38 @@ The following table shows the body parameters for the response.
 |**rel**                   |                         |provided is related to   |
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
-|\ **host**.\ **os**       |String *(Required)*      |Information about the    |
+|\ **host**.\ **os**       |String                   |Information about the    |
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
-|host.os.\ **name**        |String *(Required)*      |Name of the operating    |
+|host.os.\ **name**        |String                   |Name of the operating    |
 |                          |                         |system.                  |
 +--------------------------+-------------------------+-------------------------+
-|host.os.\ **version**     |String *(Required)*      |Version of the operating |
+|host.os.\ **version**     |String                   |Version of the operating |
 |                          |                         |system.                  |
 +--------------------------+-------------------------+-------------------------+
-|host.os.\ **architecture**|String *(Required)*      |Architecture of the      |
+|host.os.\ **architecture**|String                   |Architecture of the      |
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **addresses**      |String *(Required)*      |Information about the IP |
+|host.\ **addresses**      |String                   |Information about the IP |
 |                          |                         |addresses for the agent. |
 +--------------------------+-------------------------+-------------------------+
-|host.addresses.\          |String *(Required)*      |Version for the address  |
+|host.addresses.\          |String                   |Version for the address  |
 |**version**               |                         |(4 for IPv4 or 6 for     |
 |                          |                         |IPv6) .                  |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **addresses**.\    |String *(Required)*      |IP address.              |
+|host.\ **addresses**.\    |String                   |IP address.              |
 |**addr**                  |                         |                         |
 +--------------------------+-------------------------+-------------------------+
 |\ **enabled**             |String                   |Specifies whether the    |
 |                          |                         |agent is enabled.        |
 +--------------------------+-------------------------+-------------------------+
-|\ **rsa_public_key**      |String *(Required)*      |Information about the    |
+|\ **rsa_public_key**      |String                   |Information about the    |
 |                          |                         |RSA public key.          |
 +--------------------------+-------------------------+-------------------------+
-|rsa_public_key.\          |String *(Required)*      |Modulus for the RSA      |
+|rsa_public_key.\          |String                   |Modulus for the RSA      |
 |**modulus**               |                         |public key.              |
 +--------------------------+-------------------------+-------------------------+
-|rsa_public_key.\          |String *(Required)*      |Exponent for the RSA     |
+|rsa_public_key.\          |String                   |Exponent for the RSA     |
 |**exponent**              |                         |public key.              |
 +--------------------------+-------------------------+-------------------------+
 |\ **vault**               |String                   |Information about the    |

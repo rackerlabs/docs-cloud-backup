@@ -161,7 +161,7 @@ The following table shows the body parameters for the response.
 |agents.host.os.\ **version** |String                  |Version of the         |
 |                             |                        |operating system.      |
 +-----------------------------+------------------------+-----------------------+
-|agents.host.os.\             |String *(Required)*     |Architecture of the    |
+|agents.host.os.\             |String                  |Architecture of the    |
 |**architecture**             |                        |operating system.      |
 +-----------------------------+------------------------+-----------------------+
 |agents.host.\ **addresses**  |String                  |Information about the  |

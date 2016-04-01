@@ -8,7 +8,9 @@ List configurations for an agent
 
     GET /v2/{project_id}/agents/{agent_id}/configurations
 
-This operation lists the configurations for the specified agent. Note that the response is identical to the response for the operation to list the configurations for a project (see List the configurations for a project). 
+This operation lists the configurations for the specified agent. Note that the
+response is identical to the response for the operation to list the configurations
+for a project (see :ref:`List the configurations for a project<get-list-the-configurations-for-a-project>`). 
 
 
 
@@ -92,7 +94,7 @@ This operation does not accept a request body.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-   
+
 
 
 
@@ -254,7 +256,7 @@ The following table shows the body parameters for the response.
                        "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                        "links": [
                            {
-                               "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                               "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                                "rel": "full"
                            }
                        ]
@@ -302,7 +304,3 @@ The following table shows the body parameters for the response.
                }
            ]
        }
-
-
-
-

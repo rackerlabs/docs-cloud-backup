@@ -15,20 +15,20 @@ You can issue updates only for the following scenarios:
 
 
 *  The agent is reporting the state of the cleanup. For example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``. The following values are valid for ``value`` :
-   
-   
-   
+
+
+
    *  ``queued``
    *  ``in_progress``
 *  The agent is reporting the results of the finished cleanup (see the example request in this section). The following values are valid for ``/state`` :
-   
-   
-   
+
+
+
    *  ``completed``
    *  ``completed_with_errors``
    *  ``failed``
    *  ``stopped``
-*  You are issuing a request to stop the cleanup. For example, `` [{ "op": "replace", "path": "/state", "value": "stop_requested" }`` ].
+*  You are issuing a request to stop the cleanup. For example, ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
 
 You can use the ``add`` and ``replace`` operations interchangeably because they are interpreted identically for these scenarios.
@@ -247,7 +247,3 @@ Response
    {
        "message": "Modifying a cleanup that is already in a state of ['completed', 'completed_with_errors', 'failed', 'stopped'] is not allowed."
    }
-
-
-
-

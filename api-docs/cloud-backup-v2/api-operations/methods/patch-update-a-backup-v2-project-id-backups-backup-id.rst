@@ -15,22 +15,22 @@ You can issue updates for the following scenarios only:
 
 
 *  The agent is reporting the state of the backup; for example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``. The following values are valid for ``value`` :
-   
-   
-   
+
+
+
    *  ``queued``
    *  ``preparing``
    *  ``in_progress``
 *  The agent is reporting the results of the finished backup (see the example request in this section). The following values are valid for ``/state`` :
-   
-   
-   
+
+
+
    *  ``completed``
    *  ``completed_with_errors``
    *  ``failed``
    *  ``stopped``
    *  ``skipped``
-*  You are issuing a request to stop the backup; for example, `` [{ "op": "replace", "path": "/state", "value": "stop_requested" }`` ].
+*  You are issuing a request to stop the backup; for example, ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
 
 You can use the ``add`` and ``replace`` operations interchangeably because they are interpreted identically for these scenarios.
@@ -279,7 +279,3 @@ Response
    {
        "message": "Modifying a backup that is already in a state of ['completed', 'completed_with_errors', 'failed', 'stopped', 'skipped', 'missed'] is not allowed."
    }
-
-
-
-

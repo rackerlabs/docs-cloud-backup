@@ -8,7 +8,10 @@ View results of a browse request for an agent
 
     GET /v2/{project_id}/agents/{agent_id}/browse-requests/{request_id}
 
-This operation shows the results for the specified browse request for the specified agent's files. The request returns a 404 response code until the agent responds to the browse request (see "Request to browse an agent's files"). Consider this response transient because it might disappear after a minute or so. 
+This operation shows the results for the specified browse request for the specified
+agent's files. The request returns a 404 response code until the agent responds to
+the browse request (see :ref:`Request to browse an agent's files<get-list-the-log-files-for-an-agent>`).
+Consider this response transient because it might disappear after a minute or so. 
 
 
 
@@ -184,7 +187,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

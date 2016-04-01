@@ -12,9 +12,8 @@ This operation authenticates an agent.
 
 Agents authenticate with the API and retrieve an authentication token. The authentication token returned is the token issued by Cloud Identity for the user who originally registered the agent. The token is used for communicating with the Cloud Backup API and other products associated with the same Cloud Identity server.
 
-The following error conditions are returned if the request is not successful: 
+The following error conditions are returned if the request is not successful:
 
-* 401 (Unauthorized) is returned if the provided credentials are rejected.
 * 409 (Conflict) is returned with a message in the response body if the provided fingerprint does not match the agent's fingerprint submitted during registration. Such a case likely indicates two agents (likely on different hosts) are attempting to authenticate as one.
 * 503 (Service Unavailable) is returned with the ``Retry-After`` header if communication with any upstream service fails during authentication. Use the ``Retry-After`` header to determine when to retry authentication.
 
@@ -52,14 +51,18 @@ The following table shows the possible response codes for this operation.
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
 |409            | Conflict        | The request could not be completed due to a conflict with |
-|               |                 | the current state of the resource.                        |
+|               |                 | the current state of the resource.  See information       |
+|               |                 | earlier in the operation description for additional       |
+|               |                 | details about this code.                                  |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
 |               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
-|               |                 | which will likely be alleviated after some delay.         |
+|               |                 | which will likely be alleviated after some delay.  See    |
+|               |                 | information earlier in the operation description for      |
+|               |                 | additional details about this code.                       |
 +---------------+-----------------+-----------------------------------------------------------+
 
 
@@ -223,7 +226,3 @@ The following table shows the body parameters for the response.
            "expires": "2014-10-07T02:52:57.416Z"
        }
    }
-
-
-
-

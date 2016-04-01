@@ -8,14 +8,16 @@ Post events for an agent
 
     POST /v2/{project_id}/agents/{agent_id}/events
 
-This operation posts events for the specified agent. 
+This operation posts events for the specified agent.
 
 .. note::
-   Another valid request is "Post project events" (POST /v2/events). When processed as a "Post events for an agent" operation as described here, the activation applies to only a single agent instead of all agents for the project.
-   
-   
-   
-   
+   Another valid request is :ref:`Post project events<post-project-events>` (POST /v2/events).
+   When processed as the "Post events for an agent" operation as described here, the
+   activation applies to only a single agent instead of all agents for the project.
+
+
+
+
 
 
 
@@ -153,7 +155,3 @@ This operation does not return a response body.
 .. code::
 
    202 (Accepted)
-
-
-
-

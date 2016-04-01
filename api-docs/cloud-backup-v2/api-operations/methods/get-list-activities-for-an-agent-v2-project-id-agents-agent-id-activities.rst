@@ -8,7 +8,7 @@ List activities for an agent
 
     GET /v2/{project_id}/agents/{agent_id}/activities
 
-This operation lists the following activities for the specified agent: 
+This operation lists the following activities for the specified agent:
 
 * Backups performed by the agent
 * Restores performed when the agent is the destination
@@ -103,11 +103,12 @@ The following table shows the query parameters for the request.
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
 |                          |                         |value is ``desc``.       |
+|                          |                         |``sort_dir`` returns the |
+|                          |                         |latest activities when   |
+|                          |                         |set to ``desc``.         |
 +--------------------------+-------------------------+-------------------------+
 
-.. note:: 
-
-   ``sort_dir`` returns the latest activities when set to ``desc``.
+.. note::
 
    ``sort_dir`` effects the entire result set, not just the data set returned.
    For example, if there are 1000 activities, then ``desc`` will return entries
@@ -333,7 +334,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-
