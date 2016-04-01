@@ -10,7 +10,7 @@ Move a vault from one agent to another agent
 
 This operation takes the vault assigned to the source agent and assigns it to the agent specified in the request URL. If the migration is successful, the vault is no longer assigned to the source agent.
 
-A 403 response code is returned in any of the following error conditions: 
+A 403 response code is returned in any of the following error conditions:
 
 * Either the source or destination agent is not owned by the project.
 * The vault is encrypted.
@@ -40,7 +40,9 @@ The following table shows the possible response codes for this operation.
 |               |                 | resource. The credentials are either expired or invalid.  |
 +---------------+-----------------+-----------------------------------------------------------+
 |403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|               |                 | to authorize it. See the information earlier in this      |
+|               |                 | section about the conditions that cause this error for    |
+|               |                 | this operation.                                           |
 +---------------+-----------------+-----------------------------------------------------------+
 |404            | Not Found       | The server did not find a current representation          |
 |               |                 | for the target resource or is not willing to              |
@@ -137,7 +139,3 @@ This operation does not return a response body.
 .. code::
 
    204 (No Content)
-
-
-
-

@@ -25,7 +25,9 @@ You can issue updates only for the following paths:
 *  ``/notifications``
 
 
-The restrictions that apply to the create configuration operation (see "Create a configuration) also apply to this operation as well.
+The restrictions that apply to the create configuration operation
+(see :ref:`Create a configuration<post-create-a-configuration>`) also apply to
+this operation as well.
 
 
 
@@ -161,7 +163,3 @@ This operation does not return a response body.
 .. code::
 
    204 (No Content)
-
-
-
-

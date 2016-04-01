@@ -147,7 +147,7 @@ The following table shows the body parameters for the response.
 |host.os.\ **version**     |String                   |Version of the operating |
 |                          |                         |system.                  |
 +--------------------------+-------------------------+-------------------------+
-|host.os.\ **architecture**|String *(Required)*      |Architecture of the      |
+|host.os.\ **architecture**|String                   |Architecture of the      |
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
 |host.\ **addresses**      |String                   |Information about the IP |

@@ -8,7 +8,7 @@ Start a backup
 
     POST /v2/{project_id}/backups
 
-This operation starts a backup. 
+This operation starts a backup.
 
 
 
@@ -89,11 +89,11 @@ The following table shows the body parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|configuration_id          |String                   |Project ID of the user.  |
+|**configuration_id**      |String                   |Project ID of the user.  |
 |                          |*(Required)*             |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|state                     |String                   |The state of the backup. |
+|**state**                 |String                   |The state of the backup. |
 |                          |*(Required)*             |Valid values are         |
 |                          |                         |``start_requested`` and  |
 |                          |                         |``start_scheduled``.     |
@@ -257,7 +257,7 @@ The following table shows the body parameters for the response.
            "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                    "rel": "full"
                }
            ]
@@ -266,7 +266,7 @@ The following table shows the body parameters for the response.
            "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
                    "rel": "full"
                }
            ]
@@ -304,7 +304,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

@@ -10,33 +10,33 @@ Update an agent
 
 This operation updates the specified agent. Agents are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
-You can modify values for only the following parameters, which are represented as paths:
+You can modify values only for the following parameters, which are represented as paths:
 
 
 
 *  ``/enabled``
-   
+
    Valid values are ``true`` or ``false``.
 
 *  ``/vault/region``
-   
+
    A valid value is any of the vendor's valid region identifiers. Values can only modified only if the vault is empty.
 
 *  ``/vault/use_internal``
-   
+
    Valid values are ``true`` or ``false``.
 
 *  ``/log_level``
-   
+
    Valid values are ``all``, ``trace``, ``debug``, ``info`` (which is the default value), ``warn``, ``error`` , or ``fatal``.
 
 
 .. note::
    You can use the ``add`` and ``replace`` operations interchangeably as they are interpreted identically.
-   
+
    When the response code is something other than 204, a response body is returned with additional information about the error.
-   
-   
+
+
 
 
 
@@ -182,25 +182,24 @@ This operation does not require a response body for the 204 response.
 .. code::
 
    403 (Forbidden)
-   Content-Type:application/json  
+   Content-Type:application/json
 
 .. code::
 
    {
   "message": "The vault property (region) cannot be updated, reason: vault is not empty."
-   }   
-   
+   }
+
 **Example: Update an agent 404 response**
 
 
 .. code::
 
    404 (Not Found)
-   Content-Type:application/json  
+   Content-Type:application/json
 
 .. code::
 
    {
   "message": "Agent not found."
    }
-   

@@ -10,9 +10,9 @@ Enable or change encryption for an agent's vault
 
 This operation enables or changes encryption for the specified agent's vault.
 
-If encryption is already enabled for the vault, provide a value for the ``old_encrypted_password_hex`` parameter in the request. Otherwise, ``old_encrypted_password_hex`` can be null. 
+If encryption is already enabled for the vault, provide a value for the ``old_encrypted_password_hex`` parameter in the request. Otherwise, ``old_encrypted_password_hex`` can be null.
 
-If either of the following conditions is true, a 403 response code is returned with the message in the response body: 
+If either of the following conditions is true, a 403 response code is returned with the message in the response body:
 
 * The ``old_encrypted_password_hex`` parameter is provided and the agent's vault is not already encrypted.
 * The ``old_encrypted_password_hex`` parameter is not provided and the agent's vault is already encrypted.
@@ -41,7 +41,9 @@ The following table shows the possible response codes for this operation.
 |               |                 | resource. The credentials are either expired or invalid.  |
 +---------------+-----------------+-----------------------------------------------------------+
 |403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|               |                 | to authorize it. See the information earlier in this      |
+|               |                 | section for this operation for conditions that cause this |
+|               |                 | error.                                                    |
 +---------------+-----------------+-----------------------------------------------------------+
 |404            | Not Found       | The server did not find a current representation          |
 |               |                 | for the target resource or is not willing to              |
@@ -148,19 +150,15 @@ Response
 
    202 (Accepted)
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/vault-encryption-request/9072bb51-d5fd-4fc5-ad80-d62e573236b6
-   
-   
+
+
 **Example: Enable or change encryption for an agent's vault JSON response**
 
-.. code::   
-   
+.. code::
+
    403 (Forbidden)
    Content-Type: application/json
-   
+
    {
        "message": "An old password was supplied, but the vault is unencrypted."
    }
-
-
-
-
