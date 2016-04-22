@@ -1,21 +1,22 @@
-
 .. _get-list-events-for-a-configuration:
 
-List events for a configuration
+Retrieve the events for a configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/configurations/{configuration_id}/events
 
-This operation lists all the events for the specified configuration. You should consider these events to be transient because they might disappear after a minute or so. Therefore, this operation is most useful for monitoring a configuration's current events. 
+This operation retrieves all the events for the specified configuration. You
+should consider these events to be transient because they might disappear after
+a minute or so. Therefore, this operation is most useful for monitoring a
+configuration's current events.
 
-Sample events that might be returned from this endpoint can be found in the descriptions for the following endpoints:
+Sample events that might be returned from this endpoint are located in the
+descriptions of the response parameters for the following endpoints:
 
-
-
-*  GET /v2/backups/{id}/events (See :ref:`List events for a backup <get-list-events-for-a-backup>`.)
-*  GET /v2/restores/{id}/events (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
+*  ``GET /v2/backups/{id}/events`` (See :ref:`List events for a backup <get-list-events-for-a-backup>`.)
+*  ``GET /v2/restores/{id}/events`` (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
 
 
 
@@ -28,34 +29,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -77,7 +78,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{configuration_id}        |String *(Required)*      |Configuration ID. For    |
+|{configuration_id}        |String                   |Configuration ID. For    |
 |                          |                         |example, ``7c8ee069-568f-|
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
@@ -89,12 +90,12 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |ID of the event, for     |
+|marker                    |String                   |ID of the event. For     |
 |                          |                         |example, ``5152883998``. |
 |                          |                         |Only events newer than   |
 |                          |                         |the event specified by   |
 |                          |                         |``marker`` are returned. |
-|                          |                         |Use of ``marker`` is     |
+|                          |                         |This parameter is        |
 |                          |                         |most useful when you are |
 |                          |                         |continuously monitoring  |
 |                          |                         |this endpoint for new    |
@@ -103,11 +104,11 @@ The following table shows the query parameters for the request.
 |                          |                         |back to you in           |
 |                          |                         |subsequent calls.        |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of events to      |
+|limit                     |Integer                  |Number of events to      |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -122,7 +123,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List events for a configuration HTTP request**
+**Example: Retrieve the events for a configuration, HTTP request**
 
 
 .. code::
@@ -149,7 +150,8 @@ The following table shows the body parameters for the response.
 |Name                         |Type                    |Description            |
 +=============================+========================+=======================+
 |\ **events**                 |String                  |Information about      |
-|                             |                        |events for the backup. |
+|                             |                        |events for the backup  |
+|                             |                        |backup.                |
 +-----------------------------+------------------------+-----------------------+
 |events.\ **id**              |String                  |ID of the event.       |
 +-----------------------------+------------------------+-----------------------+
@@ -163,13 +165,18 @@ The following table shows the body parameters for the response.
 +-----------------------------+------------------------+-----------------------+
 |events.agent.\ **id**        |String                  |ID of the agent.       |
 +-----------------------------+------------------------+-----------------------+
-|events.agent.\ **vault**     |String                  |Information about the  |
-|                             |                        |vault for the backup.  |
+|events.\ **source_agent**    |String                  |Information about the  |
+|                             |                        |source agent for each  |
+|                             |                        |``event``.             |
 +-----------------------------+------------------------+-----------------------+
-|events.agent.vault.\ **id**  |String                  |ID of the vault.       |
+|events.source_agent.\        |String                  |Information about the  |
+|**vault**                    |                        |vault for the backup.  |
 +-----------------------------+------------------------+-----------------------+
-|events.agent.vault.\         |String                  |Indicates if the vault |
-|**encrypted**                |                        |is encrypted.          |
+|events.source_agent.vault.\  |String                  |ID of the vault.       |
+|**id**                       |                        |                       |
++-----------------------------+------------------------+-----------------------+
+|events.source_agent.vault.\  |Boolean                 |Indicates whether the  |
+|**encrypted**                |                        |vault is encrypted.    |
 +-----------------------------+------------------------+-----------------------+
 |events.\ **configuration**   |String                  |Information about the  |
 |                             |                        |configuration for each |
@@ -224,15 +231,15 @@ The following table shows the body parameters for the response.
 +-----------------------------+------------------------+-----------------------+
 |events.\ **request_id**      |String                  |ID of the request.     |
 +-----------------------------+------------------------+-----------------------+
-|events.\ **bytes_completed** |String                  |Number of bytes        |
+|events.\ **bytes_completed** |Integer                 |Number of bytes        |
 |                             |                        |completed.             |
 +-----------------------------+------------------------+-----------------------+
-|events.\ **bytes_remaining** |String                  |Number of bytes        |
+|events.\ **bytes_remaining** |Integer                 |Number of bytes        |
 |                             |                        |remaining.             |
 +-----------------------------+------------------------+-----------------------+
-|events.\ **total_bytes**     |String                  |Number of total bytes. |
+|events.\ **total_bytes**     |Integer                 |Number of total bytes. |
 +-----------------------------+------------------------+-----------------------+
-|events.\ **path**            |String                  |Path for browse        |
+|events.\ **path**            |String                  |Path for the browse    |
 |                             |                        |request.               |
 +-----------------------------+------------------------+-----------------------+
 |events.\ **path_encoded**    |String                  |Encoded path for the   |
@@ -258,7 +265,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List events for a configuration JSON response**
+**Example: Retrieve the events for a configuration, JSON response**
 
 
 .. code::
@@ -509,7 +516,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

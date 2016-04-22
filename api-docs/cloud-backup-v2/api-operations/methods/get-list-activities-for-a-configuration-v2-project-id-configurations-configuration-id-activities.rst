@@ -1,14 +1,15 @@
 
 .. _get-list-activities-for-a-configuration:
 
-List activities for a configuration
+Retrieve the activities for a configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/configurations/{configuration_id}/activities
 
-This operation lists the activities for the specified configuration. The activities include backups performed with this configuration.
+This operation retrieves the activities for the specified configuration. The
+activities include backups performed with this configuration.
 
 
 
@@ -20,34 +21,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -69,7 +70,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{configuration_id}        |String *(Required)*      |Configuration ID. For    |
+|{configuration_id}        |String                   |Configuration ID. For    |
 |                          |                         |example, ``7c8ee069-568f-|
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
@@ -81,16 +82,16 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |The ``id`` of the last   |
-|                          |                         |known activity; for      |
+|marker                    |String                   |The ID of the last       |
+|                          |                         |known activity. For      |
 |                          |                         |example: ``0d95d699-d16b-|
 |                          |                         |11e4-93bd-c8e0eb190e3d``.|
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of activities to  |
+|limit                     |Integer                  |Number of activities to  |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -105,7 +106,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List activities for a configuration JSON request**
+**Example: Retrieve the activities for a configuration, HTTP request**
 
 
 .. code::
@@ -214,7 +215,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List activities for a configuration JSON response**
+**Example: Retrieve the activities for a configuration, JSON response**
 
 
 .. code::
@@ -320,7 +321,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

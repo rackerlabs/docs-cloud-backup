@@ -1,7 +1,7 @@
 
 .. _post-report-results-of-a-vault-password-verification-request:
 
-Report results of a vault password verification request
+Report the results of a vault password verification request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -23,34 +23,34 @@ The following table shows the possible response codes for this operation.
 |204            | No Content      | The server successfully fulfilled the request, and there  |
 |               |                 | is no additional content to send in the response body.    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -70,11 +70,11 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|{agent_id}                |String                   |Agent ID. For example,   |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-|{request_id}              |String *(Required)*      |Password verification    |
+|{request_id}              |String                   |Password verification    |
 |                          |                         |request ID. For example, |
 |                          |                         |``f353f472-4931-463a-    |
 |                          |                         |9920-1dcad25f88e7``.     |
@@ -89,7 +89,8 @@ The following table shows the body parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|\ **verified**            |String *(Required)*      |Specifies whether the    |
+|\ **verified**            |String                   |*(Required)*             |
+|                          |                         |Specifies whether the    |
 |                          |                         |password is verified.    |
 +--------------------------+-------------------------+-------------------------+
 
@@ -97,7 +98,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Report results of a vault password verification request JSON request**
+**Example: Report the results of a vault password verification request, JSON request**
 
 
 .. code::
@@ -130,7 +131,7 @@ This operation does not return a response body.
 
 
 
-**Example: Report results of a vault password verification request HTTP response**
+**Example: Report the results of a vault password verification request, HTTP response**
 
 
 .. code::

@@ -1,25 +1,31 @@
 .. _gsg-list-agent-details:
 
-List agent details
+Retrieve agent details
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To check whether the agent is enabled, list the agent's details. If the agent is not online, Cloud Backup cannot run the
-backup job. Use the agent ID from :ref:`List all agents for a project<gsg-list-all-agents>` for **yourAgentID**.
+To verify whether an agent is enabled, retrieve the agent's details. If the agent
+is not online, Cloud Backup cannot run the backup job. Use the agent ID from
+:ref:`Retrieve all agents for a project<gsg-list-all-agents>` for the **yourAgentId**
+value.
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
+
  
-**Example: cURL command to list agent details**
+**Example: Retrieve agent details, cURL request**
 
-.. code::  
+.. code::
 
-   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents/yourAgentID  \
+   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents/yourAgentId  \
    -H "X-Auth-Token: $AUTH_TOKEN"\
    -H "Accept: application/json"
    -H "Content-Type: application/json" | python -m json.tool
 
-**Example: List agent details response in JSON**
+**Example: Retrieve agent details, JSON response**
 
 .. code::
 

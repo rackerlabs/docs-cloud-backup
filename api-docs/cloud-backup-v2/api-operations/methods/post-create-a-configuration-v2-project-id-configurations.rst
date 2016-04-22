@@ -8,7 +8,7 @@ Create a configuration
 
     POST /v2/{project_id}/configurations
 
-This operation creates a configuration.
+This operation creates a backup configuration.
 
 The following restrictions apply to the ``schedule`` parameter:
 
@@ -19,7 +19,7 @@ The following restrictions apply to the ``schedule`` parameter:
 
 .. note::
 
-   Backups will be retained forever if ``0`` is provided to ``retention/days``.
+   Backups are retained forever if you specify ``0`` for ``retention/days``.
 
 
 Following are some example schedules:
@@ -33,7 +33,7 @@ Following are some example schedules:
 .. note::
 
    These example schedules use the `iCalendar specification standards`_. However,
-   Cloud Backup uses *only the fields shown* in the example schedules.  
+   Cloud Backup uses *only the fields shown* in the example schedules.
 
 The following restrictions apply to the ``inclusions`` parameter:
 
@@ -63,34 +63,34 @@ The following table shows the possible response codes for this operation.
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -120,14 +120,18 @@ The following table shows the body parameters for the request.
 +-------------------------+------------------------+---------------------------+
 |Name                     |Type                    |Description                |
 +=========================+========================+===========================+
-|\ **agent_id**           |String *(Required)*     |ID of the agent.           |
+|\ **agent_id**           |String                  |*(Required)*               |
+|                         |                        |ID of the agent.           |
 +-------------------------+------------------------+---------------------------+
-|\ **name**               |String *(Required)*     |Name of the configuration. |
+|\ **name**               |String                  |*(Required)*               |
+|                         |                        |Name of the configuration. |
 +-------------------------+------------------------+---------------------------+
-|\ **enabled**            |String *(Required)*     |Specifies whether the      |
+|\ **enabled**            |Boolean                 |*(Required)*               |
+|                         |                        |Specifies whether the      |
 |                         |                        |configuration is enabled.  |
 +-------------------------+------------------------+---------------------------+
-|\ **schedule**           |String *(Required)*     |Information about the      |
+|\ **schedule**           |String                  |*(Required)*               |
+|                         |                        |Information about the      |
 |                         |                        |schedule associated with   |
 |                         |                        |the configuration. If you  |
 |                         |                        |specify ``null`` for       |
@@ -135,14 +139,16 @@ The following table shows the body parameters for the request.
 |                         |                        |manually start backups for |
 |                         |                        |the configuration.         |
 +-------------------------+------------------------+---------------------------+
-|schedule.\ **recurrence**|String *(Required)*     |Any recurrence in the      |
+|schedule.\ **recurrence**|String                  |*(Required)*               |
+|                         |                        |Any recurrence in the      |
 |                         |                        |configuration's schedule.  |
 |                         |                        |Only a single              |
 |                         |                        |``recurrence`` value       |
 |                         |                        |within ``schedule`` is     |
 |                         |                        |currently supported.       |
 +-------------------------+------------------------+---------------------------+
-|schedule.\ **time_zone** |String *(Required)*     |Time zone for the          |
+|schedule.\ **time_zone** |String                  |*(Required)*               |
+|                         |                        |Time zone for the          |
 |                         |                        |configuration. You must    |
 |                         |                        |specify ``time_zone``      |
 |                         |                        |according to the `IANA     |
@@ -150,16 +156,19 @@ The following table shows the body parameters for the request.
 |                         |                        |<http://www.iana.org/time- |
 |                         |                        |zones>`__.                 |
 +-------------------------+------------------------+---------------------------+
-|\ **retention**          |String *(Required)*     |Information defined for    |
+|\ **retention**          |String                  |*(Required)*               |
+|                         |                        |Information defined for    |
 |                         |                        |retention for the          |
 |                         |                        |configuration.             |
 +-------------------------+------------------------+---------------------------+
-|retention.\ **days**     |String *(Required)*     |Number of days to retain   |
+|retention.\ **days**     |Integer                 |*(Required)*               |
+|                         |                        |Number of days to retain   |
 |                         |                        |the backup. When you set   |
 |                         |                        |``days`` to ``0``, backups |
 |                         |                        |are retained forever.      |
 +-------------------------+------------------------+---------------------------+
-|\ **inclusions**         |String *(Required)*     |Information about what to  |
+|\ **inclusions**         |String                  |*(Required)*               |
+|                         |                        |Information about what to  |
 |                         |                        |include in the backup. See |
 |                         |                        |the beginning of this      |
 |                         |                        |section for restrictions.  |
@@ -176,31 +185,38 @@ The following table shows the body parameters for the request.
 |                         |                        |See the beginning of this  |
 |                         |                        |section for restrictions.  |
 +-------------------------+------------------------+---------------------------+
-|exclusions.\ **type**    |String *(Required)*     |The type of the object to  |
+|exclusions.\ **type**    |String                  |*(Required)*               |
+|                         |                        |The type of the object to  |
 |                         |                        |exclude: ``file`` or       |
 |                         |                        |``folder``.                |
 +-------------------------+------------------------+---------------------------+
-|exclusions.\ **path**    |String *(Required)*     |The path to the object to  |
+|exclusions.\ **path**    |String                  |*(Required)*               |
+|                         |                        |The path to the object to  |
 |                         |                        |exclude.                   |
 +-------------------------+------------------------+---------------------------+
-|\ **notifications**      |String *(Required)*     |Information about          |
+|\ **notifications**      |String                  |*(Required)*               |
+|                         |                        |Information about          |
 |                         |                        |notifications. Note that   |
 |                         |                        |least one notification     |
 |                         |                        |must specify               |
 |                         |                        |``on_failure`` as ``true``.|
 +-------------------------+------------------------+---------------------------+
-|notifications.\ **type** |String *(Required)*     |The type of the            |
+|notifications.\ **type** |String                  |*(Required)*               |
+|                         |                        |The type of the            |
 |                         |                        |notification.              |
 +-------------------------+------------------------+---------------------------+
-|notifications.\          |String *(Required)*     |Where to send the          |
-|**destination**          |                        |notification.              |
+|notifications.\          |String                  |*(Required)*               |
+|**destination**          |                        |Where to send the          |
+|                         |                        |notification.              |
 +-------------------------+------------------------+---------------------------+
-|notifications.\          |String *(Required)*     |Specifies whether to send  |
-|**on_success**           |                        |the notification if the    |
+|notifications.\          |Boolean                 |*(Required)*               |
+|**on_success**           |                        |Specifies whether to send  |
+|                         |                        |the notification if the    |
 |                         |                        |backup is successful.      |
 +-------------------------+------------------------+---------------------------+
-|notifications.\          |String *(Required)*     |Specifies whether to send  |
-|**on_failure**           |                        |the notification if the    |
+|notifications.\          |Boolean                 |*(Required)*               |
+|**on_failure**           |                        |Specifies whether to send  |
+|                         |                        |the notification if the    |
 |                         |                        |backup is not successful.  |
 +-------------------------+------------------------+---------------------------+
 
@@ -208,7 +224,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Create a configuration JSON request**
+**Example: Create a configuration, JSON request**
 
 
 .. code::
@@ -302,7 +318,7 @@ The following table shows the body parameters for the response.
 |\ **name**                |String                   |Name of the              |
 |                          |                         |configuration.           |
 +--------------------------+-------------------------+-------------------------+
-|\ **enabled**             |String                   |Specifies whether the    |
+|\ **enabled**             |Boolean                  |Specifies whether the    |
 |                          |                         |configuration is enabled.|
 +--------------------------+-------------------------+-------------------------+
 |\ **schedule**            |String                   |Information about the    |
@@ -311,10 +327,7 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |schedule.\ **recurrence** |String                   |Any recurrence in the    |
 |                          |                         |configuration's          |
-|                          |                         |schedule. Only a single  |
-|                          |                         |``recurrence`` value     |
-|                          |                         |within ``schedule`` is   |
-|                          |                         |currently supported.     |
+|                          |                         |schedule.                |
 +--------------------------+-------------------------+-------------------------+
 |schedule.\ **time_zone**  |String                   |Time zone for the        |
 |                          |                         |configuration.           |
@@ -323,7 +336,7 @@ The following table shows the body parameters for the response.
 |                          |                         |retention for the        |
 |                          |                         |configuration.           |
 +--------------------------+-------------------------+-------------------------+
-|retention.\ **days**      |String                   |Number of days to retain |
+|retention.\ **days**      |Integer                  |Number of days to retain |
 |                          |                         |the backup. When         |
 |                          |                         |``days`` is ``0``,       |
 |                          |                         |backups are retained     |
@@ -352,11 +365,7 @@ The following table shows the body parameters for the response.
 |                          |                         |to exclude.              |
 +--------------------------+-------------------------+-------------------------+
 |\ **notifications**       |String                   |Information about        |
-|                          |                         |notifications. Note that |
-|                          |                         |least one notification   |
-|                          |                         |must specify             |
-|                          |                         |``on_failure`` as        |
-|                          |                         |``true``.                |
+|                          |                         |notifications.           |
 +--------------------------+-------------------------+-------------------------+
 |notifications.\ **type**  |String                   |The type of the          |
 |                          |                         |notification.            |
@@ -364,16 +373,16 @@ The following table shows the body parameters for the response.
 |notifications.\           |String                   |Where to send the        |
 |**destination**           |                         |notification.            |
 +--------------------------+-------------------------+-------------------------+
-|notifications.\           |String                   |Specifies whether to     |
+|notifications.\           |Boolean                  |Specifies whether to     |
 |**on_success**            |                         |send the notification if |
 |                          |                         |the backup is successful.|
 +--------------------------+-------------------------+-------------------------+
-|notifications.\           |String                   |Specifies whether to     |
+|notifications.\           |Boolean                  |Specifies whether to     |
 |**on_failure**            |                         |send the notification if |
 |                          |                         |the backup is not        |
 |                          |                         |successful.              |
 +--------------------------+-------------------------+-------------------------+
-|\ **deleted**             |String                   |Specifies whether the    |
+|\ **deleted**             |Boolean                  |Specifies whether the    |
 |                          |                         |backup is deleted.       |
 +--------------------------+-------------------------+-------------------------+
 |\ **backups**             |String                   |Information about        |
@@ -405,7 +414,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: Create a configuration JSON response**
+**Example: Create a configuration, JSON response**
 
 
 .. code::

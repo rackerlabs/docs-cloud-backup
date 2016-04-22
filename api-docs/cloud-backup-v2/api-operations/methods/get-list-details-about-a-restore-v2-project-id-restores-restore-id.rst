@@ -1,14 +1,14 @@
 
 .. _post-list-details-about-a-restore:
 
-List details about a restore
+Retrieve the details about a restore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/restores/{restore_id}
 
-This operation lists details about the specified restore.
+This operation retrieves details about the specified restore.
 
 
 
@@ -20,34 +20,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -68,7 +68,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{restore_id}              |String *(Required)*      |Restore ID. For example, |
+|{restore_id}              |String                   |Restore ID. For example, |
 |                          |                         |``e87e6f7d-d166-11e4-    |
 |                          |                         |8689-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List details about a restore HTTP request**
+**Example: Retrieve the details about a restore, HTTP request**
 
 
 .. code::
@@ -114,7 +114,8 @@ The following table shows the body parameters for the response.
 +---------------------------+------------------+-------------------------------+
 |\ **id**                   |String            |ID of the restore.             |
 +---------------------------+------------------+-------------------------------+
-|\ **backup**               |String            |Information about the backup.  |
+|\ **backup**               |String            |Information about the backup   |
+|                           |                  |used for the restore.          |
 +---------------------------+------------------+-------------------------------+
 |backup.\ **id**            |String            |ID of the backup.              |
 +---------------------------+------------------+-------------------------------+
@@ -142,7 +143,7 @@ The following table shows the body parameters for the response.
 +---------------------------+------------------+-------------------------------+
 |\ **destination_path**     |String            |Path for the destination.      |
 +---------------------------+------------------+-------------------------------+
-|\ **overwrite_files**      |String            |Specifies whether any existing |
+|\ **overwrite_files**      |Boolean           |Specifies whether any existing |
 |                           |                  |files were overwritten.        |
 +---------------------------+------------------+-------------------------------+
 |\ **inclusions**           |String            |Resources included in the      |
@@ -165,7 +166,7 @@ The following table shows the body parameters for the response.
 +---------------------------+------------------+-------------------------------+
 |\ **state**                |String            |Current status of the restore. |
 |                           |                  |Valid values are ``queued``,   |
-|                           |                  |``preparing````in_progress``,  |
+|                           |                  |``preparing``, ``in_progress``,|
 |                           |                  |``completed``,                 |
 |                           |                  |``completed_with_errors``,     |
 |                           |                  |``failed``, and ``stopped``.   |
@@ -177,7 +178,7 @@ The following table shows the body parameters for the response.
 |\ **errors**               |String            |Information about any errors   |
 |                           |                  |encountered by the restore.    |
 +---------------------------+------------------+-------------------------------+
-|errors.\ **count**         |String            |Number of errors encountered   |
+|errors.\ **count**         |Integer           |Number of errors encountered   |
 |                           |                  |by the restore.                |
 +---------------------------+------------------+-------------------------------+
 |errors.\ **reason**        |String            |Reason for the errors          |
@@ -195,9 +196,9 @@ The following table shows the body parameters for the response.
 |errors.links.\ **rel**     |String            |How the href link provided is  |
 |                           |                  |related to the resource URI.   |
 +---------------------------+------------------+-------------------------------+
-|\ **files_restored**       |String            |Number of files restored.      |
+|\ **files_restored**       |Integer           |Number of files restored.      |
 +---------------------------+------------------+-------------------------------+
-|\ **bytes_restored**       |String            |Number of bytes restored.      |
+|\ **bytes_restored**       |Integer           |Number of bytes restored.      |
 +---------------------------+------------------+-------------------------------+
 |\ **links**                |String            |Information about the links    |
 |                           |                  |for the restore.               |
@@ -214,7 +215,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List details about a restore JSON response**
+**Example: Retrieve the details about a restore, JSON response**
 
 
 .. code::
@@ -232,7 +233,7 @@ The following table shows the body parameters for the response.
            "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
                    "rel": "full"
                }
            ]
@@ -295,7 +296,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

@@ -53,11 +53,11 @@ The cURL examples in this guide use the following command-line options.
 |           |                                                                       |
 |           | - ``Content-Type``: Required for operations with a request body.      |
 |           |   Specifies the format of the request body. Following is the syntax   |
-|           |   for the header where format is ``json``:                            |
+|           |   for the header where the format is ``json``:                        |
 |           |                                                                       |
-|           | .. code::                                                             |
+|           |    .. code::                                                          |
 |           |                                                                       |
-|           |    Content-Type: application/json                                     |
+|           |       Content-Type: application/json                                  |
 |           |                                                                       |
 |           | - ``X-Auth-Token``: Required. Specifies the authentication token.     |
 |           |                                                                       |
@@ -68,9 +68,9 @@ The cURL examples in this guide use the following command-line options.
 |           |   Following is the syntax for the header where the format is ``json``,|
 |           |   which is the default:                                               |
 |           |                                                                       |
-|           | .. code::                                                             |
+|           |   .. code::                                                           |
 |           |                                                                       |
-|           |    Accept: application/json                                           |
+|           |      Accept: application/json                                         |
 |           |                                                                       |
 |           |                                                                       |
 +-----------+-----------------------------------------------------------------------+

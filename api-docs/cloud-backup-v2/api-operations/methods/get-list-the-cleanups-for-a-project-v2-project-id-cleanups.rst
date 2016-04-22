@@ -1,7 +1,7 @@
 
 .. _get-list-the-cleanups:
 
-List the cleanups for a project
+Retrieve the cleanups for a project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
@@ -9,9 +9,10 @@ List the cleanups for a project
     GET /v2/{project_id}/cleanups
 
 
-This operation lists the cleanups for the specified project.
+This operation retrieves the cleanups for the specified project.
 
-If no cleanups have been created for the project, the ``cleanups`` parameter in the response is an empty array.
+If no cleanups have been created for the project, the ``cleanups`` parameter in
+the response is an empty array.
 
 
 
@@ -23,34 +24,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -79,16 +80,16 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |ID of the last known     |
-|                          |                         |cleanup, for example,    |
+|marker                    |String                   |ID of the last known     |
+|                          |                         |cleanup. For example,    |
 |                          |                         |``2f8708b3-d16b-11e4-    |
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of cleanups to    |
+|limit                     |Integer                  |Number of cleanups to    |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -103,7 +104,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List the cleanups for a project HTTP request**
+**Example: Retrieve the cleanups for a project, HTTP request**
 
 
 .. code::
@@ -152,14 +153,15 @@ The following table shows the body parameters for the response.
 |**rel**                  |                        |is related to this         |
 |                         |                        |resource URI.              |
 +-------------------------+------------------------+---------------------------+
-|cleanups.\ **state**     |String                  |State of the cleanup, for  |
+|cleanups.\ **state**     |String                  |State of the cleanup. For  |
 |                         |                        |example,                   |
 |                         |                        |``completed_with_errors``. |
 +-------------------------+------------------------+---------------------------+
-|cleanups.\               |String                  |Time the cleanup started.  |
-|**started_time**         |                        |                           |
+|cleanups.\               |String                  |Time that the cleanup      |
+|**started_time**         |                        |started.                   |
 +-------------------------+------------------------+---------------------------+
-|cleanups.\ **ended_time**|String                  |Time the cleanup ended.    |
+|cleanups.\ **ended_time**|String                  |Time that the cleanup      |
+|                         |                        |ended.                     |
 +-------------------------+------------------------+---------------------------+
 |cleanups.\               |String                  |IDs of the snapshots.      |
 |**snapshot_ids**         |                        |                           |
@@ -168,7 +170,7 @@ The following table shows the body parameters for the response.
 |                         |                        |that occurred during the   |
 |                         |                        |cleanup.                   |
 +-------------------------+------------------------+---------------------------+
-|cleanups.errors.\        |String                  |Number of errors.          |
+|cleanups.errors.\        |Integer                 |Number of errors.          |
 |**count**                |                        |                           |
 +-------------------------+------------------------+---------------------------+
 |cleanups.errors.\        |String                  |Cause of the error; for    |
@@ -190,10 +192,10 @@ The following table shows the body parameters for the response.
 |**rel**                  |                        |is related to this         |
 |                         |                        |resource URI.              |
 +-------------------------+------------------------+---------------------------+
-|cleanups.\               |String                  |Number of bytes before the |
+|cleanups.\               |Integer                 |Number of bytes before the |
 |**bytes_before**         |                        |cleanup.                   |
 +-------------------------+------------------------+---------------------------+
-|cleanups.\               |String                  |Number of bytes after the  |
+|cleanups.\               |Integer                 |Number of bytes after the  |
 |**bytes_after**          |                        |cleanup.                   |
 +-------------------------+------------------------+---------------------------+
 |cleanups.\ **links**     |String                  |Links with information     |
@@ -222,7 +224,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List the cleanups for a project JSON response**
+**Example: Retrieve the cleanups for a project, JSON response**
 
 
 .. code::
@@ -242,7 +244,7 @@ The following table shows the body parameters for the response.
                    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                    "links": [
                        {
-                           "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                           "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                            "rel": "full"
                        }
                    ]
@@ -287,7 +289,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

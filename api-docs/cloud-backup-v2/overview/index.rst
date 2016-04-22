@@ -3,7 +3,7 @@
 About the API
 -----------------------------------------
 
-The Rackspace Cloud Backup service is a file-based backup application that enables you to choose which files and folders to back up from your cloud server. You can choose to restore your whole system with all of its folders and files, or to restore individual files or folders from a given date, or to restore to an entirely different server. 
+The Rackspace Cloud Backup service is a file-based backup application that enables you to choose which files and folders to back up from your cloud server. You can choose to restore your whole system with all of its folders and files, to restore individual files or folders from a given date, or to restore to an entirely different server.
 
 Interactions with Rackspace Cloud Backup occur programmatically via the Rackspace Cloud Backup API, as described in this guide.
 
@@ -23,16 +23,16 @@ Following are some of the tasks that you can perform by using Rackspace Cloud Ba
 
 -  Create unlimited backups.
 
-Choose your the endpoint for your backup based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see :ref:`Service access endpoints <service-access-endpoints>`.
+Choose the endpoint for your backup based on the location of the server that you want to use for backup or for restore. For a list of endpoints, see :ref:`Service access endpoints <service-access-endpoints>`.
 
-..  note:: 
+..  note::
     Rackspace Cloud Backup does not take snapshots of your server. Read more about :how-to:`how Rackspace Cloud Backup differs<rackspace-cloud-backup-vs-cloud-server-image-backups>` from snapshots.
 
 This document describes the features available with API |contract version|.
 
 .. toctree:: :hidden:
    :maxdepth: 3
-   
+
    additional-resources
    api-contract-changes
    api-service-updates

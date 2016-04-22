@@ -7,29 +7,34 @@ If you do not do anything, Cloud Backup runs the backup at the scheduled
 time.
 
 If you want to run the backup once to ensure that it works, you can
-start the backup manually. Use the ``configuration_id`` to indicate
+start the backup manually. Use the ``configuration_id`` parameter to indicate
 the backup configuration that you want to run. You can run the backup
-job as many time as you like. A backup is created each time you run the
+job as many times as you like. A backup is created each time that you run the
 job.
 
-An HTTP status code of 201 (Created) in the response indicates that the request succeeded.
+An HTTP status code of 201 (Created) in the response indicates that the request
+succeeded.
+
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
 
  
-**Example: cURL command to manually start a backup**
+**Example: Start a backup manually, cURL request**
 
-.. code::  
+.. code::
 
    curl -s -X POST $API_ENDPOINT/v2/$TENANT_ID/backups \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" \
-   -d '{   
+   -d '{
             "configuration_id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
             "state": "start_requested"
        }' | python -m json.tool
 
-**Example: Start a backup response in JSON** 
+**Example: Start a backup manually, JSON response**
 
-.. code::  
+.. code::
 
    {
         "project_id": "123456",
@@ -87,8 +92,6 @@ An HTTP status code of 201 (Created) in the response indicates that the request 
     }
 
 
-When the backup is done, you receive an email about the status, as shown
-in the following example. Receiving the email is based on the
-``notifications`` parameters that you specify when you create your configuration
-(see :ref:`Create a configuration <gsg-create-backup-config>`).
-
+When the backup is done, you receive an email about the status. Receiving the
+email is based on the ``notifications`` parameters that you specify when you
+create your configuration (see :ref:`Create a backup configuration <gsg-create-backup-config>`).

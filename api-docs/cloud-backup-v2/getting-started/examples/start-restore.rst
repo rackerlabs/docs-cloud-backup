@@ -6,16 +6,19 @@ Start a restore using your backup
 Now that you have a backup, you can restore it to a different location
 on your server. You can also restore it to a different server, or to the
 same folder on the same server. You must set the ``backup_id``,
-``destination_agent_id``, and ``destination_path`` values properly.
+``destination_agent_id``, and ``destination_path`` parameter values properly.
 The ``backup_id`` parameter identifies the backup that you want to use to restore.
 
 An HTTP status code of 201 (Created) in the response indicates that the
 request succeeded.
 
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
  
-**Example: cURL command to start a restore**
+**Example: Start a restore, cURL request**
 
-.. code::  
+.. code::
 
    curl -s -X POST $API_ENDPOINT/v2/$TENANT_ID/restores /
    -H "X-Auth-Token: $AUTH_TOKEN" \
@@ -46,9 +49,9 @@ request succeeded.
                    "path": "/web/cache.jpg"
                }
            ]
-       }' | python -m json.tool 
-      
-**Example: Start a restore response in JSON**
+       }' | python -m json.tool
+
+**Example: Start a restore, JSON response**
 
 .. code::
 

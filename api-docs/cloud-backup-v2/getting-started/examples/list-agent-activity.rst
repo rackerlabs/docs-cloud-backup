@@ -1,29 +1,33 @@
 .. _gsg-list-agent-activity:
 
-List agent activities
+Retrieve agent activities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can display all the activities for an agent to find out whether your
 backups ran successfully or failed. This operation is useful if you do
 not set email notifications when you create your backup configuration and want
 to create a report about the state of previous backups. The operation
-lists all in-progress and completed activity for an agent. Values for the ``type``
-response parameter are ``backup``, ``cleanup``, and ``restore``.
+retrieves all in-progress and completed activity for an agent. Values for the
+``type`` response parameter are ``backup``, ``cleanup``, and ``restore``.
 
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
+
  
-**Example: cURL command to list activities for an agent**
+**Example: Retrieve activities for an agent, cURL request**
 
-.. code::  
+.. code::
 
-   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents/yourAgentID /
+   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents/yourAgentId /
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
 
-**Example: List activities for an agent response in JSON**
+**Example: Retrieve activities for an agent, JSON response**
 
 .. code::
 

@@ -1,14 +1,14 @@
 
 .. _get-list-activities-for-an-agent:
 
-List activities for an agent
+Retrieve activities for an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/activities
 
-This operation lists the following activities for the specified agent:
+This operation retrieves the following activities for the specified agent:
 
 * Backups performed by the agent
 * Restores performed when the agent is the destination
@@ -29,37 +29,36 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
-
 
 
 Request
@@ -77,7 +76,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|{agent_id}                |String                   |Agent ID. For example,   |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -89,30 +88,36 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |ID of the last known     |
+|marker                    |String                   |ID of the last known     |
 |                          |                         |activity. For example,   |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of activities to  |
-|                          |                         |list. The default value  |
-|                          |                         |is 100.                  |
+|limit                     |Integer                  |The number of activities |
+|                          |                         |to list. The default     |
+|                          |                         |value is 100.            |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
-|                          |                         |value is ``desc``.       |
-|                          |                         |``sort_dir`` returns the |
-|                          |                         |latest activities when   |
-|                          |                         |set to ``desc``.         |
+|                          |                         |value is ``desc``, which |
+|                          |                         |returns the lastest      |
+|                          |                         |activities.              |
+|                          |                         |                         |
+|                          |                         |This parameter affects   |
+|                          |                         |the entire result set,   |
+|                          |                         |not just the data set    |
+|                          |                         |returned. For example, if|
+|                          |                         |there are 1000 activities|
+|                          |                         |and the value of the     |
+|                          |                         |``limit`` parameter is   |
+|                          |                         |the default 100, then    |
+|                          |                         |``desc`` returns entries |
+|                          |                         |1,000-901 and ``asc``    |
+|                          |                         |returns entries 1-100.   |
 +--------------------------+-------------------------+-------------------------+
 
-.. note::
-
-   ``sort_dir`` effects the entire result set, not just the data set returned.
-   For example, if there are 1000 activities, then ``desc`` will return entries
-   1,000-901 while ``asc`` will return entries 1-100.
 
 
 This operation does not accept a request body.
@@ -120,7 +125,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List activities for an agent HTTP request**
+**Example: Retrieve activities for an agent, HTTP request**
 
 
 .. code::
@@ -228,7 +233,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List activities for an agent JSON response**
+**Example: Retrieve activities for an agent, JSON response**
 
 
 .. code::

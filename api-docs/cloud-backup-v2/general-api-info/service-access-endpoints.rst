@@ -36,10 +36,10 @@ the following table.
 | Sydney (SYD)        | ``https://syd.backup.api.rackspacecloud.com/v2/1234/``|
 +---------------------+-------------------------------------------------------+
 
-Replace the sample account ID number (which is also called the tenant ID), 1234, with your actual account number that is returned as part of the Cloud Identity service response.
+Replace the sample account ID number (which is also called the tenant ID), 1234,
+with your actual account number that is returned as part of the Cloud Identity
+service response. Your account number is shown after the final slash (/) in the
+``publicURL`` field returned by the authentication response.
 
-You will find the actual account number after the final slash (/) in the ``publicURL`` field returned by the authentication response.
-
-..  note:: 
+..  note::
     The Cloud Backup API runs with or without the specification of the account ID number in the endpoint. However, the examples in this guide include the account number in the request URIs.
-

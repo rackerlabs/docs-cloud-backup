@@ -1,14 +1,14 @@
 
 .. _get-list-details-about-an-agent:
 
-List details about an agent
+Retrieve details about an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}
 
-This operation lists details about the specified agent.
+This operation retrieves details about the specified agent.
 
 
 
@@ -20,34 +20,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -67,7 +67,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|{agent_id}                |String                   |Agent ID. For example,   |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -81,7 +81,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List details about an agent HTTP request**
+**Example: Retrieve details about an agent, HTTP request**
 
 
 .. code::
@@ -114,14 +114,14 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |\ **name**                |String                   |Agent name.              |
 +--------------------------+-------------------------+-------------------------+
-|\ **version**             |String                   |Version.                 |
+|\ **version**             |String                   |Agent version.           |
 +--------------------------+-------------------------+-------------------------+
 |\ **host**                |String                   |Information about the    |
 |                          |                         |host.                    |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **flavor**         |String                   |Flavor.                  |
+|host.\ **flavor**         |String                   |Flavor of the host.      |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **region**         |String                   |Region.                  |
+|host.\ **region**         |String                   |Region of the host.      |
 +--------------------------+-------------------------+-------------------------+
 |host.\ **machine**        |String                   |Information about the    |
 |                          |                         |machine.                 |
@@ -151,7 +151,7 @@ The following table shows the body parameters for the response.
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
 |host.\ **addresses**      |String                   |Information about the IP |
-|                          |                         |addresses.               |
+|                          |                         |addresses for the host.  |
 +--------------------------+-------------------------+-------------------------+
 |host.addresses.\          |String                   |Version of the address   |
 |**version**               |                         |(4 for IPv4 or 6 for     |
@@ -160,7 +160,7 @@ The following table shows the body parameters for the response.
 |host.addresses.\          |String                   |IP address.              |
 |**addr**                  |                         |                         |
 +--------------------------+-------------------------+-------------------------+
-|\ **enabled**             |String                   |Specifies whether the    |
+|\ **enabled**             |Boolean                  |Specifies whether the    |
 |                          |                         |agent is enabled.        |
 +--------------------------+-------------------------+-------------------------+
 |\ **rsa_public_key**      |String                   |Information about the    |
@@ -183,7 +183,7 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |vault.\ **flavor**        |String                   |Flavor for the vault.    |
 +--------------------------+-------------------------+-------------------------+
-|vault.\ **encrypted**     |String                   |Specifies whether the    |
+|vault.\ **encrypted**     |Boolean                  |Specifies whether the    |
 |                          |                         |vault is encrypted.      |
 +--------------------------+-------------------------+-------------------------+
 |vault.\ **region**        |String                   |Region for the vault.    |
@@ -204,7 +204,7 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |\ **log_level**           |String                   |Level for the logs.      |
 +--------------------------+-------------------------+-------------------------+
-|\ **registered_time**     |String                   |Time agent was           |
+|\ **registered_time**     |String                   |Time tha the agent was   |
 |                          |                         |registered.              |
 +--------------------------+-------------------------+-------------------------+
 |\ **links**               |String                   |Links with information   |
@@ -224,7 +224,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List details about an agent JSON response**
+**Example: Retrieve details about an agent, JSON response**
 
 
 .. code::
