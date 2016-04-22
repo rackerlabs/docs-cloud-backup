@@ -21,34 +21,34 @@ The following table shows the possible response codes for this operation.
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -66,8 +66,8 @@ The following table shows the header parameters for the request.
 |                          |                         |required when you        |
 |                          |                         |specify the state        |
 |                          |                         |``start_scheduled``. For |
-|                          |                         |example, 8f135b4f-7a69-  |
-|                          |                         |4b8a-947f-5e80d772fd97.  |
+|                          |                         |example, ``8f135b4f-7a69-|
+|                          |                         |4b8a-947f-5e80d772fd97``.|
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -89,30 +89,34 @@ The following table shows the body parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|**configuration_id**      |String                   |Project ID of the user.  |
-|                          |*(Required)*             |Also referred to as the  |
-|                          |                         |tenant ID or account ID. |
+|**configuration_id**      |String                   |*(Required)*             |
+|                          |                         |ID of the backup         |
+|                          |                         |configuration.           |
 +--------------------------+-------------------------+-------------------------+
-|**state**                 |String                   |The state of the backup. |
-|                          |*(Required)*             |Valid values are         |
+|**state**                 |String                   |*(Required)*             |
+|                          |                         |The state of the backup. |
+|                          |                         |Valid values are         |
 |                          |                         |``start_requested`` and  |
 |                          |                         |``start_scheduled``.     |
-|                          |                         |``start_requested`` is   |
-|                          |                         |for a manual backup that |
-|                          |                         |is requested by a user.  |
-|                          |                         |``start_scheduled`` is   |
-|                          |                         |for a scheduled backup   |
-|                          |                         |that is started by the   |
-|                          |                         |agent.                   |
-|                          |                         |``start_scheduled``      |
-|                          |                         |requires that the        |
-|                          |                         |``X-Agent-Id`` header is |
-|                          |                         |in the request.          |
+|                          |                         |                         |
+|                          |                         |-  ``start_requested`` is|
+|                          |                         |   for a manual backup   |
+|                          |                         |   that is requested by a|
+|                          |                         |   user.                 |
+|                          |                         |                         |
+|                          |                         |-  ``start_scheduled`` is|
+|                          |                         |   for a scheduled backup|
+|                          |                         |   that is started by the|
+|                          |                         |   agent.                |
+|                          |                         |   ``start_scheduled``   |
+|                          |                         |   requires that the     |
+|                          |                         |   ``X-Agent-Id`` header |
+|                          |                         |   is in the request.    |
 +--------------------------+-------------------------+-------------------------+
 
 
 
-**Example: Start a backup JSON request**
+**Example: Start a backup, JSON request**
 
 
 .. code::
@@ -163,7 +167,7 @@ The following table shows the body parameters for the response.
 |agent.links.\ **rel**  |String             |How the href link provided is     |
 |                       |                   |related to this resource URI.     |
 +-----------------------+-------------------+----------------------------------+
-|\ **configuration**    |String             |Information about the             |
+|\ **configuration**    |String             |Information about the backup      |
 |                       |                   |configuration.                    |
 +-----------------------+-------------------+----------------------------------+
 |configuration.\ **id** |String             |ID of the configuration.          |
@@ -177,24 +181,24 @@ The following table shows the body parameters for the response.
 |configuration.links.\  |String             |How the href link provided is     |
 |**rel**                |                   |related to this resource URI.     |
 +-----------------------+-------------------+----------------------------------+
-|\ **state**            |String             |State of the backup, for example, |
+|\ **state**            |String             |State of the backup. For example, |
 |                       |                   |``start_requested``.              |
 +-----------------------+-------------------+----------------------------------+
-|\ **started_time**     |String             |Time the backup started.          |
+|\ **started_time**     |String             |Time that the backup started.     |
 +-----------------------+-------------------+----------------------------------+
-|\ **ended_time**       |String             |Time the backup ended.            |
+|\ **ended_time**       |String             |Time that the backup ended.       |
 +-----------------------+-------------------+----------------------------------+
 |\ **snapshot_id**      |String             |ID of the snapshot.               |
 +-----------------------+-------------------+----------------------------------+
 |\ **errors**           |String             |Information about errors.         |
 +-----------------------+-------------------+----------------------------------+
-|errors.\ **count**     |String             |Number of errors.                 |
+|errors.\ **count**     |Integer            |Number of errors.                 |
 +-----------------------+-------------------+----------------------------------+
-|errors.\ **reason**    |String             |Cause of the error, for example,  |
+|errors.\ **reason**    |String             |Cause of the error. For example,  |
 |                       |                   |``unable_to_process_some_files``. |
 +-----------------------+-------------------+----------------------------------+
 |errors.\               |String             |Additional information about the  |
-|**diagnostics**        |                   |cause of the error, for example,  |
+|**diagnostics**        |                   |cause of the error. For example,  |
 |                       |                   |``Some files could not be backed  |
 |                       |                   |up. Partial list follows.``       |
 +-----------------------+-------------------+----------------------------------+
@@ -206,21 +210,21 @@ The following table shows the body parameters for the response.
 |errors.links.\ **rel** |String             |How the href link provided is     |
 |                       |                   |related to this resource URI.     |
 +-----------------------+-------------------+----------------------------------+
-|\ **files_searched**   |String             |Number of files searched.         |
+|\ **files_searched**   |Integer            |Number of files searched.         |
 +-----------------------+-------------------+----------------------------------+
-|\ **files_backed_up**  |String             |Number of files backed up.        |
+|\ **files_backed_up**  |Integer            |Number of files backed up.        |
 +-----------------------+-------------------+----------------------------------+
-|\ **bytes_searched**   |String             |Number of bytes searched.         |
+|\ **bytes_searched**   |Integer            |Number of bytes searched.         |
 +-----------------------+-------------------+----------------------------------+
-|\ **bytes_backed_up**  |String             |Number of bytes backed up.        |
+|\ **bytes_backed_up**  |Integer            |Number of bytes backed up.        |
 +-----------------------+-------------------+----------------------------------+
-|\ **bytes_in_db**      |String             |Number of bytes in the backup     |
+|\ **bytes_in_db**      |Integer            |Number of bytes in the backup     |
 |                       |                   |database.                         |
 +-----------------------+-------------------+----------------------------------+
-|\ **bandwidth_avg_bps**|String             |Average bandwidth in bytes per    |
+|\ **bandwidth_avg_bps**|Integer            |Average bandwidth in bytes per    |
 |                       |                   |second.                           |
 +-----------------------+-------------------+----------------------------------+
-|\ **restorable**       |String             |Specifies whether the backup can  |
+|\ **restorable**       |Boolean            |Specifies whether the backup can  |
 |                       |                   |be used for restores.             |
 +-----------------------+-------------------+----------------------------------+
 |\ **links**            |String             |Links with information about the  |
@@ -238,7 +242,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: Start a backup JSON response**
+**Example: Start a backup, JSON response**
 
 
 .. code::

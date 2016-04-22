@@ -1,22 +1,26 @@
 .. _gsg-get-restore-details:
 
-List the restore details 
+Retrieve restore details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can get the details about a restore that includes information about the
+You can get the details about a restore that include information about the
 restore operation and tells you if the operation ran successfully.
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
+
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
  
-**Example: cURL command to list details about a restore**
+**Example: Retrieve details about a restore, cURL request**
 
-.. code::  
+.. code::
 
-   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/restores/yourRestoreID \
+   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/restores/yourRestoreId \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
 
-**Example: List details about a restore response in JSON**
+**Example: Retrieve details about a restore, JSON response**
 
 .. code::
 
@@ -27,7 +31,7 @@ request succeeded.
            "id": "0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/backups/0d95d699-d16b-11e4-93bd-c8e0eb190e3d",
                    "rel": "full"
                }
            ]

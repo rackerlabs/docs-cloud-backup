@@ -1,13 +1,13 @@
 .. _get-list-configuration-settings-for-an-agent:
 
-List configuration settings for an agent
+Retrieve configuration settings for an agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/configuration
 
-This operation lists the configuration settings for the specified agent.
+This operation retrieves the configuration settings for the specified agent.
 
 
 
@@ -19,34 +19,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -68,7 +68,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|{agent_id}                |String                   |Agent ID. For example,   |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -82,7 +82,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List configuration settings for an agent HTTP request**
+**Example: Retrieve configuration settings for an agent, HTTP request**
 
 
 .. code::
@@ -122,7 +122,7 @@ The following table shows the body parameters for the response.
 |system_preferences.environment.\           |String           |Minimum disk    |
 |**minimum_disk_space_mb**                  |                 |space in        |
 |                                           |                 |megabytes (MB)  |
-|                                           |                 |set each for    |
+|                                           |                 |set for each of |
 |                                           |                 |the following   |
 |                                           |                 |specified       |
 |                                           |                 |events:         |
@@ -196,10 +196,12 @@ The following table shows the body parameters for the response.
 |                                           |                 |about backup    |
 |                                           |                 |controls.       |
 +-------------------------------------------+-----------------+----------------+
-|system_preferences.backup_controls.\       |String           |Volume shadow   |
-|**disable_vss**                            |                 |copy service    |
-|                                           |                 |(vss)           |
-|                                           |                 |disablement.    |
+|system_preferences.backup_controls.\       |String           |Specifies       |
+|**disable_vss**                            |                 |whether the     |
+|                                           |                 |volume shadow   |
+|                                           |                 |copy service    |
+|                                           |                 |(vss) is        |
+|                                           |                 |disabled.       |
 +-------------------------------------------+-----------------+----------------+
 |\ **vaults**                               |String           |Information     |
 |                                           |                 |about vaults.   |
@@ -211,7 +213,7 @@ The following table shows the body parameters for the response.
 |                                           |                 |of the vault is |
 |                                           |                 |internal.       |
 +-------------------------------------------+-----------------+----------------+
-|vaults.\ **encrypted**                     |String           |Specifies       |
+|vaults.\ **encrypted**                     |Boolean          |Specifies       |
 |                                           |                 |whether the     |
 |                                           |                 |vault is        |
 |                                           |                 |encrypted.      |
@@ -231,7 +233,8 @@ The following table shows the body parameters for the response.
 +-------------------------------------------+-----------------+----------------+
 |\ **configurations**                       |String           |Information     |
 |                                           |                 |about           |
-|                                           |                 |configurations. |
+|                                           |                 |configurations  |
+|                                           |                 |for the agent.  |
 +-------------------------------------------+-----------------+----------------+
 |configurations.\ **id**                    |String           |ID of the       |
 |                                           |                 |configuration.  |
@@ -239,7 +242,7 @@ The following table shows the body parameters for the response.
 |configurations.\ **name**                  |String           |Configuration   |
 |                                           |                 |name.           |
 +-------------------------------------------+-----------------+----------------+
-|configurations.\ **enabled**               |String           |Specifies       |
+|configurations.\ **enabled**               |Boolean          |Specifies       |
 |                                           |                 |whether the     |
 |                                           |                 |configuration   |
 |                                           |                 |is enabled.     |
@@ -259,11 +262,12 @@ The following table shows the body parameters for the response.
 |configurations.\ **times**                 |Array            |Times at which  |
 |                                           |                 |this scheduled  |
 |                                           |                 |backup is set to|
-|                                           |                 |occur. `null`   |
-|                                           |                 |will be provided|
-|                                           |                 |for             |
+|                                           |                 |occur. A `null` |
+|                                           |                 |value is        |
+|                                           |                 |provided for    |
 |                                           |                 |configurations  |
-|                                           |                 |only triggered  |
+|                                           |                 |that are only   |
+|                                           |                 |triggered       |
 |                                           |                 |manually.       |
 +-------------------------------------------+-----------------+----------------+
 |configurations.\ **inclusions**            |String           |Information     |
@@ -299,7 +303,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List configuration settings for an agent JSON response**
+**Example: Retrieve configuration settings for an agent, JSON response**
 
 
 .. code::

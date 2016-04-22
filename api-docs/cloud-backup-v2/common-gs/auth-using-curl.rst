@@ -34,7 +34,7 @@ that includes the following information:
 
 .. note::
    For detailed information about the authentication response, see the
-   :rax-devdocs:`Annotated authentication request and response<cloud-identity/v2/developer-guide/#document-authentication-info/sample-auth-req-response>` 
+   :rax-devdocs:`Annotated authentication request and response<cloud-identity/v2/developer-guide/#document-authentication-info/sample-auth-req-response>`
    in the Rackspace Cloud Identity API documentation.
 
 In the following example response, the ellipsis (...)  represents other service endpoints, which
@@ -47,7 +47,7 @@ returned is specific to your account.
 
 
 If the request was successful, you can find the authentication token and other information in the
-authentication response. You'll need these values to submit requests to the API. See
+authentication response. You need these values to submit requests to the API. For more information, see
 :ref:`Configure environment variables<configure-environment-variables>`.
 
 If the request failed, review the response message and
@@ -55,14 +55,14 @@ the following error message descriptions to determine next steps.
 
 If you see the following message, review the authentication request for syntax or coding errors. If you are using cURL, see the section on :ref:`using cURL <how-curl-commands-work>`.
 
-.. code:: 
+.. code::
 
    400 Invalid request body: unable to parse Auth data. Please review XML or JSON formatting
 
 If you see the following message, verify the authentication credentials submitted in the authentication request. If necessary, contact your Rackspace Cloud Administrator or Rackspace Support to get valid credentials.
 
 
-.. code:: 
+.. code::
 
    401 Unable to authenticate user with credentials provided.
 
@@ -92,8 +92,8 @@ token ID
 
 tenant ID
     The tenant ID value provides your account number. For most Rackspace Cloud service APIs, the
-    tenant ID is appended to the API endpoint in the service catalog automatically. For 
-    Rackspace Cloud Services, the tenant ID has the same value as the tenant name. 
+    tenant ID is appended to the API endpoint in the service catalog automatically. For
+    Rackspace Cloud services, the tenant ID has the same value as the tenant name.
 
 endpoints
 	The endpoints value provides the URL that you use to access the API service. For guidance
@@ -103,7 +103,7 @@ endpoints
 To make it easier to include these and other values in API requests, use the ``export`` command to create
 environment variables that can be substituted for the actual values. For example, you can
 create an ``API_ENDPOINT`` variable to store the URL for accessing an API service.
-To reference the value in an API request, prefix the variable name with a $, for example
+To reference the value in an API request, prefix the variable name with a $ symbol, for example,
 ``$API_ENDPOINT``.
 
 .. include:: ../common-gs/using-env-variables.rst
@@ -117,8 +117,8 @@ To reference the value in an API request, prefix the variable name with a $, for
 
 #. Export the token ID to an environment variable
    that can be supplied in the ``X-Auth-Token`` header required in each
-   API request. Replace ``token-id`` with the authentication token ``id`` value returned
-   in the authentication response
+   API request. Replace ``token-id`` in the following example with the
+   authentication token ``id`` value returned in the authentication response
 
    .. code::
 
@@ -126,7 +126,7 @@ To reference the value in an API request, prefix the variable name with a $, for
 
 #. Export the tenant ID to an environment variable
    that can be supplied in requests that require you to specify a tenant ID or tenant name.
-   Replace ``tenant-id`` with the tenant ``id`` value returned
+   Replace ``tenant-id`` in the following example with the tenant ``id`` value returned
    in the authentication response.
 
    .. code::
@@ -141,14 +141,13 @@ To reference the value in an API request, prefix the variable name with a $, for
    .. include:: ../common-gs/samples/service-catalog-endpoint.rst
 
    .. note::
-       Rackspace Cloud Identity returns an endpoint URL with your tenant ID (account ID). 
-       With Cloud Backup v2.0, you do not have to use the tenant ID. See 
-       :ref:`Service access endpoints <service-access-endpoints>`.  
+       Rackspace Cloud Identity returns an endpoint URL with your tenant ID (account ID).
+       With Cloud Backup v2.0, you do not have to use the tenant ID. See
+       :ref:`Service access endpoints <service-access-endpoints>`.
 
 #. Export the URL to an environment variable, as shown in the following example.
-   Replace ``publicURL`` with the publicURL value listed in the service catalog.
+   Replace ``publicURL`` in the example with the publicURL value listed in the service catalog.
 
    .. code::
 
         $ export API_ENDPOINT="publicURL"
- 

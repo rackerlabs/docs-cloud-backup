@@ -14,8 +14,10 @@ If encryption is already enabled for the vault, provide a value for the ``old_en
 
 If either of the following conditions is true, a 403 response code is returned with the message in the response body:
 
-* The ``old_encrypted_password_hex`` parameter is provided and the agent's vault is not already encrypted.
-* The ``old_encrypted_password_hex`` parameter is not provided and the agent's vault is already encrypted.
+* A value for the ``old_encrypted_password_hex`` parameter is provided, and the
+  agent's vault is *not* already encrypted.
+* A value for the ``old_encrypted_password_hex`` parameter is *not* provided, and
+  the agent's vault is already encrypted.
 
 
 
@@ -31,36 +33,34 @@ The following table shows the possible response codes for this operation.
 |202            | Accepted        | The request was accepted for processing, but the          |
 |               |                 | processing has not completed.                             |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it. See the information earlier in this      |
-|               |                 | section for this operation for conditions that cause this |
-|               |                 | error.                                                    |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -80,7 +80,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{agent_id}                |String *(Required)*      |Agent ID. For example,   |
+|{agent_id}                |String                   |Agent ID. For example,   |
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -94,22 +94,23 @@ The following table shows the body parameters for the request.
 +-------------------------------+-----------------------+----------------------+
 |Name                           |Type                   |Description           |
 +===============================+=======================+======================+
-|\                              |String *(Required)*    |Old encrypted         |
-|**old_encrypted_password_hex** |                       |password in           |
-|                               |                       |hexadecimal notation  |
-|                               |                       |for the vault.        |
+|\                              |String                 |*(Required)*          |
+|**old_encrypted_password_hex** |                       |Current encrypted     |
+|                               |                       |password for the vault|
+|                               |                       |in                    |
+|                               |                       |hexadecimal notation. |
 +-------------------------------+-----------------------+----------------------+
-|\                              |String *(Required)*    |New encrypted         |
-|**new_encrypted_password_hex** |                       |password in           |
-|                               |                       |hexadecimal notation  |
-|                               |                       |for the vault.        |
+|\                              |String                 |*(Required)*          |
+|**new_encrypted_password_hex** |                       |New encrypted password|
+|                               |                       |for the vault in      |
+|                               |                       |hexadecimal notation. |
 +-------------------------------+-----------------------+----------------------+
 
 
 
 
 
-**Example: Enable or change encryption for an agent's vault JSON request**
+**Example: Enable or change encryption for an agent's vault, JSON request**
 
 
 .. code::
@@ -136,14 +137,14 @@ Response
 
 
 
+This operation does not require a response body for the 202 response.
 
 
 
 
 
 
-
-**Example: Enable or change encryption for an agent's vault HTTP 202 response**
+**Example: Enable or change encryption for an agent's vault, HTTP 202 response**
 
 
 .. code::
@@ -152,7 +153,11 @@ Response
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/vault-encryption-request/9072bb51-d5fd-4fc5-ad80-d62e573236b6
 
 
-**Example: Enable or change encryption for an agent's vault JSON response**
+When the response code is 403, a response body is returned with additional
+information about the error.
+
+
+**Example: Enable or change encryption for an agent's vault, JSON 403 response**
 
 .. code::
 

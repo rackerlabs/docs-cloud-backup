@@ -1,42 +1,46 @@
 .. _gsg-list-all-agents:
 
-List all agents for a project
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Retrieve all agents for a project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The agent is an important component of Cloud Backup. You must install
-an agent on all servers that you want to back up. Documentation about
+an agent on each server that you want to back up. Documentation about
 installing agents is available from the link on Rackspace Control Panel
-under the **Backup** tab or at :how-to:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
+when you select **Systems** under the **Backups** tab or at
+:how-to:`Install the agent on Linux<rackspace-cloud-backup-install-the-agent-on-linux>`.
 After the agent is installed on one or many servers, you can use the
 Cloud Backup API to configure your backups.
 
-..  note:: 
+..  note::
     If your account has the Managed Operations level of support, the Cloud
     Backup agent might already be installed on your server. If your cloud
-    servers are listed under the **Systems** tab in the \ **Backup** section
+    servers are listed under the **Systems** tab in the \ **Backups** section
     of the Cloud Control Panel, then the Cloud Backup agent is already
     installed. If it is not, Rackspace can install it for you. Check with
     your account manager.
 
 Assuming that you initially know nothing about the environment, in order
-to do anything with the backups, you need to list the agents. After you
-list them, you can choose the one you want to work with.
+to do anything with the backups, you need to retrieve the agents. After you
+retrieve them, you can choose the one you want to work with.
 
 An HTTP status code of 200 (OK) indicates that the request succeeded.
 
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
  
-**Example: cURL command to list all agents for a project**
+**Example: Retrieve all agents for a project, cURL request**
 
-.. code::  
+.. code::
 
-   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents?host_machine_id=yourHostMachineID \
+   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents?host_machine_id=yourHostMachineId \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Accept: application/json"
    -H "Content-Type: application/json" | python -m json.tool
 
-**Example: List all agents for a project response in JSON**
+**Example: Retrieve all agents for a project, JSON response**
 
-.. code::  
+.. code::
 
    {
         "agents": [

@@ -15,16 +15,21 @@ items:
 -  How often you want to back up
 
 Look carefully at the ``inclusions`` and ``exclusions`` sections. Note
-that each exclusion must be within a folder that is included. If you
-like, you can programmatically create many configuration files like this
+that each exclusion must be within a folder that is included.
+
+You can programmatically create many configuration files like this
 with small changes for each server that you create.
 
 An HTTP status code of 201 (Created) in the response indicates that the
 request succeeded.
- 
-**Example: cURL command to create a backup configuration**
 
-.. code::  
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
+ 
+**Example: Create a backup configuration, cURL request**
+
+.. code::
 
    curl -s -X POST $API_ENDPOINT/v2/$TENANT_ID/configurations \
    -H "X-Auth-Token: $AUTH_TOKEN" \
@@ -73,9 +78,9 @@ request succeeded.
     }'  | python -m json.tool
 
 
-**Example: Create a backup configuration response in JSON**
+**Example: Create a backup configuration, JSON response**
 
-.. code::  
+.. code::
 
    {
         "project_id": "123456",

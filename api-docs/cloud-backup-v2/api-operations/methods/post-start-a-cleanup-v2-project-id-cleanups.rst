@@ -1,4 +1,3 @@
-
 .. _post-start-a-cleanup:
 
 Start a cleanup
@@ -8,7 +7,7 @@ Start a cleanup
 
     POST /v2/{project_id}/cleanups
 
-This operation starts a cleanup. 
+This operation starts a cleanup.
 
 
 
@@ -25,34 +24,34 @@ The following table shows the possible response codes for this operation.
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -82,9 +81,11 @@ The following table shows the body parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|\ **agent_id**            |String *(Required)*      |ID of the agent.         |
+|\ **agent_id**            |String                   |*(Required)*             |
+|                          |                         |ID of the agent.         |
 +--------------------------+-------------------------+-------------------------+
-|\ **state**               |String *(Required)*      |Cleanup state, either    |
+|\ **state**               |String                   |*(Required)*             |
+|                          |                         |Cleanup state, either    |
 |                          |                         |``start_requested``, a   |
 |                          |                         |manual backup requested  |
 |                          |                         |by a user, or            |
@@ -97,7 +98,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Start a cleanup JSON request**
+**Example: Start a cleanup, JSON request**
 
 
 .. code::
@@ -150,21 +151,23 @@ The following table shows the body parameters for the response.
 |                          |                         |provided is related to   |
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
-|\ **state**               |String                   |State of the cleanup,    |
-|                          |                         |for example,             |
+|\ **state**               |String                   |State of the cleanup.    |
+|                          |                         |For example,             |
 |                          |                         |``start_requested``.     |
 +--------------------------+-------------------------+-------------------------+
-|\ **started_time**        |String                   |Time the cleanup started.|
+|\ **started_time**        |String                   |Time that the cleanup    |
+|                          |                         |started.                 |
 +--------------------------+-------------------------+-------------------------+
-|\ **ended_time**          |String                   |Time the cleanup ended.  |
+|\ **ended_time**          |String                   |Time that the cleanup    |
+|                          |                         |ended.                   |
 +--------------------------+-------------------------+-------------------------+
 |\ **snapshot_ids**        |String                   |IDs of the snapshots.    |
 +--------------------------+-------------------------+-------------------------+
 |\ **errors**              |String                   |Information about errors.|
 +--------------------------+-------------------------+-------------------------+
-|errors.\ **count**        |String                   |Number of errors.        |
+|errors.\ **count**        |Integer                  |Number of errors.        |
 +--------------------------+-------------------------+-------------------------+
-|errors.\ **reason**       |String                   |Cause of the error; for  |
+|errors.\ **reason**       |String                   |Cause of the error. For  |
 |                          |                         |example, ``Error         |
 |                          |                         |deleting object. Server  |
 |                          |                         |returned HTTP 503.``     |
@@ -183,10 +186,10 @@ The following table shows the body parameters for the response.
 |                          |                         |provided is related to   |
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
-|\ **bytes_before**        |String                   |Number of bytes before   |
+|\ **bytes_before**        |Integer                  |Number of bytes before   |
 |                          |                         |the cleanup.             |
 +--------------------------+-------------------------+-------------------------+
-|\ **bytes_after**         |String                   |Number of bytes after    |
+|\ **bytes_after**         |Integer                  |Number of bytes after    |
 |                          |                         |the cleanup.             |
 +--------------------------+-------------------------+-------------------------+
 |\ **links**               |String                   |Links with information   |
@@ -206,7 +209,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: Start a cleanup JSON response**
+**Example: Start a cleanup, JSON response**
 
 
 .. code::
@@ -224,7 +227,7 @@ The following table shows the body parameters for the response.
            "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                    "rel": "full"
                }
            ]
@@ -257,7 +260,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

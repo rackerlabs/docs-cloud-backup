@@ -21,34 +21,34 @@ The following table shows the possible response codes for this operation.
 |201            | Created         | The request was fulfilled and has resulted in one or more |
 |               |                 | new resources being created.                              |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -78,13 +78,18 @@ The following table shows the body parameters for the request.
 +-----------------------+-----------------------+------------------------------+
 |Name                   |Type                   |Description                   |
 +=======================+=======================+==============================+
-|\ **name**             |String *(Required)*    |Name of the agent.            |
+|\ **name**             |String                 |*(Required)*                  |
+|                       |                       |Name of the agent.            |
 +-----------------------+-----------------------+------------------------------+
-|\ **version**          |String *(Required)*    |Version of the agent.         |
+|\ **version**          |String                 |*(Required)*                  |
+|                       |                       |Version of the agent.         |
 +-----------------------+-----------------------+------------------------------+
-|\ **host**             |String *(Required)*    |Information about the host.   |
+|\ **host**             |String                 |*(Required)*                  |
+|                       |                       |Information about the server  |
+|                       |                       |on which the agent resides.   |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **flavor**      |String *(Required)*    |Flavor for the agent. The     |
+|host.\ **flavor**      |String                 |*(Required)*                  |
+|                       |                       |Flavor of the agent. The      |
 |                       |                       |available flavors are         |
 |                       |                       |``nova``,                     |
 |                       |                       |``rackspace_dedicated``, and  |
@@ -100,7 +105,7 @@ The following table shows the body parameters for the request.
 |                       |                       |  preferred, but it can be    |
 |                       |                       |  ``null``.                   |
 |                       |                       |                              |
-|                       |                       |- Specification of the        |
+|                       |                       |- Specification of            |
 |                       |                       |  ``vault/use_internal`` is   |
 |                       |                       |  optional. The default value |
 |                       |                       |  is ``true``.                |
@@ -111,7 +116,7 @@ The following table shows the body parameters for the request.
 |                       |                       |   ``host/region`` is         |
 |                       |                       |   required.                  |
 |                       |                       |                              |
-|                       |                       |-  Specification of the       |
+|                       |                       |-  Specification of           |
 |                       |                       |   ``vault/use_internal`` is  |
 |                       |                       |   optional. The default value|
 |                       |                       |   is ``false``.              |
@@ -127,47 +132,60 @@ The following table shows the body parameters for the request.
 |                       |                       |   optional. The default value|
 |                       |                       |   is ``true``.               |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **region**      |String *(Required)*    |Region for the agent.         |
+|host.\ **region**      |String                 |*(Required)*                  |
+|                       |                       |Region of the agent.          |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **machine**     |String *(Required)*    |Information about the machine.|
+|host.\ **machine**     |String                 |*(Required)*                  |
+|                       |                       |Information about the machine.|
 +-----------------------+-----------------------+------------------------------+
-|host.machine.\ **id**  |String *(Required)*    |Machine ID.                   |
+|host.machine.\ **id**  |String                 |*(Required)*                  |
+|                       |                       |Machine ID.                   |
 +-----------------------+-----------------------+------------------------------+
-|\ **host.**\ **os**    |String *(Required)*    |Information about the         |
+|\ **host.**\ **os**    |String                 |*(Required)*                  |
+|                       |                       |Information about the         |
 |                       |                       |operating system.             |
 +-----------------------+-----------------------+------------------------------+
-|host.os.\ **name**     |String *(Required)*    |Name of the operating system. |
+|host.os.\ **name**     |String                 |*(Required)*                  |
+|                       |                       |Name of the operating system. |
 +-----------------------+-----------------------+------------------------------+
-|host.os.\ **version**  |String *(Required)*    |Version of the operating      |
+|host.os.\ **version**  |String                 |*(Required)*                  |
+|                       |                       |Version of the operating      |
 |                       |                       |system.                       |
 +-----------------------+-----------------------+------------------------------+
-|host.os.\              |String *(Required)*    |Architecture of the operating |
+|host.os.\              |String                 |*(Required)*                  |
+|                       |                       |Architecture of the operating |
 |**architecture**       |                       |system.                       |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **fingerprint** |String *(Required)*    |String determined by the      |
+|host.\ **fingerprint** |String                 |*(Required)*                  |
+|                       |                       |String determined by the      |
 |                       |                       |agent.                        |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **addresses**   |String *(Required)*    |Information about the IP      |
-|                       |                       |addresses for the agent.      |
+|host.\ **addresses**   |String                 |*(Required)*                  |
+|                       |                       |Information about the IP      |
+|                       |                       |addresses for the host.       |
 +-----------------------+-----------------------+------------------------------+
-|host.addresses.\       |String *(Required)*    |Version of the address (4 for |
+|host.addresses.\       |String                 |*(Required)*                  |
+|                       |                       |Version of the address (4 for |
 |**version**            |                       |IPv4 or 6 for IPv6).          |
 +-----------------------+-----------------------+------------------------------+
-|host.\ **addresses**.\ |String *(Required)*    |IP address.                   |
-|**addr**               |                       |                              |
+|host.\ **addresses**.\ |String                 |*(Required)*                  |
+|**addr**               |                       |IP address.                   |
 +-----------------------+-----------------------+------------------------------+
-|\ **rsa_public_key**   |String *(Required)*    |Information about the RSA     |
+|\ **rsa_public_key**   |String                 |*(Required)*                  |
+|                       |                       |Information about the RSA     |
 |                       |                       |public key.                   |
 +-----------------------+-----------------------+------------------------------+
-|rsa_public_key.\       |String *(Required)*    |Modulus for the RSA public    |
-|**modulus**            |                       |key.                          |
+|rsa_public_key.\       |String                 |*(Required)*                  |
+|**modulus**            |                       |Modulus for the RSA public    |
+|                       |                       |key.                          |
 +-----------------------+-----------------------+------------------------------+
-|rsa_public_key.\       |String *(Required)*    |Exponent for the RSA public   |
-|**exponent**           |                       |key.                          |
+|rsa_public_key.\       |String                 |*(Required)*                  |
+|**exponent**           |                       |Exponent for the RSA public   |
+|                       |                       |key.                          |
 +-----------------------+-----------------------+------------------------------+
 |\ **vault**            |String                 |Information about the vault.  |
 +-----------------------+-----------------------+------------------------------+
-|vault.\                |String                 |Specifies whether the use of  |
+|vault.\                |Boolean                |Specifies whether the use of  |
 |**use_internal**       |                       |the vault is internal.        |
 +-----------------------+-----------------------+------------------------------+
 
@@ -175,7 +193,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Register an agent JSON request**
+**Example: Register an agent, JSON request**
 
 
 .. code::
@@ -252,9 +270,9 @@ The following table shows the body parameters for the response.
 |\ **host**                |String                   |Information about the    |
 |                          |                         |host.                    |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **flavor**         |String                   |Flavor for the agent.    |
+|host.\ **flavor**         |String                   |Flavor of the agent.     |
 +--------------------------+-------------------------+-------------------------+
-|host.\ **region**         |String                   |Region for the agent.    |
+|host.\ **region**         |String                   |Region of the agent.     |
 +--------------------------+-------------------------+-------------------------+
 |host.\ **machine**        |String                   |Information about the    |
 |                          |                         |machine.                 |
@@ -284,7 +302,7 @@ The following table shows the body parameters for the response.
 |                          |                         |operating system.        |
 +--------------------------+-------------------------+-------------------------+
 |host.\ **addresses**      |String                   |Information about the IP |
-|                          |                         |addresses for the agent. |
+|                          |                         |addresses for the host.  |
 +--------------------------+-------------------------+-------------------------+
 |host.addresses.\          |String                   |Version for the address  |
 |**version**               |                         |(4 for IPv4 or 6 for     |
@@ -293,7 +311,7 @@ The following table shows the body parameters for the response.
 |host.\ **addresses**.\    |String                   |IP address.              |
 |**addr**                  |                         |                         |
 +--------------------------+-------------------------+-------------------------+
-|\ **enabled**             |String                   |Specifies whether the    |
+|\ **enabled**             |Boolean                  |Specifies whether the    |
 |                          |                         |agent is enabled.        |
 +--------------------------+-------------------------+-------------------------+
 |\ **rsa_public_key**      |String                   |Information about the    |
@@ -316,12 +334,12 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |vault.\ **flavor**        |String                   |Flavor of the vault.     |
 +--------------------------+-------------------------+-------------------------+
-|vault.\ **encrypted**     |String                   |Specifies whether the    |
+|vault.\ **encrypted**     |Boolean                  |Specifies whether the    |
 |                          |                         |vault is encrypted.      |
 +--------------------------+-------------------------+-------------------------+
 |vault.\ **region**        |String                   |Region of the vault.     |
 +--------------------------+-------------------------+-------------------------+
-|vault.\ **use_internal**  |String                   |Specifies whether the    |
+|vault.\ **use_internal**  |Boolean                  |Specifies whether the    |
 |                          |                         |use of the vault is      |
 |                          |                         |internal.                |
 +--------------------------+-------------------------+-------------------------+
@@ -337,7 +355,7 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |\ **log_level**           |String                   |Level for the logs.      |
 +--------------------------+-------------------------+-------------------------+
-|\ **registered_time**     |String                   |Time agent was           |
+|\ **registered_time**     |String                   |Time that the agent was  |
 |                          |                         |registered.              |
 +--------------------------+-------------------------+-------------------------+
 |\ **links**               |String                   |Links with information   |
@@ -356,7 +374,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: Register an agent JSON response**
+**Example: Register an agent, JSON response**
 
 
 .. code::

@@ -9,31 +9,35 @@ removed.
 The delete operation does not return a response body. An HTTP status code of
 204 (No Content) in the response indicates that the request succeeded.
 
- 
-**Example: cURL command to delete a configuration**
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL requests in the following
+    examples represents the project ID.
 
-.. code::  
+ 
+**Example: Delete a configuration, cURL request**
+
+.. code::
 
    curl -i -X DELETE $API_ENDPOINT/v2/$TENANT_ID/configurations/yourConfigurationID \
-   -H "X-Auth-Token: $AUTH_TOKEN" 
+   -H "X-Auth-Token: $AUTH_TOKEN"
 
-To verify that the configuration is deleted, list the
-configuration details (:ref:`List details for a configuration<get-list-details-about-a-configuration>`) to see 
+To verify that the configuration is deleted, retrieve the
+configuration details (:ref:`Retrieve details for a configuration<get-list-details-about-a-configuration>`) to see
 ``deleted: true`` in the response.
  
-**Example: cURL command to  list configuration details**
+**Example: Retrieve configuration details, cURL request**
 
-.. code::  
+.. code::
 
    curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/configurations/yourConfigurationID \
    -H "X-Auth-Token: $AUTH_TOKEN" | python -m json.tool
 
-**Example: List configuration details response in JSON**
+**Example: Retrieve configuration details, JSON response**
 
-.. code::  
+.. code::
 
-    { 
-        "project_id": "123456", 
+    {
+        "project_id": "123456",
         "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
          .....
         "name": "Every Other Hour Configuration",
@@ -48,6 +52,6 @@ configuration details (:ref:`List details for a configuration<get-list-details-a
                         "rel": "full"
                     }
                 ]
-            },     
-      .... 
-    } 
+            },
+      ....
+    }

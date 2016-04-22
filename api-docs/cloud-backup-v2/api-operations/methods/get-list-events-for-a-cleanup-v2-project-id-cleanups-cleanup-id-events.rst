@@ -1,16 +1,16 @@
 
 .. _get-list-events-for-a-cleanup:
 
-List events for a cleanup
+Retrieve the events for a cleanup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/cleanups/{cleanup_id}/events
 
-This operation lists all events for the specified cleanup. You should consider these events to 
-be transient because they might disappear after a minute or so. Therefore, this operation is most 
-useful for monitoring a running cleanup. 
+This operation retrieves all the events for the specified cleanup. You should consider
+these events to be transient because they might disappear after a minute or so.
+Therefore, this operation is most useful for monitoring a running cleanup.
 
 
 
@@ -22,34 +22,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -69,7 +69,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{cleanup_id}              |String *(Required)*      |Cleanup ID. For example, |
+|{cleanup_id}              |String                   |Cleanup ID. For example, |
 |                          |                         |``2f8708b3-d16b-11e4-    |
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -81,12 +81,12 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |ID of the event, for     |
+|marker                    |String                   |ID of the event. For     |
 |                          |                         |example, ``5152883998``. |
 |                          |                         |Only events newer than   |
 |                          |                         |the event specified by   |
-|                          |                         |marker are returned. Use |
-|                          |                         |of ``marker`` is most    |
+|                          |                         |``marker`` are returned. |
+|                          |                         |This parameter is most   |
 |                          |                         |useful when you are      |
 |                          |                         |continuously monitoring  |
 |                          |                         |this endpoint for new    |
@@ -95,11 +95,11 @@ The following table shows the query parameters for the request.
 |                          |                         |back to you in           |
 |                          |                         |subsequent calls.        |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of events to      |
+|limit                     |Integer                  |Number of events to      |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
@@ -114,7 +114,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List events for a cleanup HTTP request**
+**Example: Retrieve the events for a cleanup, HTTP request**
 
 
 .. code::
@@ -140,8 +140,8 @@ The following table shows the body parameters for the response.
 +-------------------------+------------------------+---------------------------+
 |Name                     |Type                    |Description                |
 +=========================+========================+===========================+
-|\ **events**             |String                  |Information about events   |
-|                         |                        |for the backup.            |
+|\ **events**             |String                  |Information about the      |
+|                         |                        |events for the backup.     |
 +-------------------------+------------------------+---------------------------+
 |events.\ **id**          |String                  |ID of the event.           |
 +-------------------------+------------------------+---------------------------+
@@ -155,12 +155,13 @@ The following table shows the body parameters for the response.
 |events.agent.\ **id**    |String                  |Agent ID.                  |
 +-------------------------+------------------------+---------------------------+
 |events.agent.\ **vault** |String                  |Information about the      |
-|                         |                        |vault for the cleanup.     |
+|                         |                        |agent'svault for the       |
+|                         |                        |cleanup.                   |
 +-------------------------+------------------------+---------------------------+
 |events.agent.vault.\     |String                  |ID of the vault.           |
 |**id**                   |                        |                           |
 +-------------------------+------------------------+---------------------------+
-|events.agent.vault.\     |String                  |Specifies whether the      |
+|events.agent.vault.\     |Boolean                 |Specifies whether the      |
 |**encrypted**            |                        |vault is encrypted.        |
 +-------------------------+------------------------+---------------------------+
 |events.\ **cleanup**     |String                  |Information about the      |
@@ -190,7 +191,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List events for a cleanup JSON response**
+**Example: Retrieve the events for a cleanup, JSON response**
 
 
 .. code::
@@ -298,7 +299,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

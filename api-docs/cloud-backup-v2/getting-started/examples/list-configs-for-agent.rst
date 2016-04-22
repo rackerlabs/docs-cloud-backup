@@ -1,27 +1,31 @@
 .. _gsg-list-agent-configs:
 
-List agent configurations 
+Retrieve agent configurations 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To verify that your configuration exists, you can list all of the
-configurations for your agent. 
+To verify that a configuration exists, you can retrieve all of the
+configurations for an agent.
 
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
- 
-**Example: cURL command to list all configurations for an agent**
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
 
-.. code::  
+ 
+**Example: Retrieve all configurations for an agent, cURL request**
+
+.. code::
 
    curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents/yourAgentId/configurations \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" | python -m json.tool
 
-**Example: List configurations for an agent response in JSON**
+**Example: Retrieve all configurations for an agent, JSON response**
 
-.. code::  
+.. code::
 
    {
         "configurations": [

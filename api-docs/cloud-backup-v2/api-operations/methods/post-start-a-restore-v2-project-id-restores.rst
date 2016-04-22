@@ -18,37 +18,37 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
 +===============+=================+===========================================================+
-|201            | Created         |The request has been accepted for processing, but the      |
-|               |                 |processing has not been completed.                         |
+|201            | Created         | The request has been accepted for processing, but the     |
+|               |                 | processing has not been completed.                        |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -78,13 +78,16 @@ The following table shows the body parameters for the request.
 +---------------------------+-------------------------+------------------------+
 |Name                       |Type                     |Description             |
 +===========================+=========================+========================+
-|\ **backup_id**            |String *(Required)*      |ID of the backup to use |
+|\ **backup_id**            |String                   |*(Required)*            |
+|                           |                         |ID of the backup to use |
 |                           |                         |for the restore.        |
 +---------------------------+-------------------------+------------------------+
-|\ **destination_agent_ID** |String *(Required)*      |ID of the destination   |
+|\ **destination_agent_ID** |String                   |*(Required)*            |
+|                           |                         |ID of the destination   |
 |                           |                         |agent.                  |
 +---------------------------+-------------------------+------------------------+
-|\ **destination_path**     |String *(Required)*      |Path for the destination|
+|\ **destination_path**     |String                   |*(Required)*            |
+|                           |                         |Path for the destination|
 |                           |                         |of the restored files.  |
 |                           |                         |If restoring to the same|
 |                           |                         |host that the backup was|
@@ -93,34 +96,41 @@ The following table shows the body parameters for the request.
 |                           |                         |files to their original |
 |                           |                         |locations.              |
 +---------------------------+-------------------------+------------------------+
-|\ **overwrite_files**      |String *(Optional)*      |Specifies whether to    |
+|\ **overwrite_files**      |Boolean                  |Specifies whether to    |
 |                           |                         |overwrite any existing  |
 |                           |                         |files. The default is   |
 |                           |                         |``false``.              |
 +---------------------------+-------------------------+------------------------+
-|\                          |String *(Required)*      |Encrypted password in   |
-|**encrypted_password_hex** |                         |hexadecimal notation.   |
+|\                          |String                   |*(Required)*            |
+|**encrypted_password_hex** |                         |Encrypted password in   |
+|                           |                         |hexadecimal notation.   |
 +---------------------------+-------------------------+------------------------+
-|\ **inclusions**           |String *(Required)*      |Resources to include in |
+|\ **inclusions**           |String                   |*(Required)*            |
+|                           |                         |Resources to include in |
 |                           |                         |the restore.            |
 +---------------------------+-------------------------+------------------------+
-|inclusions.\ **type**      |String *(Required)*      |Type of resources to    |
+|inclusions.\ **type**      |String                   |*(Required)*            |
+|                           |                         |Type of resources to    |
 |                           |                         |include in the restore: |
 |                           |                         |``file`` or ``folder``. |
 +---------------------------+-------------------------+------------------------+
-|inclusions.\ **path**      |String *(Required)*      |Path to the resources   |
+|inclusions.\ **path**      |String                   |*(Required)*            |
+|                           |                         |Path to the resources   |
 |                           |                         |to include in the       |
 |                           |                         |restore.                |
 +---------------------------+-------------------------+------------------------+
-|\ **exclusions**           |String *(Required)*      |Resources to exclude    |
+|\ **exclusions**           |String                   |*(Required)*            |
+|                           |                         |Resources to exclude    |
 |                           |                         |from the restore.       |
 +---------------------------+-------------------------+------------------------+
-|exclusions.\ **type**      |String *(Required)*      |Type of resources to    |
+|exclusions.\ **type**      |String                   |*(Required)*            |
+|                           |                         |Type of resources to    |
 |                           |                         |exclude from the        |
 |                           |                         |restore: ``file`` or    |
 |                           |                         |``folder``.             |
 +---------------------------+-------------------------+------------------------+
-|exclusions.\ **path**      |String *(Required)*      |Path of the resources   |
+|exclusions.\ **path**      |String                   |*(Required)*            |
+|                           |                         |Path of the resources   |
 |                           |                         |to exclude from the     |
 |                           |                         |restore.                |
 +---------------------------+-------------------------+------------------------+
@@ -129,7 +139,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Start a restore JSON request**
+**Example: Start a restore, JSON request**
 
 
 .. code::
@@ -191,7 +201,8 @@ The following table shows the body parameters for the response.
 +---------------------------+------------------+-------------------------------+
 |\ **id**                   |String            |ID of the restore.             |
 +---------------------------+------------------+-------------------------------+
-|\ **backup**               |String            |Information about the backup.  |
+|\ **backup**               |String            |Information about the backup   |
+|                           |                  |used for the restore.          |
 +---------------------------+------------------+-------------------------------+
 |backup.\ **id**            |String            |ID of the backup.              |
 +---------------------------+------------------+-------------------------------+
@@ -218,13 +229,12 @@ The following table shows the body parameters for the response.
 |**rel**                    |                  |related to the resource URI.   |
 +---------------------------+------------------+-------------------------------+
 |\ **destination_path**     |String            |Path for the destination of the|
-|                           |                  |restored files. If restoring to|
-|                           |                  |the same host that the backup  |
-|                           |                  |was performed on, provide      |
-|                           |                  |``null`` to restore files to   |
-|                           |                  |their original locations.      |
+|                           |                  |restored files. ``null``       |
+|                           |                  |indicates that the files were  |
+|                           |                  |restored to their original     |
+|                           |                  |locations.                     |
 +---------------------------+------------------+-------------------------------+
-|\ **overwrite_files**      |String            |Specifies whether any existing |
+|\ **overwrite_files**      |Boolean           |Specifies whether any existing |
 |                           |                  |files were overwritten.        |
 +---------------------------+------------------+-------------------------------+
 |\ **inclusions**           |String            |Resources included in the      |
@@ -247,7 +257,7 @@ The following table shows the body parameters for the response.
 +---------------------------+------------------+-------------------------------+
 |\ **state**                |String            |Current status of the restore. |
 |                           |                  |Valid values are ``queued``,   |
-|                           |                  |``preparing````in_progress``,  |
+|                           |                  |``preparing``, ``in_progress``,|
 |                           |                  |``completed``,                 |
 |                           |                  |``completed_with_errors``,     |
 |                           |                  |``failed``, and ``stopped``.   |
@@ -259,7 +269,7 @@ The following table shows the body parameters for the response.
 |\ **errors**               |String            |Information about any errors   |
 |                           |                  |encountered by the restore.    |
 +---------------------------+------------------+-------------------------------+
-|errors.\ **count**         |String            |Number of errors encountered   |
+|errors.\ **count**         |Integer           |Number of errors encountered   |
 |                           |                  |by the restore.                |
 +---------------------------+------------------+-------------------------------+
 |errors.\ **reason**        |String            |Reason for the errors          |
@@ -277,9 +287,9 @@ The following table shows the body parameters for the response.
 |errors.links.\ **rel**     |String            |How the href link provided is  |
 |                           |                  |related to the resource URI.   |
 +---------------------------+------------------+-------------------------------+
-|\ **files_restored**       |String            |Number of files restored.      |
+|\ **files_restored**       |Integer           |Number of files restored.      |
 +---------------------------+------------------+-------------------------------+
-|\ **bytes_restored**       |String            |Number of bytes restored.      |
+|\ **bytes_restored**       |Integer           |Number of bytes restored.      |
 +---------------------------+------------------+-------------------------------+
 |\ **links**                |String            |Information about the links    |
 |                           |                  |for the restore.               |
@@ -296,7 +306,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: Start a restore JSON response**
+**Example: Start a restore, JSON response**
 
 
 .. code::

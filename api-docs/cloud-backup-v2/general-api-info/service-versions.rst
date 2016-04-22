@@ -16,30 +16,28 @@ The contract version denotes the data model and behavior that the API supports. 
 **Example request URI**
 
 
-.. code::  
+.. code::
 
     https://dfw.backup.api.rackspacecloud.com/v2/1234/
 
 .. _service-version-list:
 
-List API version
-~~~~~~~~~~~~~~~~
+Retrieve API version
+~~~~~~~~~~~~~~~~~~~~
 
-You can list which API versions are available for your account by using the list versions request.
+You can retrieve which API versions are available for your account by using the
+retrieve versions request.
 
-Issue a **GET** request to the root endpoint for a service. In the request, truncate the version and everything to the right of it.
+Issue a **GET** request to the root endpoint for a service. In the request, omit
+the version and everything to the right of it.
 
-**Example list versions request**
+**Example: Retrieve versions request**
 
 
-.. code::  
+.. code::
 
     GET HTTP/1.1
     Host: https://dfw.backup.api.rackspacecloud.com/
-      
-This operation does not require a request body.
 
-Normal Response Codes: 200, 203
-
-Error Response Codes: 400, 413, 500, 503
-
+This operation does not require a request body. For a list of possible response
+codes, see :ref:`Response codes <response-codes>`.

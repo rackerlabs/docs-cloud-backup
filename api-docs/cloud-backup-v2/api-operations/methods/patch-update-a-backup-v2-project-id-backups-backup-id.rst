@@ -14,26 +14,28 @@ You can issue updates for the following scenarios only:
 
 
 
-*  The agent is reporting the state of the backup; for example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``. The following values are valid for ``value`` :
-
-
+*  The agent is reporting the state of the backup. For example,
+   ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
+   The following values are valid for ``value`` :
 
    *  ``queued``
    *  ``preparing``
    *  ``in_progress``
-*  The agent is reporting the results of the finished backup (see the example request in this section). The following values are valid for ``/state`` :
 
-
+*  The agent is reporting the results of the finished backup (see the example
+   request in this section). The following values are valid for ``/state``:
 
    *  ``completed``
    *  ``completed_with_errors``
    *  ``failed``
    *  ``stopped``
    *  ``skipped``
-*  You are issuing a request to stop the backup; for example, ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
+
+*  You are issuing a request to stop the backup. For example,
+   ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
 
-You can use the ``add`` and ``replace`` operations interchangeably because they are interpreted identically for these scenarios.
+
 
 
 
@@ -46,34 +48,34 @@ The following table shows the possible response codes for this operation.
 |204            | No Content      | The server successfully fulfilled the request, and there  |
 |               |                 | is no additional content to send in the response body.    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -92,7 +94,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{backup_id}               |String *(Required)*      |Backup ID. For example,  |
+|{backup_id}               |String                   |Backup ID. For example,  |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -106,26 +108,31 @@ The following table shows the body parameters for the request.
 +------------------------+------------------+----------------------------------+
 |Name                    |Type              |Description                       |
 +========================+==================+==================================+
-|\ **op**                |String            |The ``replace`` or ``add``        |
-|                        |*(Required)*      |operation to update the backup.   |
+|\ **op**                |String            |*(Required)*                      |
+|                        |                  |The ``replace`` or ``add``        |
+|                        |                  |operation to update the backup.   |
+|                        |                  |You can use them interchangeably  |
+|                        |                  |because they are interpreted      |
+|                        |                  |identically.                      |
 +------------------------+------------------+----------------------------------+
-|\ **path**              |String            |Path of item to change.           |
-|                        |*(Required)*      |                                  |
+|\ **path**              |String            |*(Required)*                      |
+|                        |                  |Path of the item to change.       |
 +------------------------+------------------+----------------------------------+
-|\ **value**             |String            |Value related to the ``path``.    |
-|                        |*(Required)*      |See the beginning of this section |
+|\ **value**             |String            |*(Required)*                      |
+|                        |                  |Value related to the ``path``.    |
+|                        |                  |See the beginning of this section |
 |                        |                  |for additional information.       |
 +------------------------+------------------+----------------------------------+
-|value.\ **count**       |String            |Number of errors, when ``path``   |
+|value.\ **count**       |Integer           |Number of errors, when ``path``   |
 |                        |                  |is ``/errors``.                   |
 +------------------------+------------------+----------------------------------+
 |value.\ **reason**      |String            |Cause of the error, when ``path`` |
-|                        |                  |is ``/errors``; for example,      |
+|                        |                  |is ``/errors``. For example,      |
 |                        |                  |``unable_to_process_some_files``. |
 +------------------------+------------------+----------------------------------+
 |value.\ **diagnostics** |String            |Additional information about the  |
 |                        |                  |cause of the error, when ``path`` |
-|                        |                  |is ``/errors``; for example,      |
+|                        |                  |is ``/errors``. For example,      |
 |                        |                  |``Some files could not be backed  |
 |                        |                  |up. Partial list follows.``       |
 +------------------------+------------------+----------------------------------+
@@ -156,7 +163,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Update a backup JSON request**
+**Example: Update a backup, JSON request**
 
 
 .. code::
@@ -254,12 +261,12 @@ Response
 
 
 
+This operation does not require a response body for the 204 response.
 
 
 
 
-
-**Example: Update a backup 204 response**
+**Example: Update a backup, HTTP 204 response**
 
 
 .. code::
@@ -267,7 +274,11 @@ Response
    204 (No Content)
 
 
-**Example: Update a backup 409 response**
+When the response code is something other than 204, a response body is returned
+with additional information about the error.
+
+
+**Example: Update a backup, JSON 409 response**
 
 .. code::
 

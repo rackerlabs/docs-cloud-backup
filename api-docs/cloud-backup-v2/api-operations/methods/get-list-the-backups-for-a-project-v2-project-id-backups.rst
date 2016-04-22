@@ -1,16 +1,17 @@
 
 .. _get-list-the-backups:
 
-List the backups for a project
+Retrieve the backups for a project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/backups
 
-This operation lists the backups for the specified project.
+This operation retrieves the backups for the specified project.
 
-If no backups have been created for the project, the ``backups`` parameter in the response is an empty array.
+If no backups have been created for the project, the ``backups`` parameter in
+the response is an empty array.
 
 
 
@@ -22,37 +23,36 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
-
 
 
 Request
@@ -78,30 +78,30 @@ The following table shows the query parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|marker                    |String *(Optional)*      |ID of the last known     |
-|                          |                         |backup, for example,     |
+|marker                    |String                   |ID of the last known     |
+|                          |                         |backup. For example,     |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|limit                     |Integer *(Optional)*     |Number of backups to     |
+|limit                     |Integer                  |Number of backups to     |
 |                          |                         |list. The default value  |
 |                          |                         |is 100.                  |
 +--------------------------+-------------------------+-------------------------+
-|sort_dir                  |String *(Optional)*      |Direction to sort the    |
+|sort_dir                  |String                   |Direction to sort the    |
 |                          |                         |results. Valid values    |
 |                          |                         |are ``asc`` and          |
 |                          |                         |``desc``. The default    |
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
-|restorable                |Boolean *(Optional)*     |Indicates if only        |
+|restorable                |Boolean                  |Indicates whether only   |
 |                          |                         |restorable backups are   |
-|                          |                         |returned. If             |
+|                          |                         |returned. If the value of|
 |                          |                         |``restorable`` is        |
 |                          |                         |``true``, only           |
 |                          |                         |restorable backups are   |
 |                          |                         |returned.                |
 +--------------------------+-------------------------+-------------------------+
-|configuration_id          |String *(Optional)*      |Use only in conjunction  |
+|configuration_id          |String                   |Used only in conjunction |
 |                          |                         |with                     |
 |                          |                         |``restorable=true``. If  |
 |                          |                         |you provide              |
@@ -109,7 +109,7 @@ The following table shows the query parameters for the request.
 |                          |                         |only restorable backups  |
 |                          |                         |for the specified        |
 |                          |                         |configuration are        |
-|                          |                         |returned; for example,   |
+|                          |                         |returned. For example,   |
 |                          |                         |``-568f-4d5a-932f-       |
 |                          |                         |fb2af86b5fd5``.          |
 +--------------------------+-------------------------+-------------------------+
@@ -122,7 +122,7 @@ This operation does not accept a request body.
 
 
 
-**Example: List the backups for a project HTTP request**
+**Example: Retrieve the backups for a project, HTTP request**
 
 
 .. code::
@@ -168,7 +168,7 @@ The following table shows the body parameters for the response.
 |backups.agent.links.\ **rel**  |String     |How the href link provided is     |
 |                               |           |related to this resource URI.     |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **configuration**    |String     |Information about the             |
+|backups.\ **configuration**    |String     |Information about the backup      |
 |                               |           |configuration.                    |
 +-------------------------------+-----------+----------------------------------+
 |backups.configuration.\ **id** |String     |ID of the configuration.          |
@@ -182,24 +182,24 @@ The following table shows the body parameters for the response.
 |backups.configuration.links.\  |String     |How the href link provided is     |
 |**rel**                        |           |related to this resource URI.     |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **state**            |String     |State of the backup, for example, |
+|backups.\ **state**            |String     |State of the backup. For example, |
 |                               |           |``completed_with_errors``.        |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **started_time**     |String     |Time the backup started.          |
+|backups.\ **started_time**     |String     |Time that the backup started.     |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **ended_time**       |String     |Time the backup ended.            |
+|backups.\ **ended_time**       |String     |Time that the backup ended.       |
 +-------------------------------+-----------+----------------------------------+
 |backups.\ **snapshot_id**      |String     |ID of the snapshot.               |
 +-------------------------------+-----------+----------------------------------+
 |backups.\ **errors**           |String     |Information about errors.         |
 +-------------------------------+-----------+----------------------------------+
-|backups.errors.\ **count**     |String     |Number of errors.                 |
+|backups.errors.\ **count**     |Integer    |Number of errors.                 |
 +-------------------------------+-----------+----------------------------------+
-|backups.errors.\ **reason**    |String     |Cause of the error, for example,  |
+|backups.errors.\ **reason**    |String     |Cause of the error. For example,  |
 |                               |           |``unable_to_process_some_files``. |
 +-------------------------------+-----------+----------------------------------+
 |backups.errors.\               |String     |Additional information about the  |
-|**diagnostics**                |           |cause of the error; for example,  |
+|**diagnostics**                |           |cause of the error. For example,  |
 |                               |           |``Some files could not be backed  |
 |                               |           |up. Partial list follows.``       |
 +-------------------------------+-----------+----------------------------------+
@@ -210,21 +210,21 @@ The following table shows the body parameters for the response.
 |backups.errors.links.\ **rel** |String     |How the href link provided is     |
 |                               |           |related to this resource URI.     |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **files_searched**   |String     |Number of files searched.         |
+|backups.\ **files_searched**   |Integer    |Number of files searched.         |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **files_backed_up**  |String     |Number of files backed up.        |
+|backups.\ **files_backed_up**  |Integer    |Number of files backed up.        |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **bytes_searched**   |String     |Number of bytes searched.         |
+|backups.\ **bytes_searched**   |Integer    |Number of bytes searched.         |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **bytes_backed_up**  |String     |Number of bytes backed up.        |
+|backups.\ **bytes_backed_up**  |Integer    |Number of bytes backed up.        |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **bytes_in_db**      |String     |Number of bytes in the backup     |
+|backups.\ **bytes_in_db**      |Integer    |Number of bytes in the backup     |
 |                               |           |database.                         |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **bandwidth_avg_bps**|String     |Average bandwidth in bytes per    |
+|backups.\ **bandwidth_avg_bps**|Integer    |Average bandwidth in bytes per    |
 |                               |           |second.                           |
 +-------------------------------+-----------+----------------------------------+
-|backups.\ **restorable**       |String     |Specifies whether the backup can  |
+|backups.\ **restorable**       |Boolean    |Specifies whether the backup can  |
 |                               |           |be used for restores.             |
 +-------------------------------+-----------+----------------------------------+
 |backups.\ **links**            |String     |Links for the backup.             |
@@ -249,7 +249,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: List the backups for a project JSON response**
+**Example: Retrieve the backups for a project, JSON response**
 
 
 .. code::
@@ -269,7 +269,7 @@ The following table shows the body parameters for the response.
                    "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                    "links": [
                        {
-                           "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                           "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                            "rel": "full"
                        }
                    ]
@@ -278,7 +278,7 @@ The following table shows the body parameters for the response.
                    "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
                    "links": [
                        {
-                           "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5", 
+                           "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
                            "rel": "full"
                        }
                    ]
@@ -328,7 +328,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

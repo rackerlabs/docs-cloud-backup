@@ -1,13 +1,13 @@
 .. _gsg-check-backup-status:
 
-Check backup status
+Retrieve backup status
 ~~~~~~~~~~~~~~~~~~~~~~
 
-By listing details about a backup, you can verify whether your backup jobs ran properly, 
+By retrieving details about a backup, you can verify whether your backup jobs ran properly,
 and if they did not, what errors occurred.
 
-The following example response shows ``state`` as ``completed_with_errors``. Following are other
-valid values for ``state``:
+The following example response shows the value of the ``state`` parameter as
+``completed_with_errors``. Following are other valid values for ``state``:
 
 -  ``completed``
 
@@ -28,16 +28,20 @@ valid values for ``state``:
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
+
+..  note::
+    The environment variable ``$TENANT_ID`` in the cURL request in the following
+    example represents the project ID.
  
-**Example: cURL command to list the details about a backup**
+**Example: Retrieve backup status, cURL request**
 
-.. code::  
+.. code::
 
-   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/backups/yourBackupID \
+   curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/backups/yourBackupId \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json | python -m json.tool
 
-**Example: Check backup status response in JSON**
+**Example:  Retrieve backup status, JSON response**
 
 .. code::
 
@@ -48,7 +52,7 @@ request succeeded.
            "id": "8f135b4f-7a69-4b8a-947f-5e80d772fd97",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97",
                    "rel": "full"
                }
            ]
@@ -57,7 +61,7 @@ request succeeded.
            "id": "7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
            "links": [
                {
-                   "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5", 
+                   "href": "https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5",
                    "rel": "full"
                }
            ]

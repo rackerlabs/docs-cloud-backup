@@ -1,14 +1,16 @@
 
 .. _get-view-results-of-a-browse-request-for-a-backup:
 
-View results of a browse request for a backup
+Retrieve the results of a request to browse a backup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/backups/{backup_id}/browse-requests/{request_id}
 
-This operation shows the results for a browse request ID for the specified backup's files. The request returns a 404 response code until there is a response to the browse request (see "View results of a browse request for a backup").
+This operation retrieves the results for a browse request ID for the specified
+backup's files. The request returns a 404 response code until there is a
+response to the browse request.
 
 
 
@@ -20,34 +22,34 @@ The following table shows the possible response codes for this operation.
 +===============+=================+===========================================================+
 |200            | OK              | The request succeeded.                                    |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
@@ -66,11 +68,11 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{backup_id}               |String *(Required)*      |Backup ID. For example,  |
+|{backup_id}               |String                   |Backup ID. For example,  |
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-|{request_id}              |String *(Required)*      |Browse request ID. For   |
+|{request_id}              |String                   |Browse request ID. For   |
 |                          |                         |example, ``ae7528c8-bcc3-|
 |                          |                         |4356-a237-f20fbdd79ee4``.|
 +--------------------------+-------------------------+-------------------------+
@@ -84,7 +86,7 @@ This operation does not accept a request body.
 
 
 
-**Example: View results of a browse request for a backup HTTP request**
+**Example: Retrieve the results of a browse request for a backup, HTTP request**
 
 
 .. code::
@@ -123,8 +125,9 @@ The following table shows the body parameters for the response.
 +--------------------------+-------------------------+-------------------------+
 |\ **request_id**          |String                   |ID of the request.       |
 +--------------------------+-------------------------+-------------------------+
-|\ **succeeded**           |String                   |Specifies whether the    |
-|                          |                         |request succeeded.       |
+|\ **succeeded**           |Boolean                  |Specifies whether the    |
+|                          |                         |request to browse the    |
+|                          |                         |files succeeded.         |
 +--------------------------+-------------------------+-------------------------+
 |\ **path**                |String                   |Path that was browsed.   |
 +--------------------------+-------------------------+-------------------------+
@@ -139,7 +142,7 @@ The following table shows the body parameters for the response.
 |items.\ **name_encoded**  |String                   |Encoded name for the     |
 |                          |                         |browsed item.            |
 +--------------------------+-------------------------+-------------------------+
-|items.\ **bytes**         |String                   |Number of browsed bytes. |
+|items.\ **bytes**         |Integer                  |Number of browsed bytes. |
 +--------------------------+-------------------------+-------------------------+
 |items.\ **mime_type**     |String                   |Mime type for the        |
 |                          |                         |browsed item.            |
@@ -151,7 +154,7 @@ The following table shows the body parameters for the response.
 
 
 
-**Example: View results of a browse request for a backup JSON response**
+**Example: Retrieve the results of a browse request for a backup, JSON response**
 
 
 .. code::
@@ -182,7 +185,3 @@ The following table shows the body parameters for the response.
            }
        ]
    }
-
-
-
-

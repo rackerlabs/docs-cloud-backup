@@ -8,31 +8,32 @@ Update a restore
 
     PATCH /v2/{project_id}/restores/{restore_id}
 
-This operation updates the specified restore. Restores are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified restore. Restores are updated with the JSON Patch.
+For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
 You can issue updates only for the following scenarios:
 
 
+*  The agent is reporting the state of the restore. For example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
+   The following values are valid for ``value``:
 
-*  The agent is reporting the state of the restore. For example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``. The following values are valid for ``value`` :
-   
-   
-   
    *  ``queued``
    *  ``preparing``
    *  ``in_progress``
-*  The agent is reporting the results of the finished restore (see the example request in this section). The following values are valid values for ``/state`` :
-   
-   
-   
+
+*  The agent is reporting the results of the finished restore (see the example
+   request in this section). The following values are valid values for ``/state``:
+
    *  ``completed``
    *  ``completed_with_errors``
    *  ``failed``
    *  ``stopped``
-*  The agent is issuing a request to stop the restore. For example, ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
+
+*  The agent is issuing a request to stop the restore. For example,
+   ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
 
-You can use the ``add`` and ``replace`` operations interchangeably because they are interpreted identically for these scenarios. The only paths that you cannot modify are those listed in this endpoint's description.
+The only paths that you cannot modify are those listed in this endpoint's description.
 
 
 
@@ -45,37 +46,36 @@ The following table shows the possible response codes for this operation.
 |204            | No Content      | The server successfully fulfilled the request. There is   |
 |               |                 | no additional content to send in the response body.       |
 +---------------+-----------------+-----------------------------------------------------------+
-|400            | Bad Request     | The server cannot or will not process the request         |
-|               |                 | due to something that is perceived as a client error      |
-|               |                 | (for example, malformed syntax, invalid request framing,  |
-|               |                 | or deceptive request routing).                            |
+|400            | Bad Request     | The server cannot process the request because of a client |
+|               |                 | error (for example, malformed syntax, invalid request     |
+|               |                 | framing, or deceptive request routing).                   |
 +---------------+-----------------+-----------------------------------------------------------+
-|401            | Unauthorized    | The request has not been applied because it lacks         |
-|               |                 | valid authentication credentials for the target           |
-|               |                 | resource. The credentials are either expired or invalid.  |
+|401            | Unauthorized    | The request was not applied because it lacks valid        |
+|               |                 | authentication credentials for the target resource.       |
+|               |                 | The credentials are either expired or invalid.            |
 +---------------+-----------------+-----------------------------------------------------------+
-|403            | Forbidden       | The server understood the request but refuses             |
-|               |                 | to authorize it.                                          |
+|403            | Forbidden       | The server understood the request but did not authorize   |
+|               |                 | it.                                                       |
 +---------------+-----------------+-----------------------------------------------------------+
-|404            | Not Found       | The server did not find a current representation          |
-|               |                 | for the target resource or is not willing to              |
-|               |                 | disclose that one exists.                                 |
+|404            | Not Found       | The server did not find a current representation for the  |
+|               |                 | target resource or cannot disclose that one exists.       |
 +---------------+-----------------+-----------------------------------------------------------+
 |405            | Method Not      | The method received in the request line is                |
 |               | Allowed         | known by the origin server but is not supported by        |
 |               |                 | the target resource.                                      |
 +---------------+-----------------+-----------------------------------------------------------+
-|409            | Conflict        | The request could not be completed due to a conflict with |
+|409            | Conflict        | The request was not completed because of a conflict with  |
 |               |                 | the current state of the resource.                        |
 +---------------+-----------------+-----------------------------------------------------------+
 |500            | Internal Server | The server encountered an unexpected condition            |
 |               | Error           | that prevented it from fulfilling the request.            |
 +---------------+-----------------+-----------------------------------------------------------+
+|501            | Not Implemented | The requested method or resource is not implemented.      |
++---------------+-----------------+-----------------------------------------------------------+
 |503            | Service         | The server is currently unable to handle the request      |
-|               | Unavailable     | due to a temporary overload or scheduled maintenance,     |
+|               | Unavailable     | because of a temporary overload or scheduled maintenance, |
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
-
 
 Request
 """"""""""""""""
@@ -92,7 +92,7 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-|{restore_id}              |String *(Required)*      |Restore ID. For example, |
+|{restore_id}              |String                   |Restore ID. For example, |
 |                          |                         |``e87e6f7d-d166-11e4-    |
 |                          |                         |8689-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
@@ -106,21 +106,29 @@ The following table shows the body parameters for the request.
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|\ **op**                  |String *(Required)*      |The ``replace`` or       |
+|\ **op**                  |String                   |*(Required)*             |
+|                          |                         |The ``replace`` or       |
 |                          |                         |``add`` operation to     |
-|                          |                         |update the restore.      |
+|                          |                         |update the restore. You  |
+|                          |                         |can use them             |
+|                          |                         |interchangeably because  |
+|                          |                         |they are interpreted     |
+|                          |                         |identically.             |
 +--------------------------+-------------------------+-------------------------+
-|\ **path**                |String *(Required)*      |Path. Valid values are   |
+|\ **path**                |String                   |*(Required)*             |
+|                          |                         |Path to modify. Valid    |
+|                          |                         |values are               |
 |                          |                         |``/state``, ``/started-  |
 |                          |                         |time``, ``/ended-time``, |
 |                          |                         |``/errors``,             |
 |                          |                         |``/files_restores``, and |
 |                          |                         |``/bytes-restored``.     |
 +--------------------------+-------------------------+-------------------------+
-|\ **value**               |String *(Required)*      |Value related to the     |
+|\ **value**               |String                   |*(Required)*             |
+|                          |                         |Value related to the     |
 |                          |                         |``path``.                |
 +--------------------------+-------------------------+-------------------------+
-|value.\ **count**         |String                   |When ``path`` is         |
+|value.\ **count**         |Integer                  |When ``path`` is         |
 |                          |                         |``/errors``, specifies   |
 |                          |                         |the number of errors     |
 |                          |                         |that the restore can     |
@@ -165,7 +173,7 @@ The following table shows the body parameters for the request.
 
 
 
-**Example: Update a restore JSON request**
+**Example: Update a restore, JSON request**
 
 
 .. code::
@@ -243,16 +251,16 @@ Response
 
 
 
-**Example: Update a restore 204 response**
+**Example: Update a restore, 204 response**
 
 
 .. code::
 
    204 (No Content)
-   
 
 
-**Example: Update a restore 409 response**
+
+**Example: Update a restore, 409 response**
 
 
 .. code::
@@ -265,7 +273,3 @@ Response
    {
        "message": "Modifying a restore that is already in a state of ['completed', 'completed_with_errors', 'failed', 'stopped'] is not allowed."
    }
-
-
-
-
