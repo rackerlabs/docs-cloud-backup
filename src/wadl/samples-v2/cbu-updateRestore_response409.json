@@ -1,3 +1,0 @@
-{
-    "message": "Modifying a restore that is already in a state of ['completed', 'completed_with_errors', 'failed', 'stopped'] is not allowed."
-}

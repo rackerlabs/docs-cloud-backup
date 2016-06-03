@@ -1,2 +1,0 @@
-201 (Created)
-Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd9
