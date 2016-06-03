@@ -1,2 +1,0 @@
-POST https://dfw.backup.api.rackspacecloud.com/v2/110011/agents/tokens HTTP/1.1
-Content-type: application/json
