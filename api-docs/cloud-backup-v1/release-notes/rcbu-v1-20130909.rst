@@ -7,7 +7,6 @@ What's new
 The ``MachineAgentId`` request parameter was added to the
 :ref:`create backup configuration <create-backup-configuration>` operation.
 
-
 Resolved issues
 ~~~~~~~~~~~~~~~
 

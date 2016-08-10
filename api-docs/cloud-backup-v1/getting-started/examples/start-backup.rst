@@ -1,7 +1,7 @@
 .. _gsg-start-backup:
 
 Starting a backup manually
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you do not do anything, Cloud Backup runs the backup at the scheduled
 time.
@@ -17,32 +17,30 @@ token.
 
 This operation does not return a response body. An HTTP status code of
 200 (OK) in the response indicates that the request succeeded.
-
  
 **Example: cURL start a backup manually request**
 
-.. code::  
+.. code::
 
    curl -i -X POST $API_ENDPOINT/v1.0/$TENANT_ID/backup/action-requested \
    -H "X-Auth-Token: $AUTH_TOKEN" \
    -H "Content-Type: application/json" \
-   -d '{   "Action" : "StartManual",    
+   -d '{   "Action" : "StartManual",
             "Id": yourBackupConfigurationId
-       }' 
+       }'
 
 The response comes from the server. The number at the end of the
 response is the ID of the job.
 
 **Example: Start a backup manually response**
 
-.. code::  
+.. code::
 
-   HTTP/1.1 200 OK 
-   ... 
-   Date: Thu, 31 Jul 2014 16:54:38 GMT  
+   HTTP/1.1 200 OK
+   ...
+   Date: Thu, 31 Jul 2014 16:54:38 GMT
 
-   368785 
-
+   368785
 
 When the backup is done, you receive an email about the status, as shown
 in the following example. Receiving the email is based on the
@@ -52,13 +50,13 @@ parameters that you specify when you create your backup configuration
 
 **Example: Start a backup manually email**
 
-.. code::  
+.. code::
 
-   Rackspace Cloud Backup 
-   Backed Up: Weekly Website Backup v2 on web2 
-   Status: Completed 
-   Started: 31 Jul 2014 16:54 UTC 
-   Completed: 31 Jul 2014 16:54 UTC 
-   Source: web02 
-   Files Searched: 2 (4 KB) 
+   Rackspace Cloud Backup
+   Backed Up: Weekly Website Backup v2 on web2
+   Status: Completed
+   Started: 31 Jul 2014 16:54 UTC
+   Completed: 31 Jul 2014 16:54 UTC
+   Source: web02
+   Files Searched: 2 (4 KB)
    Errors Encountered: 0 

@@ -1,82 +1,68 @@
-
 .. _get-list-backups-available-for-a-restore:
 
 List backups available for a restore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v1.0/{tenant_id}/backup/availableforrestore
 
-This operation lists the backups that are eligible for restore (a backup that has completed at least once and has not been deleted and is not expired).
-
-
+This operation lists the backups that are eligible for restore (a backup that
+has completed at least once and has not been deleted and is not expired).
 
 This table shows the possible response codes for this operation:
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |The request succeeded.   |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |There were one or more   |
-|                          |                         |errors in the request.   |
-+--------------------------+-------------------------+-------------------------+
-|401                       |Unauthorized             |The supplied token was   |
-|                          |                         |not authorized to access |
-|                          |                         |the resources. Either it |
-|                          |                         |is expired or invalid.   |
-+--------------------------+-------------------------+-------------------------+
-|403                       |Forbidden                |Access to the requested  |
-|                          |                         |resource was denied.     |
-+--------------------------+-------------------------+-------------------------+
-|404                       |Not Found                |The backend services did |
-|                          |                         |not find anything        |
-|                          |                         |matching the request URI.|
-+--------------------------+-------------------------+-------------------------+
-|500                       |Instance Fault           |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-|503                       |Service Unavailable      |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |The request succeeded.  |
++--------------------------+-------------------------+------------------------+
+|400                       |Bad Request              |There were one or more  |
+|                          |                         |errors in the request.  |
++--------------------------+-------------------------+------------------------+
+|401                       |Unauthorized             |The supplied token was  |
+|                          |                         |not authorized to access|
+|                          |                         |the resources. Either it|
+|                          |                         |is expired or invalid.  |
++--------------------------+-------------------------+------------------------+
+|403                       |Forbidden                |Access to the requested |
+|                          |                         |resource was denied.    |
++--------------------------+-------------------------+------------------------+
+|404                       |Not Found                |The backend services did|
+|                          |                         |not find anything       |
+|                          |                         |matching the request    |
+|                          |                         |URI.                    |
++--------------------------+-------------------------+------------------------+
+|500                       |Instance Fault           |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
+|503                       |Service Unavailable      |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 This table shows the URI parameters for the request:
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |String                   |The unique identifier of |
-|                          |                         |the tenant or account.   |
-+--------------------------+-------------------------+-------------------------+
-
-
-
-
++--------------------------+-------------------------+------------------------+
+|Name                      |Type                     |Description             |
++==========================+=========================+========================+
+|{tenant_id}               |String                   |The unique identifier of|
+|                          |                         |the tenant or account.  |
++--------------------------+-------------------------+------------------------+
 
 This operation does not accept a request body.
 
-
-
-
 **Example: List backups available for a restore JSON request**
-
 
 .. code::
 
@@ -87,24 +73,10 @@ This operation does not accept a request body.
    Content-Length: 0
    X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: List backups available for a restore JSON response**
-
 
 .. code::
 
@@ -132,7 +104,3 @@ Response
            "LastSuccessfulBackupTime":"\/Date(1360701957000)\/"
        }
    ]
-
-
-
-

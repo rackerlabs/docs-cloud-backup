@@ -3,8 +3,8 @@
 .. meta::
    :description: Rackspace Cloud Backup API Reference
    :keywords: Rackspace, Cloud Backup ReST API, API resources, API methods
-       
-.. toctree:: 
+
+.. toctree::
    :maxdepth: 2
 
    bu-agents-operations
@@ -13,4 +13,4 @@
    bu-operations
    bu-restore-config-operations
    bu-restore-operations
-   bu-activity-operations   
+   bu-activity-operations

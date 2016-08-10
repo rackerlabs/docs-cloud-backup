@@ -4,8 +4,8 @@ API |contract version| updates, September 09, 2015
 What's new
 ~~~~~~~~~~
 
-The ``machineAgentId`` request parameter was added to the 
-:ref:`delete agent <delete-agent>` operation. 
+The ``machineAgentId`` request parameter was added to the
+:ref:`delete agent <delete-agent>` operation.
 
 Resolved issues
 ~~~~~~~~~~~~~~~

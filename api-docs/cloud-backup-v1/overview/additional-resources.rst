@@ -3,23 +3,25 @@
 Additional resources
 ~~~~~~~~~~~~~~~~~~~~
 
-We welcome feedback, comments, and bug reports. Visit the Rackspace `Product Feedback page`_.
+We welcome feedback, comments, and bug reports. Visit the Rackspace
+`Product Feedback page`_.
 
-Use the links below to learn more about the Rackspace Cloud Backup service and API.
+Use the links below to learn more about the Rackspace Cloud Backup service and
+API.
 
-- For general information about Cloud Backup, see the :how-to:`Cloud Backup FAQ<cloud-backup>`.
+- For general information about Cloud Backup, see the
+  :how-to:`Cloud Backup FAQ<cloud-backup>`.
 
-- For more information about using the Cloud Backup API with cURL, see :rax-dev:`Rackspace Cloud Backup API with cURL<blog/rackspace-cloud-backup-api-with-curl>`.
+- For more information about using the Cloud Backup API with cURL, see
+  :rax-dev:`Rackspace Cloud Backup API with cURL<blog/rackspace-cloud-backup-api-with-curl>`.
 
-- Additional information about Cloud Backup is also available at :how-to:`Best Practices for Cloud Backup<best-practices-for-cloud-backup>`.
+- Additional information about Cloud Backup is also available at
+  :how-to:`Best Practices for Cloud Backup<best-practices-for-cloud-backup>`.
 
-- To learn about using Rackspace Cloud SDKs, see :rax-dev:`SDKs and tools<sdks>`. 
-    
+- To learn about using Rackspace Cloud SDKs, see
+  :rax-dev:`SDKs and tools<sdks>`.
+
 - To get information about other Rackspace Cloud services APIs, see the
   :rax-devdocs:`Rackspace API Documentation<>`.
 
-
 .. _Product Feedback page: https://feedback.rackspace.com/forums/298161-storage/category/107823-cloud-backup
-
-
-

@@ -1,85 +1,70 @@
-
 .. _get-restore-report:
 
 Get restore report
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v1.0/{tenant_id}/restore/report/{restoreId}
 
-This operation gets a report for the specified, completed restore. 
-
-
+This operation gets a report for the specified, completed restore.
 
 This table shows the possible response codes for this operation:
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |The request succeeded.   |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad Request              |There were one or more   |
-|                          |                         |errors in the request.   |
-+--------------------------+-------------------------+-------------------------+
-|401                       |Unauthorized             |The supplied token was   |
-|                          |                         |not authorized to access |
-|                          |                         |the resources. Either it |
-|                          |                         |is expired or invalid.   |
-+--------------------------+-------------------------+-------------------------+
-|403                       |Forbidden                |Access to the requested  |
-|                          |                         |resource was denied.     |
-+--------------------------+-------------------------+-------------------------+
-|404                       |Not Found                |The backend services did |
-|                          |                         |not find anything        |
-|                          |                         |matching the request URI.|
-+--------------------------+-------------------------+-------------------------+
-|500                       |Instance Fault           |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-|503                       |Service Unavailable      |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |The request succeeded.  |
++--------------------------+-------------------------+------------------------+
+|400                       |Bad Request              |There were one or more  |
+|                          |                         |errors in the request.  |
++--------------------------+-------------------------+------------------------+
+|401                       |Unauthorized             |The supplied token was  |
+|                          |                         |not authorized to access|
+|                          |                         |the resources. Either it|
+|                          |                         |is expired or invalid.  |
++--------------------------+-------------------------+------------------------+
+|403                       |Forbidden                |Access to the requested |
+|                          |                         |resource was denied.    |
++--------------------------+-------------------------+------------------------+
+|404                       |Not Found                |The backend services did|
+|                          |                         |not find anything       |
+|                          |                         |matching the request    |
+|                          |                         |URI.                    |
++--------------------------+-------------------------+------------------------+
+|500                       |Instance Fault           |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
+|503                       |Service Unavailable      |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 This table shows the URI parameters for the request:
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |String                   |The unique identifier of |
-|                          |                         |the tenant or account.   |
-+--------------------------+-------------------------+-------------------------+
-|{restoreId}               |Integer                  |The unique identifier    |
-|                          |                         |for a restore.           |
-+--------------------------+-------------------------+-------------------------+
-
-
-
-
++--------------------------+-------------------------+------------------------+
+|Name                      |Type                     |Description             |
++==========================+=========================+========================+
+|{tenant_id}               |String                   |The unique identifier of|
+|                          |                         |the tenant or account.  |
++--------------------------+-------------------------+------------------------+
+|{restoreId}               |Integer                  |The unique identifier   |
+|                          |                         |for a restore.          |
++--------------------------+-------------------------+------------------------+
 
 This operation does not accept a request body.
 
-
-
-
 **Example: Get restore report JSON request**
-
 
 .. code::
 
@@ -90,98 +75,86 @@ This operation does not accept a request body.
    Content-Length: 0
    X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 This table shows the body parameters for the response:
 
-+--------------------------------+----------------------+----------------------+
-|Name                            |Type                  |Description           |
-+================================+======================+======================+
-|**BackupConfigurationId**       |String                |Autogenerated ID that |
-|                                |                      |uniquely identifies   |
-|                                |                      |the backup            |
-|                                |                      |configuration just    |
-|                                |                      |created.              |
-+--------------------------------+----------------------+----------------------+
-|**BackupConfigurationName**     |String                |Specifies the name of |
-|                                |                      |the backup            |
-|                                |                      |configuration.        |
-+--------------------------------+----------------------+----------------------+
-|**BackupReportId**              |String                |Indicates the ID of   |
-|                                |                      |the backup report.    |
-+--------------------------------+----------------------+----------------------+
-|**RestorePoint**                |String                |Indicates the time of |
-|                                |                      |the restore.          |
-+--------------------------------+----------------------+----------------------+
-|**StartTime**                   |String                |Indicates the         |
-|                                |                      |starting time of the  |
-|                                |                      |restore.              |
-+--------------------------------+----------------------+----------------------+
-|**CompletedTime**               |String                |Indicates the         |
-|                                |                      |completed time of the |
-|                                |                      |restore.              |
-+--------------------------------+----------------------+----------------------+
-|**Duration**                    |String                |Indicates the total   |
-|                                |                      |time to restore.      |
-+--------------------------------+----------------------+----------------------+
-|**OriginatingComputerName**     |String                |Specifies the backup  |
-|                                |                      |machine name.         |
-+--------------------------------+----------------------+----------------------+
-|**State**                       |String                |Indicates the state   |
-|                                |                      |of the restore. Valid |
-|                                |                      |values include        |
-|                                |                      |Creating, Queued,     |
-|                                |                      |InProgress,           |
-|                                |                      |Completed, Stopped,   |
-|                                |                      |Failed,               |
-|                                |                      |startRequested,       |
-|                                |                      |Stoprequested,        |
-|                                |                      |CompletedWithErrors,  |
-|                                |                      |and Preparing.        |
-+--------------------------------+----------------------+----------------------+
-|**NumFilesRestored**            |String                |Indicates the number  |
-|                                |                      |of files restored.    |
-+--------------------------------+----------------------+----------------------+
-|**NumBytesRestored**            |String                |Indicates the number  |
-|                                |                      |of bytes (size of     |
-|                                |                      |total files) restored.|
-+--------------------------------+----------------------+----------------------+
-|**RestoreDestination**          |String                |Specifies the system  |
-|                                |                      |to which the files    |
-|                                |                      |are restored.         |
-+--------------------------------+----------------------+----------------------+
-|**RestoreDestinationMachineId** |String                |Specifies the machine |
-|                                |                      |ID to which the files |
-|                                |                      |are restored.         |
-+--------------------------------+----------------------+----------------------+
-|**NumErrors**                   |String                |Indicates the number  |
-|                                |                      |of errors encountered.|
-+--------------------------------+----------------------+----------------------+
-|**Reason**                      |String                |Explanation of errors.|
-+--------------------------------+----------------------+----------------------+
-|**Diagnostics**                 |String                |Further explanation   |
-|                                |                      |of errors.            |
-+--------------------------------+----------------------+----------------------+
-|**ErrorList**                   |String                |List of errors.       |
-+--------------------------------+----------------------+----------------------+
-
-
-
-
-
-
++--------------------------------+----------------------+---------------------+
+|Name                            |Type                  |Description          |
++================================+======================+=====================+
+|**BackupConfigurationId**       |String                |Autogenerated ID that|
+|                                |                      |uniquely identifies  |
+|                                |                      |the backup           |
+|                                |                      |configuration just   |
+|                                |                      |created.             |
++--------------------------------+----------------------+---------------------+
+|**BackupConfigurationName**     |String                |Specifies the name of|
+|                                |                      |the backup           |
+|                                |                      |configuration.       |
++--------------------------------+----------------------+---------------------+
+|**BackupReportId**              |String                |Indicates the ID of  |
+|                                |                      |the backup report.   |
++--------------------------------+----------------------+---------------------+
+|**RestorePoint**                |String                |Indicates the time of|
+|                                |                      |the restore.         |
++--------------------------------+----------------------+---------------------+
+|**StartTime**                   |String                |Indicates the        |
+|                                |                      |starting time of the |
+|                                |                      |restore.             |
++--------------------------------+----------------------+---------------------+
+|**CompletedTime**               |String                |Indicates the        |
+|                                |                      |completed time of the|
+|                                |                      |restore.             |
++--------------------------------+----------------------+---------------------+
+|**Duration**                    |String                |Indicates the total  |
+|                                |                      |time to restore.     |
++--------------------------------+----------------------+---------------------+
+|**OriginatingComputerName**     |String                |Specifies the backup |
+|                                |                      |machine name.        |
++--------------------------------+----------------------+---------------------+
+|**State**                       |String                |Indicates the state  |
+|                                |                      |of the restore. Valid|
+|                                |                      |values include       |
+|                                |                      |Creating, Queued,    |
+|                                |                      |InProgress,          |
+|                                |                      |Completed, Stopped,  |
+|                                |                      |Failed,              |
+|                                |                      |startRequested,      |
+|                                |                      |Stoprequested,       |
+|                                |                      |CompletedWithErrors, |
+|                                |                      |and Preparing.       |
++--------------------------------+----------------------+---------------------+
+|**NumFilesRestored**            |String                |Indicates the number |
+|                                |                      |of files restored.   |
++--------------------------------+----------------------+---------------------+
+|**NumBytesRestored**            |String                |Indicates the number |
+|                                |                      |of bytes (size of    |
+|                                |                      |total files)         |
+|                                |                      |restored.            |
++--------------------------------+----------------------+---------------------+
+|**RestoreDestination**          |String                |Specifies the system |
+|                                |                      |to which the files   |
+|                                |                      |are restored.        |
++--------------------------------+----------------------+---------------------+
+|**RestoreDestinationMachineId** |String                |Specifies the machine|
+|                                |                      |ID to which the files|
+|                                |                      |are restored.        |
++--------------------------------+----------------------+---------------------+
+|**NumErrors**                   |String                |Indicates the number |
+|                                |                      |of errors            |
+|                                |                      |encountered.         |
++--------------------------------+----------------------+---------------------+
+|**Reason**                      |String                |Explanation of       |
+|                                |                      |errors.              |
++--------------------------------+----------------------+---------------------+
+|**Diagnostics**                 |String                |Further explanation  |
+|                                |                      |of errors.           |
++--------------------------------+----------------------+---------------------+
+|**ErrorList**                   |String                |List of errors.      |
++--------------------------------+----------------------+---------------------+
 
 **Example: Get restore report JSON response**
-
 
 .. code::
 
@@ -203,11 +176,6 @@ This table shows the body parameters for the response:
        "Reason":"UnableToProcessSomeFiles",
        "Diagnostics":"Some files may not have been restored",
        "ErrorList":[
-       
+
        ]
    }
-   
-
-
-
-

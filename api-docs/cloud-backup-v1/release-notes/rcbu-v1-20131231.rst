@@ -4,11 +4,11 @@ API |contract version| updates, December 31, 2013
 What's new
 ~~~~~~~~~~
 
--  The :ref:`delete restore configuration <delete-a-restore-configuration>` operation was
-   updated to change the normal response code from 200 to 204.
+-  The :ref:`delete restore configuration <delete-a-restore-configuration>`
+   operation was updated to change the normal response code from 200 to 204.
 
--  The :ref:`create restore configuration <create-a-restore-configuration>` operation was
-   updated to add the ``BackupMachineId`` parameter.
+-  The :ref:`create restore configuration <create-a-restore-configuration>`
+   operation was updated to add the ``BackupMachineId`` parameter.
 
 Resolved issues
 ~~~~~~~~~~~~~~~
