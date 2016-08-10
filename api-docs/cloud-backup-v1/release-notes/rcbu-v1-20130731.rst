@@ -1,16 +1,18 @@
 
 API |contract version| updates, July 31, 2013
-------------------------------------------------
+---------------------------------------------
 
 What's new
 ~~~~~~~~~~
 
--  The :ref:`migrate vault <migrate-vault>` operation was added to the agent operations.
-
--  The :ref:`update agent backup behavior <update-agent-backup-behavior>` operation was added to the agent
+-  The :ref:`migrate vault <migrate-vault>` operation was added to the agent
    operations.
 
--  The regionalized service endpoints were updated to add Northern Virginia (IAD).
+-  The :ref:`update agent backup behavior <update-agent-backup-behavior>`
+   operation was added to the agent operations.
+
+-  The regionalized service endpoints were updated to add Northern Virginia
+   (IAD).
 
 Resolved issues
 ~~~~~~~~~~~~~~~

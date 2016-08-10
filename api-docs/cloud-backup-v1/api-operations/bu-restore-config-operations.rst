@@ -3,7 +3,8 @@
 Restore configuration operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes the restore configuration operations that are supported by the Cloud Backup API. 
+This section describes the restore configuration operations that are supported
+by the Cloud Backup API. 
 
 .. include:: methods/put-create-a-restore-configuration-v1.0-tenant-id-restore.rst
 .. include:: methods/post-update-a-restore-configuration-v1.0-tenant-id-restore.rst

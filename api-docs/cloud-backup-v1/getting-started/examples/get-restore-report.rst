@@ -14,7 +14,7 @@ request succeeded.
  
 **Example: cURL get a restore report request**
 
-.. code::  
+.. code::
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/restore/report/yourRestoreID \
    -H "X-Auth-Token: $AUTH_TOKEN" \
@@ -22,7 +22,7 @@ request succeeded.
 
 **Example: Get a restore report response**
 
-.. code::  
+.. code::
 
    {
       "BackupConfigurationId": 174084,
@@ -42,7 +42,7 @@ request succeeded.
       "RestorePoint": "/Date(1357151359000)/",
       "StartTime": "/Date(1363790404000)/",
       "State": "Completed"
-    } 
+    }
 
 Cloud Backup reports success. You can also check the folder listings on
 your server.

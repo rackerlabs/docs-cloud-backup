@@ -1,7 +1,7 @@
 .. _list-agent-activity:
 
 Listing activity for an agent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can display all the activities for an agent to find out whether your
 backups ran successfully or failed. This operation is useful if you do
@@ -19,7 +19,7 @@ request succeeded.
  
 **Example: cURL list activity for an agent request**
 
-.. code::  
+.. code::
 
    curl -s -X GET $API_ENDPOINT/v1.0/$TENANT_ID/system/activity/yourAgentID /
    -H "X-Auth-Token: $AUTH_TOKEN" \
@@ -27,37 +27,37 @@ request succeeded.
 
 **Example: List activity for an agent response**
 
-.. code::  
+.. code::
 
    [
         {
-            "CurrentState": "Completed", 
-            "DestinationDatacenter": "", 
-            "DestinationMachineAgentId": 0, 
-            "DestinationMachineName": "", 
-            "DisplayName": "Cleanup", 
-            "ID": 317083, 
-            "IsBackupConfigurationDeleted": false, 
-            "ParentId": 0, 
-            "SourceDatacenter": "DFW", 
-            "SourceMachineAgentId": 202743, 
-            "SourceMachineName": "web2", 
-            "TimeOfActivity": "/Date(1375816993000)/", 
+            "CurrentState": "Completed",
+            "DestinationDatacenter": "",
+            "DestinationMachineAgentId": 0,
+            "DestinationMachineName": "",
+            "DisplayName": "Cleanup",
+            "ID": 317083,
+            "IsBackupConfigurationDeleted": false,
+            "ParentId": 0,
+            "SourceDatacenter": "DFW",
+            "SourceMachineAgentId": 202743,
+            "SourceMachineName": "web2",
+            "TimeOfActivity": "/Date(1375816993000)/",
             "Type": "Cleanup"
-        }, 
+        },
         {
-            "CurrentState": "Completed", 
-            "DestinationDatacenter": "", 
-            "DestinationMachineAgentId": 0, 
-            "DestinationMachineName": "", 
-            "DisplayName": "Web2", 
-            "ID": 5000325, 
-            "IsBackupConfigurationDeleted": true, 
-            "ParentId": 54020, 
-            "SourceDatacenter": "DFW", 
-            "SourceMachineAgentId": 202743, 
-            "SourceMachineName": "web2", 
-            "TimeOfActivity": "/Date(1375816984000)/", 
+            "CurrentState": "Completed",
+            "DestinationDatacenter": "",
+            "DestinationMachineAgentId": 0,
+            "DestinationMachineName": "",
+            "DisplayName": "Web2",
+            "ID": 5000325,
+            "IsBackupConfigurationDeleted": true,
+            "ParentId": 54020,
+            "SourceDatacenter": "DFW",
+            "SourceMachineAgentId": 202743,
+            "SourceMachineName": "web2",
+            "TimeOfActivity": "/Date(1375816984000)/",
             "Type": "Backup"
         }
     ]

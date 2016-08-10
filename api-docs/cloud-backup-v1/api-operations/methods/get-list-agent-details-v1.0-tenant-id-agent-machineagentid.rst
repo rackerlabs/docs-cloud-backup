@@ -2,7 +2,7 @@
 .. _get-agent-details:
 
 List agent details
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -11,80 +11,68 @@ List agent details
 This operation lists details about the machine and its agent.
 
 .. note::
-   If the agent ``Status`` is showing as ``Offline``, it is possible that the Cloud Backup agent might be idle and not posting any heartbeats. You can wake up your Cloud Backup agent by using the operation described in :ref:`Wake up agents <wake-up-agents>`. You should wait 10-20 seconds after using this operation to determine the online status of the agent reliably.
-   
-   
-
-
+   If the agent ``Status`` is showing as ``Offline``, it is possible that the
+   Cloud Backup agent might be idle and not posting any heartbeats. You can
+   wake up your Cloud Backup agent by using the operation described in
+   :ref:`Wake up agents <wake-up-agents>`. You should wait 10-20 seconds after
+   using this operation to determine the online status of the agent reliably.
 
 This table shows the possible response codes for this operation:
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |OK                       |The request succeeded.   |
-+--------------------------+-------------------------+-------------------------+
-|400                       |Bad request              |There were one or more   |
-|                          |                         |errors in the request.   |
-+--------------------------+-------------------------+-------------------------+
-|401                       |Unauthorized             |The supplied token was   |
-|                          |                         |not authorized to access |
-|                          |                         |the resources. Either it |
-|                          |                         |is expired or invalid.   |
-+--------------------------+-------------------------+-------------------------+
-|403                       |Forbidden                |Access to the requested  |
-|                          |                         |resource was denied.     |
-+--------------------------+-------------------------+-------------------------+
-|404                       |Not Found                |The backend services did |
-|                          |                         |not find anything        |
-|                          |                         |matching the request URI.|
-+--------------------------+-------------------------+-------------------------+
-|500                       |Instance Fault           |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-|503                       |Service Unavailable      |This is a generic server |
-|                          |                         |error. The message       |
-|                          |                         |contains the reason for  |
-|                          |                         |the error. This error    |
-|                          |                         |could wrap several error |
-|                          |                         |messages.                |
-+--------------------------+-------------------------+-------------------------+
-
++--------------------------+-------------------------+------------------------+
+|Response Code             |Name                     |Description             |
++==========================+=========================+========================+
+|200                       |OK                       |The request succeeded.  |
++--------------------------+-------------------------+------------------------+
+|400                       |Bad request              |There were one or more  |
+|                          |                         |errors in the request.  |
++--------------------------+-------------------------+------------------------+
+|401                       |Unauthorized             |The supplied token was  |
+|                          |                         |not authorized to access|
+|                          |                         |the resources. Either it|
+|                          |                         |is expired or invalid.  |
++--------------------------+-------------------------+------------------------+
+|403                       |Forbidden                |Access to the requested |
+|                          |                         |resource was denied.    |
++--------------------------+-------------------------+------------------------+
+|404                       |Not Found                |The backend services did|
+|                          |                         |not find anything       |
+|                          |                         |matching the request    |
+|                          |                         |URI.                    |
++--------------------------+-------------------------+------------------------+
+|500                       |Instance Fault           |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
+|503                       |Service Unavailable      |This is a generic server|
+|                          |                         |error. The message      |
+|                          |                         |contains the reason for |
+|                          |                         |the error. This error   |
+|                          |                         |could wrap several error|
+|                          |                         |messages.               |
++--------------------------+-------------------------+------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 This table shows the URI parameters for the request:
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |String                   |The unique identifier of |
-|                          |                         |the tenant or account.   |
-+--------------------------+-------------------------+-------------------------+
-|{machineAgentId}          |Integer                  |The unique identifier of |
-|                          |                         |the Cloud Backup agent.  |
-+--------------------------+-------------------------+-------------------------+
-
-
-
-
++--------------------------+-------------------------+------------------------+
+|Name                      |Type                     |Description             |
++==========================+=========================+========================+
+|{tenant_id}               |String                   |The unique identifier of|
+|                          |                         |the tenant or account.  |
++--------------------------+-------------------------+------------------------+
+|{machineAgentId}          |Integer                  |The unique identifier of|
+|                          |                         |the Cloud Backup agent. |
++--------------------------+-------------------------+------------------------+
 
 This operation does not accept a request body.
 
-
-
-
 **Example: List agent details JSON request**
-
 
 .. code::
 
@@ -95,118 +83,103 @@ This operation does not accept a request body.
    Content-Length: 0
    X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 This table shows the body parameters for the response:
 
-+-------------------------------+-----------------------+----------------------+
-|Name                           |Type                   |Description           |
-+===============================+=======================+======================+
-|**AgentVersion**               |String                 |Version of the        |
-|                               |                       |Rackspace Cloud       |
-|                               |                       |Backup agent.         |
-+-------------------------------+-----------------------+----------------------+
-|**Architecture**               |String                 |Base architecture of  |
-|                               |                       |the Cloud Server.     |
-|                               |                       |Valid values are 64-  |
-|                               |                       |bit or 32-bit.        |
-+-------------------------------+-----------------------+----------------------+
-|**Flavor**                     |String                 |RaxCloudServer – for  |
-|                               |                       |Rackspace Cloud       |
-|                               |                       |Servers.              |
-+-------------------------------+-----------------------+----------------------+
-|**BackupVaultSize**            |String                 |Size of backup data   |
-|                               |                       |in MB.                |
-+-------------------------------+-----------------------+----------------------+
-|**BackupContainer**            |String                 |Full public URI for   |
-|                               |                       |Cloud Files where     |
-|                               |                       |backups are stored    |
-|                               |                       |for this agent.       |
-+-------------------------------+-----------------------+----------------------+
-|**CleanupAllowed**             |String                 |Indicates whether a   |
-|                               |                       |cleanup can be        |
-|                               |                       |manually triggered on |
-|                               |                       |the backup vault.     |
-|                               |                       |Valid values are true |
-|                               |                       |or false.             |
-+-------------------------------+-----------------------+----------------------+
-|**Datacenter**                 |String                 |Data center where the |
-|                               |                       |Cloud Server is       |
-|                               |                       |located. Valid values |
-|                               |                       |are IAD, ORD, DFW,    |
-|                               |                       |HKG, LON, or SYD).    |
-+-------------------------------+-----------------------+----------------------+
-|**IPAddress**                  |String                 |Public IPv4 address   |
-|                               |                       |of the Cloud Server.  |
-+-------------------------------+-----------------------+----------------------+
-|**IsDisabled**                 |String                 |Indicates if the      |
-|                               |                       |Rackspace Cloud       |
-|                               |                       |Backup agent on the   |
-|                               |                       |server is disabled.   |
-|                               |                       |Valid values are true |
-|                               |                       |or false.             |
-+-------------------------------+-----------------------+----------------------+
-|**IsEncrypted**                |String                 |Indicates if backups  |
-|                               |                       |are encrypted. Valid  |
-|                               |                       |values are true or    |
-|                               |                       |false.                |
-+-------------------------------+-----------------------+----------------------+
-|**MachineAgentId**             |String                 |ID that uniquely      |
-|                               |                       |identifies a Cloud    |
-|                               |                       |Backup agent.         |
-+-------------------------------+-----------------------+----------------------+
-|**MachineName**                |String                 |Name of the Cloud     |
-|                               |                       |Server.               |
-+-------------------------------+-----------------------+----------------------+
-|**OperatingSystem**            |String                 |Operating system of   |
-|                               |                       |Cloud Server.         |
-+-------------------------------+-----------------------+----------------------+
-|**OperatingSystemVersion**     |String                 |Operating system      |
-|                               |                       |version of Cloud      |
-|                               |                       |Server.               |
-+-------------------------------+-----------------------+----------------------+
-|**PublicKey**                  |String                 |Public key of the     |
-|                               |                       |public/private        |
-|                               |                       |encryption key pair.  |
-+-------------------------------+-----------------------+----------------------+
-|**Status**                     |String                 |Status of the Cloud   |
-|                               |                       |Backup agent. Valid   |
-|                               |                       |values are Online or  |
-|                               |                       |Offline.              |
-+-------------------------------+-----------------------+----------------------+
-|**TimeOfLastSuccessfulBackup** |String                 |Time of last          |
-|                               |                       |successful backup.    |
-+-------------------------------+-----------------------+----------------------+
-|**UseServiceNet**              |String                 |Indicates if the      |
-|                               |                       |Cloud Backup agent is |
-|                               |                       |using ServiceNet to   |
-|                               |                       |backup data to Cloud  |
-|                               |                       |Files. Valid values   |
-|                               |                       |are true or false.    |
-+-------------------------------+-----------------------+----------------------+
-|**HostServerId**               |String                 |Server ID of the host |
-|                               |                       |server where the      |
-|                               |                       |Cloud Backup agent is |
-|                               |                       |running.              |
-+-------------------------------+-----------------------+----------------------+
-
-
-
-
-
-
++-------------------------------+-----------------------+---------------------+
+|Name                           |Type                   |Description          |
++===============================+=======================+=====================+
+|**AgentVersion**               |String                 |Version of the       |
+|                               |                       |Rackspace Cloud      |
+|                               |                       |Backup agent.        |
++-------------------------------+-----------------------+---------------------+
+|**Architecture**               |String                 |Base architecture of |
+|                               |                       |the Cloud Server.    |
+|                               |                       |Valid values are 64- |
+|                               |                       |bit or 32-bit.       |
++-------------------------------+-----------------------+---------------------+
+|**Flavor**                     |String                 |RaxCloudServer – for |
+|                               |                       |Rackspace Cloud      |
+|                               |                       |Servers.             |
++-------------------------------+-----------------------+---------------------+
+|**BackupVaultSize**            |String                 |Size of backup data  |
+|                               |                       |in MB.               |
++-------------------------------+-----------------------+---------------------+
+|**BackupContainer**            |String                 |Full public URI for  |
+|                               |                       |Cloud Files where    |
+|                               |                       |backups are stored   |
+|                               |                       |for this agent.      |
++-------------------------------+-----------------------+---------------------+
+|**CleanupAllowed**             |String                 |Indicates whether a  |
+|                               |                       |cleanup can be       |
+|                               |                       |manually triggered on|
+|                               |                       |the backup vault.    |
+|                               |                       |Valid values are true|
+|                               |                       |or false.            |
++-------------------------------+-----------------------+---------------------+
+|**Datacenter**                 |String                 |Data center where the|
+|                               |                       |Cloud Server is      |
+|                               |                       |located. Valid values|
+|                               |                       |are IAD, ORD, DFW,   |
+|                               |                       |HKG, LON, or SYD).   |
++-------------------------------+-----------------------+---------------------+
+|**IPAddress**                  |String                 |Public IPv4 address  |
+|                               |                       |of the Cloud Server. |
++-------------------------------+-----------------------+---------------------+
+|**IsDisabled**                 |String                 |Indicates if the     |
+|                               |                       |Rackspace Cloud      |
+|                               |                       |Backup agent on the  |
+|                               |                       |server is disabled.  |
+|                               |                       |Valid values are true|
+|                               |                       |or false.            |
++-------------------------------+-----------------------+---------------------+
+|**IsEncrypted**                |String                 |Indicates if backups |
+|                               |                       |are encrypted. Valid |
+|                               |                       |values are true or   |
+|                               |                       |false.               |
++-------------------------------+-----------------------+---------------------+
+|**MachineAgentId**             |String                 |ID that uniquely     |
+|                               |                       |identifies a Cloud   |
+|                               |                       |Backup agent.        |
++-------------------------------+-----------------------+---------------------+
+|**MachineName**                |String                 |Name of the Cloud    |
+|                               |                       |Server.              |
++-------------------------------+-----------------------+---------------------+
+|**OperatingSystem**            |String                 |Operating system of  |
+|                               |                       |Cloud Server.        |
++-------------------------------+-----------------------+---------------------+
+|**OperatingSystemVersion**     |String                 |Operating system     |
+|                               |                       |version of Cloud     |
+|                               |                       |Server.              |
++-------------------------------+-----------------------+---------------------+
+|**PublicKey**                  |String                 |Public key of the    |
+|                               |                       |public/private       |
+|                               |                       |encryption key pair. |
++-------------------------------+-----------------------+---------------------+
+|**Status**                     |String                 |Status of the Cloud  |
+|                               |                       |Backup agent. Valid  |
+|                               |                       |values are Online or |
+|                               |                       |Offline.             |
++-------------------------------+-----------------------+---------------------+
+|**TimeOfLastSuccessfulBackup** |String                 |Time of last         |
+|                               |                       |successful backup.   |
++-------------------------------+-----------------------+---------------------+
+|**UseServiceNet**              |String                 |Indicates if the     |
+|                               |                       |Cloud Backup agent is|
+|                               |                       |using ServiceNet to  |
+|                               |                       |backup data to Cloud |
+|                               |                       |Files. Valid values  |
+|                               |                       |are true or false.   |
++-------------------------------+-----------------------+---------------------+
+|**HostServerId**               |String                 |Server ID of the host|
+|                               |                       |server where the     |
+|                               |                       |Cloud Backup agent is|
+|                               |                       |running.             |
++-------------------------------+-----------------------+---------------------+
 
 **Example: List agent details JSON response**
-
 
 .. code::
 
@@ -231,10 +204,6 @@ This table shows the body parameters for the response:
        "Status": "Online",
        "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
        "UseServiceNet": true,
-       
-       "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"    
+
+       "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"
    }
-
-
-
-

@@ -4,7 +4,8 @@ API |contract version| updates, February 14, 2014
 What's new
 ~~~~~~~~~~
 
-The :ref:`change encryption password <change-encryption-password>` operation was added.
+The :ref:`change encryption password <change-encryption-password>` operation
+was added.
 
 Resolved issues
 ~~~~~~~~~~~~~~~

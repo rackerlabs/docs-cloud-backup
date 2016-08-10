@@ -1,11 +1,12 @@
 .. _limits:
 
 Limits
-~~~~~~~~~~~~~~~
+~~~~~~
 
-All accounts, by default, have a preconfigured set of thresholds (or limits) to manage capacity and prevent abuse of the system.
+All accounts, by default, have a preconfigured set of thresholds (or limits) to
+manage capacity and prevent abuse of the system.
 
-The following table lists the limits for Cloud Backup. 
+The following table lists the limits for Cloud Backup.
 
 **Table: Limits for Cloud Backup**
 
@@ -25,7 +26,7 @@ The following table lists the limits for Cloud Backup.
 | configuration         | configuration. (The agent configuration contains    |
 |                       | all of the configuration information specific to an |
 |                       | agent.) Currently, the maximum JSON document size is|
-|                       | 1 MB for the total document.                        |     
+|                       | 1 MB for the total document.                        |
 +-----------------------+-----------------------------------------------------+
 | Maximum length of     | The maximum length of file paths in the             |
 | file paths in the     | configuration is limited first by the maximum JSON  |

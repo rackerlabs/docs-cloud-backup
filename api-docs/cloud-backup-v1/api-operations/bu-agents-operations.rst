@@ -3,8 +3,9 @@
 Agent operations
 ~~~~~~~~~~~~~~~~
 
-This section describes the agent operations that are supported by the Cloud Backup API. 
-   
+This section describes the agent operations that are supported by the Cloud
+Backup API. 
+
 .. include:: methods/get-list-agent-details-v1.0-tenant-id-agent-machineagentid.rst
 .. include:: methods/post-enable-or-disable-an-agent-v1.0-tenant-id-agent-enable.rst
 .. include:: methods/post-enable-volume-encryption-v1.0-tenant-id-agent-encrypt.rst
