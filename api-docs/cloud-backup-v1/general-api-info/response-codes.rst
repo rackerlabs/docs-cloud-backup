@@ -1,7 +1,8 @@
 .. _response-codes:
 
+==============
 Response codes
-~~~~~~~~~~~~~~
+==============
 
 Cloud Backup returns an HTTP code that denotes the type of response.
 
@@ -16,7 +17,7 @@ Cloud Backup returns an HTTP code that denotes the type of response.
 
 This API uses `standard HTTP 1.1 response codes`_.
 
-The following table lists possible fault types with their associated error
+The following table lists possible responses with their associated 
 codes and descriptions.
 
 **Table: Response codes for Cloud Backup**
