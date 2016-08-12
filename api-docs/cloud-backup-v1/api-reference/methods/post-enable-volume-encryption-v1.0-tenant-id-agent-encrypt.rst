@@ -9,7 +9,7 @@ Enable volume encryption
 
 This operation enables volume encryption with AES-256 encryption if it is not
 already enabled. If you need assistance generating your encrypted key, see
-:how-to:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
+:how-to:`Generate your encrypted key in Cloud Backup<generate-your-encrypted-key-in-cloud-backup>`.
 
 .. note::
    After encryption is turned on, you cannot turn it off. This is a security
