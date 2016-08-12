@@ -11,7 +11,7 @@ This operation changes the encryption password.
 
 This operation changes the encryption password. If you need assistance
 generating your encrypted key, see
-:how-to:`Generating Your Encrypted Key In Cloud Backup<generating-your-encrypted-key-in-cloud-backup>`.
+:how-to:`Generate your encrypted key in Cloud Backup<generate-your-encrypted-key-in-cloud-backup>`.
 
 .. note::
    After you turn on encryption, you cannot turn it off. This is a security
