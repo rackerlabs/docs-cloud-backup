@@ -1,8 +1,8 @@
 .. _gsg-using-cloud-backup:
 
-==============================
-Create and manage with backups
-==============================
+=========================
+Create and manage backups
+=========================
 
 You can use the simple examples in the following sections for basic Cloud
 Backup requests that you will commonly use. You can get agent information,
