@@ -1,4 +1,4 @@
-.. _auth-response-example:
+.. _authentication-response-examples:
 
 .. code::
 
