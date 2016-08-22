@@ -5,13 +5,6 @@
 
 This repository contains the source files for the following Rackspace Cloud Backup API documentation:
 
-**VERSION 2 of Cloud Backup - Not yet launched externally**
-
-* [Cloud Backup Getting Started Guide] 
-* [Cloud Backup Developer Guide] 
-* [Cloud Backup API Reference] 
-* [Cloud Backup Release Notes] 
-
 **VERSION 1 of Cloud Backup**
 
 * [Getting started](https://developer.rackspace.com/docs/cloud-backup/v1/getting-started/)
@@ -21,7 +14,7 @@ This repository contains the source files for the following Rackspace Cloud Back
 
 **VERSION 2 of Cloud Backup - Not yet refactored or launched externally**
 
-* [Getting Started guide](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-getting-started)] 
+* [Getting Started guide](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-getting-started)
 * [Developer guide](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-developer-guide)
 * [API reference](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-api-reference)
 * [Release notes](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-release-notes)
