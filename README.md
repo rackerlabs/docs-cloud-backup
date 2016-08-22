@@ -14,10 +14,17 @@ This repository contains the source files for the following Rackspace Cloud Back
 
 **VERSION 1 of Cloud Backup**
 
-* [Cloud Backup Getting Started Guide](https://developer.rackspace.com/docs/cloud-backup/v1/developer-guide/#document-getting-started)
-* [Cloud Backup Developer Guide](https://developer.rackspace.com/docs/cloud-backup/v1/developer-guide/#document-developer-guide)
-* [Cloud Backup API Reference](https://developer.rackspace.com/docs/cloud-backup/v1/developer-guide/#document-api-reference)
-* [Cloud Backup Release Notes](https://developer.rackspace.com/docs/cloud-backup/v1/developer-guide/#document-release-notes)
+* [Getting started](https://developer.rackspace.com/docs/cloud-backup/v1/getting-started/)
+* [General API information](https://developer.rackspace.com/docs/cloud-backup/v1/general-api-info/)
+* [API reference](https://developer.rackspace.com/docs/cloud-backup/v1/api-reference/)
+* [Release notes](https://developer.rackspace.com/docs/cloud-backup/v1/release-notes/)
+*
+**VERSION 2 of Cloud Backup - Not yet refactored or launched externally**
+
+* [Getting Started guide](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-getting-started)] 
+* [Developer guide](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-developer-guide)
+* [API reference](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-api-reference)
+* [Release notes](https://developer.rackspace.com/docs/cloud-backup/v2/developer-guide/#document-release-notes)
 
 When you commit changes to the master branch of this repository, the 
 [Strider CI/CD build job](https://build.developer.rackspace.com/rackerlabs/docs-cloud-backup/) 
