@@ -35,7 +35,8 @@ Content | File
 |Linux and OS X build script|``Makefile``|
 |Windows build script|``make.bat``|
 
-**VERSION 2 of Cloud Backup - Not yet launched externally**
+
+**VERSION 2 of Cloud Backup - Not yet refactored or launched externally**
 
 Content | File
 --- | ---
