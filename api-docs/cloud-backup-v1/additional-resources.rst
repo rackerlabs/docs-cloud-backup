@@ -5,7 +5,7 @@ Additional resources
 ====================
 
 We welcome feedback, comments, and bug reports. Visit the Rackspace
-`Product Feedback page`_.
+`Rackspace Product Feedback forum`_.
 
 Use the links below to learn more about the Rackspace Cloud Backup service and
 API.
@@ -22,4 +22,4 @@ API.
 - To get information about other Rackspace Cloud services APIs, see the
   :rax-devdocs:`Rackspace API Documentation<>`.
 
-.. _Product Feedback page: https://feedback.rackspace.com/forums/298161-storage/category/107823-cloud-backup
+  .. _Rackspace Product Feedback forum: https://community.rackspace.com/feedback/f/68
