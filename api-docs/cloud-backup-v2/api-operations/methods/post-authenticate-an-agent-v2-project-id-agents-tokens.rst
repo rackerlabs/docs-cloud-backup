@@ -1,8 +1,7 @@
-
 .. _post-authenticate-an-agent:
 
 Authenticate an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,25 +9,23 @@ Authenticate an agent
 
 This operation authenticates an agent.
 
-Agents authenticate with the API and retrieve an authentication token. The authentication token returned is the token issued by Cloud Identity for the user who originally registered the agent. The token is used for communicating with the Cloud Backup API and other products associated with the same Cloud Identity server.
+Agents authenticate with the API and retrieve an authentication token. The
+authentication token returned is the token issued by Cloud Identity for the
+user who originally registered the agent. The token is used for communicating
+with the Cloud Backup API and other products associated with the same Cloud
+Identity server.
 
 The following error conditions are returned if the request is not successful:
 
-* 409 (Conflict) is returned with a message in the response body if the provided
-  fingerprint does not match the agent's fingerprint submitted during
-  registration. Such a case likely indicates that two agents (likely on different
-  hosts) are attempting to authenticate as one.
+* 409 (Conflict) is returned with a message in the response body if the
+  provided fingerprint does not match the agent's fingerprint submitted during
+  registration. Such a case likely indicates that two agents (likely on
+  different hosts) are attempting to authenticate as one.
 * 503 (Service Unavailable) is returned with the ``Retry-After`` header if
   communication with any upstream service fails during authentication. Use the
   ``Retry-After`` header to determine when to retry authentication.
 
-
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -66,12 +63,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -82,10 +75,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -149,18 +138,12 @@ The following table shows the body parameters for the request.
 |**addr**                  |                         |IP address.              |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Authenticate an agent, JSON request**
-
 
 .. code::
 
    POST https://dfw.backup.api.rackspacecloud.com/v2/110011/agents/tokens HTTP/1.1
    Content-type: application/json
-
 
 .. code::
 
@@ -190,16 +173,8 @@ The following table shows the body parameters for the request.
        }
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -217,20 +192,12 @@ The following table shows the body parameters for the response.
 |                          |                         |token.                   |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Authenticate an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

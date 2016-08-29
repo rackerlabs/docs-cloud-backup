@@ -1,7 +1,7 @@
 .. _post-start-a-cleanup:
 
 Start a cleanup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -9,14 +9,7 @@ Start a cleanup
 
 This operation starts a cleanup.
 
-
-
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -55,12 +48,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -71,10 +60,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -94,12 +79,7 @@ The following table shows the body parameters for the request.
 |                          |                         |by the agent.            |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Start a cleanup, JSON request**
-
 
 .. code::
 
@@ -108,7 +88,6 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
@@ -116,16 +95,8 @@ The following table shows the body parameters for the request.
        "state": "start_requested"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -203,20 +174,12 @@ The following table shows the body parameters for the response.
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Start a cleanup, JSON response**
-
 
 .. code::
 
    201 (Created)
    Location: https://cloudbackupapi.apiary-mock.com/v2/cleanups/2f8708b3-d16b-11e4-bc22-c8e0eb190e3d
-
 
 .. code::
 

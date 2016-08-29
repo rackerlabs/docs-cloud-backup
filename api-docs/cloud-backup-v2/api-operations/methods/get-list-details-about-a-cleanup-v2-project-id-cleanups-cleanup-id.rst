@@ -1,8 +1,7 @@
-
 .. _get-list-details-about-a-cleanup:
 
 Retrieve the details about a cleanup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Retrieve the details about a cleanup
 
 This operation retrieves the details about the specified cleanup.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -51,13 +47,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -73,17 +64,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the details about a cleanup, HTTP request**
-
 
 .. code::
 
@@ -93,16 +76,8 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -181,20 +156,12 @@ The following table shows the body parameters for the response.
 |                         |                        |resource URI.              |
 +-------------------------+------------------------+---------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the details about a cleanup, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

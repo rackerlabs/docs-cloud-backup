@@ -1,18 +1,16 @@
-
 .. _patch-update-a-backup:
 
 Update a backup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/backups/{backup_id}
 
-This operation updates the specified backup. Backups are updated with the `JSON Patch <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified backup. Backups are updated with the
+`JSON Patch <http://tools.ietf.org/html/rfc6902>`__.
 
 You can issue updates for the following scenarios only:
-
-
 
 *  The agent is reporting the state of the backup. For example,
    ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
@@ -34,13 +32,7 @@ You can issue updates for the following scenarios only:
 *  You are issuing a request to stop the backup. For example,
    ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
-
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -80,10 +72,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -98,10 +87,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -159,12 +144,7 @@ The following table shows the body parameters for the request.
 |**details**             |                  |exception.                        |
 +------------------------+------------------+----------------------------------+
 
-
-
-
-
 **Example: Update a backup, JSON request**
-
 
 .. code::
 
@@ -172,7 +152,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -250,29 +229,16 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 This operation does not require a response body for the 204 response.
 
-
-
-
 **Example: Update a backup, HTTP 204 response**
-
 
 .. code::
 
    204 (No Content)
-
 
 When the response code is something other than 204, a response body is returned
 with additional information about the error.
@@ -283,7 +249,6 @@ with additional information about the error.
 .. code::
 
    409 (Conflict)
-
 
 .. code::
 

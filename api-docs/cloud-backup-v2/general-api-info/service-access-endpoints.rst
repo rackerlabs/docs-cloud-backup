@@ -1,20 +1,20 @@
 .. _service-access-endpoints:
 
-=========================
+========================
 Service access endpoints
-=========================
+========================
 
-The Cloud Backup service is a regionalized service. The user of the service is therefore responsible for appropriate replication, caching, and overall maintenance of Rackspace Cloud Backup data across regional boundaries to other Rackspace Cloud Backup servers.
+The Cloud Backup service is a regionalized service. The user of the service is
+therefore responsible for appropriate replication, caching, and overall
+maintenance of Rackspace Cloud Backup data across regional boundaries to other
+Rackspace Cloud Backup servers.
 
 To determine which region to operate against, select an endpoint from
 the following table.
 
 .. tip::
-   To help you decide which regionalized endpoint to use, read about :how-to:`special considerations for choosing a region <about-regions>`.
-
-
-
-
+   To help you decide which regionalized endpoint to use, read about
+   :how-to:`special considerations for choosing a region <about-regions>`.
 
 **Regionalized service endpoints**
 
@@ -42,4 +42,6 @@ service response. Your account number is shown after the final slash (/) in the
 ``publicURL`` field returned by the authentication response.
 
 ..  note::
-    The Cloud Backup API runs with or without the specification of the account ID number in the endpoint. However, the examples in this guide include the account number in the request URIs.
+    The Cloud Backup API runs with or without the specification of the account
+    ID number in the endpoint. However, the examples in this guide include the
+    account number in the request URIs.

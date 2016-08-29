@@ -1,7 +1,7 @@
 .. _gsg-delete-config:
 
 Delete a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can delete the configuration file and verify that it was
 removed.
@@ -10,10 +10,9 @@ The delete operation does not return a response body. An HTTP status code of
 204 (No Content) in the response indicates that the request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL requests in the following
-    examples represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL requests in the
+    following examples represents the project ID.
 
- 
 **Example: Delete a configuration, cURL request**
 
 .. code::
@@ -22,8 +21,9 @@ The delete operation does not return a response body. An HTTP status code of
    -H "X-Auth-Token: $AUTH_TOKEN"
 
 To verify that the configuration is deleted, retrieve the
-configuration details (:ref:`Retrieve details for a configuration<get-list-details-about-a-configuration>`) to see
-``deleted: true`` in the response.
+configuration details
+(:ref:`Retrieve details for a configuration<get-list-details-about-a-configuration>`)
+to see ``deleted: true`` in the response.
  
 **Example: Retrieve configuration details, cURL request**
 

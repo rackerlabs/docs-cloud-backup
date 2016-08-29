@@ -1,8 +1,7 @@
-
 .. _get-view-results-of-a-browse-request-for-a-backup:
 
 Retrieve the results of a request to browse a backup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -12,10 +11,7 @@ This operation retrieves the results for a browse request ID for the specified
 backup's files. The request returns a 404 response code until there is a
 response to the browse request.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,10 +50,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -77,17 +70,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4356-a237-f20fbdd79ee4``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the results of a browse request for a backup, HTTP request**
-
 
 .. code::
 
@@ -96,16 +81,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -148,20 +125,12 @@ The following table shows the body parameters for the response.
 |                          |                         |browsed item.            |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the results of a browse request for a backup, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

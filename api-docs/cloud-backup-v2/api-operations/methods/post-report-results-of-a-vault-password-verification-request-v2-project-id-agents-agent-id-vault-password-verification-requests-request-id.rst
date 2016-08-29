@@ -1,21 +1,19 @@
-
 .. _post-report-results-of-a-vault-password-verification-request:
 
 Report the results of a vault password verification request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v2/{project_id}/agents/{agent_id}/vault-password-verification-requests/{request_id}
 
-This operation reports the results of the specified password verification request for the specified agent's vault.
+This operation reports the results of the specified password verification
+request for the specified agent's vault.
 
-The agent uses this operation to report the results of a request to verify the vault encryption password.
-
-
+The agent uses this operation to report the results of a request to verify the
+vault encryption password.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,12 +52,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -80,10 +74,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |9920-1dcad25f88e7``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 The following table shows the body parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
@@ -94,12 +84,7 @@ The following table shows the body parameters for the request.
 |                          |                         |password is verified.    |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Report the results of a vault password verification request, JSON request**
-
 
 .. code::
 
@@ -108,31 +93,18 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
        "verified": true
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
 **Example: Report the results of a vault password verification request, HTTP response**
-
 
 .. code::
 

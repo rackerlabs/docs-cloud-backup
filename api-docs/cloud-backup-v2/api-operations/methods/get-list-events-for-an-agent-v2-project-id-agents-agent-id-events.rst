@@ -1,8 +1,7 @@
-
 .. _get-list-events-for-an-agent:
 
 Retrieve events for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -22,13 +21,7 @@ You can find additional event information in the following operation description
 * ``GET /v2/cleanups/{id}/events`` (See :ref:`List events for a cleanup <get-list-events-for-a-cleanup>`.)
 * ``GET /v2/restores/{id}/events`` (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
 
-
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -66,12 +59,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -86,8 +75,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -119,16 +106,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve events for an agent, HTTP request**
-
 
 .. code::
 
@@ -137,16 +117,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -238,20 +210,12 @@ The following table shows the body parameters for the response.
 |                               |         |related to this resource URI.       |
 +-------------------------------+---------+------------------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve events for an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

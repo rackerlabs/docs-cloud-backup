@@ -1,20 +1,17 @@
-
 .. _post-request-download-of-the-log-file-for-an-agent:
 
 Request download of the log file for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v2/{project_id}/agents/{agent_id}/logfiles
 
 This operation requests the download of the log file for the specified agent.
-The agent is requested to download its log files to Cloud Files for object storage.
-
-
+The agent is requested to download its log files to Cloud Files for object
+storage.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -53,12 +50,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -74,17 +67,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Request download of the log file for an agent, HTTP request**
-
 
 .. code::
 
@@ -93,16 +78,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -126,21 +103,13 @@ The following table shows the body parameters for the response.
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Request download of the log file for an agent, JSON response**
-
 
 .. code::
 
    202 (Accepted)
    Content-Type: application/json
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/logfiles/a533a845-4279-4838-af13-276114e90234
-
 
 .. code::
 

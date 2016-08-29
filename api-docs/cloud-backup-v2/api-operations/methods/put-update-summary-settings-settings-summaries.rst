@@ -1,8 +1,7 @@
-
 .. _put-update-summary-settings:
 
 Update summary settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Update summary settings
 
 This operation updates the summary settings.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -53,9 +49,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -66,9 +60,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -98,12 +89,7 @@ The following table shows the body parameters for the request.
 |                          |                         |email address.           |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Update summary settings, JSON request**
-
 
 .. code::
 
@@ -111,7 +97,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-
 
 .. code::
 
@@ -130,24 +115,12 @@ The following table shows the body parameters for the request.
        ]
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
 **Example: Update summary settings, HTTP response**
-
 
 .. code::
 

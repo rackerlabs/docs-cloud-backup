@@ -1,8 +1,7 @@
-
 .. _post-start-a-restore:
 
 Start a restore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Start a restore
 
 This operation starts a restore.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -52,12 +48,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -68,10 +60,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -135,12 +123,7 @@ The following table shows the body parameters for the request.
 |                           |                         |restore.                |
 +---------------------------+-------------------------+------------------------+
 
-
-
-
-
 **Example: Start a restore, JSON request**
-
 
 .. code::
 
@@ -148,7 +131,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-
 
 .. code::
 
@@ -180,16 +162,8 @@ The following table shows the body parameters for the request.
        ]
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -300,21 +274,13 @@ The following table shows the body parameters for the response.
 |                           |                  |related to the resource URI.   |
 +---------------------------+------------------+-------------------------------+
 
-
-
-
-
-
-
 **Example: Start a restore, JSON response**
-
 
 .. code::
 
    201 (Created)
    Content-Type: application/json
    Location: https://cloudbackupapi.apiary-mock.com/v2/restores/e87e6f7d-d166-11e4-8689-c8e0eb190e3d
-
 
 .. code::
 

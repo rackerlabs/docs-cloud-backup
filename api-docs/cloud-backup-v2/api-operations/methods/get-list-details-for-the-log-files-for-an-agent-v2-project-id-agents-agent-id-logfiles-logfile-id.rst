@@ -1,16 +1,13 @@
-
 .. _get-list-details-for-the-log-files-for-an-agent:
 
 Retrieve details for the log files for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/logfiles/{logfile_id}
 
 This operation retrieve details for the specified log file for the specified agent.
-
-
 
 The following table shows the possible response codes for this operation.
 
@@ -50,14 +47,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -77,17 +68,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4838-af13-276114e90234``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve details for the log files for an agent, HTTP request**
-
 
 .. code::
 
@@ -96,16 +79,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -129,20 +104,12 @@ The following table shows the body parameters for the response.
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve details for the log files for an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

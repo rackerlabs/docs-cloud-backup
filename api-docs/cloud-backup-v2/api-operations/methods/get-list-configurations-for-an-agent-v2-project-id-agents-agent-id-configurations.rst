@@ -1,21 +1,17 @@
-
 .. _get-list-configurations-for-an-agent:
 
 Retrieve configurations for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/configurations
 
 This operation retrieves the configurations for the specified agent. Note that the
-response is identical to the response for the operation to (see :ref:`retrieve the configurations
-for a project <get-list-the-configurations-for-a-project>`).
-
-
+response is identical to the response for the operation to (see
+:ref:`retrieve the configurations for a project <get-list-the-configurations-for-a-project>`).
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -53,14 +49,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -76,17 +66,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve configurations for an agent, HTTP request**
-
 
 .. code::
 
@@ -95,17 +77,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -230,20 +203,12 @@ The following table shows the body parameters for the response.
 |                                               |             |URI.            |
 +-----------------------------------------------+-------------+----------------+
 
-
-
-
-
-
-
 **Example: Retrieve configurations for an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

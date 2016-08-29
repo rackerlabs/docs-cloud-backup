@@ -1,8 +1,7 @@
-
 .. _delete-an-agent:
 
 Delete an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Delete an agent
 
 This operation deletes the specified agent.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -50,12 +46,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -71,17 +63,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Delete an agent, HTTP request**
-
 
 .. code::
 
@@ -90,21 +74,10 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
+""""""""
 
 This operation does not return a response body.
-
-
-
-
-
-
 
 **Example: Delete an agent, HTTP 204 response**
 
@@ -112,7 +85,6 @@ This operation does not return a response body.
 
    204 (No Content)
    Content-Type: application/json
-
 
 **Example: Delete an agent, HTTP 404 response**
 

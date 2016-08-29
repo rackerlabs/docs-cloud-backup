@@ -1,20 +1,21 @@
 .. _gsg-start-restore:
 
 Start a restore using your backup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that you have a backup, you can restore it to a different location
 on your server. You can also restore it to a different server, or to the
 same folder on the same server. You must set the ``backup_id``,
 ``destination_agent_id``, and ``destination_path`` parameter values properly.
-The ``backup_id`` parameter identifies the backup that you want to use to restore.
+The ``backup_id`` parameter identifies the backup that you want to use to
+restore.
 
 An HTTP status code of 201 (Created) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
  
 **Example: Start a restore, cURL request**
 

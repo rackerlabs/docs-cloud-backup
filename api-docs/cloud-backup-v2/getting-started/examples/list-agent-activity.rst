@@ -1,7 +1,7 @@
 .. _gsg-list-agent-activity:
 
 Retrieve agent activities
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can display all the activities for an agent to find out whether your
 backups ran successfully or failed. This operation is useful if you do
@@ -10,15 +10,13 @@ to create a report about the state of previous backups. The operation
 retrieves all in-progress and completed activity for an agent. Values for the
 ``type`` response parameter are ``backup``, ``cleanup``, and ``restore``.
 
-
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
 
- 
 **Example: Retrieve activities for an agent, cURL request**
 
 .. code::

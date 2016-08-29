@@ -3,18 +3,17 @@
 Retrieve agent details
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To verify whether an agent is enabled, retrieve the agent's details. If the agent
-is not online, Cloud Backup cannot run the backup job. Use the agent ID from
-:ref:`Retrieve all agents for a project<gsg-list-all-agents>` for the **yourAgentId**
-value.
+To verify whether an agent is enabled, retrieve the agent's details. If the
+agent is not online, Cloud Backup cannot run the backup job. Use the agent ID
+from :ref:`Retrieve all agents for a project<gsg-list-all-agents>` for the
+**yourAgentId** value.
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
-
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
  
 **Example: Retrieve agent details, cURL request**
 

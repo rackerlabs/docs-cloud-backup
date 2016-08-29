@@ -1,21 +1,17 @@
-
 .. _post-list-the-restores-for-a-project:
 
 Retrieve the restores for a project
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/restores
 
-This operation retrieves a list of the restores available for the specified project.
-If no restores have been created, the ``restores`` parameter in the response is
-an empty array.
-
-
+This operation retrieves a list of the restores available for the specified
+project. If no restores have been created, the ``restores`` parameter in the
+response is an empty array.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,10 +50,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -68,8 +61,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -92,16 +83,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the restores for a project, HTTP request**
-
 
 .. code::
 
@@ -110,16 +94,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -218,20 +194,12 @@ The following table shows the body parameters for the response.
 |                                    |         |related to the resource URI.   |
 +------------------------------------+---------+-------------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the restores for a project, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

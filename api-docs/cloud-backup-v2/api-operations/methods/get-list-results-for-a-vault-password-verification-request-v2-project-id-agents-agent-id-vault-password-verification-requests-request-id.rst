@@ -1,8 +1,7 @@
-
 .. _get-list-results-for-a-vault-password-verification-request:
 
 Retrieve the results for a vault password verification request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -11,14 +10,11 @@ Retrieve the results for a vault password verification request
 This operation retrieves the results for the specified password verification
 request for the specified agent's vault.
 
-The operation returns a 404 response code until the agent reports the results of
-the vault password verification request. Consider this response transient because
-it might disappear after a minute or so.
-
-
+The operation returns a 404 response code until the agent reports the results
+of the vault password verification request. Consider this response transient
+because it might disappear after a minute or so.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -56,12 +52,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -82,17 +74,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |9920-1dcad25f88e7``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the results for a vault password verification request, HTTP request**
-
 
 .. code::
 
@@ -101,16 +85,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -136,19 +112,11 @@ The following table shows the body parameters for the response.
 |                          |                         |password is valid.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the results for a vault password verification request, JSON response**
-
 
 .. code::
 
    200 (OK)
-
 
 .. code::
 

@@ -1,8 +1,7 @@
-
 .. _get-list-activities-for-an-agent:
 
 Retrieve activities for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -14,15 +13,9 @@ This operation retrieves the following activities for the specified agent:
 * Restores performed when the agent is the destination
 * Cleanups performed by the agent
 
-
-
-
 If no activities are available, the ``activities`` parameter in the response is an empty array.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -60,12 +53,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -80,8 +69,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -118,15 +105,9 @@ The following table shows the query parameters for the request.
 |                          |                         |returns entries 1-100.   |
 +--------------------------+-------------------------+-------------------------+
 
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve activities for an agent, HTTP request**
-
 
 .. code::
 
@@ -135,16 +116,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -227,20 +200,12 @@ The following table shows the body parameters for the response.
 |                                  |                     |to this resource URI.|
 +----------------------------------+---------------------+---------------------+
 
-
-
-
-
-
-
 **Example: Retrieve activities for an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

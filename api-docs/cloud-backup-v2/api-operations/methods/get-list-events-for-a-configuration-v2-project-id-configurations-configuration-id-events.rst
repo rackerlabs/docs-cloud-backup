@@ -1,7 +1,7 @@
 .. _get-list-events-for-a-configuration:
 
 Retrieve the events for a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -18,11 +18,7 @@ descriptions of the response parameters for the following endpoints:
 *  ``GET /v2/backups/{id}/events`` (See :ref:`List events for a backup <get-list-events-for-a-backup>`.)
 *  ``GET /v2/restores/{id}/events`` (See :ref:`List events for a restore <get-list-events-for-a-restore>`.)
 
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -60,14 +56,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -82,8 +72,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |example, ``7c8ee069-568f-|
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -115,16 +103,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the events for a configuration, HTTP request**
-
 
 .. code::
 
@@ -133,16 +114,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -259,20 +232,12 @@ The following table shows the body parameters for the response.
 |                             |                        |this resource URI.     |
 +-----------------------------+------------------------+-----------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the events for a configuration, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

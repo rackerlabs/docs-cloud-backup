@@ -1,19 +1,16 @@
-
 .. _get-health-details:
 
 Retrieve health details
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/health/{dependent_system}
 
-This operation shows whether the specified dependent system is online or offline.
-
-
+This operation shows whether the specified dependent system is online or
+offline.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  | Type            | Description                                               |
@@ -51,10 +48,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -69,17 +63,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |the dependent system.    |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve health details, HTTP request**
-
 
 .. code::
 
@@ -89,17 +75,8 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -120,20 +97,12 @@ The following table shows the body parameters for the response.
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve health details, JSON 200 response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 
@@ -147,18 +116,12 @@ The following table shows the body parameters for the response.
        ]
    }
 
-
-
-
-
 **Example: Retrieve health details, JSON 503 response**
-
 
 .. code::
 
    503 (Service Unavailable)
    Content-Type: application/json
-
 
 .. code::
 

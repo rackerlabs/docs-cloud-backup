@@ -1,22 +1,21 @@
-
 .. _patch-update-a-cleanup:
 
 Update a cleanup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/cleanups/{cleanup_id}
 
-This operation updates the specified cleanup. Cleanups are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified cleanup. Cleanups are updated with the
+JSON Patch. For more information about the JSON Patch, see
+`RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
 You can issue updates only for the following scenarios:
 
-
-
 *  The agent is reporting the state of the cleanup. For example,
-   ``[{ "op": "replace", "path": "/state", "value": "queued" }]``. The following
-   values are valid for ``value`` :
+   ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
+   The following values are valid for ``value``:
 
    *  ``queued``
    *  ``in_progress``
@@ -32,12 +31,7 @@ You can issue updates only for the following scenarios:
 *  You are issuing a request to stop the cleanup. For example,
    ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -77,12 +71,8 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -97,10 +87,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``2f8708b3-d16b-11e4-    |
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -151,12 +137,7 @@ The following table shows the body parameters for the request.
 |**exception**            |                        |exception.                 |
 +-------------------------+------------------------+---------------------------+
 
-
-
-
-
 **Example: Update a cleanup, JSON request**
-
 
 .. code::
 
@@ -164,7 +145,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -218,36 +198,20 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: Update a cleanup, 204 response**
-
 
 .. code::
 
    204 (No Content)
-
 
 **Example: Update a cleanup, 409 response**
 
 .. code::
 
    409 (Conflict)
-
 
 .. code::
 

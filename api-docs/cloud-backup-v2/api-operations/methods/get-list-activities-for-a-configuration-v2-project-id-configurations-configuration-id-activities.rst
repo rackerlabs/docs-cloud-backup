@@ -1,8 +1,7 @@
-
 .. _get-list-activities-for-a-configuration:
 
 Retrieve the activities for a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -11,10 +10,7 @@ Retrieve the activities for a configuration
 This operation retrieves the activities for the specified configuration. The
 activities include backups performed with this configuration.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -52,14 +48,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -74,8 +64,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |example, ``7c8ee069-568f-|
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -98,16 +86,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the activities for a configuration, HTTP request**
-
 
 .. code::
 
@@ -116,16 +97,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -209,20 +182,12 @@ The following table shows the body parameters for the response.
 |                                  |                     |to this resource URI.|
 +----------------------------------+---------------------+---------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the activities for a configuration, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

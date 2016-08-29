@@ -1,8 +1,7 @@
-
 .. _delete-delete-a-configuration:
 
 Delete a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -50,12 +49,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -71,17 +66,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Delete a configuration, HTTP request**
-
 
 .. code::
 
@@ -90,35 +77,21 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
 **Example: Delete a configuration, HTTP 204 response**
-
 
 .. code::
 
    204 (No Content)
    Content-Type: application/json
 
-
 **Example: Delete a configuration, HTTP 404 response**
 
 .. code::
-
 
    404 (Not Found)
    Content-Type: application/json

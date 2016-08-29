@@ -1,27 +1,23 @@
-
 .. _post-project-events:
 
 Post project events
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v2/{project_id}/events
 
-This operation results in the agent checking for events from the API periodically,
-based on a schedule. The operation also causes the agent to post heartbeat events
-periodically so that clients can determine whether the agent is online or offline.
-By setting the value of ``event`` to ``agent_activate`` in the request, you can
-then use the ``mode`` parameter to indicate how often the agent should post events.
+This operation results in the agent checking for events from the API
+periodically, based on a schedule. The operation also causes the agent to post
+heartbeat events periodically so that clients can determine whether the agent
+is online or offline. By setting the value of ``event`` to ``agent_activate``
+in the request, you can then use the ``mode`` parameter to indicate how often
+the agent should post events.
 
-After a specified period of time, the agent falls back to a ``mode`` of ``idle``.
-
-
-
-
+After a specified period of time, the agent falls back to a ``mode`` of
+``idle``.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -60,13 +56,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -77,10 +68,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -135,12 +122,7 @@ The following table shows the body parameters for the request.
 |                         |                         |   previous backup.       |
 +-------------------------+-------------------------+--------------------------+
 
-
-
-
-
 **Example: Post project events, JSON request**
-
 
 .. code::
 
@@ -149,7 +131,6 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
@@ -157,24 +138,12 @@ The following table shows the body parameters for the request.
        "mode": "active"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
 **Example: Post project events, HTTP response**
-
 
 .. code::
 

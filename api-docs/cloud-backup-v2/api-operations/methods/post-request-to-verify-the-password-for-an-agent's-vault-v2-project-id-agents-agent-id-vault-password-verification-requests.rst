@@ -1,21 +1,22 @@
-
 .. _post-request-to-verify-the-password-for-an-agent's-vault:
 
 Request to verify the password for an agent's vault
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v2/{project_id}/agents/{agent_id}/vault-password-verification-requests
 
-This operation requests verification of the password for the specified agent's vault.
+This operation requests verification of the password for the specified agent's
+vault.
 
-To verify the current agent's vault, specify ``null`` for the ``agent_id`` parameter in the request body. To use the current agent to verify another agent's vault password, provide the target agent's ID for ``agent_id``. If encryption is not enabled for the agent's vault, a 403 response code is returned with a message in the response body.
-
-
+To verify the current agent's vault, specify ``null`` for the ``agent_id``
+parameter in the request body. To use the current agent to verify another
+agent's vault password, provide the target agent's ID for ``agent_id``. If
+encryption is not enabled for the agent's vault, a 403 response code is
+returned with a message in the response body.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,12 +55,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -74,10 +71,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -94,12 +87,7 @@ The following table shows the body parameters for the request.
 |                           |                         |agent.                  |
 +---------------------------+-------------------------+------------------------+
 
-
-
-
-
 **Example: Request to verify the password for an agent's vault, JSON request**
-
 
 .. code::
 
@@ -108,7 +96,6 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
@@ -116,40 +103,22 @@ The following table shows the body parameters for the request.
        "agent_id": "8e84d320-77a9-4eb4-a39d-25878a3b9f16"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 This operation does not require a response body for the 202 response.
 
-
-
-
-
 **Example: Request to verify the password for an agent's vault, HTTP 202 response**
-
 
 .. code::
 
    202 (Accepted)
    Location: https://cloudbackupapi.apiary-mock.com/v2/agents/8f135b4f-7a69-4b8a-947f-5e80d772fd97/vault-password-verification-request/f353f472-4931-463a-9920-1dcad25f88e7
 
-
-
 When the response code is 403, a response body is returned with additional
 information about the error.
 
-
-
 **Example: Request to verify the password for an agent's vault, JSON 403 response**
-
 
 .. code::
 

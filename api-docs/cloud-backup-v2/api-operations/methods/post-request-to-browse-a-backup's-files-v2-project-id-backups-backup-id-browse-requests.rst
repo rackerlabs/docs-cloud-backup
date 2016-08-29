@@ -1,8 +1,7 @@
-
 .. _post-request-to-browse-a-backup's-files:
 
 Request to browse a backup's files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Request to browse a backup's files
 
 This operation makes a request to browse the files of the specified backup.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -52,12 +48,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -72,10 +64,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -99,12 +87,7 @@ The following table shows the body parameters for the request.
 |                           |                         |browse request.         |
 +---------------------------+-------------------------+------------------------+
 
-
-
-
-
 **Example: Request to browse a backup's files, JSON request**
-
 
 .. code::
 
@@ -112,7 +95,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-
 
 .. code::
 
@@ -123,21 +105,10 @@ The following table shows the body parameters for the request.
        "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not require a response body.
-
-
-
-
 
 **Example: Request to browse a backup's files, HTTP response**
 

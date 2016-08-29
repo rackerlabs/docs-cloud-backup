@@ -1,7 +1,7 @@
 .. _gsg-list-all-agents:
 
 Retrieve all agents for a project
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The agent is an important component of Cloud Backup. You must install
 an agent on each server that you want to back up. Documentation about
