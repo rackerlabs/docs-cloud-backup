@@ -1,8 +1,7 @@
-
 .. _get-activities-for-a-project:
 
 Retrieve activities for a project
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -11,10 +10,7 @@ Retrieve activities for a project
 This operation retrieves the activities for the project. If no activities are
 available, the ``activities`` parameter in the response is an empty array.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -51,12 +47,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -67,8 +59,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -91,16 +81,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``desc``.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve activities for a project, HTTP request**
-
 
 .. code::
 
@@ -110,16 +93,8 @@ This operation does not accept a request body.
    Accept:application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -203,20 +178,12 @@ The following table shows the body parameters for the response.
 |                                  |               |resource URI.              |
 +----------------------------------+---------------+---------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve activities for a project, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

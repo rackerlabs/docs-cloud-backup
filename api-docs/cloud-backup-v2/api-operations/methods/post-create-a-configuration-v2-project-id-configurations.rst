@@ -1,8 +1,7 @@
-
 .. _post-create-a-configuration:
 
 Create a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -13,14 +12,14 @@ This operation creates a backup configuration.
 The following restrictions apply to the ``schedule`` parameter:
 
 *  Only a single ``recurrence`` within a ``schedule`` is currently supported.
-*  You must specify ``time_zone`` according to the `Internet Assigned Numbers Authority (IANA) Time Zone Database`_.
-*  If ``null`` is provided for ``schedule``, backups must be manually started for the
-   configuration.
+*  You must specify ``time_zone`` according to the `Internet Assigned Numbers
+   Authority (IANA) Time Zone Database`_.
+*  If ``null`` is provided for ``schedule``, backups must be manually started
+   for the configuration.
 
 .. note::
 
    Backups are retained forever if you specify ``0`` for ``retention/days``.
-
 
 Following are some example schedules:
 
@@ -32,8 +31,8 @@ Following are some example schedules:
 
 .. note::
 
-   These example schedules use the `iCalendar specification standards`_. However,
-   Cloud Backup uses *only the fields shown* in the example schedules.
+   These example schedules use the `iCalendar specification standards`_.
+   However, Cloud Backup uses *only the fields shown* in the example schedules.
 
 The following restrictions apply to the ``inclusions`` parameter:
 
@@ -49,13 +48,11 @@ The following restrictions apply to the ``exclusions`` parameter:
 *  Files or folders cannot be excluded under existing exclusion rules.
 *  Each exclusion ``path`` must be included under an inclusion path.
 
-
 .. note::
 
    At least one notifications must specify ``on_failure`` as ``true``.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -94,12 +91,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -110,10 +103,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |Also referred to as the  |
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -220,12 +209,7 @@ The following table shows the body parameters for the request.
 |                         |                        |backup is not successful.  |
 +-------------------------+------------------------+---------------------------+
 
-
-
-
-
 **Example: Create a configuration, JSON request**
-
 
 .. code::
 
@@ -233,7 +217,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
-
 
 .. code::
 
@@ -280,16 +263,8 @@ The following table shows the body parameters for the request.
        ]
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -408,21 +383,13 @@ The following table shows the body parameters for the response.
 |                          |                         |this resource URI.       |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Create a configuration, JSON response**
-
 
 .. code::
 
    201 (Created)
    Content-Type: application/json
    Location: https://cloudbackupapi.apiary-mock.com/v2/configurations/7c8ee069-568f-4d5a-932f-fb2af86b5fd5
-
 
 .. code::
 

@@ -1,22 +1,20 @@
-
 .. _get-view-results-of-a-browse-request-for-an-agent:
 
 Retrieve the results of a browse request for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/agents/{agent_id}/browse-requests/{request_id}
 
-This operation retrieves the results for the specified browse request for the specified
-agent's files. The request returns a 404 response code until the agent responds to
-the browse request (see :ref:`Request to browse an agent's files<get-list-the-log-files-for-an-agent>`).
-Consider this response transient because it might disappear after a minute or so.
-
-
+This operation retrieves the results for the specified browse request for the
+specified agent's files. The request returns a 404 response code until the
+agent responds to the browse request (see
+:ref:`Request to browse an agent's files<get-list-the-log-files-for-an-agent>`).
+Consider this response transient because it might disappear after a minute or
+so.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,13 +52,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -80,17 +73,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4983-8b1c-d4a82306ae87``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the results of a browse request for an agent, HTTP request**
-
 
 .. code::
 
@@ -99,16 +84,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -152,20 +129,12 @@ The following table shows the body parameters for the response.
 |                          |                         |that was browsed.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the results of a browse request for an agent, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

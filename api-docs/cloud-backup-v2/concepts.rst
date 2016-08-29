@@ -3,8 +3,8 @@
 Concepts
 --------
 
-To use the Rackspace Cloud Backup API effectively, you should understand several
-key concepts.
+To use the Rackspace Cloud Backup API effectively, you should understand
+several key concepts.
 
 Agent
 ~~~~~
@@ -16,23 +16,23 @@ platforms.
 Backup configuration
 ~~~~~~~~~~~~~~~~~~~~
 
-A *backup configuration* defines what needs to be backed up and when it needs to
-be backed up. The backup configuration includes a schedule for the backup, files
-to back up, and notifications.
+A *backup configuration* defines what needs to be backed up and when it needs
+to be backed up. The backup configuration includes a schedule for the backup,
+files to back up, and notifications.
 
 Cleanup
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
 
-A *cleanup* performs a number of functions including validating the vault, marking
-any found errors in the vault database, determining which data is expired and
-can be removed, repacking (garbage collecting) bundles with expired data, and deleting
-expired bundles.
+A *cleanup* performs a number of functions including validating the vault,
+marking any found errors in the vault database, determining which data is
+expired and can be removed, repacking (garbage collecting) bundles with expired
+data, and deleting expired bundles.
 
 Restore
 ~~~~~~~
 
-A *restore* is a process of bringing your system back to a previously saved state,
-usually by using a backup as the checkpoint.
+A *restore* is a process of bringing your system back to a previously saved
+state, usually by using a backup as the checkpoint.
 
 Restore configuration
 ~~~~~~~~~~~~~~~~~~~~~
@@ -43,10 +43,11 @@ the backup should be restored.
 Server setup
 ~~~~~~~~~~~~
 
-Because Cloud Backup is a file-level backup product, you must configure a separate
-backup for each cloud server, and that backup does not automatically apply to an
-entire environment. You must select the files and folders that you want to back
-up from your cloud server. This setup requirement applies to Rackspace Cloud Servers.
+Because Cloud Backup is a file-level backup product, you must configure a
+separate backup for each cloud server, and that backup does not automatically
+apply to an entire environment. You must select the files and folders that you
+want to back up from your cloud server. This setup requirement applies to
+Rackspace Cloud Servers.
 
 Vault
 ~~~~~

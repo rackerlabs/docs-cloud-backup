@@ -1,7 +1,7 @@
 .. _gsg-update-configuration:
 
 Update a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can update the backup configuration that you created earlier in
 :ref:`Create a backup configuration <gsg-create-backup-config>`. Configurations
@@ -24,8 +24,8 @@ This operation does not return a response body. An HTTP status code of
 204 (No Content) in the response indicates that the request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL requests in the following
-    examples represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL requests in the
+    following examples represents the project ID.
 
 **Example: Update a configuration, cURL request**
 
@@ -46,7 +46,6 @@ You can verify that the configuration is updated by using the following
 cURL request, specifying the same ``yourConfigurationId`` value that you
 used in the update request. (For more information, see
 :ref:`Retrieve details for a configuration <get-list-details-about-a-configuration>`.)
-
 
 **Example: Retrieve details for a configuration, cURL request**
 

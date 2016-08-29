@@ -1,20 +1,20 @@
-
 .. _patch-update-a-restore:
 
 Update a restore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/restores/{restore_id}
 
-This operation updates the specified restore. Restores are updated with the JSON Patch.
-For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified restore. Restores are updated with the
+JSON Patch. For more information about the JSON Patch, see
+`RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
 You can issue updates only for the following scenarios:
 
-
-*  The agent is reporting the state of the restore. For example, ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
+*  The agent is reporting the state of the restore. For example,
+   ``[{ "op": "replace", "path": "/state", "value": "queued" }]``.
    The following values are valid for ``value``:
 
    *  ``queued``
@@ -22,7 +22,8 @@ You can issue updates only for the following scenarios:
    *  ``in_progress``
 
 *  The agent is reporting the results of the finished restore (see the example
-   request in this section). The following values are valid values for ``/state``:
+   request in this section). The following values are valid values for
+   ``/state``:
 
    *  ``completed``
    *  ``completed_with_errors``
@@ -32,13 +33,9 @@ You can issue updates only for the following scenarios:
 *  The agent is issuing a request to stop the restore. For example,
    ``[{ "op": "replace", "path": "/state", "value": "stop_requested" }]``.
 
-
 The only paths that you cannot modify are those listed in this endpoint's description.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -78,10 +75,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -96,10 +90,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``e87e6f7d-d166-11e4-    |
 |                          |                         |8689-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -169,12 +159,7 @@ The following table shows the body parameters for the request.
 |**details**               |                         |exception.               |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Update a restore, JSON request**
-
 
 .. code::
 
@@ -182,7 +167,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -235,38 +219,20 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: Update a restore, 204 response**
-
 
 .. code::
 
    204 (No Content)
 
-
-
 **Example: Update a restore, 409 response**
-
 
 .. code::
 
    409 (Conflict)
-
 
 .. code::
 

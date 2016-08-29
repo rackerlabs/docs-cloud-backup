@@ -1,8 +1,7 @@
-
 .. _get-list-events-for-a-backup:
 
 Retrieve the events for a backup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -12,10 +11,7 @@ This operation retrieves all the events for the specified backup. You should con
 these events to be transient because they might disappear after a minute or so.
 Therefore, this operation is most useful for monitoring a running backup.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,10 +50,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -72,8 +65,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``0d95d699-d16b-11e4-    |
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -105,16 +96,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the events for a backup, HTTP request**
-
 
 .. code::
 
@@ -123,16 +107,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -219,20 +195,12 @@ The following table shows the body parameters for the response.
 |                           |                       |this resource URI.        |
 +---------------------------+-----------------------+--------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the events for a backup, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

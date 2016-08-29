@@ -3,8 +3,8 @@
 Retrieve backup status
 ~~~~~~~~~~~~~~~~~~~~~~
 
-By retrieving details about a backup, you can verify whether your backup jobs ran properly,
-and if they did not, what errors occurred.
+By retrieving details about a backup, you can verify whether your backup jobs
+ran properly, and if they did not, what errors occurred.
 
 The following example response shows the value of the ``state`` parameter as
 ``completed_with_errors``. Following are other valid values for ``state``:
@@ -25,13 +25,12 @@ The following example response shows the value of the ``state`` parameter as
 
 -  ``stop_requested``
 
-
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
  
 **Example: Retrieve backup status, cURL request**
 

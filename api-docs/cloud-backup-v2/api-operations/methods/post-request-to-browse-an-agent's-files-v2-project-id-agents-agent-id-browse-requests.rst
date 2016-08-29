@@ -1,8 +1,7 @@
-
 .. _post-request-to-browse-an-agent's-files:
 
 Request to browse an agent's files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Request to browse an agent's files
 
 This operation makes a request to browse the specified agent's files.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -53,10 +49,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -72,10 +65,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 The following table shows the body parameters for the request.
 
 +--------------------------+-------------------------+-------------------------+
@@ -90,12 +79,7 @@ The following table shows the body parameters for the request.
 |                          |                         |browse request.          |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Request to browse an agent's files, JSON request**
-
 
 .. code::
 
@@ -104,7 +88,6 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
@@ -112,24 +95,12 @@ The following table shows the body parameters for the request.
        "path_encoded": "/optional/base64encoded/path/if/non-utf-8/characters/present/"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
 **Example: Request to browse an agent's files, HTTP response**
-
 
 .. code::
 

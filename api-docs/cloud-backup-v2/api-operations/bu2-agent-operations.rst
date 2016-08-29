@@ -3,8 +3,8 @@
 Agent operations
 ~~~~~~~~~~~~~~~~
 
-This section describes the agent operations for the Cloud Backup API. 
-   
+This section describes the agent operations for the Cloud Backup API.
+
 .. include:: methods/post-register-an-agent-v2-project-id-agents.rst
 .. include:: methods/get-list-agents-for-a-project-v2-project-id-agents.rst
 .. include:: methods/get-list-details-about-an-agent-v2-project-id-agents-agent-id.rst

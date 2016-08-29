@@ -1,8 +1,7 @@
-
 .. _delete-a-log-file-for-an-agent:
 
 Delete a log file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Delete a log file
 
 This operation deletes the specified log file for the specified agent.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -50,12 +46,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -75,17 +67,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4838-af13-276114e90234``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Delete a log file, HTTP request**
-
 
 .. code::
 
@@ -94,21 +78,10 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
+""""""""
 
 This operation does not return a response body.
-
-
-
-
-
-
 
 **Example: Delete a log file, HTTP 204 response**
 

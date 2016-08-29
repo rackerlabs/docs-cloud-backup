@@ -1,13 +1,13 @@
 .. _index:
 
-==============================================================
+============================================================
 Rackspace Cloud Backup API |contract version| (Early Access)
-==============================================================
+============================================================
 
 *Last updated:* |today|
 
-Use the following links to go directly to user and reference information for 
-using the |apiservice|. 
+Use the following links to go directly to user and reference information for
+using the |apiservice|.
 
 * :ref:`Getting Started Guide<getting-started>`
 * :ref:`Developer Guide<developer-guide>`
@@ -16,7 +16,7 @@ using the |apiservice|.
 
 .. toctree:: :hidden:
    :maxdepth: 2
- 
+
    Cloud Backup 2.0 <self>
    API Status <http://www.rackspacestatus.com/>
    overview/index
@@ -24,7 +24,7 @@ using the |apiservice|.
    getting-started/index
    developer-guide
    concepts
-   general-api-info/index 
+   general-api-info/index
    api-reference
    api-operations/index
    release-notes

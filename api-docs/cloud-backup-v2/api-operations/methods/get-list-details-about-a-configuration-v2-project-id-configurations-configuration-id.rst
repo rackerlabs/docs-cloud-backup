@@ -1,19 +1,14 @@
-
 .. _get-list-details-about-a-configuration:
 
 Retrieves the details for a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. code::
 
     GET /v2/{project_id}/configurations/{configuration_id}
 
 This operation retrieves details about the specified configuration.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -51,13 +46,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -73,17 +63,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the details about a configuration, HTTP request**
-
 
 .. code::
 
@@ -93,16 +75,8 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -244,20 +218,12 @@ The following table shows the body parameters for the response.
 |                                |                      |to this resource URI. |
 +--------------------------------+----------------------+----------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the details about a configuration, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

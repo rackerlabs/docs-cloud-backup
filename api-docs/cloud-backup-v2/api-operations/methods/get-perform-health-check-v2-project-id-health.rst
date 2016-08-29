@@ -1,16 +1,13 @@
-
 .. _get-health-check:
 
 Perform a health check
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     GET /v2/{project_id}/health
 
 This operation performs a health check for all dependent systems.
-
-
 
 The following table shows the possible response codes for this operation.
 
@@ -48,14 +45,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -67,17 +58,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Perform a health check, HTTP request**
-
 
 .. code::
 
@@ -87,18 +70,11 @@ This operation does not accept a request body.
    Accept:application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
+""""""""
 
 A successful response is returned with a 200 response code. If *any* dependent
 system is experiencing an issue, a 503 response code is returned.
-
-
-
 
 The following table shows the body parameters for the response.
 
@@ -150,20 +126,12 @@ The following table shows the body parameters for the response.
 |                           |                         |this resource URI.      |
 +---------------------------+-------------------------+------------------------+
 
-
-
-
-
-
-
 **Example: Perform a health check, 200 JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 
@@ -219,18 +187,12 @@ The following table shows the body parameters for the response.
      }
    }
 
-
-
-
-
 **Example: Perform a health check, 503 JSON response**
-
 
 .. code::
 
    503 (Service Unavailable)
    Content-Type: application/json
-
 
 .. code::
 

@@ -1,8 +1,7 @@
-
 .. _post-post-events-for-an-agent:
 
 Post events for an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -15,14 +14,7 @@ This operation posts events for the specified agent.
    When processed as the "post events for an agent" operation as described here, the
    activation applies to only a single agent instead of all agents for the project.
 
-
-
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -61,10 +53,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
+"""""""
 
 The following table shows the header parameters for the request.
 
@@ -75,9 +65,6 @@ The following table shows the header parameters for the request.
 |                          |                         |8f135b4f-7a69-4b8a-947f- |
 |                          |                         |5e80d772fd97.            |
 +--------------------------+-------------------------+-------------------------+
-
-
-
 
 The following table shows the URI parameters for the request.
 
@@ -92,8 +79,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the body parameters for the request.
 
@@ -113,11 +98,7 @@ The following table shows the body parameters for the request.
 |                         |                         |agent shuts down.         |
 +-------------------------+-------------------------+--------------------------+
 
-
-
-
 **Example: Post events for an agent, JSON request**
-
 
 .. code::
 
@@ -127,31 +108,18 @@ The following table shows the body parameters for the request.
    Content-type: application/json
    X-Agent-Id: 8f135b4f-7a69-4b8a-947f-5e80d772fd97
 
-
 .. code::
 
    {
        "event": "startup"
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
-
 **Example: Post events for an agent, HTTP response**
-
 
 .. code::
 

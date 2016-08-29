@@ -1,10 +1,10 @@
 .. _api-reference:
 
-===================
-**API Reference**
-===================
+=============
+API Reference
+=============
 
-Learn about the available Cloud Backup API resources and methods and see request and 
-response examples.
+Learn about the available Cloud Backup API resources and methods and see
+request and response examples.
 
 You can also perform Cloud Backup operations by using the Cloud Control Panel.

@@ -1,21 +1,22 @@
-
 .. _patch-update-a-log-file-for—an-agent:
 
 Update a log file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/agents/{agent_id}/logfiles/{logfile_id}
 
-This operation updates the specified log file for the specified agent. Agents update the state of a log file by updating the ``/state`` path via a JSON Patch document. The ``/state`` path is the only path that can be modified. Only the ``replace`` operation is permitted. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified log file for the specified agent. Agents
+update the state of a log file by updating the ``/state`` path via a JSON Patch
+document. The ``/state`` path is the only path that can be modified. Only the
+``replace`` operation is permitted. For more information about the JSON Patch,
+see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
-The initial state when the log file is requested is ``requested``. Agents update ``/state`` with the values ``started`` or ``completed``.
-
-
+The initial state when the log file is requested is ``requested``. Agents
+update ``/state`` with the values ``started`` or ``completed``.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,12 +55,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -78,10 +75,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |example, ``a533a845-4279-|
 |                          |                         |4838-af13-276114e90234``.|
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -105,12 +98,7 @@ The following table shows the body parameters for the request.
 |                          |                         |``completed``.           |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Update a log file, JSON request**
-
 
 .. code::
 
@@ -118,7 +106,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -130,24 +117,12 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
-
 **Example: Update a log file, HTTP response**
-
 
 .. code::
 

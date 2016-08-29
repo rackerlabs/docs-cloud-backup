@@ -1,7 +1,8 @@
 .. _gsg-get-restore-details:
 
 Retrieve restore details
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
+
 You can get the details about a restore that include information about the
 restore operation and tells you if the operation ran successfully.
 
@@ -9,8 +10,8 @@ An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
  
 **Example: Retrieve details about a restore, cURL request**
 

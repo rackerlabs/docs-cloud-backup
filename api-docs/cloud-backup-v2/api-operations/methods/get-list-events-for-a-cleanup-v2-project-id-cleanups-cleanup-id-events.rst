@@ -1,8 +1,7 @@
-
 .. _get-list-events-for-a-cleanup:
 
 Retrieve the events for a cleanup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -12,10 +11,7 @@ This operation retrieves all the events for the specified cleanup. You should co
 these events to be transient because they might disappear after a minute or so.
 Therefore, this operation is most useful for monitoring a running cleanup.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -53,12 +49,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -73,8 +65,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``2f8708b3-d16b-11e4-    |
 |                          |                         |bc22-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -106,16 +96,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the events for a cleanup, HTTP request**
-
 
 .. code::
 
@@ -124,16 +107,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -185,20 +160,12 @@ The following table shows the body parameters for the response.
 |                         |                        |resource URI.              |
 +-------------------------+------------------------+---------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the events for a cleanup, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

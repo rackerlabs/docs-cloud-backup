@@ -1,18 +1,18 @@
 .. _get-credentials:
 
 Get your credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
-To communicate with Rackspace Cloud services by using the REST API, you need your
-Rackspace Cloud account username, API key, and account number. To get this
+To communicate with Rackspace Cloud services by using the REST API, you need
+your Rackspace Cloud account username, API key, and account number. To get this
 information, log in to the `Cloud Control Panel`_.
 
 .. note::
-     In the API service documentation, the account number is referred to as your *tenant ID*
-     or *tenant name*.
+     In the API service documentation, the account number is referred to as
+     your *tenant ID* or *tenant name*.
 
-After you log in, click your username on the upper-right side of the top navigation pane.
-Then, select **Account Settings** to open the page.
+After you log in, click your username on the upper-right side of the top
+navigation pane. Then, select **Account Settings** to open the page.
 
 .. image:: ../common-gs/images/show-api-key-control-panel.png
 
@@ -20,21 +20,24 @@ Then, select **Account Settings** to open the page.
 Save your API key
 ^^^^^^^^^^^^^^^^^^
 
-#. On the **Account Settings** page, find the **API Key** field in the **Login Details** section.
+#. On the **Account Settings** page, find the **API Key** field in the **Login
+   Details** section.
 
 #. Click **Show** to see the value and copy it to a text editor of your choice.
 
 #. Click **Hide** to secure the API key value in the browser.
 
 .. important::
-      Protect your API key. Do not expose the value in code samples, screen captures, or
-      insecure client-server communications. Also, ensure that the value is not
-      included in source code that is stored in public repositories.
+      Protect your API key. Do not expose the value in code samples, screen
+      captures, or insecure client-server communications. Also, ensure that the
+      value is not included in source code that is stored in public
+      repositories.
 
 Save your account number
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. On the Account Settings page, scroll down to the **Account Details** section.
+#. On the Account Settings page, scroll down to the **Account Details**
+   section.
 
 #. Copy and save the account number.
 

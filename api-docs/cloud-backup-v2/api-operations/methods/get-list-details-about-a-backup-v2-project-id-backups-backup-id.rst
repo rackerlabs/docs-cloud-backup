@@ -1,8 +1,7 @@
-
 .. _get-list-details-about-a-backup:
 
 Retrieve details about a backup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -10,10 +9,7 @@ Retrieve details about a backup
 
 This operation retrieves details about the specified backup.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -51,12 +47,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -72,17 +64,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |93bd-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve details about a backup, HTTP request**
-
 
 .. code::
 
@@ -92,16 +76,8 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -191,20 +167,12 @@ The following table shows the body parameters for the response.
 |                       |                   |related to this resource URI.     |
 +-----------------------+-------------------+----------------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve details about a backup, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

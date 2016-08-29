@@ -1,20 +1,19 @@
-
 .. _patch-update-a-configuration:
 
 Update a configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/configurations/{configuration_id}
 
-This operation updates the specified configuration. Configurations are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified configuration. Configurations are updated
+with the JSON Patch. For more information about the JSON Patch, see
+`RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
 You can use only the ``replace`` operation to update a configuration.
 
 You can issue updates only for the following paths:
-
-
 
 *  ``/name``
 *  ``/enabled``
@@ -24,14 +23,11 @@ You can issue updates only for the following paths:
 *  ``/exclusions``
 *  ``/notifications``
 
-
-The restrictions that apply to the :ref:`create configuration operation<post-create-a-configuration>`)
+The restrictions that apply to the
+:ref:`create configuration operation<post-create-a-configuration>`)
 also apply to this operation.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -71,10 +67,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -89,10 +82,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |example, ``7c8ee069-568f-|
 |                          |                         |4d5a-932f-fb2af86b5fd5``.|
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -118,10 +107,6 @@ The following table shows the body parameters for the request.
 |                          |                         |``path``.                |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Update a configuration, JSON request**
 
 
@@ -131,7 +116,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -143,21 +127,10 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
-
-
-
-
 
 **Example: Update a configuration, HTTP response**
 

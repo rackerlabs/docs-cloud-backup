@@ -1,8 +1,7 @@
-
 .. _get-lists-results-of-a-vault-encryption-request:
 
 Retrieve the results of a vault encryption request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -15,14 +14,11 @@ Depending on the type of encryption request that was made, the ``event``
 parameter in the response body is either ``vault_encryption_enabled`` or
 ``vault_encryption_changed``.
 
-This operation returns a 404 status code until the agent has reported the results
-of the vault encryption request. This response should be considered transient
-because it might disappear after a minute or so.
-
-
+This operation returns a 404 status code until the agent has reported the
+results of the vault encryption request. This response should be considered
+transient because it might disappear after a minute or so.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -60,12 +56,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -86,17 +78,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |d62e573236b6``.          |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the results of a vault encryption request, HTTP request**
-
 
 .. code::
 
@@ -105,16 +89,8 @@ This operation does not accept a request body.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -140,20 +116,12 @@ The following table shows the body parameters for the response.
 |                          |                         |action succeeded.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the results of a vault encryption request, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

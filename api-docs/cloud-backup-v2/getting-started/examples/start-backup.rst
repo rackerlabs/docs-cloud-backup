@@ -1,7 +1,7 @@
 .. _gsg-start-backup:
 
 Start a backup manually
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 If you do not do anything, Cloud Backup runs the backup at the scheduled
 time.
@@ -16,10 +16,9 @@ An HTTP status code of 201 (Created) in the response indicates that the request
 succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
 
- 
 **Example: Start a backup manually, cURL request**
 
 .. code::
@@ -91,7 +90,7 @@ succeeded.
         ]
     }
 
-
 When the backup is done, you receive an email about the status. Receiving the
 email is based on the ``notifications`` parameters that you specify when you
-create your configuration (see :ref:`Create a backup configuration <gsg-create-backup-config>`).
+create your configuration (see
+:ref:`Create a backup configuration <gsg-create-backup-config>`).

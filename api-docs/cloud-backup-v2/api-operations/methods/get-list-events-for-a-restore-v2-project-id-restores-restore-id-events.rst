@@ -1,9 +1,7 @@
-
 .. _get-list-events-for-a-restore:
 
 Retrieve the events for a restore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. code::
 
     GET /v2/{project_id}/restores/{restore_id}/events
@@ -15,12 +13,7 @@ This operation retrieves the events for the specified restore.
    briefly. Therefore, this endpoint is most useful for monitoring a running
    restore.
 
-
-
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -58,12 +51,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -78,8 +67,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``e87e6f7d-d166-11e4-    |
 |                          |                         |8689-c8e0eb190e3d``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
 
 The following table shows the query parameters for the request.
 
@@ -111,16 +98,9 @@ The following table shows the query parameters for the request.
 |                          |                         |value is ``asc``.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Retrieve the events for a restore, HTTP request**
-
 
 .. code::
 
@@ -130,16 +110,8 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
+""""""""
 
 The following table shows the body parameters for the response.
 
@@ -237,20 +209,12 @@ The following table shows the body parameters for the response.
 |                             |                    |resource URL.              |
 +-----------------------------+--------------------+---------------------------+
 
-
-
-
-
-
-
 **Example: Retrieve the events for a restore, JSON response**
-
 
 .. code::
 
    200 (OK)
    Content-Type: application/json
-
 
 .. code::
 

@@ -1,21 +1,21 @@
-
 .. _post-report-results-of-a-vault-encryption-request:
 
 Report the results of a vault encryption request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
     POST /v2/{project_id}/agents/{agent_id}/vault-encryption-requests/{request_id}
 
-This operation reports the results of the specified vault encryption request for the specified agent's vault.
+This operation reports the results of the specified vault encryption request
+for the specified agent's vault.
 
-The agent uses this operation to report the results of a request to set up encryption or change the encryption password. If encryption is initially being set up for the agent's vault and succeeds, the value of the encrypted property on the agent resource is updated.
-
-
+The agent uses this operation to report the results of a request to set up
+encryption or change the encryption password. If encryption is initially being
+set up for the agent's vault and succeeds, the value of the encrypted property
+on the agent resource is updated.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -54,13 +54,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -80,10 +75,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |d5fd-4fc5-ad80-          |
 |                          |                         |d62e573236b6``.          |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -108,12 +99,7 @@ The following table shows the body parameters for the request.
 |                          |                         |action succeeded.        |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 **Example: Report the results of a vault encryption request, JSON request**
-
 
 .. code::
 
@@ -122,7 +108,6 @@ The following table shows the body parameters for the request.
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-type: application/json
 
-
 .. code::
 
    {
@@ -130,24 +115,12 @@ The following table shows the body parameters for the request.
        "succeeded": true
    }
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not return a response body.
 
-
-
-
-
 **Example: Report the results of a vault encryption request, HTTP response**
-
 
 .. code::
 

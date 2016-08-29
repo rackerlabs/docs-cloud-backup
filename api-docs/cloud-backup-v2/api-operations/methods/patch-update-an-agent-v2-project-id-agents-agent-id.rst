@@ -1,18 +1,18 @@
-
 .. _patch-update-an-agent:
 
 Update an agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. code::
 
     PATCH /v2/{project_id}/agents/{agent_id}
 
-This operation updates the specified agent. Agents are updated with the JSON Patch. For more information about the JSON Patch, see `RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
+This operation updates the specified agent. Agents are updated with the JSON
+Patch. For more information about the JSON Patch, see
+`RFC6902 <http://tools.ietf.org/html/rfc6902>`__.
 
-You can modify values only for the following parameters, which are represented as paths:
-
-
+You can modify values only for the following parameters, which are represented
+as paths:
 
 *  ``/enabled``
 
@@ -20,7 +20,8 @@ You can modify values only for the following parameters, which are represented a
 
 *  ``/vault/region``
 
-   A valid value is any of the vendor's valid region identifiers. Values can only modified only if the vault is empty.
+   A valid value is any of the vendor's valid region identifiers. Values can
+   only modified only if the vault is empty.
 
 *  ``/vault/use_internal``
 
@@ -28,15 +29,10 @@ You can modify values only for the following parameters, which are represented a
 
 *  ``/log_level``
 
-   Valid values are ``all``, ``trace``, ``debug``, ``info`` (which is the default value), ``warn``, ``error`` , and ``fatal``.
-
-
-
-
-
+   Valid values are ``all``, ``trace``, ``debug``, ``info`` (which is the
+   default value), ``warn``, ``error`` , and ``fatal``.
 
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  |Name             |Description                                                |
@@ -75,13 +71,8 @@ The following table shows the possible response codes for this operation.
 |               |                 | which will likely be alleviated after some delay.         |
 +---------------+-----------------+-----------------------------------------------------------+
 
-
-
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -96,10 +87,6 @@ The following table shows the URI parameters for the request.
 |                          |                         |``8f135b4f-7a69-4b8a-    |
 |                          |                         |947f-5e80d772fd97``.     |
 +--------------------------+-------------------------+-------------------------+
-
-
-
-
 
 The following table shows the body parameters for the request.
 
@@ -130,12 +117,7 @@ The following table shows the body parameters for the request.
 |                         |                         |section.                  |
 +-------------------------+-------------------------+--------------------------+
 
-
-
-
-
 **Example: Update an agent, JSON request**
-
 
 .. code::
 
@@ -143,7 +125,6 @@ The following table shows the body parameters for the request.
    Host: dfw.backup.api.rackspacecloud.com
    X-Auth-Token: 0f6e9f63600142f0a970911583522217
    Content-Type: application/json-patch+json
-
 
 .. code::
 
@@ -155,33 +136,21 @@ The following table shows the body parameters for the request.
        }
    ]
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
+""""""""
 
 This operation does not require a response body for the 204 response.
 
-
-
 **Example: Update an agent, 204 response**
-
 
 .. code::
 
    204 (No Content)
 
 When the response code is something other than 204, a response body is returned
-with additional information about the error.   
-
+with additional information about the error.
 
 **Example: Update an agent, 403 response**
-
 
 .. code::
 
@@ -195,7 +164,6 @@ with additional information about the error.
    }
 
 **Example: Update an agent, 404 response**
-
 
 .. code::
 

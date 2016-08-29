@@ -1,8 +1,7 @@
-
 .. _get-ping:
 
 Ping the Cloud Backup service
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
@@ -11,10 +10,7 @@ Ping the Cloud Backup service
 This operation gives a quick indication of whether the Cloud Backup service is
 running. It is used by a load balancer's health checker.
 
-
-
 The following table shows the possible response codes for this operation.
-
 
 +---------------+-----------------+-----------------------------------------------------------+
 |Response code  | Type            | Description                                               |
@@ -52,10 +48,7 @@ The following table shows the possible response codes for this operation.
 +---------------+-----------------+-----------------------------------------------------------+
 
 Request
-""""""""""""""""
-
-
-
+"""""""
 
 The following table shows the URI parameters for the request.
 
@@ -67,17 +60,9 @@ The following table shows the URI parameters for the request.
 |                          |                         |tenant ID or account ID. |
 +--------------------------+-------------------------+-------------------------+
 
-
-
-
-
 This operation does not accept a request body.
 
-
-
-
 **Example: Ping the service, HTTP request**
-
 
 .. code::
 
@@ -87,24 +72,10 @@ This operation does not accept a request body.
    Accept: application/json
    Content-type: application/json
 
-
-
-
-
 Response
-""""""""""""""""
-
-
-
-
-
-
-
-
-
+""""""""
 
 **Example: Ping the service, HTTP response**
-
 
 .. code::
 

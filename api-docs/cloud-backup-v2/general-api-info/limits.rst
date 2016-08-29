@@ -1,10 +1,11 @@
 .. _bu-limits:
 
-=========================
+======
 Limits
-=========================
+======
 
-All accounts, by default, have a preconfigured set of limits (or thresholds) to manage capacity and prevent abuse of the system.
+All accounts, by default, have a preconfigured set of limits (or thresholds)
+to manage capacity and prevent abuse of the system.
 
 The following table lists the limits for Cloud Backup.
 

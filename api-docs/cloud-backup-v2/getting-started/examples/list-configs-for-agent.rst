@@ -1,20 +1,18 @@
 .. _gsg-list-agent-configs:
 
 Retrieve agent configurations 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To verify that a configuration exists, you can retrieve all of the
 configurations for an agent.
-
 
 An HTTP status code of 200 (OK) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
 
- 
 **Example: Retrieve all configurations for an agent, cURL request**
 
 .. code::

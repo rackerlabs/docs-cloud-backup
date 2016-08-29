@@ -1,7 +1,7 @@
 .. _gsg-create-backup-config:
 
 Create a backup configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a configuration in which you define the following basic
 items:
@@ -24,8 +24,8 @@ An HTTP status code of 201 (Created) in the response indicates that the
 request succeeded.
 
 ..  note::
-    The environment variable ``$TENANT_ID`` in the cURL request in the following
-    example represents the project ID.
+    The environment variable ``$TENANT_ID`` in the cURL request in the
+    following example represents the project ID.
  
 **Example: Create a backup configuration, cURL request**
 
@@ -76,7 +76,6 @@ request succeeded.
             }
         ]
     }'  | python -m json.tool
-
 
 **Example: Create a backup configuration, JSON response**
 
