@@ -1,13 +1,25 @@
-.. _getting-started-intro:
+.. _getting-started:
 
-.. contents::
-   :local:
-   :depth: 2
+===============
+Getting started
+===============
+
+Use the following information to learn how to authenticate, send API requests,
+and complete basic operations by using the |apiservice|.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   Prerequisites <prerequisites-for-using-api>
-   Send API requests <send-request-ovw>
-   Authenticate <authenticate>
+   get-credentials-include
+   send-request-ovw
+   authenticate
+   concepts
    using-cloud-backup
+
+To start using the API and run the examples in this section, you need the
+following items:
+
+- Rackspace Cloud account. If you don't have one, sign up for a
+  :rax-cart:`Rackspace Cloud account <cloud>`.
+- :ref:`Command-line tool or browser client <send-api-requests>` for
+  communicating with the API service.

@@ -9,7 +9,7 @@ Cloud Backup API operations. Example requests are provided in
 cURL, followed by the response.
 
 Before running the examples, review the
-:ref:`Cloud Backup concepts<bu-concepts>`.
+:ref:`Cloud Backup concepts<concepts>`.
 
 .. note::
      These examples use the ``$API_ENDPOINT``, ``$TENANT_ID``, and

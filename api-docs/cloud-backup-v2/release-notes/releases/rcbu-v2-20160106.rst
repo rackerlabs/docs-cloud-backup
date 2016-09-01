@@ -1,0 +1,17 @@
+API |contract version| release, XXXXX XX, 2016
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What's new
+----------
+
+This is the initial public release of Cloud Backup 2.0.
+
+Resolved issues
+---------------
+
+|no changes|
+
+Known issues
+-------------
+
+|no changes|
