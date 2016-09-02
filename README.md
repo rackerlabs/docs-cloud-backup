@@ -13,10 +13,10 @@ This repository contains the source files for the following Rackspace Cloud Back
 
 **VERSION 2 of Cloud Backup - Not yet launched externally**
 
-* [Getting started](https://developer.rackspace.com/docs/cloud-backup/v2/getting-started/)
-* [General API information](https://developer.rackspace.com/docs/cloud-backup/v2/general-api-info/)
-* [API reference](https://developer.rackspace.com/docs/cloud-backup/v2/api-reference/)
-* [Release notes](https://developer.rackspace.com/docs/cloud-backup/v2/release-notes/)
+* [Getting started](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/getting-started)
+* [General API information](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/general-api-info)
+* [API reference](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/api-reference/)
+* [Release notes](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/release-notes)
 
 When you commit changes to the master branch of this repository, the 
 [Strider CI/CD build job](https://build.developer.rackspace.com/rackerlabs/docs-cloud-backup/) 
