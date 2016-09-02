@@ -40,7 +40,7 @@ Content | File
 
 Content | File
 --- | ---
-|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v1/index.rst)
+|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/index.rst)
 |Getting started|[getting-started folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/getting-started)
 |General API information|[general-api-info folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/general-api-info)
 |API reference|[api-reference folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/api-reference)
