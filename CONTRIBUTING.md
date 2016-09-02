@@ -36,22 +36,16 @@ Content | File
 |Windows build script|``make.bat``|
 
 
-**VERSION 2 of Cloud Backup - Not yet refactored or launched externally**
+**VERSION 2 of Cloud Backup - Not yet launched externally**
 
 Content | File
 --- | ---
-|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/index.rst)
-|About the API index| [overview/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/overview/index.rst)
-|Getting Started introduction| [getting-started.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/getting-started.rst)
-|Getting Started index|[getting-started/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/getting-started/index.rst)
-|Developer Guide introduction|[developer-guide.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/developer-guide.rst)
-|Concepts section| [concepts.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/concepts.rst)
-|General API information index|[general-api-info/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/general-api-info/index.rst)
-|API Reference introduction|[api-reference.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/api-reference.rst)
-|API Reference index|[api-operations/index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/api-operations/index.rst)
-|API operations methods, including code samples|[api-operations/methods](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/api-operations/methods)
-|Release notes introduction and index|[release-notes.rst](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/release-notes)
-|Release notes by version|[release notes folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/release-notes)
+|Index page for the main content structure| [index.rst](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v1/index.rst)
+|Getting started|[getting-started folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/getting-started)
+|General API information|[general-api-info folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/general-api-info)
+|API reference|[api-reference folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/api-reference)
+|API reference methods, including code samples|[api-operations/methods folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/api-reference/methods) 
+|Release notes|[release-notes folder](https://github.com/rackerlabs/docs-cloud-backup/tree/master/api-docs/cloud-backup-v2/release-notes)
 |Sphinx documentation configuration file| [conf.py](https://github.com/rackerlabs/docs-cloud-backup/blob/master/api-docs/cloud-backup-v2/conf.py) (Typically, this file does not require changes.)
 |Linux and OS X build script|``Makefile``|
 |Windows build script|``make.bat``|
@@ -73,18 +67,18 @@ To update existing source files or add new ones, follow the [GitHub workflow](GI
 ## General style guidelines
 
 When you add or update content, use the following general style guidelines, which are 
-described in detail in [Style guidelines for technical content](https://github.com/rackerlabs/docs-rackspace/tree/master/style-guide):
+described in detail in [Style guidelines for technical content](http://rackerlabs.github.io/docs-rackspace/style-guide/index.html):
 
-- Use [sentence-style capitalization](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/a-l-style-guidelines.md#cap-sentence-style) for titles and headings
-- Use consistent [text formatting](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/m-z-style-guidelines.md#text-formatting)
-- Write clear and consistent [code examples](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/a-l-style-guidelines.md#code-examples)
-- Use [active voice](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#use-active-voice)
-- Use [present tense](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#use-present-tense)
-- Write to the user by using [second person and imperative mood](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#write-to-user)
-- Write clear and consistent [step text](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/m-z-style-guidelines.md#tasks-steps)
-- Clarify [pronouns](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#clarify-pronouns) such as *it*, *this*, *there*, and *that*
-- Clarify [gerunds and participles](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#clarify-gerunds-and-participles)
-- Use [consistent terminology](https://github.com/rackerlabs/docs-rackspace/blob/master/style-guide/basic-writing-guidelines.md#use-consistent-terminology)
+- Use [sentence-style capitalization](http://rackerlabs.github.io/docs-rackspace/style-guide/a-l-style-guidelines.html#titles-and-headings) for titles and headings
+- Use consistent [text formatting](http://rackerlabs.github.io/docs-rackspace/style-guide/m-z-style-guidelines.html#text-formatting)
+- Write clear and consistent [code examples](http://rackerlabs.github.io/docs-rackspace/style-guide/a-l-style-guidelines.html#code-examples)
+- Use [active voice](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#use-active-voice)
+- Use [present tense](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#use-present-tense)
+- Write to the user by using [second person and imperative mood](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#write-to-the-user-by-using-second-person-and-imperative-mood)
+- Write clear and consistent [step text](http://rackerlabs.github.io/docs-rackspace/style-guide/m-z-style-guidelines.html#tasks-and-procedures)
+- Clarify [pronouns](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#clarify-pronouns) such as *it*, *this*, *there*, and *that*
+- Clarify [gerunds and participles](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#clarify-gerunds-and-participles)
+- Use [consistent terminology](http://rackerlabs.github.io/docs-rackspace/style-guide/basic-writing-guidelines.html#use-consistent-terminology)
 
 <!-- Adding build from source guidelines until we can provide a link to automated gh-pages 
 output, or to the staging URL that Ash is working on. 
