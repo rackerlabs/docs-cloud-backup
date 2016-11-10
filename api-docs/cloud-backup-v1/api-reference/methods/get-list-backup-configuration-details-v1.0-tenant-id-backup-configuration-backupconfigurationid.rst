@@ -137,7 +137,7 @@ This table shows the body parameters for the response:
 |                                 |                      |and 60. 0 means     |
 |                                 |                      |indefinite.         |
 +---------------------------------+----------------------+--------------------+
-|**BackupConfigurationScheduled** |String                |Uniquely identifies |
+|**BackupConfigurationScheduleId**|String                |Uniquely identifies |
 |                                 |                      |the schedule that is|
 |                                 |                      |associated with this|
 |                                 |                      |configuration.      |
