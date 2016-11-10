@@ -101,7 +101,7 @@ This table shows the body parameters for the request:
 |                                 |                      |and 60. 0 means     |
 |                                 |                      |indefinite.         |
 +---------------------------------+----------------------+--------------------+
-|**BackupConfigurationScheduled** |String *(Required)*   |Uniquely identifies |
+|**BackupConfigurationScheduleId**|String *(Required)*   |Uniquely identifies |
 |                                 |                      |the schedule that is|
 |                                 |                      |associated with this|
 |                                 |                      |configuration.      |
