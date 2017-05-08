@@ -35,7 +35,7 @@ An HTTP status code of 200 (OK) indicates that the request succeeded.
 
    curl -s -X GET $API_ENDPOINT/v2/$TENANT_ID/agents?host_machine_id=yourHostMachineId \
    -H "X-Auth-Token: $AUTH_TOKEN" \
-   -H "Accept: application/json"
+   -H "Accept: application/json" \
    -H "Content-Type: application/json" | python -m json.tool
 
 **Example: Retrieve all agents for a project, JSON response**
