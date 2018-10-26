@@ -14,7 +14,7 @@ Cloud Backup API to configure your backups.
 ..  note::
     If your account has the Managed Operations level of support, the Cloud
     Backup agent might already be installed on your server. If your cloud
-    servers are listed under the **Systems** tab in the \ **Backups** section
+    servers are listed under the **Systems** tab in the **Backups** section
     of the Cloud Control Panel, then the Cloud Backup agent is already
     installed. If it is not, Rackspace can install it for you. Check with
     your account manager.
