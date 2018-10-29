@@ -217,6 +217,13 @@ This table shows the body parameters for the response:
 |                                 |                      |ID of the backup    |
 |                                 |                      |report.             |
 +---------------------------------+----------------------+--------------------+
+|**BackupState**                  |String                |Indicates the last  |
+|                                 |                      |state of the backup.|
+|                                 |                      |These states can be |
+|                                 |                      |"InProgress",       |
+|                                 |                      |"Skipped", "Queued",|
+|                                 |                      |or "Not Available". |
++---------------------------------+----------------------+--------------------+
 |**NotifyRecipients**             |String                |Indicates the email |
 |                                 |                      |address to notify in|
 |                                 |                      |case of backup      |
