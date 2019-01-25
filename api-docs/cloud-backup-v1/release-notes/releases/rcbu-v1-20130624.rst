@@ -5,7 +5,7 @@ What's new
 ~~~~~~~~~~
 
 -  You can now use either the US endpoint or UK endpoint to access the
-   Rackspace Identity service, regardless of US or UK identities.
+   Identity service, regardless of US or UK identities.
 
 -  The Cloud Backup API now supports only Microsoft Date Format and not ISO.
 
