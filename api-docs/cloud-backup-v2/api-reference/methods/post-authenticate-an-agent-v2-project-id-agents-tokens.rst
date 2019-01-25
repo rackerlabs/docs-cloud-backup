@@ -13,7 +13,7 @@ Agents authenticate with the API and retrieve an authentication token. The
 authentication token returned is the token issued by the Identity service for
 the user who originally registered the agent. The token is used for
 communicating with the Cloud Backup API and other products associated with the
-same Cloud Identity server.
+same Identity server.
 
 The following error conditions are returned if the request is not successful:
 
