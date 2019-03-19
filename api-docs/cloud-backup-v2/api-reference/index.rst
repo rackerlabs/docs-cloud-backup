@@ -11,7 +11,7 @@ to interact directly with the service.
 .. note::
 
      You can also perform operations by using the
-     or the `Cloud Control Panel <https://login.rackspace.com/>`_.
+     the `Cloud Control Panel <https://login.rackspace.com/>`_.
 
 .. toctree::
    :maxdepth: 2
