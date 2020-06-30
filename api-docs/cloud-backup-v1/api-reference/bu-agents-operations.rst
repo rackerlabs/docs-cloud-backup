@@ -15,3 +15,4 @@ Backup API.
 .. include:: methods/put-migrate-vault-v1.0-tenant-id-agent-migratevault.rst
 .. include:: methods/post-update-agent-backup-behavior-v1.0-tenant-id-agent-machineagentid.rst
 .. include:: methods/get-list-agent-details-by-host-server-id-v1.0-tenant-id-agent-server-hostserverid.rst
+.. include:: methods/put-change-log-level-v1.0-tenant-id-agent-logging.rst
