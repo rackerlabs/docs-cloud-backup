@@ -12,7 +12,7 @@ This operation changes the current log level for a specified machine agent.
 This table shows the possible response codes for this operation:
 
 +--------------------------+-------------------------+------------------------+
-|Response Code             |Name                     |Description             |
+|Response code             |Name                     |Description             |
 +==========================+=========================+========================+
 |200                       |OK                       |The request succeeded.  |
 +--------------------------+-------------------------+------------------------+
