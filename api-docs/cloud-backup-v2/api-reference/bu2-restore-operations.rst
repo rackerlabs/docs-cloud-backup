@@ -4,7 +4,7 @@
 Restore operations
 ==================
 
-You should periodically test your restores to ensure that they are working as
+You should periodically test your restores to ensure that they're working as
 you expect. The worst possible scenario is to need your data restored now and
 to discover that your data is not available because your backups have not
 been configured as you expected.
