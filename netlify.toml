@@ -5,12 +5,12 @@
 
 [build]
   publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html && cd ..."
+  command = "cd api-docs/cloud-backup-v1 && make clean html"
 
 [context.production]
   publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html && cd ..."
+  command = "cd api-docs/cloud-backup-v1 && make clean html"
 
 [context.deploy-preview]
   publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html && cd ..."
+  command = "cd api-docs/cloud-backup-v1 && make clean html"
