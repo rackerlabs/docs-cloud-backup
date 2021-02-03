@@ -14,3 +14,9 @@
 [context.deploy-preview]
   publish = "api-docs/cloud-backup-v1/_build/html"
   command = "cd api-docs/cloud-backup-v1 && make clean html"
+
+[[redirects]]
+  from = "/*"
+  to = "/docs/cloud-backup/v1/:splat"
+  status = 301
+  force = false
