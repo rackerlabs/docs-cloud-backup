@@ -5,15 +5,15 @@
 
 [build]
   publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html"
+  command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [context.production]
-  publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html"
+  publish = "api-docs/cloud-backup-v1/_build/html && cd .. && cd .."
+  command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [context.deploy-preview]
-  publish = "api-docs/cloud-backup-v1/_build/html"
-  command = "cd api-docs/cloud-backup-v1 && make clean html"
+  publish = "api-docs/cloud-backup-v1/_build/html && cd .. && cd .."
+  command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [[redirects]]
   from = "/*"
