@@ -8,11 +8,11 @@
   command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [context.production]
-  publish = "api-docs/cloud-backup-v1/_build/html && cd .. && cd .."
+  publish = "api-docs/cloud-backup-v1/_build/html"
   command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [context.deploy-preview]
-  publish = "api-docs/cloud-backup-v1/_build/html && cd .. && cd .."
+  publish = "api-docs/cloud-backup-v1/_build/html"
   command = "cd api-docs/cloud-backup-v1 && make clean html && cd .. && cd .."
 
 [[redirects]]
