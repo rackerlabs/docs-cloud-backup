@@ -50,9 +50,9 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 html:
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html/docs/cloud-backup/v1
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html/docs/cloud-backup/v2
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/docs/cloud-backup/v1."
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/docs/cloud-backup/v2."
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
