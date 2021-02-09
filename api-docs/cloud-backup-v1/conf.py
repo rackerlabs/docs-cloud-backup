@@ -41,12 +41,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx.ext.extlinks',
-    'hoverxref.extension',
-    'notfound.extension',
-    'sphinx.ext.coverage',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.extlinks'
 ]
 
 if spelling is not None:
@@ -65,7 +60,6 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
-
 
 # General information about the project.
 project = 'Rackspace Cloud Backup v1.0'
@@ -86,7 +80,7 @@ release = '1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = None
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -358,44 +352,3 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 # texinfo_no_detailmenu = False
-
-# Options for the InterSphinx extension
-# -------------------------------------
-
-intersphinx_mapping = {
-    'attrs': ('https://www.attrs.org/en/stable/', None),
-    'coverage': ('https://coverage.readthedocs.io/en/stable', None),
-    'cryptography' : ('https://cryptography.io/en/latest/', None),
-    'cssselect': ('https://cssselect.readthedocs.io/en/latest', None),
-    'itemloaders': ('https://itemloaders.readthedocs.io/en/latest/', None),
-    'pytest': ('https://docs.pytest.org/en/latest', None),
-    'python': ('https://docs.python.org/3', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'tox': ('https://tox.readthedocs.io/en/latest', None)
-}
-
-
-# Options for sphinx-hoverxref options
-# ------------------------------------
-
-hoverxref_auto_ref = True
-hoverxref_role_types = {
-    "class": "tooltip",
-    "confval": "tooltip",
-    "hoverxref": "tooltip",
-    "mod": "tooltip",
-    "ref": "tooltip",
-}
-hoverxref_roles = ['command', 'reqmeta', 'setting', 'signal']
-
-
-def setup(app):
-    app.connect('autodoc-skip-member', maybe_skip_member)
-
-
-def maybe_skip_member(app, what, name, obj, skip, options):
-    if not skip:
-        # autodocs was generating a text "alias of" for the following members
-        # https://github.com/sphinx-doc/sphinx/issues/4422
-        return name in {'default_item_class', 'default_selector_class'}
-    return skip
